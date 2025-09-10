@@ -26,7 +26,7 @@ public class ObjectPool
 
 		for (int i = 0; i < initialSize; i++)
 		{
-			GameObject obj = CreateObject();
+			GameObject obj = this.CreateObject();
 			obj.SetActive(false);
 		}
 	}
@@ -37,15 +37,15 @@ public class ObjectPool
 	/// </summary>
 	public GameObject GetObject()
 	{
-		for (int i = 0; i < instantiatedObjects.Count; i++)
+		for (int i = 0; i < this.instantiatedObjects.Count; i++)
 		{
-			if (!instantiatedObjects[i].activeSelf)
+			if (!this.instantiatedObjects[i].activeSelf)
 			{
-				return instantiatedObjects[i];
+				return this.instantiatedObjects[i];
 			}
 		}
 
-		return CreateObject();
+		return this.CreateObject();
 	}
 
 	/// <summary>
@@ -53,9 +53,9 @@ public class ObjectPool
 	/// </summary>
 	public void ReturnAllObjectsToPool()
 	{
-		for (int i = 0; i < instantiatedObjects.Count; i++)
+		for (int i = 0; i < this.instantiatedObjects.Count; i++)
 		{
-			instantiatedObjects[i].SetActive(false);
+			this.instantiatedObjects[i].SetActive(false);
 		}
 	}
 
@@ -65,9 +65,9 @@ public class ObjectPool
 
 	private GameObject CreateObject()
 	{
-		GameObject obj = GameObject.Instantiate(objectPrefab);
-		obj.transform.SetParent(parent, false);
-		instantiatedObjects.Add(obj);
+		GameObject obj = GameObject.Instantiate(this.objectPrefab);
+		obj.transform.SetParent(this.parent, false);
+		this.instantiatedObjects.Add(obj);
 		return obj;
 	}
 

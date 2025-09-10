@@ -29,17 +29,17 @@ public class CategoryListItem : MonoBehaviour
 		float numberOfLevels			= categoryInfo.levelInfos.Count;
 		float numberOfCompletedLevels	= GameManager.Instance.GetCompletedLevelCount(categoryInfo);
 
-		categoryText.text	= categoryInfo.name.ToUpper();
-		infoText.text		= string.Format("SIZE: {0} - LEVELS: {1}/{2}", categoryInfo.description, numberOfCompletedLevels, numberOfLevels);
-		iconImage.sprite	= categoryInfo.icon;
+		this.categoryText.text = categoryInfo.name.ToUpper();
+		this.infoText.text     = string.Format("SIZE: {0} - LEVELS: {1}/{2}", categoryInfo.description, numberOfCompletedLevels, numberOfLevels);
+		this.iconImage.sprite     = categoryInfo.icon;
 
-		completedImage.enabled = (numberOfLevels == numberOfCompletedLevels);
+		this.completedImage.enabled = (numberOfLevels == numberOfCompletedLevels);
 	}
 
 	public void OnClick()
 	{
 		// Show the category levels screen
-		UIScreenController.Instance.Show(UIScreenController.CategoryLevelsScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, categoryName);
+		UIScreenController.Instance.Show(UIScreenController.CategoryLevelsScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, this.categoryName);
 	}
 
 	#endregion

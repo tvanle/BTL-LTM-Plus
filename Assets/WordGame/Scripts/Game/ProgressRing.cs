@@ -22,7 +22,7 @@ public class ProgressRing : MonoBehaviour
 
 	private void Awake()
 	{
-		SetProgress(0f);
+		this.SetProgress(0f);
 	}
 
 	#endregion
@@ -31,13 +31,13 @@ public class ProgressRing : MonoBehaviour
 
 	public void SetProgress(float percent)
 	{
-		percentText.text = Mathf.RoundToInt(percent * 100f) + "%";
+		this.percentText.text = Mathf.RoundToInt(percent * 100f) + "%";
 
 		float z1 = Mathf.Lerp(180f, 0f, Mathf.Clamp01(percent * 2f));
 		float z2 = Mathf.Lerp(180f, 0f, Mathf.Clamp01((percent - 0.5f) * 2f));
 
-		firstHalf.localEulerAngles	= new Vector3(firstHalf.localEulerAngles.x, firstHalf.localEulerAngles.y, z1);
-		secondHalf.localEulerAngles	= new Vector3(secondHalf.localEulerAngles.x, secondHalf.localEulerAngles.y, z2);
+		this.firstHalf.localEulerAngles = new Vector3(this.firstHalf.localEulerAngles.x, this.firstHalf.localEulerAngles.y, z1);
+		this.secondHalf.localEulerAngles   = new Vector3(this.secondHalf.localEulerAngles.x, this.secondHalf.localEulerAngles.y, z2);
 	}
 
 	#endregion

@@ -31,16 +31,16 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 	private void Start()
 	{
 		// Initialize and hide all the screens
-		for (int i = 0; i < uiScreens.Count; i++)
+		for (int i = 0; i < this.uiScreens.Count; i++)
 		{
-			uiScreens[i].Initialize();
-			uiScreens[i].gameObject.SetActive(true);
+			this.uiScreens[i].Initialize();
+			this.uiScreens[i].gameObject.SetActive(true);
 
-			HideUIScreen(uiScreens[i], false, false, Tween.TweenStyle.EaseOut, null);
+			this.HideUIScreen(this.uiScreens[i], false, false, Tween.TweenStyle.EaseOut, null);
 		}
 
 		// Show the main screen when the app starts up
-		Show(MainScreenId, false, false);
+		this.Show(MainScreenId, false, false);
 	}
 
 	#endregion
@@ -57,23 +57,23 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 	/// <param name="onTweenFinished">Called when the screens finish animating.</param>
 	public void Show(string id, bool fromLeft = false, bool animate = true, bool overlay = false, Tween.TweenStyle style = Tween.TweenStyle.EaseOut, System.Action onTweenFinished = null, object data = null)
 	{
-		if (isAnimating)
+		if (this.isAnimating)
 		{
 			return;
 		}
 
-		UIScreen uiScreen = GetScreenInfo(id);
+		UIScreen uiScreen = this.GetScreenInfo(id);
 
 		if (uiScreen != null)
 		{
-			ShowUIScreen(uiScreen, animate, fromLeft, style, onTweenFinished, data);
+			this.ShowUIScreen(uiScreen, animate, fromLeft, style, onTweenFinished, data);
 
 			// If its not an overlay screen then hide the current screen
 			if (!overlay)
 			{
-				HideUIScreen(currentUIScreen, animate, fromLeft, style, null);
+				this.HideUIScreen(this.currentUIScreen, animate, fromLeft, style, null);
 
-				currentUIScreen = uiScreen;
+				this.currentUIScreen = uiScreen;
 			}
 		}
 	}
@@ -83,11 +83,11 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 	/// </summary>
 	public void HideOverlay(string id, bool fromLeft, Tween.TweenStyle style, System.Action onTweenFinished = null)
 	{
-		HideUIScreen(GetScreenInfo(id), true, fromLeft, style, onTweenFinished);
+		this.HideUIScreen(this.GetScreenInfo(id), true, fromLeft, style, onTweenFinished);
 
-		if (currentUIScreen != null)
+		if (this.currentUIScreen != null)
 		{
-			currentUIScreen.OnShowing(null);
+			this.currentUIScreen.OnShowing(null);
 		}
 	}
 
@@ -111,11 +111,11 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 		float fromWorldX	= Utilities.WorldWidth * direction;
 		float toWorldX		= 0;
 
-		isAnimating = animate;
+		this.isAnimating = animate;
 
-		TransitionUIScreen(uiScreen, fromX, toX, fromWorldX, toWorldX, animate, style, () =>
+		this.TransitionUIScreen(uiScreen, fromX, toX, fromWorldX, toWorldX, animate, style, () =>
 		{
-			isAnimating = false;
+			this.isAnimating = false;
 
 			if (onTweenFinished != null)
 			{
@@ -138,7 +138,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 		float fromWorldX	= 0;
 		float toWorldX		= Utilities.WorldWidth * direction;
 
-		TransitionUIScreen(uiScreen, fromX, toX, fromWorldX, toWorldX, animate, style, onTweenFinished);
+		this.TransitionUIScreen(uiScreen, fromX, toX, fromWorldX, toWorldX, animate, style, onTweenFinished);
 	}
 
 	private void TransitionUIScreen(UIScreen uiScreen, float fromX, float toX, float worldFromX, float worldToX, bool animate, Tween.TweenStyle style, System.Action onTweenFinished)
@@ -147,7 +147,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 
 		if (animate)
 		{
-			Tween tween = Tween.PositionX(uiScreen.RectT, style, fromX, toX, animationSpeed);
+			Tween tween = Tween.PositionX(uiScreen.RectT, style, fromX, toX, this.animationSpeed);
 			
 			tween.SetUseRectTransform(true);
 
@@ -167,7 +167,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 
 			if (animate)
 			{
-				Tween.PositionX(uiScreen.worldObjects[i].transform, style, worldFromX, worldToX, animationSpeed);
+				Tween.PositionX(uiScreen.worldObjects[i].transform, style, worldFromX, worldToX, this.animationSpeed);
 			}
 			else
 			{
@@ -178,11 +178,11 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 
 	private UIScreen GetScreenInfo(string id)
 	{
-		for (int i = 0; i < uiScreens.Count; i++)
+		for (int i = 0; i < this.uiScreens.Count; i++)
 		{
-			if (id == uiScreens[i].id)
+			if (id == this.uiScreens[i].id)
 			{
-				return uiScreens[i];
+				return this.uiScreens[i];
 			}
 		}
 
@@ -194,22 +194,22 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 
     private void Update()
     {
-        if (isAnimating) return;
-        for (int i = 0; i < uiScreens.Count; i++)
+        if (this.isAnimating) return;
+        for (int i = 0; i < this.uiScreens.Count; i++)
         {
-            float direction = uiScreens[i].RectT.anchoredPosition.x == 0 ? 0 :
-                uiScreens[i].RectT.anchoredPosition.x < 0 ? -1 : 1;
+            float direction = this.uiScreens[i].RectT.anchoredPosition.x == 0 ? 0 :
+				this.uiScreens[i].RectT.anchoredPosition.x < 0                   ? -1 : 1;
             if (direction == 0) continue;
 
-            uiScreens[i].RectT.anchoredPosition = new Vector2(uiScreens[i].RectT.rect.width * direction, uiScreens[i].RectT.anchoredPosition.y);
+			this.uiScreens[i].RectT.anchoredPosition = new Vector2(this.uiScreens[i].RectT.rect.width * direction, this.uiScreens[i].RectT.anchoredPosition.y);
         }
 
 #if UNITY_ANDROID || UNITY_WSA
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            for (int i = 0; i < uiScreens.Count; i++)
+            for (int i = 0; i < this.uiScreens.Count; i++)
             {
-                if (uiScreens[i].RectT.anchoredPosition.x == 0)
+                if (this.uiScreens[i].RectT.anchoredPosition.x == 0)
                 {
                     if (i == 0)
                     {
@@ -217,7 +217,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
                     }
                     else
                     {
-                        uiScreens[i].OnBackClicked();
+						this.uiScreens[i].OnBackClicked();
                         break;
                     }
                 }

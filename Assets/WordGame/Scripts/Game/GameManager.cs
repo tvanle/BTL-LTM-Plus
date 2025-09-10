@@ -109,12 +109,12 @@ public class GameManager : SingletonComponent<GameManager>
 		get
 		{
 			// If the list of Category Infos doesn't already contain a daily puzzle info then add it
-			if (!categoryInfos.Contains(DailyPuzzleInfo))
+			if (!this.categoryInfos.Contains(this.DailyPuzzleInfo))
 			{
-				categoryInfos.Add(DailyPuzzleInfo);
+				this.categoryInfos.Add(this.DailyPuzzleInfo);
 			}
 
-			return categoryInfos;
+			return this.categoryInfos;
 		}
 	}
 
@@ -123,20 +123,20 @@ public class GameManager : SingletonComponent<GameManager>
 		get
 		{
 			// Create a new CategoryInfo for the daily puzzles
-			if (dailyPuzzleInfo == null)
+			if (this.dailyPuzzleInfo == null)
 			{
-				dailyPuzzleInfo 			= new CategoryInfo();
-				dailyPuzzleInfo.name		= dailyPuzzleId;
-				dailyPuzzleInfo.icon		= dailyPuzzleIcon;
-				dailyPuzzleInfo.levelInfos	= dailyPuzzles;
+				this.dailyPuzzleInfo            = new CategoryInfo();
+				this.dailyPuzzleInfo.name       = dailyPuzzleId;
+				this.dailyPuzzleInfo.icon       = this.dailyPuzzleIcon;
+				this.dailyPuzzleInfo.levelInfos = this.dailyPuzzles;
 			}
 
-			return dailyPuzzleInfo;
+			return this.dailyPuzzleInfo;
 		}
 
 		set
 		{
-			dailyPuzzleInfo = value;
+			this.dailyPuzzleInfo = value;
 		}
 	}
 
@@ -148,24 +148,24 @@ public class GameManager : SingletonComponent<GameManager>
 	{
 		base.Awake();
 
-		LetterTilePool		= new ObjectPool(letterTilePrefab.gameObject, 16, transform);
-		SavedBoardStates	= new Dictionary<string, BoardState>();
-		CompletedLevels		= new Dictionary<string, bool>();
+		this.LetterTilePool   = new ObjectPool(this.letterTilePrefab.gameObject, 16, this.transform);
+		this.SavedBoardStates = new Dictionary<string, BoardState>();
+		this.CompletedLevels     = new Dictionary<string, bool>();
 
 		// Load any save data
-		if (!LoadSave())
+		if (!this.LoadSave())
 		{
 			// If there as not save data then set the current hints to the starting hints
-			CurrentHints				= startingHints;
-			ActiveDailyPuzzleIndex		= -1;
+			this.CurrentHints        = this.startingHints;
+			this.ActiveDailyPuzzleIndex = -1;
 		}
 
 		// Initialize all our important things
-		letterBoard.Initialize();
-		wordGrid.Initialize();
+		this.letterBoard.Initialize();
+		this.wordGrid.Initialize();
 
 		// Setup events
-		letterBoard.OnWordFound += OnWordFound;
+		this.letterBoard.OnWordFound += this.OnWordFound;
 	}
 
 	#endregion
@@ -174,12 +174,12 @@ public class GameManager : SingletonComponent<GameManager>
 
 	public void StartLevel(string category, int levelIndex)
 	{
-		ActiveCategory		= category;
-		ActiveLevelIndex	= levelIndex;
+		this.ActiveCategory = category;
+		this.ActiveLevelIndex  = levelIndex;
 
 		// Get the board id for the level and load the WordBoard from Resources
-		string		boardId		= Utilities.FormatBoardId(ActiveCategory, ActiveLevelIndex);
-		WordBoard	wordBoard	= Utilities.LoadWordBoard(boardId);
+		string    boardId   = Utilities.FormatBoardId(this.ActiveCategory, this.ActiveLevelIndex);
+		WordBoard wordBoard = Utilities.LoadWordBoard(boardId);
 
 		if (wordBoard == null)
 		{
@@ -188,19 +188,19 @@ public class GameManager : SingletonComponent<GameManager>
 		}
 
 		// If a saved BoardState does not already exist then create one
-		if (!SavedBoardStates.ContainsKey(boardId))
+		if (!this.SavedBoardStates.ContainsKey(boardId))
 		{
-			SavedBoardStates.Add(boardId, CreateNewBoardState(wordBoard));
+			this.SavedBoardStates.Add(boardId, this.CreateNewBoardState(wordBoard));
 		}
 
 		// Try and get a saved board state if one exists
-		ActiveBoardState = SavedBoardStates[boardId];
+		this.ActiveBoardState = this.SavedBoardStates[boardId];
 
 		// Save the game
-		Save();
+		this.Save();
 
 		// Setup the display using the assigned activeBoardState
-		SetupActiveBoard();
+		this.SetupActiveBoard();
 	}
 
 	/// <summary>
@@ -208,29 +208,29 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	public void StartDailyPuzzle()
 	{
-		if (dailyPuzzles.Count == 0)
+		if (this.dailyPuzzles.Count == 0)
 		{
 			return;
 		}
 
 		// Check if we need to pick a new daily puzzle
-		if (ActiveDailyPuzzleIndex == -1 || System.DateTime.Now >= NextDailyPuzzleAt)
+		if (this.ActiveDailyPuzzleIndex == -1 || System.DateTime.Now >= this.NextDailyPuzzleAt)
 		{
-			if (ActiveDailyPuzzleIndex != -1)
+			if (this.ActiveDailyPuzzleIndex != -1)
 			{
-				string boardId = Utilities.FormatBoardId(dailyPuzzleId, ActiveDailyPuzzleIndex);
+				string boardId = Utilities.FormatBoardId(dailyPuzzleId, this.ActiveDailyPuzzleIndex);
 
 				// Remove any save data for the previous daily puzzle
-				SavedBoardStates.Remove(boardId);
-				CompletedLevels.Remove(boardId);
+				this.SavedBoardStates.Remove(boardId);
+				this.CompletedLevels.Remove(boardId);
 			}
 
 			// Get a new random daily puzzle level index to use
-			ActiveDailyPuzzleIndex = Random.Range(0, dailyPuzzles.Count);
+			this.ActiveDailyPuzzleIndex = Random.Range(0, this.dailyPuzzles.Count);
 		}
 
 		// Start the daily puzzle
-		StartLevel(dailyPuzzleId, ActiveDailyPuzzleIndex);
+		this.StartLevel(dailyPuzzleId, this.ActiveDailyPuzzleIndex);
 	}
 
 	/// <summary>
@@ -238,13 +238,13 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	public void DisplayNextHint()
 	{
-        if (CurrentHints == 0)
+        if (this.CurrentHints == 0)
         {
-            if (rewardedButton.IsAvailableToShow())
+            if (this.rewardedButton.IsAvailableToShow())
             {
-                rewardedButton.OnClick();
+				this.rewardedButton.OnClick();
             }
-            else if (!rewardedButton.IsActionAvailable())
+            else if (!this.rewardedButton.IsActionAvailable())
             {
                 int remainTime = (int)(GameConfig.instance.rewardedVideoPeriod - CUtils.GetActionDeltaTime("rewarded_video"));
                 Toast.instance.ShowMessage("Ad is not available now. Please wait " + remainTime + " seconds");
@@ -254,24 +254,24 @@ public class GameManager : SingletonComponent<GameManager>
                 Toast.instance.ShowMessage("Ad is not available now. Please wait");
             }
         }
-		else if (ActiveBoardState != null && CurrentHints > 0)
+		else if (this.ActiveBoardState != null && this.CurrentHints > 0)
 		{
 			// Call DisplayNextHint in wordGrid, giving it the last hint index that was displayed. DisplayNextHint will return the word and letter that was displayed
 			int		hintWordIndex;
 			int		hintLetterIndex;
-			bool	hintDisplayed = wordGrid.DisplayNextHint(ref ActiveBoardState.nextHintIndex, out hintWordIndex, out hintLetterIndex);
+			bool	hintDisplayed = this.wordGrid.DisplayNextHint(ref this.ActiveBoardState.nextHintIndex, out hintWordIndex, out hintLetterIndex);
 
 			// Check if a hint was actually displayed
 			if (hintDisplayed)
 			{
 				// Decrement the amount of hints
-				CurrentHints--;
+				this.CurrentHints--;
 
 				// Update the board state so we know what letters where shown because of hints (so if the board is loaded from save we can lpace the hint words)
-				ActiveBoardState.hintLettersShown.Add(new int[] { hintWordIndex, hintLetterIndex });
+				this.ActiveBoardState.hintLettersShown.Add(new int[] { hintWordIndex, hintLetterIndex });
 
 				// Save the game
-				Save();
+				this.Save();
 			}
 		}
 	}
@@ -281,27 +281,27 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	public void RestartBoard()
 	{
-		if (ActiveBoardState != null)
+		if (this.ActiveBoardState != null)
 		{
 			// Set all the words to not found on the BoardState
-			for (int i = 0; i < ActiveBoardState.foundWords.Length; i++)
+			for (int i = 0; i < this.ActiveBoardState.foundWords.Length; i++)
 			{
-				ActiveBoardState.foundWords[i] = false;
+				this.ActiveBoardState.foundWords[i] = false;
 			}
 
 			// Set all Found tile states back to UsedButNotFound
-			for (int i = 0; i < ActiveBoardState.tileStates.Length; i++)
+			for (int i = 0; i < this.ActiveBoardState.tileStates.Length; i++)
 			{
-				if (ActiveBoardState.tileStates[i] == BoardState.TileState.Found)
+				if (this.ActiveBoardState.tileStates[i] == BoardState.TileState.Found)
 				{
-					ActiveBoardState.tileStates[i] = BoardState.TileState.UsedButNotFound;
+					this.ActiveBoardState.tileStates[i] = BoardState.TileState.UsedButNotFound;
 				}
 			}
 
 			// Save the game
-			Save();
+			this.Save();
 
-			SetupActiveBoard();
+			this.SetupActiveBoard();
 		}
 	}
 
@@ -310,8 +310,8 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	public void AddHint(int number = 1)
 	{
-        CurrentHints += number;
-		Save();
+		this.CurrentHints += number;
+		this.Save();
 	}
 
 	/// <summary>
@@ -320,7 +320,7 @@ public class GameManager : SingletonComponent<GameManager>
 	public bool IsLevelCompleted(CategoryInfo categoryInfo, int levelIndex)
 	{
 		string boardId = Utilities.FormatBoardId(categoryInfo.name, levelIndex);
-		return CompletedLevels.ContainsKey(boardId) && CompletedLevels[boardId];
+		return this.CompletedLevels.ContainsKey(boardId) && this.CompletedLevels[boardId];
 	}
 
 	/// <summary>
@@ -332,7 +332,7 @@ public class GameManager : SingletonComponent<GameManager>
 
 		for (int i = 0; i < categoryInfo.levelInfos.Count; i++)
 		{
-			if (IsLevelCompleted(categoryInfo, i))
+			if (this.IsLevelCompleted(categoryInfo, i))
 			{
 				numberOfCompletedLevels++;
 			}
@@ -346,11 +346,11 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	public CategoryInfo GetCategoryInfo(string categoryName)
 	{
-		for (int i = 0; i < CategoryInfos.Count; i++)
+		for (int i = 0; i < this.CategoryInfos.Count; i++)
 		{
-			if (categoryName == CategoryInfos[i].name)
+			if (categoryName == this.CategoryInfos[i].name)
 			{
-				return CategoryInfos[i];
+				return this.CategoryInfos[i];
 			}
 		}
 
@@ -369,37 +369,37 @@ public class GameManager : SingletonComponent<GameManager>
 		// Set all the tileStates for the found game tiles to BoardState.TileState.Found to indicate the tile has been found
 		for (int i = 0; i < letterTile.Count; i++)
 		{
-			ActiveBoardState.tileStates[letterTile[i].TileIndex] = BoardState.TileState.Found;
+			this.ActiveBoardState.tileStates[letterTile[i].TileIndex] = BoardState.TileState.Found;
 		}
 
 		// Set the flag of the word to found
-		for (int i = 0; i < ActiveBoardState.words.Length; i++)
+		for (int i = 0; i < this.ActiveBoardState.words.Length; i++)
 		{
-			if (word == ActiveBoardState.words[i])
+			if (word == this.ActiveBoardState.words[i])
 			{
-				ActiveBoardState.foundWords[i] = true;
+				this.ActiveBoardState.foundWords[i] = true;
 			}
 		}
 
 		// Save the game
-		Save();
+		this.Save();
 
 		// Cannot transition screens while a word is animating or bad things happen
-		AnimatingWord = true;
+		this.AnimatingWord = true;
 
 		// Trasition the LetterTiles from the board to the word grid
 		if (foundAllWords)
 		{
 			// If we found all the words then when the tile animation is finished call BoardComplete
-			wordGrid.FoundWord(word, letterTile, (GameObject obj, object[] objs) => {
-				BoardComplete();
-				AnimatingWord = false;
+			this.wordGrid.FoundWord(word, letterTile, (GameObject obj, object[] objs) => {
+				this.BoardComplete();
+				this.AnimatingWord = false;
 			});
 		}
 		else
 		{
-			wordGrid.FoundWord(word, letterTile, (GameObject obj, object[] objs) => {
-				AnimatingWord = false;
+			this.wordGrid.FoundWord(word, letterTile, (GameObject obj, object[] objs) => {
+				this.AnimatingWord = false;
 			});
 		}
 
@@ -414,7 +414,7 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	private void SetupActiveBoard()
 	{
-		if (ActiveBoardState == null)
+		if (this.ActiveBoardState == null)
 		{
 			Debug.LogError("[GameManager] No activeBoardState when SetupActiveBoard was called.");
 
@@ -422,8 +422,8 @@ public class GameManager : SingletonComponent<GameManager>
 		}
 
 		// Setup the GameBoard and WordGrid
-		letterBoard.Setup(ActiveBoardState);
-		wordGrid.Setup(ActiveBoardState);
+		this.letterBoard.Setup(this.ActiveBoardState);
+		this.wordGrid.Setup(this.ActiveBoardState);
 	}
 
 	/// <summary>
@@ -457,56 +457,56 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	private void BoardComplete()
 	{
-		string	boardId 	= Utilities.FormatBoardId(ActiveCategory, ActiveLevelIndex);
-		int	awardNumber	= 0;
+		string boardId     = Utilities.FormatBoardId(this.ActiveCategory, this.ActiveLevelIndex);
+		int    awardNumber = 0;
 
 		// Check if the completed category was a daily puzzle, if so check if we want to award a hint
-		if (ActiveCategory != dailyPuzzleId)
+		if (this.ActiveCategory != dailyPuzzleId)
 		{
-            bool awardHint = !CompletedLevels.ContainsKey(boardId) || !CompletedLevels[boardId];
+            bool awardHint = !this.CompletedLevels.ContainsKey(boardId) || !this.CompletedLevels[boardId];
             awardNumber = awardHint ? GameConfig.instance.completeNormalLevelAward : 0;
 		}
 		else
 		{
             awardNumber = GameConfig.instance.completeDailyPuzzleAward;
 			// Set the next daily puzzle to start at the start of the next day
-			NextDailyPuzzleAt = new System.DateTime(System.DateTime.Now.Year, System.DateTime.Now.Month, System.DateTime.Now.Day).AddDays(1);
+			this.NextDailyPuzzleAt = new System.DateTime(System.DateTime.Now.Year, System.DateTime.Now.Month, System.DateTime.Now.Day).AddDays(1);
 		}
 
 		// Award hints for completing the level or daily puzzle
-		AddHint(awardNumber);
+		this.AddHint(awardNumber);
 
 		// Set the completed flag on the level
-		CompletedLevels[boardId] = true;
+		this.CompletedLevels[boardId] = true;
 
 		// The board has been completed, we no longer need to save it
-		ActiveBoardState = null;
+		this.ActiveBoardState = null;
 
 		// Remove the BoardState from the list of saved BoardStates
-		SavedBoardStates.Remove(boardId);
+		this.SavedBoardStates.Remove(boardId);
 
-		Save();
+		this.Save();
 
-		UIScreenController.Instance.Show(UIScreenController.CompleteScreenId, false, true, true, Tween.TweenStyle.EaseOut, OnCompleteScreenShown, awardNumber);
+		UIScreenController.Instance.Show(UIScreenController.CompleteScreenId, false, true, true, Tween.TweenStyle.EaseOut, this.OnCompleteScreenShown, awardNumber);
 	}
 
 	private void OnCompleteScreenShown()
 	{
-		CategoryInfo	categoryInfo	= GetCategoryInfo(ActiveCategory);
-		int				nextLevelIndex	= ActiveLevelIndex + 1;
+		CategoryInfo categoryInfo   = this.GetCategoryInfo(this.ActiveCategory);
+		int          nextLevelIndex = this.ActiveLevelIndex + 1;
 
 		// Check if the category has been completed or it was the daily puzzle
-		if (ActiveCategory == dailyPuzzleId || nextLevelIndex >= categoryInfo.levelInfos.Count)
+		if (this.ActiveCategory == dailyPuzzleId || nextLevelIndex >= categoryInfo.levelInfos.Count)
 		{
 
 			// If we completed the daily puzzle then move back to the main screen else move to the categories screen
-			string screenToShow = (ActiveCategory == dailyPuzzleId) ? UIScreenController.MainScreenId : UIScreenController.CategoriesScreenId;
+			string screenToShow = (this.ActiveCategory == dailyPuzzleId) ? UIScreenController.MainScreenId : UIScreenController.CategoriesScreenId;
 
 			// Set the active category to nothing
-			ActiveCategory		= "";
-			ActiveLevelIndex	= -1;
+			this.ActiveCategory = "";
+			this.ActiveLevelIndex  = -1;
 
-			Save();
+			this.Save();
 
 			// Force the category screen to show right away (behind the now showing overlay)
 			UIScreenController.Instance.Show(screenToShow, true, false);
@@ -514,10 +514,10 @@ public class GameManager : SingletonComponent<GameManager>
 		else
 		{
 			// Start the next level
-			StartLevel(ActiveCategory, nextLevelIndex);
+			this.StartLevel(this.ActiveCategory, nextLevelIndex);
 		}
 
-		StartCoroutine(WaitThenHideCompleteScreen());
+		this.StartCoroutine(this.WaitThenHideCompleteScreen());
 	}
 
 	private IEnumerator WaitThenHideCompleteScreen()
@@ -556,18 +556,18 @@ public class GameManager : SingletonComponent<GameManager>
 	{
 		Dictionary<string, object> jsonObj = new Dictionary<string, object>();
 
-		jsonObj.Add("currentHints", CurrentHints);
-		jsonObj.Add("activeCategory", ActiveCategory);
-		jsonObj.Add("activeLevelIndex", ActiveLevelIndex);
-		jsonObj.Add("ActiveDailyPuzzleIndex", ActiveDailyPuzzleIndex);
-		jsonObj.Add("NextDailyPuzzleAt", NextDailyPuzzleAt.ToString("yyyyMMdd"));
+		jsonObj.Add("currentHints", this.CurrentHints);
+		jsonObj.Add("activeCategory", this.ActiveCategory);
+		jsonObj.Add("activeLevelIndex", this.ActiveLevelIndex);
+		jsonObj.Add("ActiveDailyPuzzleIndex", this.ActiveDailyPuzzleIndex);
+		jsonObj.Add("NextDailyPuzzleAt", this.NextDailyPuzzleAt.ToString("yyyyMMdd"));
 
 		// Get all the saved board states
 		List<object> savedBoardStatesObj = new List<object>();
 
-		foreach (KeyValuePair<string, BoardState> pair in SavedBoardStates)
+		foreach (KeyValuePair<string, BoardState> pair in this.SavedBoardStates)
 		{
-			savedBoardStatesObj.Add(ConvertBoardStateToJson(pair.Value));
+			savedBoardStatesObj.Add(this.ConvertBoardStateToJson(pair.Value));
 		}
 
 		jsonObj.Add("savedBoardStates", savedBoardStatesObj);
@@ -575,7 +575,7 @@ public class GameManager : SingletonComponent<GameManager>
 		// Get all the completed levels
 		List<object> completedLevelsObj = new List<object>();
 
-		foreach (KeyValuePair<string, bool> pair in CompletedLevels)
+		foreach (KeyValuePair<string, bool> pair in this.CompletedLevels)
 		{
 			if (pair.Value)
 			{
@@ -600,33 +600,33 @@ public class GameManager : SingletonComponent<GameManager>
 			JSONNode	json	= JSON.Parse(jsonStr);
 
 			// Load the number of current hints
-			CurrentHints = json["currentHints"].AsInt;
+			this.CurrentHints = json["currentHints"].AsInt;
 
 			// Parse the saved board states
 			JSONArray savedBoardStatesJson = json["savedBoardStates"].AsArray;
-			SavedBoardStates = new Dictionary<string, BoardState>(savedBoardStatesJson.Count);
+			this.SavedBoardStates = new Dictionary<string, BoardState>(savedBoardStatesJson.Count);
 
 			for (int i = 0; i < savedBoardStatesJson.Count; i++)
 			{
-				BoardState boardState = CreateBoardStateFromJson(savedBoardStatesJson[i]);
-				SavedBoardStates.Add(boardState.wordBoardId, boardState);
+				BoardState boardState = this.CreateBoardStateFromJson(savedBoardStatesJson[i]);
+				this.SavedBoardStates.Add(boardState.wordBoardId, boardState);
 			}
 
 			// Get the active category and level index
-			ActiveCategory				= json["activeCategory"].Value;
-			ActiveLevelIndex			= json["activeLevelIndex"].AsInt;
-			ActiveDailyPuzzleIndex		= json["ActiveDailyPuzzleIndex"].AsInt;
+			this.ActiveCategory      = json["activeCategory"].Value;
+			this.ActiveLevelIndex    = json["activeLevelIndex"].AsInt;
+			this.ActiveDailyPuzzleIndex = json["ActiveDailyPuzzleIndex"].AsInt;
 
 			// Get the next daily puzzle at time
 			string time = json["NextDailyPuzzleAt"].Value;
 
 			if (string.IsNullOrEmpty(time))
 			{
-				NextDailyPuzzleAt = System.DateTime.Now;
+				this.NextDailyPuzzleAt = System.DateTime.Now;
 			}
 			else
 			{
-				NextDailyPuzzleAt = System.DateTime.ParseExact(time, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
+				this.NextDailyPuzzleAt = System.DateTime.ParseExact(time, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
 			}
 
 			// Parse the completed levels
@@ -634,7 +634,7 @@ public class GameManager : SingletonComponent<GameManager>
 
 			for (int i = 0; i < completedLevelsJson.Count; i++)
 			{
-				CompletedLevels[completedLevelsJson[i].Value] = true;
+				this.CompletedLevels[completedLevelsJson[i].Value] = true;
 			}
 
 			return true;

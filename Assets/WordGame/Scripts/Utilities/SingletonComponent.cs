@@ -33,7 +33,7 @@ public class SingletonComponent<T> : MonoBehaviour where T : Object
 
 	protected virtual void Awake()
 	{
-		SetInstance();
+		this.SetInstance();
 	}
 
 	#endregion
@@ -47,13 +47,13 @@ public class SingletonComponent<T> : MonoBehaviour where T : Object
 
 	public void SetInstance()
 	{
-		if (instance != null && instance != gameObject.GetComponent<T>())
+		if (instance != null && instance != this.gameObject.GetComponent<T>())
 		{
 			Debug.LogWarning("[SingletonComponent] Instance already set for type " + typeof(T));
 			return;
 		}
 
-		instance = gameObject.GetComponent<T>();
+		instance = this.gameObject.GetComponent<T>();
 	}
 
 	#endregion

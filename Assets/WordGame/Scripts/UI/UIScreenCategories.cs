@@ -20,12 +20,12 @@ public class UIScreenCategories : UIScreen
 
 	public override void Initialize()
 	{
-		categoryItemObjectPool = new ObjectPool(categoryListItemPrefab.gameObject, 10, categoriesListContainer);
+		this.categoryItemObjectPool = new ObjectPool(this.categoryListItemPrefab.gameObject, 10, this.categoriesListContainer);
 	}
 
 	public override void OnShowing(object data)
 	{
-		categoryItemObjectPool.ReturnAllObjectsToPool();
+		this.categoryItemObjectPool.ReturnAllObjectsToPool();
 
 		for (int i = 0; i < GameManager.Instance.CategoryInfos.Count; i++)
 		{
@@ -37,7 +37,7 @@ public class UIScreenCategories : UIScreen
 				continue;
 			}
 
-			CategoryListItem categoryListItem = categoryItemObjectPool.GetObject().GetComponent<CategoryListItem>();
+			CategoryListItem categoryListItem = this.categoryItemObjectPool.GetObject().GetComponent<CategoryListItem>();
 
 			categoryListItem.Setup(categoryInfo);
 			categoryListItem.gameObject.SetActive(true);

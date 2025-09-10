@@ -56,14 +56,14 @@ public class WordBoard
 	{
 		WordBoard newBoard = new WordBoard();
 
-		newBoard.id			= id;
-		newBoard.size		= size;
-		newBoard.wordTiles	= new WordBoard.WordTile[newBoard.size * newBoard.size];
+		newBoard.id        = this.id;
+		newBoard.size      = this.size;
+		newBoard.wordTiles = new WordBoard.WordTile[newBoard.size * newBoard.size];
 
 		for (int i = 0; i < newBoard.wordTiles.Length; i++)
 		{
-			WordBoard.WordTile wordTile			= wordTiles[i];
-			WordBoard.WordTile newWordTile		= new WordBoard.WordTile();
+			WordBoard.WordTile wordTile    = this.wordTiles[i];
+			WordBoard.WordTile newWordTile = new WordBoard.WordTile();
 
 			newWordTile.hasLetter		= wordTile.hasLetter;
 			newWordTile.letter			= wordTile.letter;

@@ -8,6 +8,6 @@ public class SetDragThreshold : MonoBehaviour {
 
     private void Start()
     {
-        GetComponent<EventSystem>().pixelDragThreshold = (int)(10 * myCanvas.scaleFactor);
+        this.GetComponent<EventSystem>().pixelDragThreshold = (int)(10 * this.myCanvas.scaleFactor);
     }
 }

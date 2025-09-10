@@ -20,10 +20,10 @@ public class AdmobController : MonoBehaviour
 
     private void Start()
     {
-        RequestInterstitial();
+        this.RequestInterstitial();
 
-        InitRewardedVideo();
-        RequestRewardBasedVideo();
+        this.InitRewardedVideo();
+        this.RequestRewardBasedVideo();
     }
 
     private void InitRewardedVideo()
@@ -94,7 +94,7 @@ public class AdmobController : MonoBehaviour
 
     public void HandleAdLoaded(object sender, EventArgs args)
     {
-        HideBanner();
+        this.HideBanner();
         print("HandleAdLoaded event received.");
     }
 
@@ -124,7 +124,7 @@ public class AdmobController : MonoBehaviour
     public void HandleRewardBasedVideoLoaded(object sender, EventArgs args)
     {
         MonoBehaviour.print("HandleRewardBasedVideoLoaded event received");
-        Timer.Schedule(this, 2, RequestRewardBasedVideo);
+        Timer.Schedule(this, 2, this.RequestRewardBasedVideo);
     }
 
     public void HandleRewardBasedVideoOpened(object sender, EventArgs args)

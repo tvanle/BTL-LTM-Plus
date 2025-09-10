@@ -28,60 +28,60 @@ public class Toast : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        SetEnabled(false);
+        this.SetEnabled(false);
     }
 
     public void SetMessage(string msg)
     {
-        messageTransform.GetComponent<Text>().text = msg;
+        this.messageTransform.GetComponent<Text>().text = msg;
         Timer.Schedule(this, 0, () =>
         {
-            backgroundTransform.sizeDelta = new Vector2(messageTransform.GetComponent<Text>().preferredWidth + 60, backgroundTransform.sizeDelta.y);
+            this.backgroundTransform.sizeDelta = new Vector2(this.messageTransform.GetComponent<Text>().preferredWidth + 60, this.backgroundTransform.sizeDelta.y);
         });
     }
 
     private void Show(AToast aToast)
     {
-        SetMessage(aToast.msg);
-        SetEnabled(true);
-        GetComponent<Animator>().SetBool("show", true);
-        Invoke("Hide", aToast.time);
-        isShowing = true;
+        this.SetMessage(aToast.msg);
+        this.SetEnabled(true);
+        this.GetComponent<Animator>().SetBool("show", true);
+        this.Invoke("Hide", aToast.time);
+        this.isShowing = true;
     }
 
     public void ShowMessage(string msg, float time = 2f)
     {
         AToast aToast = new AToast(msg, time);
-        queue.Enqueue(aToast);
+        this.queue.Enqueue(aToast);
 
-        ShowOldestToast();
+        this.ShowOldestToast();
     }
 
     private void Hide()
     {
-        GetComponent<Animator>().SetBool("show", false);
-        Invoke("CompleteHiding", 1);
+        this.GetComponent<Animator>().SetBool("show", false);
+        this.Invoke("CompleteHiding", 1);
     }
 
     private void CompleteHiding()
     {
-        SetEnabled(false);
-        isShowing = false;
-        ShowOldestToast();
+        this.SetEnabled(false);
+        this.isShowing = false;
+        this.ShowOldestToast();
     }
 
     private void ShowOldestToast()
     {
-        if (queue.Count == 0) return;
-        if (isShowing) return;
+        if (this.queue.Count == 0) return;
+        if (this.isShowing) return;
 
-        AToast current = queue.Dequeue();
-        Show(current);
+        AToast current = this.queue.Dequeue();
+        this.Show(current);
     }
 
     private void SetEnabled(bool enabled)
     {
-        foreach (Transform child in transform)
+        foreach (Transform child in this.transform)
         {
             child.gameObject.SetActive(enabled);
         }

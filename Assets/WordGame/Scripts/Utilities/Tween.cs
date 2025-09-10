@@ -82,7 +82,7 @@ public class Tween : MonoBehaviour
 
 	#region Properties
 
-	public Vector3 Point { get { return point; } set { point = value; } }
+	public Vector3 Point { get { return this.point; } set { this.point = value; } }
 
 	#endregion
 
@@ -90,62 +90,62 @@ public class Tween : MonoBehaviour
 
 	private void Start()
 	{
-		SetTimes();
+		this.SetTimes();
 	}
 
 	private void Update()
 	{
 		// Check if the tween has finished
-		if (Utilities.SystemTimeInMilliseconds >= endTime)
+		if (Utilities.SystemTimeInMilliseconds >= this.endTime)
 		{
-			switch (loopType)
+			switch (this.loopType)
 			{
 			case LoopType.None:
-				SetToValue();		// Set the value to the toValue
-				DestroyTween();
+				this.SetToValue();		// Set the value to the toValue
+				this.DestroyTween();
 				break;
 			case LoopType.Reset:
-				SetTimes();			// Reset the startTime and endTime
-				Reset();			// Set the values be the the fromValue
+				this.SetTimes(); // Reset the startTime and endTime
+				this.Reset();       // Set the values be the the fromValue
 				break;
 			case LoopType.Reverse:
-				SetTimes();			// Reset the startTime and endTime
-				SetToValue();		// Set the values to the toValue
-				Reverse();			// Swap the from and to values so the tween plays in reverse
+				this.SetTimes();   // Reset the startTime and endTime
+				this.SetToValue(); // Set the values to the toValue
+				this.Reverse();       // Swap the from and to values so the tween plays in reverse
 				break;
 			}
 
 			// Call the finish callback if one was set
-			if (finishCallback != null)
+			if (this.finishCallback != null)
 			{
-				finishCallback(this.gameObject, bundleObjects);
+				this.finishCallback(this.gameObject, this.bundleObjects);
 			}
 		}
 		else
 		{
 			// Update the values
-			switch (tweenType)
+			switch (this.tweenType)
 			{
 			case TweenType.PositionX:
 			case TweenType.PositionY:
 			case TweenType.PositionZ:
-				UpdatePosition(Mathf.Lerp(fromValue, toValue, GetLerpT()));
+				this.UpdatePosition(Mathf.Lerp(this.fromValue, this.toValue, this.GetLerpT()));
 				break;
 			case TweenType.ScaleX:
 			case TweenType.ScaleY:
 			case TweenType.ScaleZ:
-				UpdateScale(Mathf.Lerp(fromValue, toValue, GetLerpT()));
+				this.UpdateScale(Mathf.Lerp(this.fromValue, this.toValue, this.GetLerpT()));
 				break;
 			case TweenType.Rotation:
-				UpdateRotation();
+				this.UpdateRotation();
 				break;
 			case TweenType.RotationPoint:
-				UpdateRotationPoint(Vector3.Lerp(fromPoint, toPoint, GetLerpT()));
+				this.UpdateRotationPoint(Vector3.Lerp(this.fromPoint, this.toPoint, this.GetLerpT()));
 				break;
 			case TweenType.ColourImage:
 			case TweenType.ColourText:
 			case TweenType.ColourMaterial:
-				UpdateColour(Color.Lerp(fromColour, toColour, GetLerpT()));
+				this.UpdateColour(Color.Lerp(this.fromColour, this.toColour, this.GetLerpT()));
 				break;
 			}
 		}
@@ -302,7 +302,7 @@ public class Tween : MonoBehaviour
 	public Tween TweenRotationPoint(TweenStyle tweenStyle, Vector3 fromPoint, Vector3 toPoint, float duration, LoopType loopType = LoopType.None)
 	{
 		// If the TweenType for the current Tween is not a Rotation then do nothing
-		if (tweenType != TweenType.Rotation)
+		if (this.tweenType != TweenType.Rotation)
 		{
 			Debug.LogWarning("Cannot set a TweenType.RotationPoint on a Tween that is not a TweenType.Rotation.");
 			return null;
@@ -327,8 +327,8 @@ public class Tween : MonoBehaviour
 
 	public void DestroyTween()
 	{
-		Destroy(this);		// Remove the Tween component
-		isDestroyed = true;	// Set destroy flag
+		Destroy(this);        // Remove the Tween component
+		this.isDestroyed = true; // Set destroy flag
 	}
 
 	#endregion
@@ -423,71 +423,71 @@ public class Tween : MonoBehaviour
 
 	private void SetTimes()
 	{
-		startTime	= Utilities.SystemTimeInMilliseconds;
-		endTime		= startTime + duration;;
+		this.startTime = Utilities.SystemTimeInMilliseconds;
+		this.endTime   = this.startTime + this.duration;;
 	}
 
 	private void Reset()
 	{
-		switch (tweenType)
+		switch (this.tweenType)
 		{
 		case TweenType.PositionX:
 		case TweenType.PositionY:
 		case TweenType.PositionZ:
-			UpdatePosition(fromValue);
+			this.UpdatePosition(this.fromValue);
 			break;
 		case TweenType.ScaleX:
 		case TweenType.ScaleY:
 		case TweenType.ScaleZ:
-			UpdateScale(fromValue);
+			this.UpdateScale(this.fromValue);
 			break;
 		case TweenType.Rotation:
-			transform.RotateAround(pointT == null ? point : pointT.position, axis, -toValue);
-			angleSoFar = 0;
+			this.transform.RotateAround(this.pointT == null ? this.point : this.pointT.position, this.axis, -this.toValue);
+			this.angleSoFar = 0;
 			break;
 		case TweenType.RotationPoint:
-			UpdateRotationPoint(fromPoint);
+			this.UpdateRotationPoint(this.fromPoint);
 			break;
 		case TweenType.ColourImage:
 		case TweenType.ColourText:
 		case TweenType.ColourMaterial:
-			UpdateColour(fromColour);
+			this.UpdateColour(this.fromColour);
 			break;
 		}
 	}
 
 	private void SetToValue()
 	{
-		switch (tweenType)
+		switch (this.tweenType)
 		{
 		case TweenType.PositionX:
 		case TweenType.PositionY:
 		case TweenType.PositionZ:
-			UpdatePosition(toValue);
+			this.UpdatePosition(this.toValue);
 			break;
 		case TweenType.ScaleX:
 		case TweenType.ScaleY:
 		case TweenType.ScaleZ:
-			UpdateScale(toValue);
+			this.UpdateScale(this.toValue);
 			break;
 		case TweenType.Rotation:
-			transform.RotateAround(pointT == null ? point : pointT.position, axis, toValue - angleSoFar);
-			angleSoFar = 0;
+			this.transform.RotateAround(this.pointT == null ? this.point : this.pointT.position, this.axis, this.toValue - this.angleSoFar);
+			this.angleSoFar = 0;
 			break;
 		case TweenType.RotationPoint:
-			UpdateRotationPoint(toPoint);
+			this.UpdateRotationPoint(this.toPoint);
 			break;
 		case TweenType.ColourImage:
 		case TweenType.ColourText:
 		case TweenType.ColourMaterial:
-			UpdateColour(toColour);
+			this.UpdateColour(this.toColour);
 			break;
 		}
 	}
 
 	private void Reverse()
 	{
-		switch (tweenType)
+		switch (this.tweenType)
 		{
 		case TweenType.PositionX:
 		case TweenType.PositionY:
@@ -496,67 +496,67 @@ public class Tween : MonoBehaviour
 		case TweenType.ScaleY:
 		case TweenType.ScaleZ:
 		case TweenType.Rotation:
-			float temp	= fromValue;
-			fromValue	= toValue;
-			toValue		= temp;
+			float temp	= this.fromValue;
+			this.fromValue = this.toValue;
+			this.toValue      = temp;
 			break;
 		case TweenType.RotationPoint:
-			Vector3 tempV	= fromPoint;
-			fromPoint		= toPoint;
-			toPoint			= tempV;
+			Vector3 tempV	= this.fromPoint;
+			this.fromPoint = this.toPoint;
+			this.toPoint      = tempV;
 			break;
 		case TweenType.ColourImage:
 		case TweenType.ColourText:
 		case TweenType.ColourMaterial:
-			Color tempC	= fromColour;
-			fromColour	= toColour;
-			toColour	= tempC;
+			Color tempC	= this.fromColour;
+			this.fromColour = this.toColour;
+			this.toColour      = tempC;
 			break;
 		}
 	}
 
 	private void UpdatePosition(float pos)
 	{
-		switch (tweenType)
+		switch (this.tweenType)
 		{
 		case TweenType.PositionX:
-			if (useLocal)
+			if (this.useLocal)
 			{
-				transform.localPosition = new Vector3(pos, transform.localPosition.y, transform.localPosition.z);
+				this.transform.localPosition = new Vector3(pos, this.transform.localPosition.y, this.transform.localPosition.z);
 			}
-			else if (useRectTransform)
+			else if (this.useRectTransform)
 			{
-				(transform as RectTransform).anchoredPosition = new Vector2(pos, (transform as RectTransform).anchoredPosition.y);
+				(this.transform as RectTransform).anchoredPosition = new Vector2(pos, (this.transform as RectTransform).anchoredPosition.y);
 			}
 			else
 			{
-				transform.position = new Vector3(pos, transform.position.y, transform.position.z);
+				this.transform.position = new Vector3(pos, this.transform.position.y, this.transform.position.z);
 			}
 
 			break;
 		case TweenType.PositionY:
-			if (useLocal)
+			if (this.useLocal)
 			{
-				transform.localPosition = new Vector3(transform.localPosition.x, pos, transform.localPosition.z);
+				this.transform.localPosition = new Vector3(this.transform.localPosition.x, pos, this.transform.localPosition.z);
 			}
-			else if (useRectTransform)
+			else if (this.useRectTransform)
 			{
-				(transform as RectTransform).anchoredPosition = new Vector2((transform as RectTransform).anchoredPosition.x, pos);
+				(this.transform as RectTransform).anchoredPosition = new Vector2((this.transform as RectTransform).anchoredPosition.x, pos);
 			}
 			else
 			{
-				transform.position = new Vector3(transform.position.x, pos, transform.position.z);
+				this.transform.position = new Vector3(this.transform.position.x, pos, this.transform.position.z);
 			}
 
 			break;
 		case TweenType.PositionZ:
-			if (useLocal)
+			if (this.useLocal)
 			{
-				transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, pos);
+				this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y, pos);
 			}
 			else
 			{
-				transform.position = new Vector3(transform.position.x, transform.position.y, pos);
+				this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, pos);
 			}
 
 			break;
@@ -565,28 +565,28 @@ public class Tween : MonoBehaviour
 
 	private void UpdateScale(float scale)
 	{
-		switch (tweenType)
+		switch (this.tweenType)
 		{
 		case TweenType.ScaleX:
-			transform.localScale = new Vector3(scale, transform.localScale.y, transform.localScale.z);
+			this.transform.localScale = new Vector3(scale, this.transform.localScale.y, this.transform.localScale.z);
 			break;
 		case TweenType.ScaleY:
-			transform.localScale = new Vector3(transform.localScale.x, scale, transform.localScale.z);
+			this.transform.localScale = new Vector3(this.transform.localScale.x, scale, this.transform.localScale.z);
 			break;
 		case TweenType.ScaleZ:
-			transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, scale);
+			this.transform.localScale = new Vector3(this.transform.localScale.x, this.transform.localScale.y, scale);
 			break;
 		}
 	}
 
 	private void UpdateRotation()
 	{
-		float angle		= Mathf.Lerp(fromValue, toValue, GetLerpT());
-		float amount	= angleSoFar - angle;
+		float angle  = Mathf.Lerp(this.fromValue, this.toValue, this.GetLerpT());
+		float amount = this.angleSoFar - angle;
 
-		transform.RotateAround(pointT == null ? point : pointT.position, axis, amount);
+		this.transform.RotateAround(this.pointT == null ? this.point : this.pointT.position, this.axis, amount);
 
-		angleSoFar = angle;
+		this.angleSoFar = angle;
 	}
 
 	private void UpdateRotationPoint(Vector3 point)
@@ -595,7 +595,7 @@ public class Tween : MonoBehaviour
 
 		if (rotationTween == null)
 		{
-			DestroyTween();
+			this.DestroyTween();
 		}
 		else
 		{
@@ -605,25 +605,25 @@ public class Tween : MonoBehaviour
 
 	private void UpdateColour(Color colour)
 	{
-		switch (tweenType)
+		switch (this.tweenType)
 		{
 		case TweenType.ColourImage:
-			gameObject.GetComponent<UnityEngine.UI.Image>().color = colour;
+			this.gameObject.GetComponent<UnityEngine.UI.Image>().color = colour;
 			break;
 		case TweenType.ColourText:
-			gameObject.GetComponent<UnityEngine.UI.Text>().color = colour;
+			this.gameObject.GetComponent<UnityEngine.UI.Text>().color = colour;
 			break;
 		case TweenType.ColourMaterial:
-			gameObject.GetComponent<Renderer>().material.color = colour;
+			this.gameObject.GetComponent<Renderer>().material.color = colour;
 			break;
 		}
 	}
 
 	private float GetLerpT()
 	{
-		float lerpT = (float)(Utilities.SystemTimeInMilliseconds - startTime) / duration;
+		float lerpT = (float)(Utilities.SystemTimeInMilliseconds - this.startTime) / this.duration;
 
-		switch (tweenStyle)
+		switch (this.tweenStyle)
 		{
 		case TweenStyle.EaseIn:
 			lerpT = lerpT * lerpT * lerpT;

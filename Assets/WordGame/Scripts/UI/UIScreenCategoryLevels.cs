@@ -20,12 +20,12 @@ public class UIScreenCategoryLevels : UIScreen
 	
 	public override void Initialize()
 	{
-		levelItemObjectPool = new ObjectPool(levelListItemPrefab.gameObject, 10, levelListContainer);
+		this.levelItemObjectPool = new ObjectPool(this.levelListItemPrefab.gameObject, 10, this.levelListContainer);
 	}
 	
 	public override void OnShowing(object categoryName)
 	{
-		levelItemObjectPool.ReturnAllObjectsToPool();
+		this.levelItemObjectPool.ReturnAllObjectsToPool();
 
 		CategoryInfo	categoryInfo	= GameManager.Instance.GetCategoryInfo((string)categoryName);
 		bool			completed		= true;
@@ -40,7 +40,7 @@ public class UIScreenCategoryLevels : UIScreen
 				type		= LevelListItem.Type.Normal;
 			}
 
-			LevelListItem levelListItem = levelItemObjectPool.GetObject().GetComponent<LevelListItem>();
+			LevelListItem levelListItem = this.levelItemObjectPool.GetObject().GetComponent<LevelListItem>();
 			
 			levelListItem.Setup(categoryInfo, i, type);
 			levelListItem.gameObject.SetActive(true);

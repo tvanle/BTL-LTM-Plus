@@ -21,28 +21,28 @@ public class DailyPuzzleButton : MonoBehaviour
 
 	private void Start()
 	{
-		button = gameObject.GetComponent<Button>();
+		this.button = this.gameObject.GetComponent<Button>();
 
-		button.onClick.AddListener(() =>
+		this.button.onClick.AddListener(() =>
 		{
 			GameManager.Instance.StartDailyPuzzle();
 			UIScreenController.Instance.Show(UIScreenController.GameScreenId);
 		});
 
-		Update();
+		this.Update();
 	}
 
 	private void Update()
 	{
 		if (System.DateTime.Now >= GameManager.Instance.NextDailyPuzzleAt)
 		{
-			timeText.gameObject.SetActive(false);
-			button.interactable = true;
+			this.timeText.gameObject.SetActive(false);
+			this.button.interactable = true;
 		}
 		else
 		{
-			timeText.gameObject.SetActive(true);
-			button.interactable = false;
+			this.timeText.gameObject.SetActive(true);
+			this.button.interactable = false;
 
 			System.TimeSpan timeLeft = GameManager.Instance.NextDailyPuzzleAt - System.DateTime.Now;
 
@@ -50,7 +50,7 @@ public class DailyPuzzleButton : MonoBehaviour
 			string mins		= string.Format("{0}{1}", (timeLeft.Minutes < 10 ? "0" : ""), timeLeft.Minutes);
 			string secs		= string.Format("{0}{1}", (timeLeft.Seconds < 10 ? "0" : ""), timeLeft.Seconds);
 
-			timeText.text = string.Format("{0}:{1}:{2}", hours, mins, secs);
+			this.timeText.text = string.Format("{0}:{1}:{2}", hours, mins, secs);
 		}
 	}
 

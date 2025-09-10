@@ -58,17 +58,17 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{
-		UpdateSelectedTiles(eventData.position);
+		this.UpdateSelectedTiles(eventData.position);
 	}
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		UpdateSelectedTiles(eventData.position);
+		this.UpdateSelectedTiles(eventData.position);
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
-		TrySelectWord();
+		this.TrySelectWord();
 	}
 
 	#endregion
@@ -77,41 +77,41 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	public void Initialize()
 	{
-		letterTiles			= new List<LetterTile>();
-		selectedLetterTiles	= new List<LetterTile>();
-		currentWords		= new List<string>();
-		gridGameObjects		= new List<GameObject>();
+		this.letterTiles         = new List<LetterTile>();
+		this.selectedLetterTiles = new List<LetterTile>();
+		this.currentWords        = new List<string>();
+		this.gridGameObjects        = new List<GameObject>();
 
-		lineSegmentPool = new ObjectPool(lineSegmentPrefab.gameObject, 5, lineContainer);
-		lineEnd			= Instantiate(lineEndPrefab);
+		this.lineSegmentPool = new ObjectPool(this.lineSegmentPrefab.gameObject, 5, this.lineContainer);
+		this.lineEnd            = Instantiate(this.lineEndPrefab);
 
-		lineEnd.transform.SetParent(lineContainer, false);
-		lineEnd.gameObject.SetActive(false);
+		this.lineEnd.transform.SetParent(this.lineContainer, false);
+		this.lineEnd.gameObject.SetActive(false);
 	}
 
 	public void Setup(GameManager.BoardState boardState)
 	{
 		// Reset the game tiles so they can be selected again
-		Reset();
+		this.Reset();
 
 		// Make sure the tile lists are cleared
-		letterTiles.Clear();
-		selectedLetterTiles.Clear();
+		this.letterTiles.Clear();
+		this.selectedLetterTiles.Clear();
 
 		// Set the size of the current board
-		currentBoardSize = boardState.wordBoardSize;
+		this.currentBoardSize = boardState.wordBoardSize;
 
 		// Get the maximum width and height a tile can be for this board without overflowing the container
-		float maxTileWidth	= ((letterTileContainer.transform as RectTransform).rect.width - (boardState.wordBoardSize - 1) * tileSpacing) / boardState.wordBoardSize;
-		float maxTileHeight	= ((letterTileContainer.transform as RectTransform).rect.height - (boardState.wordBoardSize - 1) * tileSpacing) / boardState.wordBoardSize;
+		float maxTileWidth  = ((this.letterTileContainer.transform as RectTransform).rect.width - (boardState.wordBoardSize - 1) * this.tileSpacing) / boardState.wordBoardSize;
+		float maxTileHeight = ((this.letterTileContainer.transform as RectTransform).rect.height - (boardState.wordBoardSize - 1) * this.tileSpacing) / boardState.wordBoardSize;
 
 		// The final tile size will be the minimum between the max width/height so that the tiles do not overflow out of the containers bounds
-		currentTileSize = Mathf.Min(maxTileWidth, maxTileHeight);
+		this.currentTileSize = Mathf.Min(maxTileWidth, maxTileHeight);
 
-		letterTileContainer.cellSize		= new Vector2(currentTileSize, currentTileSize);
-		letterTileContainer.spacing			= new Vector2(tileSpacing, tileSpacing);
-		letterTileContainer.constraint		= GridLayoutGroup.Constraint.FixedColumnCount;
-		letterTileContainer.constraintCount	= boardState.wordBoardSize;
+		this.letterTileContainer.cellSize     = new Vector2(this.currentTileSize, this.currentTileSize);
+		this.letterTileContainer.spacing      = new Vector2(this.tileSpacing, this.tileSpacing);
+		this.letterTileContainer.constraint   = GridLayoutGroup.Constraint.FixedColumnCount;
+		this.letterTileContainer.constraintCount = boardState.wordBoardSize;
 
 		// Place all the tiles on the board
 		for (int i = 0; i < boardState.wordBoardSize; i++)
@@ -122,8 +122,8 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 				// Create a GameObject that will go in the grid and be the parent for any LetterTile that needs to go in its place
 				GameObject gridGameObject = new GameObject("grid_object", typeof(RectTransform));
-				gridGameObject.transform.SetParent(letterTileContainer.transform, false);
-				gridGameObjects.Add(gridGameObject);
+				gridGameObject.transform.SetParent(this.letterTileContainer.transform, false);
+				this.gridGameObjects.Add(gridGameObject);
 
 				switch (boardState.tileStates[tileIndex])
 				{
@@ -141,15 +141,15 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 					// Now we need to scale the LetterTile so its size is relative to currentTileSize. We can't just set the size of the RectTransform
 					// because then the font on the Text component for the letter might be to big and the letter will disappear
-					float scale = currentTileSize / (letterTile.transform as RectTransform).rect.width;
+					float scale = this.currentTileSize / (letterTile.transform as RectTransform).rect.width;
 					letterTile.transform.localScale	= new Vector3(scale, scale, 1f);
 
-					letterTiles.Add(letterTile);
+					this.letterTiles.Add(letterTile);
 
 					break;
 				default:
 					// We add null so when we are selecting tiles we can easily determine what tiles are beside each other by checking the indexes in boardTiles.
-					letterTiles.Add(null);
+					this.letterTiles.Add(null);
 					break;
 				}
 			}
@@ -157,7 +157,7 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 		for (int i = 0; i < boardState.words.Length; i++)
 		{
-			currentWords.Add(boardState.words[i]);
+			this.currentWords.Add(boardState.words[i]);
 		}
 	}
 
@@ -170,28 +170,28 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	/// </summary>
 	private void Reset()
 	{
-		for (int i = 0; i < letterTiles.Count; i++)
+		for (int i = 0; i < this.letterTiles.Count; i++)
 		{
-			if (letterTiles[i] != null)
+			if (this.letterTiles[i] != null)
 			{
 				// De-select the tile (if it was selected) and set it to not found
-				letterTiles[i].SetSelected(false);
-				letterTiles[i].Found = false;
+				this.letterTiles[i].SetSelected(false);
+				this.letterTiles[i].Found = false;
 				
 				// De-active the GameObjects so they can be retrieved from the pool
-				letterTiles[i].gameObject.SetActive(false);
-				letterTiles[i].transform.SetParent(transform, false);
+				this.letterTiles[i].gameObject.SetActive(false);
+				this.letterTiles[i].transform.SetParent(this.transform, false);
 			}
 		}
 
 		// Destroy all the grid_objects
-		for (int i = 0; i < gridGameObjects.Count; i++)
+		for (int i = 0; i < this.gridGameObjects.Count; i++)
 		{
-			Destroy(gridGameObjects[i]);
+			Destroy(this.gridGameObjects[i]);
 		}
 
-		gridGameObjects.Clear();
-		currentWords.Clear();
+		this.gridGameObjects.Clear();
+		this.currentWords.Clear();
 	}
 
 	/// <summary>
@@ -199,15 +199,15 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	/// </summary>
 	private void UpdateSelectedTiles(Vector2 position)
 	{
-		for (int i = 0; i < letterTiles.Count; i++)
+		for (int i = 0; i < this.letterTiles.Count; i++)
 		{
-			if (letterTiles[i] == null)
+			if (this.letterTiles[i] == null)
 			{
 				continue;
 			}
 
-			Vector2	tilePosition	= letterTiles[i].transform.position;
-			float	scaleTileSize	= currentTileSize * uiCanvas.scaleFactor * tileTouchOffset;
+			Vector2 tilePosition  = this.letterTiles[i].transform.position;
+			float   scaleTileSize = this.currentTileSize * this.uiCanvas.scaleFactor * this.tileTouchOffset;
 
 			float top		= tilePosition.y + scaleTileSize / 2f;
 			float bottom	= tilePosition.y - scaleTileSize / 2f;
@@ -221,10 +221,10 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				position.y < top)
 			{
 				// Now check if the tile is not selected and not found and the player can select the tile
-				if (!letterTiles[i].Selected && !letterTiles[i].Found && CheckCanSelectTile(i))
+				if (!this.letterTiles[i].Selected && !this.letterTiles[i].Found && this.CheckCanSelectTile(i))
 				{
 					// Add the letter as a selected letter
-					AddSelectedLetter(letterTiles[i]);
+					this.AddSelectedLetter(this.letterTiles[i]);
 				}
 
 				// The mouse can only be over one tile at a time so dont check any of the other tiles
@@ -239,21 +239,21 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	private bool CheckCanSelectTile(int tileIndex)
 	{
 		// If there are no currently selected tiles then any tile can be selected
-		if (selectedLetterTiles.Count == 0)
+		if (this.selectedLetterTiles.Count == 0)
 		{
 			return true;
 		}
 
 		// Get the index of the last selected tile, only tiles adjacent to this one can be selected
-		int lastSelctedIndex = selectedLetterTiles[selectedLetterTiles.Count - 1].TileIndex;
+		int lastSelctedIndex = this.selectedLetterTiles[this.selectedLetterTiles.Count - 1].TileIndex;
 
 		// Get the row and column of the last selected tile
-		int lastSelectedRow	= Mathf.FloorToInt((float)lastSelctedIndex / (float)currentBoardSize);
-		int lastSelectedCol	= lastSelctedIndex % currentBoardSize;
+		int lastSelectedRow = Mathf.FloorToInt((float)lastSelctedIndex / (float)this.currentBoardSize);
+		int lastSelectedCol = lastSelctedIndex % this.currentBoardSize;
 
 		// Get the row and column of the tile being checked
-		int tileIndexRow	= Mathf.FloorToInt((float)tileIndex / (float)currentBoardSize);
-		int tileIndexCol	= tileIndex % currentBoardSize;
+		int tileIndexRow = Mathf.FloorToInt((float)tileIndex / (float)this.currentBoardSize);
+		int tileIndexCol = tileIndex % this.currentBoardSize;
 
 		// Check if the difference in row and column between the last selected tile and tile being checked is less than or equal to 1
 		return Mathf.Abs(lastSelectedRow - tileIndexRow) <= 1 && Mathf.Abs(lastSelectedCol - tileIndexCol) <= 1;
@@ -265,15 +265,15 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	private void AddSelectedLetter(LetterTile letterTile)
 	{
 		letterTile.SetSelected(true);
-		selectedLetterTiles.Add(letterTile);
-		selectedWord += letterTile.Letter;
+		this.selectedLetterTiles.Add(letterTile);
+		this.selectedWord += letterTile.Letter;
 
-		UpdateLine();
+		this.UpdateLine();
 
 		// Call the event with the new selected word
-		if(OnSelectedWordChanged != null)
+		if(this.OnSelectedWordChanged != null)
 		{
-			OnSelectedWordChanged(selectedWord);
+			this.OnSelectedWordChanged(this.selectedWord);
 		}
 	}
 
@@ -283,31 +283,31 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	private void TrySelectWord()
 	{
 		// Go through each of the words on the board and check them against the selected word
-		for (int i = 0; i < currentWords.Count; i++)
+		for (int i = 0; i < this.currentWords.Count; i++)
 		{
-			if (selectedWord == currentWords[i])
+			if (this.selectedWord == this.currentWords[i])
 			{
-				FoundWord(selectedWord, selectedLetterTiles);
+				this.FoundWord(this.selectedWord, this.selectedLetterTiles);
 
 				break;
 			}
 		}
 
 		// Set all the selected BoardTiles to false
-		for (int i = 0; i < selectedLetterTiles.Count; i++)
+		for (int i = 0; i < this.selectedLetterTiles.Count; i++)
 		{
-			selectedLetterTiles[i].SetSelected(false);
+			this.selectedLetterTiles[i].SetSelected(false);
 		}
 
-		selectedLetterTiles.Clear();
-		selectedWord = "";
+		this.selectedLetterTiles.Clear();
+		this.selectedWord = "";
 
-		UpdateLine();
+		this.UpdateLine();
 
 		// The selected word was just changed to blank so call the event
-		if(OnSelectedWordChanged != null)
+		if(this.OnSelectedWordChanged != null)
 		{
-			OnSelectedWordChanged(selectedWord);
+			this.OnSelectedWordChanged(this.selectedWord);
 		}
 	}
 
@@ -322,9 +322,9 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			letterTilesForWord[i].Found = true;
 		}
 
-		if (OnWordFound != null)
+		if (this.OnWordFound != null)
 		{
-			OnWordFound(word, letterTilesForWord, FoundAllWords());
+			this.OnWordFound(word, letterTilesForWord, this.FoundAllWords());
 		}
 	}
 
@@ -333,9 +333,9 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	/// </summary>
 	private bool FoundAllWords()
 	{
-		for (int i = 0; i < letterTiles.Count; i++)
+		for (int i = 0; i < this.letterTiles.Count; i++)
 		{
-			if (letterTiles[i] != null && !letterTiles[i].Found)
+			if (this.letterTiles[i] != null && !this.letterTiles[i].Found)
 			{
 				return false;
 			}
@@ -348,21 +348,21 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	/// </summary>
 	private void UpdateLine()
 	{
-		lineSegmentPool.ReturnAllObjectsToPool();
-		lineEnd.gameObject.SetActive(false);
+		this.lineSegmentPool.ReturnAllObjectsToPool();
+		this.lineEnd.gameObject.SetActive(false);
 
-		if (!enableLine || selectedLetterTiles.Count == 0)
+		if (!this.enableLine || this.selectedLetterTiles.Count == 0)
 		{
 			return;
 		}
 
-		float lineScale = 3f / (float)currentBoardSize;
+		float lineScale = 3f / (float)this.currentBoardSize;
 
-		for (int i = 0; i < selectedLetterTiles.Count - 1; i++)
+		for (int i = 0; i < this.selectedLetterTiles.Count - 1; i++)
 		{
-			RectTransform	lineSegmentRectT	= lineSegmentPool.GetObject().transform as RectTransform;
-			Vector2			startPosition		= (selectedLetterTiles[i].transform.parent as RectTransform).anchoredPosition;
-			Vector2			endPosition			= (selectedLetterTiles[i + 1].transform.parent as RectTransform).anchoredPosition;
+			RectTransform lineSegmentRectT = this.lineSegmentPool.GetObject().transform as RectTransform;
+			Vector2       startPosition    = (this.selectedLetterTiles[i].transform.parent as RectTransform).anchoredPosition;
+			Vector2       endPosition      = (this.selectedLetterTiles[i + 1].transform.parent as RectTransform).anchoredPosition;
 
 			// Set the scale of the line
 			lineSegmentRectT.localScale = new Vector3(lineScale, lineScale, 1f);
@@ -387,15 +387,15 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		}
 
 		// Now position the line end
-		RectTransform lineEndRectT		= lineEnd.transform as RectTransform;
-		lineEndRectT.anchoredPosition	= (selectedLetterTiles[selectedLetterTiles.Count - 1].transform.parent as RectTransform).anchoredPosition;
-		lineEnd.gameObject.SetActive(true);
-		lineEnd.transform.SetAsLastSibling();
+		RectTransform lineEndRectT		= this.lineEnd.transform as RectTransform;
+		lineEndRectT.anchoredPosition	= (this.selectedLetterTiles[this.selectedLetterTiles.Count - 1].transform.parent as RectTransform).anchoredPosition;
+		this.lineEnd.gameObject.SetActive(true);
+		this.lineEnd.transform.SetAsLastSibling();
 
-		if (selectedLetterTiles.Count > 1)
+		if (this.selectedLetterTiles.Count > 1)
 		{
-			Vector2	v1	= (selectedLetterTiles[selectedLetterTiles.Count - 1].transform.parent as RectTransform).anchoredPosition;
-			Vector2	v2	= (selectedLetterTiles[selectedLetterTiles.Count - 2].transform.parent as RectTransform).anchoredPosition;
+			Vector2 v1  = (this.selectedLetterTiles[this.selectedLetterTiles.Count - 1].transform.parent as RectTransform).anchoredPosition;
+			Vector2 v2  = (this.selectedLetterTiles[this.selectedLetterTiles.Count - 2].transform.parent as RectTransform).anchoredPosition;
 			Vector2 dir = (v1 - v2).normalized;
 
 			float flip = (dir.x > 0) ? -1f : 1f;

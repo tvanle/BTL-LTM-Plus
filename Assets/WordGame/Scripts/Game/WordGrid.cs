@@ -55,37 +55,37 @@ public class WordGrid : MonoBehaviour
 
 	public void Initialize()
 	{
-		tilePool		= new ObjectPool(tilePrefab, 25, transform);
-		allGridTiles	= new Dictionary<string, List<GridTile>>();
-		currentWords	= new List<string>();
-		rowObjects		= new List<GameObject>();
+		this.tilePool     = new ObjectPool(this.tilePrefab, 25, this.transform);
+		this.allGridTiles = new Dictionary<string, List<GridTile>>();
+		this.currentWords = new List<string>();
+		this.rowObjects      = new List<GameObject>();
 
-		SetupTileContainer();
+		this.SetupTileContainer();
 	}
 
 	public void Setup(GameManager.BoardState boardState)
 	{
-		Reset();
+		this.Reset();
 
 		bool		wordAddedToRow	= false;
 		float		currentRowWidth	= 0f;
-		GameObject	currentTileRow	= CreateNewTileRow();
+		GameObject	currentTileRow	= this.CreateNewTileRow();
 
 		// Go through every word that is on the board, we need to add a tilePrefab for each letter in each word
 		for (int i = 0; i < boardState.words.Length; i++)
 		{
 			// Get the word we are adding tiles for and the space those tiles will take up
 			string	word		= boardState.words[i];
-			float	wordWidth	= word.Length * tileSize + (word.Length - 1) * spaceBetweenLetters;
+			float	wordWidth	= word.Length * this.tileSize + (word.Length - 1) * this.spaceBetweenLetters;
 
 			// If a word has already been added to the current row, then we need to account for the spacing between words
 			if (wordAddedToRow)
 			{
-				wordWidth += spaceBetweenWords;
+				wordWidth += this.spaceBetweenWords;
 			}
 
 			// Check if the adding the current word to the current row will make the row larger that the width of the overall container
-			bool rowToLarge = (currentRowWidth + wordWidth > tileContainer.rect.width);
+			bool rowToLarge = (currentRowWidth + wordWidth > this.tileContainer.rect.width);
 
 			// If the current row is now wider than the container then we need to add a new row
 			if (rowToLarge)
@@ -96,14 +96,14 @@ public class WordGrid : MonoBehaviour
 				// then reduce the tileSize of reduce the max number of letters for a word
 				if (!wordAddedToRow)
 				{
-					Debug.LogWarningFormat("The word \"{0}\" is to large to fit in the tileContainer using a size of {1}", word, tileSize);
+					Debug.LogWarningFormat("The word \"{0}\" is to large to fit in the tileContainer using a size of {1}", word, this.tileSize);
 				}
 				else
 				{
 					// Create a new row and set the wordAddedToRow and currentRowWidth values back to default
-					currentTileRow	= CreateNewTileRow();
-					wordAddedToRow	= false;
-					currentRowWidth	= 0f;
+					currentTileRow  = this.CreateNewTileRow();
+					wordAddedToRow  = false;
+					currentRowWidth = 0f;
 				}
 			}
 
@@ -115,7 +115,7 @@ public class WordGrid : MonoBehaviour
 
 				// Add a LayoutElement to it and give it a preferred width equal to spaceBetweenWords
 				LayoutElement le	= wordSpaceObject.AddComponent<LayoutElement>();
-				le.preferredWidth	= spaceBetweenWords;
+				le.preferredWidth	= this.spaceBetweenWords;
 
 				// Add the space GameObject to the row
 				wordSpaceObject.transform.SetParent(currentTileRow.transform, false);
@@ -128,7 +128,7 @@ public class WordGrid : MonoBehaviour
 			for (int j = 0; j < word.Length; j++)
 			{
 				// Get a new tile object, set its parent to the current row, and active it
-				GameObject gridTileObject = tilePool.GetObject();
+				GameObject gridTileObject = this.tilePool.GetObject();
 				gridTileObject.transform.SetParent(currentTileRow.transform, false);
 				gridTileObject.transform.localScale = Vector3.one;
 				gridTileObject.gameObject.SetActive(true);
@@ -136,7 +136,7 @@ public class WordGrid : MonoBehaviour
 				// If the tile didnt have a LayoutElement on it, add one and set the preferred size
 				if (gridTileObject.GetComponent<LayoutElement>() == null)
 				{
-					AddTileLayoutElement(gridTileObject);
+					this.AddTileLayoutElement(gridTileObject);
 				}
 
 				// Create a new GridTile and set the references
@@ -148,8 +148,8 @@ public class WordGrid : MonoBehaviour
 			}
 
 			// Add the list of GridTiles to the dictionary indexed by the word they are for
-			allGridTiles.Add(word, gridTiles);
-			currentWords.Add(word);
+			this.allGridTiles.Add(word, gridTiles);
+			this.currentWords.Add(word);
 
 			wordAddedToRow	= true;
 			currentRowWidth += wordWidth;
@@ -162,12 +162,12 @@ public class WordGrid : MonoBehaviour
 			{
 				// Get the word we need to display then the list of GridTiles for that word
 				string			word		= boardState.words[i];
-				List<GridTile>	gridTiles	= allGridTiles[word];
+				List<GridTile>	gridTiles	= this.allGridTiles[word];
 				
 				// Loop through each grid tile and display the letter for it
 				for (int j = 0; j < gridTiles.Count; j++)
 				{
-					DisplayLetter(gridTiles[j]);
+					this.DisplayLetter(gridTiles[j]);
 				}
 			}
 		}
@@ -175,11 +175,11 @@ public class WordGrid : MonoBehaviour
 		// Display all the letters that have been show as a hint
 		for (int i = 0; i < boardState.hintLettersShown.Count; i++)
 		{
-			int[]			indexes		= boardState.hintLettersShown[i];
-			string			word		= currentWords[indexes[0]];
-			List<GridTile>	gridTiles	= allGridTiles[word];
-			
-			DisplayLetter(gridTiles[indexes[1]]);
+			int[]          indexes   = boardState.hintLettersShown[i];
+			string         word      = this.currentWords[indexes[0]];
+			List<GridTile> gridTiles = this.allGridTiles[word];
+
+			this.DisplayLetter(gridTiles[indexes[1]]);
 		}
 	}
 
@@ -189,7 +189,7 @@ public class WordGrid : MonoBehaviour
 	/// </summary>
 	public void FoundWord(string word, List<LetterTile> letterTiles, Tween.OnTweenFinished onTweenFinished)
 	{
-		if (!allGridTiles.ContainsKey(word))
+		if (!this.allGridTiles.ContainsKey(word))
 		{
 			Debug.LogErrorFormat("There is no word \"{0}\" on the WordGrid. Hidding the GameTiles.", word);
 
@@ -203,7 +203,7 @@ public class WordGrid : MonoBehaviour
 		}
 
 		// Get the grid tiles for the word
-		List<GridTile> gridTiles = allGridTiles[word];
+		List<GridTile> gridTiles = this.allGridTiles[word];
 
 		// Loop through each of the LetterTiles and animate them to the location of the GridTile
 		for (int i = 0; i < letterTiles.Count; i++)
@@ -221,7 +221,7 @@ public class WordGrid : MonoBehaviour
 				gridTileRectT = gridTiles[i].letterTileObject.transform as RectTransform;
 			}
 
-			TransitionAnimateOver(letterTileRectT, gridTileRectT, (i == 0) ? onTweenFinished : null);
+			this.TransitionAnimateOver(letterTileRectT, gridTileRectT, (i == 0) ? onTweenFinished : null);
 		}
 	}
 
@@ -230,22 +230,22 @@ public class WordGrid : MonoBehaviour
 	/// </summary>
 	public bool DisplayNextHint(ref int nextHintIndex, out int wordIndex, out int letterIndex)
 	{
-		for (int i = 0; i < currentWords.Count; i++)
+		for (int i = 0; i < this.currentWords.Count; i++)
 		{
-			int		index	= (nextHintIndex + i) % currentWords.Count;
-			string	word	= currentWords[index];
+			int    index = (nextHintIndex + i) % this.currentWords.Count;
+			string word  = this.currentWords[index];
 
-			List<GridTile> gridTiles = allGridTiles[word];
+			List<GridTile> gridTiles = this.allGridTiles[word];
 
 			for (int j = 0; j < gridTiles.Count; j++)
 			{
 				if (!gridTiles[j].displayed)
 				{
-					DisplayLetter(gridTiles[j]);
+					this.DisplayLetter(gridTiles[j]);
 
-					nextHintIndex	= (index + 1) % currentWords.Count;
-					wordIndex		= index;
-					letterIndex		= j;
+					nextHintIndex = (index + 1) % this.currentWords.Count;
+					wordIndex     = index;
+					letterIndex   = j;
 
 					return true;
 				}
@@ -264,14 +264,14 @@ public class WordGrid : MonoBehaviour
 	/// </summary>
 	public void Reset()
 	{
-		foreach (KeyValuePair<string, List<GridTile>> pair in allGridTiles)
+		foreach (KeyValuePair<string, List<GridTile>> pair in this.allGridTiles)
 		{
 			for (int i = 0; i < pair.Value.Count; i++)
 			{
 				// De-activate the grid tile so it can be fetched from the pool again and set its parent to this WordGrid so it isn't
 				// destroyed when we destroy the row Obejcts
 				pair.Value[i].gridTileObject.gameObject.SetActive(false);
-				pair.Value[i].gridTileObject.transform.SetParent(transform);
+				pair.Value[i].gridTileObject.transform.SetParent(this.transform);
 
 				if (pair.Value[i].letterTileObject != null)
 				{
@@ -281,19 +281,19 @@ public class WordGrid : MonoBehaviour
 					// Right now the LetterTile is a child of a row GameObject, we destroy the row Objects below. But we don't want
 					// to destroy the LetterTiles (we want to be able to re-use them) so lets just set the LetterTiles parent to be
 					// this WordGrid so we don;t lose them
-					pair.Value[i].letterTileObject.transform.SetParent(transform);
+					pair.Value[i].letterTileObject.transform.SetParent(this.transform);
 				}
 			}
 		}
 
 		// Destroy all the rows
-		for (int i = 0; i < rowObjects.Count; i++)
+		for (int i = 0; i < this.rowObjects.Count; i++)
 		{
-			Destroy(rowObjects[i]);
+			Destroy(this.rowObjects[i]);
 		}
 
-		allGridTiles.Clear();
-		currentWords.Clear();
+		this.allGridTiles.Clear();
+		this.currentWords.Clear();
 	}
 
 	#endregion
@@ -321,7 +321,7 @@ public class WordGrid : MonoBehaviour
 		GameObject letterTileContainer = new GameObject("letter_tile_container");
 
 		// Add a tile LayoutElement to the container so its sized properly in the layout group
-		AddTileLayoutElement(letterTileContainer);
+		this.AddTileLayoutElement(letterTileContainer);
 
 		// Set the letter tile containers parent to the parent of the grid tile then set the letter tiles sibling index to that of the grid tile, then de-activate the grid tile.
 		// This will essently replaces the grid tile with the scaled down letter tile
@@ -330,7 +330,7 @@ public class WordGrid : MonoBehaviour
 		gridTile.gridTileObject.gameObject.SetActive(false);
 		
 		// Get the scale of the letter tile so that it will be scaled down to the size of a grid tile
-		float scale = tileSize / (letterTile.transform as RectTransform).rect.width;
+		float scale = this.tileSize / (letterTile.transform as RectTransform).rect.width;
 
 		// Set the scale of the LetterTIle, set its localPosition to zero, then set its parent to be the letter_tile_container we created befor
 		letterTile.transform.localScale		= new Vector3(scale, scale, 1f);
@@ -342,10 +342,10 @@ public class WordGrid : MonoBehaviour
 	{
 		float duration = 400f;
 		
-		letterTileRectT.SetParent(animationContainer);
+		letterTileRectT.SetParent(this.animationContainer);
 
-		float xScale = tileSize / letterTileRectT.rect.width;
-		float yScale = tileSize / letterTileRectT.rect.height;
+		float xScale = this.tileSize / letterTileRectT.rect.width;
+		float yScale = this.tileSize / letterTileRectT.rect.height;
 
 		Tween.ScaleX(letterTileRectT, Tween.TweenStyle.EaseOut, letterTileRectT.localScale.x, xScale, duration);
 		Tween.ScaleY(letterTileRectT, Tween.TweenStyle.EaseOut, letterTileRectT.localScale.y, yScale, duration);
@@ -358,12 +358,12 @@ public class WordGrid : MonoBehaviour
 	/// </summary>
 	private void SetupTileContainer()
 	{
-		VerticalLayoutGroup vlg		= tileContainer.gameObject.AddComponent<VerticalLayoutGroup>();
-		vlg.spacing					= spaceBetweenRows;
-		vlg.childForceExpandWidth	= true;
-		vlg.childForceExpandHeight	= false;
+		VerticalLayoutGroup vlg		= this.tileContainer.gameObject.AddComponent<VerticalLayoutGroup>();
+		vlg.spacing                = this.spaceBetweenRows;
+		vlg.childForceExpandWidth  = true;
+		vlg.childForceExpandHeight = false;
 
-		ContentSizeFitter csf	= tileContainer.gameObject.AddComponent<ContentSizeFitter>();
+		ContentSizeFitter csf	= this.tileContainer.gameObject.AddComponent<ContentSizeFitter>();
 		csf.horizontalFit		= ContentSizeFitter.FitMode.Unconstrained;
 		csf.verticalFit			= ContentSizeFitter.FitMode.PreferredSize;
 	}
@@ -374,8 +374,8 @@ public class WordGrid : MonoBehaviour
 	private void AddTileLayoutElement(GameObject obj)
 	{
 		LayoutElement le	= obj.AddComponent<LayoutElement>();
-		le.preferredWidth	= tileSize;
-		le.preferredHeight	= tileSize;
+		le.preferredWidth  = this.tileSize;
+		le.preferredHeight = this.tileSize;
 	}
 
 	/// <summary>
@@ -385,16 +385,16 @@ public class WordGrid : MonoBehaviour
 	{
 		// Create the row and add it to tileContainer
 		GameObject tileRow = new GameObject("tile_row", typeof(RectTransform));
-		tileRow.transform.SetParent(tileContainer, false);
+		tileRow.transform.SetParent(this.tileContainer, false);
 
 		// Add a HorizontalLayoutGroup to the row
 		HorizontalLayoutGroup hlg	= tileRow.AddComponent<HorizontalLayoutGroup>();
-		hlg.childAlignment			= TextAnchor.MiddleCenter;
-		hlg.spacing					= spaceBetweenLetters;
-		hlg.childForceExpandWidth	= false;
-		hlg.childForceExpandHeight	= false;
+		hlg.childAlignment         = TextAnchor.MiddleCenter;
+		hlg.spacing                = this.spaceBetweenLetters;
+		hlg.childForceExpandWidth  = false;
+		hlg.childForceExpandHeight = false;
 
-		rowObjects.Add(tileRow);
+		this.rowObjects.Add(tileRow);
 
 		return tileRow;
 	}

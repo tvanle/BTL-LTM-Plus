@@ -19,11 +19,11 @@ public class LetterTile : MonoBehaviour
 
 	#region Properties
 
-	public Text 			LetterText		{ get { return letterText; } }
-	public int				TileIndex		{ get; set; }
-	public bool				Selected		{ get; set; }
-	public bool				Found			{ get; set; }
-	public char				Letter			{ get; set; }
+	public Text LetterText { get { return this.letterText; } }
+	public int  TileIndex  { get; set; }
+	public bool Selected   { get; set; }
+	public bool Found      { get; set; }
+	public char Letter     { get; set; }
 
 	#endregion
 
@@ -31,11 +31,11 @@ public class LetterTile : MonoBehaviour
 
 	public void SetSelected(bool selected)
 	{
-		Selected = selected;
+		this.Selected = selected;
 
-		backgroundImage.sprite 	= selected ? selectedSprite : normalSprite;
-		backgroundImage.color	= selected ? backgroundSelectedColor : backgroundNormalColor;
-		letterText.color		= selected ? letterSelectedColor : letterNormalColor;
+		this.backgroundImage.sprite = selected ? this.selectedSprite : this.normalSprite;
+		this.backgroundImage.color  = selected ? this.backgroundSelectedColor : this.backgroundNormalColor;
+		this.letterText.color          = selected ? this.letterSelectedColor : this.letterNormalColor;
 	}
 
 	#endregion

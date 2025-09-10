@@ -14,7 +14,7 @@ public class UIScreen : MonoBehaviour
 
 	#region Properties
 
-	public RectTransform RectT { get { return gameObject.GetComponent<RectTransform>(); } }
+	public RectTransform RectT { get { return this.gameObject.GetComponent<RectTransform>(); } }
 
 	#endregion
 

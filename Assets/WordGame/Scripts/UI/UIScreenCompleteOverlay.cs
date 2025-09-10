@@ -28,22 +28,22 @@ public class UIScreenCompleteOverlay : UIScreen
 	{
 		CategoryInfo categoryInfo = GameManager.Instance.GetCategoryInfo(GameManager.Instance.ActiveCategory);
 
-		categoryIconImage.sprite	= categoryInfo.icon;
-		categoryNameText.text		= GameManager.Instance.ActiveCategory;
+		this.categoryIconImage.sprite = categoryInfo.icon;
+		this.categoryNameText.text       = GameManager.Instance.ActiveCategory;
 
 		if (GameManager.Instance.ActiveCategory == GameManager.dailyPuzzleId)
 		{
-			categoryLevelText.gameObject.SetActive(false);
+			this.categoryLevelText.gameObject.SetActive(false);
 		}
 		else
 		{
-			categoryLevelText.gameObject.SetActive(true);
-			categoryLevelText.text = "Level " + (GameManager.Instance.ActiveLevelIndex + 1).ToString();
+			this.categoryLevelText.gameObject.SetActive(true);
+			this.categoryLevelText.text = "Level " + (GameManager.Instance.ActiveLevelIndex + 1).ToString();
 		}
 
         int number = (int)data;
-        plusHintText.gameObject.SetActive(number > 0);
-        plusHintText.text = "+ " + number + (number == 1 ? " Hint" : " Hints");
+		this.plusHintText.gameObject.SetActive(number > 0);
+		this.plusHintText.text = "+ " + number + (number == 1 ? " Hint" : " Hints");
 	}
 
 	#endregion

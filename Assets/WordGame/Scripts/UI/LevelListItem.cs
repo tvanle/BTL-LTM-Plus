@@ -41,19 +41,19 @@ public class LevelListItem : MonoBehaviour
 		this.levelIndex		= levelIndex;
 		this.type			= type;
 
-		levelText.text		= string.Format("{0} - LEVEL {1}", categoryName.ToUpper(), levelIndex + 1);
-		iconImage.sprite	= categoryInfo.icon;
+		this.levelText.text = string.Format("{0} - LEVEL {1}", this.categoryName.ToUpper(), levelIndex + 1);
+		this.iconImage.sprite  = categoryInfo.icon;
 
-		completedImage.gameObject.SetActive(type == Type.Completed);
-		lockedImage.gameObject.SetActive(type == Type.Locked);
+		this.completedImage.gameObject.SetActive(type == Type.Completed);
+		this.lockedImage.gameObject.SetActive(type == Type.Locked);
 	}
 	
 	public void OnClick()
 	{
-		if (type != Type.Locked)
+		if (this.type != Type.Locked)
 		{
 			// Start the level the button is tied to
-			GameManager.Instance.StartLevel(categoryName, levelIndex);
+			GameManager.Instance.StartLevel(this.categoryName, this.levelIndex);
 			
 			// Show the game screen
 			UIScreenController.Instance.Show(UIScreenController.GameScreenId);

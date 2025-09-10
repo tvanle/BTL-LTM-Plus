@@ -15,19 +15,19 @@ public class RewardedButton : MonoBehaviour
         SetActive(false);
 #endif
 
-        InvokeRepeating("IUpdate", 0, 1);
-        button.onClick.AddListener(OnClick);
+this.InvokeRepeating("IUpdate", 0, 1);
+this.button.onClick.AddListener(this.OnClick);
     }
 
     private void IUpdate()
     {
-        SetActive(IsAvailableToShow());
+        this.SetActive(this.IsAvailableToShow());
     }
 
     private void SetActive(bool isActive)
     {
-        button.interactable = isActive;
-        lightObj.SetActive(isActive);
+        this.button.interactable = isActive;
+        this.lightObj.SetActive(isActive);
     }
 
     public void OnClick()
@@ -37,7 +37,7 @@ public class RewardedButton : MonoBehaviour
 
     public bool IsAvailableToShow()
     {
-        return IsActionAvailable() && IsAdAvailable();
+        return this.IsActionAvailable() && this.IsAdAvailable();
     }
 
     public bool IsActionAvailable()

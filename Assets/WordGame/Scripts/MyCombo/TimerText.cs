@@ -19,48 +19,50 @@ public class TimerText : MonoBehaviour
 
     private void Start()
     {
-        UpdateText();
-        if (runOnStart)
+        this.UpdateText();
+        if (this.runOnStart)
         {
-            Run();
+            this.Run();
         }
     }
 
     private void OnDisable()
     {
-        isRunning = false;
+        this.isRunning = false;
     }
 
     public void Run()
     {
-        if (!isRunning)
+        if (!this.isRunning)
         {
-            if (timeValue <= 0)
+            if (this.timeValue <= 0)
             {
-                if (onCountDownComplete != null) onCountDownComplete();
+                if (this.onCountDownComplete != null) this.onCountDownComplete();
                 return;
             }
 
-            isRunning = true;
-            StartCoroutine(UpdateClockText());
+            this.isRunning = true;
+            this.StartCoroutine(this.UpdateClockText());
         }
     }
 
     private IEnumerator UpdateClockText()
     {
-        while (isRunning)
+        while (this.isRunning)
         {
-            UpdateText();
+            this.UpdateText();
             yield return new WaitForSeconds(1);
-            if (countUp) timeValue++;
+            if (this.countUp)
+                this.timeValue++;
             else
             {
-                if (timeValue == 0)
+                if (this.timeValue == 0)
                 {
-                    if (onCountDownComplete != null) onCountDownComplete();
-                    Stop();
+                    if (this.onCountDownComplete != null) this.onCountDownComplete();
+                    this.Stop();
                 }
-                else timeValue--;
+                else
+                    this.timeValue--;
             }
         }
     }
@@ -69,26 +71,26 @@ public class TimerText : MonoBehaviour
     {
         if (value < 0)
             value = 0;
-        timeValue = value;
-        UpdateText();
+        this.timeValue = value;
+        this.UpdateText();
     }
 
     public void AddTime(int value)
     {
-        timeValue += value;
-        UpdateText();
+        this.timeValue += value;
+        this.UpdateText();
     }
 
     private void UpdateText()
     {
-        TimeSpan t = TimeSpan.FromSeconds(timeValue);
+        TimeSpan t = TimeSpan.FromSeconds(this.timeValue);
 
         string text;
-        if (showHour && showMinute && showSecond)
+        if (this.showHour && this.showMinute && this.showSecond)
         {
             text = string.Format("{0:D2}:{1:D2}:{2:D2}", t.Hours, t.Minutes, t.Seconds);
         }
-        else if (showHour && showMinute)
+        else if (this.showHour && this.showMinute)
         {
             text = string.Format("{0:D2}:{1:D2}", t.Hours, t.Minutes);
         }
@@ -96,11 +98,11 @@ public class TimerText : MonoBehaviour
         {
             text = string.Format("{0:D2}:{1:D2}", t.Minutes, t.Seconds);
         }
-        GetComponent<Text>().text = text;
+        this.GetComponent<Text>().text = text;
     }
 
     public void Stop()
     {
-        isRunning = false;
+        this.isRunning = false;
     }
 }

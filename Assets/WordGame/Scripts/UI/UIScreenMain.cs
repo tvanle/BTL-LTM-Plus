@@ -40,7 +40,7 @@ public class UIScreenMain : UIScreen
 			}
 		}
 
-		progressRing.SetProgress((float)totalNumberOfCompletedLevels / (float)totalNumberOfLevels);
+		this.progressRing.SetProgress((float)totalNumberOfCompletedLevels / (float)totalNumberOfLevels);
 
 		// Set the Continue button to the active category
 		if (string.IsNullOrEmpty(GameManager.Instance.ActiveCategory) || GameManager.Instance.ActiveCategory == GameManager.dailyPuzzleId)
@@ -60,9 +60,9 @@ public class UIScreenMain : UIScreen
 				{
 					if (!GameManager.Instance.IsLevelCompleted(categoryInfo, j))
 					{
-						continueBtnCategory		= categoryInfo.name;
-						continueBtnLevelIndex	= j;
-						foundUncompletedLevel	= true;
+						this.continueBtnCategory = categoryInfo.name;
+						this.continueBtnLevelIndex  = j;
+						foundUncompletedLevel    = true;
 
 						break;
 					}
@@ -77,22 +77,22 @@ public class UIScreenMain : UIScreen
 			// If all levels are completed then set the button to the first category and first level
 			if (!foundUncompletedLevel)
 			{
-				continueBtnCategory		= GameManager.Instance.CategoryInfos[0].name;
-				continueBtnLevelIndex	= 0;
+				this.continueBtnCategory = GameManager.Instance.CategoryInfos[0].name;
+				this.continueBtnLevelIndex  = 0;
 			}
-			
-			continueBtnTopText.text		= "PLAY";
-			continueBtnBottomText.text	= string.Format("{0} LEVEL {1}", continueBtnCategory.ToUpper(), continueBtnLevelIndex + 1);
-			continueBtnImage.sprite		= GameManager.Instance.GetCategoryInfo(continueBtnCategory).icon;
+
+			this.continueBtnTopText.text    = "PLAY";
+			this.continueBtnBottomText.text = string.Format("{0} LEVEL {1}", this.continueBtnCategory.ToUpper(), this.continueBtnLevelIndex + 1);
+			this.continueBtnImage.sprite       = GameManager.Instance.GetCategoryInfo(this.continueBtnCategory).icon;
 		}
 		else
 		{
-			continueBtnCategory		= GameManager.Instance.ActiveCategory;
-			continueBtnLevelIndex	= GameManager.Instance.ActiveLevelIndex;
+			this.continueBtnCategory = GameManager.Instance.ActiveCategory;
+			this.continueBtnLevelIndex  = GameManager.Instance.ActiveLevelIndex;
 
-			continueBtnTopText.text		= "CONTINUE";
-			continueBtnBottomText.text	= string.Format("{0} LEVEL {1}", continueBtnCategory.ToUpper(), continueBtnLevelIndex + 1);
-			continueBtnImage.sprite		= GameManager.Instance.GetCategoryInfo(continueBtnCategory).icon;
+			this.continueBtnTopText.text    = "CONTINUE";
+			this.continueBtnBottomText.text = string.Format("{0} LEVEL {1}", this.continueBtnCategory.ToUpper(), this.continueBtnLevelIndex + 1);
+			this.continueBtnImage.sprite       = GameManager.Instance.GetCategoryInfo(this.continueBtnCategory).icon;
 		}
 	}
 
@@ -105,7 +105,7 @@ public class UIScreenMain : UIScreen
 	public void OnContinueButtonClicked()
 	{
 		// Start the level the button is tied to
-		GameManager.Instance.StartLevel(continueBtnCategory, continueBtnLevelIndex);
+		GameManager.Instance.StartLevel(this.continueBtnCategory, this.continueBtnLevelIndex);
 
 		// Show the game screen
 		UIScreenController.Instance.Show(UIScreenController.GameScreenId);
