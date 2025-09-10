@@ -62,13 +62,13 @@ public class GameManager : SingletonComponent<GameManager>
 
 	[Tooltip("The GameObject from the Hierarchy that has the LetterBoard component attached to it.")]
 	[SerializeField] private LetterBoard		letterBoard;
-	
+
 	[Tooltip("The GameObject from the Hierarchy that has the WordGrid component attached to it.")]
 	[SerializeField] private WordGrid			wordGrid;
-	
+
 	[Tooltip("The prefab from the Project folder that has the LetterTile component attached to it.")]
 	[SerializeField] private LetterTile			letterTilePrefab;
-	
+
 	[Tooltip("All the categories that are in the game. Levels are assigned to categories.")]
 	[SerializeField] private List<CategoryInfo>	categoryInfos;
 
@@ -180,7 +180,7 @@ public class GameManager : SingletonComponent<GameManager>
 		// Get the board id for the level and load the WordBoard from Resources
 		string		boardId		= Utilities.FormatBoardId(ActiveCategory, ActiveLevelIndex);
 		WordBoard	wordBoard	= Utilities.LoadWordBoard(boardId);
-		
+
 		if (wordBoard == null)
 		{
 			Debug.LogError("Could not load WordBoard with the boardId: " + boardId);
@@ -195,10 +195,10 @@ public class GameManager : SingletonComponent<GameManager>
 
 		// Try and get a saved board state if one exists
 		ActiveBoardState = SavedBoardStates[boardId];
-		
+
 		// Save the game
 		Save();
-		
+
 		// Setup the display using the assigned activeBoardState
 		SetupActiveBoard();
 	}
@@ -488,7 +488,6 @@ public class GameManager : SingletonComponent<GameManager>
 		Save();
 
 		UIScreenController.Instance.Show(UIScreenController.CompleteScreenId, false, true, true, Tween.TweenStyle.EaseOut, OnCompleteScreenShown, awardNumber);
-        GoogleAnalyticsV3.instance.LogEvent("Level", "Complete Level", boardId, 0);
 	}
 
 	private void OnCompleteScreenShown()
@@ -499,7 +498,7 @@ public class GameManager : SingletonComponent<GameManager>
 		// Check if the category has been completed or it was the daily puzzle
 		if (ActiveCategory == dailyPuzzleId || nextLevelIndex >= categoryInfo.levelInfos.Count)
 		{
-			
+
 			// If we completed the daily puzzle then move back to the main screen else move to the categories screen
 			string screenToShow = (ActiveCategory == dailyPuzzleId) ? UIScreenController.MainScreenId : UIScreenController.CategoriesScreenId;
 
@@ -534,7 +533,7 @@ public class GameManager : SingletonComponent<GameManager>
 			UnityEngine.Advertisements.ShowOptions adShowOptions = new UnityEngine.Advertisements.ShowOptions();
 
 			// Show the ad first and when its done then hide the complete overlay
-			adShowOptions.resultCallback = (UnityEngine.Advertisements.ShowResult adShowResult) => 
+			adShowOptions.resultCallback = (UnityEngine.Advertisements.ShowResult adShowResult) =>
 			{
 				UIScreenController.Instance.HideOverlay(UIScreenController.CompleteScreenId, true, Tween.TweenStyle.EaseIn);
 			};
@@ -674,22 +673,22 @@ public class GameManager : SingletonComponent<GameManager>
 
 		// Get all the tiel states
 		List<object> tileStatesObj = new List<object>();
-		
+
 		for (int i = 0; i < boardState.tileStates.Length; i++)
 		{
 			tileStatesObj.Add((int)boardState.tileStates[i]);
 		}
-		
+
 		jsonObj.Add("tileStates", tileStatesObj);
 
 		// Get all the tile letters
 		List<object> tileLettersObj = new List<object>();
-		
+
 		for (int i = 0; i < boardState.tileLetters.Length; i++)
 		{
 			tileLettersObj.Add(boardState.tileLetters[i].ToString());
 		}
-		
+
 		jsonObj.Add("tileLetters", tileLettersObj);
 
 		// Get all the hint letters shown
@@ -725,7 +724,7 @@ public class GameManager : SingletonComponent<GameManager>
 		// Parse the found words
 		JSONArray foundWordsJson	= json["foundWords"].AsArray;
 		boardState.foundWords		= new bool[foundWordsJson.Count];
-		
+
 		for (int i = 0; i < foundWordsJson.Count; i++)
 		{
 			boardState.foundWords[i] = foundWordsJson[i].AsBool;
@@ -734,7 +733,7 @@ public class GameManager : SingletonComponent<GameManager>
 		// Parse the tile states
 		JSONArray tileStatesJson	= json["tileStates"].AsArray;
 		boardState.tileStates		= new BoardState.TileState[tileStatesJson.Count];
-		
+
 		for (int i = 0; i < tileStatesJson.Count; i++)
 		{
 			boardState.tileStates[i] = (BoardState.TileState)tileStatesJson[i].AsInt;
@@ -743,7 +742,7 @@ public class GameManager : SingletonComponent<GameManager>
 		// Parse the tile lettes
 		JSONArray tileLettersJson	= json["tileLetters"].AsArray;
 		boardState.tileLetters		= new char[tileLettersJson.Count];
-		
+
 		for (int i = 0; i < tileLettersJson.Count; i++)
 		{
 			boardState.tileLetters[i] = System.Convert.ToChar(tileLettersJson[i].Value);
@@ -752,7 +751,7 @@ public class GameManager : SingletonComponent<GameManager>
 		// Parse the hint letters
 		JSONArray hintLettersJson	= json["hintLetters"].AsArray;
 		boardState.hintLettersShown	= new List<int[]>(hintLettersJson.Count);
-		
+
 		for (int i = 0; i < hintLettersJson.Count; i++)
 		{
 			string[] hintLetter = hintLettersJson[i].Value.Split(',');
