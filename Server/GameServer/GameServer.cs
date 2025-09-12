@@ -1,53 +1,48 @@
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace WordBrainServer;
 
 public class GameServer
 {
-    private TcpListener _tcpListener;
-    private readonly ConcurrentDictionary<string, GameRoom> _rooms = new();
-    private readonly ConcurrentDictionary<Guid, Player> _players = new();
+    private readonly TcpListener                                  _tcpListener;
+    private readonly ConcurrentDictionary<string, GameRoom>       _rooms       = new();
+    private readonly ConcurrentDictionary<Guid, Player>           _players     = new();
     private readonly ConcurrentDictionary<Guid, ClientConnection> _connections = new();
-    private bool _isRunning;
-    private readonly int _port;
+    private          bool                                         _isRunning;
+    private readonly int                                          _port;
 
     public GameServer(int port = 8080)
     {
-        _port = port;
-        _tcpListener = new TcpListener(IPAddress.Any, port);
+        this._port     = port;
+        this._tcpListener = new TcpListener(IPAddress.Any, port);
     }
 
     public async Task StartAsync()
     {
-        _tcpListener.Start();
-        _isRunning = true;
-        Console.WriteLine($"Game Server started on port {_port}");
+        this._tcpListener.Start();
+        this._isRunning = true;
+        Console.WriteLine($"Game Server started on port {this._port}");
 
-        _ = Task.Run(AcceptClientsAsync);
-        _ = Task.Run(HeartbeatLoopAsync);
+        _ = Task.Run(this.AcceptClientsAsync);
+        _ = Task.Run(this.HeartbeatLoopAsync);
     }
 
     private async Task AcceptClientsAsync()
     {
-        while (_isRunning)
+        while (this._isRunning)
         {
             try
             {
-                var tcpClient = await _tcpListener.AcceptTcpClientAsync();
+                var tcpClient  = await this._tcpListener.AcceptTcpClientAsync();
                 var connection = new ClientConnection(tcpClient);
-                _connections[connection.Id] = connection;
-                
+                this._connections[connection.Id] = connection;
+
                 Console.WriteLine($"Client connected: {connection.Id}");
-                _ = Task.Run(() => HandleClientAsync(connection));
+                _ = Task.Run(() => this.HandleClientAsync(connection));
             }
             catch (Exception ex)
             {
@@ -62,7 +57,7 @@ public class GameServer
         {
             await foreach (var message in connection.ReadMessagesAsync())
             {
-                await ProcessMessageAsync(connection, message);
+                await this.ProcessMessageAsync(connection, message);
             }
         }
         catch (Exception ex)
@@ -71,7 +66,7 @@ public class GameServer
         }
         finally
         {
-            await DisconnectPlayerAsync(connection);
+            await this.DisconnectPlayerAsync(connection);
         }
     }
 
@@ -82,22 +77,22 @@ public class GameServer
             switch (message.Type)
             {
                 case "CREATE_ROOM":
-                    await HandleCreateRoom(connection, message);
+                    await this.HandleCreateRoom(connection, message);
                     break;
                 case "JOIN_ROOM":
-                    await HandleJoinRoom(connection, message);
+                    await this.HandleJoinRoom(connection, message);
                     break;
                 case "LEAVE_ROOM":
-                    await HandleLeaveRoom(connection);
+                    await this.HandleLeaveRoom(connection);
                     break;
                 case "PLAYER_READY":
-                    await HandlePlayerReady(connection);
+                    await this.HandlePlayerReady(connection);
                     break;
                 case "START_GAME":
-                    await HandleStartGame(connection);
+                    await this.HandleStartGame(connection);
                     break;
                 case "SUBMIT_ANSWER":
-                    await HandleSubmitAnswer(connection, message);
+                    await this.HandleSubmitAnswer(connection, message);
                     break;
                 case "HEARTBEAT":
                     await connection.SendAsync(new GameMessage { Type = "HEARTBEAT" });
@@ -106,9 +101,9 @@ public class GameServer
         }
         catch (Exception ex)
         {
-            await connection.SendAsync(new GameMessage 
-            { 
-                Type = "ERROR", 
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
                 Data = JsonSerializer.Serialize(new { error = ex.Message })
             });
         }
@@ -117,18 +112,18 @@ public class GameServer
     private async Task HandleCreateRoom(ClientConnection connection, GameMessage message)
     {
         var data = JsonSerializer.Deserialize<CreateRoomData>(message.Data);
-        
+
         var player = new Player
         {
             Id = Guid.NewGuid(),
             ConnectionId = connection.Id,
             Username = data.Username
         };
-        
-        _players[player.Id] = player;
+
+        this._players[player.Id] = player;
         connection.PlayerId = player.Id;
 
-        var roomCode = GenerateRoomCode();
+        var roomCode = this.GenerateRoomCode();
         var room = new GameRoom
         {
             Code = roomCode,
@@ -137,11 +132,11 @@ public class GameServer
             MaxPlayers = data.MaxPlayers,
             LevelDuration = data.LevelDuration
         };
-        
+
         room.Players[player.Id] = player;
         player.RoomCode = roomCode;
-        
-        _rooms[roomCode] = room;
+
+        this._rooms[roomCode] = room;
 
         await connection.SendAsync(new GameMessage
         {
@@ -155,8 +150,8 @@ public class GameServer
     private async Task HandleJoinRoom(ClientConnection connection, GameMessage message)
     {
         var data = JsonSerializer.Deserialize<JoinRoomData>(message.Data);
-        
-        if (!_rooms.TryGetValue(data.RoomCode, out var room))
+
+        if (!this._rooms.TryGetValue(data.RoomCode, out var room))
         {
             throw new Exception("Room not found");
         }
@@ -173,23 +168,23 @@ public class GameServer
             Username = data.Username,
             RoomCode = data.RoomCode
         };
-        
-        _players[player.Id] = player;
+
+        this._players[player.Id] = player;
         connection.PlayerId = player.Id;
         room.Players[player.Id] = player;
 
         await connection.SendAsync(new GameMessage
         {
             Type = "ROOM_JOINED",
-            Data = JsonSerializer.Serialize(new 
-            { 
+            Data = JsonSerializer.Serialize(new
+            {
                 roomCode = room.Code,
                 playerId = player.Id,
                 players = room.Players.Values.Select(p => new { p.Id, p.Username, p.IsReady })
             })
         });
 
-        await BroadcastToRoomExcept(room, connection.Id, new GameMessage
+        await this.BroadcastToRoomExcept(room, connection.Id, new GameMessage
         {
             Type = "PLAYER_JOINED",
             Data = JsonSerializer.Serialize(new { player.Id, player.Username })
@@ -203,18 +198,18 @@ public class GameServer
         if (!connection.PlayerId.HasValue)
             return;
 
-        var player = _players.GetValueOrDefault(connection.PlayerId.Value);
+        var player = this._players.GetValueOrDefault(connection.PlayerId.Value);
         if (player?.RoomCode == null)
             return;
 
-        var room = _rooms.GetValueOrDefault(player.RoomCode);
+        var room = this._rooms.GetValueOrDefault(player.RoomCode);
         if (room == null)
             return;
 
         room.Players.TryRemove(player.Id, out _);
         player.RoomCode = null;
 
-        await BroadcastToRoom(room, new GameMessage
+        await this.BroadcastToRoom(room, new GameMessage
         {
             Type = "PLAYER_LEFT",
             Data = JsonSerializer.Serialize(new { playerId = player.Id })
@@ -222,7 +217,7 @@ public class GameServer
 
         if (room.Players.Count == 0)
         {
-            _rooms.TryRemove(room.Code, out _);
+            this._rooms.TryRemove(room.Code, out _);
             Console.WriteLine($"Room {room.Code} closed");
         }
     }
@@ -232,17 +227,17 @@ public class GameServer
         if (!connection.PlayerId.HasValue)
             return;
 
-        var player = _players.GetValueOrDefault(connection.PlayerId.Value);
+        var player = this._players.GetValueOrDefault(connection.PlayerId.Value);
         if (player?.RoomCode == null)
             return;
 
-        var room = _rooms.GetValueOrDefault(player.RoomCode);
+        var room = this._rooms.GetValueOrDefault(player.RoomCode);
         if (room == null)
             return;
 
         player.IsReady = true;
 
-        await BroadcastToRoom(room, new GameMessage
+        await this.BroadcastToRoom(room, new GameMessage
         {
             Type = "PLAYER_READY",
             Data = JsonSerializer.Serialize(new { playerId = player.Id, isReady = true })
@@ -254,11 +249,11 @@ public class GameServer
         if (!connection.PlayerId.HasValue)
             return;
 
-        var player = _players.GetValueOrDefault(connection.PlayerId.Value);
+        var player = this._players.GetValueOrDefault(connection.PlayerId.Value);
         if (player?.RoomCode == null)
             return;
 
-        var room = _rooms.GetValueOrDefault(player.RoomCode);
+        var room = this._rooms.GetValueOrDefault(player.RoomCode);
         if (room == null || room.HostId != player.Id)
             throw new Exception("Only host can start the game");
 
@@ -268,15 +263,15 @@ public class GameServer
         room.GameState = new GameState
         {
             CurrentLevel = 1,
-            GridData = GenerateGrid(room.CurrentLevel),
-            TargetWords = GenerateTargetWords(room.Topic, room.CurrentLevel)
+            GridData     = this.GenerateGrid(room.CurrentLevel),
+            TargetWords  = this.GenerateTargetWords(room.Topic, room.CurrentLevel)
         };
 
-        await BroadcastToRoom(room, new GameMessage
+        await this.BroadcastToRoom(room, new GameMessage
         {
             Type = "GAME_STARTED",
-            Data = JsonSerializer.Serialize(new 
-            { 
+            Data = JsonSerializer.Serialize(new
+            {
                 level = room.GameState.CurrentLevel,
                 grid = room.GameState.GridData,
                 words = room.GameState.TargetWords,
@@ -292,29 +287,29 @@ public class GameServer
         if (!connection.PlayerId.HasValue)
             return;
 
-        var player = _players.GetValueOrDefault(connection.PlayerId.Value);
+        var player = this._players.GetValueOrDefault(connection.PlayerId.Value);
         if (player?.RoomCode == null)
             return;
 
-        var room = _rooms.GetValueOrDefault(player.RoomCode);
+        var room = this._rooms.GetValueOrDefault(player.RoomCode);
         if (room?.GameState == null)
             return;
 
         var data = JsonSerializer.Deserialize<SubmitAnswerData>(message.Data);
-        
-        bool isCorrect = room.GameState.TargetWords.Contains(data.Answer, StringComparer.OrdinalIgnoreCase);
-        
+
+        var isCorrect = room.GameState.TargetWords.Contains(data.Answer, StringComparer.OrdinalIgnoreCase);
+
         if (isCorrect)
         {
-            player.Score += CalculateScore(data.TimeTaken);
+            player.Score += this.CalculateScore(data.TimeTaken);
             room.GameState.FoundWords.Add(data.Answer);
         }
 
-        await BroadcastToRoom(room, new GameMessage
+        await this.BroadcastToRoom(room, new GameMessage
         {
             Type = "ANSWER_RESULT",
-            Data = JsonSerializer.Serialize(new 
-            { 
+            Data = JsonSerializer.Serialize(new
+            {
                 playerId = player.Id,
                 answer = data.Answer,
                 isCorrect,
@@ -325,29 +320,29 @@ public class GameServer
 
         if (room.GameState.FoundWords.Count == room.GameState.TargetWords.Count)
         {
-            await NextLevel(room);
+            await this.NextLevel(room);
         }
     }
 
     private async Task NextLevel(GameRoom room)
     {
         room.GameState.CurrentLevel++;
-        
+
         if (room.GameState.CurrentLevel > room.TotalLevels)
         {
-            await EndGame(room);
+            await this.EndGame(room);
             return;
         }
 
-        room.GameState.GridData = GenerateGrid(room.GameState.CurrentLevel);
-        room.GameState.TargetWords = GenerateTargetWords(room.Topic, room.GameState.CurrentLevel);
+        room.GameState.GridData    = this.GenerateGrid(room.GameState.CurrentLevel);
+        room.GameState.TargetWords = this.GenerateTargetWords(room.Topic, room.GameState.CurrentLevel);
         room.GameState.FoundWords.Clear();
 
-        await BroadcastToRoom(room, new GameMessage
+        await this.BroadcastToRoom(room, new GameMessage
         {
             Type = "NEXT_LEVEL",
-            Data = JsonSerializer.Serialize(new 
-            { 
+            Data = JsonSerializer.Serialize(new
+            {
                 level = room.GameState.CurrentLevel,
                 grid = room.GameState.GridData,
                 words = room.GameState.TargetWords,
@@ -363,7 +358,7 @@ public class GameServer
             .Select(p => new { p.Id, p.Username, p.Score })
             .ToList();
 
-        await BroadcastToRoom(room, new GameMessage
+        await this.BroadcastToRoom(room, new GameMessage
         {
             Type = "GAME_ENDED",
             Data = JsonSerializer.Serialize(new { results })
@@ -380,10 +375,10 @@ public class GameServer
     private async Task BroadcastToRoom(GameRoom room, GameMessage message)
     {
         var tasks = room.Players.Values
-            .Select(p => _connections.GetValueOrDefault(p.ConnectionId))
+            .Select(p => this._connections.GetValueOrDefault(p.ConnectionId))
             .Where(c => c != null)
             .Select(c => c.SendAsync(message));
-        
+
         await Task.WhenAll(tasks);
     }
 
@@ -391,39 +386,39 @@ public class GameServer
     {
         var tasks = room.Players.Values
             .Where(p => p.ConnectionId != exceptConnectionId)
-            .Select(p => _connections.GetValueOrDefault(p.ConnectionId))
+            .Select(p => this._connections.GetValueOrDefault(p.ConnectionId))
             .Where(c => c != null)
             .Select(c => c.SendAsync(message));
-        
+
         await Task.WhenAll(tasks);
     }
 
     private async Task DisconnectPlayerAsync(ClientConnection connection)
     {
-        await HandleLeaveRoom(connection);
-        
+        await this.HandleLeaveRoom(connection);
+
         if (connection.PlayerId.HasValue)
         {
-            _players.TryRemove(connection.PlayerId.Value, out _);
+            this._players.TryRemove(connection.PlayerId.Value, out _);
         }
-        
-        _connections.TryRemove(connection.Id, out _);
+
+        this._connections.TryRemove(connection.Id, out _);
         await connection.DisconnectAsync();
-        
+
         Console.WriteLine($"Client disconnected: {connection.Id}");
     }
 
     private async Task HeartbeatLoopAsync()
     {
-        while (_isRunning)
+        while (this._isRunning)
         {
-            var disconnected = _connections.Values
+            var disconnected = this._connections.Values
                 .Where(c => c.IsTimedOut())
                 .ToList();
 
             foreach (var connection in disconnected)
             {
-                await DisconnectPlayerAsync(connection);
+                await this.DisconnectPlayerAsync(connection);
             }
 
             await Task.Delay(5000);
@@ -432,17 +427,17 @@ public class GameServer
 
     private string GenerateRoomCode()
     {
-        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        const string CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         var random = new Random();
         string code;
-        
+
         do
         {
             code = new string(Enumerable.Range(0, 6)
-                .Select(_ => chars[random.Next(chars.Length)])
+                .Select(_ => CHARS[random.Next(CHARS.Length)])
                 .ToArray());
-        } while (_rooms.ContainsKey(code));
-        
+        } while (this._rooms.ContainsKey(code));
+
         return code;
     }
 
@@ -451,12 +446,12 @@ public class GameServer
         var size = Math.Min(4 + level / 3, 8);
         var random = new Random();
         var grid = new char[size * size];
-        
-        for (int i = 0; i < grid.Length; i++)
+
+        for (var i = 0; i < grid.Length; i++)
         {
             grid[i] = (char)('A' + random.Next(26));
         }
-        
+
         return new string(grid);
     }
 
@@ -464,12 +459,12 @@ public class GameServer
     {
         var wordCount = Math.Min(3 + level / 2, 8);
         var words = new List<string>();
-        
-        for (int i = 0; i < wordCount; i++)
+
+        for (var i = 0; i < wordCount; i++)
         {
             words.Add($"{topic}_{level}_{i}");
         }
-        
+
         return words;
     }
 
@@ -482,14 +477,14 @@ public class GameServer
 
     public async Task StopAsync()
     {
-        _isRunning = false;
-        _tcpListener.Stop();
-        
-        foreach (var connection in _connections.Values)
+        this._isRunning = false;
+        this._tcpListener.Stop();
+
+        foreach (var connection in this._connections.Values)
         {
             await connection.DisconnectAsync();
         }
-        
+
         Console.WriteLine("Game Server stopped");
     }
 }
@@ -504,10 +499,10 @@ public class ClientConnection
 
     public ClientConnection(TcpClient tcpClient)
     {
-        Id = Guid.NewGuid();
-        _tcpClient = tcpClient;
-        _stream = tcpClient.GetStream();
-        _lastHeartbeat = DateTime.UtcNow;
+        this.Id          = Guid.NewGuid();
+        this._tcpClient  = tcpClient;
+        this._stream     = tcpClient.GetStream();
+        this._lastHeartbeat = DateTime.UtcNow;
     }
 
     public async Task SendAsync(GameMessage message)
@@ -515,10 +510,10 @@ public class ClientConnection
         var json = JsonSerializer.Serialize(message);
         var bytes = Encoding.UTF8.GetBytes(json);
         var lengthBytes = BitConverter.GetBytes(bytes.Length);
-        
-        await _stream.WriteAsync(lengthBytes);
-        await _stream.WriteAsync(bytes);
-        await _stream.FlushAsync();
+
+        await this._stream.WriteAsync(lengthBytes);
+        await this._stream.WriteAsync(bytes);
+        await this._stream.FlushAsync();
     }
 
     public async IAsyncEnumerable<GameMessage> ReadMessagesAsync()
@@ -526,13 +521,13 @@ public class ClientConnection
         var buffer = new byte[4096];
         var messageBuffer = new List<byte>();
 
-        while (_tcpClient.Connected)
+        while (this._tcpClient.Connected)
         {
-            var bytesRead = await _stream.ReadAsync(buffer);
+            var bytesRead = await this._stream.ReadAsync(buffer);
             if (bytesRead == 0)
                 break;
 
-            _lastHeartbeat = DateTime.UtcNow;
+            this._lastHeartbeat = DateTime.UtcNow;
             messageBuffer.AddRange(buffer.Take(bytesRead));
 
             while (messageBuffer.Count >= 4)
@@ -547,7 +542,7 @@ public class ClientConnection
 
                     var json = Encoding.UTF8.GetString(messageBytes);
                     var message = JsonSerializer.Deserialize<GameMessage>(json);
-                    
+
                     if (message != null)
                         yield return message;
                 }
@@ -559,17 +554,17 @@ public class ClientConnection
         }
     }
 
-    public bool IsTimedOut() => DateTime.UtcNow.Subtract(_lastHeartbeat).TotalSeconds > 30;
+    public bool IsTimedOut() => DateTime.UtcNow.Subtract(this._lastHeartbeat).TotalSeconds > 30;
 
     public async Task DisconnectAsync()
     {
         try
         {
-            _stream?.Close();
-            _tcpClient?.Close();
+            this._stream?.Close();
+            this._tcpClient?.Close();
         }
         catch { }
-        
+
         await Task.CompletedTask;
     }
 }
