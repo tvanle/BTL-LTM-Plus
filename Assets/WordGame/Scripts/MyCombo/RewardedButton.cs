@@ -32,7 +32,9 @@ this.button.onClick.AddListener(this.OnClick);
 
     public void OnClick()
     {
-        AdmobController.instance.ShowRewardBasedVideo();
+        // Ads removed - directly award reward instead
+        GameManager.Instance.AddHint(GameConfig.instance.rewardedVideoAmount);
+        CUtils.SetActionTime(ACTION_NAME);
     }
 
     public bool IsAvailableToShow()

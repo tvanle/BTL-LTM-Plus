@@ -403,10 +403,7 @@ public class GameManager : SingletonComponent<GameManager>
 			});
 		}
 
-        Timer.Schedule(this, 0.5f, () =>
-        {
-            CUtils.ShowInterstitialAd();
-        });
+        // Ads removed - no interstitial on word found
 	}
 
 	/// <summary>
@@ -524,29 +521,7 @@ public class GameManager : SingletonComponent<GameManager>
 	{
 		yield return new WaitForSeconds(1f);
 
-		#if UNITY_ADS
-		// If Unity Ads is on and the player completed the proper amount of levels then show an ad
-		if (enableAds && LevelsToCompleteBeforeAd <= 0)
-		{
-			LevelsToCompleteBeforeAd = adLevelCompleteAmount;
-
-			UnityEngine.Advertisements.ShowOptions adShowOptions = new UnityEngine.Advertisements.ShowOptions();
-
-			// Show the ad first and when its done then hide the complete overlay
-			adShowOptions.resultCallback = (UnityEngine.Advertisements.ShowResult adShowResult) =>
-			{
-				UIScreenController.Instance.HideOverlay(UIScreenController.CompleteScreenId, true, Tween.TweenStyle.EaseIn);
-			};
-
-			UnityEngine.Advertisements.Advertisement.Show(zoneId, adShowOptions);
-		}
-		else
-		{
-			UIScreenController.Instance.HideOverlay(UIScreenController.CompleteScreenId, true, Tween.TweenStyle.EaseIn);
-		}
-		#else
 		UIScreenController.Instance.HideOverlay(UIScreenController.CompleteScreenId, true, Tween.TweenStyle.EaseIn);
-		#endif
 	}
 
 	/// <summary>
@@ -765,9 +740,6 @@ public class GameManager : SingletonComponent<GameManager>
 
     private void OnApplicationPause(bool pause)
     {
-        if (!pause)
-        {
-            CUtils.ShowInterstitialAd();
-        }
+        // Ads removed - no interstitial on app resume
     }
 }

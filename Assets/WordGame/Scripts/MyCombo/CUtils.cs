@@ -98,19 +98,7 @@ public class CUtils
 
     public static void ShowInterstitialAd()
     {
-        if (IsActionAvailable("show_ads", GameConfig.instance.adPeriod))
-        {
-#if UNITY_ANDROID || UNITY_IPHONE
-            bool result = AdmobController.instance.ShowInterstitial();
-            if (result == false) AdmobController.instance.RequestInterstitial();
-            if (result) SetActionTime("show_ads");
-#else
-            if (JobWorker.instance.onShowInterstitial != null)
-            {
-                JobWorker.instance.onShowInterstitial();
-                SetActionTime("show_ads");
-            }
-#endif
-        }
+        // Ads removed - keeping method for compatibility but no action
+        SetActionTime("show_ads");
     }
 }

@@ -1242,7 +1242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.000030517578, y: 89.4}
+  m_AnchoredPosition: {x: 0.000030517578, y: 89.3999}
   m_SizeDelta: {x: 898, y: 220}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &389794520
@@ -4238,54 +4238,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1378351953}
   m_CullTransparentMesh: 1
---- !u!1 &1429844346
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1429844349}
-  - component: {fileID: 1429844348}
-  m_Layer: 0
-  m_Name: Google Mobile Ads (Admob) - Settings
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1429844348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1429844346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a746ac8a15e3d4dac874e6d989e78d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  androidInterstitial: ca-app-pub-1040245951644301/3981251479
-  iosInterstitial: ca-app-pub-1040245951644301/9888184277
-  androidRewardedVideo: ca-app-pub-1040245951644301/5457984679
-  iosRewardedVideo: ca-app-pub-1040245951644301/2364917470
---- !u!4 &1429844349
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1429844346}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1447162812
 GameObject:
   m_ObjectHideFlags: 0
@@ -9193,5 +9145,4 @@ SceneRoots:
   - {fileID: 875211338}
   - {fileID: 1756520418}
   - {fileID: 1095329043}
-  - {fileID: 1429844349}
   - {fileID: 2004906281}
