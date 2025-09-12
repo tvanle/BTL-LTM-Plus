@@ -19,7 +19,7 @@ public class LetterTile : MonoBehaviour
 
 	#region Properties
 
-	public Text LetterText { get { return this.letterText; } }
+	public Text LetterText => this.letterText;
 	public int  TileIndex  { get; set; }
 	public bool Selected   { get; set; }
 	public bool Found      { get; set; }

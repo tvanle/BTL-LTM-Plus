@@ -7,15 +7,15 @@ using System.Threading;
 /// <summary>
 /// WordBoardCreator handles taking a array of string words and creating a WordBoard out of them where all letters of the words
 /// are connected either horizontally, vertically, or diagnoally from end to end.
-/// 
+///
 /// When one of the StartCreatingBoard methods is called, a new Thread is created in order to process the board in the background
 /// and not cause the game to lag. The Board could end up taking a couple seconds to successfully complete depending on where it
 /// chooses to randomly place the words. When it is done, it sets the boardState enum to either DoneSuccess (indicating the
 /// Board has finished processing and successfully placed all words on the board) or DoneFailed (indicating that it is impossible
 /// to place the given words on the Board with the given settings). In practise I have never gotten a DoneFailed state, but I
 /// have to put it in.
-/// 
-/// Once the board enters the DoneComplete or DoneFailed state the OnBoardFinished callback will be called on the Main Thread with 
+///
+/// Once the board enters the DoneComplete or DoneFailed state the OnBoardFinished callback will be called on the Main Thread with
 /// the finished Board.
 /// </summary>
 public class WordBoardCreator : MonoBehaviour
@@ -40,7 +40,7 @@ public class WordBoardCreator : MonoBehaviour
 
 	#region Member Variables
 
-	private List<ActiveThread> activeThreads = new List<ActiveThread>();
+	private readonly List<ActiveThread> activeThreads = new List<ActiveThread>();
 
 	#endregion
 
@@ -127,7 +127,7 @@ public class WordBoardCreator : MonoBehaviour
 	/// <summary>
 	/// Starts the creation of a new board, if it takes longer than restartTimer (in milliseconds) then it will abort and
 	/// try again. Most of the time board creation takes less than a couple seconds but if there are alot of long words then the
-	/// board can get itself in a state that takes a long time to find a fit for all the words. The easiest way to reslove 
+	/// board can get itself in a state that takes a long time to find a fit for all the words. The easiest way to reslove
 	/// this issue is to restart the board creation.
 	/// </summary>
 	public bool StartCreatingBoard(string id, string[] words, OnBoardFinished callback, long restartTimer)
@@ -217,13 +217,15 @@ public class WordBoardCreator : MonoBehaviour
 		board.restartTime	= restartTime;
 
 		// Create a new ActiveThread object that will hold information about the thread/board
-		var activeThread	= new ActiveThread();
-		activeThread.id				= id;
-		activeThread.board			= board;
-		activeThread.callback		= callback;
+		var activeThread	= new ActiveThread
+		{
+			id       = id,
+			board    = board,
+			callback = callback,
+			// Create the new Thread to start processing the Board
+			thread   = new Thread(new ThreadStart(() => this.ProcessBoard(board, words))),
+		};
 
-		// Create the new Thread to start processing the Board
-		activeThread.thread = new Thread(new ThreadStart(() => this.ProcessBoard(board, words)));
 		activeThread.thread.Start();
 
 		this.activeThreads.Add(activeThread);
@@ -238,7 +240,7 @@ public class WordBoardCreator : MonoBehaviour
 	{
 		var letterCount = 0;
 
-		// Get the total number of letters from all words		
+		// Get the total number of letters from all words
 		for (var i = 0; i < words.Length; i++)
 		{
 			letterCount += words[i].Length;
@@ -369,7 +371,7 @@ public class WordBoardCreator : MonoBehaviour
 	/// indexes of board.wordTiles that a letter can be placed on. The int "letterIndex" is the character in the word at words[0]
 	/// that is next to be placed. The int "lastPlacedIndex" is the index in board.wordTiles of the last letter that was placed
 	/// on the board (-1 if letterIndex is 0, ie. we are placing the first letter).
-	/// 
+	///
 	/// This part of the algorithm works by getting all possible places for the letter at words[0][letterIndex] can go then
 	/// trying each on. If it runs out of possible places then it returns false indicating to the letter before it that it needs
 	/// to pick another place. Once the full word is place on the board it calls FillRestOfWords method to continue to the next
@@ -1031,7 +1033,7 @@ public class WordBoardCreator : MonoBehaviour
 		for (var i = 0; i < wordSizes.Count; i++)
 		{
 			if (wordSizes[i] <= regionSize)
-			{ 
+			{
 				var	removed		= false;
 				var		wordSize	= wordSizes[i];
 				var		wordIndex	= wordIndexes[i];

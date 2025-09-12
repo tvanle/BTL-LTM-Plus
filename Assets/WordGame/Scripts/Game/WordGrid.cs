@@ -189,7 +189,7 @@ public class WordGrid : MonoBehaviour
 	/// </summary>
 	public void FoundWord(string word, List<LetterTile> letterTiles, Tween.OnTweenFinished onTweenFinished)
 	{
-		if (!this.allGridTiles.ContainsKey(word))
+		if (!this.allGridTiles.TryGetValue(word, out var gridTiles))
 		{
 			Debug.LogErrorFormat("There is no word \"{0}\" on the WordGrid. Hidding the GameTiles.", word);
 
@@ -203,7 +203,6 @@ public class WordGrid : MonoBehaviour
 		}
 
 		// Get the grid tiles for the word
-		var gridTiles = this.allGridTiles[word];
 
 		// Loop through each of the LetterTiles and animate them to the location of the GridTile
 		for (var i = 0; i < letterTiles.Count; i++)
@@ -330,7 +329,7 @@ public class WordGrid : MonoBehaviour
 		gridTile.gridTileObject.gameObject.SetActive(false);
 
 		// Get the scale of the letter tile so that it will be scaled down to the size of a grid tile
-		var scale = this.tileSize / (letterTile.transform as RectTransform).rect.width;
+		var scale = this.tileSize / ((RectTransform)letterTile.transform).rect.width;
 
 		// Set the scale of the LetterTIle, set its localPosition to zero, then set its parent to be the letter_tile_container we created befor
 		letterTile.transform.localScale		= new Vector3(scale, scale, 1f);

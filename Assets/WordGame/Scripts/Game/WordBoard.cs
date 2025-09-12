@@ -54,22 +54,25 @@ public class WordBoard
 	/// </summary>
 	public WordBoard Copy()
 	{
-		var newBoard = new WordBoard();
+		var newBoard = new WordBoard
+		{
+			id   = this.id,
+			size = this.size,
+		};
 
-		newBoard.id        = this.id;
-		newBoard.size      = this.size;
-		newBoard.wordTiles = new WordBoard.WordTile[newBoard.size * newBoard.size];
+		newBoard.wordTiles = new WordTile[newBoard.size * newBoard.size];
 
 		for (var i = 0; i < newBoard.wordTiles.Length; i++)
 		{
 			var wordTile    = this.wordTiles[i];
-			var newWordTile = new WordBoard.WordTile();
-
-			newWordTile.hasLetter		= wordTile.hasLetter;
-			newWordTile.letter			= wordTile.letter;
-			newWordTile.region			= wordTile.region;
-			newWordTile.regionLocked	= wordTile.regionLocked;
-			newWordTile.used			= wordTile.used;
+			var newWordTile = new WordTile
+			{
+				hasLetter    = wordTile.hasLetter,
+				letter       = wordTile.letter,
+				region       = wordTile.region,
+				regionLocked = wordTile.regionLocked,
+				used         = wordTile.used,
+			};
 
 			newBoard.wordTiles[i] = newWordTile;
 		}
