@@ -1958,6 +1958,87 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 190}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!1 &649131324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 649131327}
+  - component: {fileID: 649131326}
+  - component: {fileID: 649131325}
+  m_Layer: 0
+  m_Name: NetworkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &649131325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649131324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21746e994896ef42b20ac93350e4ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuPanel: {fileID: 0}
+  roomPanel: {fileID: 0}
+  gamePanel: {fileID: 0}
+  usernameInput: {fileID: 0}
+  topicInput: {fileID: 0}
+  roomCodeInput: {fileID: 0}
+  createRoomButton: {fileID: 0}
+  joinRoomButton: {fileID: 0}
+  statusText: {fileID: 0}
+  roomCodeText: {fileID: 0}
+  playerListContainer: {fileID: 0}
+  playerListItemPrefab: {fileID: 0}
+  readyButton: {fileID: 0}
+  startGameButton: {fileID: 0}
+  leaveRoomButton: {fileID: 0}
+  levelText: {fileID: 0}
+  timerText: {fileID: 0}
+  gridContainer: {fileID: 0}
+  targetWordsContainer: {fileID: 0}
+  answerInput: {fileID: 0}
+  submitButton: {fileID: 0}
+  scoreText: {fileID: 0}
+--- !u!114 &649131326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649131324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5906f2fe6f4b5c848b38e9991046c4f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serverHost: localhost
+  serverPort: 8080
+--- !u!4 &649131327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649131324}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &657904474
 GameObject:
   m_ObjectHideFlags: 0
@@ -9101,3 +9182,4 @@ SceneRoots:
   - {fileID: 875211338}
   - {fileID: 1756520418}
   - {fileID: 2004906281}
+  - {fileID: 649131327}
