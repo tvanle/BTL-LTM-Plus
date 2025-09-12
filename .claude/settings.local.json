@@ -3,7 +3,10 @@
     "allow": [
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "Bash(dotnet new:*)",
+      "Bash(dotnet add WordBrain.Application/WordBrain.Application.csproj reference WordBrain.Domain/WordBrain.Domain.csproj)",
+      "Bash(dotnet add:*)"
     ],
     "deny": [],
     "ask": []
