@@ -1,6 +1,7 @@
 using UnityEngine;
-using System.Collections;
 using System;
+using System.Threading.Tasks;
+using System.Threading;
 using UnityEngine.UI;
 
 public class TimerText : MonoBehaviour
@@ -16,6 +17,7 @@ public class TimerText : MonoBehaviour
     public Action onCountDownComplete = null;
 
     private bool isRunning = false;
+    private CancellationTokenSource cancellationTokenSource;
 
     private void Start()
     {
@@ -28,10 +30,10 @@ public class TimerText : MonoBehaviour
 
     private void OnDisable()
     {
-        this.isRunning = false;
+        this.Stop();
     }
 
-    public void Run()
+    public async void Run()
     {
         if (!this.isRunning)
         {
@@ -42,28 +44,36 @@ public class TimerText : MonoBehaviour
             }
 
             this.isRunning = true;
-            this.StartCoroutine(this.UpdateClockText());
+            this.cancellationTokenSource = new CancellationTokenSource();
+            await this.UpdateClockText(this.cancellationTokenSource.Token);
         }
     }
 
-    private IEnumerator UpdateClockText()
+    private async Task UpdateClockText(CancellationToken cancellationToken)
     {
-        while (this.isRunning)
+        try
         {
-            this.UpdateText();
-            yield return new WaitForSeconds(1);
-            if (this.countUp)
-                this.timeValue++;
-            else
+            while (this.isRunning && !cancellationToken.IsCancellationRequested)
             {
-                if (this.timeValue == 0)
-                {
-                    if (this.onCountDownComplete != null) this.onCountDownComplete();
-                    this.Stop();
-                }
+                this.UpdateText();
+                await Task.Delay(1000, cancellationToken);
+                if (this.countUp)
+                    this.timeValue++;
                 else
-                    this.timeValue--;
+                {
+                    if (this.timeValue == 0)
+                    {
+                        if (this.onCountDownComplete != null) this.onCountDownComplete();
+                        this.Stop();
+                    }
+                    else
+                        this.timeValue--;
+                }
             }
+        }
+        catch (OperationCanceledException)
+        {
+            // Task was cancelled, this is expected
         }
     }
 
@@ -104,5 +114,11 @@ public class TimerText : MonoBehaviour
     public void Stop()
     {
         this.isRunning = false;
+        if (this.cancellationTokenSource != null)
+        {
+            this.cancellationTokenSource.Cancel();
+            this.cancellationTokenSource.Dispose();
+            this.cancellationTokenSource = null;
+        }
     }
 }

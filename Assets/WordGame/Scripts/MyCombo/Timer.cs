@@ -1,19 +1,17 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Threading.Tasks;
 
 public class Timer{
-    private static MonoBehaviour behaviour;
-    public delegate void Task();
+    public delegate void TaskCallback();
 
-    public static void Schedule(MonoBehaviour behaviour, float delay, Task task)
+    public static async void Schedule(MonoBehaviour behaviour, float delay, TaskCallback task)
     {
-        Timer.behaviour = behaviour;
-        Timer.behaviour.StartCoroutine(DoTask(task, delay));
+        await DoTask(task, delay);
     }
 
-    private static IEnumerator DoTask(Task task, float delay)
+    private static async System.Threading.Tasks.Task DoTask(TaskCallback task, float delay)
     {
-        yield return new WaitForSeconds(delay);
+        await System.Threading.Tasks.Task.Delay((int)(delay * 1000));
         task();
     }
 }

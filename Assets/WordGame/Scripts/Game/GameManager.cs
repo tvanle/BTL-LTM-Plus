@@ -1,8 +1,8 @@
 using UnityEngine;
 
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 
 /// <summary>
@@ -529,12 +529,12 @@ public class GameManager : SingletonComponent<GameManager>
 			this.StartLevel(this.ActiveCategory, nextLevelIndex);
 		}
 
-		this.StartCoroutine(this.WaitThenHideCompleteScreen());
+		this.WaitThenHideCompleteScreen();
 	}
 
-	private IEnumerator WaitThenHideCompleteScreen()
+	protected virtual async void WaitThenHideCompleteScreen()
 	{
-		yield return new WaitForSeconds(1f);
+		await Task.Delay(1000);
 
 		UIScreenController.Instance.HideOverlay(UIScreenController.CompleteScreenId, true, Tween.TweenStyle.EaseIn);
 	}
