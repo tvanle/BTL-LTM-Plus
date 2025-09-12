@@ -1,105 +1,249 @@
-# WordBrain Multiplayer Project
+# WordBrain Multiplayer Game
 
-## Overview
-Chuyển đổi game WordBrain từ single-player thành multiplayer realtime theo phong cách Quizizz/Kahoot với:
-- Client-Server architecture sử dụng TCP Socket
-- Realtime gameplay với sync timing
-- Room-based multiplayer với RoomCode
-- Live leaderboard và scoring system
-- Booster/Power-ups system
+## Project Overview
+WordBrain multiplayer realtime game với kiến trúc client-server, hỗ trợ nhiều platform (Unity Editor, Windows, Android, iOS).
 
-## Architecture
+## Current Architecture
 
 ### Client (Unity)
-- **Networking**: TCP Socket client để connect server
-- **UI**: Room management, lobby, gameplay, leaderboard
-- **Game Logic**: Local validation + server verification
-- **Real-time Updates**: Receive game state từ server
+- **Unity 2022.3+** với C# modern features
+- **TCP Socket** connection với server
+- **JsonUtility** thay thế SimpleJSON
+- **async/await** thay thế tất cả IEnumerator/Coroutines
+- **LINQ** cho functional programming
+- **No third-party**: Đã xóa AdMob, Firebase, GoogleMobileAds
 
-### Server (.NET Core)
-- **Protocol**: TCP Socket server với custom protocol
-- **Architecture**: Clean Architecture + SOLID principles
-- **Database**: Entity Framework Core (SQL Server/PostgreSQL)
-- **Features**: Room management, user authentication, game logic, leaderboard
+### Server (.NET)
+- **.NET 9.0** Console Application
+- **Simple TCP Server** - Không dùng layered architecture phức tạp
+- **In-Memory State** - ConcurrentDictionary, không cần database
+- **Real-time** - Direct socket messaging
+- **Single file** - GameServer.cs chứa toàn bộ logic
 
 ## Project Structure
 
 ```
 WordBrain/
-├── Client/ (Unity Project hiện tại)
-├── Server/ (sẽ tạo .NET Core project)
-│   ├── WordBrain.Domain/          # Entities, Value Objects
-│   ├── WordBrain.Application/     # Use Cases, Services
-│   ├── WordBrain.Infrastructure/  # Database, External services
-│   ├── WordBrain.Network/         # TCP Server, Protocol handling
-│   └── WordBrain.API/            # Entry point, DI container
-└── Shared/ (Protocol definitions, DTOs)
+├── Assets/
+│   └── WordGame/
+│       ├── Scripts/
+│       │   ├── Network/                    # Multiplayer networking
+│       │   │   ├── NetworkManager.cs       # TCP client, handles connection
+│       │   │   ├── MultiplayerGameController.cs  # Game UI & logic
+│       │   │   └── UnityMainThreadDispatcher.cs  # Thread synchronization
+│       │   ├── GamePlay/
+│       │   │   ├── GameManager.cs          # Core game logic (refactored)
+│       │   │   ├── Timer.cs                # Async timer (no coroutines)
+│       │   │   └── WordRegion.cs           # Word grid management
+│       │   ├── UI/
+│       │   │   ├── HomeManager.cs          # Menu navigation
+│       │   │   ├── Dialog.cs               # UI dialogs
+│       │   │   └── RewardedButton.cs       # Direct rewards (no ads)
+│       │   └── Utilities/
+│       │       ├── CUtils.cs               # Common utilities
+│       │       └── Utilities.cs            # LINQ-based helpers
+│       └── GAMEPLAY.md                     # Game specifications
+│
+└── Server/
+    └── GameServer/
+        ├── GameServer.cs                   # Main TCP server (all logic)
+        ├── Program.cs                      # Entry point
+        └── GameServer.csproj               # .NET 9 project
 ```
 
-## Implementation Plan
+## Key Refactoring Done
 
-### Phase 1: Server Foundation
-1. Tạo .NET Core server project với Clean Architecture
-2. Implement TCP Socket server
-3. Define network protocol (messages, serialization)
-4. Basic room management
-5. User authentication & database
+### 1. Dependencies Removed
+- ✅ AdMob/Unity Ads - All ad code removed
+- ✅ Firebase - Analytics & services removed  
+- ✅ SimpleJSON - Replaced with JsonUtility
+- ✅ GoogleMobileAds - Completely removed
 
-### Phase 2: Core Multiplayer Features
-1. Room creation/joining system
-2. Player synchronization trong lobby
-3. Game state management
-4. Real-time messaging system
-5. Basic scoring system
+### 2. Code Modernization
+- ✅ IEnumerator → async/await Task
+- ✅ For loops → LINQ expressions
+- ✅ Properties → Fields (for JsonUtility compatibility)
+- ✅ Callbacks → Events/Actions pattern
 
-### Phase 3: Advanced Features
-1. Live leaderboard updates
-2. Booster/Power-ups system
-3. Streak & tie-break logic
-4. Performance optimization
-5. Anti-cheat measures
+### 3. Multiplayer Implementation
+- ✅ TCP Socket server (not REST/HTTP)
+- ✅ Room-based system with codes
+- ✅ Real-time game synchronization
+- ✅ Live scoring & leaderboard
 
-### Phase 4: Client Integration
-1. Refactor Unity client cho multiplayer
-2. Network manager integration
-3. UI updates cho multiplayer
-4. Testing & debugging
-5. Deploy & monitoring
+## Running the Project
 
-## Technical Requirements
-
-- **Server**: .NET Core 6+, Entity Framework Core, TCP Sockets
-- **Client**: Unity 2022.3+, async/await patterns
-- **Database**: SQL Server hoặc PostgreSQL
-- **Protocol**: Custom binary protocol over TCP
-- **Authentication**: JWT tokens
-- **Real-time**: Event-driven architecture
-
-## Commands for Development
-
-### Build Server
+### Server Setup
 ```bash
-cd Server
+# Navigate to server directory
+cd Server/GameServer
+
+# Build the project
 dotnet build
-dotnet run --project WordBrain.API
+
+# Run server (default port 8080)
+dotnet run
+
+# Or run with custom port
+dotnet run 9090
+
+# Build standalone exe
+dotnet publish -c Release -r win-x64 --self-contained
 ```
 
-### Test
+### Client Setup (Unity)
+
+1. **Open Unity Project**
+   - Unity 2022.3+ required
+   - Open project at root WordBrain folder
+
+2. **Setup Multiplayer Scene**
+   ```
+   GameObject > Create Empty > "NetworkManager"
+   - Add Component: NetworkManager.cs
+   - Add Component: MultiplayerGameController.cs
+   ```
+
+3. **Configure NetworkManager**
+   - Server Host: `localhost` (or server IP)
+   - Server Port: `8080`
+
+4. **Configure MultiplayerGameController UI**
+   - Create Menu Panel, Room Panel, Game Panel
+   - Link all UI elements in Inspector
+
+### Testing Multiplayer
+
+**Local Testing:**
+- Run server: `dotnet run`
+- Open multiple Unity Editor instances
+- Or build multiple .exe files
+- All connect to `localhost:8080`
+
+**Network Testing:**
+- Server on PC: Get IP with `ipconfig`
+- Clients set serverHost to that IP
+- Mobile builds: Must use PC's network IP
+
+**Internet Testing:**
 ```bash
-dotnet test
+# Use ngrok for public access
+ngrok tcp 8080
+# Use provided URL in clients
 ```
 
-### Database Migration
+## Network Protocol
+
+### Message Flow
+```
+Client → Server:
+├── CREATE_ROOM    {Username, Topic, MaxPlayers}
+├── JOIN_ROOM      {RoomCode, Username}
+├── LEAVE_ROOM     
+├── PLAYER_READY   
+├── START_GAME     (Host only)
+├── SUBMIT_ANSWER  {Answer, TimeTaken}
+└── HEARTBEAT      (Every 10s)
+
+Server → Client:
+├── ROOM_CREATED   {RoomCode, PlayerId}
+├── ROOM_JOINED    {RoomCode, Players}
+├── PLAYER_JOINED  {PlayerId, Username}
+├── PLAYER_LEFT    {PlayerId}
+├── GAME_STARTED   {Level, Grid, Words}
+├── NEXT_LEVEL     {Level, Grid, Words}
+├── ANSWER_RESULT  {IsCorrect, Score}
+├── GAME_ENDED     {FinalResults}
+└── ERROR          {ErrorMessage}
+```
+
+### Wire Format
+```
+[Message Length: 4 bytes][JSON Payload: N bytes]
+```
+
+## Game Flow
+
+1. **Lobby Phase**
+   - Create room (get 6-digit code)
+   - Join with code
+   - Wait for players
+   - Everyone marks ready
+
+2. **Game Phase**
+   - Host starts game
+   - Server sends grid + words
+   - Players submit answers
+   - Real-time score updates
+   - Auto-advance levels
+
+3. **End Phase**
+   - Show final leaderboard
+   - Return to room
+   - Can restart
+
+## Development Guidelines
+
+### Code Style
+- Use `this` keyword for member access
+- Prefer LINQ over loops
+- async/await for all async operations
+- Minimal comments (self-documenting code)
+- Follow existing patterns
+
+### Architecture Principles
+- **Simple > Complex** - No over-engineering
+- **Game-optimized** - Fast state updates
+- **In-memory first** - Database optional
+- **Stateless protocol** - Can reconnect
+
+## Common Issues & Solutions
+
+### Can't Connect to Server
 ```bash
-dotnet ef migrations add InitialCreate --project WordBrain.Infrastructure
-dotnet ef database update --project WordBrain.Infrastructure
+# Check if server is running
+netstat -an | findstr 8080
+
+# Open firewall port
+netsh advfirewall firewall add rule name="WordBrain" dir=in action=allow protocol=TCP localport=8080
 ```
 
-## Development Notes
+### Unity Build Errors
+- Ensure .NET Standard 2.1 in Player Settings
+- Check JsonUtility serializable classes (public fields)
+- Verify async/await compatibility
 
-- Sử dụng SOLID principles throughout
-- Implement Repository pattern cho database access
-- Event-driven architecture cho real-time features
-- Proper error handling và logging
-- Unit testing cho business logic
-- Integration testing cho network features
+### Mobile Connection Issues
+- Use actual network IP, not localhost
+- Same WiFi network required for LAN
+- Port forwarding for internet play
+
+## Future Improvements (TODO)
+
+- [ ] Reconnection handling
+- [ ] Persistent user profiles
+- [ ] Chat system
+- [ ] Spectator mode
+- [ ] Tournament mode
+- [ ] WebGL support (WebSocket adapter)
+- [ ] Database integration (optional)
+- [ ] Docker deployment
+
+## Quick Commands Reference
+
+```bash
+# Server
+dotnet run                          # Run server
+dotnet build -c Release            # Build optimized
+dotnet publish -r win-x64          # Create standalone
+
+# Unity
+Build Settings > PC Standalone     # Build Windows
+Build Settings > Android           # Build APK
+File > Build and Run              # Quick test
+
+# Network Debug
+netstat -an | findstr 8080        # Check port
+ping [server-ip]                  # Test connection
+telnet [server-ip] 8080           # Test TCP
+```
