@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using System.Linq;
 
 
 /// <summary>
@@ -299,19 +300,12 @@ public class GameManager : SingletonComponent<GameManager>
 		if (this.ActiveBoardState != null)
 		{
 			// Set all the words to not found on the BoardState
-			for (var i = 0; i < this.ActiveBoardState.foundWords.Length; i++)
-			{
-				this.ActiveBoardState.foundWords[i] = false;
-			}
+			this.ActiveBoardState.foundWords = this.ActiveBoardState.foundWords.Select(_ => false).ToArray();
 
 			// Set all Found tile states back to UsedButNotFound
-			for (var i = 0; i < this.ActiveBoardState.tileStates.Length; i++)
-			{
-				if (this.ActiveBoardState.tileStates[i] == BoardState.TileState.Found)
-				{
-					this.ActiveBoardState.tileStates[i] = BoardState.TileState.UsedButNotFound;
-				}
-			}
+			this.ActiveBoardState.tileStates = this.ActiveBoardState.tileStates
+				.Select(state => state == BoardState.TileState.Found ? BoardState.TileState.UsedButNotFound : state)
+				.ToArray();
 
 			// Save the game
 			this.Save();
@@ -343,17 +337,9 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	public int GetCompletedLevelCount(CategoryInfo categoryInfo)
 	{
-		var numberOfCompletedLevels = 0;
-
-		for (var i = 0; i < categoryInfo.levelInfos.Count; i++)
-		{
-			if (this.IsLevelCompleted(categoryInfo, i))
-			{
-				numberOfCompletedLevels++;
-			}
-		}
-
-		return numberOfCompletedLevels;
+		return categoryInfo.levelInfos
+			.Select((_, index) => index)
+			.Count(i => this.IsLevelCompleted(categoryInfo, i));
 	}
 
 	/// <summary>
@@ -361,15 +347,7 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	public CategoryInfo GetCategoryInfo(string categoryName)
 	{
-		for (var i = 0; i < this.CategoryInfos.Count; i++)
-		{
-			if (categoryName == this.CategoryInfos[i].name)
-			{
-				return this.CategoryInfos[i];
-			}
-		}
-
-		return null;
+		return this.CategoryInfos.FirstOrDefault(category => categoryName == category.name);
 	}
 
 	#endregion
@@ -388,12 +366,10 @@ public class GameManager : SingletonComponent<GameManager>
 		}
 
 		// Set the flag of the word to found
-		for (var i = 0; i < this.ActiveBoardState.words.Length; i++)
+		var wordIndex = this.ActiveBoardState.words.ToList().IndexOf(word);
+		if (wordIndex >= 0)
 		{
-			if (word == this.ActiveBoardState.words[i])
-			{
-				this.ActiveBoardState.foundWords[i] = true;
-			}
+			this.ActiveBoardState.foundWords[wordIndex] = true;
 		}
 
 		// Save the game
@@ -450,16 +426,16 @@ public class GameManager : SingletonComponent<GameManager>
 		boardState.words			= wordBoard.words;
 		boardState.nextHintIndex	= 0;
 
-		boardState.foundWords		= new bool[wordBoard.words.Length];
-		boardState.tileLetters		= new char[wordBoard.wordTiles.Length];
-		boardState.tileStates		= new BoardState.TileState[wordBoard.wordTiles.Length];
+		boardState.foundWords = new bool[wordBoard.words.Length];
 		boardState.hintLettersShown = new List<int[]>();
 
-		for (var i = 0; i < boardState.tileStates.Length; i++)
-		{
-			boardState.tileLetters[i]	= wordBoard.wordTiles[i].hasLetter ? wordBoard.wordTiles[i].letter : (char)0;
-			boardState.tileStates[i]	= wordBoard.wordTiles[i].hasLetter ? BoardState.TileState.UsedButNotFound : BoardState.TileState.NotUsed;
-		}
+		boardState.tileLetters = wordBoard.wordTiles
+			.Select(tile => tile.hasLetter ? tile.letter : (char)0)
+			.ToArray();
+		
+		boardState.tileStates = wordBoard.wordTiles
+			.Select(tile => tile.hasLetter ? BoardState.TileState.UsedButNotFound : BoardState.TileState.NotUsed)
+			.ToArray();
 
 		return boardState;
 	}
@@ -553,21 +529,13 @@ public class GameManager : SingletonComponent<GameManager>
 		saveData.nextDailyPuzzleAt = this.NextDailyPuzzleAt.ToString("yyyyMMdd");
 
 		// Get all the saved board states
-		saveData.savedBoardStates = new List<BoardState>();
-		foreach (var pair in this.SavedBoardStates)
-		{
-			saveData.savedBoardStates.Add(pair.Value);
-		}
+		saveData.savedBoardStates = this.SavedBoardStates.Values.ToList();
 
 		// Get all the completed levels
-		saveData.completedLevels = new List<string>();
-		foreach (var pair in this.CompletedLevels)
-		{
-			if (pair.Value)
-			{
-				saveData.completedLevels.Add(pair.Key);
-			}
-		}
+		saveData.completedLevels = this.CompletedLevels
+			.Where(pair => pair.Value)
+			.Select(pair => pair.Key)
+			.ToList();
 
 		// Use JsonUtility for Unity compatibility
 		var jsonString = JsonUtility.ToJson(saveData, true);
@@ -590,14 +558,9 @@ public class GameManager : SingletonComponent<GameManager>
 				this.CurrentHints = saveData.currentHints;
 
 				// Parse the saved board states
-				this.SavedBoardStates = new Dictionary<string, BoardState>();
-				if (saveData.savedBoardStates != null)
-				{
-					foreach (var boardState in saveData.savedBoardStates)
-					{
-						this.SavedBoardStates.Add(boardState.wordBoardId, boardState);
-					}
-				}
+				this.SavedBoardStates = saveData.savedBoardStates?
+					.ToDictionary(boardState => boardState.wordBoardId, boardState => boardState) 
+					?? new Dictionary<string, BoardState>();
 
 				// Get the active category and level index
 				this.ActiveCategory = saveData.activeCategory;
@@ -615,14 +578,9 @@ public class GameManager : SingletonComponent<GameManager>
 				}
 
 				// Parse the completed levels
-				this.CompletedLevels = new Dictionary<string, bool>();
-				if (saveData.completedLevels != null)
-				{
-					foreach (var levelId in saveData.completedLevels)
-					{
-						this.CompletedLevels[levelId] = true;
-					}
-				}
+				this.CompletedLevels = saveData.completedLevels?
+					.ToDictionary(levelId => levelId, _ => true)
+					?? new Dictionary<string, bool>();
 
 				return true;
 			}

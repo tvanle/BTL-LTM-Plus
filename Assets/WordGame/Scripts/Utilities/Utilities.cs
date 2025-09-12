@@ -1,6 +1,6 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public static class Utilities
 {
@@ -29,26 +29,15 @@ public static class Utilities
 		/* Important things we need to save in order to create a game board: id, size, words, and wordTiles */
 
 		// Get the words as one long string seperated by _ to save space
-		var wordsStr = "";
-		for (var i = 0; i < wordBoard.words.Length; i++)
-		{
-			if (i != 0)
-			{
-				wordsStr += "_";
-			}
-
-			wordsStr += wordBoard.words[i];
-		}
+		var wordsStr = string.Join("_", wordBoard.words);
 
 		// Get the word tile states as one long string to save space
-		var wordTilesStr = "";
-		for (var i = 0; i < wordBoard.wordTiles.Length; i++)
+		var wordTilesStr = string.Join("", wordBoard.wordTiles.Select(tile =>
 		{
-			var usedStr		= wordBoard.wordTiles[i].used ? "1" : "0";
-			var hasLetterStr	= wordBoard.wordTiles[i].hasLetter ? "1" : "0";
-
-			wordTilesStr += $"{usedStr}{hasLetterStr}{((hasLetterStr == "1") ? wordBoard.wordTiles[i].letter : '-')}";
-		}
+			var usedStr = tile.used ? "1" : "0";
+			var hasLetterStr = tile.hasLetter ? "1" : "0";
+			return $"{usedStr}{hasLetterStr}{(tile.hasLetter ? tile.letter : '-')}";
+		}));
 
 		// Create the text that defines a WordBoard
 		var text = "";

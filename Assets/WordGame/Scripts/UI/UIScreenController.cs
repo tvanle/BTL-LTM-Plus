@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class UIScreenController : SingletonComponent<UIScreenController>
 {
@@ -178,17 +178,14 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 
 	private UIScreen GetScreenInfo(string id)
 	{
-		for (var i = 0; i < this.uiScreens.Count; i++)
+		var screen = this.uiScreens.FirstOrDefault(screen => id == screen.id);
+		
+		if (screen == null)
 		{
-			if (id == this.uiScreens[i].id)
-			{
-				return this.uiScreens[i];
-			}
+			Debug.LogError("[UIScreenController] No UIScreen exists with the id " + id);
 		}
-
-		Debug.LogError("[UIScreenController] No UIScreen exists with the id " + id);
-
-		return null;
+		
+		return screen;
 	}
 
 

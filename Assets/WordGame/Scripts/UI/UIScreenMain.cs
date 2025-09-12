@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using System.Linq;
 
 public class UIScreenMain : UIScreen
 {
@@ -25,20 +25,12 @@ public class UIScreenMain : UIScreen
 	public override void OnShowing(object data)
 	{
 		// Set the progress rings percentage to the number of completed levels from all categories
-		var totalNumberOfLevels				= 0;
-		var totalNumberOfCompletedLevels	= 0;
+		var nonDailyCategories = GameManager.Instance.CategoryInfos
+			.Where(category => category.name != GameManager.dailyPuzzleId);
 
-		for (var i = 0; i < GameManager.Instance.CategoryInfos.Count; i++)
-		{
-			var categoryInfo = GameManager.Instance.CategoryInfos[i];
-
-			// Only include levels that are not part of the paily puzzle category
-			if (categoryInfo.name != GameManager.dailyPuzzleId)
-			{
-				totalNumberOfLevels				+= categoryInfo.levelInfos.Count;
-				totalNumberOfCompletedLevels	+= GameManager.Instance.GetCompletedLevelCount(categoryInfo);
-			}
-		}
+		var dailyCategories              = nonDailyCategories as CategoryInfo[] ?? nonDailyCategories.ToArray();
+		var totalNumberOfLevels          = dailyCategories.Sum(category => category.levelInfos.Count);
+		var totalNumberOfCompletedLevels = dailyCategories.Sum(category => GameManager.Instance.GetCompletedLevelCount(category));
 
 		this.progressRing.SetProgress((float)totalNumberOfCompletedLevels / (float)totalNumberOfLevels);
 
