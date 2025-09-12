@@ -14,8 +14,8 @@ public static class Utilities
 
 	public static double SystemTimeInMilliseconds { get { return (System.DateTime.UtcNow - new System.DateTime(1970, 1, 1)).TotalMilliseconds; } }
 
-	public static float WorldWidth	{ get { return 2f * Camera.main.orthographicSize * Camera.main.aspect; } }
-	public static float WorldHeight	{ get { return 2f * Camera.main.orthographicSize; } }
+	public static float WorldWidth  => 2f * Camera.main.orthographicSize * Camera.main.aspect;
+	public static float WorldHeight => 2f * Camera.main.orthographicSize;
 
 	#endregion
 
@@ -121,48 +121,5 @@ public static class Utilities
 	{
 		return $"{category}_{index}".Replace(" ", "_");
 	}
-
-	/// <summary>
-	/// Returns to mouse position
-	/// </summary>
-	public static Vector2 MousePosition()
-	{
-		#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
-		return (Vector2)Input.mousePosition;
-		#else
-		if (Input.touchCount > 0)
-		{
-			return Input.touches[0].position;
-		}
-
-		return Vector2.zero;
-		#endif
-	}
-
-	/// <summary>
-	/// Returns true if a mouse down event happened, false otherwise
-	/// </summary>
-	public static bool MouseDown()
-	{
-		return Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began);
-	}
-
-	/// <summary>
-	/// Returns true if a mouse up event happened, false otherwise
-	/// </summary>
-	public static bool MouseUp()
-	{
-		return (Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended));
-	}
-
-	/// <summary>
-	/// Returns true if no mouse events are happening, false otherwise
-	/// </summary>
-	public static bool MouseNone()
-	{
-		return (!Input.GetMouseButton(0) && Input.touchCount == 0);
-	}
-
-
 	#endregion
 }
