@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-using SimpleJSON;
 
 /// <summary>
 /// Holds information about each category in the game
@@ -32,8 +31,24 @@ public class GameManager : SingletonComponent<GameManager>
 	#region Data Classes
 
 	/// <summary>
+	/// Save data structure for JSON serialization
+	/// </summary>
+	[System.Serializable]
+	public class SaveData
+	{
+		public int currentHints;
+		public string activeCategory;
+		public int activeLevelIndex;
+		public int activeDailyPuzzleIndex;
+		public string nextDailyPuzzleAt;
+		public List<BoardState> savedBoardStates;
+		public List<string> completedLevels;
+	}
+
+	/// <summary>
 	/// Holds infomation about the state of a board that is being play.
 	/// </summary>
+	[System.Serializable]
 	public class BoardState
 	{
 		public enum TileState
@@ -43,14 +58,14 @@ public class GameManager : SingletonComponent<GameManager>
 			UsedButNotFound
 		}
 
-		public string		wordBoardId;		// Unique id for this board
-		public int			wordBoardSize;		// The size of the board
-		public string[]		words;				// The words in the board
-		public bool[]		foundWords;			// The words that have been found (index in foundWords corresponds to index in words)
-		public TileState[]	tileStates;			// The state of each tile on the board
-		public char[]		tileLetters;		// The letter that goes in each tile on the board
-		public int			nextHintIndex;		// The index into words that indicates which word will have a letter shown when the hint button it clicked
-		public List<int[]>	hintLettersShown;	// The letters that have been shown by hints. (List of int[2] where the first element is the word index and the second element is the letter index)
+		public string wordBoardId;
+		public int wordBoardSize;
+		public string[] words;
+		public bool[] foundWords;
+		public TileState[] tileStates;
+		public char[] tileLetters;
+		public int nextHintIndex;
+		public List<int[]> hintLettersShown;
 	}
 
 	#endregion
@@ -529,39 +544,34 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	private void Save()
 	{
-		Dictionary<string, object> jsonObj = new Dictionary<string, object>();
-
-		jsonObj.Add("currentHints", this.CurrentHints);
-		jsonObj.Add("activeCategory", this.ActiveCategory);
-		jsonObj.Add("activeLevelIndex", this.ActiveLevelIndex);
-		jsonObj.Add("ActiveDailyPuzzleIndex", this.ActiveDailyPuzzleIndex);
-		jsonObj.Add("NextDailyPuzzleAt", this.NextDailyPuzzleAt.ToString("yyyyMMdd"));
+		SaveData saveData = new SaveData();
+		
+		saveData.currentHints = this.CurrentHints;
+		saveData.activeCategory = this.ActiveCategory ?? "";
+		saveData.activeLevelIndex = this.ActiveLevelIndex;
+		saveData.activeDailyPuzzleIndex = this.ActiveDailyPuzzleIndex;
+		saveData.nextDailyPuzzleAt = this.NextDailyPuzzleAt.ToString("yyyyMMdd");
 
 		// Get all the saved board states
-		List<object> savedBoardStatesObj = new List<object>();
-
+		saveData.savedBoardStates = new List<BoardState>();
 		foreach (KeyValuePair<string, BoardState> pair in this.SavedBoardStates)
 		{
-			savedBoardStatesObj.Add(this.ConvertBoardStateToJson(pair.Value));
+			saveData.savedBoardStates.Add(pair.Value);
 		}
 
-		jsonObj.Add("savedBoardStates", savedBoardStatesObj);
-
 		// Get all the completed levels
-		List<object> completedLevelsObj = new List<object>();
-
+		saveData.completedLevels = new List<string>();
 		foreach (KeyValuePair<string, bool> pair in this.CompletedLevels)
 		{
 			if (pair.Value)
 			{
-				completedLevelsObj.Add(pair.Key);
+				saveData.completedLevels.Add(pair.Key);
 			}
 		}
 
-		jsonObj.Add("completedLevels", completedLevelsObj);
-
-		// Now convert the jsonObj to a json string and save it to the save file
-		System.IO.File.WriteAllText(SaveDataPath, Utilities.ConvertToJsonString(jsonObj));
+		// Use JsonUtility for Unity compatibility
+		string jsonString = JsonUtility.ToJson(saveData, true);
+		System.IO.File.WriteAllText(SaveDataPath, jsonString);
 	}
 
 	/// <summary>
@@ -571,170 +581,61 @@ public class GameManager : SingletonComponent<GameManager>
 	{
 		if (File.Exists(SaveDataPath))
 		{
-			string		jsonStr	= System.IO.File.ReadAllText(SaveDataPath);
-			JSONNode	json	= JSON.Parse(jsonStr);
-
-			// Load the number of current hints
-			this.CurrentHints = json["currentHints"].AsInt;
-
-			// Parse the saved board states
-			JSONArray savedBoardStatesJson = json["savedBoardStates"].AsArray;
-			this.SavedBoardStates = new Dictionary<string, BoardState>(savedBoardStatesJson.Count);
-
-			for (int i = 0; i < savedBoardStatesJson.Count; i++)
+			try
 			{
-				BoardState boardState = this.CreateBoardStateFromJson(savedBoardStatesJson[i]);
-				this.SavedBoardStates.Add(boardState.wordBoardId, boardState);
+				string jsonStr = System.IO.File.ReadAllText(SaveDataPath);
+				SaveData saveData = JsonUtility.FromJson<SaveData>(jsonStr);
+
+				// Load the number of current hints
+				this.CurrentHints = saveData.currentHints;
+
+				// Parse the saved board states
+				this.SavedBoardStates = new Dictionary<string, BoardState>();
+				if (saveData.savedBoardStates != null)
+				{
+					foreach (BoardState boardState in saveData.savedBoardStates)
+					{
+						this.SavedBoardStates.Add(boardState.wordBoardId, boardState);
+					}
+				}
+
+				// Get the active category and level index
+				this.ActiveCategory = saveData.activeCategory;
+				this.ActiveLevelIndex = saveData.activeLevelIndex;
+				this.ActiveDailyPuzzleIndex = saveData.activeDailyPuzzleIndex;
+
+				// Get the next daily puzzle at time
+				if (string.IsNullOrEmpty(saveData.nextDailyPuzzleAt))
+				{
+					this.NextDailyPuzzleAt = System.DateTime.Now;
+				}
+				else
+				{
+					this.NextDailyPuzzleAt = System.DateTime.ParseExact(saveData.nextDailyPuzzleAt, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
+				}
+
+				// Parse the completed levels
+				this.CompletedLevels = new Dictionary<string, bool>();
+				if (saveData.completedLevels != null)
+				{
+					foreach (string levelId in saveData.completedLevels)
+					{
+						this.CompletedLevels[levelId] = true;
+					}
+				}
+
+				return true;
 			}
-
-			// Get the active category and level index
-			this.ActiveCategory      = json["activeCategory"].Value;
-			this.ActiveLevelIndex    = json["activeLevelIndex"].AsInt;
-			this.ActiveDailyPuzzleIndex = json["ActiveDailyPuzzleIndex"].AsInt;
-
-			// Get the next daily puzzle at time
-			string time = json["NextDailyPuzzleAt"].Value;
-
-			if (string.IsNullOrEmpty(time))
+			catch (System.Exception e)
 			{
-				this.NextDailyPuzzleAt = System.DateTime.Now;
+				Debug.LogError("Failed to load save data: " + e.Message);
+				return false;
 			}
-			else
-			{
-				this.NextDailyPuzzleAt = System.DateTime.ParseExact(time, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
-			}
-
-			// Parse the completed levels
-			JSONArray completedLevelsJson = json["completedLevels"].AsArray;
-
-			for (int i = 0; i < completedLevelsJson.Count; i++)
-			{
-				this.CompletedLevels[completedLevelsJson[i].Value] = true;
-			}
-
-			return true;
 		}
 
 		return false;
 	}
 
-	private Dictionary<string, object> ConvertBoardStateToJson(BoardState boardState)
-	{
-		Dictionary<string, object> jsonObj = new Dictionary<string, object>();
-
-		jsonObj.Add("wordBoardId", boardState.wordBoardId);
-		jsonObj.Add("wordBoardSize", boardState.wordBoardSize);
-		jsonObj.Add("NextDailyPuzzleAt", boardState.nextHintIndex);
-
-		// Get all the words
-		List<object> wordsObj = new List<object>();
-
-		for (int i = 0; i < boardState.words.Length; i++)
-		{
-			wordsObj.Add(boardState.words[i]);
-		}
-
-		jsonObj.Add("words", wordsObj);
-
-		// Get all the found words
-		List<object> foundWordsObj = new List<object>();
-
-		for (int i = 0; i < boardState.foundWords.Length; i++)
-		{
-			foundWordsObj.Add(boardState.foundWords[i]);
-		}
-
-		jsonObj.Add("foundWords", foundWordsObj);
-
-		// Get all the tiel states
-		List<object> tileStatesObj = new List<object>();
-
-		for (int i = 0; i < boardState.tileStates.Length; i++)
-		{
-			tileStatesObj.Add((int)boardState.tileStates[i]);
-		}
-
-		jsonObj.Add("tileStates", tileStatesObj);
-
-		// Get all the tile letters
-		List<object> tileLettersObj = new List<object>();
-
-		for (int i = 0; i < boardState.tileLetters.Length; i++)
-		{
-			tileLettersObj.Add(boardState.tileLetters[i].ToString());
-		}
-
-		jsonObj.Add("tileLetters", tileLettersObj);
-
-		// Get all the hint letters shown
-		List<object> hintLettersObj = new List<object>();
-
-		for (int i = 0; i < boardState.hintLettersShown.Count; i++)
-		{
-			hintLettersObj.Add(string.Format("{0},{1}", boardState.hintLettersShown[i][0], boardState.hintLettersShown[i][1]));
-		}
-
-		jsonObj.Add("hintLetters", hintLettersObj);
-
-		return jsonObj;
-	}
-
-	private BoardState CreateBoardStateFromJson(JSONNode json)
-	{
-		BoardState boardState = new BoardState();
-
-		boardState.wordBoardId		= json["wordBoardId"].Value;
-		boardState.wordBoardSize	= json["wordBoardSize"].AsInt;
-		boardState.nextHintIndex	= json["nextHintIndex"].AsInt;
-
-		// Parse the words
-		JSONArray wordsJson	= json["words"].AsArray;
-		boardState.words	= new string[wordsJson.Count];
-
-		for (int i = 0; i < wordsJson.Count; i++)
-		{
-			boardState.words[i] = wordsJson[i].Value;
-		}
-
-		// Parse the found words
-		JSONArray foundWordsJson	= json["foundWords"].AsArray;
-		boardState.foundWords		= new bool[foundWordsJson.Count];
-
-		for (int i = 0; i < foundWordsJson.Count; i++)
-		{
-			boardState.foundWords[i] = foundWordsJson[i].AsBool;
-		}
-
-		// Parse the tile states
-		JSONArray tileStatesJson	= json["tileStates"].AsArray;
-		boardState.tileStates		= new BoardState.TileState[tileStatesJson.Count];
-
-		for (int i = 0; i < tileStatesJson.Count; i++)
-		{
-			boardState.tileStates[i] = (BoardState.TileState)tileStatesJson[i].AsInt;
-		}
-
-		// Parse the tile lettes
-		JSONArray tileLettersJson	= json["tileLetters"].AsArray;
-		boardState.tileLetters		= new char[tileLettersJson.Count];
-
-		for (int i = 0; i < tileLettersJson.Count; i++)
-		{
-			boardState.tileLetters[i] = System.Convert.ToChar(tileLettersJson[i].Value);
-		}
-
-		// Parse the hint letters
-		JSONArray hintLettersJson	= json["hintLetters"].AsArray;
-		boardState.hintLettersShown	= new List<int[]>(hintLettersJson.Count);
-
-		for (int i = 0; i < hintLettersJson.Count; i++)
-		{
-			string[] hintLetter = hintLettersJson[i].Value.Split(',');
-			boardState.hintLettersShown.Add(new int[2] { System.Convert.ToInt32(hintLetter[0]), System.Convert.ToInt32(hintLetter[1])} );
-		}
-
-		return boardState;
-	}
 
     #endregion
 

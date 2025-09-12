@@ -163,64 +163,6 @@ public static class Utilities
 		return (!Input.GetMouseButton(0) && Input.touchCount == 0);
 	}
 
-	/// <summary>
-	/// Converts to json string.
-	/// </summary>
-	public static string ConvertToJsonString(object data)
-	{
-		string jsonString = "";
-		
-		if (data is IDictionary)
-		{
-			Dictionary<string, object> dic = data as Dictionary<string, object>;
-			
-			jsonString += "{";
-			
-			List<string> keys = new List<string>(dic.Keys);
-			
-			for (int i = 0; i < keys.Count; i++)
-			{
-				if (i != 0)
-				{
-					jsonString += ",";
-				}
-				
-				jsonString += string.Format("\"{0}\":{1}", keys[i], ConvertToJsonString(dic[keys[i]]));
-			}
-			
-			jsonString += "}";
-		}
-		else if (data is IList)
-		{
-			IList list = data as IList;
-			
-			jsonString += "[";
-			
-			for (int i = 0; i < list.Count; i++)
-			{
-				if (i != 0)
-				{
-					jsonString += ",";
-				}
-				
-				jsonString += ConvertToJsonString(list[i]);
-			}
-			
-			jsonString += "]";
-		}
-		else if (data is string)
-		{
-			// If the data is a string then we need to inclose it in quotation marks
-			jsonString += "\"" + data + "\"";
-		}
-		else
-		{
-			// Else just return what ever data is as a string
-			jsonString += data.ToString();
-		}
-		
-		return jsonString;
-	}
 
 	#endregion
 }
