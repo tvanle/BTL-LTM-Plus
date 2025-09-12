@@ -27,9 +27,9 @@ public class UIScreenCategories : UIScreen
 	{
 		this.categoryItemObjectPool.ReturnAllObjectsToPool();
 
-		for (int i = 0; i < GameManager.Instance.CategoryInfos.Count; i++)
+		for (var i = 0; i < GameManager.Instance.CategoryInfos.Count; i++)
 		{
-			CategoryInfo categoryInfo = GameManager.Instance.CategoryInfos[i];
+			var categoryInfo = GameManager.Instance.CategoryInfos[i];
 
 			// If its the daily puzzle category the don't show it in the list of categories
 			if (categoryInfo.name == GameManager.dailyPuzzleId)
@@ -37,7 +37,7 @@ public class UIScreenCategories : UIScreen
 				continue;
 			}
 
-			CategoryListItem categoryListItem = this.categoryItemObjectPool.GetObject().GetComponent<CategoryListItem>();
+			var categoryListItem = this.categoryItemObjectPool.GetObject().GetComponent<CategoryListItem>();
 
 			categoryListItem.Setup(categoryInfo);
 			categoryListItem.gameObject.SetActive(true);

@@ -41,8 +41,8 @@ public class LevelListItem : MonoBehaviour
 		this.levelIndex		= levelIndex;
 		this.type			= type;
 
-		this.levelText.text = string.Format("{0} - LEVEL {1}", this.categoryName.ToUpper(), levelIndex + 1);
-		this.iconImage.sprite  = categoryInfo.icon;
+		this.levelText.text   = $"{this.categoryName.ToUpper()} - LEVEL {levelIndex + 1}";
+		this.iconImage.sprite = categoryInfo.icon;
 
 		this.completedImage.gameObject.SetActive(type == Type.Completed);
 		this.lockedImage.gameObject.SetActive(type == Type.Locked);

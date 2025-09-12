@@ -12,7 +12,7 @@ public class CUtils
 
     public static double GetDouble(string key, double defaultValue)
     {
-        string defaultVal = DoubleToString(defaultValue);
+        var defaultVal = DoubleToString(defaultValue);
         return StringToDouble(PlayerPrefs.GetString(key, defaultVal));
     }
 
@@ -38,19 +38,19 @@ public class CUtils
 
     public static double GetCurrentTime()
     {
-        TimeSpan span = DateTime.Now.Subtract(new DateTime(1970, 1, 1, 0, 0, 0));
+        var span = DateTime.Now.Subtract(new DateTime(1970, 1, 1, 0, 0, 0));
         return span.TotalSeconds;
     }
 
     public static double GetCurrentTimeInDays()
     {
-        TimeSpan span = DateTime.Now.Subtract(new DateTime(1970, 1, 1, 0, 0, 0));
+        var span = DateTime.Now.Subtract(new DateTime(1970, 1, 1, 0, 0, 0));
         return span.TotalDays;
     }
 
     public static double GetCurrentTimeInMills()
     {
-        TimeSpan span = DateTime.Now.Subtract(new DateTime(1970, 1, 1, 0, 0, 0));
+        var span = DateTime.Now.Subtract(new DateTime(1970, 1, 1, 0, 0, 0));
         return span.TotalMilliseconds;
     }
 
@@ -70,7 +70,7 @@ public class CUtils
             return availableFirstTime;
         }
 
-        int delta = (int)(GetCurrentTime() - GetActionTime(action));
+        var delta = (int)(GetCurrentTime() - GetActionTime(action));
         return delta >= time;
     }
 

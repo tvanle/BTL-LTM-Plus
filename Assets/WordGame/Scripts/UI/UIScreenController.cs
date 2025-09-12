@@ -31,7 +31,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 	private void Start()
 	{
 		// Initialize and hide all the screens
-		for (int i = 0; i < this.uiScreens.Count; i++)
+		for (var i = 0; i < this.uiScreens.Count; i++)
 		{
 			this.uiScreens[i].Initialize();
 			this.uiScreens[i].gameObject.SetActive(true);
@@ -62,7 +62,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 			return;
 		}
 
-		UIScreen uiScreen = this.GetScreenInfo(id);
+		var uiScreen = this.GetScreenInfo(id);
 
 		if (uiScreen != null)
 		{
@@ -104,11 +104,11 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 
 		uiScreen.OnShowing(data);
 
-		float direction = (fromLeft ? -1f : 1f);
+		var direction = (fromLeft ? -1f : 1f);
 
-		float fromX			= uiScreen.RectT.rect.width * direction;
+		var fromX			= uiScreen.RectT.rect.width * direction;
 		float toX			= 0;
-		float fromWorldX	= Utilities.WorldWidth * direction;
+		var fromWorldX	= Utilities.WorldWidth * direction;
 		float toWorldX		= 0;
 
 		this.isAnimating = animate;
@@ -131,12 +131,12 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 			return;
 		}
 
-		float direction = (fromBack ? 1f : -1f);
+		var direction = (fromBack ? 1f : -1f);
 
 		float fromX			= 0;
-		float toX			= uiScreen.RectT.rect.width * direction;
+		var toX			= uiScreen.RectT.rect.width * direction;
 		float fromWorldX	= 0;
-		float toWorldX		= Utilities.WorldWidth * direction;
+		var toWorldX		= Utilities.WorldWidth * direction;
 
 		this.TransitionUIScreen(uiScreen, fromX, toX, fromWorldX, toWorldX, animate, style, onTweenFinished);
 	}
@@ -147,7 +147,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 
 		if (animate)
 		{
-			Tween tween = Tween.PositionX(uiScreen.RectT, style, fromX, toX, this.animationSpeed);
+			var tween = Tween.PositionX(uiScreen.RectT, style, fromX, toX, this.animationSpeed);
 			
 			tween.SetUseRectTransform(true);
 
@@ -161,7 +161,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 			uiScreen.RectT.anchoredPosition = new Vector2(toX, uiScreen.RectT.anchoredPosition.y);
 		}
 		
-		for (int i = 0; i < uiScreen.worldObjects.Count; i++)
+		for (var i = 0; i < uiScreen.worldObjects.Count; i++)
 		{
 			uiScreen.worldObjects[i].transform.position = new Vector3(worldFromX, uiScreen.worldObjects[i].transform.position.y, uiScreen.worldObjects[i].transform.position.z);
 
@@ -178,7 +178,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 
 	private UIScreen GetScreenInfo(string id)
 	{
-		for (int i = 0; i < this.uiScreens.Count; i++)
+		for (var i = 0; i < this.uiScreens.Count; i++)
 		{
 			if (id == this.uiScreens[i].id)
 			{
@@ -195,7 +195,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
     private void Update()
     {
         if (this.isAnimating) return;
-        for (int i = 0; i < this.uiScreens.Count; i++)
+        for (var i = 0; i < this.uiScreens.Count; i++)
         {
             float direction = this.uiScreens[i].RectT.anchoredPosition.x == 0 ? 0 :
 				this.uiScreens[i].RectT.anchoredPosition.x < 0                   ? -1 : 1;
@@ -207,7 +207,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 #if UNITY_ANDROID || UNITY_WSA
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            for (int i = 0; i < this.uiScreens.Count; i++)
+            for (var i = 0; i < this.uiScreens.Count; i++)
             {
                 if (this.uiScreens[i].RectT.anchoredPosition.x == 0)
                 {

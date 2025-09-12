@@ -51,7 +51,7 @@ public class Toast : MonoBehaviour
 
     public void ShowMessage(string msg, float time = 2f)
     {
-        AToast aToast = new AToast(msg, time);
+        var aToast = new AToast(msg, time);
         this.queue.Enqueue(aToast);
 
         this.ShowOldestToast();
@@ -75,7 +75,7 @@ public class Toast : MonoBehaviour
         if (this.queue.Count == 0) return;
         if (this.isShowing) return;
 
-        AToast current = this.queue.Dequeue();
+        var current = this.queue.Dequeue();
         this.Show(current);
     }
 

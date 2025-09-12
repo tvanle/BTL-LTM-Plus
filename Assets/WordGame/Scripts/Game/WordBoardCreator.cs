@@ -53,9 +53,9 @@ public class WordBoardCreator : MonoBehaviour
 	{
 		get
 		{
-			string[] boardIds = new string[this.activeThreads.Count];
+			var boardIds = new string[this.activeThreads.Count];
 
-			for (int i = 0; i < this.activeThreads.Count; i++)
+			for (var i = 0; i < this.activeThreads.Count; i++)
 			{
 				boardIds[i] = this.activeThreads[i].id;
 			}
@@ -71,15 +71,15 @@ public class WordBoardCreator : MonoBehaviour
 	public void Update()
 	{
 		// Checks for completed boards
-		for (int i = this.activeThreads.Count - 1; i >= 0; i--)
+		for (var i = this.activeThreads.Count - 1; i >= 0; i--)
 		{
 			switch (this.activeThreads[i].board.boardState)
 			{
 				case WordBoard.BoardState.DoneSuccess:
 				case WordBoard.BoardState.DoneFailed:
 				{
-					WordBoard       wordBoard = this.activeThreads[i].board;
-					OnBoardFinished callback  = this.activeThreads[i].callback;
+					var       wordBoard = this.activeThreads[i].board;
+					var callback  = this.activeThreads[i].callback;
 
 					this.activeThreads.RemoveAt(i);
 
@@ -89,10 +89,10 @@ public class WordBoardCreator : MonoBehaviour
 				}
 				case WordBoard.BoardState.Restart:
 				{
-					string          id           = this.activeThreads[i].id;
-					string[]        words        = this.activeThreads[i].board.words;
-					long            restartTimer = this.activeThreads[i].board.restartTime;
-					OnBoardFinished callback     = this.activeThreads[i].callback;
+					var          id           = this.activeThreads[i].id;
+					var        words        = this.activeThreads[i].board.words;
+					var            restartTimer = this.activeThreads[i].board.restartTime;
+					var callback     = this.activeThreads[i].callback;
 
 					this.AbortBoardCreation(id);
 
@@ -106,7 +106,7 @@ public class WordBoardCreator : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		for (int i = this.activeThreads.Count - 1; i >= 0; i--)
+		for (var i = this.activeThreads.Count - 1; i >= 0; i--)
 		{
 			this.AbortBoardCreation(this.activeThreads[i].id);
 		}
@@ -149,7 +149,7 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	public bool IsCreatingBoard(string id)
 	{
-		for (int i = 0; i < this.activeThreads.Count; i++)
+		for (var i = 0; i < this.activeThreads.Count; i++)
 		{
 			if (id == this.activeThreads[i].id)
 			{
@@ -165,7 +165,7 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	public void AbortBoardCreation(string id)
 	{
-		for (int i = 0; i < this.activeThreads.Count; i++)
+		for (var i = 0; i < this.activeThreads.Count; i++)
 		{
 			if (id == this.activeThreads[i].id)
 			{
@@ -184,7 +184,7 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	public void AbortAll()
 	{
-		for (int i = 0; i < this.activeThreads.Count; i++)
+		for (var i = 0; i < this.activeThreads.Count; i++)
 		{
 			this.AbortBoardCreation(this.activeThreads[i].id);
 		}
@@ -207,7 +207,7 @@ public class WordBoardCreator : MonoBehaviour
 		}
 
 		// Create a new Board object
-		WordBoard board		= new WordBoard();
+		var board		= new WordBoard();
 		board.id			= id;
 		board.words			= words;
 		board.randSeed		= randomNumberSeed;
@@ -217,7 +217,7 @@ public class WordBoardCreator : MonoBehaviour
 		board.restartTime	= restartTime;
 
 		// Create a new ActiveThread object that will hold information about the thread/board
-		ActiveThread activeThread	= new ActiveThread();
+		var activeThread	= new ActiveThread();
 		activeThread.id				= id;
 		activeThread.board			= board;
 		activeThread.callback		= callback;
@@ -236,32 +236,32 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	private void ProcessBoard(WordBoard board, string[] words)
 	{
-		int letterCount = 0;
+		var letterCount = 0;
 
 		// Get the total number of letters from all words		
-		for (int i = 0; i < words.Length; i++)
+		for (var i = 0; i < words.Length; i++)
 		{
 			letterCount += words[i].Length;
 		}
 
 		// Get the core board size and actual board size.
-		int coreBoardSize	= Mathf.FloorToInt(Mathf.Sqrt(letterCount));
-		int boardSize		= Mathf.CeilToInt(Mathf.Sqrt(letterCount));
+		var coreBoardSize	= Mathf.FloorToInt(Mathf.Sqrt(letterCount));
+		var boardSize		= Mathf.CeilToInt(Mathf.Sqrt(letterCount));
 
 		// Create a new Board, set its size, and intialize a new array of WordTiles
 		board.size		= boardSize;
 		board.wordTiles	= new WordBoard.WordTile[boardSize * boardSize];
 
 		// Instantiate all the WordTiles
-		for (int i = 0; i < boardSize * boardSize; i++)
+		for (var i = 0; i < boardSize * boardSize; i++)
 		{
 			board.wordTiles[i] = new WordBoard.WordTile();
 		}
 
 		// Set all the core board indexes to used
-		for (int i = 0; i < coreBoardSize; i++)
+		for (var i = 0; i < coreBoardSize; i++)
 		{
-			for (int j = 0; j < coreBoardSize; j++)
+			for (var j = 0; j < coreBoardSize; j++)
 			{
 				board.wordTiles[i * boardSize + j].used = true;
 			}
@@ -294,9 +294,9 @@ public class WordBoardCreator : MonoBehaviour
 		// If there are no more tiles we need to assigned as used then start placing words on the board
 		if (extraTilesToPick == 0)
 		{
-			List<int> validIndexes = new List<int>();
+			var validIndexes = new List<int>();
 
-			for (int i = 0; i < board.wordTiles.Length; i++)
+			for (var i = 0; i < board.wordTiles.Length; i++)
 			{
 				validIndexes.Add(i);
 			}
@@ -304,14 +304,14 @@ public class WordBoardCreator : MonoBehaviour
 			return this.PlaceLetters(board, validIndexes, words, 0, -1);
 		}
 
-		List<int> unusedBottomIndexes	= new List<int>();
-		List<int> unusedRightIndexes	= new List<int>();
+		var unusedBottomIndexes	= new List<int>();
+		var unusedRightIndexes	= new List<int>();
 
 		// Gather all the indexes on the bottom most row and right most column that are not being used. We need to place a tile in one of those positions.
-		for (int i = 0; i < board.size - 1; i++)
+		for (var i = 0; i < board.size - 1; i++)
 		{
-			int bottomIndex	= board.size * (board.size - 1) + i;
-			int rightIndex	= i * board.size + board.size - 1;
+			var bottomIndex	= board.size * (board.size - 1) + i;
+			var rightIndex	= i * board.size + board.size - 1;
 
 			if (!board.wordTiles[bottomIndex].used)
 			{
@@ -324,13 +324,13 @@ public class WordBoardCreator : MonoBehaviour
 			}
 		}
 
-		int numberOfIndexes	= unusedBottomIndexes.Count + unusedRightIndexes.Count;
+		var numberOfIndexes	= unusedBottomIndexes.Count + unusedRightIndexes.Count;
 
-		for (int i = 0; i < numberOfIndexes; i++)
+		for (var i = 0; i < numberOfIndexes; i++)
 		{
 			// Get a random index to try from the list of possible indexes
-			int randIndex	= 0;
-			int indexToTry	= 0;
+			var randIndex	= 0;
+			var indexToTry	= 0;
 
 			if (unusedBottomIndexes.Count > 0)
 			{
@@ -398,15 +398,15 @@ public class WordBoardCreator : MonoBehaviour
 		}
 
 		// Get the list of possible board indexes where we can place the next letter of the word
-		List<int> possibleIndexes = this.GetPossibleLetterPositions(board, validIndexes, lastPlacedIndex);
-		int       numberOfIndexes = possibleIndexes.Count;
+		var possibleIndexes = this.GetPossibleLetterPositions(board, validIndexes, lastPlacedIndex);
+		var       numberOfIndexes = possibleIndexes.Count;
 
 		// Loop through each index, trying each one
-		for (int i = 0; i < numberOfIndexes; i++)
+		for (var i = 0; i < numberOfIndexes; i++)
 		{
 			// Get a random index to try from the list of possible indexes
-			int randIndex	= board.rand.Next(possibleIndexes.Count);
-			int indexToTry	= possibleIndexes[board.rand.Next(possibleIndexes.Count)];
+			var randIndex	= board.rand.Next(possibleIndexes.Count);
+			var indexToTry	= possibleIndexes[board.rand.Next(possibleIndexes.Count)];
 
 			// Remove that index from the list of possibilities so we don't pick it again if it fails
 			possibleIndexes.RemoveAt(randIndex);
@@ -434,12 +434,12 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	private List<int> GetPossibleLetterPositions(WordBoard board, List<int> validIndexes, int fromTile)
 	{
-		List<int> possibleIndexes = new List<int>();
+		var possibleIndexes = new List<int>();
 
 		// If fromTile is -1 then we return all indexes from validIndexes that is used and doesn't already have a letter
 		if (fromTile == -1)
 		{
-			for (int i = 0; i < validIndexes.Count; i++)
+			for (var i = 0; i < validIndexes.Count; i++)
 			{
 				if (board.wordTiles[validIndexes[i]].used && !board.wordTiles[validIndexes[i]].hasLetter)
 				{
@@ -456,10 +456,10 @@ public class WordBoardCreator : MonoBehaviour
 			// _ i i i _
 			// _ _ _ _ _
 
-			int iStart	= Mathf.FloorToInt((float)fromTile / (float)board.size) - 1;
-			int jStart	= (fromTile % board.size) - 1;
-			int iEnd	= iStart + 3;
-			int jEnd	= jStart + 3;
+			var iStart	= Mathf.FloorToInt((float)fromTile / (float)board.size) - 1;
+			var jStart	= (fromTile % board.size) - 1;
+			var iEnd	= iStart + 3;
+			var jEnd	= jStart + 3;
 
 			// Clamp the indexes so we don't go off the board
 			iStart	= (iStart < 0) ? 0 : iStart;
@@ -467,11 +467,11 @@ public class WordBoardCreator : MonoBehaviour
 			iEnd	= (iEnd > board.size) ? board.size : iEnd;
 			jEnd	= (jEnd > board.size) ? board.size : jEnd;
 
-			for (int i = iStart; i < iEnd; i++)
+			for (var i = iStart; i < iEnd; i++)
 			{
-				for (int j = jStart; j < jEnd; j++)
+				for (var j = jStart; j < jEnd; j++)
 				{
-					int tileIndex = i * board.size + j;
+					var tileIndex = i * board.size + j;
 
 					if (tileIndex != fromTile && 					// Don't want to return the fromTile index
 						board.wordTiles[tileIndex].used && 			// The tile needs to be used
@@ -502,32 +502,32 @@ public class WordBoardCreator : MonoBehaviour
 		// Fill the regions with numbers
 		this.FillRegions(board, validIndexes);
 
-		List<WordBoard> possibleBoards = this.GetAllBoardRegionCombinations(board);
+		var possibleBoards = this.GetAllBoardRegionCombinations(board);
 
-		for (int i = 0; i < possibleBoards.Count; i++)
+		for (var i = 0; i < possibleBoards.Count; i++)
 		{
-			Dictionary<int, List<int>> regionIndexes = this.GetRegionIndexes(board);
+			var regionIndexes = this.GetRegionIndexes(board);
 
 			if (regionIndexes.Count > board.words.Length - 1)
 			{
 				continue;
 			}
 
-			Dictionary<int, List<int>> wordRegionAssignments = new Dictionary<int, List<int>>();
+			var wordRegionAssignments = new Dictionary<int, List<int>>();
 
-			List<int> regionSizes	= new List<int>();
-			List<int> wordSizes		= new List<int>();
-			List<int> regions		= new List<int>();
-			List<int> wordIndexes	= new List<int>();
+			var regionSizes	= new List<int>();
+			var wordSizes		= new List<int>();
+			var regions		= new List<int>();
+			var wordIndexes	= new List<int>();
 
-			foreach (KeyValuePair<int, List<int>> pair in regionIndexes)
+			foreach (var pair in regionIndexes)
 			{
 				wordRegionAssignments.Add(pair.Key, new List<int>());
 				regions.Add(pair.Key);
 				regionSizes.Add(pair.Value.Count);
 			}
 
-			for (int j = 1; j < words.Length; j++)
+			for (var j = 1; j < words.Length; j++)
 			{
 				wordIndexes.Add(j);
 				wordSizes.Add(words[j].Length);
@@ -535,16 +535,16 @@ public class WordBoardCreator : MonoBehaviour
 
 			if (this.TryFitWordsIntoRegions(regionSizes, wordSizes, regions, wordIndexes, wordRegionAssignments))
 			{
-				bool allWordsPlaced = true;
+				var allWordsPlaced = true;
 
-				WordBoard.WordTile[] savedWordTiles = board.wordTiles;
+				var savedWordTiles = board.wordTiles;
 				board.wordTiles = possibleBoards[i].wordTiles;
 
-				foreach (KeyValuePair<int, List<int>> pair in wordRegionAssignments)
+				foreach (var pair in wordRegionAssignments)
 				{
-					string[] regionWords = new string[pair.Value.Count];
+					var regionWords = new string[pair.Value.Count];
 
-					for (int j = 0; j < pair.Value.Count; j++)
+					for (var j = 0; j < pair.Value.Count; j++)
 					{
 						regionWords[j] = words[pair.Value[j]];
 					}
@@ -573,7 +573,7 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	private void ResetRegions(WordBoard board)
 	{
-		for (int i = 0; i < board.wordTiles.Length; i++)
+		for (var i = 0; i < board.wordTiles.Length; i++)
 		{
 			board.wordTiles[i].region		= 0;
 			board.wordTiles[i].regionLocked	= false;
@@ -587,9 +587,9 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	public void FillRegions(WordBoard board, List<int> validIndexes)
 	{
-		int regionCount = 1;
+		var regionCount = 1;
 
-		for (int i = 0; i < board.wordTiles.Length; i++)
+		for (var i = 0; i < board.wordTiles.Length; i++)
 		{
 			if (validIndexes.Contains(i) && this.IsUnassignedRegion(board, i))
 			{
@@ -606,12 +606,12 @@ public class WordBoardCreator : MonoBehaviour
 	{
 		board.wordTiles[index].region = region;
 
-		int i = Mathf.FloorToInt((float)index / (float)board.size);
-		int j = (index % board.size);
+		var i = Mathf.FloorToInt((float)index / (float)board.size);
+		var j = (index % board.size);
 
 		if (i != 0)
 		{
-			int topIndex = (i - 1) * board.size + j;
+			var topIndex = (i - 1) * board.size + j;
 
 			if (this.IsUnassignedRegion(board, topIndex))
 			{
@@ -621,7 +621,7 @@ public class WordBoardCreator : MonoBehaviour
 
 		if (i != board.size - 1)
 		{
-			int bottomIndex	= (i + 1) * board.size + j;
+			var bottomIndex	= (i + 1) * board.size + j;
 
 			if (this.IsUnassignedRegion(board, bottomIndex))
 			{
@@ -631,7 +631,7 @@ public class WordBoardCreator : MonoBehaviour
 
 		if (j != 0)
 		{
-			int leftIndex = i * board.size + (j - 1);
+			var leftIndex = i * board.size + (j - 1);
 
 			if (this.IsUnassignedRegion(board, leftIndex))
 			{
@@ -641,7 +641,7 @@ public class WordBoardCreator : MonoBehaviour
 
 		if (j != board.size - 1)
 		{
-			int rightIndex = i * board.size + (j + 1);
+			var rightIndex = i * board.size + (j + 1);
 
 			if (this.IsUnassignedRegion(board, rightIndex))
 			{
@@ -664,13 +664,13 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	private List<WordBoard> GetAllBoardRegionCombinations(WordBoard board)
 	{
-		List<WordBoard> possibleBoards = new List<WordBoard>();
+		var possibleBoards = new List<WordBoard>();
 
 		// Merge any regions that can be merged
 		this.MergeRegions(board);
 
 		// Get any crossroad index. A crossroad is an index where a region could split off into 2 - 4 other regions
-		int crossroadIndex = this.GetAnyCrossroad(board);
+		var crossroadIndex = this.GetAnyCrossroad(board);
 
 		// If its -1 then no crossroads exist and this Board is complete and can be returned
 		if (crossroadIndex == -1)
@@ -680,18 +680,18 @@ public class WordBoardCreator : MonoBehaviour
 		else
 		{
 			// If there is a crossroad we need to split the board
-			List<int> cornerIndexes = this.GetCornerRegionIndexes(board, crossroadIndex);
+			var cornerIndexes = this.GetCornerRegionIndexes(board, crossroadIndex);
 
 			// If there is only 2 distinct crossroad regions
 			if (cornerIndexes.Count == 2)
 			{
-				int crossroadRegion = board.wordTiles[crossroadIndex].region;
-				int corner1Region	= board.wordTiles[cornerIndexes[0]].region;
-				int corner2Region	= board.wordTiles[cornerIndexes[1]].region;
+				var crossroadRegion = board.wordTiles[crossroadIndex].region;
+				var corner1Region	= board.wordTiles[cornerIndexes[0]].region;
+				var corner2Region	= board.wordTiles[cornerIndexes[1]].region;
 
-				WordBoard newBoard1 = board.Copy();
-				WordBoard newBoard2 = board.Copy();
-				WordBoard newBoard3 = board.Copy();
+				var newBoard1 = board.Copy();
+				var newBoard2 = board.Copy();
+				var newBoard3 = board.Copy();
 
 				// Setup new board 1
 				newBoard1.wordTiles[crossroadIndex].region			= corner1Region;
@@ -714,15 +714,15 @@ public class WordBoardCreator : MonoBehaviour
 			}
 			else
 			{
-				for (int i = 0; i < cornerIndexes.Count; i++)
+				for (var i = 0; i < cornerIndexes.Count; i++)
 				{
-					int corner1Region = board.wordTiles[cornerIndexes[i]].region;
+					var corner1Region = board.wordTiles[cornerIndexes[i]].region;
 
-					for (int j = i + 1; j < cornerIndexes.Count; j++)
+					for (var j = i + 1; j < cornerIndexes.Count; j++)
 					{
-						int corner2Region = board.wordTiles[cornerIndexes[j]].region;
+						var corner2Region = board.wordTiles[cornerIndexes[j]].region;
 
-						WordBoard newBoard = board.Copy();
+						var newBoard = board.Copy();
 
 						newBoard.wordTiles[crossroadIndex].region		= corner1Region;
 						newBoard.wordTiles[crossroadIndex].regionLocked	= true;
@@ -744,7 +744,7 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	private void MergeRegions(WordBoard board)
 	{
-		for (int i = board.size + 1; i < board.wordTiles.Length - board.size; i++)
+		for (var i = board.size + 1; i < board.wordTiles.Length - board.size; i++)
 		{
 			if (i % board.size == board.size - 1)
 			{
@@ -762,27 +762,27 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	private void MergeRegion(WordBoard board, int i)
 	{
-		int thisRegion = board.wordTiles[i].region;
+		var thisRegion = board.wordTiles[i].region;
 
 		if (thisRegion == 0 || board.wordTiles[i].regionLocked)
 		{
 			return;
 		}
 
-		int thisI = Mathf.FloorToInt((float)i / (float)board.size);
-		int thisJ = (i % board.size);
+		var thisI = Mathf.FloorToInt((float)i / (float)board.size);
+		var thisJ = (i % board.size);
 
-		List<int> cornerIndexes = this.GetCornerRegionIndexes(board, i);
+		var cornerIndexes = this.GetCornerRegionIndexes(board, i);
 
 		// A region can be merged with another if the region has only 1 corner region or it has 2 corner regions and it is
 		// a single region (only one tile in the region)
 		if (cornerIndexes.Count == 2)
 		{
 			// Get the left, right, top, and bottom regions
-			int left 	= thisI * board.size + (thisJ - 1);
-			int right 	= thisI * board.size + (thisJ + 1);
-			int top 	= (thisI + 1) * board.size + thisJ;
-			int bottom	= (thisI - 1) * board.size + thisJ;
+			var left 	= thisI * board.size + (thisJ - 1);
+			var right 	= thisI * board.size + (thisJ + 1);
+			var top 	= (thisI + 1) * board.size + thisJ;
+			var bottom	= (thisI - 1) * board.size + thisJ;
 
 			// If none of those regions equal this region then it is a single region
 			if (!((thisRegion == board.wordTiles[left].region) ||
@@ -828,7 +828,7 @@ public class WordBoardCreator : MonoBehaviour
 		}
 
 		// Get the region number
-		int thisRegion = board.wordTiles[index].region;
+		var thisRegion = board.wordTiles[index].region;
 
 		// If its 0 then this is not a region and therefore cannot be a crossroad
 		if (thisRegion == 0)
@@ -836,10 +836,10 @@ public class WordBoardCreator : MonoBehaviour
 			return false;
 		}
 
-		int thisI = Mathf.FloorToInt((float)index / (float)board.size);
-		int thisJ = (index % board.size);
+		var thisI = Mathf.FloorToInt((float)index / (float)board.size);
+		var thisJ = (index % board.size);
 
-		List<int> cornerRegions = this.GetCornerRegionIndexes(board, index);
+		var cornerRegions = this.GetCornerRegionIndexes(board, index);
 
 		// If there are 3 or 4 cornering regions then this is definitly a crossroad region
 		if (cornerRegions.Count > 2)
@@ -850,10 +850,10 @@ public class WordBoardCreator : MonoBehaviour
 		// If there are only 2 corner regions then we need to check if thisRegion is a single region (only 1 tile in the region)
 		if (cornerRegions.Count == 2)
 		{
-			int left 	= thisI * board.size + (thisJ - 1);
-			int right 	= thisI * board.size + (thisJ + 1);
-			int top 	= (thisI + 1) * board.size + thisJ;
-			int bottom	= (thisI - 1) * board.size + thisJ;
+			var left 	= thisI * board.size + (thisJ - 1);
+			var right 	= thisI * board.size + (thisJ + 1);
+			var top 	= (thisI + 1) * board.size + thisJ;
+			var bottom	= (thisI - 1) * board.size + thisJ;
 
 			if ((thisRegion == board.wordTiles[left].region) ||
 				(thisRegion == board.wordTiles[right].region) ||
@@ -872,22 +872,22 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	private List<int> GetCornerRegionIndexes(WordBoard board, int index)
 	{
-		int thisI = Mathf.FloorToInt((float)index / (float)board.size);
-		int thisJ = (index % board.size);
+		var thisI = Mathf.FloorToInt((float)index / (float)board.size);
+		var thisJ = (index % board.size);
 
-		int corner1Index = (thisI - 1) * board.size + (thisJ - 1);
-		int corner2Index = (thisI - 1) * board.size + (thisJ + 1);
-		int corner3Index = (thisI + 1) * board.size + (thisJ - 1);
-		int corner4Index = (thisI + 1) * board.size + (thisJ + 1);
+		var corner1Index = (thisI - 1) * board.size + (thisJ - 1);
+		var corner2Index = (thisI - 1) * board.size + (thisJ + 1);
+		var corner3Index = (thisI + 1) * board.size + (thisJ - 1);
+		var corner4Index = (thisI + 1) * board.size + (thisJ + 1);
 
-		int corner1Region = board.wordTiles[corner1Index].region;
-		int corner2Region = board.wordTiles[corner2Index].region;
-		int corner3Region = board.wordTiles[corner3Index].region;
-		int corner4Region = board.wordTiles[corner4Index].region;
+		var corner1Region = board.wordTiles[corner1Index].region;
+		var corner2Region = board.wordTiles[corner2Index].region;
+		var corner3Region = board.wordTiles[corner3Index].region;
+		var corner4Region = board.wordTiles[corner4Index].region;
 
-		int			thisRegion		= board.wordTiles[index].region;
-		List<int>	cornerRegions	= new List<int>();
-		List<int>	cornerIndexes	= new List<int>();
+		var			thisRegion		= board.wordTiles[index].region;
+		var	cornerRegions	= new List<int>();
+		var	cornerIndexes	= new List<int>();
 
 		if (corner1Region != 0 && !board.wordTiles[corner1Index].regionLocked && thisRegion != corner1Region)
 		{
@@ -921,9 +921,9 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	private void ConvertRegion(WordBoard board, int fromRegion, int toRegion)
 	{
-		List<int> covertedCrossroads = new List<int>();
+		var covertedCrossroads = new List<int>();
 
-		for (int i = 0; i < board.wordTiles.Length; i++)
+		for (var i = 0; i < board.wordTiles.Length; i++)
 		{
 			if (board.wordTiles[i].region == fromRegion)
 			{
@@ -938,7 +938,7 @@ public class WordBoardCreator : MonoBehaviour
 			}
 		}
 
-		for (int i = 0; i < covertedCrossroads.Count; i++)
+		for (var i = 0; i < covertedCrossroads.Count; i++)
 		{
 			this.MergeRegion(board, covertedCrossroads[i]);
 		}
@@ -950,7 +950,7 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	private void ConvertRegionForCrossroad(WordBoard board, int fromRegion, int toRegion)
 	{
-		for (int i = 0; i < board.wordTiles.Length; i++)
+		for (var i = 0; i < board.wordTiles.Length; i++)
 		{
 			if (board.wordTiles[i].region == fromRegion)
 			{
@@ -965,7 +965,7 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	private int GetAnyCrossroad(WordBoard board)
 	{
-		for (int i = board.size + 1; i < board.wordTiles.Length - board.size; i++)
+		for (var i = board.size + 1; i < board.wordTiles.Length - board.size; i++)
 		{
 			if (i % board.size == board.size - 1)
 			{
@@ -989,11 +989,11 @@ public class WordBoardCreator : MonoBehaviour
 	/// </summary>
 	private Dictionary<int, List<int>> GetRegionIndexes(WordBoard board)
 	{
-		Dictionary<int, List<int>> regionIndexes = new Dictionary<int, List<int>>();
+		var regionIndexes = new Dictionary<int, List<int>>();
 
-		for (int i = 0; i < board.wordTiles.Length; i++)
+		for (var i = 0; i < board.wordTiles.Length; i++)
 		{
-			int region = board.wordTiles[i].region;
+			var region = board.wordTiles[i].region;
 
 			if (board.wordTiles[i].region != 0)
 			{
@@ -1025,16 +1025,16 @@ public class WordBoardCreator : MonoBehaviour
 			return false;
 		}
 
-		int regionSize	= regionSizes[regionSizes.Count - 1];
-		int region		= regions[regions.Count - 1];
+		var regionSize	= regionSizes[regionSizes.Count - 1];
+		var region		= regions[regions.Count - 1];
 
-		for (int i = 0; i < wordSizes.Count; i++)
+		for (var i = 0; i < wordSizes.Count; i++)
 		{
 			if (wordSizes[i] <= regionSize)
 			{ 
-				bool	removed		= false;
-				int		wordSize	= wordSizes[i];
-				int		wordIndex	= wordIndexes[i];
+				var	removed		= false;
+				var		wordSize	= wordSizes[i];
+				var		wordIndex	= wordIndexes[i];
 
 				regionSizes[regionSizes.Count - 1] -= wordSize;
 

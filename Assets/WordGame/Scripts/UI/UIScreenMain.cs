@@ -25,12 +25,12 @@ public class UIScreenMain : UIScreen
 	public override void OnShowing(object data)
 	{
 		// Set the progress rings percentage to the number of completed levels from all categories
-		int totalNumberOfLevels				= 0;
-		int totalNumberOfCompletedLevels	= 0;
+		var totalNumberOfLevels				= 0;
+		var totalNumberOfCompletedLevels	= 0;
 
-		for (int i = 0; i < GameManager.Instance.CategoryInfos.Count; i++)
+		for (var i = 0; i < GameManager.Instance.CategoryInfos.Count; i++)
 		{
-			CategoryInfo categoryInfo = GameManager.Instance.CategoryInfos[i];
+			var categoryInfo = GameManager.Instance.CategoryInfos[i];
 
 			// Only include levels that are not part of the paily puzzle category
 			if (categoryInfo.name != GameManager.dailyPuzzleId)
@@ -45,18 +45,18 @@ public class UIScreenMain : UIScreen
 		// Set the Continue button to the active category
 		if (string.IsNullOrEmpty(GameManager.Instance.ActiveCategory) || GameManager.Instance.ActiveCategory == GameManager.dailyPuzzleId)
 		{
-			bool foundUncompletedLevel = false;
+			var foundUncompletedLevel = false;
 
-			for (int i = 0; i < GameManager.Instance.CategoryInfos.Count; i++)
+			for (var i = 0; i < GameManager.Instance.CategoryInfos.Count; i++)
 			{
-				CategoryInfo categoryInfo = GameManager.Instance.CategoryInfos[i];
+				var categoryInfo = GameManager.Instance.CategoryInfos[i];
 
 				if (categoryInfo.name == GameManager.dailyPuzzleId)
 				{
 					continue;
 				}
 
-				for (int j = 0; j < categoryInfo.levelInfos.Count; j++)
+				for (var j = 0; j < categoryInfo.levelInfos.Count; j++)
 				{
 					if (!GameManager.Instance.IsLevelCompleted(categoryInfo, j))
 					{
@@ -82,8 +82,8 @@ public class UIScreenMain : UIScreen
 			}
 
 			this.continueBtnTopText.text    = "PLAY";
-			this.continueBtnBottomText.text = string.Format("{0} LEVEL {1}", this.continueBtnCategory.ToUpper(), this.continueBtnLevelIndex + 1);
-			this.continueBtnImage.sprite       = GameManager.Instance.GetCategoryInfo(this.continueBtnCategory).icon;
+			this.continueBtnBottomText.text = $"{this.continueBtnCategory.ToUpper()} LEVEL {this.continueBtnLevelIndex + 1}";
+			this.continueBtnImage.sprite    = GameManager.Instance.GetCategoryInfo(this.continueBtnCategory).icon;
 		}
 		else
 		{
@@ -91,8 +91,8 @@ public class UIScreenMain : UIScreen
 			this.continueBtnLevelIndex  = GameManager.Instance.ActiveLevelIndex;
 
 			this.continueBtnTopText.text    = "CONTINUE";
-			this.continueBtnBottomText.text = string.Format("{0} LEVEL {1}", this.continueBtnCategory.ToUpper(), this.continueBtnLevelIndex + 1);
-			this.continueBtnImage.sprite       = GameManager.Instance.GetCategoryInfo(this.continueBtnCategory).icon;
+			this.continueBtnBottomText.text = $"{this.continueBtnCategory.ToUpper()} LEVEL {this.continueBtnLevelIndex + 1}";
+			this.continueBtnImage.sprite    = GameManager.Instance.GetCategoryInfo(this.continueBtnCategory).icon;
 		}
 	}
 

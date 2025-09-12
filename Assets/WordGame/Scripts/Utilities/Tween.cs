@@ -165,9 +165,9 @@ public class Tween : MonoBehaviour
 			return null;
 		}
 
-		Tween[] tweens = obj.GetComponents<Tween>();
+		var tweens = obj.GetComponents<Tween>();
 
-		for (int i = 0; i < tweens.Length; i++)
+		for (var i = 0; i < tweens.Length; i++)
 		{
 			if (tweens[i].tweenType == tweenType)
 			{
@@ -183,7 +183,7 @@ public class Tween : MonoBehaviour
 	/// </summary>
 	public static void RemoveTween(GameObject obj, TweenType tweenType)
 	{
-		Tween tweenObject = GetTween(obj, tweenType);
+		var tweenObject = GetTween(obj, tweenType);
 
 		if (tweenObject != null)
 		{
@@ -308,7 +308,7 @@ public class Tween : MonoBehaviour
 			return null;
 		}
 
-		Tween tween = GetTween(this.gameObject, TweenType.RotationPoint);
+		var tween = GetTween(this.gameObject, TweenType.RotationPoint);
 
 		if (tween == null)
 		{
@@ -337,7 +337,7 @@ public class Tween : MonoBehaviour
 
 	private static Tween CreateTween(GameObject obj, TweenType tweenType, TweenStyle tweenStyle, float fromValue, float toValue, float duration, bool transformLocal, LoopType loopType)
 	{
-		Tween tween = GetTween(obj, tweenType);
+		var tween = GetTween(obj, tweenType);
 
 		if (tween == null)
 		{
@@ -357,7 +357,7 @@ public class Tween : MonoBehaviour
 
 	private static Tween CreateRotationTween(GameObject obj, TweenType tweenType, TweenStyle tweenStyle, Vector3 point, Vector3 axis, float angle, float duration, LoopType loopType)
 	{
-		Tween tween = GetTween(obj, tweenType);
+		var tween = GetTween(obj, tweenType);
 
 		if (tween == null)
 		{
@@ -381,7 +381,7 @@ public class Tween : MonoBehaviour
 
 	private static Tween CreateRotationTween(GameObject obj, TweenType tweenType, TweenStyle tweenStyle, Transform point, Vector3 axis, float angle, float duration, LoopType loopType)
 	{
-		Tween tween = GetTween(obj, tweenType);
+		var tween = GetTween(obj, tweenType);
 
 		if (tween == null)
 		{
@@ -404,7 +404,7 @@ public class Tween : MonoBehaviour
 
 	private static Tween CreateColourTween(GameObject obj, TweenType tweenType, TweenStyle tweenStyle, Color fromValue, Color toValue, float duration, LoopType loopType)
 	{
-		Tween tween = GetTween(obj, tweenType);
+		var tween = GetTween(obj, tweenType);
 
 		if (tween == null)
 		{
@@ -496,19 +496,19 @@ public class Tween : MonoBehaviour
 		case TweenType.ScaleY:
 		case TweenType.ScaleZ:
 		case TweenType.Rotation:
-			float temp	= this.fromValue;
+			var temp	= this.fromValue;
 			this.fromValue = this.toValue;
 			this.toValue      = temp;
 			break;
 		case TweenType.RotationPoint:
-			Vector3 tempV	= this.fromPoint;
+			var tempV	= this.fromPoint;
 			this.fromPoint = this.toPoint;
 			this.toPoint      = tempV;
 			break;
 		case TweenType.ColourImage:
 		case TweenType.ColourText:
 		case TweenType.ColourMaterial:
-			Color tempC	= this.fromColour;
+			var tempC	= this.fromColour;
 			this.fromColour = this.toColour;
 			this.toColour      = tempC;
 			break;
@@ -581,8 +581,8 @@ public class Tween : MonoBehaviour
 
 	private void UpdateRotation()
 	{
-		float angle  = Mathf.Lerp(this.fromValue, this.toValue, this.GetLerpT());
-		float amount = this.angleSoFar - angle;
+		var angle  = Mathf.Lerp(this.fromValue, this.toValue, this.GetLerpT());
+		var amount = this.angleSoFar - angle;
 
 		this.transform.RotateAround(this.pointT == null ? this.point : this.pointT.position, this.axis, amount);
 
@@ -591,7 +591,7 @@ public class Tween : MonoBehaviour
 
 	private void UpdateRotationPoint(Vector3 point)
 	{
-		Tween rotationTween = GetTween(this.gameObject, TweenType.Rotation);
+		var rotationTween = GetTween(this.gameObject, TweenType.Rotation);
 
 		if (rotationTween == null)
 		{
@@ -621,7 +621,7 @@ public class Tween : MonoBehaviour
 
 	private float GetLerpT()
 	{
-		float lerpT = (float)(Utilities.SystemTimeInMilliseconds - this.startTime) / this.duration;
+		var lerpT = (float)(Utilities.SystemTimeInMilliseconds - this.startTime) / this.duration;
 
 		switch (this.tweenStyle)
 		{

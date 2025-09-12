@@ -26,7 +26,7 @@ public class UIScreenCompleteOverlay : UIScreen
 
 	public override void OnShowing(object data)
 	{
-		CategoryInfo categoryInfo = GameManager.Instance.GetCategoryInfo(GameManager.Instance.ActiveCategory);
+		var categoryInfo = GameManager.Instance.GetCategoryInfo(GameManager.Instance.ActiveCategory);
 
 		this.categoryIconImage.sprite = categoryInfo.icon;
 		this.categoryNameText.text       = GameManager.Instance.ActiveCategory;
@@ -41,7 +41,7 @@ public class UIScreenCompleteOverlay : UIScreen
 			this.categoryLevelText.text = "Level " + (GameManager.Instance.ActiveLevelIndex + 1).ToString();
 		}
 
-        int number = (int)data;
+        var number = (int)data;
 		this.plusHintText.gameObject.SetActive(number > 0);
 		this.plusHintText.text = "+ " + number + (number == 1 ? " Hint" : " Hints");
 	}

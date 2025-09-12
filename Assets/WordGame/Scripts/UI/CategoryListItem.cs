@@ -30,8 +30,8 @@ public class CategoryListItem : MonoBehaviour
 		float numberOfCompletedLevels	= GameManager.Instance.GetCompletedLevelCount(categoryInfo);
 
 		this.categoryText.text = categoryInfo.name.ToUpper();
-		this.infoText.text     = string.Format("SIZE: {0} - LEVELS: {1}/{2}", categoryInfo.description, numberOfCompletedLevels, numberOfLevels);
-		this.iconImage.sprite     = categoryInfo.icon;
+		this.infoText.text     = $"SIZE: {categoryInfo.description} - LEVELS: {numberOfCompletedLevels}/{numberOfLevels}";
+		this.iconImage.sprite  = categoryInfo.icon;
 
 		this.completedImage.enabled = (numberOfLevels == numberOfCompletedLevels);
 	}

@@ -29,8 +29,8 @@ public static class Utilities
 		/* Important things we need to save in order to create a game board: id, size, words, and wordTiles */
 
 		// Get the words as one long string seperated by _ to save space
-		string wordsStr = "";
-		for (int i = 0; i < wordBoard.words.Length; i++)
+		var wordsStr = "";
+		for (var i = 0; i < wordBoard.words.Length; i++)
 		{
 			if (i != 0)
 			{
@@ -41,25 +41,25 @@ public static class Utilities
 		}
 
 		// Get the word tile states as one long string to save space
-		string wordTilesStr = "";
-		for (int i = 0; i < wordBoard.wordTiles.Length; i++)
+		var wordTilesStr = "";
+		for (var i = 0; i < wordBoard.wordTiles.Length; i++)
 		{
-			string usedStr		= wordBoard.wordTiles[i].used ? "1" : "0";
-			string hasLetterStr	= wordBoard.wordTiles[i].hasLetter ? "1" : "0";
+			var usedStr		= wordBoard.wordTiles[i].used ? "1" : "0";
+			var hasLetterStr	= wordBoard.wordTiles[i].hasLetter ? "1" : "0";
 
-			wordTilesStr += string.Format("{0}{1}{2}", usedStr, hasLetterStr, (hasLetterStr == "1") ? wordBoard.wordTiles[i].letter : '-');
+			wordTilesStr += $"{usedStr}{hasLetterStr}{((hasLetterStr == "1") ? wordBoard.wordTiles[i].letter : '-')}";
 		}
 
 		// Create the text that defines a WordBoard
-		string text = "";
-		text += string.Format("{0},", wordBoard.id);
-		text += string.Format("{0},", wordBoard.size);
-		text += string.Format("{0},", wordsStr);
-		text += string.Format("{0}", wordTilesStr);
+		var text = "";
+		text += $"{wordBoard.id},";
+		text += $"{wordBoard.size},";
+		text += $"{wordsStr},";
+		text += $"{wordTilesStr}";
 
 		// Get the full path
-		string directoyPath	= Application.dataPath + "/WordGame/Resources/" + BoardFilesDirectory;
-		string ioPath		= directoyPath + "/" + wordBoard.id + ".csv";
+		var directoyPath	= Application.dataPath + "/WordGame/Resources/" + BoardFilesDirectory;
+		var ioPath		= directoyPath + "/" + wordBoard.id + ".csv";
 
 		if (!System.IO.Directory.Exists(directoyPath))
 		{
@@ -73,7 +73,7 @@ public static class Utilities
 		}
 
 		// Open a StreamWriter and write the text to the file
-		System.IO.StreamWriter stream = System.IO.File.CreateText(ioPath);
+		var stream = System.IO.File.CreateText(ioPath);
 		stream.WriteLine(text);
 		stream.Close();
 		#endif
@@ -81,22 +81,22 @@ public static class Utilities
 
 	public static WordBoard LoadWordBoard(string boardId)
 	{
-		TextAsset textAsset = Resources.Load<TextAsset>(Utilities.BoardFilesDirectory + "/" + boardId);
+		var textAsset = Resources.Load<TextAsset>(Utilities.BoardFilesDirectory + "/" + boardId);
 
 		if (textAsset != null)
 		{
-			string[] text = textAsset.text.Split(',');
+			var text = textAsset.text.Split(',');
 
-			WordBoard wordBoard = new WordBoard();
+			var wordBoard = new WordBoard();
 			wordBoard.id		= text[0];
 			wordBoard.size		= System.Convert.ToInt32(text[1]);
 			wordBoard.words		= text[2].Split('_');
 
 			wordBoard.wordTiles = new WordBoard.WordTile[text[3].Length / 3];
 
-			for (int i = 0; i < wordBoard.wordTiles.Length; i++)
+			for (var i = 0; i < wordBoard.wordTiles.Length; i++)
 			{
-				WordBoard.WordTile wordTile = new WordBoard.WordTile();
+				var wordTile = new WordBoard.WordTile();
 
 				wordTile.used		= text[3][0] == '1';
 				wordTile.hasLetter	= text[3][1] == '1';
@@ -119,7 +119,7 @@ public static class Utilities
 	/// </summary>
 	public static string FormatBoardId(string category, int index)
 	{
-		return string.Format("{0}_{1}", category, index).Replace(" ", "_");
+		return $"{category}_{index}".Replace(" ", "_");
 	}
 
 	/// <summary>
@@ -146,7 +146,7 @@ public static class Utilities
 	{
 		return Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began);
 	}
-	
+
 	/// <summary>
 	/// Returns true if a mouse up event happened, false otherwise
 	/// </summary>
@@ -154,7 +154,7 @@ public static class Utilities
 	{
 		return (Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended));
 	}
-	
+
 	/// <summary>
 	/// Returns true if no mouse events are happening, false otherwise
 	/// </summary>

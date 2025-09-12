@@ -27,12 +27,12 @@ public class UIScreenCategoryLevels : UIScreen
 	{
 		this.levelItemObjectPool.ReturnAllObjectsToPool();
 
-		CategoryInfo	categoryInfo	= GameManager.Instance.GetCategoryInfo((string)categoryName);
-		bool			completed		= true;
+		var	categoryInfo	= GameManager.Instance.GetCategoryInfo((string)categoryName);
+		var			completed		= true;
 
-		for (int i = 0; i < categoryInfo.levelInfos.Count; i++)
+		for (var i = 0; i < categoryInfo.levelInfos.Count; i++)
 		{
-			LevelListItem.Type type = completed ? LevelListItem.Type.Completed : LevelListItem.Type.Locked;
+			var type = completed ? LevelListItem.Type.Completed : LevelListItem.Type.Locked;
 
 			if (completed && !GameManager.Instance.IsLevelCompleted(categoryInfo, i))
 			{
@@ -40,7 +40,7 @@ public class UIScreenCategoryLevels : UIScreen
 				type		= LevelListItem.Type.Normal;
 			}
 
-			LevelListItem levelListItem = this.levelItemObjectPool.GetObject().GetComponent<LevelListItem>();
+			var levelListItem = this.levelItemObjectPool.GetObject().GetComponent<LevelListItem>();
 			
 			levelListItem.Setup(categoryInfo, i, type);
 			levelListItem.gameObject.SetActive(true);

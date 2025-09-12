@@ -13,7 +13,7 @@ public class TimerText : MonoBehaviour
     public bool showMinute = true;
     public bool showSecond = true;
 
-    public Action onCountDownComplete;
+    public Action onCountDownComplete = null;
 
     private bool isRunning = false;
 
@@ -83,20 +83,20 @@ public class TimerText : MonoBehaviour
 
     private void UpdateText()
     {
-        TimeSpan t = TimeSpan.FromSeconds(this.timeValue);
+        var t = TimeSpan.FromSeconds(this.timeValue);
 
         string text;
         if (this.showHour && this.showMinute && this.showSecond)
         {
-            text = string.Format("{0:D2}:{1:D2}:{2:D2}", t.Hours, t.Minutes, t.Seconds);
+            text = $"{t.Hours:D2}:{t.Minutes:D2}:{t.Seconds:D2}";
         }
         else if (this.showHour && this.showMinute)
         {
-            text = string.Format("{0:D2}:{1:D2}", t.Hours, t.Minutes);
+            text = $"{t.Hours:D2}:{t.Minutes:D2}";
         }
         else
         {
-            text = string.Format("{0:D2}:{1:D2}", t.Minutes, t.Seconds);
+            text = $"{t.Minutes:D2}:{t.Seconds:D2}";
         }
         this.GetComponent<Text>().text = text;
     }

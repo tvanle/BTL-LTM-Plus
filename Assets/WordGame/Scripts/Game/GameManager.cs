@@ -193,8 +193,8 @@ public class GameManager : SingletonComponent<GameManager>
 		this.ActiveLevelIndex  = levelIndex;
 
 		// Get the board id for the level and load the WordBoard from Resources
-		string    boardId   = Utilities.FormatBoardId(this.ActiveCategory, this.ActiveLevelIndex);
-		WordBoard wordBoard = Utilities.LoadWordBoard(boardId);
+		var    boardId   = Utilities.FormatBoardId(this.ActiveCategory, this.ActiveLevelIndex);
+		var wordBoard = Utilities.LoadWordBoard(boardId);
 
 		if (wordBoard == null)
 		{
@@ -233,7 +233,7 @@ public class GameManager : SingletonComponent<GameManager>
 		{
 			if (this.ActiveDailyPuzzleIndex != -1)
 			{
-				string boardId = Utilities.FormatBoardId(dailyPuzzleId, this.ActiveDailyPuzzleIndex);
+				var boardId = Utilities.FormatBoardId(dailyPuzzleId, this.ActiveDailyPuzzleIndex);
 
 				// Remove any save data for the previous daily puzzle
 				this.SavedBoardStates.Remove(boardId);
@@ -261,7 +261,7 @@ public class GameManager : SingletonComponent<GameManager>
             }
             else if (!this.rewardedButton.IsActionAvailable())
             {
-                int remainTime = (int)(GameConfig.instance.rewardedVideoPeriod - CUtils.GetActionDeltaTime("rewarded_video"));
+                var remainTime = (int)(GameConfig.instance.rewardedVideoPeriod - CUtils.GetActionDeltaTime("rewarded_video"));
                 Toast.instance.ShowMessage("Ad is not available now. Please wait " + remainTime + " seconds");
             }
             else
@@ -274,7 +274,7 @@ public class GameManager : SingletonComponent<GameManager>
 			// Call DisplayNextHint in wordGrid, giving it the last hint index that was displayed. DisplayNextHint will return the word and letter that was displayed
 			int		hintWordIndex;
 			int		hintLetterIndex;
-			bool	hintDisplayed = this.wordGrid.DisplayNextHint(ref this.ActiveBoardState.nextHintIndex, out hintWordIndex, out hintLetterIndex);
+			var	hintDisplayed = this.wordGrid.DisplayNextHint(ref this.ActiveBoardState.nextHintIndex, out hintWordIndex, out hintLetterIndex);
 
 			// Check if a hint was actually displayed
 			if (hintDisplayed)
@@ -299,13 +299,13 @@ public class GameManager : SingletonComponent<GameManager>
 		if (this.ActiveBoardState != null)
 		{
 			// Set all the words to not found on the BoardState
-			for (int i = 0; i < this.ActiveBoardState.foundWords.Length; i++)
+			for (var i = 0; i < this.ActiveBoardState.foundWords.Length; i++)
 			{
 				this.ActiveBoardState.foundWords[i] = false;
 			}
 
 			// Set all Found tile states back to UsedButNotFound
-			for (int i = 0; i < this.ActiveBoardState.tileStates.Length; i++)
+			for (var i = 0; i < this.ActiveBoardState.tileStates.Length; i++)
 			{
 				if (this.ActiveBoardState.tileStates[i] == BoardState.TileState.Found)
 				{
@@ -334,7 +334,7 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	public bool IsLevelCompleted(CategoryInfo categoryInfo, int levelIndex)
 	{
-		string boardId = Utilities.FormatBoardId(categoryInfo.name, levelIndex);
+		var boardId = Utilities.FormatBoardId(categoryInfo.name, levelIndex);
 		return this.CompletedLevels.ContainsKey(boardId) && this.CompletedLevels[boardId];
 	}
 
@@ -343,9 +343,9 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	public int GetCompletedLevelCount(CategoryInfo categoryInfo)
 	{
-		int numberOfCompletedLevels = 0;
+		var numberOfCompletedLevels = 0;
 
-		for (int i = 0; i < categoryInfo.levelInfos.Count; i++)
+		for (var i = 0; i < categoryInfo.levelInfos.Count; i++)
 		{
 			if (this.IsLevelCompleted(categoryInfo, i))
 			{
@@ -361,7 +361,7 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	public CategoryInfo GetCategoryInfo(string categoryName)
 	{
-		for (int i = 0; i < this.CategoryInfos.Count; i++)
+		for (var i = 0; i < this.CategoryInfos.Count; i++)
 		{
 			if (categoryName == this.CategoryInfos[i].name)
 			{
@@ -382,13 +382,13 @@ public class GameManager : SingletonComponent<GameManager>
 	private void OnWordFound(string word, List<LetterTile> letterTile, bool foundAllWords)
 	{
 		// Set all the tileStates for the found game tiles to BoardState.TileState.Found to indicate the tile has been found
-		for (int i = 0; i < letterTile.Count; i++)
+		foreach (var t in letterTile)
 		{
-			this.ActiveBoardState.tileStates[letterTile[i].TileIndex] = BoardState.TileState.Found;
+			this.ActiveBoardState.tileStates[t.TileIndex] = BoardState.TileState.Found;
 		}
 
 		// Set the flag of the word to found
-		for (int i = 0; i < this.ActiveBoardState.words.Length; i++)
+		for (var i = 0; i < this.ActiveBoardState.words.Length; i++)
 		{
 			if (word == this.ActiveBoardState.words[i])
 			{
@@ -443,7 +443,7 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	private BoardState CreateNewBoardState(WordBoard wordBoard)
 	{
-		BoardState boardState = new BoardState();
+		var boardState = new BoardState();
 
 		boardState.wordBoardId		= wordBoard.id;
 		boardState.wordBoardSize	= wordBoard.size;
@@ -455,7 +455,7 @@ public class GameManager : SingletonComponent<GameManager>
 		boardState.tileStates		= new BoardState.TileState[wordBoard.wordTiles.Length];
 		boardState.hintLettersShown = new List<int[]>();
 
-		for (int i = 0; i < boardState.tileStates.Length; i++)
+		for (var i = 0; i < boardState.tileStates.Length; i++)
 		{
 			boardState.tileLetters[i]	= wordBoard.wordTiles[i].hasLetter ? wordBoard.wordTiles[i].letter : (char)0;
 			boardState.tileStates[i]	= wordBoard.wordTiles[i].hasLetter ? BoardState.TileState.UsedButNotFound : BoardState.TileState.NotUsed;
@@ -469,13 +469,13 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	private void BoardComplete()
 	{
-		string boardId     = Utilities.FormatBoardId(this.ActiveCategory, this.ActiveLevelIndex);
-		int    awardNumber = 0;
+		var boardId     = Utilities.FormatBoardId(this.ActiveCategory, this.ActiveLevelIndex);
+		var    awardNumber = 0;
 
 		// Check if the completed category was a daily puzzle, if so check if we want to award a hint
 		if (this.ActiveCategory != dailyPuzzleId)
 		{
-            bool awardHint = !this.CompletedLevels.ContainsKey(boardId) || !this.CompletedLevels[boardId];
+            var awardHint = !this.CompletedLevels.ContainsKey(boardId) || !this.CompletedLevels[boardId];
             awardNumber = awardHint ? GameConfig.instance.completeNormalLevelAward : 0;
 		}
 		else
@@ -504,15 +504,15 @@ public class GameManager : SingletonComponent<GameManager>
 
 	private void OnCompleteScreenShown()
 	{
-		CategoryInfo categoryInfo   = this.GetCategoryInfo(this.ActiveCategory);
-		int          nextLevelIndex = this.ActiveLevelIndex + 1;
+		var categoryInfo   = this.GetCategoryInfo(this.ActiveCategory);
+		var          nextLevelIndex = this.ActiveLevelIndex + 1;
 
 		// Check if the category has been completed or it was the daily puzzle
 		if (this.ActiveCategory == dailyPuzzleId || nextLevelIndex >= categoryInfo.levelInfos.Count)
 		{
 
 			// If we completed the daily puzzle then move back to the main screen else move to the categories screen
-			string screenToShow = (this.ActiveCategory == dailyPuzzleId) ? UIScreenController.MainScreenId : UIScreenController.CategoriesScreenId;
+			var screenToShow = (this.ActiveCategory == dailyPuzzleId) ? UIScreenController.MainScreenId : UIScreenController.CategoriesScreenId;
 
 			// Set the active category to nothing
 			this.ActiveCategory = "";
@@ -544,8 +544,8 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	private void Save()
 	{
-		SaveData saveData = new SaveData();
-		
+		var saveData = new SaveData();
+
 		saveData.currentHints = this.CurrentHints;
 		saveData.activeCategory = this.ActiveCategory ?? "";
 		saveData.activeLevelIndex = this.ActiveLevelIndex;
@@ -554,14 +554,14 @@ public class GameManager : SingletonComponent<GameManager>
 
 		// Get all the saved board states
 		saveData.savedBoardStates = new List<BoardState>();
-		foreach (KeyValuePair<string, BoardState> pair in this.SavedBoardStates)
+		foreach (var pair in this.SavedBoardStates)
 		{
 			saveData.savedBoardStates.Add(pair.Value);
 		}
 
 		// Get all the completed levels
 		saveData.completedLevels = new List<string>();
-		foreach (KeyValuePair<string, bool> pair in this.CompletedLevels)
+		foreach (var pair in this.CompletedLevels)
 		{
 			if (pair.Value)
 			{
@@ -570,7 +570,7 @@ public class GameManager : SingletonComponent<GameManager>
 		}
 
 		// Use JsonUtility for Unity compatibility
-		string jsonString = JsonUtility.ToJson(saveData, true);
+		var jsonString = JsonUtility.ToJson(saveData, true);
 		System.IO.File.WriteAllText(SaveDataPath, jsonString);
 	}
 
@@ -583,8 +583,8 @@ public class GameManager : SingletonComponent<GameManager>
 		{
 			try
 			{
-				string jsonStr = System.IO.File.ReadAllText(SaveDataPath);
-				SaveData saveData = JsonUtility.FromJson<SaveData>(jsonStr);
+				var jsonStr = System.IO.File.ReadAllText(SaveDataPath);
+				var saveData = JsonUtility.FromJson<SaveData>(jsonStr);
 
 				// Load the number of current hints
 				this.CurrentHints = saveData.currentHints;
@@ -593,7 +593,7 @@ public class GameManager : SingletonComponent<GameManager>
 				this.SavedBoardStates = new Dictionary<string, BoardState>();
 				if (saveData.savedBoardStates != null)
 				{
-					foreach (BoardState boardState in saveData.savedBoardStates)
+					foreach (var boardState in saveData.savedBoardStates)
 					{
 						this.SavedBoardStates.Add(boardState.wordBoardId, boardState);
 					}
@@ -618,7 +618,7 @@ public class GameManager : SingletonComponent<GameManager>
 				this.CompletedLevels = new Dictionary<string, bool>();
 				if (saveData.completedLevels != null)
 				{
-					foreach (string levelId in saveData.completedLevels)
+					foreach (var levelId in saveData.completedLevels)
 					{
 						this.CompletedLevels[levelId] = true;
 					}

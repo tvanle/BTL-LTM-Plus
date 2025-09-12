@@ -44,13 +44,13 @@ public class DailyPuzzleButton : MonoBehaviour
 			this.timeText.gameObject.SetActive(true);
 			this.button.interactable = false;
 
-			System.TimeSpan timeLeft = GameManager.Instance.NextDailyPuzzleAt - System.DateTime.Now;
+			var timeLeft = GameManager.Instance.NextDailyPuzzleAt - System.DateTime.Now;
 
-			string hours	= string.Format("{0}{1}", (timeLeft.Hours < 10 ? "0" : ""), timeLeft.Hours);
-			string mins		= string.Format("{0}{1}", (timeLeft.Minutes < 10 ? "0" : ""), timeLeft.Minutes);
-			string secs		= string.Format("{0}{1}", (timeLeft.Seconds < 10 ? "0" : ""), timeLeft.Seconds);
+			var hours = $"{(timeLeft.Hours < 10 ? "0" : "")}{timeLeft.Hours}";
+			var mins  = $"{(timeLeft.Minutes < 10 ? "0" : "")}{timeLeft.Minutes}";
+			var secs  = $"{(timeLeft.Seconds < 10 ? "0" : "")}{timeLeft.Seconds}";
 
-			this.timeText.text = string.Format("{0}:{1}:{2}", hours, mins, secs);
+			this.timeText.text = $"{hours}:{mins}:{secs}";
 		}
 	}
 

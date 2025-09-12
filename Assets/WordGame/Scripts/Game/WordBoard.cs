@@ -54,16 +54,16 @@ public class WordBoard
 	/// </summary>
 	public WordBoard Copy()
 	{
-		WordBoard newBoard = new WordBoard();
+		var newBoard = new WordBoard();
 
 		newBoard.id        = this.id;
 		newBoard.size      = this.size;
 		newBoard.wordTiles = new WordBoard.WordTile[newBoard.size * newBoard.size];
 
-		for (int i = 0; i < newBoard.wordTiles.Length; i++)
+		for (var i = 0; i < newBoard.wordTiles.Length; i++)
 		{
-			WordBoard.WordTile wordTile    = this.wordTiles[i];
-			WordBoard.WordTile newWordTile = new WordBoard.WordTile();
+			var wordTile    = this.wordTiles[i];
+			var newWordTile = new WordBoard.WordTile();
 
 			newWordTile.hasLetter		= wordTile.hasLetter;
 			newWordTile.letter			= wordTile.letter;

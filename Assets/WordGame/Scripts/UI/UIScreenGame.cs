@@ -19,7 +19,7 @@ public class UIScreenGame : UIScreen
 
 	private void Update()
 	{
-		this.hintBtnText.text = string.Format("HINT ({0})", GameManager.Instance.CurrentHints);
+		this.hintBtnText.text = $"HINT ({GameManager.Instance.CurrentHints})";
 	}
 
 	#endregion
@@ -38,19 +38,19 @@ public class UIScreenGame : UIScreen
 
 	public override void OnShowing(object data)
 	{
-		CategoryInfo categoryInfo = GameManager.Instance.GetCategoryInfo(GameManager.Instance.ActiveCategory);
+		var categoryInfo = GameManager.Instance.GetCategoryInfo(GameManager.Instance.ActiveCategory);
 
 		this.categoryText.text = GameManager.Instance.ActiveCategory.ToUpper();
-		this.hintBtnText.text  = string.Format("HINT ({0})", GameManager.Instance.CurrentHints);
-		this.iconImage.sprite     = categoryInfo.icon;
+		this.hintBtnText.text  = $"HINT ({GameManager.Instance.CurrentHints})";
+		this.iconImage.sprite  = categoryInfo.icon;
 
 		if (GameManager.Instance.ActiveCategory == GameManager.dailyPuzzleId)
 		{
-			this.levelText.text = string.Format("COMPLETE TO GAIN {0} HINT", GameConfig.instance.completeDailyPuzzleAward);
+			this.levelText.text = $"COMPLETE TO GAIN {GameConfig.instance.completeDailyPuzzleAward} HINT";
 		}
 		else
 		{
-			this.levelText.text = string.Format("LEVEL {0}", GameManager.Instance.ActiveLevelIndex + 1);
+			this.levelText.text = $"LEVEL {GameManager.Instance.ActiveLevelIndex + 1}";
 		}
 
 	}
