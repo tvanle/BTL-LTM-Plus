@@ -108,7 +108,7 @@ public class GameManager : SingletonComponent<GameManager>
 
 	#region Properties
 
-	public static string					SaveDataPath				{ get { return Application.persistentDataPath + "/save.dat"; } }
+	public static string					SaveDataPath => Application.persistentDataPath + "/save.dat";
 	public ObjectPool						LetterTilePool				{ get; private set; }
 	public int								CurrentHints				{ get; private set; }
 	public string							ActiveCategory				{ get; private set; }
@@ -150,10 +150,7 @@ public class GameManager : SingletonComponent<GameManager>
 			return this.dailyPuzzleInfo;
 		}
 
-		set
-		{
-			this.dailyPuzzleInfo = value;
-		}
+		set => this.dailyPuzzleInfo = value;
 	}
 
 	#endregion
@@ -552,6 +549,15 @@ public class GameManager : SingletonComponent<GameManager>
 			try
 			{
 				var jsonStr = System.IO.File.ReadAllText(SaveDataPath);
+				
+				// Fix common JSON issues from old save format
+				jsonStr = jsonStr.Replace("False", "false")
+								 .Replace("True", "true")
+								 .Replace("\"NextDailyPuzzleAt\":0", "\"nextHintIndex\":0")
+								 .Replace("\"ActiveDailyPuzzleIndex\"", "\"activeDailyPuzzleIndex\"")
+								 .Replace("\"NextDailyPuzzleAt\":\"00010101\"", "\"nextDailyPuzzleAt\":\"00010101\"")
+								 .Replace("\"hintLetters\"", "\"hintLettersShown\"");
+				
 				var saveData = JsonUtility.FromJson<SaveData>(jsonStr);
 
 				// Load the number of current hints
