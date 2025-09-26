@@ -81,7 +81,7 @@ public class BoardFileCreatorWindow : EditorWindow
 		// Try and find a reference of the GameManager in the current scene
 		if (gameManagerReference == null)
 		{
-			gameManagerReference = GameObject.FindObjectOfType<GameManager>();
+			gameManagerReference = GameObject.FindFirstObjectByType<GameManager>();
 		}
 
 		gameManagerReference = EditorGUILayout.ObjectField("Game Manager:", gameManagerReference, typeof(GameManager), true) as GameManager;
