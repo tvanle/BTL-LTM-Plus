@@ -62,11 +62,6 @@ public class GameManagerEditor : Editor
 
         EditorGUILayout.Space();
 
-        if (GUILayout.Button("Delete Saved Data", GUILayout.MinHeight(30)))
-		{
-			System.IO.File.Delete(GameManager.SaveDataPath);
-        }
-
         EditorGUILayout.Space();
 
         if (GUILayout.Button("Open Board File Creator Window", GUILayout.MinHeight(30)))
