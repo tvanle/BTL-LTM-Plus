@@ -24,67 +24,24 @@ public class UIScreenMain : UIScreen
 
 	public override void OnShowing(object data)
 	{
-		// Set the progress rings percentage to the number of completed levels from all categories
-		var nonDailyCategories = GameManager.Instance.CategoryInfos
-			.Where(category => category.name != GameManager.dailyPuzzleId);
+		// Set progress to 100% as all levels are now unlocked
+		this.progressRing.SetProgress(1.0f);
 
-		var dailyCategories              = nonDailyCategories as CategoryInfo[] ?? nonDailyCategories.ToArray();
-		var totalNumberOfLevels          = dailyCategories.Sum(category => category.levelInfos.Count);
-		var totalNumberOfCompletedLevels = dailyCategories.Sum(category => GameManager.Instance.GetCompletedLevelCount(category));
-
-		this.progressRing.SetProgress((float)totalNumberOfCompletedLevels / (float)totalNumberOfLevels);
-
-		// Set the Continue button to the active category
-		if (string.IsNullOrEmpty(GameManager.Instance.ActiveCategory) || GameManager.Instance.ActiveCategory == GameManager.dailyPuzzleId)
+		// Always show the first category and first level on the Play button
+		if (GameManager.Instance.CategoryInfos.Count > 0)
 		{
-			var foundUncompletedLevel = false;
+			var firstNonDailyCategory = GameManager.Instance.CategoryInfos
+				.FirstOrDefault(c => c.name != GameManager.dailyPuzzleId);
 
-			for (var i = 0; i < GameManager.Instance.CategoryInfos.Count; i++)
+			if (firstNonDailyCategory != null)
 			{
-				var categoryInfo = GameManager.Instance.CategoryInfos[i];
+				this.continueBtnCategory = firstNonDailyCategory.name;
+				this.continueBtnLevelIndex = 0;
 
-				if (categoryInfo.name == GameManager.dailyPuzzleId)
-				{
-					continue;
-				}
-
-				for (var j = 0; j < categoryInfo.levelInfos.Count; j++)
-				{
-					if (!GameManager.Instance.IsLevelCompleted(categoryInfo, j))
-					{
-						this.continueBtnCategory = categoryInfo.name;
-						this.continueBtnLevelIndex  = j;
-						foundUncompletedLevel    = true;
-
-						break;
-					}
-				}
-
-				if (foundUncompletedLevel)
-				{
-					break;
-				}
+				this.continueBtnTopText.text = "PLAY";
+				this.continueBtnBottomText.text = $"{this.continueBtnCategory.ToUpper()} LEVEL 1";
+				this.continueBtnImage.sprite = firstNonDailyCategory.icon;
 			}
-
-			// If all levels are completed then set the button to the first category and first level
-			if (!foundUncompletedLevel)
-			{
-				this.continueBtnCategory = GameManager.Instance.CategoryInfos[0].name;
-				this.continueBtnLevelIndex  = 0;
-			}
-
-			this.continueBtnTopText.text    = "PLAY";
-			this.continueBtnBottomText.text = $"{this.continueBtnCategory.ToUpper()} LEVEL {this.continueBtnLevelIndex + 1}";
-			this.continueBtnImage.sprite    = GameManager.Instance.GetCategoryInfo(this.continueBtnCategory).icon;
-		}
-		else
-		{
-			this.continueBtnCategory = GameManager.Instance.ActiveCategory;
-			this.continueBtnLevelIndex  = GameManager.Instance.ActiveLevelIndex;
-
-			this.continueBtnTopText.text    = "CONTINUE";
-			this.continueBtnBottomText.text = $"{this.continueBtnCategory.ToUpper()} LEVEL {this.continueBtnLevelIndex + 1}";
-			this.continueBtnImage.sprite    = GameManager.Instance.GetCategoryInfo(this.continueBtnCategory).icon;
 		}
 	}
 

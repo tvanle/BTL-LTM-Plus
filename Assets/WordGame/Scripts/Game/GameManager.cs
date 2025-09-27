@@ -1,7 +1,5 @@
 using UnityEngine;
-
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 using System.Linq;
 
@@ -31,20 +29,6 @@ public class GameManager : SingletonComponent<GameManager>
 {
 	#region Data Classes
 
-	/// <summary>
-	/// Save data structure for JSON serialization
-	/// </summary>
-	[System.Serializable]
-	public class SaveData
-	{
-		public int currentHints;
-		public string activeCategory;
-		public int activeLevelIndex;
-		public int activeDailyPuzzleIndex;
-		public string nextDailyPuzzleAt;
-		public List<BoardState> savedBoardStates;
-		public List<string> completedLevels;
-	}
 
 	/// <summary>
 	/// Holds infomation about the state of a board that is being play.
@@ -67,6 +51,8 @@ public class GameManager : SingletonComponent<GameManager>
 		public char[] tileLetters;
 		public int nextHintIndex;
 		public List<int[]> hintLettersShown;
+		public float startTime;
+		public float elapsedTime;
 	}
 
 	#endregion
@@ -108,9 +94,8 @@ public class GameManager : SingletonComponent<GameManager>
 
 	#region Properties
 
-	public static string					SaveDataPath => Application.persistentDataPath + "/save.dat";
 	public ObjectPool						LetterTilePool				{ get; private set; }
-	public int								CurrentHints				{ get; private set; }
+	public int								CurrentHints				{ get; set; }
 	public string							ActiveCategory				{ get; private set; }
 	public int								ActiveLevelIndex			{ get; private set; }
 	public int								ActiveDailyPuzzleIndex		{ get; private set; }
@@ -119,6 +104,9 @@ public class GameManager : SingletonComponent<GameManager>
 	public Dictionary<string, bool>			CompletedLevels				{ get; private set; }
 	public bool								AnimatingWord				{ get; private set; }
 	public System.DateTime					NextDailyPuzzleAt			{ get; private set; }
+	public bool								IsMultiplayer				{ get; set; }
+	public string							CurrentRoomId				{ get; set; }
+	public string							PlayerId					{ get; set; }
 
 	public List<CategoryInfo> CategoryInfos
 	{
@@ -163,15 +151,12 @@ public class GameManager : SingletonComponent<GameManager>
 
 		this.LetterTilePool   = new ObjectPool(this.letterTilePrefab.gameObject, 16, this.transform);
 		this.SavedBoardStates = new Dictionary<string, BoardState>();
-		this.CompletedLevels     = new Dictionary<string, bool>();
+		this.CompletedLevels  = new Dictionary<string, bool>();
 
-		// Load any save data
-		if (!this.LoadSave())
-		{
-			// If there as not save data then set the current hints to the starting hints
-			this.CurrentHints        = this.startingHints;
-			this.ActiveDailyPuzzleIndex = -1;
-		}
+		// Initialize runtime data
+		this.CurrentHints = this.startingHints;
+		this.ActiveDailyPuzzleIndex = -1;
+		this.NextDailyPuzzleAt = System.DateTime.Now;
 
 		// Initialize all our important things
 		this.letterBoard.Initialize();
@@ -208,9 +193,6 @@ public class GameManager : SingletonComponent<GameManager>
 
 		// Try and get a saved board state if one exists
 		this.ActiveBoardState = this.SavedBoardStates[boardId];
-
-		// Save the game
-		this.Save();
 
 		// Setup the display using the assigned activeBoardState
 		this.SetupActiveBoard();
@@ -283,8 +265,6 @@ public class GameManager : SingletonComponent<GameManager>
 				// Update the board state so we know what letters where shown because of hints (so if the board is loaded from save we can lpace the hint words)
 				this.ActiveBoardState.hintLettersShown.Add(new int[] { hintWordIndex, hintLetterIndex });
 
-				// Save the game
-				this.Save();
 			}
 		}
 	}
@@ -304,9 +284,6 @@ public class GameManager : SingletonComponent<GameManager>
 				.Select(state => state == BoardState.TileState.Found ? BoardState.TileState.UsedButNotFound : state)
 				.ToArray();
 
-			// Save the game
-			this.Save();
-
 			this.SetupActiveBoard();
 		}
 	}
@@ -317,7 +294,6 @@ public class GameManager : SingletonComponent<GameManager>
 	public void AddHint(int number = 1)
 	{
 		this.CurrentHints += number;
-		this.Save();
 	}
 
 	/// <summary>
@@ -369,9 +345,6 @@ public class GameManager : SingletonComponent<GameManager>
 			this.ActiveBoardState.foundWords[wordIndex] = true;
 		}
 
-		// Save the game
-		this.Save();
-
 		// Cannot transition screens while a word is animating or bad things happen
 		this.AnimatingWord = true;
 
@@ -422,6 +395,8 @@ public class GameManager : SingletonComponent<GameManager>
 		boardState.wordBoardSize	= wordBoard.size;
 		boardState.words			= wordBoard.words;
 		boardState.nextHintIndex	= 0;
+		boardState.startTime		= Time.time;
+		boardState.elapsedTime		= 0;
 
 		boardState.foundWords = new bool[wordBoard.words.Length];
 		boardState.hintLettersShown = new List<int[]>();
@@ -470,8 +445,6 @@ public class GameManager : SingletonComponent<GameManager>
 		// Remove the BoardState from the list of saved BoardStates
 		this.SavedBoardStates.Remove(boardId);
 
-		this.Save();
-
 		UIScreenController.Instance.Show(UIScreenController.CompleteScreenId, false, true, true, Tween.TweenStyle.EaseOut, this.OnCompleteScreenShown, awardNumber);
 	}
 
@@ -490,8 +463,6 @@ public class GameManager : SingletonComponent<GameManager>
 			// Set the active category to nothing
 			this.ActiveCategory = "";
 			this.ActiveLevelIndex  = -1;
-
-			this.Save();
 
 			// Force the category screen to show right away (behind the now showing overlay)
 			UIScreenController.Instance.Show(screenToShow, true, false);
@@ -512,94 +483,78 @@ public class GameManager : SingletonComponent<GameManager>
 		UIScreenController.Instance.HideOverlay(UIScreenController.CompleteScreenId, true, Tween.TweenStyle.EaseIn);
 	}
 
+
+
 	/// <summary>
-	/// Saves the game
+	/// Resets all game data for a new session
 	/// </summary>
-	private void Save()
+	public void ResetGameData()
 	{
-		var saveData = new SaveData();
-
-		saveData.currentHints = this.CurrentHints;
-		saveData.activeCategory = this.ActiveCategory ?? "";
-		saveData.activeLevelIndex = this.ActiveLevelIndex;
-		saveData.activeDailyPuzzleIndex = this.ActiveDailyPuzzleIndex;
-		saveData.nextDailyPuzzleAt = this.NextDailyPuzzleAt.ToString("yyyyMMdd");
-
-		// Get all the saved board states
-		saveData.savedBoardStates = this.SavedBoardStates.Values.ToList();
-
-		// Get all the completed levels
-		saveData.completedLevels = this.CompletedLevels
-			.Where(pair => pair.Value)
-			.Select(pair => pair.Key)
-			.ToList();
-
-		// Use JsonUtility for Unity compatibility
-		var jsonString = JsonUtility.ToJson(saveData, true);
-		System.IO.File.WriteAllText(SaveDataPath, jsonString);
+		this.CurrentHints = this.startingHints;
+		this.ActiveCategory = "";
+		this.ActiveLevelIndex = -1;
+		this.ActiveDailyPuzzleIndex = -1;
+		this.ActiveBoardState = null;
+		this.SavedBoardStates.Clear();
+		this.CompletedLevels.Clear();
+		this.NextDailyPuzzleAt = System.DateTime.Now;
 	}
 
 	/// <summary>
-	/// Loads the save game
+	/// Gets the current game state for multiplayer synchronization
 	/// </summary>
-	private bool LoadSave()
+	public Dictionary<string, object> GetGameStateForSync()
 	{
-		if (File.Exists(SaveDataPath))
+		var gameState = new Dictionary<string, object>();
+
+		if (this.ActiveBoardState != null)
 		{
-			try
-			{
-				var jsonStr = System.IO.File.ReadAllText(SaveDataPath);
-				
-				// Fix common JSON issues from old save format
-				jsonStr = jsonStr.Replace("False", "false")
-								 .Replace("True", "true")
-								 .Replace("\"NextDailyPuzzleAt\":0", "\"nextHintIndex\":0")
-								 .Replace("\"ActiveDailyPuzzleIndex\"", "\"activeDailyPuzzleIndex\"")
-								 .Replace("\"NextDailyPuzzleAt\":\"00010101\"", "\"nextDailyPuzzleAt\":\"00010101\"")
-								 .Replace("\"hintLetters\"", "\"hintLettersShown\"");
-				
-				var saveData = JsonUtility.FromJson<SaveData>(jsonStr);
-
-				// Load the number of current hints
-				this.CurrentHints = saveData.currentHints;
-
-				// Parse the saved board states
-				this.SavedBoardStates = saveData.savedBoardStates?
-					.ToDictionary(boardState => boardState.wordBoardId, boardState => boardState) 
-					?? new Dictionary<string, BoardState>();
-
-				// Get the active category and level index
-				this.ActiveCategory = saveData.activeCategory;
-				this.ActiveLevelIndex = saveData.activeLevelIndex;
-				this.ActiveDailyPuzzleIndex = saveData.activeDailyPuzzleIndex;
-
-				// Get the next daily puzzle at time
-				if (string.IsNullOrEmpty(saveData.nextDailyPuzzleAt))
-				{
-					this.NextDailyPuzzleAt = System.DateTime.Now;
-				}
-				else
-				{
-					this.NextDailyPuzzleAt = System.DateTime.ParseExact(saveData.nextDailyPuzzleAt, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
-				}
-
-				// Parse the completed levels
-				this.CompletedLevels = saveData.completedLevels?
-					.ToDictionary(levelId => levelId, _ => true)
-					?? new Dictionary<string, bool>();
-
-				return true;
-			}
-			catch (System.Exception e)
-			{
-				Debug.LogError("Failed to load save data: " + e.Message);
-				return false;
-			}
+			gameState["boardId"] = this.ActiveBoardState.wordBoardId;
+			gameState["foundWords"] = this.ActiveBoardState.foundWords;
+			gameState["tileStates"] = this.ActiveBoardState.tileStates;
+			gameState["hints"] = this.CurrentHints;
+			gameState["elapsedTime"] = Time.time - this.ActiveBoardState.startTime;
 		}
 
-		return false;
+		return gameState;
 	}
 
+	/// <summary>
+	/// Updates game state from multiplayer sync data
+	/// </summary>
+	public void UpdateGameStateFromSync(Dictionary<string, object> syncData)
+	{
+		if (syncData.ContainsKey("hints"))
+		{
+			this.CurrentHints = (int)syncData["hints"];
+		}
+
+		if (this.ActiveBoardState != null && syncData.ContainsKey("foundWords"))
+		{
+			this.ActiveBoardState.foundWords = (bool[])syncData["foundWords"];
+			this.ActiveBoardState.tileStates = (BoardState.TileState[])syncData["tileStates"];
+
+			if (syncData.ContainsKey("elapsedTime"))
+			{
+				this.ActiveBoardState.elapsedTime = (float)syncData["elapsedTime"];
+			}
+
+			// Refresh the display
+			this.SetupActiveBoard();
+		}
+	}
+
+	/// <summary>
+	/// Gets the elapsed time for the current board
+	/// </summary>
+	public float GetElapsedTime()
+	{
+		if (this.ActiveBoardState != null)
+		{
+			return Time.time - this.ActiveBoardState.startTime + this.ActiveBoardState.elapsedTime;
+		}
+		return 0f;
+	}
 
     #endregion
 
