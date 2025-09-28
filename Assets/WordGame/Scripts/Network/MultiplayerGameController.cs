@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using WordGame.Network.Models;
 using WordGame.UI;
@@ -7,10 +8,6 @@ namespace WordGame.Network
 {
     public class MultiplayerGameController : MonoBehaviour
     {
-        [Header("Screen References")]
-        [SerializeField] private UIScreenMultiplayerMenu menuScreen;
-        [SerializeField] private UIScreenMultiplayerRoom roomScreen;
-        [SerializeField] private UIScreenMultiplayerGame gameScreen;
 
         private NetworkManager _networkManager;
         private bool _isHost;
@@ -33,7 +30,11 @@ namespace WordGame.Network
             var connected = await _networkManager.ConnectAsync();
             if (!connected)
             {
-                menuScreen.SetStatus("Failed to connect to server");
+                var menuScreen = GetScreen<UIScreenMultiplayerMenu>(UIScreenController.MultiplayerMenuScreenId);
+                if (menuScreen != null)
+                {
+                    menuScreen.SetStatus("Failed to connect to server");
+                }
             }
         }
 
@@ -47,59 +48,75 @@ namespace WordGame.Network
 
         private void InitializeUIEvents()
         {
-            // Menu Screen Events
-            menuScreen.OnCreateRoomRequest += async (username, topic) =>
-            {
-                await _networkManager.CreateRoom(username, topic);
-            };
+            // Get screen references
+            var menuScreen = GetScreen<UIScreenMultiplayerMenu>(UIScreenController.MultiplayerMenuScreenId);
+            var roomScreen = GetScreen<UIScreenMultiplayerRoom>(UIScreenController.MultiplayerRoomScreenId);
 
-            menuScreen.OnJoinRoomRequest += async (username, roomCode) =>
+            // Menu Screen Events
+            if (menuScreen != null)
             {
-                await _networkManager.JoinRoom(roomCode, username);
-            };
+                menuScreen.OnCreateRoomRequest += async (username, topic) =>
+                {
+                    await _networkManager.CreateRoom(username, topic);
+                };
+
+                menuScreen.OnJoinRoomRequest += async (username, roomCode) =>
+                {
+                    await _networkManager.JoinRoom(roomCode, username);
+                };
+            }
 
             // Room Screen Events
-            roomScreen.OnReadyPressed += async () =>
+            if (roomScreen != null)
             {
-                await _networkManager.SetReady();
-                roomScreen.SetReadyButtonInteractable(false);
-            };
-
-            roomScreen.OnStartGamePressed += async () =>
-            {
-                if (_isHost)
+                roomScreen.OnReadyPressed += async () =>
                 {
-                    await _networkManager.StartGame();
-                }
-            };
+                    await _networkManager.SetReady();
+                    roomScreen.SetReadyButtonInteractable(false);
+                };
 
-            roomScreen.OnLeaveRoomPressed += async () =>
-            {
-                await _networkManager.LeaveRoom();
-                ShowMenu();
-            };
+                roomScreen.OnStartGamePressed += async () =>
+                {
+                    if (_isHost)
+                    {
+                        await _networkManager.StartGame();
+                    }
+                };
 
-            // Game Screen Events
-            gameScreen.OnAnswerSubmit += async (answer, timeTaken) =>
-            {
-                await _networkManager.SubmitAnswer(answer, timeTaken);
-            };
+                roomScreen.OnLeaveRoomPressed += async () =>
+                {
+                    await _networkManager.LeaveRoom();
+                    ShowMenu();
+                };
+            }
         }
 
         private void OnConnected()
         {
-            menuScreen.SetStatus("Connected to server");
+            var menuScreen = GetScreen<UIScreenMultiplayerMenu>(UIScreenController.MultiplayerMenuScreenId);
+            if (menuScreen != null)
+            {
+                menuScreen.SetStatus("Connected to server");
+            }
         }
 
         private void OnDisconnected()
         {
-            menuScreen.SetStatus("Disconnected from server");
+            var menuScreen = GetScreen<UIScreenMultiplayerMenu>(UIScreenController.MultiplayerMenuScreenId);
+            if (menuScreen != null)
+            {
+                menuScreen.SetStatus("Disconnected from server");
+            }
             ShowMenu();
         }
 
         private void OnError(string error)
         {
-            menuScreen.SetStatus($"Error: {error}");
+            var menuScreen = GetScreen<UIScreenMultiplayerMenu>(UIScreenController.MultiplayerMenuScreenId);
+            if (menuScreen != null)
+            {
+                menuScreen.SetStatus($"Error: {error}");
+            }
             Debug.LogError($"Network Error: {error}");
         }
 
@@ -155,7 +172,11 @@ namespace WordGame.Network
         {
             _isHost = true;
             ShowRoom();
-            roomScreen.Initialize(_networkManager.RoomCode, _isHost);
+            var roomScreen = GetScreen<UIScreenMultiplayerRoom>(UIScreenController.MultiplayerRoomScreenId);
+            if (roomScreen != null)
+            {
+                roomScreen.InitializeRoom(_networkManager.RoomCode, _isHost);
+            }
             UpdatePlayerList();
         }
 
@@ -163,75 +184,106 @@ namespace WordGame.Network
         {
             _isHost = false;
             ShowRoom();
-            roomScreen.Initialize(_networkManager.RoomCode, _isHost);
+            var roomScreen = GetScreen<UIScreenMultiplayerRoom>(UIScreenController.MultiplayerRoomScreenId);
+            if (roomScreen != null)
+            {
+                roomScreen.InitializeRoom(_networkManager.RoomCode, _isHost);
+            }
             UpdatePlayerList();
         }
 
         private void UpdatePlayerList()
         {
-            roomScreen.UpdatePlayerList(_networkManager.RoomPlayers);
+            var roomScreen = GetScreen<UIScreenMultiplayerRoom>(UIScreenController.MultiplayerRoomScreenId);
+            if (roomScreen != null)
+            {
+                roomScreen.UpdatePlayerList(_networkManager.RoomPlayers);
+            }
         }
 
         private void HandleGameStarted(string data)
         {
             var gameData = JsonUtility.FromJson<GameStartData>(data);
             ShowGame();
-            gameScreen.StartLevel(gameData);
+            var gameScreen = GetScreen<UIScreenGame>(UIScreenController.GameScreenId);
+            if (gameScreen != null)
+            {
+                gameScreen.StartMultiplayerLevel(gameData);
+            }
         }
 
         private void HandleNextLevel(string data)
         {
             var gameData = JsonUtility.FromJson<GameStartData>(data);
-            gameScreen.UpdateLevel(gameData);
+            var gameScreen = GetScreen<UIScreenGame>(UIScreenController.GameScreenId);
+            if (gameScreen != null)
+            {
+                gameScreen.StartMultiplayerLevel(gameData);
+            }
         }
 
         private void HandleAnswerResult(string data)
         {
             var result = JsonUtility.FromJson<AnswerResultData>(data);
 
-            if (result.playerId == _networkManager.PlayerId)
-            {
-                gameScreen.UpdateScore(result.score);
-                gameScreen.ShowAnswerResult(result.isCorrect);
-            }
+            // The game screen will handle level completion through GameManager
+            // This is just for tracking answer results
+            Debug.Log($"Answer result for {result.playerId}: {result.isCorrect}, Score: {result.score}");
         }
 
         private void HandleGameEnded(string data)
         {
             var endData = JsonUtility.FromJson<GameEndData>(data);
 
-            gameScreen.StopGame();
-            ShowRoom();
-            roomScreen.Reset();
-
-            // Show results
-            var resultsText = "Game Over!\n\nResults:\n";
-            foreach (var result in endData.results)
+            // Reset game screen multiplayer state
+            var gameScreen = GetScreen<UIScreenGame>(UIScreenController.GameScreenId);
+            if (gameScreen != null)
             {
-                resultsText += $"{result.Username}: {result.Score}\n";
+                gameScreen.ResetMultiplayer();
             }
-            roomScreen.ShowResults(resultsText);
+
+            // Show leaderboard
+            ShowLeaderboard(endData.results);
+        }
+
+
+        private void ShowLeaderboard(List<PlayerResult> results)
+        {
+            UIScreenController.Instance.Show(UIScreenController.LeaderboardScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, results);
         }
 
         private void ShowMenu()
         {
-            menuScreen.Show();
-            roomScreen.Hide();
-            gameScreen.Hide();
+            UIScreenController.Instance.Show(UIScreenController.MultiplayerMenuScreenId, false, true);
+
+            var gameScreen = GetScreen<UIScreenGame>(UIScreenController.GameScreenId);
+            if (gameScreen != null)
+            {
+                gameScreen.ResetMultiplayer();
+            }
         }
 
         private void ShowRoom()
         {
-            menuScreen.Hide();
-            roomScreen.Show();
-            gameScreen.Hide();
+            UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true);
         }
 
         private void ShowGame()
         {
-            menuScreen.Hide();
-            roomScreen.Hide();
-            gameScreen.Show();
+            UIScreenController.Instance.Show(UIScreenController.GameScreenId, false, true);
+        }
+
+        private T GetScreen<T>(string screenId) where T : UIScreen
+        {
+            var screens = FindObjectsOfType<UIScreen>();
+            foreach (var screen in screens)
+            {
+                if (screen.id == screenId && screen is T)
+                {
+                    return screen as T;
+                }
+            }
+            return null;
         }
 
         private void OnDestroy()

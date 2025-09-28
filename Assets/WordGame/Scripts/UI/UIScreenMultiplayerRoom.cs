@@ -6,7 +6,7 @@ using WordGame.Network;
 
 namespace WordGame.UI
 {
-    public class UIScreenMultiplayerRoom : MonoBehaviour
+    public class UIScreenMultiplayerRoom : UIScreen
     {
         [Header("UI References")]
         [SerializeField] private Text roomCodeText;
@@ -24,8 +24,9 @@ namespace WordGame.UI
         private Dictionary<string, GameObject> _playerListItems = new Dictionary<string, GameObject>();
         private bool _isHost;
 
-        private void Awake()
+        public override void Initialize()
         {
+            base.Initialize();
             readyButton.onClick.AddListener(() => OnReadyPressed?.Invoke());
             startGameButton.onClick.AddListener(() => OnStartGamePressed?.Invoke());
             leaveRoomButton.onClick.AddListener(() => OnLeaveRoomPressed?.Invoke());
@@ -38,7 +39,7 @@ namespace WordGame.UI
             leaveRoomButton.onClick.RemoveAllListeners();
         }
 
-        public void Initialize(string roomCode, bool isHost)
+        public void InitializeRoom(string roomCode, bool isHost)
         {
             _isHost = isHost;
             roomCodeText.text = $"Room Code: {roomCode}";
@@ -81,15 +82,6 @@ namespace WordGame.UI
             SetStatus(resultsText);
         }
 
-        public void Show()
-        {
-            gameObject.SetActive(true);
-        }
-
-        public void Hide()
-        {
-            gameObject.SetActive(false);
-        }
 
         public void Reset()
         {

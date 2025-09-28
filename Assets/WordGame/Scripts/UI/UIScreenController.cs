@@ -17,6 +17,10 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 	public const string GameScreenId			= "game";
 	public const string CompleteScreenId		= "complete";
 
+	public const string MultiplayerMenuScreenId	= "multiplayer_menu";
+	public const string MultiplayerRoomScreenId	= "multiplayer_room";
+	public const string LeaderboardScreenId		= "leaderboard";
+
 	// The screen that is currently being shown
 	private UIScreen	currentUIScreen;
 	private bool		isAnimating;

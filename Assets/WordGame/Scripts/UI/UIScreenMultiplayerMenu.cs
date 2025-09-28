@@ -5,7 +5,7 @@ using WordGame.Network;
 
 namespace WordGame.UI
 {
-    public class UIScreenMultiplayerMenu : MonoBehaviour
+    public class UIScreenMultiplayerMenu : UIScreen
     {
         [Header("UI References")]
         [SerializeField] private InputField usernameInput;
@@ -18,8 +18,9 @@ namespace WordGame.UI
         public event Action<string, string> OnCreateRoomRequest;
         public event Action<string, string> OnJoinRoomRequest;
 
-        private void Awake()
+        public override void Initialize()
         {
+            base.Initialize();
             createRoomButton.onClick.AddListener(HandleCreateRoom);
             joinRoomButton.onClick.AddListener(HandleJoinRoom);
         }
@@ -66,15 +67,6 @@ namespace WordGame.UI
             }
         }
 
-        public void Show()
-        {
-            gameObject.SetActive(true);
-        }
-
-        public void Hide()
-        {
-            gameObject.SetActive(false);
-        }
 
         public void ResetInputs()
         {
