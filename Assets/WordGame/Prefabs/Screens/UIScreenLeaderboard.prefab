@@ -227,7 +227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &351071688458474661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -235,7 +235,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5317617185304371186}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -265,10 +265,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIScreenLeaderboard
   id: leaderboard
   worldObjects: []
-  titleText: {fileID: 0}
-  leaderboardContainer: {fileID: 0}
-  leaderboardItemPrefab: {fileID: 0}
-  continueButton: {fileID: 0}
+  titleText: {fileID: 570881518858558407}
+  leaderboardContainer: {fileID: 1333682355930720509}
+  leaderboardItemPrefab: {fileID: 6771034623742637036, guid: b2fa05b79f25149b78448e0fa4e14bf6,
+    type: 3}
+  continueButton: {fileID: 4143879964180213928}
 --- !u!1 &6942214989064053776
 GameObject:
   m_ObjectHideFlags: 0

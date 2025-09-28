@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using WordGame.Network;
@@ -6,7 +7,7 @@ using WordGame.Network.Models;
 
 public class UIScreenLeaderboard : UIScreen
 {
-    [SerializeField] private Text titleText;
+    [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private Transform leaderboardContainer;
     [SerializeField] private GameObject leaderboardItemPrefab;
     [SerializeField] private Button continueButton;

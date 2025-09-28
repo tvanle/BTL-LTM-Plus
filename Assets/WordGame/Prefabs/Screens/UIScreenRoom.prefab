@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8891695160799994994
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59,7 +59,8 @@ MonoBehaviour:
   worldObjects: []
   roomCodeText: {fileID: 6119498613124646177}
   playerListContainer: {fileID: 3353036511010444908}
-  playerListItemPrefab: {fileID: 0}
+  playerListItemPrefab: {fileID: 1518174320611077746, guid: 026bb52f4203d4e97a36b06a2b6057a3,
+    type: 3}
   readyButton: {fileID: 7257287200033267586}
   startGameButton: {fileID: 9207077905148317170}
   leaveRoomButton: {fileID: 9179086470100983279}

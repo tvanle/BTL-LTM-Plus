@@ -771,9 +771,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WordGame.UI.UIScreenMultiplayerMenu
   id: multiplayer_menu
   worldObjects: []
-  usernameInput: {fileID: 0}
+  usernameInput: {fileID: 4355371400905563560}
   categoryDropdown: {fileID: 6985599164356163091}
-  roomCodeInput: {fileID: 0}
+  roomCodeInput: {fileID: 7014235581797580787}
   createRoomButton: {fileID: 5228404387403370943}
   joinRoomButton: {fileID: 1353728672024462928}
   statusText: {fileID: 4582607847920174821}
