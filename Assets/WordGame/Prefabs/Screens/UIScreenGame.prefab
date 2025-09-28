@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7663430718367158070
 RectTransform:
   m_ObjectHideFlags: 0
@@ -63,6 +63,7 @@ MonoBehaviour:
   hintBtnText: {fileID: 5303302117791328850}
   selectedWordText: {fileID: 4314369577105188740}
   letterBoard: {fileID: 2208137158805196732}
+  timerText: {fileID: 0}
 --- !u!1 &833178367587054830
 GameObject:
   m_ObjectHideFlags: 0
