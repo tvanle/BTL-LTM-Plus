@@ -47,10 +47,4 @@ public class UIScreenCompleteOverlay : UIScreen
 	}
 
 	#endregion
-
-	#region Protected Methods
-	#endregion
-
-	#region Private Methods
-	#endregion
 }

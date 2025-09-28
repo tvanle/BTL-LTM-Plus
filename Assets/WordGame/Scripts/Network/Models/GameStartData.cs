@@ -1,0 +1,14 @@
+using System;
+using System.Collections.Generic;
+
+namespace WordGame.Network.Models
+{
+    [Serializable]
+    public class GameStartData
+    {
+        public int level;
+        public string grid;
+        public List<string> words;
+        public int duration;
+    }
+}
