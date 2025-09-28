@@ -57,13 +57,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WordGame.UI.UIScreenMultiplayerRoom
   id: multiplayer_room
   worldObjects: []
-  roomCodeText: {fileID: 0}
-  playerListContainer: {fileID: 0}
+  roomCodeText: {fileID: 6119498613124646177}
+  playerListContainer: {fileID: 3353036511010444908}
   playerListItemPrefab: {fileID: 0}
-  readyButton: {fileID: 0}
-  startGameButton: {fileID: 0}
-  leaveRoomButton: {fileID: 0}
-  statusText: {fileID: 0}
+  readyButton: {fileID: 7257287200033267586}
+  startGameButton: {fileID: 9207077905148317170}
+  leaveRoomButton: {fileID: 9179086470100983279}
 --- !u!1 &1834878970893066158
 GameObject:
   m_ObjectHideFlags: 0

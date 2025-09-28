@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using WordGame.Network;
@@ -11,13 +12,12 @@ namespace WordGame.UI
     {
         private NetworkManager networkManager;
         [Header("UI References")]
-        [SerializeField] private Text roomCodeText;
+        [SerializeField] private TextMeshProUGUI roomCodeText;
         [SerializeField] private Transform playerListContainer;
         [SerializeField] private GameObject playerListItemPrefab;
         [SerializeField] private Button readyButton;
         [SerializeField] private Button startGameButton;
         [SerializeField] private Button leaveRoomButton;
-        [SerializeField] private Text statusText;
 
         private Dictionary<string, GameObject> _playerListItems = new Dictionary<string, GameObject>();
         private bool _isHost;
@@ -153,24 +153,9 @@ namespace WordGame.UI
             readyButton.interactable = interactable;
         }
 
-        public void SetStatus(string message)
-        {
-            if (statusText != null)
-            {
-                statusText.text = message;
-            }
-        }
-
-        public void ShowResults(string resultsText)
-        {
-            SetStatus(resultsText);
-        }
-
-
         public void Reset()
         {
             readyButton.interactable = true;
-            SetStatus("");
         }
     }
 }

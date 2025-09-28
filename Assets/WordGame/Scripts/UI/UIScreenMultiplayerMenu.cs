@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using WordGame.Network;
@@ -10,9 +11,9 @@ namespace WordGame.UI
     {
         private NetworkManager networkManager;
         [Header("UI References")]
-        [SerializeField] private InputField usernameInput;
-        [SerializeField] private Dropdown categoryDropdown;
-        [SerializeField] private InputField roomCodeInput;
+        [SerializeField] private TMP_InputField usernameInput;
+        [SerializeField] private TMP_Dropdown categoryDropdown;
+        [SerializeField] private TMP_InputField roomCodeInput;
         [SerializeField] private Button createRoomButton;
         [SerializeField] private Button joinRoomButton;
         [SerializeField] private Text statusText;
