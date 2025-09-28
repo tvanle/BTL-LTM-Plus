@@ -186,15 +186,15 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 
     private void Update()
     {
-        if (this.isAnimating) return;
-        for (var i = 0; i < this.uiScreens.Count; i++)
-        {
-            float direction = this.uiScreens[i].RectT.anchoredPosition.x == 0 ? 0 :
-				this.uiScreens[i].RectT.anchoredPosition.x < 0                   ? -1 : 1;
-            if (direction == 0) continue;
-
-			this.uiScreens[i].RectT.anchoredPosition = new Vector2(this.uiScreens[i].RectT.rect.width * direction, this.uiScreens[i].RectT.anchoredPosition.y);
-        }
+   //      if (this.isAnimating) return;
+   //      for (var i = 0; i < this.uiScreens.Count; i++)
+   //      {
+   //          float direction = this.uiScreens[i].RectT.anchoredPosition.x == 0 ? 0 :
+			// 	this.uiScreens[i].RectT.anchoredPosition.x < 0                   ? -1 : 1;
+   //          if (direction == 0) continue;
+   //
+			// this.uiScreens[i].RectT.anchoredPosition = new Vector2(this.uiScreens[i].RectT.rect.width * direction, this.uiScreens[i].RectT.anchoredPosition.y);
+   //      }
 
 #if UNITY_ANDROID || UNITY_WSA
         if (Input.GetKeyDown(KeyCode.Escape))

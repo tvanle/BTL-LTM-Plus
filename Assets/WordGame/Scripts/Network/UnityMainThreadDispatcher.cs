@@ -14,16 +14,32 @@ namespace WordGame.Network
             get
             {
                 if (instance != null) return instance;
-                instance = FindObjectOfType<UnityMainThreadDispatcher>();
 
-                if (instance == null)
+                // Only try to find/create if we're on the main thread
+                if (!Application.isPlaying)
                 {
-                    var go = new GameObject("UnityMainThreadDispatcher");
-                    instance = go.AddComponent<UnityMainThreadDispatcher>();
-                    DontDestroyOnLoad(go);
+                    Debug.LogError("UnityMainThreadDispatcher not available - application not playing");
+                    return null;
                 }
 
-                return instance;
+                // This should only be called from main thread during initialization
+                // If called from background thread, instance should already exist
+                Debug.LogError("UnityMainThreadDispatcher.Instance accessed before initialization. Call Initialize() from main thread first.");
+                return null;
+            }
+        }
+
+        public static void Initialize()
+        {
+            if (instance != null) return;
+
+            instance = FindObjectOfType<UnityMainThreadDispatcher>();
+
+            if (instance == null)
+            {
+                var go = new GameObject("UnityMainThreadDispatcher");
+                instance = go.AddComponent<UnityMainThreadDispatcher>();
+                DontDestroyOnLoad(go);
             }
         }
 

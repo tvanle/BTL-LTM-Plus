@@ -41,6 +41,9 @@ namespace WordGame.Network
 
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+
+            // Initialize UnityMainThreadDispatcher on main thread
+            UnityMainThreadDispatcher.Initialize();
         }
 
         public async Task<bool> ConnectAsync()
@@ -262,7 +265,14 @@ namespace WordGame.Network
 
         private void HandleMessage(GameMessage message)
         {
-            UnityMainThreadDispatcher.Instance.Enqueue(() =>
+            var dispatcher = UnityMainThreadDispatcher.Instance;
+            if (dispatcher == null)
+            {
+                Debug.LogError("UnityMainThreadDispatcher not initialized. Message dropped: " + message.Type);
+                return;
+            }
+
+            dispatcher.Enqueue(() =>
             {
                 Debug.Log($"Received: {message.Type.ToString()}");
 
