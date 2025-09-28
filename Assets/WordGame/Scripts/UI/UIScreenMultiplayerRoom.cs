@@ -66,14 +66,21 @@ namespace WordGame.UI
                     break;
 
                 case NetworkMessageType.GAME_STARTED:
+                case NetworkMessageType.LEVEL_STARTED:
                     var gameData = JsonUtility.FromJson<GameStartData>(message.Data);
                     UIScreenController.Instance.Show(UIScreenController.GameScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, gameData);
+                    break;
+
+                case NetworkMessageType.LEVEL_ENDED:
+                    var levelEndData = JsonUtility.FromJson<LevelEndData>(message.Data);
+                    UIScreenController.Instance.Show(UIScreenController.LeaderboardScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, levelEndData);
                     break;
 
                 case NetworkMessageType.GAME_ENDED:
                     var endData = JsonUtility.FromJson<GameEndData>(message.Data);
                     Reset();
-                    UIScreenController.Instance.Show(UIScreenController.LeaderboardScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, endData.results);
+                    // Return to room after game ends
+                    UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, false);
                     break;
             }
         }

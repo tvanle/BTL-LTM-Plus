@@ -18,8 +18,9 @@ namespace WordGame.Network
         PLAYER_JOINED,
         PLAYER_LEFT,
         GAME_STARTED,
-        NEXT_LEVEL,
-        GAME_ENDED,
+        LEVEL_STARTED,  // Start of each level
+        LEVEL_ENDED,    // End of each level (show leaderboard)
+        GAME_ENDED,     // All levels complete
         ERROR
     }
 }

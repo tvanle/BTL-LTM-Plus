@@ -92,7 +92,7 @@ namespace WordGame.Network
             await Task.CompletedTask;
         }
 
-        public async Task<bool> CreateRoom(string username, string topic, int maxPlayers = 50, int levelDuration = 30)
+        public async Task<bool> CreateRoom(string username, string category, int maxPlayers = 50, int levelDuration = 30)
         {
             var message = new GameMessage
             {
@@ -100,7 +100,7 @@ namespace WordGame.Network
                 Data = JsonUtility.ToJson(new CreateRoomData
                 {
                     Username      = username,
-                    Topic         = topic,
+                    Category      = category,
                     MaxPlayers    = maxPlayers,
                     LevelDuration = levelDuration
                 })
@@ -348,7 +348,7 @@ namespace WordGame.Network
         [Serializable] public class CreateRoomData
         {
             public string Username      { get; set; }
-            public string Topic         { get; set; }
+            public string Category      { get; set; }
             public int    MaxPlayers    { get; set; }
             public int    LevelDuration { get; set; }
         }

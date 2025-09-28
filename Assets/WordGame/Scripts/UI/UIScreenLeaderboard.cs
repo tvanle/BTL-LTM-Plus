@@ -29,9 +29,48 @@ public class UIScreenLeaderboard : UIScreen
 
     public override void OnShowing(object data)
     {
-        if (data is List<PlayerResult> results)
+        if (data is LevelEndData levelEndData)
+        {
+            DisplayLeaderboard(levelEndData.results);
+
+            if (titleText != null)
+            {
+                titleText.text = $"LEVEL {levelEndData.level} COMPLETE";
+            }
+
+            // Auto continue to next level after countdown
+            if (levelEndData.hasNextLevel)
+            {
+                StartCoroutine(AutoContinueCountdown(levelEndData.nextLevelStartTime));
+            }
+        }
+        else if (data is List<PlayerResult> results)
         {
             DisplayLeaderboard(results);
+        }
+    }
+
+    private System.Collections.IEnumerator AutoContinueCountdown(int seconds)
+    {
+        int countdown = seconds;
+        while (countdown > 0)
+        {
+            if (continueButton != null)
+            {
+                var buttonText = continueButton.GetComponentInChildren<Text>();
+                if (buttonText != null)
+                {
+                    buttonText.text = $"Next Level in {countdown}...";
+                }
+            }
+            yield return new WaitForSeconds(1);
+            countdown--;
+        }
+
+        // Auto continue to next level
+        if (continueButton != null)
+        {
+            continueButton.onClick.Invoke();
         }
     }
 

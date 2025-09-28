@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using WordGame.Network;
@@ -10,7 +11,7 @@ namespace WordGame.UI
         private NetworkManager networkManager;
         [Header("UI References")]
         [SerializeField] private InputField usernameInput;
-        [SerializeField] private InputField topicInput;
+        [SerializeField] private Dropdown categoryDropdown;
         [SerializeField] private InputField roomCodeInput;
         [SerializeField] private Button createRoomButton;
         [SerializeField] private Button joinRoomButton;
@@ -34,6 +35,9 @@ namespace WordGame.UI
 
             createRoomButton.onClick.AddListener(HandleCreateRoom);
             joinRoomButton.onClick.AddListener(HandleJoinRoom);
+
+            // Populate category dropdown
+            PopulateCategoryDropdown();
         }
 
         private async void ConnectToServer()
@@ -94,17 +98,19 @@ namespace WordGame.UI
         private async void HandleCreateRoom()
         {
             var username = usernameInput.text.Trim();
-            var topic = topicInput.text.Trim();
+            var category = categoryDropdown != null && categoryDropdown.options.Count > 0
+                ? categoryDropdown.options[categoryDropdown.value].text
+                : "ANIMALS";
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(topic))
+            if (string.IsNullOrEmpty(username))
             {
-                SetStatus("Please enter username and topic");
+                SetStatus("Please enter username");
                 return;
             }
 
             if (networkManager != null)
             {
-                await networkManager.CreateRoom(username, topic);
+                await networkManager.CreateRoom(username, category);
             }
         }
 
@@ -137,8 +143,38 @@ namespace WordGame.UI
         public void ResetInputs()
         {
             usernameInput.text = "";
-            topicInput.text = "";
             roomCodeInput.text = "";
+            if (categoryDropdown != null && categoryDropdown.options.Count > 0)
+            {
+                categoryDropdown.value = 0;
+            }
+        }
+
+        private void PopulateCategoryDropdown()
+        {
+            if (categoryDropdown == null) return;
+
+            categoryDropdown.ClearOptions();
+
+            // Get categories from GameManager if available
+            if (GameManager.Instance != null)
+            {
+                var categories = new List<string>();
+                foreach (var categoryInfo in GameManager.Instance.CategoryInfos)
+                {
+                    if (categoryInfo.name != GameManager.dailyPuzzleId)
+                    {
+                        categories.Add(categoryInfo.name.ToUpper());
+                    }
+                }
+                categoryDropdown.AddOptions(categories);
+            }
+            else
+            {
+                // Default categories if GameManager not available
+                var defaultCategories = new List<string> { "ANIMALS", "FOOD", "SPORTS", "SCIENCE" };
+                categoryDropdown.AddOptions(defaultCategories);
+            }
         }
     }
 }
