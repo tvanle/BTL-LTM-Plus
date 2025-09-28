@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e4c2a72-4304-4c5d-889f-02afab2639ce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/CLAUDE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CLIENT_GAMEPLAY_DETAILS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.claude/settings.local.json" beforeDir="false" afterPath="$PROJECT_DIR$/.claude/settings.local.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BTL-LTM-Plus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BTL-LTM-Plus/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens/UIScreenCategories.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens/UIScreenCategories.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens/UIScreenCategoryLevels.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens/UIScreenCategoryLevels.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens/UIScreenCompleteOverlay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens/UIScreenCompleteOverlay.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/Models/AnswerResultData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/Models/AnswerResultData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/Models/GameStartData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/Models/GameStartData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/NetworkManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/NetworkMessageType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/NetworkMessageType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenMultiplayerMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenMultiplayerMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenMultiplayerRoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenMultiplayerRoom.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,19 +36,68 @@
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/.claude/settings.local.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/.claude/settings.local.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/.claude/settings.local.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.claude/settings.local.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/.claude/settings.local.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/.claude/settings.local.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Editor/BoardFileCreatorWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Editor/GameManagerEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Prefabs/Screens/UIScreenCategories.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens/UIScreenCategories.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scenes/Main.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scenes/Main.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scenes/Main.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scenes/Main.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/WordGame/Scenes/Main.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scenes/Main.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Game/DailyPuzzleButton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Game/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Game/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Game/LetterBoard.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Game/LetterTile.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/MyCombo/CRotate.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Network/MultiplayerGameController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Network/MultiplayerGameController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Network/MultiplayerGameController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Network/MultiplayerGameController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Network/MultiplayerGameController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenCategories.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenCategoryLevels.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenCategoryLevels.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenCategoryLevels.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenCompleteOverlay.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenCompleteOverlay.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenGame.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenGame.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenGame.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenLeaderboard.cs.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenMain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenMain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenMultiplayerMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Packages/manifest.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/ProjectSettings/ProjectSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Packages/packages-lock.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/ProjectSettings/SceneTemplateSettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/ProjectSettings/SceneTemplateSettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/ProjectSettings/SceneTemplateSettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="Toolset" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="32XLe7UZubhX6ehRPNJso1YpVVO" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
@@ -51,7 +112,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -125,7 +186,113 @@
       <workItem from="1757700583245" duration="186000" />
       <workItem from="1757701120841" duration="473000" />
       <workItem from="1757701616069" duration="838000" />
+      <workItem from="1758938963968" duration="24850000" />
     </task>
+    <task id="LOCAL-00001" summary="Add project documentation for multiplayer architecture and client gameplay details">
+      <option name="closed" value="true" />
+      <created>1757756760544</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1757756760544</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add metadata files for CLAUDE and CLIENT_GAMEPLAY_DETAILS">
+      <option name="closed" value="true" />
+      <created>1757817404009</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1757817404009</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add new metadata and configuration files for TextMesh Pro assets and shaders">
+      <option name="closed" value="true" />
+      <created>1757820708356</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1757820708356</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Refactor game state management for multiplayer support and reset functionality">
+      <option name="closed" value="true" />
+      <created>1758962802632</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1758962802632</updated>
+    </task>
+    <task id="LOCAL-00005" summary="remove func">
+      <option name="closed" value="true" />
+      <created>1758983172391</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1758983172391</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add UI components for user input and display, including text fields and buttons">
+      <option name="closed" value="true" />
+      <created>1759021316954</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759021316954</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update packages-lock.json">
+      <option name="closed" value="true" />
+      <created>1759021471581</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1759021471581</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add metadata and configuration files for multiplayer game components">
+      <option name="closed" value="true" />
+      <created>1759022311290</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1759022311290</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Remove unnecessary region #">
+      <option name="closed" value="true" />
+      <created>1759022636313</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1759022636313</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add mcp server">
+      <option name="closed" value="true" />
+      <created>1759029342513</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1759029342513</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update prefab screens">
+      <option name="closed" value="true" />
+      <created>1759030656518</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1759030656518</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Implement multiplayer UI screens and functionality">
+      <option name="closed" value="true" />
+      <created>1759032930031</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1759032930031</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add multiplayer functionality to UI screens and network management">
+      <option name="closed" value="true" />
+      <created>1759033181660</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1759033181660</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +319,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Add project documentation for multiplayer architecture and client gameplay details" />
+    <MESSAGE value="Add metadata files for CLAUDE and CLIENT_GAMEPLAY_DETAILS" />
+    <MESSAGE value="Add new metadata and configuration files for TextMesh Pro assets and shaders" />
+    <MESSAGE value="Refactor game state management for multiplayer support and reset functionality" />
+    <MESSAGE value="remove func" />
+    <MESSAGE value="Add UI components for user input and display, including text fields and buttons" />
+    <MESSAGE value="update packages-lock.json" />
+    <MESSAGE value="Add metadata and configuration files for multiplayer game components" />
+    <MESSAGE value="Remove unnecessary region #" />
+    <MESSAGE value="add mcp server" />
+    <MESSAGE value="update prefab screens" />
+    <MESSAGE value="Implement multiplayer UI screens and functionality" />
+    <MESSAGE value="Add multiplayer functionality to UI screens and network management" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add multiplayer functionality to UI screens and network management" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

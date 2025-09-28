@@ -10,7 +10,12 @@
       "Bash(rm:*)",
       "Bash(mkdir:*)",
       "Bash(chmod:*)",
-      "Bash(dotnet --list-sdks)"
+      "Bash(dotnet --list-sdks)",
+      "Bash(find:*)",
+      "Read(//private/tmp/unity-mcp-server/**)",
+      "Bash(python3:*)",
+      "Bash(source:*)",
+      "Bash(pip install:*)"
     ],
     "deny": [],
     "ask": []
