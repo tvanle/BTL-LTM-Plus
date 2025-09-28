@@ -56,27 +56,27 @@ namespace WordGame.UI
         {
             switch (message.Type)
             {
-                case NetworkMessageType.PLAYER_JOINED:
-                case NetworkMessageType.PLAYER_LEFT:
-                case NetworkMessageType.PLAYER_READY:
+                case "PLAYER_JOINED":
+                case "PLAYER_LEFT":
+                case "PLAYER_READY":
                     if (networkManager != null)
                     {
                         UpdatePlayerList(networkManager.RoomPlayers);
                     }
                     break;
 
-                case NetworkMessageType.GAME_STARTED:
-                case NetworkMessageType.LEVEL_STARTED:
+                case "GAME_STARTED":
+                case "LEVEL_STARTED":
                     var gameData = JsonUtility.FromJson<GameStartData>(message.Data);
                     UIScreenController.Instance.Show(UIScreenController.GameScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, gameData);
                     break;
 
-                case NetworkMessageType.LEVEL_ENDED:
+                case "LEVEL_ENDED":
                     var levelEndData = JsonUtility.FromJson<LevelEndData>(message.Data);
                     UIScreenController.Instance.Show(UIScreenController.LeaderboardScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, levelEndData);
                     break;
 
-                case NetworkMessageType.GAME_ENDED:
+                case "GAME_ENDED":
                     var endData = JsonUtility.FromJson<GameEndData>(message.Data);
                     Reset();
                     // Return to room after game ends

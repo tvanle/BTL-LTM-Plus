@@ -72,11 +72,11 @@ namespace WordGame.UI
         {
             switch (message.Type)
             {
-                case NetworkMessageType.ROOM_CREATED:
+                case "ROOM_CREATED":
                     UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, true);
                     break;
 
-                case NetworkMessageType.ROOM_JOINED:
+                case "ROOM_JOINED":
                     UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, false);
                     break;
             }
