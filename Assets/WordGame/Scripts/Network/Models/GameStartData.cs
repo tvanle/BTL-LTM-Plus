@@ -7,8 +7,6 @@ namespace WordGame.Network.Models
     public class GameStartData
     {
         public int level;
-        public string grid;
-        public List<string> words;
         public int duration;
     }
 }

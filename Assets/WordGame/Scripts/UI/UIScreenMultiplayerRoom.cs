@@ -56,21 +56,21 @@ namespace WordGame.UI
         {
             switch (message.Type)
             {
-                case "PLAYER_JOINED":
-                case "PLAYER_LEFT":
-                case "PLAYER_READY":
+                case NetworkMessageType.PLAYER_JOINED:
+                case NetworkMessageType.PLAYER_LEFT:
+                case NetworkMessageType.PLAYER_READY:
                     if (networkManager != null)
                     {
                         UpdatePlayerList(networkManager.RoomPlayers);
                     }
                     break;
 
-                case "GAME_STARTED":
+                case NetworkMessageType.GAME_STARTED:
                     var gameData = JsonUtility.FromJson<GameStartData>(message.Data);
                     UIScreenController.Instance.Show(UIScreenController.GameScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, gameData);
                     break;
 
-                case "GAME_ENDED":
+                case NetworkMessageType.GAME_ENDED:
                     var endData = JsonUtility.FromJson<GameEndData>(message.Data);
                     Reset();
                     UIScreenController.Instance.Show(UIScreenController.LeaderboardScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, endData.results);

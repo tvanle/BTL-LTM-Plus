@@ -151,7 +151,7 @@ public class UIScreenGame : UIScreen
 		// Send completion to server
 		if (networkManager != null)
 		{
-			await networkManager.SubmitAnswer("COMPLETED", timeTaken);
+			await networkManager.LevelCompleted(timeTaken);
 		}
 
 		// Show complete overlay screen
@@ -170,7 +170,7 @@ public class UIScreenGame : UIScreen
 		// Send timeout signal to server
 		if (networkManager != null)
 		{
-			await networkManager.SubmitAnswer("TIMEOUT", 30);
+			await networkManager.LevelTimeout();
 		}
 
 		// Show complete overlay screen

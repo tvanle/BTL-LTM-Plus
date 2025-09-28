@@ -96,7 +96,7 @@ namespace WordGame.Network
         {
             var message = new GameMessage
             {
-                Type = "CREATE_ROOM",
+                Type = NetworkMessageType.CREATE_ROOM,
                 Data = JsonUtility.ToJson(new CreateRoomData
                 {
                     Username      = username,
@@ -114,7 +114,7 @@ namespace WordGame.Network
         {
             var message = new GameMessage
             {
-                Type = "JOIN_ROOM",
+                Type = NetworkMessageType.JOIN_ROOM,
                 Data = JsonUtility.ToJson(new JoinRoomData
                 {
                     RoomCode = roomCode,
@@ -128,7 +128,7 @@ namespace WordGame.Network
 
         public async Task LeaveRoom()
         {
-            var message = new GameMessage { Type = "LEAVE_ROOM" };
+            var message = new GameMessage { Type = NetworkMessageType.LEAVE_ROOM };
             await this.SendMessageAsync(message);
             this.RoomCode = null;
             this.RoomPlayers.Clear();
@@ -136,28 +136,33 @@ namespace WordGame.Network
 
         public async Task SetReady()
         {
-            var message = new GameMessage { Type = "PLAYER_READY" };
+            var message = new GameMessage { Type = NetworkMessageType.PLAYER_READY };
             await this.SendMessageAsync(message);
         }
 
         public async Task StartGame()
         {
-            var message = new GameMessage { Type = "START_GAME" };
+            var message = new GameMessage { Type = NetworkMessageType.START_GAME };
             await this.SendMessageAsync(message);
         }
 
-        public async Task SubmitAnswer(string answer, int timeTaken)
+        public async Task LevelCompleted(int timeTaken)
         {
             var message = new GameMessage
             {
-                Type = "SUBMIT_ANSWER",
-                Data = JsonUtility.ToJson(new SubmitAnswerData
+                Type = NetworkMessageType.LEVEL_COMPLETED,
+                Data = JsonUtility.ToJson(new LevelCompletedData
                 {
-                    Answer    = answer,
                     TimeTaken = timeTaken
                 })
             };
 
+            await this.SendMessageAsync(message);
+        }
+
+        public async Task LevelTimeout()
+        {
+            var message = new GameMessage { Type = NetworkMessageType.LEVEL_TIMEOUT };
             await this.SendMessageAsync(message);
         }
 
@@ -259,34 +264,34 @@ namespace WordGame.Network
         {
             UnityMainThreadDispatcher.Instance.Enqueue(() =>
             {
-                Debug.Log($"Received: {message.Type}");
+                Debug.Log($"Received: {message.Type.ToString()}");
 
                 switch (message.Type)
                 {
-                    case "ROOM_CREATED":
+                    case NetworkMessageType.ROOM_CREATED:
                         var createData = JsonUtility.FromJson<RoomCreatedData>(message.Data);
                         this.RoomCode = createData.roomCode;
                         this.PlayerId = createData.playerId;
                         break;
 
-                    case "ROOM_JOINED":
+                    case NetworkMessageType.ROOM_JOINED:
                         var joinData = JsonUtility.FromJson<RoomJoinedData>(message.Data);
                         this.RoomCode    = joinData.roomCode;
                         this.PlayerId    = joinData.playerId;
                         this.RoomPlayers = joinData.players;
                         break;
 
-                    case "PLAYER_JOINED":
+                    case NetworkMessageType.PLAYER_JOINED:
                         var playerJoined = JsonUtility.FromJson<PlayerJoinedData>(message.Data);
                         this.RoomPlayers.Add(new PlayerInfo { Id = playerJoined.Id, Username = playerJoined.Username, IsReady = false });
                         break;
 
-                    case "PLAYER_LEFT":
+                    case NetworkMessageType.PLAYER_LEFT:
                         var playerLeft = JsonUtility.FromJson<PlayerLeftData>(message.Data);
                         this.RoomPlayers.RemoveAll(p => p.Id == playerLeft.playerId);
                         break;
 
-                    case "ERROR":
+                    case NetworkMessageType.ERROR:
                         var errorData = JsonUtility.FromJson<ErrorData>(message.Data);
                         this.OnError?.Invoke(errorData.error);
                         break;
@@ -304,7 +309,7 @@ namespace WordGame.Network
 
                 if (this._isConnected)
                 {
-                    await this.SendMessageAsync(new GameMessage { Type = "HEARTBEAT" });
+                    await this.SendMessageAsync(new GameMessage { Type = NetworkMessageType.HEARTBEAT });
                 }
             }
         }
@@ -316,7 +321,7 @@ namespace WordGame.Network
 
         [Serializable] public class GameMessage
         {
-            public string Type { get; set; }
+            public NetworkMessageType Type { get; set; }
             public string Data { get; set; }
         }
 
@@ -354,10 +359,9 @@ namespace WordGame.Network
             public string Username { get; set; }
         }
 
-        [Serializable] public class SubmitAnswerData
+        [Serializable] public class LevelCompletedData
         {
-            public string Answer    { get; set; }
-            public int    TimeTaken { get; set; }
+            public int TimeTaken { get; set; }
         }
 
         [Serializable] public class PlayerJoinedData
