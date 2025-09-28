@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using WordGame.Network;
+using WordGame.Network.Models;
 
 namespace WordGame.UI
 {
     public class UIScreenMultiplayerRoom : UIScreen
     {
+        private NetworkManager networkManager;
         [Header("UI References")]
         [SerializeField] private Text roomCodeText;
         [SerializeField] private Transform playerListContainer;
@@ -17,19 +19,89 @@ namespace WordGame.UI
         [SerializeField] private Button leaveRoomButton;
         [SerializeField] private Text statusText;
 
-        public event Action OnReadyPressed;
-        public event Action OnStartGamePressed;
-        public event Action OnLeaveRoomPressed;
-
         private Dictionary<string, GameObject> _playerListItems = new Dictionary<string, GameObject>();
         private bool _isHost;
 
         public override void Initialize()
         {
             base.Initialize();
-            readyButton.onClick.AddListener(() => OnReadyPressed?.Invoke());
-            startGameButton.onClick.AddListener(() => OnStartGamePressed?.Invoke());
-            leaveRoomButton.onClick.AddListener(() => OnLeaveRoomPressed?.Invoke());
+
+            networkManager = NetworkManager.Instance;
+            if (networkManager != null)
+            {
+                networkManager.OnMessageReceived += OnMessageReceived;
+            }
+
+            readyButton.onClick.AddListener(HandleReady);
+            startGameButton.onClick.AddListener(HandleStartGame);
+            leaveRoomButton.onClick.AddListener(HandleLeaveRoom);
+        }
+
+        public override void OnShowing(object data)
+        {
+            base.OnShowing(data);
+
+            if (data is bool isHost)
+            {
+                _isHost = isHost;
+                if (networkManager != null)
+                {
+                    InitializeRoom(networkManager.RoomCode, _isHost);
+                    UpdatePlayerList(networkManager.RoomPlayers);
+                }
+            }
+        }
+
+        private void OnMessageReceived(NetworkManager.GameMessage message)
+        {
+            switch (message.Type)
+            {
+                case "PLAYER_JOINED":
+                case "PLAYER_LEFT":
+                case "PLAYER_READY":
+                    if (networkManager != null)
+                    {
+                        UpdatePlayerList(networkManager.RoomPlayers);
+                    }
+                    break;
+
+                case "GAME_STARTED":
+                    var gameData = JsonUtility.FromJson<GameStartData>(message.Data);
+                    UIScreenController.Instance.Show(UIScreenController.GameScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, gameData);
+                    break;
+
+                case "GAME_ENDED":
+                    var endData = JsonUtility.FromJson<GameEndData>(message.Data);
+                    Reset();
+                    UIScreenController.Instance.Show(UIScreenController.LeaderboardScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, endData.results);
+                    break;
+            }
+        }
+
+        private async void HandleReady()
+        {
+            if (networkManager != null)
+            {
+                await networkManager.SetReady();
+                SetReadyButtonInteractable(false);
+            }
+        }
+
+        private async void HandleStartGame()
+        {
+            if (_isHost && networkManager != null)
+            {
+                await networkManager.StartGame();
+            }
+        }
+
+        private async void HandleLeaveRoom()
+        {
+            if (networkManager != null)
+            {
+                await networkManager.LeaveRoom();
+            }
+            UIScreenController.Instance.Show(UIScreenController.MultiplayerMenuScreenId, true, true);
         }
 
         private void OnDestroy()
@@ -37,6 +109,11 @@ namespace WordGame.UI
             readyButton.onClick.RemoveAllListeners();
             startGameButton.onClick.RemoveAllListeners();
             leaveRoomButton.onClick.RemoveAllListeners();
+
+            if (networkManager != null)
+            {
+                networkManager.OnMessageReceived -= OnMessageReceived;
+            }
         }
 
         public void InitializeRoom(string roomCode, bool isHost)

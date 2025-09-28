@@ -70,6 +70,14 @@ public class UIScreenGame : UIScreen
 
 	public override void OnShowing(object data)
 	{
+		// Check if this is multiplayer game data
+		if (data is GameStartData gameData)
+		{
+			StartMultiplayerLevel(gameData);
+			return;
+		}
+
+		// Normal single player flow
 		var categoryInfo = GameManager.Instance.GetCategoryInfo(GameManager.Instance.ActiveCategory);
 
 		this.categoryText.text = GameManager.Instance.ActiveCategory.ToUpper();
