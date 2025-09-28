@@ -27,7 +27,6 @@ public class LevelInfo
 
 public class GameManager : SingletonComponent<GameManager>
 {
-	#region Data Classes
 
 
 	/// <summary>
@@ -55,9 +54,7 @@ public class GameManager : SingletonComponent<GameManager>
 		public float elapsedTime;
 	}
 
-	#endregion
 
-	#region Inspector Variables
 
 	[Tooltip("The number of hints that a player gets when they first start the game.")]
 	[SerializeField] private int				startingHints;
@@ -82,17 +79,13 @@ public class GameManager : SingletonComponent<GameManager>
 
     public RewardedButton rewardedButton;
 
-	#endregion
 
-	#region Member Variables
 
 	public static string dailyPuzzleId = "Daily Puzzle";
 
 	private CategoryInfo dailyPuzzleInfo;
 
-	#endregion
 
-	#region Properties
 
 	public ObjectPool						LetterTilePool				{ get; private set; }
 	public int								CurrentHints				{ get; set; }
@@ -141,9 +134,7 @@ public class GameManager : SingletonComponent<GameManager>
 		set => this.dailyPuzzleInfo = value;
 	}
 
-	#endregion
 
-	#region Unity Methods
 
 	protected override void Awake()
 	{
@@ -166,9 +157,7 @@ public class GameManager : SingletonComponent<GameManager>
 		this.letterBoard.OnWordFound += this.OnWordFound;
 	}
 
-	#endregion
 
-	#region Public Methods
 
 	public void StartLevel(string category, int levelIndex)
 	{
@@ -323,9 +312,7 @@ public class GameManager : SingletonComponent<GameManager>
 		return this.CategoryInfos.FirstOrDefault(category => categoryName == category.name);
 	}
 
-	#endregion
 
-	#region Private Methods
 
 	/// <summary>
 	/// Called when the player finds a word
@@ -556,7 +543,6 @@ public class GameManager : SingletonComponent<GameManager>
 		return 0f;
 	}
 
-    #endregion
 
     private void OnApplicationPause(bool pause)
     {

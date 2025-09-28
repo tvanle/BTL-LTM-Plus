@@ -5,7 +5,6 @@ using System.Linq;
 
 public class WordGrid : MonoBehaviour
 {
-	#region Data Classes
 
 	private class GridTile
 	{
@@ -15,9 +14,7 @@ public class WordGrid : MonoBehaviour
 		public char			letter;
 	}
 
-	#endregion
 
-	#region Inspector Variables
 
 	[Tooltip("The prefab that will be instantiate and used as an empty placeholder for each letter in a word.")]
 	[SerializeField] private GameObject		tilePrefab;
@@ -40,18 +37,14 @@ public class WordGrid : MonoBehaviour
 	[Tooltip("The amount of space between each row of tiles.")]
 	[SerializeField] private float			spaceBetweenRows;
 
-	#endregion
 
-	#region Member Variables
 
 	private ObjectPool							tilePool;
 	private List<string>						currentWords;
 	private Dictionary<string, List<GridTile>>	allGridTiles;
 	private List<GameObject>					rowObjects;
 
-	#endregion
 
-	#region Public Methods
 
 	public void Initialize()
 	{
@@ -295,9 +288,7 @@ public class WordGrid : MonoBehaviour
 		this.currentWords.Clear();
 	}
 
-	#endregion
 
-	#region Private Methods
 
 	private void DisplayLetter(GridTile gridTile)
 	{
@@ -398,5 +389,4 @@ public class WordGrid : MonoBehaviour
 		return tileRow;
 	}
 
-	#endregion
 }

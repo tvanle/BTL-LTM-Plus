@@ -4,22 +4,17 @@ using System.Linq;
 
 public static class Utilities
 {
-	#region Member Variables
 
 	public const string BoardFilesDirectory = "WordGameBoardFiles"; // This should be a non-empty string with no leading or trailing slashes (ie. /)
 
-	#endregion
 
-	#region Properties
 
 	public static double SystemTimeInMilliseconds { get { return (System.DateTime.UtcNow - new System.DateTime(1970, 1, 1)).TotalMilliseconds; } }
 
 	public static float WorldWidth  => 2f * Camera.main.orthographicSize * Camera.main.aspect;
 	public static float WorldHeight => 2f * Camera.main.orthographicSize;
 
-	#endregion
 
-	#region Public Methods
 
 	public static void SaveWordBoard(WordBoard wordBoard, string directoryInResources)
 	{
@@ -110,5 +105,4 @@ public static class Utilities
 	{
 		return $"{category}_{index}".Replace(" ", "_");
 	}
-	#endregion
 }

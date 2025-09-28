@@ -5,20 +5,15 @@ using System.Collections.Generic;
 [RequireComponent(typeof(RectTransform))]
 public class UIScreen : MonoBehaviour
 {
-	#region Inspector Variables
 
 	public string			id;
 	public List<GameObject>	worldObjects;
 
-	#endregion
 
-	#region Properties
 
 	public RectTransform RectT { get { return this.gameObject.GetComponent<RectTransform>(); } }
 
-	#endregion
 
-	#region Public Methods
 
 	public virtual void Initialize()
 	{
@@ -35,5 +30,4 @@ public class UIScreen : MonoBehaviour
 
     }
 
-    #endregion
 }

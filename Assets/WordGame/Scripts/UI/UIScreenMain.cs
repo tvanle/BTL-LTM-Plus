@@ -4,23 +4,18 @@ using System.Linq;
 
 public class UIScreenMain : UIScreen
 {
-	#region Inspector Variables
 
 	[SerializeField] private ProgressRing	progressRing;
 	[SerializeField] private Text			continueBtnTopText;
 	[SerializeField] private Text			continueBtnBottomText;
 	[SerializeField] private Image			continueBtnImage;
 
-	#endregion
 
-	#region Member Variables
 
 	private string	continueBtnCategory;
 	private int		continueBtnLevelIndex;
 
-	#endregion
 
-	#region Public Methods
 
 	public override void OnShowing(object data)
 	{
@@ -60,5 +55,4 @@ public class UIScreenMain : UIScreen
 		UIScreenController.Instance.Show(UIScreenController.GameScreenId);
 	}
 
-	#endregion
 }

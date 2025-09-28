@@ -4,25 +4,16 @@ using System.Collections;
 
 public class UIScreenCompleteOverlay : UIScreen
 {
-	#region Inspector Variables
 
 	[SerializeField] private Image		categoryIconImage;
 	[SerializeField] private Text		categoryNameText;
 	[SerializeField] private Text		categoryLevelText;
 	[SerializeField] private Text	    plusHintText;
 
-	#endregion
 
-	#region Member Variables
-	#endregion
 
-	#region Properties
-	#endregion
 
-	#region Unity Methods
-	#endregion
 
-	#region Public Methods
 
 	public override void OnShowing(object data)
 	{
@@ -46,5 +37,4 @@ public class UIScreenCompleteOverlay : UIScreen
 		this.plusHintText.text = "+ " + number + (number == 1 ? " Hint" : " Hints");
 	}
 
-	#endregion
 }

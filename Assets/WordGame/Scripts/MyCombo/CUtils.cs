@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CUtils
 {
-    #region Double
     public static void SetDouble(string key, double value)
     {
         PlayerPrefs.SetString(key, DoubleToString(value));
@@ -33,7 +32,6 @@ public class CUtils
 
         return double.Parse(target);
     }
-    #endregion
 
 
     public static double GetCurrentTime()

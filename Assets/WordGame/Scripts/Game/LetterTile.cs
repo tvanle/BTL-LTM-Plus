@@ -4,7 +4,6 @@ using System.Collections;
 
 public class LetterTile : MonoBehaviour
 {
-	#region Inspector Variables
 
 	[SerializeField] private Image 	backgroundImage;
 	[SerializeField] private Text 	letterText;
@@ -15,9 +14,7 @@ public class LetterTile : MonoBehaviour
 	[SerializeField] private Sprite normalSprite;
 	[SerializeField] private Sprite selectedSprite;
 
-	#endregion
 
-	#region Properties
 
 	public Text LetterText => this.letterText;
 	public int  TileIndex  { get; set; }
@@ -25,9 +22,7 @@ public class LetterTile : MonoBehaviour
 	public bool Found      { get; set; }
 	public char Letter     { get; set; }
 
-	#endregion
 
-	#region Public Methods
 
 	public void SetSelected(bool selected)
 	{
@@ -38,5 +33,4 @@ public class LetterTile : MonoBehaviour
 		this.letterText.color          = selected ? this.letterSelectedColor : this.letterNormalColor;
 	}
 
-	#endregion
 }

@@ -6,7 +6,6 @@ using System.Collections;
 /// </summary>
 public class Tween : MonoBehaviour
 {
-	#region Enums
 
 	public enum TweenType
 	{
@@ -37,15 +36,11 @@ public class Tween : MonoBehaviour
 		Reverse	// When the Tween finishes it "reverses" the Tween by setting the fromValue to equal the toValue and vis-versa
 	}
 
-	#endregion
 
-	#region Delegates
 
 	public delegate void OnTweenFinished(GameObject tweenedObject, object[] bundleObjects);
 
-	#endregion
 
-	#region Member Variables
 
 	// Used by all tween types
 	private TweenType		tweenType;
@@ -78,15 +73,11 @@ public class Tween : MonoBehaviour
 	private Color	fromColour;
 	private Color	toColour;
 
-	#endregion
 
-	#region Properties
 
 	public Vector3 Point { get { return this.point; } set { this.point = value; } }
 
-	#endregion
 
-	#region Unity Methods
 
 	private void Start()
 	{
@@ -151,9 +142,7 @@ public class Tween : MonoBehaviour
 		}
 	}
 
-	#endregion
 
-	#region Public Methods
 
 	/// <summary>
 	/// Gets the Tween component on the given GameObject with the given TweenType
@@ -331,9 +320,7 @@ public class Tween : MonoBehaviour
 		this.isDestroyed = true; // Set destroy flag
 	}
 
-	#endregion
 
-	#region Private Methods
 
 	private static Tween CreateTween(GameObject obj, TweenType tweenType, TweenStyle tweenStyle, float fromValue, float toValue, float duration, bool transformLocal, LoopType loopType)
 	{
@@ -636,5 +623,4 @@ public class Tween : MonoBehaviour
 		return lerpT;
 	}
 
-	#endregion
 }

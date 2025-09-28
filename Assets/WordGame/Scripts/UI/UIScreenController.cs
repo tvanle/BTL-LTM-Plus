@@ -4,14 +4,11 @@ using System.Linq;
 
 public class UIScreenController : SingletonComponent<UIScreenController>
 {
-	#region Inspector Variables
 
 	[SerializeField] private float			animationSpeed;
 	[SerializeField] private List<UIScreen> uiScreens;
 
-	#endregion
 
-	#region Member Variables
 
 	// The UIScreen Ids currently used in the game
 	public const string MainScreenId			= "main";
@@ -24,9 +21,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 	private UIScreen	currentUIScreen;
 	private bool		isAnimating;
 
-	#endregion
 
-	#region Unity Methods
 
 	private void Start()
 	{
@@ -43,9 +38,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 		this.Show(MainScreenId, false, false);
 	}
 
-	#endregion
 
-	#region Public Methods
 
 	/// <summary>
 	/// Shows the screen with the specified id.
@@ -91,9 +84,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 		}
 	}
 
-	#endregion
 
-	#region Private Methods
 
 	private void ShowUIScreen(UIScreen uiScreen, bool animate, bool fromLeft, Tween.TweenStyle style, System.Action onTweenFinished, object data)
 	{
@@ -222,5 +213,4 @@ public class UIScreenController : SingletonComponent<UIScreenController>
         }
 #endif
     }
-    #endregion
 }

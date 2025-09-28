@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class LevelListItem : MonoBehaviour
 {
-	#region Enums
 
 	public enum Type
 	{
@@ -14,26 +13,20 @@ public class LevelListItem : MonoBehaviour
 		Completed
 	}
 
-	#endregion
 
-	#region Inspector Variables
 	
 	[SerializeField] private Text		levelText;
 	[SerializeField] private Image		iconImage;
 	[SerializeField] private GameObject	completedImage;
 	[SerializeField] private GameObject	lockedImage;
 	
-	#endregion
 	
-	#region Member Variables
 	
 	private string	categoryName;
 	private int		levelIndex;
 	private Type	type;
 	
-	#endregion
 	
-	#region Public Methods
 	
 	public void Setup(CategoryInfo categoryInfo, int levelIndex, Type type)
 	{
@@ -60,5 +53,4 @@ public class LevelListItem : MonoBehaviour
 		}
 	}
 	
-	#endregion
 }

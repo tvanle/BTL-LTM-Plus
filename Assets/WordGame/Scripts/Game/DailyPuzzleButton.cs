@@ -5,19 +5,14 @@ using System.Collections;
 [RequireComponent(typeof(Button))]
 public class DailyPuzzleButton : MonoBehaviour
 {
-	#region Inspector Variables
 
 	[SerializeField] private Text timeText;
 
-	#endregion
 
-	#region Member Variables
 
 	private Button button;
 
-	#endregion
 
-	#region Unity Methods
 
 	private void Start()
 	{
@@ -54,5 +49,4 @@ public class DailyPuzzleButton : MonoBehaviour
 		}
 	}
 
-	#endregion
 }

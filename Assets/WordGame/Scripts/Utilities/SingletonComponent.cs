@@ -6,13 +6,10 @@ using System.Collections;
 /// </summary>
 public class SingletonComponent<T> : MonoBehaviour where T : Object
 {
-	#region Member Variables
 
 	private static T instance;
 
-	#endregion
 
-	#region Properties
 
 	public static T Instance
 	{
@@ -27,18 +24,14 @@ public class SingletonComponent<T> : MonoBehaviour where T : Object
 		}
 	}
 
-	#endregion
 
-	#region Unity Methods
 
 	protected virtual void Awake()
 	{
 		this.SetInstance();
 	}
 
-	#endregion
 
-	#region Public Methods
 
 	public static bool Exists()
 	{
@@ -56,5 +49,4 @@ public class SingletonComponent<T> : MonoBehaviour where T : Object
 		instance = this.gameObject.GetComponent<T>();
 	}
 
-	#endregion
 }

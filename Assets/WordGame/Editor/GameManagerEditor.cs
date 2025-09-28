@@ -8,7 +8,6 @@ using Rotorz.ReorderableList;
 [ExecuteInEditMode]
 public class GameManagerEditor : Editor
 {
-    #region Methods
 
     int categoryNumber = 1, levelNumber = 1;
     GameManager instance;
@@ -237,5 +236,4 @@ public class GameManagerEditor : Editor
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("dailyPuzzleIcon"));
 	}
 
-	#endregion
 }

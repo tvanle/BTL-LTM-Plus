@@ -5,22 +5,17 @@ using System.Collections.Generic;
 
 public class CategoryListItem : MonoBehaviour
 {
-	#region Inspector Variables
 
 	[SerializeField] private Text	categoryText;
 	[SerializeField] private Text	infoText;
 	[SerializeField] private Image	iconImage;
 	[SerializeField] private Image	completedImage;
 
-	#endregion
 
-	#region Member Variables
 
 	private string categoryName;
 
-	#endregion
 
-	#region Public Methods
 
 	public void Setup(CategoryInfo categoryInfo)
 	{
@@ -42,5 +37,4 @@ public class CategoryListItem : MonoBehaviour
 		UIScreenController.Instance.Show(UIScreenController.CategoryLevelsScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, this.categoryName);
 	}
 
-	#endregion
 }

@@ -4,15 +4,12 @@ using System.Collections.Generic;
 
 public class ObjectPool
 {
-	#region Member Variables
 
 	private GameObject			objectPrefab		= null;
 	private List<GameObject>	instantiatedObjects = new List<GameObject>();
 	private Transform			parent				= null;
 
-	#endregion
 
-	#region Public Methods
 
 	/// <summary>
 	/// Initializes a new instance of the <see cref="ObjectPooler"/> class.
@@ -59,9 +56,7 @@ public class ObjectPool
 		}
 	}
 
-	#endregion
 
-	#region Private Methods
 
 	private GameObject CreateObject()
 	{
@@ -71,5 +66,4 @@ public class ObjectPool
 		return obj;
 	}
 
-	#endregion
 }

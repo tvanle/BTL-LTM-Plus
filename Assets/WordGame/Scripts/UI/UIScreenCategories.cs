@@ -3,20 +3,15 @@ using System.Collections;
 
 public class UIScreenCategories : UIScreen
 {
-	#region Inspector Variables
 
 	[SerializeField] private Transform			categoriesListContainer;
 	[SerializeField] private CategoryListItem	categoryListItemPrefab;
 
-	#endregion
 
-	#region Member Variables
 
 	private ObjectPool categoryItemObjectPool;
 
-	#endregion
 
-	#region Public Methods
 
 	public override void Initialize()
 	{
@@ -50,5 +45,4 @@ public class UIScreenCategories : UIScreen
 		UIScreenController.Instance.Show(UIScreenController.MainScreenId, true);
 	}
 
-	#endregion
 }

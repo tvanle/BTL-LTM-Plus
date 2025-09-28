@@ -3,20 +3,15 @@ using System.Collections;
 
 public class UIScreenCategoryLevels : UIScreen
 {
-	#region Inspector Variables
 	
 	[SerializeField] private Transform		levelListContainer;
 	[SerializeField] private LevelListItem	levelListItemPrefab;
 	
-	#endregion
 	
-	#region Member Variables
 	
 	private ObjectPool levelItemObjectPool;
 	
-	#endregion
 	
-	#region Public Methods
 	
 	public override void Initialize()
 	{
@@ -44,5 +39,4 @@ public class UIScreenCategoryLevels : UIScreen
 		UIScreenController.Instance.Show(UIScreenController.CategoriesScreenId, true);
 	}
 	
-	#endregion
 }

@@ -20,7 +20,6 @@ using System.Threading;
 /// </summary>
 public class WordBoardCreator : MonoBehaviour
 {
-	#region Data Classes
 
 	private class ActiveThread
 	{
@@ -30,21 +29,15 @@ public class WordBoardCreator : MonoBehaviour
 		public OnBoardFinished	callback;
 	}
 
-	#endregion
 
-	#region Delegates
 
 	public delegate void OnBoardFinished(WordBoard board);
 
-	#endregion
 
-	#region Member Variables
 
 	private readonly List<ActiveThread> activeThreads = new List<ActiveThread>();
 
-	#endregion
 
-	#region Properties
 
 	/// <summary>
 	/// Gets an array of strings which are the currently generating board ids.
@@ -64,9 +57,7 @@ public class WordBoardCreator : MonoBehaviour
 		}
 	}
 
-	#endregion
 
-	#region Unity Methods
 
 	public void Update()
 	{
@@ -112,9 +103,7 @@ public class WordBoardCreator : MonoBehaviour
 		}
 	}
 
-	#endregion
 
-	#region Public Methods
 
 	/// <summary>
 	/// Starts the creation of a new board.
@@ -190,9 +179,7 @@ public class WordBoardCreator : MonoBehaviour
 		}
 	}
 
-	#endregion
 
-	#region Private Methods
 
 	/// <summary>
 	/// Starts a new thread that will process a board in the background. The OnBoardCreated callback will be called when the board is complete
@@ -1072,5 +1059,4 @@ public class WordBoardCreator : MonoBehaviour
 		return false;
 	}
 
-	#endregion
 }

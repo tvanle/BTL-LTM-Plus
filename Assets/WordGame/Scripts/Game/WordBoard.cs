@@ -4,7 +4,6 @@ using System.Diagnostics;
 
 public class WordBoard
 {
-	#region Data Classes
 
 	public class WordTile
 	{
@@ -17,9 +16,7 @@ public class WordBoard
 		public bool	regionLocked;
 	}
 
-	#endregion
 
-	#region Enums
 
 	public enum BoardState
 	{
@@ -29,9 +26,7 @@ public class WordBoard
 		Restart
 	}
 
-	#endregion
 
-	#region Member Variables
 
 	public string			id;
 	public int				size;		// The length of one side of a board (eg. a 7x7 board, the size would be 7)
@@ -45,9 +40,7 @@ public class WordBoard
 	public Stopwatch		stopwatch;		// Used to keep track of how long the baord processing state is taking
 	public long				restartTime;	// The amount of time in milliseconds thay must past for board creation to restart
 
-	#endregion
 
-	#region Public Methods
 
 	/// <summary>
 	/// Copies the board.
@@ -80,5 +73,4 @@ public class WordBoard
 		return newBoard;
 	}
 
-	#endregion
 }

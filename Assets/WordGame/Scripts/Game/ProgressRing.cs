@@ -4,30 +4,21 @@ using System.Collections;
 
 public class ProgressRing : MonoBehaviour
 {
-	#region Inspector Variables
 
 	[SerializeField] private RectTransform	firstHalf;
 	[SerializeField] private RectTransform	secondHalf;
 	[SerializeField] private Text 			percentText;
 
-	#endregion
 
-	#region Member Variables
-	#endregion
 
-	#region Properties
-	#endregion
 
-	#region Unity Methods
 
 	private void Awake()
 	{
 		this.SetProgress(0f);
 	}
 
-	#endregion
 
-	#region Public Methods
 
 	public void SetProgress(float percent)
 	{
@@ -40,11 +31,6 @@ public class ProgressRing : MonoBehaviour
 		this.secondHalf.localEulerAngles   = new Vector3(this.secondHalf.localEulerAngles.x, this.secondHalf.localEulerAngles.y, z2);
 	}
 
-	#endregion
 
-	#region Protected Methods
-	#endregion
 
-	#region Private Methods
-	#endregion
 }

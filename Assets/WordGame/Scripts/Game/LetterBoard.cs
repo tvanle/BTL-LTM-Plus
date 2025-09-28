@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    #region Inspector Variables
 
     [Tooltip("The Canvas that letterTileContainer is in. This is used to get the size of the tiles in relation to the actual screen size so we can tell when the mouse is over a tile.")]
     [SerializeField]
@@ -28,9 +27,7 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     [Tooltip("The transform that the line segments will be added to.")] [SerializeField] private RectTransform lineContainer;
 
-    #endregion
 
-    #region Member Variables
 
     public System.Action<string, List<LetterTile>, bool> OnWordFound           = null;
     public System.Action<string>                         OnSelectedWordChanged = null;
@@ -45,9 +42,7 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private string           selectedWord = "";
     private List<GameObject> gridGameObjects;
 
-    #endregion
 
-    #region Unity Methods
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -64,9 +59,7 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         this.TrySelectWord();
     }
 
-    #endregion
 
-    #region Public Methods
 
     public void Initialize()
     {
@@ -154,9 +147,7 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         }
     }
 
-    #endregion
 
-    #region Private Methods
 
     /// <summary>
     /// Reset the board
@@ -410,5 +401,4 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         }
     }
 
-    #endregion
 }

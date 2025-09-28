@@ -4,7 +4,6 @@ using System.Collections;
 
 public class BoardFileCreatorWindow : EditorWindow
 {
-	#region Member Variables
 
 	private GameManager	gameManagerReference;
 	private bool		recreateAllBoards;
@@ -16,9 +15,7 @@ public class BoardFileCreatorWindow : EditorWindow
 	private int					categoryIndex;
 	private int					categoryLevelIndex;
 
-	#endregion
 
-	#region Unity Methods
 
 	[MenuItem ("Window/Board File Creator")]
 	public static void ShowWindow()
@@ -104,9 +101,7 @@ public class BoardFileCreatorWindow : EditorWindow
 		GUI.enabled = true;
 	}
 
-	#endregion
 
-	#region Private Methods
 
 	private void StartCreatingBoardFiles()
 	{
@@ -201,5 +196,4 @@ public class BoardFileCreatorWindow : EditorWindow
 		EditorUtility.ClearProgressBar();
 	}
 
-	#endregion
 }

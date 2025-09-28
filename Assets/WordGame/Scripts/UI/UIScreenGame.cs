@@ -4,7 +4,6 @@ using System.Collections;
 
 public class UIScreenGame : UIScreen
 {
-	#region Inspector Variables
 
 	[SerializeField] private Text 			categoryText;
 	[SerializeField] private Text 			levelText;
@@ -13,18 +12,14 @@ public class UIScreenGame : UIScreen
 	[SerializeField] private Text 			selectedWordText;
 	[SerializeField] private LetterBoard	letterBoard;
 	
-	#endregion
 
-	#region Unity Methods
 
 	private void Update()
 	{
 		this.hintBtnText.text = $"HINT ({GameManager.Instance.CurrentHints})";
 	}
 
-	#endregion
 
-	#region Public Methods
 
 	public override void Initialize()
 	{
@@ -70,5 +65,4 @@ public class UIScreenGame : UIScreen
 		}
 	}
 
-	#endregion
 }
