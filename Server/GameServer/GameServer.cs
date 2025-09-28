@@ -6,33 +6,6 @@ using System.Text.Json;
 
 namespace WordBrainServer;
 
-public enum NetworkMessageType
-{
-    // Client -> Server
-    CREATE_ROOM,
-    JOIN_ROOM,
-    LEAVE_ROOM,
-    PLAYER_READY,
-    START_GAME,
-    LEVEL_COMPLETED,
-    LEVEL_TIMEOUT,
-    HEARTBEAT,
-    SUBMIT_ANSWER,
-
-    // Server -> Client
-    ROOM_CREATED,
-    ROOM_JOINED,
-    PLAYER_JOINED,
-    PLAYER_LEFT,
-    GAME_STARTED,
-    LEVEL_STARTED,
-    LEVEL_ENDED,
-    GAME_ENDED,
-    ERROR,
-    NEXT_LEVEL,
-    ANSWER_RESULT
-}
-
 public class GameServer
 {
     private readonly TcpListener                                  _tcpListener;
@@ -104,26 +77,26 @@ public class GameServer
         {
             switch (message.Type)
             {
-                case NetworkMessageType.CREATE_ROOM:
+                case "CREATE_ROOM":
                     await this.HandleCreateRoom(connection, message);
                     break;
-                case NetworkMessageType.JOIN_ROOM:
+                case "JOIN_ROOM":
                     await this.HandleJoinRoom(connection, message);
                     break;
-                case NetworkMessageType.LEAVE_ROOM:
+                case "LEAVE_ROOM":
                     await this.HandleLeaveRoom(connection);
                     break;
-                case NetworkMessageType.PLAYER_READY:
+                case "PLAYER_READY":
                     await this.HandlePlayerReady(connection);
                     break;
-                case NetworkMessageType.START_GAME:
+                case "START_GAME":
                     await this.HandleStartGame(connection);
                     break;
-                case NetworkMessageType.SUBMIT_ANSWER:
+                case "SUBMIT_ANSWER":
                     await this.HandleSubmitAnswer(connection, message);
                     break;
-                case NetworkMessageType.HEARTBEAT:
-                    await connection.SendAsync(new GameMessage { Type = NetworkMessageType.HEARTBEAT });
+                case "HEARTBEAT":
+                    await connection.SendAsync(new GameMessage { Type = "HEARTBEAT" });
                     break;
             }
         }
@@ -131,7 +104,7 @@ public class GameServer
         {
             await connection.SendAsync(new GameMessage
             {
-                Type = NetworkMessageType.ERROR,
+                Type = "ERROR",
                 Data = JsonSerializer.Serialize(new { error = ex.Message })
             });
         }
@@ -168,7 +141,7 @@ public class GameServer
 
         await connection.SendAsync(new GameMessage
         {
-            Type = NetworkMessageType.ROOM_CREATED,
+            Type = "ROOM_CREATED",
             Data = JsonSerializer.Serialize(new { roomCode, playerId = player.Id })
         });
 
@@ -203,7 +176,7 @@ public class GameServer
 
         await connection.SendAsync(new GameMessage
         {
-            Type = NetworkMessageType.ROOM_JOINED,
+            Type = "ROOM_JOINED",
             Data = JsonSerializer.Serialize(new
             {
                 roomCode = room.Code,
@@ -214,7 +187,7 @@ public class GameServer
 
         await this.BroadcastToRoomExcept(room, connection.Id, new GameMessage
         {
-            Type = NetworkMessageType.PLAYER_JOINED,
+            Type = "PLAYER_JOINED",
             Data = JsonSerializer.Serialize(new { player.Id, player.Username })
         });
 
@@ -239,7 +212,7 @@ public class GameServer
 
         await this.BroadcastToRoom(room, new GameMessage
         {
-            Type = NetworkMessageType.PLAYER_LEFT,
+            Type = "PLAYER_LEFT",
             Data = JsonSerializer.Serialize(new { playerId = player.Id })
         });
 
@@ -267,7 +240,7 @@ public class GameServer
 
         await this.BroadcastToRoom(room, new GameMessage
         {
-            Type = NetworkMessageType.PLAYER_READY,
+            Type = "PLAYER_READY",
             Data = JsonSerializer.Serialize(new { playerId = player.Id, isReady = true })
         });
     }
@@ -297,7 +270,7 @@ public class GameServer
 
         await this.BroadcastToRoom(room, new GameMessage
         {
-            Type = NetworkMessageType.GAME_STARTED,
+            Type = "GAME_STARTED",
             Data = JsonSerializer.Serialize(new
             {
                 level = room.GameState.CurrentLevel,
@@ -335,7 +308,7 @@ public class GameServer
 
         await this.BroadcastToRoom(room, new GameMessage
         {
-            Type = NetworkMessageType.ANSWER_RESULT,
+            Type = "ANSWER_RESULT",
             Data = JsonSerializer.Serialize(new
             {
                 playerId = player.Id,
@@ -368,7 +341,7 @@ public class GameServer
 
         await this.BroadcastToRoom(room, new GameMessage
         {
-            Type = NetworkMessageType.NEXT_LEVEL,
+            Type = "NEXT_LEVEL",
             Data = JsonSerializer.Serialize(new
             {
                 level = room.GameState.CurrentLevel,
@@ -388,7 +361,7 @@ public class GameServer
 
         await this.BroadcastToRoom(room, new GameMessage
         {
-            Type = NetworkMessageType.GAME_ENDED,
+            Type = "GAME_ENDED",
             Data = JsonSerializer.Serialize(new { results })
         });
 
@@ -630,7 +603,7 @@ public class GameState
 
 public class GameMessage
 {
-    public NetworkMessageType Type { get; set; }
+    public string Type { get; set; } = string.Empty;
     public string Data { get; set; } = string.Empty;
 }
 

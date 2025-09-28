@@ -99,7 +99,7 @@ namespace WordGame.Network
         {
             var message = new GameMessage
             {
-                Type = NetworkMessageType.CREATE_ROOM,
+                Type = "CREATE_ROOM",
                 Data = JsonUtility.ToJson(new CreateRoomData
                 {
                     Username      = username,
@@ -117,7 +117,7 @@ namespace WordGame.Network
         {
             var message = new GameMessage
             {
-                Type = NetworkMessageType.JOIN_ROOM,
+                Type = "JOIN_ROOM",
                 Data = JsonUtility.ToJson(new JoinRoomData
                 {
                     RoomCode = roomCode,
@@ -131,7 +131,7 @@ namespace WordGame.Network
 
         public async Task LeaveRoom()
         {
-            var message = new GameMessage { Type = NetworkMessageType.LEAVE_ROOM };
+            var message = new GameMessage { Type = "LEAVE_ROOM" };
             await this.SendMessageAsync(message);
             this.RoomCode = null;
             this.RoomPlayers.Clear();
@@ -139,13 +139,13 @@ namespace WordGame.Network
 
         public async Task SetReady()
         {
-            var message = new GameMessage { Type = NetworkMessageType.PLAYER_READY };
+            var message = new GameMessage { Type = "PLAYER_READY" };
             await this.SendMessageAsync(message);
         }
 
         public async Task StartGame()
         {
-            var message = new GameMessage { Type = NetworkMessageType.START_GAME };
+            var message = new GameMessage { Type = "START_GAME" };
             await this.SendMessageAsync(message);
         }
 
@@ -153,7 +153,7 @@ namespace WordGame.Network
         {
             var message = new GameMessage
             {
-                Type = NetworkMessageType.LEVEL_COMPLETED,
+                Type = "LEVEL_COMPLETED",
                 Data = JsonUtility.ToJson(new LevelCompletedData
                 {
                     TimeTaken = timeTaken
@@ -165,7 +165,7 @@ namespace WordGame.Network
 
         public async Task LevelTimeout()
         {
-            var message = new GameMessage { Type = NetworkMessageType.LEVEL_TIMEOUT };
+            var message = new GameMessage { Type = "LEVEL_TIMEOUT" };
             await this.SendMessageAsync(message);
         }
 
@@ -274,34 +274,34 @@ namespace WordGame.Network
 
             dispatcher.Enqueue(() =>
             {
-                Debug.Log($"Received: {message.Type.ToString()}");
+                Debug.Log($"Received: {message.Type}");
 
                 switch (message.Type)
                 {
-                    case NetworkMessageType.ROOM_CREATED:
+                    case "ROOM_CREATED":
                         var createData = JsonUtility.FromJson<RoomCreatedData>(message.Data);
                         this.RoomCode = createData.roomCode;
                         this.PlayerId = createData.playerId;
                         break;
 
-                    case NetworkMessageType.ROOM_JOINED:
+                    case "ROOM_JOINED":
                         var joinData = JsonUtility.FromJson<RoomJoinedData>(message.Data);
                         this.RoomCode    = joinData.roomCode;
                         this.PlayerId    = joinData.playerId;
                         this.RoomPlayers = joinData.players;
                         break;
 
-                    case NetworkMessageType.PLAYER_JOINED:
+                    case "PLAYER_JOINED":
                         var playerJoined = JsonUtility.FromJson<PlayerJoinedData>(message.Data);
                         this.RoomPlayers.Add(new PlayerInfo { Id = playerJoined.Id, Username = playerJoined.Username, IsReady = false });
                         break;
 
-                    case NetworkMessageType.PLAYER_LEFT:
+                    case "PLAYER_LEFT":
                         var playerLeft = JsonUtility.FromJson<PlayerLeftData>(message.Data);
                         this.RoomPlayers.RemoveAll(p => p.Id == playerLeft.playerId);
                         break;
 
-                    case NetworkMessageType.ERROR:
+                    case "ERROR":
                         var errorData = JsonUtility.FromJson<ErrorData>(message.Data);
                         this.OnError?.Invoke(errorData.error);
                         break;
@@ -319,7 +319,7 @@ namespace WordGame.Network
 
                 if (this._isConnected)
                 {
-                    await this.SendMessageAsync(new GameMessage { Type = NetworkMessageType.HEARTBEAT });
+                    await this.SendMessageAsync(new GameMessage { Type = "HEARTBEAT" });
                 }
             }
         }
@@ -331,7 +331,7 @@ namespace WordGame.Network
 
         [Serializable] public class GameMessage
         {
-            public NetworkMessageType Type { get; set; }
+            public string Type { get; set; }
             public string Data { get; set; }
         }
 
