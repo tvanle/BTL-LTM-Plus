@@ -11,8 +11,10 @@ namespace WordGame.UI
     public class UIScreenMultiplayerRoom : UIScreen
     {
         private NetworkManager networkManager;
-        [Header("UI References")]
-        [SerializeField] private TextMeshProUGUI roomCodeText;
+
+        [Header("UI References")] [SerializeField]
+        private TextMeshProUGUI roomCodeText;
+
         [SerializeField] private Transform playerListContainer;
         [SerializeField] private GameObject playerListItemPrefab;
         [SerializeField] private Button readyButton;
@@ -63,27 +65,33 @@ namespace WordGame.UI
                     {
                         UpdatePlayerList(networkManager.RoomPlayers);
                     }
+
                     break;
 
                 case "GAME_STARTED":
-                    // Parse game start data from server
-                    var gameData = JsonUtility.FromJson<GameStartData>(message.Data);
-
-                    // Start the multiplayer level in GameManager
-                    if (GameManager.Instance != null && gameData != null)
+                    try
                     {
-                        // Default category if not provided
-                        string category = !string.IsNullOrEmpty(gameData.category) ? gameData.category : "Multiplayer";
-                        int level = gameData.level > 0 ? gameData.level : 1;
+                        // Parse game start data from server
+                        var gameData = JsonUtility.FromJson<GameStartData>(message.Data);
 
-                        GameManager.Instance.StartLevel(
-                            category,
-                            level
-                        );
+                        // Default category if not provided - use "Category 1" (with space) format
+                        string category = !string.IsNullOrEmpty(gameData.category) ? gameData.category : "Category 1";
+                        int level = gameData.level > 0
+                            ? gameData.level - 1
+                            : 0; // Convert to 0-based index (level 1 = index 0)
+
+                        Debug.Log($"[MULTIPLAYER] Starting level - Category: {category}, Level: {level}");
+                        GameManager.Instance.StartLevel(category, level);
+
+                        // Show game screen - pass GameStartData so UIScreenGame knows it's multiplayer
+                        UIScreenController.Instance.Show(UIScreenController.GameScreenId, false, true, false,
+                            Tween.TweenStyle.EaseOut, null, gameData);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError($"[MULTIPLAYER] Error handling GAME_STARTED: {ex.Message}\n{ex.StackTrace}");
                     }
 
-                    // Show game screen
-                    UIScreenController.Instance.Show(UIScreenController.GameScreenId, false, true, false, Tween.TweenStyle.EaseOut);
                     break;
 
                 case "NEXT_LEVEL":
@@ -92,26 +100,29 @@ namespace WordGame.UI
 
                     if (GameManager.Instance != null && nextLevelData != null)
                     {
-                        string category = !string.IsNullOrEmpty(nextLevelData.category) ? nextLevelData.category : "Category_1_0";
-                        int level = nextLevelData.level > 0 ? nextLevelData.level : 1;
+                        string category = !string.IsNullOrEmpty(nextLevelData.category)
+                            ? nextLevelData.category
+                            : "Category 1";
+                        int level = nextLevelData.level > 0 ? nextLevelData.level - 1 : 0; // Convert to 0-based index
 
-                        GameManager.Instance.StartLevel(
-                            category,
-                            level
-                        );
+                        Debug.Log($"[MULTIPLAYER] Next level - Category: {category}, Level: {level}");
+                        GameManager.Instance.StartLevel(category, level);
                     }
+
                     break;
 
                 case "LEVEL_ENDED":
                     var levelEndData = JsonUtility.FromJson<LevelEndData>(message.Data);
-                    UIScreenController.Instance.Show(UIScreenController.LeaderboardScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, levelEndData);
+                    UIScreenController.Instance.Show(UIScreenController.LeaderboardScreenId, false, true, false,
+                        Tween.TweenStyle.EaseOut, null, levelEndData);
                     break;
 
                 case "GAME_ENDED":
                     var endData = JsonUtility.FromJson<GameEndData>(message.Data);
                     Reset();
                     // Return to room after game ends
-                    UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, false);
+                    UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false,
+                        Tween.TweenStyle.EaseOut, null, false);
                     break;
             }
         }
@@ -139,6 +150,7 @@ namespace WordGame.UI
             {
                 await networkManager.LeaveRoom();
             }
+
             UIScreenController.Instance.Show(UIScreenController.MultiplayerMenuScreenId, true, true);
         }
 
@@ -168,6 +180,7 @@ namespace WordGame.UI
             {
                 Destroy(kvp.Value);
             }
+
             _playerListItems.Clear();
 
             foreach (var player in players)

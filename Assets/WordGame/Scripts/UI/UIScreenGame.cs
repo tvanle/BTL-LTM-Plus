@@ -82,7 +82,12 @@ public class UIScreenGame : UIScreen
 
 		this.categoryText.text = GameManager.Instance.ActiveCategory.ToUpper();
 		this.hintBtnText.text  = $"HINT ({GameManager.Instance.CurrentHints})";
-		this.iconImage.sprite  = categoryInfo.icon;
+
+		// Only set icon if categoryInfo exists
+		if (categoryInfo != null && categoryInfo.icon != null)
+		{
+			this.iconImage.sprite = categoryInfo.icon;
+		}
 
 		if (GameManager.Instance.ActiveCategory == GameManager.dailyPuzzleId)
 		{
@@ -145,7 +150,7 @@ public class UIScreenGame : UIScreen
 		isLevelActive = false;
 
 		// Calculate time taken
-		int timeTaken = Mathf.RoundToInt(30f - levelTimer);
+		var timeTaken = Mathf.RoundToInt(30f - levelTimer);
 
 		// Send completion to server
 		if (networkManager != null)
