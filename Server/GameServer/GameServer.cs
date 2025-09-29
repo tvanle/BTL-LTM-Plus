@@ -97,9 +97,6 @@ public class GameServer
                 case "START_GAME":
                     await this.HandleStartGame(connection);
                     break;
-                case "SUBMIT_ANSWER":
-                    await this.HandleSubmitAnswer(connection, message);
-                    break;
                 case "HEARTBEAT":
                     await connection.SendAsync(new GameMessage { Type = "HEARTBEAT" });
                     break;
@@ -255,8 +252,6 @@ public class GameServer
 
     private async Task HandleStartGame(ClientConnection connection)
     {
-        Console.WriteLine($"[DEBUG] HandleStartGame called by connection {connection.Id}");
-
         if (!connection.PlayerId.HasValue)
         {
             Console.WriteLine($"[DEBUG] Connection has no PlayerId");
@@ -310,46 +305,10 @@ public class GameServer
 
         Console.WriteLine($"Game started in room {room.Code}");
     }
-
-    private async Task HandleSubmitAnswer(ClientConnection connection, GameMessage message)
-    {
-        if (!connection.PlayerId.HasValue)
-            return;
-
-        var player = this._players.GetValueOrDefault(connection.PlayerId.Value);
-        if (player?.RoomCode == null)
-            return;
-
-        var room = this._rooms.GetValueOrDefault(player.RoomCode);
-        if (room?.GameState == null)
-            return;
-
-        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        var data = JsonSerializer.Deserialize<SubmitAnswerData>(message.Data, options);
-
-        // Update player score
-        player.Score += this.CalculateScore(data.TimeTaken);
-
-        // Store score in game state
-        room.GameState.PlayerScores[player.Id.ToString()] = player.Score;
-
-        await this.BroadcastToRoom(room, new GameMessage
-        {
-            Type = "ANSWER_RESULT",
-            Data = JsonSerializer.Serialize(new
-            {
-                playerId = player.Id,
-                score = player.Score,
-                allScores = room.GameState.PlayerScores
-            })
-        });
-
-        // Client will handle level completion and notify server
-    }
-
+    
     private async Task NextLevel(GameRoom room)
     {
-        room.GameState.CurrentLevel++;
+        room.GameState!.CurrentLevel++;
 
         if (room.GameState.CurrentLevel > room.TotalLevels)
         {
@@ -581,7 +540,6 @@ public class GameRoom
     public int MaxPlayers { get; set; } = 50;
     public int LevelDuration { get; set; } = 30;
     public int TotalLevels { get; set; } = 10;
-    public int CurrentLevel { get; set; } = 0;
     public ConcurrentDictionary<Guid, Player> Players { get; } = new();
     public GameState? GameState { get; set; }
 }
