@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using WordGame.Network;
 
 
 /// <summary>
@@ -97,9 +98,6 @@ public class GameManager : SingletonComponent<GameManager>
 	public Dictionary<string, bool>			CompletedLevels				{ get; private set; }
 	public bool								AnimatingWord				{ get; private set; }
 	public System.DateTime					NextDailyPuzzleAt			{ get; private set; }
-	public bool								IsMultiplayer				{ get; set; }
-	public string							CurrentRoomId				{ get; set; }
-	public string							PlayerId					{ get; set; }
 
 	public List<CategoryInfo> CategoryInfos
 	{
@@ -165,7 +163,7 @@ public class GameManager : SingletonComponent<GameManager>
 		this.ActiveLevelIndex  = levelIndex;
 
 		// Get the board id for the level and load the WordBoard from Resources
-		var    boardId   = Utilities.FormatBoardId(this.ActiveCategory, this.ActiveLevelIndex);
+		var boardId = Utilities.FormatBoardId(this.ActiveCategory, this.ActiveLevelIndex);
 		var wordBoard = Utilities.LoadWordBoard(boardId);
 
 		if (wordBoard == null)
@@ -174,47 +172,36 @@ public class GameManager : SingletonComponent<GameManager>
 			return;
 		}
 
-		// If a saved BoardState does not already exist then create one
-		if (!this.SavedBoardStates.ContainsKey(boardId))
-		{
-			this.SavedBoardStates.Add(boardId, this.CreateNewBoardState(wordBoard));
-		}
-
-		// Try and get a saved board state if one exists
-		this.ActiveBoardState = this.SavedBoardStates[boardId];
+		// Always create a fresh board state for multiplayer
+		this.ActiveBoardState = this.CreateNewBoardState(wordBoard);
 
 		// Setup the display using the assigned activeBoardState
 		this.SetupActiveBoard();
 	}
 
 	/// <summary>
-	/// Starts the daily puzzle.
+	/// Gets a random category and level for the server to use when "Random" is selected
+	/// </summary>
+	public (string category, int level) GetRandomLevel()
+	{
+		// Get all categories except daily puzzle
+		var validCategories = this.categoryInfos.Where(c => c.name != dailyPuzzleId).ToList();
+		if (validCategories.Count == 0)
+			return ("Category 1", 0); // Default fallback
+
+		var randomCategory = validCategories[Random.Range(0, validCategories.Count)];
+		var randomLevelIndex = Random.Range(0, randomCategory.levelInfos.Count);
+
+		return (randomCategory.name, randomLevelIndex);
+	}
+
+	/// <summary>
+	/// For backward compatibility - redirects to GetRandomLevel
 	/// </summary>
 	public void StartDailyPuzzle()
 	{
-		if (this.dailyPuzzles.Count == 0)
-		{
-			return;
-		}
-
-		// Check if we need to pick a new daily puzzle
-		if (this.ActiveDailyPuzzleIndex == -1 || System.DateTime.Now >= this.NextDailyPuzzleAt)
-		{
-			if (this.ActiveDailyPuzzleIndex != -1)
-			{
-				var boardId = Utilities.FormatBoardId(dailyPuzzleId, this.ActiveDailyPuzzleIndex);
-
-				// Remove any save data for the previous daily puzzle
-				this.SavedBoardStates.Remove(boardId);
-				this.CompletedLevels.Remove(boardId);
-			}
-
-			// Get a new random daily puzzle level index to use
-			this.ActiveDailyPuzzleIndex = Random.Range(0, this.dailyPuzzles.Count);
-		}
-
-		// Start the daily puzzle
-		this.StartLevel(dailyPuzzleId, this.ActiveDailyPuzzleIndex);
+		var (category, level) = GetRandomLevel();
+		this.StartLevel(category, level);
 	}
 
 	/// <summary>
@@ -305,11 +292,13 @@ public class GameManager : SingletonComponent<GameManager>
 	}
 
 	/// <summary>
-	/// Returns the CategoryInfo with the given category name.
+	/// Returns the CategoryInfo with the given category name (case-insensitive).
 	/// </summary>
 	public CategoryInfo GetCategoryInfo(string categoryName)
 	{
-		return this.CategoryInfos.FirstOrDefault(category => categoryName == category.name);
+		// Case-insensitive comparison to handle "Category 1" vs "CATEGORY 1"
+		return this.CategoryInfos.FirstOrDefault(category =>
+			string.Equals(categoryName, category.name, System.StringComparison.OrdinalIgnoreCase));
 	}
 
 
@@ -402,90 +391,21 @@ public class GameManager : SingletonComponent<GameManager>
 	/// <summary>
 	/// Called when the current active board is completed by the player (ie. they found the last word)
 	/// </summary>
-	private void BoardComplete()
+	private async void BoardComplete()
 	{
-		var boardId     = Utilities.FormatBoardId(this.ActiveCategory, this.ActiveLevelIndex);
-		var    awardNumber = 0;
+		// Calculate time taken
+		var timeTaken = this.GetElapsedTime();
 
-		// Check if the completed category was a daily puzzle, if so check if we want to award a hint
-		if (this.ActiveCategory != dailyPuzzleId)
-		{
-            var awardHint = !this.CompletedLevels.ContainsKey(boardId) || !this.CompletedLevels[boardId];
-            awardNumber = awardHint ? GameConfig.instance.completeNormalLevelAward : 0;
-		}
-		else
-		{
-            awardNumber = GameConfig.instance.completeDailyPuzzleAward;
-			// Set the next daily puzzle to start at the start of the next day
-			this.NextDailyPuzzleAt = new System.DateTime(System.DateTime.Now.Year, System.DateTime.Now.Month, System.DateTime.Now.Day).AddDays(1);
-		}
+		// Send level completed to server
+		await NetworkManager.Instance.LevelCompleted((int)timeTaken);
 
-		// Award hints for completing the level or daily puzzle
-		this.AddHint(awardNumber);
+		// Show complete overlay but don't auto-hide - wait for server instruction
+		UIScreenController.Instance.Show(UIScreenController.CompleteScreenId, false, true, true, Tween.TweenStyle.EaseOut);
 
-		// Set the completed flag on the level
-		this.CompletedLevels[boardId] = true;
-
-		// The board has been completed, we no longer need to save it
+		// Clear board state
 		this.ActiveBoardState = null;
-
-		// Remove the BoardState from the list of saved BoardStates
-		this.SavedBoardStates.Remove(boardId);
-
-		UIScreenController.Instance.Show(UIScreenController.CompleteScreenId, false, true, true, Tween.TweenStyle.EaseOut, this.OnCompleteScreenShown, awardNumber);
 	}
 
-	private void OnCompleteScreenShown()
-	{
-		var categoryInfo   = this.GetCategoryInfo(this.ActiveCategory);
-		var          nextLevelIndex = this.ActiveLevelIndex + 1;
-
-		// Check if the category has been completed or it was the daily puzzle
-		if (this.ActiveCategory == dailyPuzzleId || nextLevelIndex >= categoryInfo.levelInfos.Count)
-		{
-
-			// If we completed the daily puzzle then move back to the main screen else move to the categories screen
-			var screenToShow = (this.ActiveCategory == dailyPuzzleId) ? UIScreenController.MainScreenId : UIScreenController.CategoriesScreenId;
-
-			// Set the active category to nothing
-			this.ActiveCategory = "";
-			this.ActiveLevelIndex  = -1;
-
-			// Force the category screen to show right away (behind the now showing overlay)
-			UIScreenController.Instance.Show(screenToShow, true, false);
-		}
-		else
-		{
-			// Start the next level
-			this.StartLevel(this.ActiveCategory, nextLevelIndex);
-		}
-
-		this.WaitThenHideCompleteScreen();
-	}
-
-	protected virtual async void WaitThenHideCompleteScreen()
-	{
-		await Task.Delay(1000);
-
-		UIScreenController.Instance.HideOverlay(UIScreenController.CompleteScreenId, true, Tween.TweenStyle.EaseIn);
-	}
-
-
-
-	/// <summary>
-	/// Resets all game data for a new session
-	/// </summary>
-	public void ResetGameData()
-	{
-		this.CurrentHints = this.startingHints;
-		this.ActiveCategory = "";
-		this.ActiveLevelIndex = -1;
-		this.ActiveDailyPuzzleIndex = -1;
-		this.ActiveBoardState = null;
-		this.SavedBoardStates.Clear();
-		this.CompletedLevels.Clear();
-		this.NextDailyPuzzleAt = System.DateTime.Now;
-	}
 
 	/// <summary>
 	/// Gets the current game state for multiplayer synchronization
