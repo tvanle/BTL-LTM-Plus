@@ -80,7 +80,7 @@ namespace WordGame.UI
                             ? gameData.level - 1
                             : 0; // Convert to 0-based index (level 1 = index 0)
 
-                        Debug.Log($"[MULTIPLAYER] Starting level - Category: {category}, Level: {level}");
+                        Debug.Log($"[MULTIPLAYER] Starting level - Category: {category}, Level: {level + 1}");
                         GameManager.Instance.StartLevel(category, level);
 
                         // Show game screen - pass GameStartData so UIScreenGame knows it's multiplayer
