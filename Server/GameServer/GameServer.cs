@@ -298,6 +298,21 @@ public class GameServer
             LevelStartTime = DateTime.UtcNow
         };
 
+        // Handle "Random" category by selecting a random category and level
+        string actualCategory = room.Category;
+        int actualLevel = room.GameState.CurrentLevel;
+
+        if (room.Category.Equals("Random", StringComparison.OrdinalIgnoreCase))
+        {
+            // Pick a random category from 1-10 (adjust based on your actual categories)
+            var random = new Random();
+            int categoryNum = random.Next(1, 11); // Categories 1-10
+            actualCategory = $"Category {categoryNum}";
+
+            // Pick a random level (0-19 is common range, adjust as needed)
+            actualLevel = random.Next(0, 20);
+        }
+
         // Start level timer (60 seconds - server manages completely)
         room.GameState.LevelTimer = new Timer(
             async _ => await this.HandleLevelTimerExpired(room),
@@ -311,8 +326,8 @@ public class GameServer
             Type = "GAME_STARTED",
             Data = JsonSerializer.Serialize(new
             {
-                category = room.Category,
-                level = room.GameState.CurrentLevel
+                category = actualCategory,
+                level = actualLevel
             })
         });
 
@@ -445,13 +460,25 @@ public class GameServer
             Timeout.InfiniteTimeSpan
         );
 
+        // Handle Random category for next level too
+        string actualCategory = room.Category;
+        int actualLevel = room.GameState.CurrentLevel;
+
+        if (room.Category.Equals("Random", StringComparison.OrdinalIgnoreCase))
+        {
+            var random = new Random();
+            int categoryNum = random.Next(1, 11);
+            actualCategory = $"Category {categoryNum}";
+            actualLevel = random.Next(0, 20);
+        }
+
         await this.BroadcastToRoom(room, new GameMessage
         {
             Type = "NEXT_LEVEL",
             Data = JsonSerializer.Serialize(new
             {
-                category = room.Category,
-                level = room.GameState.CurrentLevel
+                category = actualCategory,
+                level = actualLevel
             })
         });
 
