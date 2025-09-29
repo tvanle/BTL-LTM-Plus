@@ -53,7 +53,7 @@ public class UIScreenLeaderboard : UIScreen
 
     private System.Collections.IEnumerator AutoContinueCountdown(int seconds)
     {
-        int countdown = seconds;
+        var countdown = seconds;
         while (countdown > 0)
         {
             if (continueButton != null)
@@ -88,7 +88,7 @@ public class UIScreenLeaderboard : UIScreen
         results.Sort((a, b) => b.Score.CompareTo(a.Score));
 
         // Add new leaderboard items
-        int rank = 1;
+        var rank = 1;
         foreach (var result in results)
         {
             if (leaderboardItemPrefab != null && leaderboardContainer != null)

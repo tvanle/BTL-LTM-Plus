@@ -59,15 +59,15 @@ public class UIScreenTimeline : MonoBehaviour
 
     private async Task AnimatePosition(RectTransform rectTransform, float startX, float endX, float duration, AnimationCurve curve)
     {
-        float elapsedTime = 0f;
+        var elapsedTime = 0f;
 
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
-            float progress = elapsedTime / duration;
-            float curveValue = curve.Evaluate(progress);
+            var progress = elapsedTime / duration;
+            var curveValue = curve.Evaluate(progress);
 
-            float currentX = Mathf.Lerp(startX, endX, curveValue);
+            var currentX = Mathf.Lerp(startX, endX, curveValue);
             rectTransform.anchoredPosition = new Vector2(currentX, rectTransform.anchoredPosition.y);
 
             await Task.Yield();
