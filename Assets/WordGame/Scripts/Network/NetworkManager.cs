@@ -306,11 +306,6 @@ namespace WordGame.Network
 
             dispatcher.Enqueue(() =>
             {
-                if (message.Type != "HEARTBEAT")
-                {
-                    Debug.Log($"Received: {message.Type}");
-                }
-
                 switch (message.Type)
                 {
                     case "ROOM_CREATED":
