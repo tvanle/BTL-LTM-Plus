@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Timer = System.Threading.Timer;
 
 namespace WordBrainServer;
 
@@ -96,6 +97,9 @@ public class GameServer
                     break;
                 case "START_GAME":
                     await this.HandleStartGame(connection);
+                    break;
+                case "LEVEL_COMPLETED":
+                    await this.HandleLevelCompleted(connection, message);
                     break;
                 case "HEARTBEAT":
                     await connection.SendAsync(new GameMessage { Type = "HEARTBEAT" });
@@ -290,8 +294,17 @@ public class GameServer
 
         room.GameState = new GameState
         {
-            CurrentLevel = 1
+            CurrentLevel = 1,
+            LevelStartTime = DateTime.UtcNow
         };
+
+        // Start level timer (60 seconds - server manages completely)
+        room.GameState.LevelTimer = new Timer(
+            async _ => await this.HandleLevelTimerExpired(room),
+            null,
+            TimeSpan.FromSeconds(60),
+            Timeout.InfiniteTimeSpan
+        );
 
         await this.BroadcastToRoom(room, new GameMessage
         {
@@ -306,15 +319,131 @@ public class GameServer
         Console.WriteLine($"Game started in room {room.Code}");
     }
     
+    private async Task HandleLevelCompleted(ClientConnection connection, GameMessage message)
+    {
+        if (!connection.PlayerId.HasValue)
+            return;
+
+        var player = this._players.GetValueOrDefault(connection.PlayerId.Value);
+        if (player?.RoomCode == null)
+            return;
+
+        var room = this._rooms.GetValueOrDefault(player.RoomCode);
+        if (room?.GameState == null)
+            return;
+
+        // Parse time taken
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<LevelCompletedData>(message.Data, options);
+
+        // Mark player as completed
+        room.GameState.CompletedPlayers.Add(player.Id);
+
+        // Calculate score
+        var timeTaken = data?.TimeTaken ?? 60;
+        player.Score += this.CalculateScore(timeTaken);
+
+        Console.WriteLine($"Player {player.Username} completed level {room.GameState.CurrentLevel} in {timeTaken}s");
+
+        // Check if all players completed
+        if (room.GameState.CompletedPlayers.Count == room.Players.Count)
+        {
+            // Cancel timer and move to next level
+            room.GameState.LevelTimer?.Change(Timeout.Infinite, Timeout.Infinite);
+            room.GameState.LevelTimer?.Dispose();
+
+            // Send level ended with scores
+            await this.SendLevelEnded(room);
+
+            // Wait for leaderboard display (3 seconds)
+            await Task.Delay(3000);
+
+            // Then move to next level
+            await this.NextLevel(room);
+        }
+    }
+
+    // Removed HandleLevelTimeout - server timer handles everything automatically
+
+    private async Task HandleLevelTimerExpired(GameRoom room)
+    {
+        if (room.GameState == null)
+            return;
+
+        Console.WriteLine($"Level {room.GameState.CurrentLevel} timer expired for room {room.Code}");
+
+        // Mark all non-completed players as timed out (score = 0 for this level)
+        foreach (var player in room.Players.Values)
+        {
+            if (!room.GameState.CompletedPlayers.Contains(player.Id))
+            {
+                room.GameState.CompletedPlayers.Add(player.Id);
+                Console.WriteLine($"Player {player.Username} timed out on level {room.GameState.CurrentLevel}");
+            }
+        }
+
+        // Send level ended with current scores
+        await this.SendLevelEnded(room);
+
+        // Wait for leaderboard display
+        await Task.Delay(3000);
+
+        // Then move to next level
+        await this.NextLevel(room);
+    }
+
+    private async Task SendLevelEnded(GameRoom room)
+    {
+        if (room.GameState == null)
+            return;
+
+        // Get sorted player scores for leaderboard
+        var leaderboard = room.Players.Values
+            .OrderByDescending(p => p.Score)
+            .Select(p => new
+            {
+                playerId = p.Id,
+                username = p.Username,
+                score = p.Score
+            })
+            .ToList();
+
+        await this.BroadcastToRoom(room, new GameMessage
+        {
+            Type = "LEVEL_ENDED",
+            Data = JsonSerializer.Serialize(new
+            {
+                level = room.GameState.CurrentLevel,
+                leaderboard = leaderboard
+            })
+        });
+
+        Console.WriteLine($"Level {room.GameState.CurrentLevel} ended in room {room.Code}");
+    }
+
     private async Task NextLevel(GameRoom room)
     {
-        room.GameState!.CurrentLevel++;
+        if (room.GameState == null)
+            return;
+
+        room.GameState.CurrentLevel++;
+        room.GameState.CompletedPlayers.Clear();
+        room.GameState.LevelStartTime = DateTime.UtcNow;
 
         if (room.GameState.CurrentLevel > room.TotalLevels)
         {
             await this.EndGame(room);
             return;
         }
+
+        // Restart timer for next level
+        room.GameState.LevelTimer?.Dispose();
+        room.GameState.LevelTimer = new Timer(
+            async _ => await this.HandleLevelTimerExpired(room),
+            null,
+            TimeSpan.FromSeconds(60),
+            Timeout.InfiniteTimeSpan
+        );
 
         await this.BroadcastToRoom(room, new GameMessage
         {
@@ -325,6 +454,8 @@ public class GameServer
                 level = room.GameState.CurrentLevel
             })
         });
+
+        Console.WriteLine($"Starting level {room.GameState.CurrentLevel} in room {room.Code}");
     }
 
     private async Task EndGame(GameRoom room)
@@ -558,6 +689,9 @@ public class GameState
 {
     public int CurrentLevel { get; set; }
     public Dictionary<string, int> PlayerScores { get; set; } = new();
+    public HashSet<Guid> CompletedPlayers { get; set; } = new();
+    public DateTime LevelStartTime { get; set; }
+    public Timer? LevelTimer { get; set; }
 }
 
 public class GameMessage
@@ -583,5 +717,10 @@ public class JoinRoomData
 public class SubmitAnswerData
 {
     public string Answer { get; set; } = string.Empty;
+    public int TimeTaken { get; set; }
+}
+
+public class LevelCompletedData
+{
     public int TimeTaken { get; set; }
 }
