@@ -106,6 +106,12 @@ namespace WordGame.UI
                         int level = nextLevelData.level > 0 ? nextLevelData.level - 1 : 0; // Convert to 0-based index
 
                         Debug.Log($"[MULTIPLAYER] Next level - Category: {category}, Level: {level}");
+
+                        // Hide leaderboard and complete screen if showing
+                        UIScreenController.Instance.HideOverlay(UIScreenController.LeaderboardScreenId, false, Tween.TweenStyle.EaseIn);
+                        UIScreenController.Instance.HideOverlay(UIScreenController.CompleteScreenId, false, Tween.TweenStyle.EaseIn);
+
+                        // Start next level
                         GameManager.Instance.StartLevel(category, level);
                     }
 

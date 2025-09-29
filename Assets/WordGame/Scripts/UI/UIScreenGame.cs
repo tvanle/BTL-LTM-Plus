@@ -44,11 +44,6 @@ public class UIScreenGame : UIScreen
 				{
 					timerText.text = "Time's up!";
 				}
-				// Send timeout to server if haven't completed
-				if (!hasCompletedLevel)
-				{
-					SendTimeoutToServer();
-				}
 			}
 		}
 	}
@@ -140,48 +135,6 @@ public class UIScreenGame : UIScreen
 		categoryText.text = gameData.category?.ToUpper() ?? "MULTIPLAYER";
 
 		// The board is already loaded by GameManager.StartLevel()
-	}
-
-	public async void OnMultiplayerLevelCompleted()
-	{
-		if (!isMultiplayer || hasCompletedLevel) return;
-
-		hasCompletedLevel = true;
-		isLevelActive = false;
-
-		// Calculate time taken
-		var timeTaken = Mathf.RoundToInt(30f - levelTimer);
-
-		// Send completion to server
-		if (networkManager != null)
-		{
-			await networkManager.LevelCompleted(timeTaken);
-		}
-
-		// Show complete overlay screen
-		if (UIScreenController.Instance != null)
-		{
-			UIScreenController.Instance.Show(UIScreenController.CompleteScreenId, false, false, true);
-		}
-	}
-
-	private async void SendTimeoutToServer()
-	{
-		if (!isMultiplayer || hasCompletedLevel) return;
-
-		hasCompletedLevel = true;
-
-		// Send timeout signal to server
-		if (networkManager != null)
-		{
-			await networkManager.LevelTimeout();
-		}
-
-		// Show complete overlay screen
-		if (UIScreenController.Instance != null)
-		{
-			UIScreenController.Instance.Show(UIScreenController.CompleteScreenId, false, false, true);
-		}
 	}
 
 	public void ResetMultiplayer()
