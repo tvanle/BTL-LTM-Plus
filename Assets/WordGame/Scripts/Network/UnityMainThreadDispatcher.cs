@@ -33,7 +33,7 @@ namespace WordGame.Network
         {
             if (instance != null) return;
 
-            instance = FindObjectOfType<UnityMainThreadDispatcher>();
+            instance = FindFirstObjectByType<UnityMainThreadDispatcher>();
 
             if (instance == null)
             {
