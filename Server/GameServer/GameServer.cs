@@ -117,7 +117,8 @@ public class GameServer
 
     private async Task HandleCreateRoom(ClientConnection connection, GameMessage message)
     {
-        var data = JsonSerializer.Deserialize<CreateRoomData>(message.Data);
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<CreateRoomData>(message.Data, options);
 
         var player = new Player
         {
@@ -134,7 +135,7 @@ public class GameServer
         {
             Code = roomCode,
             HostId = player.Id,
-            Topic = data.Topic,
+            Category = data.Category,
             MaxPlayers = data.MaxPlayers,
             LevelDuration = data.LevelDuration
         };
@@ -155,7 +156,8 @@ public class GameServer
 
     private async Task HandleJoinRoom(ClientConnection connection, GameMessage message)
     {
-        var data = JsonSerializer.Deserialize<JoinRoomData>(message.Data);
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<JoinRoomData>(message.Data, options);
 
         if (!this._rooms.TryGetValue(data.RoomCode, out var room))
         {
@@ -270,7 +272,7 @@ public class GameServer
         {
             CurrentLevel = 1,
             GridData     = this.GenerateGrid(room.CurrentLevel),
-            TargetWords  = this.GenerateTargetWords(room.Topic, room.CurrentLevel)
+            TargetWords  = this.GenerateTargetWords(room.Category, room.CurrentLevel)
         };
 
         await this.BroadcastToRoom(room, new GameMessage
@@ -301,7 +303,8 @@ public class GameServer
         if (room?.GameState == null)
             return;
 
-        var data = JsonSerializer.Deserialize<SubmitAnswerData>(message.Data);
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<SubmitAnswerData>(message.Data, options);
 
         var isCorrect = room.GameState.TargetWords.Contains(data.Answer, StringComparer.OrdinalIgnoreCase);
 
@@ -341,7 +344,7 @@ public class GameServer
         }
 
         room.GameState.GridData    = this.GenerateGrid(room.GameState.CurrentLevel);
-        room.GameState.TargetWords = this.GenerateTargetWords(room.Topic, room.GameState.CurrentLevel);
+        room.GameState.TargetWords = this.GenerateTargetWords(room.Category, room.GameState.CurrentLevel);
         room.GameState.FoundWords.Clear();
 
         await this.BroadcastToRoom(room, new GameMessage
@@ -461,14 +464,14 @@ public class GameServer
         return new string(grid);
     }
 
-    private List<string> GenerateTargetWords(string topic, int level)
+    private List<string> GenerateTargetWords(string category, int level)
     {
         var wordCount = Math.Min(3 + level / 2, 8);
         var words = new List<string>();
 
         for (var i = 0; i < wordCount; i++)
         {
-            words.Add($"{topic}_{level}_{i}");
+            words.Add($"{category}_{level}_{i}");
         }
 
         return words;
@@ -547,10 +550,22 @@ public class ClientConnection
                     messageBuffer.RemoveRange(0, 4 + messageLength);
 
                     var json = Encoding.UTF8.GetString(messageBytes);
-                    var message = JsonSerializer.Deserialize<GameMessage>(json);
+
+                    var options = new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    };
+                    var message = JsonSerializer.Deserialize<GameMessage>(json, options);
 
                     if (message != null)
+                    {
+                        Console.WriteLine($"[DEBUG] Parsed Type: '{message.Type}', Data: '{message.Data}'");
                         yield return message;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"[ERROR] Failed to parse message: {json}");
+                    }
                 }
                 else
                 {
@@ -579,7 +594,7 @@ public class GameRoom
 {
     public string Code { get; set; }
     public Guid HostId { get; set; }
-    public string Topic { get; set; }
+    public string Category { get; set; }
     public int MaxPlayers { get; set; } = 50;
     public int LevelDuration { get; set; } = 30;
     public int TotalLevels { get; set; } = 10;
@@ -615,7 +630,7 @@ public class GameMessage
 public class CreateRoomData
 {
     public string Username { get; set; } = string.Empty;
-    public string Topic { get; set; } = string.Empty;
+    public string Category { get; set; } = string.Empty;
     public int MaxPlayers { get; set; } = 50;
     public int LevelDuration { get; set; } = 30;
 }

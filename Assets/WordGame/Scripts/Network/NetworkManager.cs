@@ -13,8 +13,9 @@ namespace WordGame.Network
         private static NetworkManager instance;
         public static  NetworkManager Instance => instance;
 
-        [Header("Connection Settings")] [SerializeField] private string serverHost = "localhost";
-        [SerializeField]                                 private int    serverPort = 8080;
+        [Header("Connection Settings")]
+        [SerializeField] private string serverHost = "localhost";
+        [SerializeField] private int    serverPort = 8080;
 
         private TcpClient               _tcpClient;
         private NetworkStream           _stream;
@@ -61,12 +62,12 @@ namespace WordGame.Network
                 _ = this.ReceiveMessagesTask();
                 _ = this.HeartbeatTask();
 
-                Debug.Log($"Connected to server at {this.serverHost}:{this.serverPort}");
+                Debug.Log($"[CLIENT] Connected successfully at {DateTime.Now:HH:mm:ss.fff}");
                 return true;
             }
             catch (Exception ex)
             {
-                Debug.LogError($"Connection failed: {ex.Message}");
+                Debug.LogError($"[CLIENT] Connection failed: {ex.Message}");
                 this.OnError?.Invoke($"Connection failed: {ex.Message}");
                 return false;
             }
@@ -76,6 +77,8 @@ namespace WordGame.Network
         {
             if (!this._isConnected) return;
 
+            Debug.Log($"[CLIENT] Disconnecting at {DateTime.Now:HH:mm:ss.fff}");
+
             this._isConnected = false;
             this._cancellationTokenSource?.Cancel();
 
@@ -84,29 +87,31 @@ namespace WordGame.Network
                 this._stream?.Close();
                 this._tcpClient?.Close();
             }
-            catch
+            catch (Exception ex)
             {
-                // ignored
+                Debug.LogWarning($"[CLIENT] Error during disconnect: {ex.Message}");
             }
 
             this.OnDisconnected?.Invoke();
-            Debug.Log("Disconnected from server");
+            Debug.Log($"[CLIENT] Disconnected from server at {DateTime.Now:HH:mm:ss.fff}");
 
             await Task.CompletedTask;
         }
 
         public async Task<bool> CreateRoom(string username, string category, int maxPlayers = 50, int levelDuration = 30)
         {
+            var createData = new CreateRoomData
+            {
+                Username = username,
+                Category = category,
+                MaxPlayers = maxPlayers,
+                LevelDuration = levelDuration
+            };
+
             var message = new GameMessage
             {
                 Type = "CREATE_ROOM",
-                Data = JsonUtility.ToJson(new CreateRoomData
-                {
-                    Username      = username,
-                    Category      = category,
-                    MaxPlayers    = maxPlayers,
-                    LevelDuration = levelDuration
-                })
+                Data = JsonUtility.ToJson(createData)
             };
 
             await this.SendMessageAsync(message);
@@ -115,14 +120,16 @@ namespace WordGame.Network
 
         public async Task<bool> JoinRoom(string roomCode, string username)
         {
+            var joinData = new JoinRoomData
+            {
+                RoomCode = roomCode,
+                Username = username
+            };
+
             var message = new GameMessage
             {
                 Type = "JOIN_ROOM",
-                Data = JsonUtility.ToJson(new JoinRoomData
-                {
-                    RoomCode = roomCode,
-                    Username = username
-                })
+                Data = JsonUtility.ToJson(joinData)
             };
 
             await this.SendMessageAsync(message);
@@ -151,13 +158,15 @@ namespace WordGame.Network
 
         public async Task LevelCompleted(int timeTaken)
         {
+            var levelData = new LevelCompletedData
+            {
+                TimeTaken = timeTaken
+            };
+
             var message = new GameMessage
             {
                 Type = "LEVEL_COMPLETED",
-                Data = JsonUtility.ToJson(new LevelCompletedData
-                {
-                    TimeTaken = timeTaken
-                })
+                Data = JsonUtility.ToJson(levelData)
             };
 
             await this.SendMessageAsync(message);
@@ -179,7 +188,20 @@ namespace WordGame.Network
 
             try
             {
+                // Debug log outgoing messages (except frequent heartbeats)
+                if (message.Type != "HEARTBEAT")
+                {
+                    Debug.Log($"[CLIENT SEND] {message.Type} data: {message.Data} at {DateTime.Now:HH:mm:ss.fff}");
+                }
+
                 var json        = JsonUtility.ToJson(message);
+
+                // Debug full JSON message
+                if (message.Type != "HEARTBEAT")
+                {
+                    Debug.Log($"[CLIENT JSON] Full message: {json}");
+                }
+
                 var bytes       = Encoding.UTF8.GetBytes(json);
                 var lengthBytes = BitConverter.GetBytes(bytes.Length);
 
@@ -238,6 +260,11 @@ namespace WordGame.Network
 
                             if (message != null)
                             {
+                                // Debug log incoming messages
+                                if (message.Type != "HEARTBEAT")
+                                {
+                                    Debug.Log($"[CLIENT RECV] {message.Type} at {DateTime.Now:HH:mm:ss.fff}");
+                                }
                                 this.HandleMessage(message);
                             }
                         }
@@ -331,15 +358,15 @@ namespace WordGame.Network
 
         [Serializable] public class GameMessage
         {
-            public string Type { get; set; }
-            public string Data { get; set; }
+            public string Type;
+            public string Data;
         }
 
         [Serializable] public class PlayerInfo
         {
-            public string Id       { get; set; }
-            public string Username { get; set; }
-            public bool   IsReady  { get; set; }
+            public string Id;
+            public string Username;
+            public bool   IsReady;
         }
 
         [Serializable] private class RoomCreatedData
@@ -357,27 +384,27 @@ namespace WordGame.Network
 
         [Serializable] public class CreateRoomData
         {
-            public string Username      { get; set; }
-            public string Category      { get; set; }
-            public int    MaxPlayers    { get; set; }
-            public int    LevelDuration { get; set; }
+            public string Username;
+            public string Category;
+            public int    MaxPlayers;
+            public int    LevelDuration;
         }
 
         [Serializable] public class JoinRoomData
         {
-            public string RoomCode { get; set; }
-            public string Username { get; set; }
+            public string RoomCode;
+            public string Username;
         }
 
         [Serializable] public class LevelCompletedData
         {
-            public int TimeTaken { get; set; }
+            public int TimeTaken;
         }
 
         [Serializable] public class PlayerJoinedData
         {
-            public string Id       { get; set; }
-            public string Username { get; set; }
+            public string Id;
+            public string Username;
         }
 
         [Serializable] public class PlayerLeftData
