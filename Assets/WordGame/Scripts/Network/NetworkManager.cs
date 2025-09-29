@@ -174,11 +174,6 @@ namespace WordGame.Network
             await this.SendMessageAsync(message);
         }
 
-        public async Task LevelTimeout()
-        {
-            var message = new GameMessage { Type = "LEVEL_TIMEOUT" };
-            await this.SendMessageAsync(message);
-        }
 
         private async Task SendMessageAsync(GameMessage message)
         {
