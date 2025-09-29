@@ -38,8 +38,8 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 			this.HideUIScreen(this.uiScreens[i], false, false, Tween.TweenStyle.EaseOut, null);
 		}
 
-		// Show the main screen when the app starts up
-		this.Show(MainScreenId, false, false);
+		// Show the multiplayer menu screen when the app starts up
+		this.Show(MultiplayerMenuScreenId, false, false);
 	}
 
 
