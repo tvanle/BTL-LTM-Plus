@@ -122,20 +122,19 @@ public class UIScreenGame : UIScreen
 		isMultiplayer = true;
 		isLevelActive = true;
 		hasCompletedLevel = false;
-		levelTimer = gameData.duration;
+		levelTimer = 60; //Default
 
 		// Show timer for multiplayer
 		if (timerText != null)
 		{
 			timerText.gameObject.SetActive(true);
-			timerText.text = $"Time: {gameData.duration}";
+			timerText.text = $"Time: {levelTimer}";
 		}
 
 		levelText.text = $"Level {gameData.level}";
-		categoryText.text = "MULTIPLAYER";
+		categoryText.text = gameData.category?.ToUpper() ?? "MULTIPLAYER";
 
-		// TODO: Setup the letter board with multiplayer grid data
-		// This will require integration with the existing WordRegion/LetterBoard system
+		// The board is already loaded by GameManager.StartLevel()
 	}
 
 	public async void OnMultiplayerLevelCompleted()

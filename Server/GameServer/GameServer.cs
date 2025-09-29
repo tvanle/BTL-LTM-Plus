@@ -124,7 +124,8 @@ public class GameServer
         {
             Id = Guid.NewGuid(),
             ConnectionId = connection.Id,
-            Username = data.Username
+            Username = data.Username,
+            IsReady = true  // Host is automatically ready
         };
 
         this._players[player.Id] = player;
@@ -254,25 +255,47 @@ public class GameServer
 
     private async Task HandleStartGame(ClientConnection connection)
     {
+        Console.WriteLine($"[DEBUG] HandleStartGame called by connection {connection.Id}");
+
         if (!connection.PlayerId.HasValue)
+        {
+            Console.WriteLine($"[DEBUG] Connection has no PlayerId");
             return;
+        }
 
         var player = this._players.GetValueOrDefault(connection.PlayerId.Value);
         if (player?.RoomCode == null)
+        {
+            Console.WriteLine($"[DEBUG] Player {connection.PlayerId.Value} has no room");
             return;
+        }
 
         var room = this._rooms.GetValueOrDefault(player.RoomCode);
-        if (room == null || room.HostId != player.Id)
-            throw new Exception("Only host can start the game");
+        if (room == null)
+        {
+            throw new Exception($"Room {player.RoomCode} not found");
+        }
+
+        if (room.HostId != player.Id)
+        {
+            throw new Exception($"Only host can start the game. Host: {room.HostId}, Player: {player.Id}");
+        }
+
+        // Debug: Log player ready states
+        foreach (var p in room.Players.Values)
+        {
+            Console.WriteLine($"[DEBUG] Player {p.Username} (ID: {p.Id}) - Ready: {p.IsReady}");
+        }
 
         if (!room.Players.Values.All(p => p.IsReady))
-            throw new Exception("Not all players are ready");
+        {
+            var notReadyPlayers = room.Players.Values.Where(p => !p.IsReady).Select(p => p.Username);
+            throw new Exception($"Not all players are ready. Not ready: {string.Join(", ", notReadyPlayers)}");
+        }
 
         room.GameState = new GameState
         {
-            CurrentLevel = 1,
-            GridData     = this.GenerateGrid(room.CurrentLevel),
-            TargetWords  = this.GenerateTargetWords(room.Category, room.CurrentLevel)
+            CurrentLevel = 1
         };
 
         await this.BroadcastToRoom(room, new GameMessage
@@ -280,10 +303,8 @@ public class GameServer
             Type = "GAME_STARTED",
             Data = JsonSerializer.Serialize(new
             {
-                level = room.GameState.CurrentLevel,
-                grid = room.GameState.GridData,
-                words = room.GameState.TargetWords,
-                duration = room.LevelDuration
+                category = room.Category,
+                level = room.GameState.CurrentLevel
             })
         });
 
@@ -306,13 +327,11 @@ public class GameServer
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         var data = JsonSerializer.Deserialize<SubmitAnswerData>(message.Data, options);
 
-        var isCorrect = room.GameState.TargetWords.Contains(data.Answer, StringComparer.OrdinalIgnoreCase);
+        // Update player score
+        player.Score += this.CalculateScore(data.TimeTaken);
 
-        if (isCorrect)
-        {
-            player.Score += this.CalculateScore(data.TimeTaken);
-            room.GameState.FoundWords.Add(data.Answer);
-        }
+        // Store score in game state
+        room.GameState.PlayerScores[player.Id.ToString()] = player.Score;
 
         await this.BroadcastToRoom(room, new GameMessage
         {
@@ -320,17 +339,12 @@ public class GameServer
             Data = JsonSerializer.Serialize(new
             {
                 playerId = player.Id,
-                answer = data.Answer,
-                isCorrect,
                 score = player.Score,
-                foundWords = room.GameState.FoundWords
+                allScores = room.GameState.PlayerScores
             })
         });
 
-        if (room.GameState.FoundWords.Count == room.GameState.TargetWords.Count)
-        {
-            await this.NextLevel(room);
-        }
+        // Client will handle level completion and notify server
     }
 
     private async Task NextLevel(GameRoom room)
@@ -343,19 +357,13 @@ public class GameServer
             return;
         }
 
-        room.GameState.GridData    = this.GenerateGrid(room.GameState.CurrentLevel);
-        room.GameState.TargetWords = this.GenerateTargetWords(room.Category, room.GameState.CurrentLevel);
-        room.GameState.FoundWords.Clear();
-
         await this.BroadcastToRoom(room, new GameMessage
         {
             Type = "NEXT_LEVEL",
             Data = JsonSerializer.Serialize(new
             {
-                level = room.GameState.CurrentLevel,
-                grid = room.GameState.GridData,
-                words = room.GameState.TargetWords,
-                duration = room.LevelDuration
+                category = room.Category,
+                level = room.GameState.CurrentLevel
             })
         });
     }
@@ -450,32 +458,7 @@ public class GameServer
         return code;
     }
 
-    private string GenerateGrid(int level)
-    {
-        var size = Math.Min(4 + level / 3, 8);
-        var random = new Random();
-        var grid = new char[size * size];
-
-        for (var i = 0; i < grid.Length; i++)
-        {
-            grid[i] = (char)('A' + random.Next(26));
-        }
-
-        return new string(grid);
-    }
-
-    private List<string> GenerateTargetWords(string category, int level)
-    {
-        var wordCount = Math.Min(3 + level / 2, 8);
-        var words = new List<string>();
-
-        for (var i = 0; i < wordCount; i++)
-        {
-            words.Add($"{category}_{level}_{i}");
-        }
-
-        return words;
-    }
+    // Removed GenerateGrid and GenerateTargetWords - client will use local board data
 
     private int CalculateScore(int timeTaken)
     {
@@ -616,9 +599,7 @@ public class Player
 public class GameState
 {
     public int CurrentLevel { get; set; }
-    public string GridData { get; set; } = string.Empty;
-    public List<string> TargetWords { get; set; } = new();
-    public HashSet<string> FoundWords { get; set; } = new();
+    public Dictionary<string, int> PlayerScores { get; set; } = new();
 }
 
 public class GameMessage

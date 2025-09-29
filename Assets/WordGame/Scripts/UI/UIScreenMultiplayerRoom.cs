@@ -66,9 +66,40 @@ namespace WordGame.UI
                     break;
 
                 case "GAME_STARTED":
-                case "LEVEL_STARTED":
+                    // Parse game start data from server
                     var gameData = JsonUtility.FromJson<GameStartData>(message.Data);
-                    UIScreenController.Instance.Show(UIScreenController.GameScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, gameData);
+
+                    // Start the multiplayer level in GameManager
+                    if (GameManager.Instance != null && gameData != null)
+                    {
+                        // Default category if not provided
+                        string category = !string.IsNullOrEmpty(gameData.category) ? gameData.category : "Multiplayer";
+                        int level = gameData.level > 0 ? gameData.level : 1;
+
+                        GameManager.Instance.StartLevel(
+                            category,
+                            level
+                        );
+                    }
+
+                    // Show game screen
+                    UIScreenController.Instance.Show(UIScreenController.GameScreenId, false, true, false, Tween.TweenStyle.EaseOut);
+                    break;
+
+                case "NEXT_LEVEL":
+                    // Handle next level in multiplayer
+                    var nextLevelData = JsonUtility.FromJson<GameStartData>(message.Data);
+
+                    if (GameManager.Instance != null && nextLevelData != null)
+                    {
+                        string category = !string.IsNullOrEmpty(nextLevelData.category) ? nextLevelData.category : "Category_1_0";
+                        int level = nextLevelData.level > 0 ? nextLevelData.level : 1;
+
+                        GameManager.Instance.StartLevel(
+                            category,
+                            level
+                        );
+                    }
                     break;
 
                 case "LEVEL_ENDED":
