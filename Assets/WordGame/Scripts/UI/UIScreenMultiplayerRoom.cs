@@ -192,24 +192,26 @@ namespace WordGame.UI
             foreach (var player in players)
             {
                 var item = Instantiate(playerListItemPrefab, playerListContainer);
-                var text = item.GetComponentInChildren<TextMeshProUGUI>();
-                if (text != null)
+                item.SetActive(true);
+
+                // Find PlayerName child
+                var playerNameTransform = item.transform.Find("PlayerName");
+                if (playerNameTransform != null)
                 {
-                    text.text = $"{player.Username} {(player.IsReady ? "✓" : "")}";
-                }
-                else
-                {
-                    // Fallback to legacy Text component
-                    var legacyText = item.GetComponentInChildren<Text>();
-                    if (legacyText != null)
+                    var nameText = playerNameTransform.GetComponent<TextMeshProUGUI>();
+                    if (nameText != null)
                     {
-                        legacyText.text = $"{player.Username} {(player.IsReady ? "✓" : "")}";
-                    }
-                    else
-                    {
-                        Debug.LogError($"Player list item prefab missing TextMeshProUGUI or Text component");
+                        nameText.text = player.Username;
                     }
                 }
+
+                // Find ReadyIcon child
+                var readyIconTransform = item.transform.Find("ReadyIcon");
+                if (readyIconTransform != null)
+                {
+                    readyIconTransform.gameObject.SetActive(player.IsReady);
+                }
+
                 _playerListItems[player.Id] = item;
             }
         }
