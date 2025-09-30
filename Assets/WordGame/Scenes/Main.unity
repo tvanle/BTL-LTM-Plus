@@ -3230,6 +3230,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIScreenLeaderboard
       objectReference: {fileID: 0}
+    - target: {fileID: 5317617185304371186, guid: ed67c00a14df743e1b6b6308f64b2b9f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3480,6 +3485,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UIScreenMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417121949096160514, guid: 85592e53089454e46bb29ed62761d061,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3909,6 +3919,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UIScreenRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 3875620746688993460, guid: 32a01391d88424c6b9028d4fc94b8bfd,
+        type: 3}
+      propertyPath: m_ChildAlignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3875620746688993460, guid: 32a01391d88424c6b9028d4fc94b8bfd,
+        type: 3}
+      propertyPath: m_ChildControlWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3875620746688993460, guid: 32a01391d88424c6b9028d4fc94b8bfd,
+        type: 3}
+      propertyPath: m_ChildControlHeight
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8891695160799994994, guid: 32a01391d88424c6b9028d4fc94b8bfd,
         type: 3}
