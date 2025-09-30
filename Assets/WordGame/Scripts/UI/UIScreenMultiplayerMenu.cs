@@ -10,8 +10,10 @@ namespace WordGame.UI
     public class UIScreenMultiplayerMenu : UIScreen
     {
         private NetworkManager networkManager;
-        [Header("UI References")]
-        [SerializeField] private TMP_InputField usernameInput;
+
+        [Header("UI References")] [SerializeField]
+        private TMP_InputField usernameInput;
+
         [SerializeField] private TMP_Dropdown categoryDropdown;
         [SerializeField] private TMP_InputField roomCodeInput;
         [SerializeField] private Button createRoomButton;
@@ -73,11 +75,13 @@ namespace WordGame.UI
             switch (message.Type)
             {
                 case "ROOM_CREATED":
-                    UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, true);
+                    UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false,
+                        Tween.TweenStyle.EaseOut, null, true);
                     break;
 
                 case "ROOM_JOINED":
-                    UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, false);
+                    UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false,
+                        Tween.TweenStyle.EaseOut, null, false);
                     break;
             }
         }
@@ -158,24 +162,16 @@ namespace WordGame.UI
             categoryDropdown.ClearOptions();
 
             // Get categories from GameManager if available
-            if (GameManager.Instance != null)
+            var categories = new List<string>();
+            foreach (var categoryInfo in GameManager.Instance.CategoryInfos)
             {
-                var categories = new List<string>();
-                foreach (var categoryInfo in GameManager.Instance.CategoryInfos)
+                if (categoryInfo.name != GameManager.dailyPuzzleId)
                 {
-                    if (categoryInfo.name != GameManager.dailyPuzzleId)
-                    {
-                        categories.Add(categoryInfo.name.ToUpper());
-                    }
+                    categories.Add(categoryInfo.name);
                 }
-                categoryDropdown.AddOptions(categories);
             }
-            else
-            {
-                // Default categories if GameManager not available
-                var defaultCategories = new List<string> { "ANIMALS", "FOOD", "SPORTS", "SCIENCE" };
-                categoryDropdown.AddOptions(defaultCategories);
-            }
+
+            categoryDropdown.AddOptions(categories);
         }
     }
 }
