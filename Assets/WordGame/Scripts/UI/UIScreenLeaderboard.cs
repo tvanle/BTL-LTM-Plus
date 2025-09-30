@@ -10,79 +10,56 @@ public class UIScreenLeaderboard : UIScreen
     [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private Transform leaderboardContainer;
     [SerializeField] private GameObject leaderboardItemPrefab;
-    [SerializeField] private Button continueButton;
 
     private List<GameObject> leaderboardItems = new List<GameObject>();
 
     public override void Initialize()
     {
         base.Initialize();
-
-        if (continueButton != null)
-        {
-            continueButton.onClick.AddListener(() =>
-            {
-                // Return to multiplayer room
-                UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, true, true);
-            });
-        }
     }
 
     public override void OnShowing(object data)
     {
+        Debug.Log($"[LEADERBOARD] OnShowing called with data: {data?.GetType().Name ?? "null"}");
+
         if (data is LevelEndData levelEndData)
         {
+            Debug.Log($"[LEADERBOARD] Level {levelEndData.level}, Results count: {levelEndData.results?.Count ?? 0}");
             DisplayLeaderboard(levelEndData.results);
 
             if (titleText != null)
             {
-                titleText.text = $"LEVEL {levelEndData.level} COMPLETE";
-            }
-
-            // Auto continue to next level after countdown
-            if (levelEndData.hasNextLevel)
-            {
-                StartCoroutine(AutoContinueCountdown(levelEndData.nextLevelStartTime));
+                titleText.text = $"Leaderboard - Level {levelEndData.level}";
             }
         }
         else if (data is List<PlayerResult> results)
         {
+            Debug.Log($"[LEADERBOARD] Direct results list, count: {results?.Count ?? 0}");
             DisplayLeaderboard(results);
         }
-    }
-
-    private System.Collections.IEnumerator AutoContinueCountdown(int seconds)
-    {
-        var countdown = seconds;
-        while (countdown > 0)
+        else
         {
-            if (continueButton != null)
-            {
-                var buttonText = continueButton.GetComponentInChildren<Text>();
-                if (buttonText != null)
-                {
-                    buttonText.text = $"Next Level in {countdown}...";
-                }
-            }
-            yield return new WaitForSeconds(1);
-            countdown--;
-        }
-
-        // Auto continue to next level
-        if (continueButton != null)
-        {
-            continueButton.onClick.Invoke();
+            Debug.LogWarning($"[LEADERBOARD] Unknown data type: {data?.GetType().Name}");
         }
     }
+    
 
     private void DisplayLeaderboard(List<PlayerResult> results)
     {
+        Debug.Log($"[LEADERBOARD] DisplayLeaderboard called with {results?.Count ?? 0} results");
+
         // Clear existing items
         foreach (var item in leaderboardItems)
         {
             Destroy(item);
         }
         leaderboardItems.Clear();
+
+        if (results == null || results.Count == 0)
+        {
+            Debug.LogWarning("[LEADERBOARD] No results to display");
+            return;
+        }
 
         // Sort results by score (descending)
         results.Sort((a, b) => b.Score.CompareTo(a.Score));
@@ -91,31 +68,25 @@ public class UIScreenLeaderboard : UIScreen
         var rank = 1;
         foreach (var result in results)
         {
-            if (leaderboardItemPrefab != null && leaderboardContainer != null)
+            Debug.Log($"[LEADERBOARD] Processing rank {rank}: {result.Username} - {result.Score}");
+
+            var item = Instantiate(leaderboardItemPrefab, leaderboardContainer);
+            item.SetActive(true);
+
+            // Try TextMeshProUGUI first
+            var tmpTexts = item.GetComponentsInChildren<TextMeshProUGUI>();
+            if (tmpTexts.Length >= 3)
             {
-                var item = Instantiate(leaderboardItemPrefab, leaderboardContainer);
-                var texts = item.GetComponentsInChildren<Text>();
-
-                if (texts.Length >= 3)
-                {
-                    texts[0].text = rank.ToString(); // Rank
-                    texts[1].text = result.Username; // Name
-                    texts[2].text = result.Score.ToString(); // Score
-                }
-                else if (texts.Length > 0)
-                {
-                    texts[0].text = $"#{rank} {result.Username}: {result.Score}";
-                }
-
-                leaderboardItems.Add(item);
-                rank++;
+                tmpTexts[0].text = rank.ToString(); // Rank
+                tmpTexts[1].text = result.Username; // Name
+                tmpTexts[2].text = result.Score.ToString(); // Score
             }
+
+            leaderboardItems.Add(item);
+            rank++;
         }
 
-        if (titleText != null)
-        {
-            titleText.text = "LEADERBOARD";
-        }
+        Debug.Log($"[LEADERBOARD] Created {leaderboardItems.Count} leaderboard items");
     }
 
     private void OnDisable()

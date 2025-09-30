@@ -113,6 +113,8 @@ namespace WordGame.UI
 
                         // Start next level
                         GameManager.Instance.StartLevel(category, level);
+                        UIScreenController.Instance.Show(UIScreenController.GameScreenId, false, true, false,
+                            Tween.TweenStyle.EaseOut, null, nextLevelData);
                     }
 
                     break;
