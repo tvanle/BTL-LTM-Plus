@@ -192,8 +192,24 @@ namespace WordGame.UI
             foreach (var player in players)
             {
                 var item = Instantiate(playerListItemPrefab, playerListContainer);
-                var text = item.GetComponentInChildren<Text>();
-                text.text = $"{player.Username} {(player.IsReady ? "✓" : "")}";
+                var text = item.GetComponentInChildren<TextMeshProUGUI>();
+                if (text != null)
+                {
+                    text.text = $"{player.Username} {(player.IsReady ? "✓" : "")}";
+                }
+                else
+                {
+                    // Fallback to legacy Text component
+                    var legacyText = item.GetComponentInChildren<Text>();
+                    if (legacyText != null)
+                    {
+                        legacyText.text = $"{player.Username} {(player.IsReady ? "✓" : "")}";
+                    }
+                    else
+                    {
+                        Debug.LogError($"Player list item prefab missing TextMeshProUGUI or Text component");
+                    }
+                }
                 _playerListItems[player.Id] = item;
             }
         }
