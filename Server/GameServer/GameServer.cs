@@ -392,9 +392,8 @@ public class GameServer
         // Mark all non-completed players as timed out (score = 0 for this level)
         foreach (var player in room.Players.Values)
         {
-            if (!room.GameState.CompletedPlayers.Contains(player.Id))
+            if (room.GameState.CompletedPlayers.Add(player.Id))
             {
-                room.GameState.CompletedPlayers.Add(player.Id);
                 Console.WriteLine($"Player {player.Username} timed out on level {room.GameState.CurrentLevel}");
             }
         }
