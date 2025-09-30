@@ -150,10 +150,11 @@ public class GameServer
         await connection.SendAsync(new GameMessage
         {
             Type = "ROOM_CREATED",
-            Data = JsonSerializer.Serialize(new { roomCode, playerId = player.Id })
+            Data = JsonSerializer.Serialize(new { roomCode, player = new { player.Id, player.Username, player.IsReady } })
         });
 
         Console.WriteLine($"Room {roomCode} created by {player.Username}");
+        Console.WriteLine($"[DEBUG] Room has {room.Players.Count} player(");
     }
 
     private async Task HandleJoinRoom(ClientConnection connection, GameMessage message)
@@ -201,6 +202,7 @@ public class GameServer
         });
 
         Console.WriteLine($"{player.Username} joined room {room.Code}");
+        Console.WriteLine($"[DEBUG] Room now has {room.Players.Count} players");
     }
 
     private async Task HandleLeaveRoom(ClientConnection connection)
@@ -708,7 +710,7 @@ public class Player
     public Guid ConnectionId { get; set; }
     public string Username { get; set; } = string.Empty;
     public string? RoomCode { get; set; }
-    public bool IsReady { get; set; }
+    public bool IsReady { get; set; } = true;
     public int Score { get; set; }
 }
 

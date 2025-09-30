@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -301,39 +302,78 @@ namespace WordGame.Network
 
             dispatcher.Enqueue(() =>
             {
-                switch (message.Type)
+                try
                 {
+                    switch (message.Type)
+                    {
                     case "ROOM_CREATED":
                         var createData = JsonUtility.FromJson<RoomCreatedData>(message.Data);
-                        this.RoomCode = createData.roomCode;
-                        this.PlayerId = createData.playerId;
+                        if (createData != null)
+                        {
+                            this.RoomCode = createData.roomCode;
+                            if (createData.player != null)
+                            {
+                                this.PlayerId = createData.player.Id;
+                                this.RoomPlayers = new List<PlayerInfo> { createData.player };
+                            }
+                            else
+                            {
+                                this.RoomPlayers = new List<PlayerInfo>();
+                            }
+                        }
                         break;
 
                     case "ROOM_JOINED":
                         var joinData = JsonUtility.FromJson<RoomJoinedData>(message.Data);
-                        this.RoomCode = joinData.roomCode;
-                        this.PlayerId = joinData.playerId;
-                        this.RoomPlayers = joinData.players;
+                        if (joinData != null)
+                        {
+                            this.RoomCode = joinData.roomCode;
+                            this.PlayerId = joinData.playerId;
+                            this.RoomPlayers = joinData.players ?? new List<PlayerInfo>();
+                        }
                         break;
 
                     case "PLAYER_JOINED":
                         var playerJoined = JsonUtility.FromJson<PlayerJoinedData>(message.Data);
-                        this.RoomPlayers.Add(new PlayerInfo
-                            { Id = playerJoined.Id, Username = playerJoined.Username, IsReady = false });
+                        if (playerJoined != null && !string.IsNullOrEmpty(playerJoined.Id))
+                        {
+                            this.RoomPlayers ??= new List<PlayerInfo>();
+
+                            if (this.RoomPlayers.All(p => p.Id != playerJoined.Id))
+                            {
+                                this.RoomPlayers.Add(new PlayerInfo
+                                    { Id = playerJoined.Id, Username = playerJoined.Username, IsReady = false });
+                            }
+                            else
+                            {
+                                Debug.LogError($"Player with ID {playerJoined.Id} already exists in room.");
+                            }
+                        }
                         break;
 
                     case "PLAYER_LEFT":
                         var playerLeft = JsonUtility.FromJson<PlayerLeftData>(message.Data);
-                        this.RoomPlayers.RemoveAll(p => p.Id == playerLeft.playerId);
+                        if (playerLeft != null && this.RoomPlayers != null)
+                        {
+                            this.RoomPlayers.RemoveAll(p => p.Id == playerLeft.playerId);
+                        }
                         break;
 
                     case "ERROR":
                         var errorData = JsonUtility.FromJson<ErrorData>(message.Data);
-                        this.OnError?.Invoke(errorData.error);
+                        if (errorData != null)
+                        {
+                            this.OnError?.Invoke(errorData.error);
+                        }
                         break;
-                }
+                    }
 
-                this.OnMessageReceived?.Invoke(message);
+                    this.OnMessageReceived?.Invoke(message);
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError($"Error handling message type {message.Type}: {ex.Message}\nData: {message.Data}\nStackTrace: {ex.StackTrace}");
+                }
             });
         }
 
@@ -374,7 +414,7 @@ namespace WordGame.Network
         private class RoomCreatedData
         {
             public string roomCode;
-            public string playerId;
+            public PlayerInfo player;
         }
 
         [Serializable]
