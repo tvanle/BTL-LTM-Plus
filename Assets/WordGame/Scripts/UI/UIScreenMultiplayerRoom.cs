@@ -107,6 +107,10 @@ namespace WordGame.UI
 
                         Debug.Log($"[MULTIPLAYER] Next level - Category: {category}, Level: {level}");
 
+                        // IMPORTANT: Hide all overlays instantly (no animation to avoid glitches)
+                        UIScreenController.Instance.HideOverlayInstant(UIScreenController.CompleteScreenId);
+                        UIScreenController.Instance.HideOverlayInstant(UIScreenController.LeaderboardScreenId);
+
                         // Start next level
                         GameManager.Instance.StartLevel(category, level);
                         UIScreenController.Instance.Show(UIScreenController.GameScreenId, false, true, false,

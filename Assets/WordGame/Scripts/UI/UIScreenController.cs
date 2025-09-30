@@ -88,6 +88,19 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 		}
 	}
 
+	/// <summary>
+	/// Hides the overlay instantly without animation
+	/// </summary>
+	public void HideOverlayInstant(string id)
+	{
+		this.HideUIScreen(this.GetScreenInfo(id), false, false, Tween.TweenStyle.EaseOut, null);
+
+		if (this.currentUIScreen != null)
+		{
+			this.currentUIScreen.OnShowing(null);
+		}
+	}
+
 
 
 	private void ShowUIScreen(UIScreen uiScreen, bool animate, bool fromLeft, Tween.TweenStyle style, System.Action onTweenFinished, object data)
