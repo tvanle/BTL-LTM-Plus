@@ -369,11 +369,14 @@ public class GameServer
             room.GameState.LevelTimer?.Change(Timeout.Infinite, Timeout.Infinite);
             room.GameState.LevelTimer?.Dispose();
 
+            // Wait 3 seconds before showing leaderboard
+            await Task.Delay(3000);
+
             // Send level ended with scores
             await this.SendLevelEnded(room);
 
-            // Wait for leaderboard display (3 seconds)
-            await Task.Delay(3000);
+            // Wait 6 seconds for leaderboard display
+            await Task.Delay(6000);
 
             // Then move to next level
             await this.NextLevel(room);
@@ -401,8 +404,8 @@ public class GameServer
         // Send level ended with current scores
         await this.SendLevelEnded(room);
 
-        // Wait for leaderboard display
-        await Task.Delay(3000);
+        // Wait 6 seconds for leaderboard display
+        await Task.Delay(6000);
 
         // Then move to next level
         await this.NextLevel(room);

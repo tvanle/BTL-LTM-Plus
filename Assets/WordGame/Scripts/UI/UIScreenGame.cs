@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 using WordGame.Network;
 using WordGame.Network.Models;
 
@@ -13,7 +14,7 @@ public class UIScreenGame : UIScreen
 	[SerializeField] private Text 			hintBtnText;
 	[SerializeField] private Text 			selectedWordText;
 	[SerializeField] private LetterBoard	letterBoard;
-	[SerializeField] private Text timerText;
+	[SerializeField] private TextMeshProUGUI timerText;
 
 	private bool isMultiplayer = false;
 	private float levelTimer;
