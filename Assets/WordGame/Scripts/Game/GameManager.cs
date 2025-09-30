@@ -399,8 +399,10 @@ public class GameManager : SingletonComponent<GameManager>
 		// Send level completed to server
 		await NetworkManager.Instance.LevelCompleted((int)timeTaken);
 
-		// Show complete overlay but don't auto-hide - wait for server instruction
-		UIScreenController.Instance.Show(UIScreenController.CompleteScreenId, false, true, true, Tween.TweenStyle.EaseOut);
+		int displayScore = Mathf.Max(100 - (int)timeTaken, 0);
+
+		// Show complete overlay with score - wait for server instruction
+		UIScreenController.Instance.Show(UIScreenController.CompleteScreenId, false, true, true, Tween.TweenStyle.EaseOut, null, displayScore);
 
 		// Clear board state
 		this.ActiveBoardState = null;

@@ -107,10 +107,6 @@ namespace WordGame.UI
 
                         Debug.Log($"[MULTIPLAYER] Next level - Category: {category}, Level: {level}");
 
-                        // Hide leaderboard and complete screen if showing
-                        UIScreenController.Instance.HideOverlay(UIScreenController.LeaderboardScreenId, false, Tween.TweenStyle.EaseIn);
-                        UIScreenController.Instance.HideOverlay(UIScreenController.CompleteScreenId, false, Tween.TweenStyle.EaseIn);
-
                         // Start next level
                         GameManager.Instance.StartLevel(category, level);
                         UIScreenController.Instance.Show(UIScreenController.GameScreenId, false, true, false,
