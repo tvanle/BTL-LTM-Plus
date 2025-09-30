@@ -308,7 +308,7 @@ public class GameServer
         {
             // Pick a random category from 1-10 (adjust based on your actual categories)
             var random = new Random();
-            int categoryNum = random.Next(1, 11); // Categories 1-10
+            int categoryNum = random.Next(1, 16); // Categories 1-15
             actualCategory = $"Category {categoryNum}";
 
             // Pick a random level (0-19 is common range, adjust as needed)
@@ -469,7 +469,7 @@ public class GameServer
         if (room.Category.Equals("Random", StringComparison.OrdinalIgnoreCase))
         {
             var random = new Random();
-            int categoryNum = random.Next(1, 11);
+            int categoryNum = random.Next(1, 16);
             actualCategory = $"Category {categoryNum}";
             actualLevel = random.Next(0, 20);
         }
