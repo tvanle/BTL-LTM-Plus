@@ -417,13 +417,13 @@ public class GameServer
             return;
 
         // Get sorted player scores for leaderboard
-        var leaderboard = room.Players.Values
+        var results = room.Players.Values
             .OrderByDescending(p => p.Score)
             .Select(p => new
             {
-                playerId = p.Id,
-                username = p.Username,
-                score = p.Score
+                Id = p.Id.ToString(),
+                Username = p.Username,
+                Score = p.Score
             })
             .ToList();
 
@@ -433,7 +433,7 @@ public class GameServer
             Data = JsonSerializer.Serialize(new
             {
                 level = room.GameState.CurrentLevel,
-                leaderboard = leaderboard
+                results = results
             })
         });
 
