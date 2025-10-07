@@ -1,0 +1,308 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_es
+  m_EditorClassIdentifier:
+  language: es
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Spring
+      category: Spring
+      categoryLocalized: Primavera
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: rolanuúnc
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - ranúnculo
+        swipes:
+        - 0,2-0,1-1,1-0,0-1,0-2,0-2,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: frsalepoocirream
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - florecer
+        - mariposa
+        swipes:
+        - 3,0-2,0-3,1-2,1-2,2-3,2-2,3-3,3
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: apaoiurdlvnelolp
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - lluvia
+        - polen
+        - prado
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2
+        - 1,1-1,0-2,0-3,1-2,1
+        - 0,0-0,1-1,2-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: taacigcaarralomr
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - margarita
+        - caracol
+        swipes:
+        - 3,2-3,1-3,0-2,1-2,0-1,0-0,0
+        - 2,0-3,1-2,1-1,2-0,1-1,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: oroncñaoeootjepceortírjir
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - retoño
+        - petirrojo
+        - conejo
+        - cría
+        swipes:
+        - 0,1-1,1-0,0-1,0
+        - 4,1-4,0-3,1-3,0-2,0-2,1
+        - 4,2-3,2-4,1-3,0-4,0-3,1-2,1-2,2-2,3
+        - 1,0-1,1-1,2-0,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: ojrcaeuan
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - renacuajo
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,1-0,0-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: arlruoigcsuaapba
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - pascua
+        - oruga
+        - abril
+        swipes:
+        - 3,0-2,0-3,1-2,1-2,2
+        - 1,0-1,1-2,1-3,2-3,1
+        - 1,0-0,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: zlavdroporeaulam
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - amapola
+        - verdor
+        - luz
+        swipes:
+        - 1,0-0,0-0,1
+        - 3,0-2,0-1,1-0,2-0,1-1,2
+        - 2,0-3,0-3,1-3,2-2,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: lonóeuicoltalpes
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - estación
+        - polluelo
+        swipes:
+        - 1,0-0,1-0,0-1,1-1,2-0,2-0,3-1,3
+        - 2,0-3,0-2,1-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: toocboproulsprlliodbarteo
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - potrillo
+        - cordero
+        - pasto
+        - bulbo
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0
+        - 1,1-0,0-1,0-0,1-1,2
+        - 3,4-3,3-3,2-3,1-3,0-2,0-2,1
+        - 2,2-2,1-2,0-1,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: togrnoita
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - gota
+        - trino
+        swipes:
+        - 0,2-0,1-0,0-1,0-1,1
+        - 2,2-2,1-1,0-2,0
+        isExtraPackLevel: 0
+      - board: raalhzaraploétof
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - flor
+        - pétalo
+        - azahar
+        swipes:
+        - 2,0-1,0-0,0-0,1-1,1-0,2
+        - 1,1-0,0-1,0-2,1-3,0-2,0
+        - 3,0-2,1-3,1-3,2
+        isExtraPackLevel: 0
+      - board: isoaírslcorearfs
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - arcoíris
+        - fresa
+        - sol
+        swipes:
+        - 3,0-2,0-3,1
+        - 2,0-2,1-3,1-2,2-3,3
+        - 0,0-1,0-0,1-1,1-0,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: eooiqprcuncaioáj
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - equinoccio
+        - pájaro
+        swipes:
+        - 1,0-2,0-3,0-3,1-2,1-1,1
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: saaófrorticanoehprbsarrta
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - brotar
+        - fiesta
+        - chaparrón
+        - rosa
+        swipes:
+        - 0,0-1,0-0,1-1,1
+        - 0,2-0,1-1,2-1,1-0,0-1,0-2,0-3,0-2,1
+        - 4,4-4,3-4,2-4,1-3,0-4,0
+        - 3,1-2,1-3,2-3,3-2,4-2,3
+        isExtraPackLevel: 0
+      - board: oreedsnlp
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - esplendor
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,1-0,0-1,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: ajbaboíreciearoh
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - hierba
+        - rocío
+        - abeja
+        swipes:
+        - 0,3-0,2-0,1-1,0-0,0
+        - 1,0-2,0-1,1-2,1-1,2
+        - 3,0-2,1-3,1-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: boozrctearzomere
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - marzo
+        - cerezo
+        - brote
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,0
+        - 1,1-1,0-2,0-3,1-3,2-2,2
+        - 0,0-0,1-1,1-2,1-3,1
+        isExtraPackLevel: 0
+      - board: ataiuqgmleraiair
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - alergia
+        - mariquita
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,0-0,1-0,0-1,1-0,2
+        - 1,0-0,1-1,1-2,1-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: arloirosnabmraoeiaiesamgp
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - peonia
+        - siembra
+        - girasol
+        - aroma
+        swipes:
+        - 2,1-1,2-1,1-2,0-1,0
+        - 3,0-3,1-2,2-3,2-2,3-3,3-2,4
+        - 0,0-1,1-0,1-1,2-0,2-0,3-0,4
+        - 4,0-4,1-4,2-3,3-4,4-4,3
+        isExtraPackLevel: 0
+      - board: otudasierrcsannp
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - narciso
+        - despuntar
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0-0,1-0,0
+        - 1,0-0,0-1,1-2,1-2,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: iniáócantrolulpf
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - floración
+        - tulipán
+        swipes:
+        - 0,1-0,0-1,0-2,1-2,0-3,1-3,0
+        - 3,0-3,1-2,1-1,1-2,2-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: orlnóieiiaprincséfmngeroe
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - germinación
+        - perséfone
+        - lirio
+        swipes:
+        - 2,1-2,0-1,0-0,0-0,1
+        - 0,1-1,2-1,1-0,0-1,0-2,0-3,0-4,1-4,0
+        - 0,0-1,0-2,0-3,1-2,2-3,2-4,3-4,2-3,3-4,4-3,4
+        isExtraPackLevel: 0

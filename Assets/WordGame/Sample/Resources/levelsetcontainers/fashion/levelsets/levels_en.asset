@@ -1,0 +1,286 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_en
+  m_EditorClassIdentifier:
+  language: en
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Fashionista Event
+      category: Fashionista Event
+      categoryLocalized: Fashionista Event
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: hseilmleb
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - embellish
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-1,1-0,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: egermneybiidrows
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - embroidery
+        - sewing
+        swipes:
+        - 3,0-2,1-2,0-1,0-1,1-1,2
+        - 0,3-0,2-0,1-0,0-1,0-2,1-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: ionamitgnitatemr
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - garment
+        - imitation
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,0-2,1-1,1-1,2-2,2
+        - 3,2-3,1-3,0-2,0-1,0-0,1-0,0
+        isExtraPackLevel: 0
+      - board: esgevcflaiaouenmtegtlitxa
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - camouflage
+        - textiles
+        - vintage
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,0-3,1
+        - 1,1-2,1-3,0-2,0-1,0-0,0-0,1-1,2
+        - 0,3-0,2-0,1-1,2-2,2-1,3-2,3-3,3-2,4-3,4
+        isExtraPackLevel: 0
+      - board: ayrcosces
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - accessory
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-2,0-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: stteieiclufrhoab
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - silhouette
+        - fabric
+        swipes:
+        - 2,1-2,0-3,0-3,1-2,2-3,2
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: frelasaptnipdpra
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - apparel
+        - prints
+        - fad
+        swipes:
+        - 0,2-0,1-0,0
+        - 1,0-2,0-2,1-1,1-0,1-1,2
+        - 3,0-3,1-3,2-2,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: sltrttiaonimbyaniamnmfled
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - minimalist
+        - flamboyant
+        - trend
+        swipes:
+        - 2,0-3,1-3,0-4,1-4,0
+        - 1,0-2,0-2,1-3,1-2,2-3,3-3,2-4,2-4,3-4,4
+        - 0,0-1,1-0,1-0,2-1,2-2,3-1,4-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: isalccstiolceenaknbtopsen
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - bespoke
+        - classic
+        - continental
+        swipes:
+        - 4,4-4,3-4,2-4,1-3,1-4,0-3,0-2,0-2,1-2,2-3,2
+        - 1,0-0,1-0,0-1,1-1,2-0,3-0,2
+        - 3,1-3,0-2,0-1,0-0,0-1,1-2,2
+        isExtraPackLevel: 0
+      - board: gedtnlaii
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - detailing
+        swipes:
+        - 2,2-1,2-0,1-0,0-1,0-2,1-2,0-1,1-0,2
+        isExtraPackLevel: 0
+      - board: tcebsouoanqurtit
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - boutique
+        - contrast
+        swipes:
+        - 1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: ccciioettsclemce
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - eclectic
+        - cosmetic
+        swipes:
+        - 1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        - 3,0-2,0-3,1-2,2-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: detaicnotcotiisonashrdiop
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - sophisticated
+        - coordination
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1-2,1-1,2-2,2-2,3-1,3
+        - 3,1-3,0-4,0-4,1-3,2-4,2-3,3-4,4-4,3-3,4-2,4-1,4-0,4
+        isExtraPackLevel: 0
+      - board: eospnuymo
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - eponymous
+        swipes:
+        - 0,2-0,1-1,2-1,1-0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: fsguamalrofitien
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - informal
+        - fatigues
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-3,0-2,0-1,1
+        - 3,1-3,0-2,1-1,1-0,1-1,2-2,2-3,2
+        isExtraPackLevel: 0
+      - board: ufintiartilamoti
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - motif
+        - utilitarian
+        swipes:
+        - 0,1-0,0-1,0-2,1-3,0-2,0-3,1-3,2-2,3-2,2-3,3
+        - 0,0-1,0-0,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: bletmtahuenacetegstsleroc
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - costume
+        - stretchable
+        - elegant
+        swipes:
+        - 1,0-0,0-0,1-1,1-1,2-0,2-0,3
+        - 2,1-3,0-2,0-3,1-3,2-2,2-2,3-1,3-0,4-1,4-2,4
+        - 4,0-3,0-4,1-4,2-3,3-4,4-4,3
+        isExtraPackLevel: 0
+      - board: edpntaret
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - patterned
+        swipes:
+        - 2,2-2,1-1,1-2,0-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: eseegenlldbsveem
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - selvedge
+        - ensemble
+        swipes:
+        - 3,3-2,2-3,1-2,0-3,0-2,1-3,2-2,3
+        - 1,3-1,2-0,1-0,0-1,0-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: gnidcrsizesseart
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - distressing
+        - craze
+        swipes:
+        - 0,2-1,1-1,0-0,1-0,0
+        - 3,3-3,2-3,1-3,0-2,0-1,1-2,1-2,2-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: fetolcinolalclor
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - collection
+        - floral
+        swipes:
+        - 0,0-1,0-2,0-3,0-2,1-3,1
+        - 0,0-0,1-1,1-0,2-1,3-1,2-2,3-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: decterlenxoicoftstolaieru
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - fluorescent
+        - tailored
+        - exotic
+        swipes:
+        - 4,1-4,0-3,0-2,0-1,0-2,1
+        - 0,1-0,0-1,1-1,2-0,2-0,3-1,3-0,4
+        - 4,2-4,1-4,0-3,1-3,0-2,0-1,1-2,2-2,3-3,3-3,4
+        isExtraPackLevel: 0
+      - board: yamtoyrntenraoicheplpsrcomsdaeroohab
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - haberdashery
+        - cosmopolitan
+        - contemporary
+        swipes:
+        - 5,0-4,1-4,0-3,1-3,0-2,1-2,0-1,0-0,0-0,1-0,2-0,3
+        - 3,0-2,0-2,1-1,1-0,1-0,2-1,3-1,2-2,3-2,4-1,5-1,4
+        - 3,0-4,0-5,0-5,1-4,2-3,1-4,1-3,2-4,3-5,3-5,4-5,5
+        isExtraPackLevel: 0

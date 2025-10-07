@@ -1,0 +1,322 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_en
+  m_EditorClassIdentifier:
+  language: en
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Holidays
+      category: Holidays
+      categoryLocalized: Holidays
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: gerwnbmepircpade
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - december
+        - wrapping
+        swipes:
+        - 3,0-2,0-1,0-0,1-0,0-1,1-0,2-0,3
+        - 2,0-3,0-3,1-3,2-2,2-1,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: omysinetrhmnnace
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - chimney
+        - ornaments
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-3,0-3,1-3,2-3,3
+        - 2,0-1,1-0,2-1,3-1,2-2,2-2,3
+        isExtraPackLevel: 0
+      - board: mkeoatstrtleesim
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - mistletoe
+        - markets
+        swipes:
+        - 0,3-0,2-0,1-1,1-0,0-1,0-2,0
+        - 3,0-2,0-1,0-1,1-2,1-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: lebslscdghariels
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - cards
+        - sleigh
+        - bells
+        swipes:
+        - 2,0-1,1-0,1-0,0-1,0
+        - 3,0-2,0-1,0-0,0-0,1-1,1
+        - 2,2-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: sksetnisfidogrog
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - gifts
+        - goose
+        - drinks
+        swipes:
+        - 2,0-1,0-2,1-1,1-1,2-2,2
+        - 3,0-2,0-3,1-3,2-3,3
+        - 0,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: sneenmerorgvwane
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - evergreen
+        - snowman
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0
+        - 3,0-3,1-2,2-1,1-2,1-3,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: rerelareeoedctin
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - reindeer
+        - coal
+        - tree
+        swipes:
+        - 1,0-0,1-0,0-1,1
+        - 0,0-1,1-1,2-0,2
+        - 2,2-2,1-2,0-3,0-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: cegshatiolincogn
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - chocolate
+        - singing
+        swipes:
+        - 3,3-3,2-3,1-2,2-2,1-3,0-2,0
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-2,2-1,3
+        isExtraPackLevel: 0
+      - board: sstueinstpetrahc
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - chestnuts
+        - parties
+        swipes:
+        - 1,1-1,0-0,0-0,1-1,2-0,2-0,3
+        - 3,0-2,0-2,1-3,2-3,1-2,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: ecidkatufrnriesf
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - fruitcake
+        - friends
+        swipes:
+        - 0,1-1,1-0,0-1,0-2,1-3,0-2,0
+        - 3,0-3,1-3,2-2,3-2,2-1,3-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: degnonpioihpfwos
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - wine
+        - shopping
+        - food
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 3,0-2,1-2,0-3,1-2,2-3,2-3,3-2,3
+        - 1,0-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: dhtneeaowritcora
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - wreath
+        - decoration
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-3,0-3,1-2,1-3,2-3,3
+        - 0,1-1,1-1,2-2,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: scllnasrobelwaro
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - snowball
+        - carolers
+        swipes:
+        - 1,1-1,0-2,0-3,0-3,1-2,1-3,2-2,2
+        - 0,3-0,2-0,1-0,0-1,1-1,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: weylimitnarotfys
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - family
+        - toys
+        - winter
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0
+        - 3,2-3,1-2,0-3,0
+        - 1,0-1,1-1,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: selileglvolyhsth
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - holly
+        - lights
+        - elves
+        swipes:
+        - 1,0-0,1-0,0-1,1-0,2
+        - 2,2-3,1-2,1-3,0-2,0-1,0
+        - 0,0-1,1-2,1-3,2-3,1
+        isExtraPackLevel: 0
+      - board: cetstipnslreoses
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - solstice
+        - presents
+        swipes:
+        - 2,2-2,1-2,0-3,0-3,1-3,2-2,3-3,3
+        - 1,0-0,0-1,1-0,1-0,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: ecftlareepncrico
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - concert
+        - fireplace
+        swipes:
+        - 2,0-1,0-0,0-0,1-1,1-0,2-1,2-1,3-0,3
+        - 2,0-3,0-2,1-3,1-3,2-2,2-3,3
+        isExtraPackLevel: 0
+      - board: gndaisreaebrmgge
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - games
+        - gingerbread
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,0-3,1-2,1-2,2-3,2-3,3-2,3
+        - 1,0-0,1-0,0-1,1-1,2
+        isExtraPackLevel: 0
+      - board: tsyaseetaurkftan
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - turkey
+        - feast
+        - santa
+        swipes:
+        - 1,0-2,0-3,0-3,1-3,2
+        - 0,0-1,0-0,1-0,2-0,3
+        - 1,0-1,1-2,1-3,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: icescndlasrsmuat
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - candles
+        - music
+        - star
+        swipes:
+        - 3,1-3,0-2,0-2,1
+        - 0,0-1,0-1,1-0,1-1,2
+        - 0,2-0,1-1,2-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: rletekaitrcncuns
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - nutcracker
+        - tinsel
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0
+        - 2,0-1,0-0,1-0,0-1,1-2,2-2,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: nggngasibotfotfu
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - stuffing
+        - toboggan
+        swipes:
+        - 1,0-0,0-0,1-1,1-0,2-1,3-1,2-0,3
+        - 2,2-2,1-3,0-2,0-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: sftinsevoelkwfae
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - festive
+        - snowflake
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,1-2,0-3,1-3,0
+        - 1,0-1,1-1,2-2,3-3,3-3,2-2,2
+        isExtraPackLevel: 0
+      - board: enignhorirbbpicn
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - pine
+        - ribbon
+        - grinch
+        swipes:
+        - 3,2-3,1-2,1-3,0-2,0-1,0
+        - 1,1-1,0-2,1-3,1-2,2-1,3
+        - 0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: sgsninadktlacogr
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - garland
+        - stockings
+        swipes:
+        - 2,0-1,1-1,0-0,0-0,1-0,2-1,2-1,3-0,3
+        - 2,0-3,1-3,0-2,1-2,2-3,3-3,2
+        isExtraPackLevel: 0

@@ -1,0 +1,306 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_sv
+  m_EditorClassIdentifier:
+  language: sv
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Jungle
+      category: Jungle
+      categoryLocalized: Djungel
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: luktnamap
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - tukan
+        - palm
+        swipes:
+        - 2,0-1,0-0,1-0,0
+        - 0,1-1,2-2,2-2,1-1,1
+        isExtraPackLevel: 0
+      - board: ngkrlisavöumskmp
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - skövling
+        - sumpmark
+        swipes:
+        - 2,2-2,1-2,0-3,0-3,1-3,2-3,3-2,3
+        - 0,0-1,0-1,1-0,1-0,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: viljngitahelväxt
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - vanilj
+        - växtlighet
+        swipes:
+        - 0,0-1,0-2,0-3,0-3,1-2,2-1,2-1,1-2,1-3,2
+        - 0,0-0,1-0,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: djriräbotarihiktlömsoklif
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - kolibri
+        - miljöhot
+        - fiskar
+        - träd
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 4,0-3,0-4,1-4,2-4,3-4,4
+        - 3,1-3,0-2,0-1,0-2,1-2,2-2,3-3,3
+        - 1,0-0,0-1,1-1,2-1,3-2,4-3,4
+        isExtraPackLevel: 0
+      - board: nssmacpih
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - schimpans
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,1-0,0-1,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: erlrnoluiaemlarf
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - lemur
+        - lianer
+        - flora
+        swipes:
+        - 3,0-2,1-1,1-2,0-1,0
+        - 0,0-0,1-1,1-0,2-0,3-1,3
+        - 2,2-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: sfauoktnegfalean
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - elefant
+        - skog
+        - fauna
+        swipes:
+        - 1,0-2,1-3,1-3,0-2,0
+        - 0,1-1,1-0,0-1,0
+        - 0,1-0,0-1,0-2,1-3,1-3,2-2,2
+        isExtraPackLevel: 0
+      - board: feorijlkägäsmvormyolilrek
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - fjäril
+        - ekologi
+        - värme
+        - myrslok
+        swipes:
+        - 1,0-2,1-2,0-1,1-1,2-2,3-2,2
+        - 3,0-3,1-3,2-2,2-1,3
+        - 3,0-4,0-3,1-4,1-4,2-4,3-4,4
+        - 0,4-0,3-0,2-0,1-0,0-1,0
+        isExtraPackLevel: 0
+      - board: erallagftanånetgsritnevap
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - vattenfall
+        - tapir
+        - sengångare
+        swipes:
+        - 1,1-1,0-0,0-0,1-1,2-0,2-1,3-0,3-1,4-0,4
+        - 3,1-4,1-4,0-3,0-2,0
+        - 2,0-3,0-4,1-4,2-3,2-2,2-2,3-2,4-3,4-4,4
+        isExtraPackLevel: 0
+      - board: rdnöeebrd
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - nederbörd
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: ayadngjpeaualrup
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - papaya
+        - leguan
+        - djur
+        swipes:
+        - 3,0-2,1-2,0-1,0
+        - 0,0-0,1-1,2-2,1-1,1-0,2
+        - 3,0-3,1-3,2-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: erratkdlienssnpi
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - spindlar
+        - insekter
+        swipes:
+        - 0,1-1,0-0,0-1,1-1,2-0,2-0,3-1,3
+        - 3,1-2,0-3,0-2,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: tgjaarogpöepanpa
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - apa
+        - papegoja
+        - grönt
+        swipes:
+        - 1,3-1,2-1,1-1,0-0,0
+        - 3,1-3,0-2,0-2,1-3,2-2,2-2,3-3,3
+        - 0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: rnurtodjaktbevlä
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - ekvatorn
+        - bältdjur
+        swipes:
+        - 3,1-3,0-2,0-2,1-2,2-3,2-2,3-3,3
+        - 0,0-1,1-1,0-0,1-0,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: numsusoetpystlysoeakmnkue
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - ekosystem
+        - monsun
+        - eukalyptus
+        swipes:
+        - 4,0-3,0-4,1-3,1-3,2-4,2-4,3-3,3-4,4-3,4
+        - 0,0-1,1-1,0-0,1-1,2-0,2
+        - 2,1-2,0-1,1-0,1-0,2-1,2-2,2-2,3-2,4
+        isExtraPackLevel: 0
+      - board: klratrikevodnvrkrlöooekip
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - lövverk
+        - tropikerna
+        - krokodil
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-1,2
+        - 4,3-4,2-4,1-4,0-3,0-2,0-1,0-1,1-2,1-3,1
+        - 2,1-3,1-3,2-4,3-3,3-2,4-2,3
+        isExtraPackLevel: 0
+      - board: glaeödcko
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - geckoödla
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: roflmttuehkfgitu
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - luftfuktighet
+        - orm
+        swipes:
+        - 1,0-0,1-0,0
+        - 3,3-3,2-2,3-2,2-3,1-3,0-2,1-2,0-1,0-0,0-1,1-0,1-1,2
+        isExtraPackLevel: 0
+      - board: skrnräaujtagagul
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - lagun
+        - jaguar
+        - träsk
+        swipes:
+        - 1,0-0,0-1,1-0,1-1,2
+        - 0,1-0,0-1,0-2,0-2,1-2,2
+        - 3,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: otösgkonnsrkgeok
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - kokosnöt
+        - regnskog
+        swipes:
+        - 2,0-1,0-0,0-0,1-1,1-1,2-0,3-0,2
+        - 3,0-2,0-3,1-2,2-3,3-3,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: atpkrksiaropbyta
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - tropiskt
+        - kapybara
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-0,1-0,2-0,3
+        - 2,0-1,1-2,1-3,1-3,2-2,2-1,2-1,3
+        isExtraPackLevel: 0
+      - board: avoaalenamlgtisirotzgeaon
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - gorilla
+        - vegetation
+        - amazonas
+        swipes:
+        - 4,4-4,3-3,2-4,1-3,0-4,0-3,1-4,2
+        - 1,2-1,1-0,0-1,0-2,1-2,0-3,1-3,2-2,3-2,2
+        - 1,2-2,1-1,1-0,1-0,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: leomongåntagfsdouaidezrgraktnoapirar
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - paradisfågel
+        - orangutang
+        - artrikedom
+        - ozon
+        swipes:
+        - 4,0-3,0-2,1-2,0
+        - 5,0-4,0-3,1-3,0-2,0-2,1-2,2-2,3-3,3-3,4
+        - 5,1-5,0-4,0-4,1-5,2-4,3-3,4-4,4-5,5-5,4
+        - 1,0-0,0-0,1-1,1-1,2-0,2-1,3-0,3-1,4-0,4-1,5-0,5
+        isExtraPackLevel: 0

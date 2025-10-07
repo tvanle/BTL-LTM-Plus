@@ -1,0 +1,314 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_da
+  m_EditorClassIdentifier:
+  language: da
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Summer
+      category: Summer
+      categoryLocalized: Sommer
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: otilslsednvfsaaf
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - isvaffel
+        - sandslot
+        swipes:
+        - 0,0-1,0-1,1-0,1-0,2-1,2-0,3-1,3
+        - 2,3-2,2-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: sdnsoeaoldrtabsl
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - strand
+        - solbade
+        - sol
+        swipes:
+        - 3,2-3,1-3,0
+        - 0,3-0,2-0,1-1,0-0,0-1,1-1,2
+        - 2,0-3,1-2,1-2,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: ållbksaadloddnke
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - koldskål
+        - badeland
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0-0,0
+        - 2,0-2,1-1,1-0,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: grekunkarjrmæsme
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - kammerjunker
+        - græs
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 3,3-3,2-3,1-2,0-3,0-2,1-1,1-0,2-1,2-2,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: erbhæbdegørdljoe
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - jordbær
+        - hedebølge
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-0,0-0,1-0,2
+        - 1,0-2,0-2,1-2,2-1,2-0,2-1,3
+        isExtraPackLevel: 0
+      - board: sderokdelirvtsil
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - livredder
+        - solstik
+        swipes:
+        - 0,3-0,2-0,1-1,0-0,0-1,1-1,2
+        - 3,0-2,0-3,1-2,1-3,2-2,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: srelolsalildrban
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - solbriller
+        - sandal
+        swipes:
+        - 2,1-2,0-3,0-3,1-3,2-3,3
+        - 0,3-0,2-0,1-1,0-0,0-1,1-2,1-1,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: userkbilebtodaiv
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - badebukser
+        - tivoli
+        swipes:
+        - 2,1-2,0-3,0-3,1-3,2-2,2
+        - 1,1-1,0-0,0-0,1-1,2-0,3-0,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: arectgddosiafteb
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - badedragt
+        - softice
+        swipes:
+        - 1,1-0,1-0,0-1,0-2,1-3,0-2,0
+        - 3,0-3,1-3,2-2,3-2,2-1,3-0,3-1,2-0,2
+        isExtraPackLevel: 0
+      - board: tlreaolbhmøhseva
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - havemøbler
+        - solhat
+        swipes:
+        - 0,0-1,0-1,1-0,1-0,2-0,3
+        - 3,1-3,0-2,0-1,0-1,1-2,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: ereiefremmorsjes
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - sommerferie
+        - rejse
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1
+        - 3,0-2,1-1,1-0,1-0,2-1,3-1,2-2,3-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: lejkmeosysroelcl
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - solcreme
+        - kjole
+        - lys
+        swipes:
+        - 0,1-0,0-1,0
+        - 3,0-2,1-2,0-1,0-0,0
+        - 3,2-3,1-3,0-2,0-2,1-1,2-0,2-1,3
+        isExtraPackLevel: 0
+      - board: inolsfemkvndaafe
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - vandmelon
+        - iskaffe
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,0
+        - 1,1-1,0-2,1-3,1-3,2-2,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: grdmmnoiipcsemma
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - camping
+        - midsommer
+        swipes:
+        - 3,2-3,1-2,1-3,0-2,0-1,0-0,1-0,0-1,1
+        - 2,1-3,0-2,0-1,1-0,1-1,2-0,3
+        isExtraPackLevel: 0
+      - board: mikcemeysøelvref
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - svømme
+        - cykelferie
+        swipes:
+        - 3,3-3,2-2,3-2,2-3,1-3,0-2,0-1,0-1,1-2,1
+        - 0,1-0,0-1,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: solstiotndpravhs
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - vandpistol
+        - shorts
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2-3,3
+        - 1,0-0,0-0,1-1,1-2,1-1,2-0,3-0,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: gdehrejaibrvllae
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - havearbejde
+        - grill
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0
+        - 3,3-3,2-3,1-3,0-2,0-2,1-1,1-1,2-2,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: utndolssddatlanr
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - strandstol
+        - udland
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-3,0
+        - 3,2-3,1-3,0-2,1-2,0-1,1-2,2-1,3-0,2-1,2
+        isExtraPackLevel: 0
+      - board: slrhoeushemmdeos
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - sommerhus
+        - solhede
+        swipes:
+        - 0,3-0,2-1,2-0,1-1,0-0,0-1,1
+        - 3,0-2,0-3,1-2,1-1,2-2,3-3,3-2,2-3,2
+        isExtraPackLevel: 0
+      - board: doeiblvrdeehabfa
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - badebold
+        - ferie
+        - hav
+        swipes:
+        - 3,1-3,0-2,0
+        - 2,0-2,1-3,2-3,3-2,3
+        - 1,0-0,0-0,1-1,1-0,2-1,3-1,2-0,3
+        isExtraPackLevel: 0
+      - board: llabndeyiivlpsol
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - volleyball
+        - ispind
+        swipes:
+        - 1,1-1,0-0,0-0,1-0,2-1,2
+        - 2,1-2,0-3,0-3,1-2,2-3,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: baesbdbiitnokier
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - bikini
+        - sorbet
+        - bade
+        swipes:
+        - 0,0-1,1-1,0-2,0
+        - 3,2-3,1-3,0-2,1-2,0-1,0
+        - 0,2-0,1-0,0-1,0-2,1-3,2
+        isExtraPackLevel: 0
+      - board: tnrsdvrooutlksæb
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - skovtur
+        - solbrændt
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0-0,0-0,1
+        - 1,0-0,0-0,1-1,2-2,1-1,1-2,2
+        isExtraPackLevel: 0
+      - board: vmelardåhnbdåklæ
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - bål
+        - håndklæde
+        - varm
+        swipes:
+        - 0,1-0,0-1,0-1,1
+        - 0,1-0,0-1,1-2,1-1,0-2,0-3,0-3,1-2,2
+        - 2,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: psaratkeaatsslfi
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - fisker
+        - pastasalat
+        swipes:
+        - 0,3-0,2-1,3-1,2-0,1-0,0-1,1-1,0-2,1-2,0
+        - 2,0-3,0-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0

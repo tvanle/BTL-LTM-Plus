@@ -1,0 +1,310 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_en
+  m_EditorClassIdentifier:
+  language: en
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Summer
+      category: Summer
+      categoryLocalized: Summer
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: shoetlssasgusrsn
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - sunglasses
+        - shorts
+        swipes:
+        - 0,0-1,1-2,0-1,0-0,1-0,2
+        - 2,0-3,1-3,0-2,1-1,2-0,1-1,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: iersdseuaewnsolf
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - seaside
+        - sunflower
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-2,1-2,2-2,3
+        - 0,0-1,1-0,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: tinomutisivaswac
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - vacation
+        - swimsuit
+        swipes:
+        - 0,0-1,0-1,1-0,2-0,1-1,2-1,3-0,3
+        - 2,1-2,0-3,0-3,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: ggngansnriaideil
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - sailing
+        - gardening
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1-1,2-1,3
+        - 2,2-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: rdlguainfgtneian
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - tanning
+        - lifeguard
+        swipes:
+        - 2,0-1,0-0,1-0,0-1,1-0,2-1,2-0,3-1,3
+        - 2,1-2,0-3,0-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: toesiqgnsuikomih
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - mosquitoes
+        - hiking
+        swipes:
+        - 3,0-2,0-3,1-2,1-3,2-2,2
+        - 1,0-0,0-0,1-1,2-1,1-0,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: wrplaasotrkaeapr
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - parasol
+        - waterpark
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,1-3,1-3,0-2,0
+        - 2,0-1,0-1,1-1,2-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: vskloenlluralybt
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - trunks
+        - volleyball
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0-3,0-3,1-3,2
+        - 3,0-2,1-1,1-2,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: lninogpaocmepaoc
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - ocean
+        - camping
+        - pool
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 1,1-1,0-2,0-2,1-2,2-1,3-1,2
+        - 2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: negnihimsnmssuiw
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - swimming
+        - sunshine
+        swipes:
+        - 0,0-1,0-1,1-0,1-1,2-0,2-0,3-1,3
+        - 3,1-3,0-2,0-2,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: nolpmeciraictewn
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - watermelon
+        - picnic
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        - 2,0-1,1-0,0-1,0-0,1-0,2-1,2-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: iceltsleeonmsdao
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - solstice
+        - lemonade
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0-0,0
+        - 0,0-1,1-2,2-1,2-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: elibtsaisnckadni
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - sandcastle
+        - bikini
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        - 0,1-0,0-1,1-1,0-2,1-2,2-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: mumniurrdbessmnu
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - sunburn
+        - midsummer
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-2,1-1,0-2,0-3,0
+        - 3,1-3,0-2,0-1,1-1,2-2,2-3,3
+        isExtraPackLevel: 0
+      - board: lerdkfoarobssnru
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - snorkel
+        - surfboard
+        swipes:
+        - 3,1-3,0-2,0-1,0-2,1-2,2-3,2-2,3-3,3
+        - 0,0-1,0-1,1-0,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: eabewvauetrcahbe
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - barbecue
+        - heatwave
+        swipes:
+        - 1,0-0,1-0,0-1,1-0,2-1,3-1,2-0,3
+        - 2,3-2,2-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: pslbanaerdaakshc
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - park
+        - sandals
+        - beach
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0
+        - 1,0-2,1-1,2-1,1-2,2-2,3-1,3
+        - 0,3-0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: feisilgfrneifihs
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - fishing
+        - fireflies
+        swipes:
+        - 0,3-0,2-0,1-1,1-0,0-1,0-2,1-2,0-3,0
+        - 3,2-3,1-3,0-2,0-1,0-1,1-2,2
+        isExtraPackLevel: 0
+      - board: deebeiascrirkchf
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - frisbee
+        - deckchair
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-2,1-1,2-1,1
+        - 3,0-3,1-2,1-3,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: njoiayxctnuesulb
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - suntan
+        - july
+        - icebox
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0
+        - 1,1-2,1-2,0-1,0
+        - 0,0-1,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: ddnoahelnaicmmok
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - hammock
+        - dandelion
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-3,0-2,0-3,1-2,2
+        - 1,2-1,1-0,0-1,0-2,0-3,1-3,0
+        isExtraPackLevel: 0
+      - board: entstiluroguampa
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - august
+        - trampoline
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-1,2-1,3-0,3
+        - 3,0-3,1-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: errywbowarmdstea
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - strawberry
+        - meadow
+        swipes:
+        - 2,1-2,0-3,0-3,1-2,2-3,2
+        - 0,0-1,0-1,1-0,1-0,2-1,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: sexsuoauhelmrrem
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - summerhouse
+        - relax
+        swipes:
+        - 0,0-1,0-2,0-2,1-2,2
+        - 3,3-3,2-3,1-3,0-2,0-1,0-0,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: srlooceuispoodtp
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - popsicle
+        - outdoors
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-0,1-1,1-0,2
+        - 3,0-3,1-2,1-1,1-0,1-1,2-2,3-2,2
+        isExtraPackLevel: 0

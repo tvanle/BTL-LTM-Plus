@@ -1,0 +1,290 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nb
+  m_EditorClassIdentifier:
+  language: no
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Middle Ages
+      category: Middle Ages
+      categoryLocalized: Middelalderen
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: gntinurer
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - turnering
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: emyfredøngiakosl
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - konger
+        - føydalisme
+        swipes:
+        - 3,3-3,2-2,3-2,2-3,1-3,0-2,1-2,0-1,0-0,0
+        - 0,0-1,0-0,1-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: ertaegslljikøgme
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - gjøglere
+        - alkemist
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2-2,3
+        - 1,2-1,1-0,0-1,0-0,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: krumoireerrtfjekserdenpdi
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - riddere
+        - jomfruer
+        - pest
+        - kirken
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0
+        - 2,0-2,1-1,1-1,2
+        - 3,0-4,0-3,1-2,2-1,3-2,4-2,3-1,4
+        - 3,1-4,0-3,0-4,1-4,2-4,3-3,3
+        isExtraPackLevel: 0
+      - board: erbtkaten
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - banketter
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: rranllfihfvnosiv
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - hoffnarr
+        - villsvin
+        swipes:
+        - 3,0-2,0-1,1-0,0-1,0-2,1-3,2-3,1
+        - 0,1-0,0-1,1-2,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: tlersebgydordnah
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - handel
+        - borger
+        - dyst
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 2,1-2,0-3,0-3,1-2,2-3,2
+        - 3,0-2,0-1,0-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: raeiikrirrphieem
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - hierarki
+        - imperier
+        swipes:
+        - 3,1-3,0-2,1-2,0-1,1-0,0-1,0-0,1
+        - 3,1-3,2-2,3-2,2-1,3-0,3-1,2-0,2
+        isExtraPackLevel: 0
+      - board: eanensokjonrasglmstorofer
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - reformasjonen
+        - korstog
+        - lanse
+        swipes:
+        - 0,0-1,0-0,1-0,2-0,3
+        - 2,1-1,1-1,0-2,0-3,0-4,0-4,1
+        - 4,0-3,0-2,0-1,0-0,0-1,1-2,2-3,2-3,3-4,3-4,4-3,4-2,4
+        isExtraPackLevel: 0
+      - board: lfhfeøagy
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - høygaffel
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-0,1-1,2-1,1-0,2
+        isExtraPackLevel: 0
+      - board: errdtsolnaloaekv
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - vold
+        - klostre
+        - arena
+        swipes:
+        - 1,1-2,0-1,0-0,1-0,0
+        - 2,0-2,1-2,2-1,2-0,2-1,3-0,3
+        - 3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: rsyskelnuneimtra
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - munker
+        - stearinlys
+        swipes:
+        - 1,1-1,0-2,1-3,0-2,0-3,1-3,2-2,2-2,3-3,3
+        - 0,0-0,1-1,1-0,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: neigfuddnosadrlvtevkarane
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - svartedauden
+        - folkevandring
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,1-2,0-3,0-2,1-3,2-2,2-3,3-3,4
+        - 0,2-0,1-0,0-1,0-1,1-2,1-2,2-1,2-0,3-1,3-1,4-0,4
+        isExtraPackLevel: 0
+      - board: nnaedmlsa
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - adelsmann
+        swipes:
+        - 2,0-1,1-0,1-0,0-1,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: errdedlmvhousrre
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - sverd
+        - herold
+        - murer
+        swipes:
+        - 3,2-3,1-2,0-3,0-2,1
+        - 1,1-0,0-1,0-2,1-2,2-3,3
+        - 0,0-0,1-0,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: vdgoanrvrgnoinll
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - vollgrav
+        - dronning
+        swipes:
+        - 1,2-2,1-3,0-2,0-1,0-0,0-1,1-2,2
+        - 3,2-3,1-3,0-2,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: rervrtntseubaneåiomernrgr
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - romanser
+        - tribuner
+        - tårn
+        - greve
+        swipes:
+        - 3,0-4,0-4,1-3,1-4,2
+        - 0,2-0,1-0,0-1,0
+        - 2,0-2,1-1,1-1,2-0,2-1,3-1,4-0,4
+        - 2,0-2,1-3,1-2,2-3,2-3,3-4,3-4,4
+        isExtraPackLevel: 0
+      - board: breanosti
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - bastioner
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-2,1-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: rrrieungm
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - ringmurer
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-2,1-1,2-1,1-2,2
+        isExtraPackLevel: 0
+      - board: elandineverpasig
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - grevinne
+        - palisade
+        swipes:
+        - 3,0-2,1-1,1-2,0-1,0-0,0-0,1-0,2
+        - 3,0-2,1-1,1-0,1-1,2-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: linglarbeveiadel
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - beleiring
+        - lavadel
+        swipes:
+        - 0,3-1,2-1,1-0,0-1,0-0,1-0,2
+        - 3,2-2,1-3,0-2,0-3,1-2,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: gnalnirdtreksuat
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - rustning
+        - katedral
+        swipes:
+        - 3,1-2,0-3,0-2,1-3,2-2,2-2,3-3,3
+        - 1,1-1,0-0,0-0,1-0,2-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: suesknbrojgardllevepjapæn
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - langbue
+        - pasjer
+        - væpner
+        - skjold
+        swipes:
+        - 3,2-4,2-4,1-3,1-4,0-3,0
+        - 2,0-3,0-4,1-4,0-3,1-2,1
+        - 2,0-1,0-0,1-0,0-1,1-2,2
+        - 0,1-1,2-0,3-0,2-1,3-1,4-2,4
+        isExtraPackLevel: 0

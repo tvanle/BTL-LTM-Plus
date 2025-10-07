@@ -1,0 +1,205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_en
+  m_EditorClassIdentifier:
+  language: en
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Birthday
+      category: Birthday
+      categoryLocalized: Birthday
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: efysttivi
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - festivity
+        swipes:
+        - 1,2-0,2-0,1-1,1-0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: sktnnaioaerccble
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - celebration
+        - snack
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0
+        - 3,1-3,0-2,0-1,1-1,0-2,1-1,2-2,3-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: ryepasrvanianytr
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - anniversary
+        - party
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,0
+        - 0,1-0,0-1,1-2,1-3,2-2,3-2,2-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: yngsdnooabliclan
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - candy
+        - balloon
+        - sing
+        swipes:
+        - 3,2-3,1-3,0-2,0
+        - 1,1-2,0-1,0-2,1-3,2-2,2-1,2
+        - 0,0-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: sersarchdyonttrfeitimaetb
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - birthday
+        - confetti
+        - streamers
+        swipes:
+        - 3,1-3,0-2,1-2,0-1,0-0,0-1,1-0,1-0,2
+        - 1,3-0,2-1,2-0,1-1,1-2,2-3,1-2,1
+        - 4,0-4,1-4,2-3,2-2,3-3,3-4,4-4,3
+        isExtraPackLevel: 0
+      - board: etclahoco
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - chocolate
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-0,1-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: fdnssrihiwretuif
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - wish
+        - friends
+        - fruit
+        swipes:
+        - 0,2-1,1-1,0-0,1-0,0
+        - 3,0-2,1-2,0-3,1-2,2-1,2-0,2
+        - 1,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: edelegcdnlhnlaca
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - candle
+        - challenged
+        swipes:
+        - 2,1-2,0-1,0-0,0-1,1-0,2-0,1-1,2-0,3-1,3
+        - 2,0-3,0-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: cereavthkoteelog
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - together
+        - cake
+        - love
+        swipes:
+        - 1,0-1,1-1,2-1,3
+        - 0,3-0,2-0,1-0,0
+        - 2,1-2,0-3,0-3,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: faeslgucaimoyell
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - colleagues
+        - family
+        swipes:
+        - 0,2-1,1-2,0-1,0-0,1-0,0
+        - 3,2-3,1-3,0-2,0-1,0-0,1-1,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: itngsufitincapgwapnnrgifi
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - unwrapping
+        - significant
+        - gift
+        swipes:
+        - 1,0-0,0-1,1-1,2
+        - 4,4-4,3-4,2-4,1-4,0-3,0-2,0-1,1-2,1-3,1-3,2
+        - 0,3-0,2-0,1-0,0-1,1-2,1-3,2-2,3-2,4-3,4
+        isExtraPackLevel: 0
+      - board: jreevomeoiybvtcosnrautein
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - interactive
+        - november
+        - joyous
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0
+        - 4,0-3,0-2,0-2,1-1,2-1,1-2,2-1,3
+        - 3,0-2,1-1,0-2,0-3,1-4,1-4,2-3,2-4,3-4,4-3,4
+        isExtraPackLevel: 0
+      - board: tedyreiigltdnvnaroeiicacdetiveacexrd
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - decorated
+        - rivalry
+        - exciting
+        - decade
+        - invite
+        swipes:
+        - 0,1-0,0-1,0-1,1-0,2-1,2
+        - 2,0-1,1-1,0-0,0-0,1-0,2
+        - 2,0-3,0-3,1-2,2-2,1-1,2-2,3-2,4
+        - 4,0-3,1-4,1-4,2-3,3-4,3-3,4
+        - 5,0-5,1-5,2-5,3-4,3-3,3-4,4-5,5-5,4
+        isExtraPackLevel: 0
+      - board: nogtiskannbcuhrraapotllilybianfayrii
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - thank
+        - you
+        - for
+        - playing
+        - brilliant
+        - brainiacs
+        swipes:
+        - 4,1-3,0-4,0-5,0-5,1-4,2-5,2-5,3-5,4
+        - 2,0-3,0-4,0-3,1-4,2-5,2-4,3-3,3-3,4
+        - 0,1-0,0-1,0-2,0-3,1-2,2-2,3
+        - 0,0-1,1-2,2
+        - 1,1-1,2-0,3
+        - 2,2-1,3-1,4-0,5-0,4
+        isExtraPackLevel: 0

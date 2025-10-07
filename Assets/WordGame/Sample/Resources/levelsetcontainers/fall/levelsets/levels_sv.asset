@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_sv
+  m_EditorClassIdentifier:
+  language: sv
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Fall
+      category: Fall
+      categoryLocalized: Höst
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: partalyarstspkol
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - skolstart
+        - paraply
+        swipes:
+        - 0,3-0,2-0,1-1,1-0,0-1,0-2,0
+        - 1,1-1,0-2,0-3,0-3,1-2,1-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: ölovpnstttelvahö
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - vattenpöl
+        - höstlov
+        swipes:
+        - 2,0-3,0-2,1-3,2-3,1-2,2-3,3
+        - 0,0-1,0-0,1-1,1-2,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: vlarötsjummigtka
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - gummistövlar
+        - jakt
+        swipes:
+        - 3,1-3,0-2,0-1,0
+        - 0,0-0,1-1,1-2,1-3,1-2,2-1,2-0,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: mamrpoamstrbsvti
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - brittsommar
+        - svamp
+        swipes:
+        - 0,0-1,0-1,1-0,2-0,1
+        - 3,1-2,1-3,0-2,0-1,1-0,1-1,2-2,3-3,2-2,2-3,3
+        isExtraPackLevel: 0
+      - board: vnehöleathwlösol
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - halloween
+        - höstlöv
+        swipes:
+        - 1,1-0,0-1,0-0,1-1,2-0,2-0,3
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: erlärköphmtpösne
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - höstmörker
+        - äpplen
+        swipes:
+        - 3,3-3,2-3,1-2,1-3,0-2,0
+        - 0,1-0,0-1,0-2,1-1,1-2,2-1,3-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: srräeebnpbnrtemö
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - rönnbär
+        - september
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1-1,2-1,3
+        - 3,1-3,0-2,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: mässpslmameipuck
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - mickelsmäss
+        - pumpa
+        swipes:
+        - 0,0-1,0-1,1-0,2-0,1
+        - 3,2-3,1-2,0-3,0-2,1-2,2-1,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: ingenmäjöhgastdt
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - höstdagjämning
+        - te
+        swipes:
+        - 3,0-3,1
+        - 1,1-0,1-0,0-1,0-2,0-3,1-2,1-3,2-2,2-1,2-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: lroröckavgogöhsg
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - raggsockor
+        - lövhög
+        swipes:
+        - 0,3-0,2-0,1-1,0-0,0-1,1
+        - 3,3-3,2-3,1-3,0-2,0-2,1-1,2-2,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: skhöamksggtsadur
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - höstrusk
+        - daggmask
+        swipes:
+        - 1,0-0,0-1,1-0,1-1,2-0,2-0,3-1,3
+        - 2,3-3,3-3,2-2,1-3,0-2,0-3,1-2,2
+        isExtraPackLevel: 0

@@ -1,0 +1,300 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nl
+  m_EditorClassIdentifier:
+  language: nl
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Ocean
+      category: Ocean
+      categoryLocalized: Oceaanevent
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: ztrowetua
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - zout
+        - water
+        swipes:
+        - 1,0-2,0-1,1-2,1-2,2
+        - 0,2-0,1-1,0-0,0
+        isExtraPackLevel: 0
+      - board: gnersiikmtedorwe
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - stroming
+        - weekdier
+        swipes:
+        - 2,0-3,0-2,1-3,2-3,1-2,2-2,3-3,3
+        - 0,2-1,1-1,0-0,0-0,1-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: lslgaivaaintrokk
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - koraal
+        - inktvis
+        - alg
+        swipes:
+        - 3,0-2,0-3,1
+        - 1,0-2,0-3,0-3,1-2,1-1,1-1,2
+        - 2,0-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: nfenmjdzdoiidehlkursoneot
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - duiken
+        - dolfijn
+        - zeehond
+        - storm
+        swipes:
+        - 4,1-4,0-3,0-3,1-4,2
+        - 2,0-2,1-3,2-4,2-4,3-3,4-3,3
+        - 1,0-0,0-0,1-1,1-0,2-0,3-0,4
+        - 2,2-2,1-1,2-1,1-2,0-1,0
+        isExtraPackLevel: 0
+      - board: kfioarral
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - koraalrif
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0-2,0-2,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: lanoaztkrenaeklp
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - zeekraal
+        - plankton
+        swipes:
+        - 3,0-2,0-3,1-2,1-3,2-2,2-3,3-2,3
+        - 1,2-1,1-0,0-1,0-0,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: kgerroeifeweterz
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - kreeft
+        - zeewier
+        - rog
+        swipes:
+        - 2,0-1,0-1,1
+        - 3,0-3,1-2,2-2,1-3,2-2,3-3,3
+        - 0,3-0,2-1,1-1,0-0,1-0,0
+        isExtraPackLevel: 0
+      - board: okalpepiewdekzno
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - ondiep
+        - zeepok
+        - kwal
+        swipes:
+        - 0,0-1,0-2,0-3,0
+        - 1,0-0,1-1,2-0,2-0,3-1,3
+        - 3,0-2,0-2,1-3,2-3,1-2,2
+        isExtraPackLevel: 0
+      - board: tnooesfmdjuergznloaekaape
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - anemoon
+        - zeepaardje
+        - golf
+        - kust
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 3,0-2,0-1,0-1,1
+        - 4,2-4,1-4,0-3,0-2,0-3,1-2,2-3,3-4,3-4,4
+        - 1,0-0,1-1,2-2,3-3,4-2,4-1,4
+        isExtraPackLevel: 0
+      - board: vlorabked
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - krab
+        - vloed
+        swipes:
+        - 0,0-1,1-2,1-1,0-2,0
+        - 0,0-0,1-1,1-2,1
+        isExtraPackLevel: 0
+      - board: nisavoenstreeoom
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - oester
+        - anemoonvis
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-0,1-0,0-1,1-2,1
+        - 1,0-0,0-0,1-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: mwvieaeselcotsys
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - ecosysteem
+        - walvis
+        swipes:
+        - 1,2-1,1-1,0-2,0-3,1-3,0
+        - 2,2-2,1-3,1-3,0-2,0-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: nibrdaehoutleifubdefureeg
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - natuurbehoud
+        - leefgebied
+        - rif
+        swipes:
+        - 3,1-3,0-4,0
+        - 1,0-2,0-3,0-4,1-4,0-3,1-2,2-1,2-1,1-2,1
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-2,2-2,3-3,3-4,3-4,4
+        isExtraPackLevel: 0
+      - board: scdhialdp
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - schildpad
+        swipes:
+        - 0,2-1,2-0,1-1,1-0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: meetdbcroshozeip
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - tropisch
+        - zeebodem
+        swipes:
+        - 0,0-1,0-2,0-1,1-0,1-0,2-1,2-0,3
+        - 3,3-3,2-3,1-3,0-2,0-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: fldaogalvnrgloea
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - garnaal
+        - vloedgolf
+        swipes:
+        - 0,1-0,0-1,0-2,0-2,1-1,1-0,2-1,2-0,3
+        - 3,1-3,0-2,1-1,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: denueinidneaegupkaeazeocl
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - lagune
+        - oceaan
+        - diepzeeduiken
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0-2,0-3,0-3,1-2,1-1,1-1,2-2,2
+        - 2,0-3,0-3,1-2,1-1,2-1,3
+        - 4,0-4,1-3,2-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: outhfdjir
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - drijfhout
+        swipes:
+        - 2,1-2,0-1,0-0,0-1,1-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: nelsoenrk
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - snorkelen
+        swipes:
+        - 0,1-0,0-1,1-1,0-2,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: seisireuvelrzaww
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - walrus
+        - zeewier
+        - vis
+        swipes:
+        - 0,0-0,1-0,2
+        - 0,0-1,0-2,0-3,0-2,1-1,2-1,1
+        - 2,0-1,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: msreossicaldahel
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - schaaldier
+        - mossel
+        swipes:
+        - 0,1-0,0-1,0-2,1-2,0-3,0
+        - 1,2-0,1-1,0-0,0-1,1-2,1-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: lcousdeszavopertrgegeweno
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - zeegras
+        - ongewerveld
+        - octopus
+        swipes:
+        - 2,2-1,1-0,0-1,0-2,0-3,0-2,1
+        - 4,0-3,0-2,1-2,0-1,0-0,0-1,1-0,2-1,3-0,4-0,3
+        - 3,3-3,2-3,1-4,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: demaakailhwrraveephegicsijueheteedzs
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - zeeduivel
+        - scheepswrak
+        - hamerhaai
+        - getijde
+        swipes:
+        - 2,0-1,0-0,0-0,1-1,1-0,2-1,2
+        - 3,0-3,1-2,1-1,2-0,3-0,2-1,3-0,4-1,4
+        - 5,0-4,1-4,0-5,1-4,2-5,3-5,2-4,3-5,4-4,4-5,5
+        - 4,0-3,1-2,0-3,0-2,1-3,2-2,3-3,3-2,4
+        isExtraPackLevel: 0

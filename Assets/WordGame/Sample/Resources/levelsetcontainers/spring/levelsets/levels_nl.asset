@@ -1,0 +1,300 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nl
+  m_EditorClassIdentifier:
+  language: nl
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Spring
+      category: Spring
+      categoryLocalized: Lente
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: llpuratip
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - tulp
+        - april
+        swipes:
+        - 2,1-2,0-1,1-1,0-0,0
+        - 0,0-0,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: elmejaintmeoemgr
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - lammetje
+        - groen
+        - mei
+        swipes:
+        - 2,1-3,0-2,0
+        - 2,0-3,0-3,1-2,1-3,2
+        - 1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: jejmadbeagolreti
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - bloem
+        - jaargetijde
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0-3,0-2,1-1,2-1,3
+        - 2,2-3,1-2,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: zaalotrpsnanense
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - zonnestraal
+        - pasen
+        swipes:
+        - 3,2-2,1-2,0-3,0-3,1
+        - 0,3-0,2-1,1-1,0-0,0-0,1-1,2-2,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: nesremesiniozaakukortnikf
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - zaaien
+        - krokus
+        - ontkiemen
+        - fris
+        swipes:
+        - 4,0-3,0-2,0-2,1
+        - 1,1-1,0-0,0-0,1-0,2-1,2-0,3-1,3-0,4
+        - 3,0-4,1-3,1-2,1-1,1-2,2
+        - 2,2-3,2-4,2-3,3-4,4-4,3
+        isExtraPackLevel: 0
+      - board: knoeinult
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - ontluiken
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-1,1-0,2-0,1-1,2
+        isExtraPackLevel: 0
+      - board: klrgiinikenzkdro
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - zonnig
+        - kikkerdril
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-2,0-1,0-2,1-1,2-1,3
+        - 3,1-3,0-2,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: deilfervvroojaar
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - voorjaar
+        - verliefd
+        swipes:
+        - 0,0-1,0-2,0-3,0-2,1-1,1-0,1-0,2
+        - 3,2-3,1-2,1-1,1-0,0-1,0-2,0-3,0
+        isExtraPackLevel: 0
+      - board: lsijbeebeinlrket
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - lentekriebels
+        - bij
+        swipes:
+        - 3,0-2,0-3,1
+        - 3,1-2,2-2,1-3,0-2,0-1,0-0,0-1,1-0,1-0,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: nenneepeaiihlasbepamlourg
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - grasmaaien
+        - bloeien
+        - huppelen
+        swipes:
+        - 1,0-2,0-2,1-1,1-1,2-2,2-2,3-2,4
+        - 0,1-0,0-1,0-1,1-0,2-0,3-0,4
+        - 4,0-3,0-3,1-4,2-4,1-3,2-3,3-4,3-4,4-3,4
+        isExtraPackLevel: 0
+      - board: nnsoiazcr
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - narcis
+        - zon
+        swipes:
+        - 0,0-0,1-0,2
+        - 1,2-2,1-2,0-1,0-1,1-2,2
+        isExtraPackLevel: 0
+      - board: vleeoosmglntebes
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - bloesem
+        - vogelnest
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,1-2,0-3,0-3,1
+        - 1,0-1,1-1,2-2,3-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: nktsiooroeubohti
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - hooikoorts
+        - buiten
+        swipes:
+        - 3,1-2,1-3,0-2,0-1,0-0,0
+        - 1,0-0,0-0,1-0,2-1,3-1,2-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: auntsreuerkitikn
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - tuin
+        - terras
+        - kuiken
+        swipes:
+        - 2,0-1,1-1,0-2,1-2,2-2,3
+        - 0,0-0,1-1,1-1,2-0,3-0,2
+        - 3,3-3,2-3,1-3,0
+        isExtraPackLevel: 0
+      - board: ennlweiesatentngefudlemie
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - genieten
+        - stuifmeel
+        - wandelen
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,0-2,0-2,1
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0-0,1-0,0
+        - 0,1-1,1-2,2-1,3-1,2-0,2-0,3-1,4
+        isExtraPackLevel: 0
+      - board: kjeuntike
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - kuikentje
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: urhgumontanoelmj
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - jong
+        - natuur
+        - hommel
+        swipes:
+        - 2,2-2,1-2,0-1,1-0,0-1,0
+        - 2,1-1,1-0,1-0,2-0,3-1,3
+        - 3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: usnpkokirktsnere
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - pinksteren
+        - krokus
+        swipes:
+        - 1,0-0,0-1,1-0,1-0,2-1,2
+        - 3,3-3,2-2,3-2,2-3,1-2,1-3,0-2,0-1,0-0,0
+        isExtraPackLevel: 0
+      - board: wjgvanirnklodeil
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - wandeling
+        - vrolijk
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,1-1,0
+        - 0,3-0,2-0,1-0,0-1,0-2,1-2,2-1,2-2,3
+        isExtraPackLevel: 0
+      - board: nlrdnetnaleaewedosiezieko
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - seizoen
+        - dartelen
+        - koe
+        - weiland
+        swipes:
+        - 3,1-4,0-3,0-4,1-3,2-4,2-3,3
+        - 3,0-4,0-4,1
+        - 0,0-1,0-2,0-1,1-0,1-1,2-0,2-0,3
+        - 2,1-2,0-1,0-0,0-1,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: gadsvoaroargjrsa
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - voorjaarsdag
+        - gras
+        swipes:
+        - 3,1-2,1-3,0-2,0
+        - 0,2-1,2-0,1-1,0-0,0-1,1-2,2-3,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: dnihreiytnlaeivc
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - vlinder
+        - hyacint
+        - ei
+        swipes:
+        - 0,0-1,0
+        - 3,3-3,2-3,1-3,0-2,0-1,1-0,1
+        - 2,0-2,1-2,2-1,3-0,3-1,2-0,2
+        isExtraPackLevel: 0
+      - board: kaamgoonrihthcocftstsieeo
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - schoonmaak
+        - fietstocht
+        - groei
+        swipes:
+        - 4,2-3,1-4,0-3,0-4,1
+        - 1,1-1,0-2,0-2,1-3,1-4,1-4,2-3,2-2,2-1,2
+        - 0,0-0,1-0,2-0,3-1,3-2,3-3,4-2,4-1,4-0,4
+        isExtraPackLevel: 0

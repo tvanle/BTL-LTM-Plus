@@ -1,0 +1,242 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_es
+  m_EditorClassIdentifier:
+  language: es
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Halloween
+      category: Halloween
+      categoryLocalized: Halloween
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: sseuíptir
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - espíritus
+        swipes:
+        - 2,2-1,2-2,1-1,1-2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: oireestnacemobce
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - cementerio
+        - escoba
+        swipes:
+        - 0,2-1,2-1,1-0,0-1,0-0,1
+        - 2,0-3,0-3,1-2,1-3,2-2,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: aolgszabciaoalna
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - calabaza
+        - golosina
+        swipes:
+        - 3,2-3,1-2,1-1,1-0,0-1,0-2,0-3,0
+        - 0,1-0,0-1,0-2,1-3,2-2,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: mezviraeifolsdda
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - disfraz
+        - miedo
+        - vela
+        swipes:
+        - 3,3-3,2-3,1-3,0
+        - 0,1-0,0-1,0-2,0-2,1
+        - 1,0-0,1-0,0-1,1-1,2-2,2-2,3
+        isExtraPackLevel: 0
+      - board: tazrmennuoflolnaosesreput
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - espeluznante
+        - monstruo
+        - farol
+        swipes:
+        - 0,2-0,1-0,0-1,0-1,1
+        - 4,4-4,3-4,2-4,1-4,0-3,1-3,0-2,0
+        - 1,0-2,1-2,0-3,1-3,2-3,3-2,4-2,3-1,4-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: bogiaaelt
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - baile
+        - gato
+        swipes:
+        - 2,2-2,1-2,0-1,0
+        - 0,2-1,1-0,1-1,0-0,0
+        isExtraPackLevel: 0
+      - board: cmamalesrfoaaant
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - fantasma
+        - caramelo
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-2,1-1,0-2,0
+        - 1,1-1,0-2,0-3,0-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: bomaaiulmocdolár
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - drácula
+        - momia
+        - lobo
+        swipes:
+        - 1,0-0,0-0,1-1,1
+        - 2,0-1,1-0,1-1,2-0,2
+        - 3,1-3,0-2,0-2,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: atifseraaibmñaoz
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - zombi
+        - araña
+        - fiesta
+        swipes:
+        - 3,0-2,0-1,0-0,0-1,1-0,1
+        - 3,0-2,0-1,0-0,0-0,1
+        - 3,0-2,0-3,1-2,1-1,1
+        isExtraPackLevel: 0
+      - board: ptaaridolarilucuabáslenam
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - diablo
+        - piruleta
+        - máscara
+        - luna
+        swipes:
+        - 3,2-3,1-2,0-3,0
+        - 4,0-3,1-4,1-4,2-4,3-4,4-3,4
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-2,1
+        - 1,3-1,2-1,1-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: otsacuaps
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - susto
+        - capa
+        swipes:
+        - 1,1-0,0-1,0-0,1
+        - 2,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: aiúadáujpadrlatb
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - bruja
+        - ataúd
+        - lápida
+        swipes:
+        - 0,0-1,0-0,1-1,1-0,2-0,3
+        - 1,0-2,0-1,1-2,2-2,1
+        - 3,0-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: gonpalóocémcirui
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - murciélago
+        - poción
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        - 2,1-2,0-1,0-0,1-0,0-1,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: pototcasruarayto
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - truco
+        - trato
+        - payaso
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,1-3,0
+        - 2,0-3,1-2,2-2,3-3,3
+        - 0,2-0,1-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: calbbareoaloihñdnlaúearet
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - telaraña
+        - niebla
+        - caldero
+        - búho
+        swipes:
+        - 4,1-4,0-3,0-3,1
+        - 0,4-0,3-0,2-0,1-0,0-1,1-1,0
+        - 1,0-2,0-2,1-3,2-2,2-1,3
+        - 4,0-3,0-2,1-1,0-2,0-3,1-4,2-4,3
+        isExtraPackLevel: 0
+      - board: aüsrojloeiiaberurnmtgtasi
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - misterio
+        - sobrenatural
+        - güija
+        swipes:
+        - 0,0-1,0-0,1-0,2-0,3
+        - 2,4-2,3-2,2-3,1-3,0-2,1-2,0-1,0-0,1-1,1-1,2-1,3
+        - 3,1-4,0-3,0-4,1-3,2-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: ooeftegnskorcianrbaedanustejucarmbra
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - casa
+        - embrujada
+        - frankenstein
+        - octubre
+        - ogro
+        swipes:
+        - 1,1-0,0-1,0-0,1
+        - 4,0-5,0-4,1-5,1-5,2-5,3-5,4
+        - 3,2-4,1-5,0-4,0-3,1-2,1-3,0-2,0-1,1-1,2-1,3-1,4
+        - 2,1-2,0-3,0-4,0-4,1-3,1-3,2-2,2-2,3
+        - 0,3-0,2-0,1-0,0
+        isExtraPackLevel: 0

@@ -1,0 +1,292 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_de
+  m_EditorClassIdentifier:
+  language: de
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Easter
+      category: Easter
+      categoryLocalized: Ostern
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: tumhcubra
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - brauchtum
+        swipes:
+        - 0,0-1,0-2,0-2,1-1,1-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: ohfarpenulbrtfne
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - tulpen
+        - farbenfroh
+        swipes:
+        - 2,2-3,2-3,1-2,1-3,0-2,0-1,0-0,0-0,1-1,1
+        - 0,0-0,1-1,1-1,2-2,2-3,2
+        isExtraPackLevel: 0
+      - board: esngszifrirlnahü
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - frühling
+        - narzisse
+        swipes:
+        - 0,0-1,0-0,1-1,2-1,1-0,2-1,3-0,3
+        - 3,2-2,1-3,0-2,0-3,1-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: ktrvesseechentas
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - hase
+        - nest
+        - versteck
+        swipes:
+        - 3,1-3,0-2,1-2,0-1,0-0,0-1,1-0,1
+        - 0,0-0,1-1,2-1,3
+        - 2,1-2,0-3,0-3,1
+        isExtraPackLevel: 0
+      - board: cmrcehukahrtnwoieickstreh
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - christentum
+        - kirche
+        - karwoche
+        swipes:
+        - 4,0-3,1-2,0-3,0-4,1-3,2-4,2-4,3
+        - 2,2-2,1-2,0-3,1-4,0-3,0
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-2,2-1,2-1,3-1,4
+        isExtraPackLevel: 0
+      - board: neahüulbf
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - aufblühen
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-1,1-0,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: shnkolainerdnnst
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - sonnenstrahl
+        - kind
+        swipes:
+        - 3,2-3,1-2,0-3,0
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0-3,0-2,1-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: seaehnodcuslchok
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - suchen
+        - schokolade
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,0-2,1-3,1-2,2-3,2-3,3
+        - 2,1-1,1-0,1-0,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: leneakeimekrbüne
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - bemalen
+        - küken
+        - eier
+        swipes:
+        - 3,2-3,1-2,0-3,0
+        - 1,1-1,0-2,1-3,0-2,0
+        - 0,0-1,1-0,1-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: afuerseetftfreistzreoenei
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - osterfeuer
+        - fastenzeit
+        - feier
+        swipes:
+        - 4,2-4,1-4,0-3,0-3,1
+        - 1,2-0,1-0,0-1,1-1,0-2,0-2,1-3,2-4,2-3,3
+        - 0,0-0,1-0,2-1,3-2,2-1,2-2,3-2,4-3,4-4,4
+        isExtraPackLevel: 0
+      - board: rfkühcstü
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - frühstück
+        swipes:
+        - 1,2-0,2-0,1-1,1-0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: lzbeeulngöngvale
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - vögel
+        - lenz
+        - glauben
+        swipes:
+        - 3,0-2,0-1,0-1,1-2,1-3,2-3,1
+        - 2,0-3,0-2,1-1,2
+        - 0,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: nruleaßastgmtarm
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - garten
+        - lamm
+        - strauß
+        swipes:
+        - 0,1-0,0-1,1-1,0-2,1-2,0
+        - 3,3-3,2-3,1-3,0
+        - 2,1-1,0-2,0-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: notolerbmtersmas
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - sammeln
+        - osterbrot
+        swipes:
+        - 1,1-0,0-1,0-2,0-3,0-3,1-2,1-3,2-2,2
+        - 3,0-2,0-1,0-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: lhgbnaenuemngzmeduiubarkl
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - abendmahl
+        - kreuzigung
+        - blumen
+        swipes:
+        - 3,0-4,0-4,1-4,2-4,3-4,4
+        - 3,0-2,0-1,0-2,1-3,2-3,1-2,2-3,3-2,3-2,4
+        - 1,0-0,0-0,1-1,2-1,1-0,2-0,3-1,4-0,4
+        isExtraPackLevel: 0
+      - board: sitükeßig
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - süßigkeit
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: fzpnrtusüjhrhaeu
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - frühjahrsputz
+        - neu
+        swipes:
+        - 3,1-2,0-3,0
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,1-3,1-3,2-2,3-2,2-1,2-1,3
+        isExtraPackLevel: 0
+      - board: sesfbitaupeetnsn
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - fastenspeise
+        - bunt
+        swipes:
+        - 0,2-0,1-1,0-0,0
+        - 3,3-3,2-2,3-2,2-3,1-3,0-2,0-1,1-2,1-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: cetbkoollgsürete
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - osterglocke
+        - blüte
+        swipes:
+        - 3,3-3,2-3,1-2,0-3,0
+        - 2,2-2,1-2,0-1,0-0,0-1,1-0,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: guenehnfiketonhsrscrautes
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - osterschinken
+        - auferstehung
+        swipes:
+        - 0,0-1,0-2,0-2,1-1,1-0,1-1,2-0,2-0,3-1,4-1,3-0,4
+        - 2,2-2,1-2,0-3,0-4,1-4,0-3,1-4,2-3,3-3,2-4,3-4,4-3,4
+        isExtraPackLevel: 0
+      - board: iehtscnritnafoid
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - fisch
+        - traditionen
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,1-0,0-1,0-2,1-1,2-2,2
+        - 0,0-0,1-0,2-1,2-2,3
+        isExtraPackLevel: 0
+      - board: ehbfftnaulcratie
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - taufe
+        - licht
+        - farben
+        swipes:
+        - 3,3-3,2-3,1-2,1-3,0-2,0
+        - 1,0-2,0-2,1-1,2-1,1
+        - 1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: neärnepuhehihäceakztwmlcb
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - weihen
+        - palmkätzchen
+        - bräuche
+        swipes:
+        - 4,0-3,1-2,2-2,1-3,0-2,0-1,0
+        - 1,2-1,1-2,0-1,0-2,1-3,2-4,1-3,1-4,2-3,3-4,3-4,4
+        - 0,0-0,1-1,2-0,2-0,3-0,4
+        isExtraPackLevel: 0

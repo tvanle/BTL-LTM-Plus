@@ -1,0 +1,320 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_pt-br
+  m_EditorClassIdentifier:
+  language: pt
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Holidays
+      category: Holidays
+      categoryLocalized: Festas de fim de ano
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: upliarfaltmíenaa
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - natal
+        - família
+        - peru
+        swipes:
+        - 1,1-0,0-1,0-0,1
+        - 2,1-3,0-2,0-3,1-2,2-3,3-3,2
+        - 1,0-2,0-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: oãtrocçemoramenó
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - comemoração
+        - trenó
+        swipes:
+        - 2,1-3,2-3,1-2,0-3,0
+        - 1,2-0,2-0,1-1,0-0,0-1,1-2,1-3,1-2,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: teetbeenauesqnrp
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - presente
+        - banquete
+        swipes:
+        - 0,2-0,1-1,0-0,0-1,1-1,2-0,3-1,3
+        - 3,0-2,0-2,1-3,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: eaochndhiaparefm
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - champanhe
+        - feriado
+        swipes:
+        - 2,0-1,0-0,0-0,1-1,1-2,1-2,2
+        - 3,3-3,2-3,1-3,0-2,1-1,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: rooriebmhnzeiped
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - dezembro
+        - pinheiro
+        swipes:
+        - 1,0-0,0-1,1-0,1-1,2-0,2-0,3-1,3
+        - 3,0-2,0-2,1-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: ciaahldnarégmniu
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - guirlanda
+        - chaminé
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0
+        - 3,1-3,0-2,0-1,1-1,2-2,3-3,2-2,2-3,3
+        isExtraPackLevel: 0
+      - board: hnieovteiafnnere
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - enfeite
+        - rena
+        - vinho
+        swipes:
+        - 1,0-0,0-1,1-0,2-0,1
+        - 2,0-1,0-0,0-1,1
+        - 3,0-3,1-2,1-3,2-2,3-2,2-3,3
+        isExtraPackLevel: 0
+      - board: oponireipeslésno
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - presépio
+        - sino
+        - noel
+        swipes:
+        - 2,0-3,0-2,1-3,1
+        - 2,1-3,2-3,3-2,3
+        - 1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: eoabadirlgrieuqn
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - alegria
+        - brinquedo
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-0,0-1,1-1,2
+        - 0,2-0,1-0,0-1,1-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: rhbaatrinaieojlc
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - jantar
+        - brilho
+        - ceia
+        swipes:
+        - 3,0-3,1-3,2-3,3
+        - 2,3-2,2-2,1-2,0-1,0-0,0
+        - 1,0-1,1-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: ioennlottapeanna
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - natalino
+        - panetone
+        swipes:
+        - 2,1-3,0-2,0-3,1-3,2-2,2-3,3-2,3
+        - 1,0-0,0-0,1-1,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: ãocoçafnzrarinet
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - confraternização
+        swipes:
+        - 2,3-3,3-3,2-2,2-3,1-2,1-3,0-2,0-1,1-1,0-0,0-0,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: acmaloiseairvdfé
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - férias
+        - comida
+        - vela
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 1,3-1,2-2,1-2,0-1,0-1,1
+        - 2,0-3,0-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: hooçeliãmerdvrat
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - tradição
+        - vermelho
+        swipes:
+        - 0,0-1,1-1,0-0,1-0,2-1,2-0,3-1,3
+        - 3,0-2,1-2,0-3,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: etboioloeormnrvá
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - noite
+        - árvore
+        - lombo
+        swipes:
+        - 2,0-3,1-3,0-2,1-3,2
+        - 3,0-2,1-2,0-1,1-1,0-0,0
+        - 0,0-1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: alebarnrimciagod
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - magia
+        - coral
+        - brinde
+        swipes:
+        - 3,3-3,2-3,1-2,0-3,0-2,1
+        - 2,1-2,0-1,0-0,0-1,1
+        - 1,1-0,0-1,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: rtãormacoaisacmú
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - cartão
+        - amor
+        - música
+        swipes:
+        - 2,0-3,0-3,1-2,1-3,2-2,2
+        - 0,0-1,0-0,1-0,2
+        - 1,0-1,1-0,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: ovaoãréçipsaenul
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - união
+        - véspera
+        - laço
+        swipes:
+        - 3,0-3,1-3,2-3,3
+        - 1,2-2,1-2,0-1,0-0,0-1,1-2,2
+        - 2,0-1,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: dehodaulirrecamb
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - embrulho
+        - caridade
+        swipes:
+        - 0,0-1,0-1,1-0,1-0,2-1,2-0,3-1,3
+        - 3,1-2,0-3,0-2,1-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: nojatecnrmisenao
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - renascimento
+        - anjo
+        swipes:
+        - 3,2-3,1-2,0-3,0
+        - 0,1-0,0-1,0-2,0-3,1-2,2-2,1-1,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: fsohetnieavajrez
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - festejar
+        - azevinho
+        swipes:
+        - 3,1-3,0-2,0-2,1-3,2-2,2-3,3-2,3
+        - 0,3-0,2-1,3-1,2-0,1-0,0-1,1-1,0
+        isExtraPackLevel: 0
+      - board: uoaoarçãclodince
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - decoração
+        - nicolau
+        swipes:
+        - 1,0-0,0-0,1-1,2-1,1-0,2-0,3
+        - 3,1-3,0-2,0-2,1-1,2-2,3-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: hvdeiiadtnipasef
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - festividade
+        - pinha
+        swipes:
+        - 3,0-2,0-1,0-0,1-0,0
+        - 3,0-2,0-1,0-0,1-0,2-1,3-1,2-2,3-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: naadionamaaahrrb
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - harmonia
+        - rabanada
+        swipes:
+        - 2,0-3,1-3,0-2,1-2,2-3,2-3,3-2,3
+        - 0,0-1,1-1,0-0,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: saicmecoeoâtrbsn
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - sobremesa
+        - cântico
+        swipes:
+        - 2,1-2,0-3,0-3,1-2,2-3,3-3,2
+        - 2,0-1,1-1,0-0,0-0,1-0,2-1,2-0,3-1,3
+        isExtraPackLevel: 0

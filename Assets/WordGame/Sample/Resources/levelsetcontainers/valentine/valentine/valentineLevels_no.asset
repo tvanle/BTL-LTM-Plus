@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: valentineLevels_no
+  m_EditorClassIdentifier:
+  language: no
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Valentine's
+      category: Valentine's
+      categoryLocalized: Valentine's
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: edaolskoj
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - sjokolade
+        swipes:
+        - 2,1-2,0-1,0-0,0-0,1-1,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: frtvoinalotlveen
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - valentin
+        - forlovet
+        swipes:
+        - 0,3-0,2-1,2-0,1-1,1-0,0-1,0-2,0
+        - 3,3-3,2-3,1-2,0-3,0-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: klseeslrreveofga
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - forelskelse
+        - gaver
+        swipes:
+        - 2,0-3,0-2,1-3,1-3,2
+        - 1,0-0,0-0,1-1,1-2,2-1,2-0,3-0,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: kerktjaujeætrhærebgresfli
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - februar
+        - kjærlighet
+        - kjæreste
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-1,2
+        - 3,4-3,3-4,2-4,1-3,0-4,0-3,1-3,2-4,3-4,4
+        - 2,0-1,1-2,1-2,2-2,3-1,3-2,4
+        isExtraPackLevel: 0
+      - board: irsrcnevsegaetmrpalomemhb
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - blomster
+        - champagne
+        - svermeri
+        swipes:
+        - 2,2-2,1-2,0-1,1-0,0-1,0-0,1-0,2
+        - 4,0-3,0-2,1-2,0-1,1-1,2-0,2-0,3-1,3
+        - 4,0-3,1-4,1-4,2-3,3-3,2-4,3-3,4
+        isExtraPackLevel: 0
+      - board: skriaotnm
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - romantisk
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: adoltedrfrreohso
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - roser
+        - forhold
+        - date
+        swipes:
+        - 1,1-0,1-0,0-1,0
+        - 0,1-0,0-1,1-1,0-2,1-3,0-2,0
+        - 2,1-3,0-2,0-3,1-3,2
+        isExtraPackLevel: 0
+      - board: kftiorrtriuetekb
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - bukett
+        - frieri
+        - kort
+        swipes:
+        - 0,3-0,2-0,1-0,0
+        - 1,3-1,2-1,1-1,0-2,0-3,0
+        - 3,0-2,1-2,0-3,1-3,2-2,3
+        isExtraPackLevel: 0
+      - board: ketkrnreettroframeøfplnkl
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - partner
+        - klem
+        - flørter
+        - konfekt
+        swipes:
+        - 3,0-2,1-2,0-3,1-2,2-3,2-2,3
+        - 4,1-4,0-3,1-4,2-4,3-3,3-4,4
+        - 0,0-1,0-2,1-1,1
+        - 0,0-0,1-1,2-0,2-0,3-1,4-1,3
+        isExtraPackLevel: 0
+      - board: reksnapkjotaiekntmofkerfa
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - romantikk
+        - ektepar
+        - affeksjon
+        swipes:
+        - 4,0-3,0-4,1-3,1-4,2-3,3-3,2-4,3-4,4
+        - 1,0-0,0-0,1-1,2-1,1-0,2-0,3
+        - 2,0-3,1-2,1-1,2-0,1-1,1-2,2-2,3-2,4
+        isExtraPackLevel: 0
+      - board: notsjrida
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - tradisjon
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-0,1-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: rgaaeddisarmtutn
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - middag
+        - restaurant
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,1-3,1-3,0-2,0
+        - 3,1-3,2-2,2-1,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: gnerilmtbkssloel
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - elskling
+        - blomster
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,0-3,1-2,1-3,2
+        - 2,0-3,0-2,1-1,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ssabsenaeyomksmr
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - romanse
+        - kyss
+        - bamse
+        swipes:
+        - 3,0-2,1-2,0-1,0-0,0
+        - 0,0-1,1-0,2-0,3
+        - 3,0-2,1-3,1-3,2-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: seteetthleeøjftvmerlneeke
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - hjerte
+        - ektefelle
+        - stevnemøte
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3-1,4
+        - 4,0-3,0-2,1-2,0-3,1-4,2-4,1-3,2-3,3
+        - 2,3-2,2-2,1-3,1-4,2-4,3
+        isExtraPackLevel: 0
+      - board: pedirangreklidlmmeunsehbe
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - hemmelig
+        - beundrer
+        - lidenskap
+        swipes:
+        - 4,0-3,0-2,0-1,1-1,0-0,0-0,1-0,2-0,3
+        - 3,0-4,0-3,1-4,1-3,2-3,3-4,3-4,4
+        - 2,0-1,0-0,1-1,1-2,1-1,2-2,2-2,3
+        isExtraPackLevel: 0
+      - board: lekoeotesrtpeavkehshmgenroivnpresehm
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - hengivenhet
+        - oppmerksomhet
+        - overraskelse
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1-1,1-2,1-2,2-1,3-0,3-0,2-1,2
+        - 5,3-5,2-5,1-5,0-4,0-3,1-3,0-2,0-1,1-2,1-1,2-0,3-0,4
+        - 4,0-3,0-4,1-3,2-2,1-3,1-4,2-5,2-5,3-4,3-4,4
+        isExtraPackLevel: 0

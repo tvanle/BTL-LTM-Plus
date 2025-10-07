@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_pt-br
+  m_EditorClassIdentifier:
+  language: pt-br
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Fall
+      category: Fall
+      categoryLocalized: Época das folhas
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: aoathureltamfrep
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - temperatura
+        - folha
+        swipes:
+        - 0,0-1,0-0,1-0,2-0,3
+        - 3,3-3,2-3,1-3,0-2,0-1,0-2,1-1,1-1,2-2,2-2,3
+        isExtraPackLevel: 0
+      - board: adrálaerhofvdeso
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - desfolhada
+        - árvore
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0
+        - 0,0-1,0-2,0-2,1-1,1-0,2-0,1-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: aaoibócórbenoqui
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - equinócio
+        - abóbora
+        swipes:
+        - 0,3-0,2-1,1-1,0-0,0-0,1-1,2
+        - 2,1-1,0-2,0-3,0-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: liamoaoacnldmeru
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - melancolia
+        - maduro
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        - 0,0-1,0-2,1-1,2-1,1-0,1-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: sleaahomcntaasar
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - castanhas
+        - amarelo
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-1,0-2,0
+        - 0,1-0,0-1,0-2,1-2,0-1,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: jalanamlaaborcra
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - carambola
+        - laranja
+        swipes:
+        - 2,1-3,0-2,0-1,0-0,0-0,1-1,1
+        - 1,0-0,1-0,0-1,1-2,2-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: foatmihiarelçãoc
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - colheita
+        - maçã
+        - frio
+        swipes:
+        - 0,0-1,0-1,1-1,2
+        - 0,2-0,1-0,0-1,0
+        - 3,0-2,0-3,1-2,2-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: noeoçãriearmvogi
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - migração
+        - nevoeiro
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-3,0-2,0-3,1
+        - 3,1-3,0-2,0-2,1-1,1-0,2-1,2-1,3
+        isExtraPackLevel: 0
+      - board: ialsresopnagaiir
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - girassol
+        - paineira
+        swipes:
+        - 0,1-0,0-1,0-1,1-1,2-0,3-0,2-1,3
+        - 3,1-2,0-3,0-2,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: aenorimtaresuqve
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - quaresmeira
+        - vento
+        swipes:
+        - 2,0-3,0-2,1-3,1-3,2
+        - 1,0-0,0-0,1-1,1-2,1-3,1-2,2-1,3-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: vaioonncgateeifs
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - seco
+        - figo
+        - ventania
+        swipes:
+        - 0,1-0,0-1,1-2,0-1,0-2,1-2,2-1,2
+        - 2,0-1,0-0,1-0,2
+        - 3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0

@@ -1,0 +1,241 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_en
+  m_EditorClassIdentifier:
+  language: en
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Back to School
+      category: Back to School
+      categoryLocalized: Back to School
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: cmolroass
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - classroom
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,2-2,1-1,2
+        isExtraPackLevel: 0
+      - board: hrstsietnlesgeul
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - english
+        - rules
+        - test
+        swipes:
+        - 3,0-2,0-2,1-3,1
+        - 1,0-2,0-3,0-2,1-3,1
+        - 1,0-0,1-0,0-1,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: yiyarbrritecslmh
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - library
+        - chemistry
+        swipes:
+        - 3,1-3,0-2,1-2,0-1,1-0,0-1,0-0,1-0,2
+        - 1,0-0,1-1,2-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: ormpfparinliuicn
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - uniform
+        - principal
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-1,1-2,2-2,1
+        - 0,0-1,1-0,1-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: eneanrhxmecoiaeainntettca
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - teacher
+        - canteen
+        - examination
+        swipes:
+        - 2,4-2,3-3,2-3,1-2,2-2,1-3,0-2,0-1,0-1,1-1,2
+        - 3,0-4,0-3,1-4,1-4,2-4,3-4,4
+        - 1,0-0,0-0,1-0,2-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: lemuitnch
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - lunchtime
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-2,1-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: tsonrodsplsksese
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - sports
+        - lesson
+        - desk
+        swipes:
+        - 2,1-3,0-2,0-3,1
+        - 1,1-1,0-2,1-3,2-2,3-3,3
+        - 0,0-0,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: lkdpornlcouaergy
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - playground
+        - locker
+        swipes:
+        - 0,3-0,2-0,1-1,1-0,0-1,0
+        - 3,3-3,2-3,1-3,0-2,0-1,0-1,1-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: plrdecaontebiihw
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - whiteboard
+        - pencil
+        swipes:
+        - 0,3-0,2-0,1-1,0-0,0-1,1
+        - 3,0-2,0-1,0-1,1-2,1-3,1-3,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: anygomoiegatcrarahpsdrtbu
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - subtraction
+        - drama
+        - geography
+        swipes:
+        - 3,3-3,2-4,2-4,1-3,1-4,0-3,0-2,0-2,1
+        - 0,0-0,1-0,2-0,3-0,4
+        - 4,1-4,0-3,0-2,0-1,0-1,1-2,2-1,2-2,3-1,3-1,4
+        isExtraPackLevel: 0
+      - board: lseagunga
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - languages
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-2,0-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: graserembgydlaag
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - algebra
+        - grades
+        - gym
+        swipes:
+        - 3,0-2,0-3,1
+        - 0,0-1,0-2,0-3,1-2,2-3,3
+        - 1,0-0,0-1,1-0,2-0,1-1,2-2,3
+        isExtraPackLevel: 0
+      - board: strkneowudhestmo
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - homework
+        - students
+        swipes:
+        - 0,0-1,0-0,1-1,1-1,2-0,2-1,3-0,3
+        - 2,1-3,0-2,0-3,1-3,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: erasneceprlsshas
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - classes
+        - sharpener
+        swipes:
+        - 0,0-1,0-2,0-1,1-0,1-1,2-0,2-0,3-1,3
+        - 2,2-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: eianyndedrcehioypitsclorf
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - encyclopedia
+        - history
+        - friend
+        swipes:
+        - 4,0-3,0-2,0-2,1-3,2-3,1
+        - 2,1-3,2-4,1-3,1-4,2-4,3-4,4
+        - 0,4-0,3-0,2-0,1-0,0-1,0-2,0-1,1-1,2-1,3-1,4-2,4
+        isExtraPackLevel: 0
+      - board: etnoiuaetaedgerboeciclrkn
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - recreation
+        - globe
+        - educate
+        - ink
+        swipes:
+        - 4,1-4,0-3,0
+        - 2,0-1,0-0,1-0,0-1,1-1,2-0,2
+        - 2,0-1,0-1,1-0,1-0,2
+        - 2,0-2,1-3,1-4,2-3,2-4,3-3,3-4,4-3,4-2,4
+        isExtraPackLevel: 0
+      - board: guyvlnstiiointcciaerurrae
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - creativity
+        - learning
+        - curious
+        swipes:
+        - 0,1-0,0-1,0-1,1-0,2-1,3-1,2
+        - 4,1-4,0-3,0-2,0-2,1-1,2-0,3-0,4
+        - 4,2-4,1-3,1-2,1-3,2-4,3-3,4-3,3-2,3-2,4
+        isExtraPackLevel: 0
+      - board: ysctaogaitscmmpliishboehy
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - physics
+        - mathematics
+        - biology
+        swipes:
+        - 0,0-1,1-1,0-0,1-0,2-1,2-0,3
+        - 3,1-4,1-4,0-3,0-2,0-2,1-2,2-3,3-3,2-2,3-1,3
+        - 4,2-4,1-4,0-3,1-2,1-1,2-0,2
+        isExtraPackLevel: 0

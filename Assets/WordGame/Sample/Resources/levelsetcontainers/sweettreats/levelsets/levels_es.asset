@@ -1,0 +1,219 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_es
+  m_EditorClassIdentifier:
+  language: es
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Sweet Treats
+      category: Sweet Treats
+      categoryLocalized: Caprichos dulces
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: ntarafalt
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - tarta
+        - flan
+        swipes:
+        - 2,0-1,0-0,0-0,1
+        - 2,0-1,1-0,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: loagemnoacilraso
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - golosina
+        - caramelo
+        swipes:
+        - 1,1-1,0-0,0-0,1-1,2-0,2-0,3-1,3
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: iplarulielintaav
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - piruleta
+        - vainilla
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2-2,2-2,3-3,3
+        - 1,3-0,3-0,2-1,2-1,1-0,1-0,0-1,0
+        isExtraPackLevel: 0
+      - board: bnaneictótzoaabcghlmoalbo
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - bombón
+        - galleta
+        - bizcocho
+        - nata
+        swipes:
+        - 1,0-2,0-2,1-2,2
+        - 0,4-0,3-0,2-0,1-0,0-1,1-2,0-1,0
+        - 1,1-1,0-2,0-3,0-4,1-4,0-3,1
+        - 3,0-4,0-4,1-4,2-3,3-3,4
+        isExtraPackLevel: 0
+      - board: enamldaga
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - magdalena
+        swipes:
+        - 0,1-0,0-1,0-2,1-2,0-1,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: coorhcfaoeljlata
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - chocolate
+        - alfajor
+        swipes:
+        - 3,0-2,0-2,1-3,2-3,1-2,2-3,3
+        - 0,3-0,2-1,3-1,2-0,1-0,0-1,0-2,0-1,1
+        isExtraPackLevel: 0
+      - board: noroóctrcrcrouhu
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - churro
+        - turrón
+        - coco
+        swipes:
+        - 0,1-0,0-1,0-1,1
+        - 2,0-1,0-2,1-1,1-0,2-0,3
+        - 2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: laeugongonmeimre
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - merengue
+        - gominola
+        swipes:
+        - 0,2-0,1-1,0-0,0-1,1-1,2-0,3-1,3
+        - 2,1-3,0-2,0-3,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: rdzuñacúónoadaltleogunóbu
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - algodón
+        - azúcar
+        - buñuelo
+        - dónut
+        swipes:
+        - 1,1-2,0-1,0-0,0-0,1
+        - 3,0-4,0-4,1-3,1-2,1-1,1-0,2
+        - 1,2-2,3-2,2-1,3-0,3-0,4
+        - 3,2-4,2-4,1-3,1-2,2-3,3-4,3
+        isExtraPackLevel: 0
+      - board: madelarme
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - mermelada
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: paoateldhnidasup
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - helado
+        - pudin
+        - pasta
+        swipes:
+        - 0,2-1,1-1,0-0,1-0,0
+        - 3,0-2,0-3,1-2,1-1,1
+        - 0,1-1,2-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: olcnlusábiqrarau
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - barquillo
+        - cruasán
+        swipes:
+        - 2,2-3,1-3,0-2,0-2,1-3,2-3,3
+        - 0,1-0,0-1,0-2,1-1,2-1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: areactultorpsmlecaolobber
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - cobertura
+        - pastel
+        - bollo
+        - crema
+        swipes:
+        - 4,1-4,0-3,0-3,1-3,2
+        - 2,0-3,1-4,1-4,2-4,3
+        - 1,0-2,1-2,2-3,3-2,4-2,3
+        - 1,1-0,0-1,0-0,1-0,2-0,3-1,3-1,4-0,4
+        isExtraPackLevel: 0
+      - board: erenubsaf
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - nube
+        - fresa
+        swipes:
+        - 2,0-1,1-0,1-0,0-1,0
+        - 0,1-1,1-2,1-2,2
+        isExtraPackLevel: 0
+      - board: attaetlelarbatta
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - tableta
+        - tartaleta
+        swipes:
+        - 1,2-1,1-2,0-1,0-0,0-0,1-0,2-1,3-0,3
+        - 2,0-3,0-3,1-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: eoanrtadcpspguio
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - postre
+        - guinda
+        - copa
+        swipes:
+        - 0,0-1,1-1,0-2,0
+        - 0,0-1,0-2,0-3,1-3,0-2,1
+        - 3,1-3,0-2,1-1,2-0,2-0,3
+        isExtraPackLevel: 0

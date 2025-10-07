@@ -1,0 +1,302 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_de
+  m_EditorClassIdentifier:
+  language: de
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Jungle
+      category: Jungle
+      categoryLocalized: Dschungel
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: redeglnwa
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - regenwald
+        swipes:
+        - 0,2-1,2-1,1-0,1-0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: wlnlaleisafasern
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - wasserfall
+        - lianen
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        - 0,3-0,2-0,1-0,0-1,0-2,0-2,1-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: reakanrindmekaüs
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - südamerika
+        - ranken
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0
+        - 3,0-2,0-1,1-1,0-2,1-3,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: rkpaaliohribirndokiakrola
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - krokodil
+        - kolibri
+        - piranha
+        - ara
+        swipes:
+        - 4,0-4,1-4,2
+        - 2,0-3,0-3,1-4,1-4,2-3,2-3,3
+        - 1,2-2,1-3,0-2,0-1,0-0,0-1,1
+        - 0,0-1,0-2,0-2,1-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: tnrirfgea
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - farn
+        - tiger
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0
+        - 2,1-2,0-1,1-1,2
+        isExtraPackLevel: 0
+      - board: htreciitkdulicfa
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - faultier
+        - dickicht
+        swipes:
+        - 1,1-0,0-1,0-0,1-1,2-0,2-0,3-1,3
+        - 2,0-3,0-2,1-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: neeisapnchimskts
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - schimpanse
+        - insekt
+        swipes:
+        - 3,2-3,1-3,0-2,1-1,0-2,0
+        - 0,0-0,1-1,1-2,1-3,1-2,2-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: cnhcihodglahrinmecndäluru
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - undurchdringlich
+        - chamäleon
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        - 2,0-3,1-4,1-4,0-3,0-2,1-1,2-2,3-2,2-3,2-4,2-3,3-4,3-4,4-3,4-2,4
+        isExtraPackLevel: 0
+      - board: nveaiügorgekunlrwtrarbapm
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - mangrove
+        - tapir
+        - laubwerk
+        - grün
+        swipes:
+        - 1,0-0,0-0,1-0,2
+        - 4,0-3,0-2,0-1,0-1,1-0,2-0,1-1,2
+        - 2,1-2,0-3,0-4,1-3,1
+        - 4,0-4,1-3,2-4,3-3,3-2,3-1,4-2,4
+        isExtraPackLevel: 0
+      - board: faügepfip
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - üppig
+        - affe
+        swipes:
+        - 1,1-0,1-0,0-1,0
+        - 2,2-2,1-2,0-1,0-0,1
+        isExtraPackLevel: 0
+      - board: ilaykenaagpamaup
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - papaya
+        - leguan
+        - maki
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 1,3-1,2-1,1-2,0-1,0-2,1
+        - 3,0-3,1-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: faonlozarafmanua
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - amazon
+        - fauna
+        - flora
+        swipes:
+        - 0,2-0,1-1,0-0,0-1,1
+        - 2,1-1,1-2,0-1,0-0,0
+        - 3,0-3,1-3,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: raeünembhcweplur
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - überwuchern
+        - palme
+        swipes:
+        - 0,0-1,1-1,0-2,0-2,1
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,1-0,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: gioreanapagupnat
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - papagei
+        - orangutan
+        swipes:
+        - 2,3-3,3-3,2-2,2-2,1-3,1-3,0-2,0-1,0
+        - 0,0-1,1-0,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: rntuwoudrfutmceaqohunäsla
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - äquator
+        - monsun
+        - feucht
+        - urwald
+        swipes:
+        - 3,2-3,1-4,1-4,0-3,0-2,0
+        - 4,3-4,2-4,1-3,2-3,1-2,1
+        - 2,2-2,1-1,1-2,0-1,0-0,0
+        - 1,0-1,1-0,2-0,1-1,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: erhmfnokrpbcamulädauttesb
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - sumpf
+        - baumkrone
+        - blätterdach
+        swipes:
+        - 0,2-0,1-1,1-0,0-1,0-2,0-3,0-2,1-2,2-1,2-2,3
+        - 4,0-3,0-4,1-3,2-2,3-1,4-1,3-0,3-0,4
+        - 3,0-4,1-3,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: neteanlef
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - elefanten
+        swipes:
+        - 0,1-0,0-1,0-2,0-1,1-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: tcklehuugeffecot
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - luftfeuchte
+        - gecko
+        swipes:
+        - 0,1-0,0-1,0-2,1-2,0
+        - 3,3-3,2-3,1-3,0-2,1-1,1-2,2-1,3-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: rbenamauuaugjgal
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - lagune
+        - jaguar
+        - baum
+        swipes:
+        - 1,1-2,1-2,0-1,0
+        - 0,0-1,1-1,0-0,1-0,2-0,3
+        - 3,0-2,0-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: usssknniosdwokil
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - kokosnuss
+        - wildnis
+        swipes:
+        - 3,1-2,0-3,0-2,1-2,2-3,2-3,3
+        - 0,2-0,1-1,0-0,0-1,1-1,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: raseabcgcyhnapla
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - schlange
+        - capybara
+        swipes:
+        - 0,1-0,0-1,0-1,1-1,2-0,2-0,3-1,3
+        - 2,3-2,2-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: vezonelahpghotnurtionteyt
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - unterholz
+        - vegetation
+        - python
+        swipes:
+        - 4,1-3,0-4,0-3,1-3,2-4,2
+        - 0,2-0,1-0,0-1,0-2,0-2,1-3,2-3,1-4,1-4,2
+        - 0,1-0,0-1,0-2,0-1,1-1,2-2,2-1,3-2,4
+        isExtraPackLevel: 0
+      - board: atnrnslflpenciesiivervllneaogekütreb
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - artenvielfalt
+        - vogelspinne
+        - silberrücken
+        swipes:
+        - 5,3-5,2-5,1-5,0-4,0-3,0-2,0-1,0-0,1-0,0-1,1-2,1
+        - 3,1-3,0-4,1-5,1-4,2-3,2-3,3-4,3-5,4-4,5-4,4
+        - 2,1-3,0-2,0-1,1-0,1-0,2-1,3-2,3-2,4-1,4-0,5-0,4-1,5
+        isExtraPackLevel: 0

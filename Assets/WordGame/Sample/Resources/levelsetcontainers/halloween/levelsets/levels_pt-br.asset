@@ -1,0 +1,240 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_pt-br
+  m_EditorClassIdentifier:
+  language: pt
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Halloween
+      category: Halloween
+      categoryLocalized: Halloween
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: eiaefttsa
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - teia
+        - festa
+        swipes:
+        - 1,1-0,0-1,0-2,1-2,0
+        - 0,0-0,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: acarruaitsevosog
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - gostosura
+        - caveira
+        swipes:
+        - 1,0-2,1-3,0-2,0-3,1-3,2-2,2
+        - 3,0-2,0-1,0-0,1-0,0-1,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: lbmaoiorsmbaoeób
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - abóbora
+        - lobisomem
+        swipes:
+        - 0,3-0,2-1,3-1,2-0,1-0,0-1,1-1,0-2,0
+        - 3,1-3,0-2,0-2,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: raatussrhaeanarv
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - travessura
+        - aranha
+        swipes:
+        - 2,1-2,0-1,0-0,0-0,1-1,1
+        - 3,3-3,2-3,1-3,0-2,1-2,2-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: lraoraenimnstéttqeeoeulsi
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - esqueleto
+        - lanterna
+        - mistério
+        swipes:
+        - 4,1-4,0-3,0-2,0-3,1-4,2-3,2-3,3
+        - 0,4-0,3-0,2-0,1-0,0-1,0-2,1-2,2
+        - 1,3-1,2-1,1-1,0-2,1-2,0-3,1-4,2-4,1
+        isExtraPackLevel: 0
+      - board: ateloievn
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - noite
+        - vela
+        swipes:
+        - 1,0-0,0-0,1-0,2
+        - 2,0-1,1-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: moaoorçãrocecegd
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - decoração
+        - morcego
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1
+        - 3,0-3,1-2,1-1,1-1,2-2,3-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: iudebmaluzmbtipá
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - zumbi
+        - tumba
+        - lápide
+        swipes:
+        - 3,1-3,0-2,0-1,0-2,1-3,2
+        - 0,0-1,1-2,1-3,1-2,2
+        - 1,1-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: aiamaststaanfnaf
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - fantasma
+        - fantasia
+        swipes:
+        - 0,0-1,1-1,0-0,1-0,2-1,2-1,3-0,3
+        - 3,0-2,0-3,1-2,2-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: orvorubasotashrursorouoso
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - outubro
+        - vassoura
+        - horror
+        - osso
+        swipes:
+        - 4,0-3,0-3,1-3,2
+        - 3,2-3,1-4,1-4,2-4,3-4,4
+        - 2,4-2,3-2,2-2,1-2,0-1,0-1,1-1,2
+        - 0,0-0,1-0,2-0,3-1,3-1,4-0,4
+        isExtraPackLevel: 0
+      - board: oxadrbmeu
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - medo
+        - bruxa
+        swipes:
+        - 2,1-1,0-2,0-1,1-2,2
+        - 0,0-1,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: amotmúcsoisuãxia
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - susto
+        - caixão
+        - múmia
+        swipes:
+        - 1,2-1,1-0,0-1,0-0,1
+        - 2,1-3,0-2,0-1,0-0,0-0,1
+        - 2,1-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: oçioittrieéifcem
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - cemitério
+        - feitiço
+        swipes:
+        - 0,0-1,0-0,1-1,1-0,2-1,2-0,3
+        - 1,0-2,0-3,0-3,1-2,2-2,1-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: odrtarreabmrssoo
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - assombrado
+        - terror
+        swipes:
+        - 3,3-3,2-3,1-2,1-3,0-2,0
+        - 0,1-0,0-1,0-2,0-2,1-1,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: arouabarclcoivdsápmamolrá
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - máscara
+        - vampiro
+        - drácula
+        - lobo
+        swipes:
+        - 2,0-1,0-0,0-1,1
+        - 4,1-3,0-4,0-3,1-3,2-4,2-4,3
+        - 3,2-4,1-3,1-2,1-2,2-2,3-2,4
+        - 0,0-1,1-0,1-0,2-1,3-1,4-0,4
+        isExtraPackLevel: 0
+      - board: ecgtacnrroéoietdooprvaujo
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - doce
+        - preto
+        - névoa
+        - coruja
+        - grito
+        swipes:
+        - 2,2-2,1-2,0-3,0-4,0
+        - 1,0-2,1-3,1-2,0-3,0-4,1
+        - 1,2-0,1-0,0-1,1-1,0
+        - 3,1-4,1-3,2-4,2-4,3
+        - 0,1-1,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: alorãourçãeiatirlrrnmaadeppotcusaons
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - supernatural
+        - aparição
+        - monstro
+        - caldeirão
+        swipes:
+        - 5,0-4,0-4,1-5,1-4,2-5,3-5,2-4,3-5,4
+        - 2,0-3,0-4,0-5,0-4,1-3,2-3,1
+        - 2,0-2,1-3,2-3,3-2,3-2,4-3,4-2,5
+        - 1,0-0,0-1,1-0,1-0,2-1,2-0,3-1,3-0,4-1,4-0,5-1,5
+        isExtraPackLevel: 0

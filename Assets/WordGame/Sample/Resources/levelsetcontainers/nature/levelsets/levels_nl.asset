@@ -1,0 +1,268 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nl
+  m_EditorClassIdentifier:
+  language: nl
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Nature
+      category: Nature
+      categoryLocalized: Natuur
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: inglnwdea
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - wandeling
+        swipes:
+        - 2,1-2,0-1,1-0,0-1,0-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: vrebekjlrimoreke
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - verrekijker
+        - bloem
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1-2,2-1,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: pdhtaicsrujiaitz
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - uitzicht
+        - paradijs
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0-3,0
+        - 1,1-1,0-2,0-3,0-3,1-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: neadiemplorkbgni
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - bloeien
+        - dampkring
+        swipes:
+        - 3,3-2,3-2,2-3,2-3,1-2,1-3,0-2,0-1,0
+        - 0,0-0,1-1,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: rdnoesonrhcaiuut
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - natuurschoon
+        - dier
+        swipes:
+        - 1,0-0,0-0,1-0,2
+        - 3,2-3,1-3,0-2,0-1,0-0,1-1,2-2,1-1,1-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: senetjetrkniuige
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - genieten
+        - struikje
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        - 2,0-3,0-2,1-3,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: ptnteiesroauglnr
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - groeien
+        - plant
+        - rust
+        swipes:
+        - 3,0-3,1-3,2-3,3
+        - 0,0-1,0-2,1-2,0-1,1
+        - 0,0-0,1-1,1-0,2-1,2-2,2-2,3
+        isExtraPackLevel: 0
+      - board: uoisdwnrredeoliw
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - wildernis
+        - oerwoud
+        swipes:
+        - 0,0-1,0-0,1-1,1-1,2-0,3-0,2
+        - 3,0-2,0-1,0-2,1-3,1-3,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: ngsbiaomwvegreto
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - omgeving
+        - water
+        - bos
+        swipes:
+        - 3,1-3,0-2,0
+        - 0,1-1,1-2,0-1,0-0,0
+        - 2,2-3,2-3,1-2,1-1,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: znihojctnnhceslu
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - lucht
+        - zonneschijn
+        swipes:
+        - 0,3-0,2-0,1-1,1-0,0-1,0-2,0-3,0-2,1-1,2-1,3
+        - 2,0-3,0-3,1-2,1-3,2
+        isExtraPackLevel: 0
+      - board: irnugeetininiivnstbuecest
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - bestuiving
+        - tuinieren
+        - insect
+        swipes:
+        - 0,2-0,1-1,1-0,0-1,0-2,0
+        - 2,0-3,0-2,1-1,2-0,2-0,3-1,4-1,3-2,3
+        - 3,1-2,0-3,0-4,0-4,1-3,2-4,2-3,3-4,3-4,4
+        isExtraPackLevel: 0
+      - board: aplchasdn
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - landschap
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-0,1-1,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: njpabiameenavlor
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - panorama
+        - bij
+        - leven
+        swipes:
+        - 1,0-0,1-0,0-1,1-0,2
+        - 0,2-1,2-1,3
+        - 2,3-2,2-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: jediugbengellfee
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - leefgebied
+        - jungle
+        swipes:
+        - 0,3-0,2-0,1-1,0-0,0-1,1
+        - 3,1-3,0-2,0-1,0-1,1-2,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: aniectuthrlsetti
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - achtertuin
+        - stilte
+        swipes:
+        - 3,1-2,0-3,0-2,1-3,2-3,3
+        - 0,3-0,2-0,1-1,0-0,0-1,1-1,2-2,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: gtemriertehfsgjcaoslrpaet
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - gletsjer
+        - atmosfeer
+        - prachtig
+        swipes:
+        - 1,0-0,0-1,1-0,1-0,2-1,2-0,3-0,4
+        - 2,0-3,0-3,1-2,1-2,2-1,2-1,3-2,4-2,3
+        - 3,2-4,1-3,0-4,0-3,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: edaidalwr
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - aarde
+        - wild
+        swipes:
+        - 1,0-0,1-0,0-1,1
+        - 2,2-2,1-2,0-1,1-0,2
+        isExtraPackLevel: 0
+      - board: itbieiiestiorevd
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - biodiversiteit
+        - ei
+        swipes:
+        - 3,0-3,1
+        - 2,3-2,2-3,1-3,0-2,1-2,0-1,0-0,0-0,1-1,2-1,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: bseeaemclstonays
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - ecosysteem
+        - balans
+        swipes:
+        - 0,3-0,2-0,1-1,0-0,0-1,1
+        - 3,3-3,2-3,1-3,0-2,0-1,1-2,1-1,2-2,3-2,2
+        isExtraPackLevel: 0
+      - board: loonteresdpgenda
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - paddenstoel
+        - groen
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2
+        - 2,1-3,0-2,0-1,1-0,0-1,0-0,1-0,2-1,3-1,2-0,3
+        isExtraPackLevel: 0
+      - board: imrsegndirrufcbuaoeentroh
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - natuur
+        - roofdier
+        - bescherming
+        swipes:
+        - 4,2-4,1-3,2-3,1-4,0-3,0-2,0-1,1-0,1-1,0-0,0
+        - 2,0-3,0-2,1-2,2-2,3-3,3-4,4-4,3
+        - 0,0-1,1-1,0-0,1-1,2-0,2
+        isExtraPackLevel: 0

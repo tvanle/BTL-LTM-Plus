@@ -1,0 +1,326 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_es
+  m_EditorClassIdentifier:
+  language: es
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Summer
+      category: Summer
+      categoryLocalized: Verano
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: bdrlaolañsibaomr
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - sombrilla
+        - bañador
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0
+        - 1,1-1,0-2,0-3,1-3,0-2,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: tlryoaocaplallaa
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - calor
+        - playa
+        - toalla
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0
+        - 1,1-1,0-2,0-3,1-3,0
+        - 3,2-3,1-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: aradannaolmoesli
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - sol
+        - arena
+        - limonada
+        swipes:
+        - 2,0-3,0-2,1-3,1-2,2-3,2-3,3-2,3
+        - 0,2-1,1-0,0-1,0-0,1
+        - 1,0-0,1-1,1
+        isExtraPackLevel: 0
+      - board: oeorrscaflmhreei
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - refresco
+        - hielo
+        - mar
+        swipes:
+        - 2,0-3,0-3,1
+        - 3,1-3,0-2,0-1,0-0,0
+        - 0,0-1,0-0,1-0,2-1,3-1,2-2,2-2,3
+        isExtraPackLevel: 0
+      - board: tcospltaeaofasag
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - gafas
+        - pelota
+        - costa
+        swipes:
+        - 1,1-2,0-1,0-0,1-0,0
+        - 0,2-0,1-1,2-2,2-2,1-1,1
+        - 3,0-2,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: nspidacssainaila
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - sandalias
+        - piscina
+        swipes:
+        - 2,2-3,3-3,2-2,1-2,0-3,1-3,0
+        - 1,3-1,2-0,3-0,2-1,1-2,0-1,0-0,0-0,1
+        isExtraPackLevel: 0
+      - board: dlorbrdaonceoaeh
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - bronceador
+        - helado
+        swipes:
+        - 3,0-2,0-1,1-1,0-0,1-0,0
+        - 0,2-1,2-0,1-1,1-2,1-3,1-3,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: lfasotcladcnorah
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - chanclas
+        - flotador
+        swipes:
+        - 1,3-0,3-0,2-1,2-0,1-1,1-0,0-1,0
+        - 2,1-3,0-2,0-3,1-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: bnseiivnkaocicai
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - vacaciones
+        - bikini
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0
+        - 2,2-1,1-1,0-2,0-3,1-3,0-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: aatphonelcloleac
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - colchoneta
+        - paella
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1-0,2
+        - 3,0-3,1-2,1-1,1-0,2-1,2-2,2-3,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: riviacjadenpancí
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - nadar
+        - pícnic
+        - viaje
+        swipes:
+        - 2,1-3,1-3,0-2,0-1,0
+        - 3,1-3,0-2,0-2,1-1,2-1,1
+        - 1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: taioestuiasqcmom
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - camiseta
+        - mosquito
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2-2,3-2,2-3,3
+        - 0,0-1,1-1,0-0,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: pauafrsíresduqna
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - sandía
+        - surf
+        - parque
+        swipes:
+        - 0,2-1,2-0,1-1,0-0,0-1,1
+        - 2,0-2,1-1,2-0,2
+        - 2,1-3,0-2,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: poenoraótiellmls
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - melón
+        - salitre
+        - polo
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 3,0-2,1-2,0-1,0-0,1-1,1-2,2
+        - 1,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: esaoaractsbaotbr
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - tostarse
+        - barbacoa
+        swipes:
+        - 2,0-3,1-3,0-2,1-2,2-3,2-3,3-2,3
+        - 1,0-0,0-1,1-0,1-0,2-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: otbaihhícuiagnir
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - chiringuito
+        - bahía
+        swipes:
+        - 2,1-3,0-2,0-3,1-3,2
+        - 0,1-1,2-2,1-3,0-2,0-1,0-0,0-1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: iosoailsnitscdra
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - sardina
+        - solsticio
+        swipes:
+        - 2,2-3,1-2,1-3,0-2,0-1,0-0,0-0,1-1,1
+        - 3,1-3,0-2,0-1,0-1,1-0,1-0,2
+        isExtraPackLevel: 0
+      - board: teabonmpermcacua
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - campamento
+        - bucear
+        swipes:
+        - 3,0-2,0-1,0-0,1-0,0-1,1
+        - 3,1-3,0-2,1-3,2-2,3-2,2-1,3-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: tuanombochcrucuu
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - cucurucho
+        - tumbona
+        swipes:
+        - 0,0-1,1-1,0-2,0-3,0-3,1-2,1
+        - 0,1-0,0-1,0-2,0-3,1-3,0-2,1-1,1-0,2
+        isExtraPackLevel: 0
+      - board: oteoítalsiraella
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - estío
+        - aleta
+        - orilla
+        swipes:
+        - 3,1-2,1-1,1-1,0-2,0-3,0
+        - 3,1-3,2-2,3-1,2-2,2
+        - 0,0-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: masnoróinñuxtaec
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - excursión
+        - montaña
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2
+        - 2,0-3,1-3,0-2,1-1,2-2,3-3,2-2,2-3,3
+        isExtraPackLevel: 0
+      - board: tlomtecaaufncórg
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - fruta
+        - cóctel
+        - mango
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0
+        - 2,0-1,0-0,0-0,1-1,1-1,2
+        - 2,1-2,0-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: caojarcuerunlcio
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - junio
+        - crucero
+        - cala
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 2,1-1,1-2,0-1,0-0,1-1,2-2,2
+        - 3,3-3,2-3,1-2,0-3,0
+        isExtraPackLevel: 0
+      - board: coilbtlaauloscpa
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - cubo
+        - pala
+        - castillo
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-3,1-2,0-3,0
+        - 2,0-3,0-2,1-3,2
+        - 1,0-1,1-0,2-1,3
+        isExtraPackLevel: 0
+      - board: lfacaelavsoritca
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - festival
+        - caracola
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2-2,3
+        - 1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0

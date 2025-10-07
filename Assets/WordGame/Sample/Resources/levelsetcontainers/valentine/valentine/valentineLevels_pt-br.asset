@@ -1,0 +1,240 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: valentineLevels_pt-br
+  m_EditorClassIdentifier:
+  language: pt-br
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Valentine's
+      category: Valentine's
+      categoryLocalized: Alla hjärtans dag
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: etclahoco
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - chocolate
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-0,1-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: sonoetidneuptimc
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - cupido
+        - sentimento
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1-2,1-1,2-1,3
+        - 3,0-2,1-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: aoocbrnapmlrohfi
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - pomba
+        - flor
+        - carinho
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-2,1
+        - 2,0-2,1-1,2-1,1
+        - 0,1-0,0-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: apiarrtcooeândrumrmiaqoad
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - romântico
+        - paquera
+        - admirador
+        swipes:
+        - 3,0-4,0-3,1-4,1-4,2-3,3-3,2-4,3-4,4
+        - 1,1-0,0-1,0-0,1-0,2-0,3-0,4
+        - 2,1-2,0-1,1-1,2-2,2-1,3-2,4-2,3-3,3
+        isExtraPackLevel: 0
+      - board: emosoecãejgôçorujoonndeam
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - namoro
+        - desejo
+        - cônjuge
+        - emoção
+        swipes:
+        - 0,0-1,0-2,0-2,1-2,2-2,3
+        - 1,2-1,1-0,0-1,0-0,1-0,2-0,3
+        - 1,0-2,0-3,1-3,0-4,0-4,1
+        - 4,1-3,0-4,0-3,1-4,2-3,2
+        isExtraPackLevel: 0
+      - board: cnoatesam
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - casamento
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-2,1-1,2-1,1-2,2
+        isExtraPackLevel: 0
+      - board: dateanpnareromse
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - namorada
+        - presente
+        swipes:
+        - 2,2-3,1-3,0-2,0-2,1-3,2-2,3-3,3
+        - 1,2-0,1-1,0-0,0-1,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: asoperraprrisuec
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - parceiro
+        - surpresa
+        swipes:
+        - 0,0-1,0-1,1-0,1-1,2-0,2-1,3-0,3
+        - 3,3-3,2-2,1-3,0-2,0-3,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: rehcronacamovoeaiaolncãçf
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - flecha
+        - noiva
+        - romance
+        - coração
+        swipes:
+        - 3,3-3,2-4,1-4,0-3,0-2,0-3,1
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1
+        - 1,3-1,2-1,1-2,2-2,1
+        - 4,0-4,1-4,2-3,3-2,4-2,3
+        isExtraPackLevel: 0
+      - board: ãoaãoçatçdreaaetancrsrela
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - atração
+        - declaração
+        - serenata
+        swipes:
+        - 0,0-1,1-1,0-2,0-2,1-2,2-2,3-2,4
+        - 4,3-4,2-3,1-3,0-4,0-4,1-3,2-3,3-3,4-4,4
+        - 1,1-0,1-0,2-1,3-0,3-0,4-1,4
+        isExtraPackLevel: 0
+      - board: aromnvooi
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - noivo
+        - amor
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 1,1-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: oroaotrdncomnean
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - namorado
+        - encontro
+        swipes:
+        - 1,0-0,0-1,1-0,2-0,1-1,2-1,3-0,3
+        - 3,0-2,0-3,1-2,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: êuurlqbaastaacjn
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - jantar
+        - buquê
+        - casal
+        swipes:
+        - 1,0-0,0-1,1-0,1-0,2
+        - 2,0-2,1-1,2-1,3-0,3
+        - 2,0-3,1-3,0-2,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: aoaorsxãseiaposp
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - paixão
+        - esposa
+        - rosa
+        swipes:
+        - 0,0-1,1-1,0-0,1
+        - 1,1-0,1-0,0-1,0-2,0-2,1
+        - 3,0-3,1-2,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: imooosribjheçainapmeabrco
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - companheirismo
+        - abraço
+        - beijo
+        swipes:
+        - 3,0-4,0-4,1-4,2-4,3
+        - 0,0-1,0-2,0-3,0-2,1-3,2
+        - 3,0-4,0-3,1-2,1-1,1-0,1-0,2-1,2-2,3-1,3-0,4-0,3-1,4-2,4
+        isExtraPackLevel: 0
+      - board: nocaaodraçetaanfivtlaoãoi
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - afeto
+        - noivado
+        - cartão
+        - aliança
+        swipes:
+        - 3,0-4,1-4,0-3,1-4,2-4,3-4,4
+        - 2,2-3,2-2,1-3,1-2,0-3,0
+        - 0,0-1,0-1,1-2,1-2,2-1,2-1,3
+        - 0,0-0,1-0,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: etoviphnemnonacanmaaioabrelelhpmhcso
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - relacionamento
+        - champanhe
+        - vela
+        - pombinhos
+        swipes:
+        - 5,5-5,4-5,3-5,2-4,2-4,1-5,1-5,0-4,0
+        - 3,1-3,0-4,1-4,2
+        - 3,0-2,0-1,1-1,0-0,0-0,1-0,2-0,3-0,4
+        - 0,1-1,1-2,1-1,2-2,3-2,2-3,2-4,3-3,3-3,4-2,4-1,4-1,5-2,5
+        isExtraPackLevel: 0

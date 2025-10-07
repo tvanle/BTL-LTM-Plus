@@ -1,0 +1,211 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_fr
+  m_EditorClassIdentifier:
+  language: fr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Sweet Treats
+      category: Sweet Treats
+      categoryLocalized: Friandises
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: xudeiéicl
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - délicieux
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: isattuolcbcosihc
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - chocolat
+        - biscuits
+        swipes:
+        - 1,1-1,0-0,0-0,1-1,2-0,3-0,2-1,3
+        - 3,0-2,0-3,1-2,1-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: attuugeaolatnigâ
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - gâteau
+        - nougat
+        - lait
+        swipes:
+        - 1,1-2,0-1,0-2,1
+        - 0,0-0,1-0,2-1,2-0,3-1,3
+        - 2,0-3,0-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: cneeiaotsrlsiteiessâstcup
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - pâtisserie
+        - sucette
+        - calisson
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-1,2
+        - 3,1-3,0-2,0-1,1-1,0-2,1-2,2
+        - 4,0-4,1-3,2-2,2-2,1-3,1-4,2-4,3-4,4-3,4
+        isExtraPackLevel: 0
+      - board: ufruceseo
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - sucre
+        - oeuf
+        swipes:
+        - 2,0-1,0-0,0-1,1
+        - 0,0-0,1-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: eprécoiclaalgris
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - glace
+        - sirop
+        - éclair
+        swipes:
+        - 3,2-3,1-3,0-2,0-2,1-2,2
+        - 3,0-2,0-1,0-1,1-1,2
+        - 0,0-0,1-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: dsebinaagumiorse
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - gourmandise
+        - baies
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0
+        - 0,1-0,0-1,1-1,0-2,1-2,2-1,2-0,3-0,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: nimfororacaasemb
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - macaron
+        - framboise
+        swipes:
+        - 3,3-3,2-3,1-2,1-3,0-2,0-1,1-0,0-1,0
+        - 2,0-2,1-1,1-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: eshteprcenuttliiciéaonfag
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - confiture
+        - pistache
+        - gélatine
+        swipes:
+        - 4,0-3,0-3,1-4,1-3,2-4,2-4,3-4,4
+        - 0,1-0,0-1,0-2,0-3,0-2,1-2,2-3,3
+        - 1,1-0,0-1,0-2,0-2,1-1,2-0,2-1,3-0,4
+        isExtraPackLevel: 0
+      - board: seiserucr
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - sucreries
+        swipes:
+        - 0,1-0,0-1,0-2,0-1,1-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: efesnadirilainpr
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - praline
+        - friandise
+        swipes:
+        - 1,2-0,1-0,0-1,1-1,0-2,0-3,0-3,1-2,1
+        - 2,0-3,0-3,1-2,1-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: emouldocuduaorar
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - roudoudou
+        - caramel
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,0-0,1-0,0
+        - 1,0-0,0-0,1-1,1-2,2-2,1-1,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: érsaeeggetaeçlrtrgatesdad
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - dragée
+        - glaçage
+        - dessert
+        - tarte
+        swipes:
+        - 4,0-3,0-4,1-4,2-4,3
+        - 4,0-3,0-2,0-1,0-0,0-1,1-0,1
+        - 2,2-3,2-3,1-2,1-3,0-2,0-1,1
+        - 2,0-1,1-0,2-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: enonguita
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - nougatine
+        swipes:
+        - 1,2-2,2-2,1-1,1-2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: ctyrhiluaocenudl
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - douceur
+        - chantilly
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0-3,0-2,1
+        - 2,0-1,1-1,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: riecesircfsênoep
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - confiserie
+        - crêpes
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        - 0,1-1,0-0,0-1,1-2,2-1,2-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0

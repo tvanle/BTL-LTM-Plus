@@ -1,0 +1,306 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_da
+  m_EditorClassIdentifier:
+  language: da
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Jungle
+      category: Jungle
+      categoryLocalized: Junglebegivenhed
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: rtesæglan
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - slange
+        - træ
+        swipes:
+        - 1,1-0,0-1,0
+        - 0,1-0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: rebeneimllæltrpa
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - træpalme
+        - billerne
+        swipes:
+        - 2,1-2,0-1,0-0,0-1,1-0,2-0,1-1,2
+        - 0,0-1,0-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: rnleaeilikodlrok
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - lianer
+        - krokodille
+        swipes:
+        - 1,1-1,0-2,1-3,0-2,0-3,1-2,2-3,2-2,3-3,3
+        - 0,0-0,1-0,2-1,3-1,2-0,3
+        isExtraPackLevel: 0
+      - board: pefugniflegdstnreraebaael
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - bregne
+        - paradisfugle
+        - elefant
+        swipes:
+        - 4,1-4,0-3,0-2,0-3,1-4,2-3,2
+        - 0,0-1,0-2,1-2,0-1,1-1,2-2,2-2,3-3,4-4,4-3,3-4,3
+        - 0,0-0,1-1,1-0,2-0,3-1,4
+        isExtraPackLevel: 0
+      - board: roemungal
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - lagune
+        - orm
+        swipes:
+        - 1,0-0,1-0,0
+        - 2,0-1,0-0,0-1,1-2,1-2,2
+        isExtraPackLevel: 0
+      - board: elafudnafgusgeyk
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - skyggefulde
+        - fauna
+        swipes:
+        - 3,1-3,0-2,0-2,1-2,2
+        - 3,1-3,0-2,0-1,1-0,0-1,0-0,1-0,2-1,3-1,2-0,3
+        isExtraPackLevel: 0
+      - board: gereulseeblrdaym
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - myreslugere
+        - blade
+        swipes:
+        - 1,1-2,0-1,0-0,0-0,1
+        - 3,0-2,0-3,1-3,2-2,2-1,2-0,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: leeipjlpskiavoanjrgpysøte
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - tropisk
+        - papegøje
+        - vanilje
+        - lys
+        swipes:
+        - 0,1-0,0-1,0
+        - 2,0-1,1-0,1-0,2-1,2-0,3-1,3
+        - 4,3-4,2-4,1-4,0-3,0-2,0-1,1-2,2
+        - 3,0-2,1-3,2-2,3-3,4-3,3-4,3
+        isExtraPackLevel: 0
+      - board: brvdeæenltldnaatayafebrnd
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - bananer
+        - bæltedyr
+        - vandfaldet
+        swipes:
+        - 2,0-3,1-3,0-4,0-4,1-4,2-3,2-3,3-4,4-4,3
+        - 0,4-0,3-0,2-0,1-0,0-1,0-2,1-2,0
+        - 1,0-1,1-2,2-3,2-2,3-1,3-1,4
+        isExtraPackLevel: 0
+      - board: nvaadnkut
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - tukan
+        - vand
+        swipes:
+        - 1,1-2,1-2,0-1,0
+        - 2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: tetnkuagngrosina
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - orangutang
+        - insekt
+        swipes:
+        - 1,0-0,1-0,0-1,1-0,2-0,3
+        - 3,1-2,1-3,0-2,0-1,1-1,2-2,3-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: nehgrueagadlajes
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - hedeslag
+        - jaguaren
+        swipes:
+        - 1,0-0,0-0,1-1,2-1,1-0,2-1,3-0,3
+        - 2,3-2,2-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: ludefthlfugogtis
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - luftfugtighed
+        - sol
+        swipes:
+        - 3,0-3,1-3,2
+        - 0,3-1,3-0,2-1,2-0,1-1,1-0,0-1,0-2,0-2,1-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: ordkreøokénkidso
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - kokosnød
+        - orkidéer
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: ufesnlgrmsaromosllkafoint
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - sommerfugl
+        - flora
+        - solskin
+        - nat
+        swipes:
+        - 4,2-4,1-4,0
+        - 0,0-1,0-2,1-3,2-3,1-2,0-3,0
+        - 0,0-1,1-2,2-1,2-0,2
+        - 4,3-4,2-3,2-3,3-2,4-2,3-1,4-0,4-1,3-0,3
+        isExtraPackLevel: 0
+      - board: øiamfdnperosghaokedvketgu
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - kokosnød
+        - varme
+        - fugtighed
+        - ape
+        swipes:
+        - 2,1-2,0-1,0
+        - 4,1-4,0-3,0-2,0-1,1-2,2-3,2-2,1-3,1
+        - 4,1-4,2-4,3-3,4-3,3
+        - 0,0-0,1-1,1-0,2-1,2-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: tooairpnz
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - tapir
+        - ozon
+        swipes:
+        - 2,1-2,0-1,1-1,0
+        - 0,2-0,1-0,0-1,1-2,1
+        isExtraPackLevel: 0
+      - board: fodvldrooeskvndy
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - skov
+        - dovendyr
+        - flod
+        swipes:
+        - 0,1-0,0-1,0-2,0
+        - 1,2-0,1-0,0-1,1-1,0-2,0-3,0-2,1
+        - 2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: pokrødefrdgufeel
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - fugleedderkop
+        - frø
+        swipes:
+        - 0,0-0,1-0,2
+        - 3,2-3,1-2,1-3,0-2,0-1,0-1,1-1,2-2,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: egtnusegnrnmreio
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - monsunregn
+        - tigere
+        swipes:
+        - 2,1-2,0-1,1-0,1-0,0-1,0
+        - 3,1-3,0-2,1-1,2-0,2-0,1-1,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: evvogorkrnesmang
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - regnskov
+        - mangrove
+        swipes:
+        - 0,0-1,0-1,1-0,2-0,1-1,2-1,3-0,3
+        - 2,2-2,1-3,0-2,0-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: rkgreliaaiegollnaursemady
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - leguan
+        - sydamerika
+        - gorillaer
+        swipes:
+        - 2,1-2,0-3,0-4,1-4,0-3,1-3,2-4,2-3,3
+        - 4,1-4,0-3,0-2,0-1,0-0,0-0,1-1,1-1,2-2,2
+        - 0,3-0,2-1,2-2,1-1,1-0,1
+        isExtraPackLevel: 0
+      - board: kirkæmsgøfveioftstfetasytpelioorrpøk
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - økosystem
+        - tropefisk
+        - pilegiftfrø
+        - ækvator
+        swipes:
+        - 4,1-3,1-4,0-3,0-2,1-1,0-2,0
+        - 3,0-4,0-3,1-2,1-1,1-1,2-2,3-3,3-3,4-2,5-2,4
+        - 0,1-1,0-0,0-1,1-1,2-0,2-0,3-0,4-0,5
+        - 4,0-5,0-5,1-4,2-5,2-4,3-5,3-5,4-5,5
+        isExtraPackLevel: 0

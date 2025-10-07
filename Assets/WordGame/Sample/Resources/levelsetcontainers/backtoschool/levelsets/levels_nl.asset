@@ -1,0 +1,241 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nl
+  m_EditorClassIdentifier:
+  language: nl
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Back to School
+      category: Back to School
+      categoryLocalized: Weer naar school
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: osjnwider
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - onderwijs
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: tsfkrateloheibib
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - bibliotheek
+        - straf
+        swipes:
+        - 1,1-0,1-0,0-1,0-2,0
+        - 3,0-2,0-1,0-0,1-0,0-1,1-2,2-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: rasnaldelrndeare
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - leraar
+        - nederlands
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,1-1,0-2,1-2,2-2,3
+        - 0,1-0,0-1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ershioluigoibkew
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - biologie
+        - huiswerk
+        swipes:
+        - 3,3-3,2-3,1-2,1-3,0-2,0-1,1-1,0
+        - 0,0-0,1-1,2-2,2-2,1-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: laarlnrokeegelsnnikaeklle
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - klaslokaal
+        - leerling
+        - rekenen
+        swipes:
+        - 1,1-2,0-1,0-0,0-0,1-0,2-0,3
+        - 4,2-4,1-4,0-3,0-2,0-2,1-1,1-1,2
+        - 3,1-3,0-4,1-4,2-3,2-2,3-3,3-2,4-1,4-0,4
+        isExtraPackLevel: 0
+      - board: kzpebaeou
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - boek
+        - pauze
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0
+        - 1,1-1,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: inrklejiphctloos
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - schoolplein
+        - krijt
+        swipes:
+        - 3,2-2,1-3,1-2,0-3,0
+        - 3,0-2,1-1,1-2,0-1,0-0,0-0,1-0,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: srllcdoohblkooaa
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - schoolbord
+        - lokaal
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        - 0,3-0,2-0,1-0,0-1,0-2,1-1,1-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: taerlsjfaymigazc
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - cijfer
+        - gymzaal
+        - tas
+        swipes:
+        - 0,0-1,1-1,0
+        - 0,0-1,1-2,1-2,0-1,0-0,1-0,2
+        - 3,0-3,1-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: dejfasnutgujidakskraporrd
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - aardrijkskunde
+        - sportdag
+        - juf
+        swipes:
+        - 2,1-2,0-3,0
+        - 0,1-0,0-1,0-2,0-3,1-3,0-4,1-4,0
+        - 4,2-4,1-3,0-4,0-3,1-2,2-1,2-2,1-1,1-0,1-0,2-1,3-0,4-1,4
+        isExtraPackLevel: 0
+      - board: edvndoeol
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - voldoende
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: doolklntreaolesp
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - potlood
+        - leren
+        - klas
+        swipes:
+        - 0,0-1,0-2,1-2,0
+        - 0,0-1,0-0,1-1,1-2,2
+        - 3,0-3,1-3,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: gisieneuscedhite
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - geschiedenis
+        - etui
+        swipes:
+        - 3,0-2,0-3,1-3,2
+        - 0,3-0,2-0,1-1,1-0,0-1,0-2,1-3,1-2,2-1,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: rtutaurupnespors
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - tussenuur
+        - rapport
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1
+        - 3,3-3,2-3,1-3,0-2,1-1,1-1,2-2,3-2,2
+        isExtraPackLevel: 0
+      - board: kanideoenegheukedresomxiw
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - wiskunde
+        - geodriehoek
+        - examen
+        swipes:
+        - 3,0-2,0-1,1-1,0-2,1-2,2
+        - 0,2-0,1-0,0-1,1-2,1-3,1-2,2-1,2-1,3-0,3-0,4
+        - 4,0-3,0-4,1-4,2-3,2-3,3-4,4-4,3
+        isExtraPackLevel: 0
+      - board: ekltigjiefeirihctecrdivjs
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - schriftelijk
+        - ijverig
+        - dictee
+        swipes:
+        - 0,0-1,0-0,1-1,1-0,2-0,3
+        - 4,0-3,0-2,0-2,1-2,2-1,2-0,3
+        - 4,0-3,1-4,2-4,1-3,2-4,3-3,4-3,3-2,4-2,3-1,3-1,4
+        isExtraPackLevel: 0
+      - board: oeuelndnkrvdoudoauenltnse
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - natuurkunde
+        - onvoldoende
+        - les
+        swipes:
+        - 4,1-4,0-3,0
+        - 0,4-0,3-0,2-0,1-0,0-1,0-2,0-3,1-4,1-4,2-3,2
+        - 2,0-1,1-1,0-2,1-3,2-4,3-3,3-2,4-2,3-1,3-1,4
+        isExtraPackLevel: 0
+      - board: toeennterbesduictotsdselj
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - studeren
+        - toets
+        - bijles
+        - docent
+        swipes:
+        - 0,0-1,0-0,1-0,2-0,3-0,4
+        - 4,2-4,1-4,0-3,0-2,0-1,0
+        - 1,1-2,1-2,2-1,3-1,2
+        - 4,1-3,1-3,2-2,2-2,3-3,3-3,4-4,4
+        isExtraPackLevel: 0

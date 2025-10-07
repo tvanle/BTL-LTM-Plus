@@ -1,0 +1,308 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_es
+  m_EditorClassIdentifier:
+  language: es
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Ocean
+      category: Ocean
+      categoryLocalized: Evento del Océano
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: agfoaoldn
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - fondo
+        - alga
+        swipes:
+        - 0,1-0,0-1,1-1,0
+        - 2,2-2,1-2,0-1,0-0,1
+        isExtraPackLevel: 0
+      - board: ratarnoróubicots
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - tiburón
+        - ostra
+        - roca
+        swipes:
+        - 0,1-1,0-0,0-1,1
+        - 2,0-3,0-2,1-3,1-3,2
+        - 2,0-3,1-2,1-1,1-0,2-0,1-1,2
+        isExtraPackLevel: 0
+      - board: joeferiengrccaar
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - arrecife
+        - cangrejo
+        swipes:
+        - 0,0-1,0-0,1-1,1-1,2-0,2-0,3-1,3
+        - 2,0-3,0-2,1-3,2-3,1-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: aaaraljamnmalloepuémcanpo
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - anémona
+        - calamar
+        - pulpo
+        - almeja
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1
+        - 1,0-2,0-3,1-3,0-4,0
+        - 0,0-1,1-2,1-2,2-3,2-2,3-3,3
+        - 1,0-2,0-3,1-4,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: aiolezsri
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - erizo
+        - isla
+        swipes:
+        - 1,0-0,0-0,1-0,2
+        - 1,1-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: cateorliirnuenga
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - anguila
+        - corriente
+        swipes:
+        - 0,3-0,2-1,2-1,1-0,1-0,0-1,0-2,0-3,0
+        - 3,0-2,1-2,0-3,1-3,2-2,2-1,3
+        isExtraPackLevel: 0
+      - board: lilellanaotcbaba
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - ballena
+        - caballito
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-0,1-1,2-2,1-1,1
+        - 0,0-0,1-1,2-2,3-3,3-3,2-2,2
+        isExtraPackLevel: 0
+      - board: mrmaonarepseonja
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - esponja
+        - morena
+        - mar
+        swipes:
+        - 2,0-3,1-3,0
+        - 0,2-0,1-1,1-0,0-1,0-2,0
+        - 3,1-2,1-1,1-0,0-1,0-2,0-3,0
+        isExtraPackLevel: 0
+      - board: saafneutíddmseglnlmaaogba
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - gamba
+        - delfín
+        - langosta
+        - medusa
+        swipes:
+        - 1,0-0,1-0,0-1,1-0,2-1,2
+        - 0,1-0,0-1,1-2,0-1,0-2,1-2,2-2,3
+        - 4,0-3,0-2,1-3,2-3,1-4,1
+        - 4,2-4,1-3,1-3,0-4,0
+        isExtraPackLevel: 0
+      - board: zopesapay
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - pez
+        - payaso
+        swipes:
+        - 2,2-2,1-2,0-1,0-1,1-1,2
+        - 0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: olnrmglanaóotaal
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - manglar
+        - atolón
+        - ola
+        swipes:
+        - 3,1-3,0-2,0
+        - 1,0-0,0-0,1-1,1-2,1-2,2
+        - 0,2-1,1-0,1-1,2-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: sonoptirtacaosam
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - pasto
+        - marino
+        - costa
+        swipes:
+        - 2,1-1,1-0,0-1,0-2,0
+        - 3,0-3,1-3,2-2,2-2,3-3,3
+        - 0,2-1,1-1,0-0,1-0,0
+        isExtraPackLevel: 0
+      - board: caacarebugorcthrroroalnat
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - tortuga
+        - concha
+        - barrera
+        - coral
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0
+        - 2,0-2,1-1,1-1,2-1,3-0,3-1,4
+        - 2,2-2,1-2,0-3,1-4,0-3,0
+        - 4,0-4,1-3,1-3,2-3,3-4,3-4,4
+        isExtraPackLevel: 0
+      - board: alaípahab
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - bahía
+        - lapa
+        swipes:
+        - 1,1-2,0-1,0-2,1
+        - 2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: ítocannmbaoamars
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - manatí
+        - morsa
+        - banco
+        swipes:
+        - 0,0-1,0-2,0-3,0-2,1
+        - 3,2-2,1-2,0-3,0-3,1
+        - 0,0-1,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: oáatecttusibrchá
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - crustáceo
+        - hábitat
+        swipes:
+        - 2,0-3,0-3,1-2,1-3,2-2,2-3,3
+        - 1,0-0,0-0,1-1,1-2,2-1,3-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: pcanesomocmuetoloncslatsi
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - molusco
+        - plancton
+        - ecosistema
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,0-2,0-2,1-2,2-2,3
+        - 0,1-0,0-1,0-2,1-3,1-3,2-3,3-3,4
+        - 0,2-1,1-0,1-1,2-0,3-1,4-1,3
+        isExtraPackLevel: 0
+      - board: poirgdote
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - protegido
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,2-2,1-1,2
+        isExtraPackLevel: 0
+      - board: rnóaiadic
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - radiación
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-2,0-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: pyameeaarbtrecar
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - matarraya
+        - percebe
+        swipes:
+        - 0,3-0,2-0,1-1,0-0,0-1,1-1,2
+        - 3,3-3,2-2,1-2,0-3,0-3,1-2,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: hcodrdioanobbuuz
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - barco
+        - hundido
+        - buzo
+        swipes:
+        - 3,1-2,0-3,0-2,1
+        - 0,0-1,0-1,1-1,2-2,2-3,3-3,2
+        - 0,0-0,1-0,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: adnóidsiacriovcverboidesn
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - conservación
+        - biodiversidad
+        swipes:
+        - 3,0-2,1-2,0-1,0-0,0-0,1-1,1-0,2-1,3-1,2-0,3-0,4-1,4
+        - 4,2-4,1-4,0-3,0-2,0-2,1-3,2-3,3-4,3-4,4-3,4-2,4
+        isExtraPackLevel: 0
+      - board: ivgoataudaircírgnofebroproteicneroal
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - acuífero
+        - invertebrado
+        - gorgonia
+        - tropical
+        swipes:
+        - 5,5-5,4-5,3-5,2-4,1-5,1-4,0-5,0
+        - 2,0-3,0-3,1-3,2-4,2-4,3-4,4-4,5
+        - 0,1-0,0-1,1-1,0-2,0-2,1-3,1-2,2-2,3-3,4-2,4-3,5
+        - 0,4-0,3-1,4-1,3-0,2-1,2-0,1-1,1
+        isExtraPackLevel: 0

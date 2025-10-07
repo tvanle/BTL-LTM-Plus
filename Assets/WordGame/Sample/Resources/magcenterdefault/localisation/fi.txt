@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="mag_help_center"><foo><![CDATA[MAG-tukikeskus]]></foo></string>
+	<string name="open"><foo><![CDATA[Avaa]]></foo></string>
+	<string name="contact_us"><foo><![CDATA[Yhteystiedot]]></foo></string>
+	<string name="contact_us_description"><foo><![CDATA[Jos et löydä vastausta tukikeskuksestamme, ota meihin yhteyttä jollakin alla olevista yhteystiedoista.]]></foo></string>
+	<string name="send_email"><foo><![CDATA[Lähetä sähköpostiviesti]]></foo></string>
+	<string name="support_email_subject"><foo><![CDATA[Pyydä tukea]]></foo></string>
+	<string name="support_email_body"><foo><![CDATA[Kirjoita pyyntösi alle:\n(kirjoita tähän):]]></foo></string>
+	<string name="loading"><foo><![CDATA[Ladataan]]></foo></string>
+	<string name="loading_error"><foo><![CDATA[Latausvirhe]]></foo></string>
+
+	<string name="important_notice"><foo><![CDATA[TÄRKEÄ HUOMAUTUS]]></foo></string>
+	<string name="terms_description"><foo><![CDATA[Hyväksy palveluehdot ja tietosuojakäytäntö napauttamalla OK.]]></foo></string>
+	<string name="terms_of_service"><foo><![CDATA[PALVELUEHDOT]]></foo></string>
+	<string name="ok"><foo><![CDATA[OK]]></foo></string>
+
+	<string name="data_management_title"><foo><![CDATA[Yksityisyysasetukset]]></foo></string>
+	<string name="data_management_description"><foo><![CDATA[Tästä voit pyytää nähtäväksesi sinusta keräämiämme henkilötietoja, tai pyytää niiden poistamista.]]></foo></string>
+
+	<string name="request_data_title"><foo><![CDATA[Pyydä tietoja]]></foo></string>
+	<string name="request_data_description"><foo><![CDATA[Tästä voit pyytää nähtäväksesi sinusta keräämiämme henkilötietoja. Lähetämme sinulle henkilötietosi sisältävän sähköpostiviestin kahden päivän sisällä.]]></foo></string>
+	<string name="request_data_pending_description"><foo><![CDATA[Olemme vastaanottaneet pyyntösi. Sen käsittelyyn menee enintään kaksi päivää. Saat sähköpostiviestin mukana salatun ZIP-tiedoston. Löydät sen avaamiseen tarvittavan salasanan täältä.]]></foo></string>
+	<string name="request_data_ready_description"><foo><![CDATA[Pyyntösi on käsitelty. Lähetimme sinulle alla olevaan osoitteeseen salatun ZIP-tiedoston, joka sisältää henkilötietosi. Voit avata tiedoston alla näkyvällä salasanalla.]]></foo></string>
+	<string name="enter_your_email"><foo><![CDATA[Kirjoita ylle sähköpostiosoitteesi]]></foo></string>
+	<string name="press_ok"><foo><![CDATA[Paina OK kirjoitettuasi osoitteesi]]></foo></string>
+	<string name="invalid_email"><foo><![CDATA[Kelpaamaton osoite]]></foo></string>
+	<string name="your_request_is_pending_status"><foo><![CDATA[Pyyntösi odottaa käsittelyä]]></foo></string>
+	<string name="data_ready_description_status"><foo><![CDATA[Avaa tiedosto tällä salasanalla: {0}]]></foo></string>
+
+	<string name="remove_data_title"><foo><![CDATA[Poista tiedot]]></foo></string>
+	<string name="remove_data_description"><foo><![CDATA[VAROITUS: Käyttäjätietojesi poistaminen poistaa myös MAG-pelien tallennukset ja tilit. Poistettuja tietoja ei voida palauttaa. Sinun on myös poistettava MAG-pelit laitteistasi varmistaaksesi, ettei tietojasi rekisteröidä uudelleen. Pyynnöt käsitellään 14 päivän kuluessa, ja ne voi perua ennen sitä.]]></foo></string>
+	<string name="remove_data_cannot_be_undone_status"><foo><![CDATA[Tietojesi poistamista ei voida perua. Oletko varma?]]></foo></string>
+	<string name="cancel_data_removal"><foo><![CDATA[Peru tietojen poistaminen]]></foo></string>
+	<string name="notify_me_via_email_when_done"><foo><![CDATA[Haluan sähköpostivahvistuksen]]></foo></string>
+	<string name="day_remaining"><foo><![CDATA[{0} päivä jäljellä]]></foo></string>
+	<string name="days_remaining"><foo><![CDATA[{0} päivää jäljellä]]></foo></string>
+
+	<string name="remove_data_confirmation_title"><foo><![CDATA[Poistetaan: Oletko varma?]]></foo></string>
+	<string name="remove_data_confirmation_description"><foo><![CDATA[VAROITUS: Käyttäjätietojesi poistaminen poistaa myös MAG-pelien tallennukset ja tilit. Poistettuja tietoja ei voida palauttaa. Sinun on myös poistettava MAG-pelit laitteistasi varmistaaksesi, ettei tietojasi rekisteröidä uudelleen. Pyynnöt käsitellään 14 päivän kuluessa, ja ne voi perua ennen sitä.]]></foo></string>
+	<string name="data_removal_pending_status"><foo><![CDATA[Pyyntösi odottaa käsittelyä. Voit yhä perua sen.]]></foo></string>
+	<string name="confirm"><foo><![CDATA[Vahvista]]></foo></string>
+	<string name="cancel"><foo><![CDATA[Peru]]></foo></string>
+
+	<string name="search_results_title"><foo><![CDATA[Hakutulokset]]></foo></string>
+	<string name="search_no_results_title"><foo><![CDATA[Ei tuloksia]]></foo></string>
+	<string name="search_placeholder"><foo><![CDATA[Etsi...]]></foo></string>
+	<string name="article_rating_question"><foo><![CDATA[Oliko tästä artikkelista apua?]]></foo></string>
+	<string name="article_rating_thanks"><foo><![CDATA[Kiitos antamastasi palautteesta!]]></foo></string>
+
+	<string name="tracking_title"><foo><![CDATA[Etkö jaksa satunnaisia mainoksia?]]></foo></string>
+	<string name="tracking_description_a"><foo><![CDATA[Voidaksemme optimoida pelin juuri sinua varten, annatko meidän seurata kuka lähettää sinulle pelimme mainoksia ja muita mainoksia? Sovellus säilyy sinulle ilmaisena.]]></foo></string>
+	<string name="tracking_description_b"><foo><![CDATA[Napauta ‘Salli’ seuraavalla ruudulla jos hyväksyt seurannan, tai valitset 'Pyydä, ettei appi seuraa sinua' jos et.]]></foo></string>
+
+    <string name="tracking_plate_title"><foo><![CDATA[Me ♥ ilmaista pelaamista!]]></foo></string>
+    <string name="tracking_plate_description"><foo><![CDATA["Salli" meidän tehdä peleistä hauskoja, ilmaisia, ja mahtavia!]]></foo></string>
+
+    <string name="terms_title"><foo><![CDATA[Oletko valmis pelaamaan?]]></foo></string>
+	<string name="terms_description_a"><foo><![CDATA[Hyväksy ensin käyttöehdot ja tietosuoja napauttamalla OK.]]></foo></string>
+
+	<!-- IDFA AB Testing keys -->
+	<string name="tracking_description_a_1"><foo><![CDATA[Voidaksemme optimoida pelin juuri sinua varten, annatko meidän seurata kuka lähettää sinulle pelissämme näkyviä mainoksia? Sovellus säilyy sinulle ilmaisena.]]></foo></string>
+	<string name="tracking_description_a_2"><foo><![CDATA[Jotta voimme optimoida pelikokemuksesi, annatko meidän seurata mainoskäyttäytymistäsi tässä pelissä? Näin sovellus säilyy sinulle ilmaisena.]]></foo></string>
+	<string name="tracking_description_a_3"><foo><![CDATA[Voidaksemme parantaa käyttökokemustasi, tarvitsemme lupasi näyttää sinulle valikoituja mainoksia. Annatko meidän seurata mainoskäyttäytymistäsi?]]></foo></string>
+
+    <string name="tracking_plate_title_1"><foo><![CDATA[MAG ♥ ilmaista pelaamista!]]></foo></string>
+    <string name="tracking_plate_title_2"><foo><![CDATA[Me rakastamme ilmaista pelaamista!]]></foo></string>
+    <string name="tracking_plate_title_3"><foo><![CDATA[MAG rakastaa ilmaista pelaamista!]]></foo></string>
+    <string name="tracking_plate_title_4"><foo><![CDATA[Ilmaiset pelit ovat mahtavia]]></foo></string>
+    <string name="tracking_plate_title_5"><foo><![CDATA[Tuemme pelaajan valintaa]]></foo></string>
+    <string name="tracking_plate_title_6"><foo><![CDATA[MAG tukee pelaajan valintaa]]></foo></string>
+
+    <string name="tracking_plate_description_1"><foo><![CDATA[Napsauttamalla "salli" voimme tehdä sinulle ilmaisia pelejä!]]></foo></string>
+    <string name="tracking_plate_description_2"><foo><![CDATA["Salli" seuranta ja hauskanpito säilyy ilmaisena!]]></foo></string>
+    <string name="tracking_plate_description_3"><foo><![CDATA["Sallimalla" seurannan vaikutat sinulle näytettäviin mainoksiin!]]></foo></string>
+    <string name="tracking_plate_description_4"><foo><![CDATA[Valitsemalla "salli" vaikutat sinulle näytettäviin mainoksiin!]]></foo></string>
+    <string name="tracking_plate_description_5"><foo><![CDATA[Jos "sallit", jatkamme ilmaisten pelien tekemistä!]]></foo></string>
+    <string name="tracking_plate_description_6"><foo><![CDATA[Jos "sallit", jatkamme sinulle ilmaisten pelien tekoa!]]></foo></string>
+
+	<string name="licenses_title"><foo><![CDATA[LISENSSIT]]></foo></string>
+
+    <!-- Native keys that are used with Xcode. Use the prefix 'NATIVE_KEY:' -->
+	<string name="NATIVE_KEY:NSUserTrackingUsageDescription"><foo><![CDATA[Ei huolta! Näin vältät sinulle turhia mainoksia ja peli säilyy ilmaisena.]]></foo></string>
+</resources>

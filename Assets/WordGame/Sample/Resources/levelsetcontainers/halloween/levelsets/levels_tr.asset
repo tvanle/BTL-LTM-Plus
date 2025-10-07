@@ -1,0 +1,252 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_tr
+  m_EditorClassIdentifier:
+  language: tr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Halloween
+      category: Halloween
+      categoryLocalized: CADILAR BAYRAMI
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: kekuiomkr
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - korku
+        - ekim
+        swipes:
+        - 1,1-0,1-1,0-0,0
+        - 2,2-2,1-2,0-1,0-0,1
+        isExtraPackLevel: 0
+      - board: caküaşacdtüüiükr
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - cadi
+        - ürkütücü
+        - şaka
+        swipes:
+        - 1,0-2,0-2,1-1,1
+        - 3,1-3,0-2,0-1,0-1,1-2,1-3,2-3,3
+        - 0,3-0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: mükritpetasşroke
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - kostüm
+        - şeker
+        - parti
+        swipes:
+        - 2,0-1,0-0,0-0,1-0,2
+        - 3,1-3,0-2,1-3,2-3,3
+        - 2,0-1,0-2,1-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ulrmklkeiuozkkra
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - korkuluk
+        - mezarlik
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-0,1-0,0
+        - 2,2-2,1-2,0-1,0-1,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: kekpaagaatzbslkoiüiombrüç
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - çikolata
+        - zombi
+        - süpürge
+        - kabak
+        swipes:
+        - 0,1-0,0-1,0-2,0-2,1
+        - 2,2-2,1-3,1-3,0-2,0-1,1-1,2
+        - 0,2-0,1-0,0-1,0-1,1
+        - 4,0-3,1-4,2-4,1-3,2-3,3-4,3-4,4
+        isExtraPackLevel: 0
+      - board: regecekeş
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - şeker
+        - gece
+        swipes:
+        - 2,1-2,0-1,0-1,1
+        - 2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: etzrkşhaoeumrkde
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - dehşet
+        - mezar
+        - korku
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0
+        - 3,1-3,0-2,1-3,2-3,3
+        - 2,0-1,1-2,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: niopabçayaallugy
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - gulyabani
+        - palyaço
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2
+        - 2,0-1,0-0,0-0,1-1,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: kzsaaaaanarymske
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - maske
+        - kazan
+        - yarasa
+        swipes:
+        - 3,0-2,1-2,0-3,1-2,2-3,2
+        - 0,2-0,1-1,1-1,0-0,0
+        - 0,0-1,1-1,0-2,0-3,0
+        isExtraPackLevel: 0
+      - board: lrilpümykecübiaamohluürtr
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - hortlak
+        - perili
+        - büyücü
+        - mumlar
+        swipes:
+        - 1,0-0,0-1,1-0,2-0,1-1,2
+        - 2,0-1,0-2,1-1,2-0,2-0,3
+        - 4,2-4,1-4,0-3,0-3,1-2,2
+        - 3,1-2,1-2,0-3,0-4,1-4,2-3,3
+        isExtraPackLevel: 0
+      - board: rnüeüyfeb
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - büyü
+        - fener
+        swipes:
+        - 0,0-1,0-1,1-0,1-0,2
+        - 2,0-1,1-2,1-2,2
+        isExtraPackLevel: 0
+      - board: ktuuoeisrlekkutc
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - iskelet
+        - korkutucu
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,1-3,0-2,1
+        - 2,2-3,2-3,1-2,1-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: iuncrpraamvarvha
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - vampir
+        - ruh
+        - canavar
+        swipes:
+        - 3,3-3,2-2,2-3,1-2,0-3,0-2,1
+        - 0,0-1,0-2,0
+        - 1,0-0,1-1,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: aymteşumtyatnaub
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - mumya
+        - tabut
+        - şeytan
+        swipes:
+        - 1,2-0,2-1,1-0,1-1,0-0,0
+        - 3,2-2,1-3,0-2,0-3,1
+        - 3,2-2,2-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: çrvmksnkreiuamchrpküiiöro
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - örümcek
+        - korkunç
+        - vampir
+        - sihir
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0
+        - 2,2-2,1-3,0-2,0-1,0-1,1
+        - 3,0-4,0-3,1-2,2-1,2-1,3-0,4
+        - 2,0-3,0-4,1-3,2-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: keiagsskriiiyazlnaeikmkml
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - gizemli
+        - sis
+        - karanlik
+        - ay
+        - kemik
+        swipes:
+        - 0,0-1,1-1,0-2,1-2,0
+        - 3,0-2,0
+        - 2,0-3,0-3,1-2,1-1,1-0,1-1,2-0,2
+        - 0,3-0,2-1,3
+        - 4,4-4,3-4,2-3,1-3,0-4,0-4,1
+        isExtraPackLevel: 0
+      - board: hiijreacraleyekyelptasmrrtemutüalküs
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - makyaj
+        - ürpertici
+        - hayalet
+        - kurt
+        - süslemeler
+        swipes:
+        - 3,0-4,0-5,0-5,1-4,2-4,1-5,2-4,3-5,3-4,4
+        - 3,0-4,1-5,2-5,1
+        - 0,2-0,1-0,0-1,0-2,0-2,1-1,1
+        - 0,0-0,1-0,2-1,3-2,2-1,2-2,3-1,4-1,5
+        - 3,1-2,2-2,3-3,3-3,4-3,5
+        isExtraPackLevel: 0

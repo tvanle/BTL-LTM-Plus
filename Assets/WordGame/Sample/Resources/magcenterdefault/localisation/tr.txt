@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="mag_help_center"><foo><![CDATA[MAG YARDIM MERKEZİ]]></foo></string>
+	<string name="open"><foo><![CDATA[AÇ]]></foo></string>
+	<string name="contact_us"><foo><![CDATA[BİZİMLE İLETİŞİME GEÇ]]></foo></string>
+	<string name="contact_us_description"><foo><![CDATA[Yardım Merkezimizi kullanarak bir çözüm bulamadıysan, aşağıdaki seçeneklerden birini kullanarak bizimle iletişime geçebilirsin.]]></foo></string>
+	<string name="send_email"><foo><![CDATA[E-POSTA GÖNDER]]></foo></string>
+	<string name="support_email_subject"><foo><![CDATA[Destek talebi]]></foo></string>
+	<string name="support_email_body"><foo><![CDATA[Lütfen talebini aşağıda belirt:\n(buraya yaz):]]></foo></string>
+	<string name="loading"><foo><![CDATA[YÜKLENİYOR]]></foo></string>
+	<string name="loading_error"><foo><![CDATA[YÜKLEME HATASI]]></foo></string>
+
+	<string name="important_notice"><foo><![CDATA[ÖNEMLİ DUYURU]]></foo></string>
+	<string name="terms_description"><foo><![CDATA[Şartlarımızı ve Gizlilik Politikamızı kabul etmek için "Tamam" düğmesine dokunun]]></foo></string>
+	<string name="terms_of_service"><foo><![CDATA[HİZMET ŞARTLARI]]></foo></string>
+	<string name="ok"><foo><![CDATA[TAMAM]]></foo></string>
+
+	<string name="data_management_title"><foo><![CDATA[GİZLİLİK DENETİMLERİ]]></foo></string>
+	<string name="data_management_description"><foo><![CDATA[Burada seninle ilgili hangi verilere sahip olduğumuzu öğrenebilir ya da bu verilerin kaldırılmasını isteyebilirsin.]]></foo></string>
+
+	<string name="request_data_title"><foo><![CDATA[VERİLERİ TALEP ET]]></foo></string>
+	<string name="request_data_description"><foo><![CDATA[Burada seninle ilgili sahip olduğumuz verileri talep edebilirsin. İki gün içerisinde sana kişisel bilgilerini içeren bir e-posta göndereceğiz.]]></foo></string>
+	<string name="request_data_pending_description"><foo><![CDATA[Talebin alındı ve en fazla iki gün içerisinde işlenecek. Sana şifreli bir ZIP dosyası içeren bir e-posta göndereceğiz. Bu dosyayı açmak için gereken şifreyi burada bulabilirsin.]]></foo></string>
+	<string name="request_data_ready_description"><foo><![CDATA[Talebin işlendi ve aşağıdaki e-posta adresine verilerini içeren şifreli bir ZIP dosyası gönderdik. Bu dosyayı alttaki şifreyi kullanarak açabilirsin.]]></foo></string>
+	<string name="enter_your_email"><foo><![CDATA[E-posta adresini yukarı gir]]></foo></string>
+	<string name="press_ok"><foo><![CDATA[E-posta adresini girdikten sonra Tamam düğmesine tıkla]]></foo></string>
+	<string name="invalid_email"><foo><![CDATA[Geçersiz e-posta adresi]]></foo></string>
+	<string name="your_request_is_pending_status"><foo><![CDATA[Talebin işleniyor]]></foo></string>
+	<string name="data_ready_description_status"><foo><![CDATA[Dosyayı açmak için bu şifreyi kullan: {0}]]></foo></string>
+
+	<string name="remove_data_title"><foo><![CDATA[VERİLERİ KALDIR]]></foo></string>
+	<string name="remove_data_description"><foo><![CDATA[UYARI: Kullanıcı verilerin kaldırıldığında tüm MAG oyunlarındaki ilerlemen ve hesapların silinecek. Silinen veriler geri alınamaz. Verilerinin yeniden kaydedilmemesi için MAG oyunlarının cihazlarından kaldırılması gerekir. Talepler 14 gün içerisinde işlenir ve bu süreden önce iptal edilebilir.]]></foo></string>
+	<string name="remove_data_cannot_be_undone_status"><foo><![CDATA[Kaldırılan veriler geri alınamaz. Devam etmek istiyor musun?]]></foo></string>
+	<string name="cancel_data_removal"><foo><![CDATA[VERİ KALDIRMAYI İPTAL ET]]></foo></string>
+	<string name="notify_me_via_email_when_done"><foo><![CDATA[Beni e-posta ile bilgilendir]]></foo></string>
+	<string name="day_remaining"><foo><![CDATA[{0} gün kaldı]]></foo></string>
+	<string name="days_remaining"><foo><![CDATA[{0} gün kaldı]]></foo></string>
+
+	<string name="remove_data_confirmation_title"><foo><![CDATA[VERİLERİN KALDIRILSIN MI?]]></foo></string>
+	<string name="remove_data_confirmation_description"><foo><![CDATA[UYARI: Kullanıcı verilerin kaldırıldığında tüm MAG oyunlarındaki ilerlemen ve hesapların silinecek. Silinen veriler geri alınamaz. Verilerinin yeniden kaydedilmemesi için MAG oyunlarının cihazlarından kaldırılması gerekir. Talepler 14 gün içerisinde işlenir ve bu süreden önce iptal edilebilir.]]></foo></string>
+	<string name="data_removal_pending_status"><foo><![CDATA[Talebin henüz işleme alınmadı ve iptal edilebilir.]]></foo></string>
+	<string name="confirm"><foo><![CDATA[ONAYLA]]></foo></string>
+	<string name="cancel"><foo><![CDATA[İPTAL ET]]></foo></string>
+
+	<string name="search_results_title"><foo><![CDATA[Arama sonuçları]]></foo></string>
+	<string name="search_no_results_title"><foo><![CDATA[Hiçbir sonuç bulunamadı]]></foo></string>
+	<string name="search_placeholder"><foo><![CDATA[Arama...]]></foo></string>
+	<string name="article_rating_question"><foo><![CDATA[Bu makale yararlı oldu mu?]]></foo></string>
+	<string name="article_rating_thanks"><foo><![CDATA[Geri bildirimin için teşekkürler!]]></foo></string>
+
+	<string name="tracking_title"><foo><![CDATA[Alakasız reklamlardan bıktın mı?]]></foo></string>
+	<string name="tracking_description_a"><foo><![CDATA[Sana oyunumuzun reklamları ile diğer reklamları kimin gönderdiğini izleyebilir miyiz? Böylece oyunu senin için geliştirebiliriz ve uygulama ücretsiz olmayı sürdürür.]]></foo></string>
+	<string name="tracking_description_b"><foo><![CDATA[Kabul ediyorsan sonraki ekranda "İzin Ver" veya kabul etmiyorsan "Uygulama Beni Takip Etmesin" düğmesine tıkla.]]></foo></string>
+
+    <string name="tracking_plate_title"><foo><![CDATA[Biz ♥ Ücretsiz Oyun!]]></foo></string>
+    <string name="tracking_plate_description"><foo><![CDATA[İzin vererek eğlenceli, ücretsiz oyunlar üretmemize yardım et!]]></foo></string>
+
+    <string name="terms_title"><foo><![CDATA[OYNAMAYA HAZIR MISIN?]]></foo></string>
+	<string name="terms_description_a"><foo><![CDATA[Oynamaya başlamadan önce, Hizmet Koşullarımızı ve Gizlilik Politikamızı kabul etmek için aşağıdaki TAMAM düğmesine dokun.]]></foo></string>
+
+	<!-- IDFA AB Testing keys -->
+	<string name="tracking_description_a_1"><foo><![CDATA[Sana oyunumuzda gösterilen reklamları kimin gönderdiğini izleyebilir miyiz? Böylece oyunu senin için geliştirebiliriz ve uygulama ücretsiz olmayı sürdürür.]]></foo></string>
+	<string name="tracking_description_a_2"><foo><![CDATA[Bu oyunda senin reklam faaliyetierini izleyebilir miyiz? Böylece oyunu senin için iyileştirebiliriz ve uygulama ücretsiz olmayı sürdürür.]]></foo></string>
+	<string name="tracking_description_a_3"><foo><![CDATA[Deneyimini iyileştirmek üzere sana ilgini çeken reklamlar sunmayı sürdürmek için iznine ihtiyacımız var. Senin reklam faaliyetlerini izlememize izin verir misin?]]></foo></string>
+
+    <string name="tracking_plate_title_1"><foo><![CDATA[MAG ♥ Ücretsiz Oyun!]]></foo></string>
+    <string name="tracking_plate_title_2"><foo><![CDATA[Ücretsiz Oyun Oynamayı Seviyoruz!]]></foo></string>
+    <string name="tracking_plate_title_3"><foo><![CDATA[MAG Ücretsiz Oyun Oynamayı Seviyor!]]></foo></string>
+    <string name="tracking_plate_title_4"><foo><![CDATA[Ücretsiz Oyunlar Harika]]></foo></string>
+    <string name="tracking_plate_title_5"><foo><![CDATA[Kullanıcı Seçimini Destekliyoruz]]></foo></string>
+    <string name="tracking_plate_title_6"><foo><![CDATA[MAG Kullanıcı Seçimini Destekliyor]]></foo></string>
+
+    <string name="tracking_plate_description_1"><foo><![CDATA[İzin vermek, senin için ücretsiz oyunlar üretmemize yardım eder!]]></foo></string>
+    <string name="tracking_plate_description_2"><foo><![CDATA[İzlemeye izin vermek, oyunların ücretsiz kalmasına yardımcı olur!]]></foo></string>
+    <string name="tracking_plate_description_3"><foo><![CDATA[İzlemeye izin vererek kendi reklam deneyimini belirle!]]></foo></string>
+    <string name="tracking_plate_description_4"><foo><![CDATA["İzin Ver" düğmesine tıklayarak gördüğün reklamları düzenle!]]></foo></string>
+    <string name="tracking_plate_description_5"><foo><![CDATA[İzin verirsen, daha fazla ücretsiz oyun geliştirebiliriz!]]></foo></string>
+    <string name="tracking_plate_description_6"><foo><![CDATA[İzin verirsen, senin için ücretsiz oyunlar üretmeyi sürdüreceğiz!]]></foo></string>
+
+	<string name="licenses_title"><foo><![CDATA[LISANSLAR]]></foo></string>
+
+    <!-- Native keys that are used with Xcode. Use the prefix 'NATIVE_KEY:' -->
+	<string name="NATIVE_KEY:NSUserTrackingUsageDescription"><foo><![CDATA[Endişelenme! Bu sadece ilgini çekmeyen reklamları önler ve oyunun ücretsiz kalmasını sağlar.]]></foo></string>
+</resources>

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7fa8fea6357bc1a4446dc29aa86e387, type: 3}
+  m_Name: DailyPuzzleHelper
+  m_EditorClassIdentifier:
+  _puzzleData:
+  - {fileID: 11400000, guid: e2af071eae1c5d543a204bf2bed65279, type: 2}
+  - {fileID: 11400000, guid: fd6d1f832245bc64ea83082f7dfd49b5, type: 2}
+  - {fileID: 11400000, guid: 6d969538cb526b748b7ca6818d59137b, type: 2}
+  - {fileID: 11400000, guid: 2650044a5349fcc49bbc2a9295ca9bc6, type: 2}
+  - {fileID: 11400000, guid: f9c5c98971bc1794e81278321cfb2f8b, type: 2}
+  _categories: {fileID: 11400000, guid: 2b13eb205b14e2243a1f51bc68c1574d, type: 2}
+  _dateOffset: 0
+  _allowReplayOfCompleted: 0
+  _forceBoardSize: 0

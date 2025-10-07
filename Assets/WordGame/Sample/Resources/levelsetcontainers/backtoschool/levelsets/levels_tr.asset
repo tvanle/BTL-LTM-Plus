@@ -1,0 +1,261 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_tr
+  m_EditorClassIdentifier:
+  language: tr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Back to School
+      category: Back to School
+      categoryLocalized: OKULA DÖNÜŞ
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: zisyaifin
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - sinif
+        - yazi
+        swipes:
+        - 0,0-1,0-0,1-1,1
+        - 2,2-2,1-2,0-1,0-0,0
+        isExtraPackLevel: 0
+      - board: nesrlaedihtkdpüü
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - kütüphane
+        - dil
+        - ders
+        swipes:
+        - 3,0-2,0-3,1-2,1
+        - 0,0-0,1-0,2
+        - 3,1-3,0-2,1-2,0-1,0-1,1-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: taönmyğenirmkoet
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - öğretmen
+        - kimya
+        - not
+        swipes:
+        - 0,0-1,0-0,1
+        - 0,0-1,1-0,2-1,2-1,3
+        - 2,3-2,2-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: üalinmğtikazfori
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - kağit
+        - zil
+        - üniforma
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1-1,2
+        - 3,1-3,0-2,1
+        - 1,1-2,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: kataefyiedaiyberoyiscğrta
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - coğrafya
+        - kirtasiye
+        - edebiyat
+        swipes:
+        - 4,2-4,1-4,0-3,0-2,1-2,0-3,1-2,2
+        - 0,0-1,0-2,0-3,0-4,0-4,1-3,1-2,2-3,3
+        - 0,0-1,1-1,0-0,1-0,2-0,3-1,3-1,4
+        isExtraPackLevel: 0
+      - board: espitalki
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - lise
+        - kitap
+        swipes:
+        - 1,0-2,0-1,1-2,1-2,2
+        - 0,0-0,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: çeouöhinarecğbkl
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - bahçe
+        - öğrenci
+        - okul
+        swipes:
+        - 2,1-2,0-3,1-3,0
+        - 0,1-0,0-1,0-2,1-3,2-3,1-2,2
+        - 1,0-0,1-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: şaerderikamtleft
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - kalemtiraş
+        - defter
+        swipes:
+        - 0,0-1,0-2,0-3,0-2,1-3,1
+        - 0,1-1,1-0,0-1,0-2,1-3,1-3,2-2,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: iknmteöiamtemağr
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - matematik
+        - öğrenim
+        swipes:
+        - 2,1-2,0-3,0-3,1-2,2-3,2-3,3
+        - 0,0-1,0-2,1-1,2-1,1-0,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: ehijordrloüsüydporeinasmb
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - biyoloji
+        - spor
+        - müdür
+        - dershane
+        swipes:
+        - 4,0-3,0-2,1-2,0-1,1-1,0-0,0-0,1
+        - 3,0-2,1-1,1-0,1-0,2
+        - 1,2-0,1-1,1-2,1
+        - 4,0-4,1-3,2-4,3-3,3-4,4-3,4-2,4
+        isExtraPackLevel: 0
+      - board: arüyvsuük
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - yuva
+        - kürsü
+        swipes:
+        - 2,0-1,0-1,1-2,1-2,2
+        - 0,1-0,0-1,1-0,2
+        isExtraPackLevel: 0
+      - board: mkniüanttrihizak
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - tarih
+        - müzik
+        - kantin
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2-2,2
+        - 0,2-0,1-1,0-0,0-1,1
+        - 0,1-1,2-1,1-2,1-3,1
+        isExtraPackLevel: 0
+      - board: lşiriiectbzeegni
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - tebeşir
+        - ingilizce
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1-1,1-2,1-3,2-3,1
+        - 0,1-0,0-1,1-2,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: skikidlireizasrf
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - sira
+        - fizik
+        - derslik
+        swipes:
+        - 1,2-1,1-2,0-1,0-2,1-2,2-1,3
+        - 3,0-2,1-3,1-3,2-3,3
+        - 0,3-0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: ainirsisblamtzümiaöcseğve
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - eğitim
+        - sözlü
+        - sinav
+        - cebir
+        - masa
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 4,1-4,0-3,0-3,1-4,2
+        - 0,0-1,0-2,1-2,0-3,0
+        - 2,1-3,1-3,2-4,3-4,2
+        - 1,0-2,0-1,1-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: luarykkvutollkaamboriaalo
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - laboratuvar
+        - yoklama
+        - ilkokul
+        swipes:
+        - 0,0-1,0-1,1-0,1-0,2-1,2-0,3
+        - 4,1-4,0-3,0-2,0-1,0-1,1-0,1
+        - 3,0-2,0-2,1-3,1-4,1-4,2-4,3-3,3-2,3-2,4-3,4
+        isExtraPackLevel: 0
+      - board: üedeusffulranevneokakötan
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - teneffüs
+        - anaokulu
+        - karne
+        - ödev
+        swipes:
+        - 1,0-2,0-3,0-4,0
+        - 0,0-1,1-0,2-0,1-1,2
+        - 4,1-4,0-3,0-2,0-3,1-3,2-4,3-4,4
+        - 2,0-1,1-2,2-3,2-2,3-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: acflrtektiazesödeümnmürös
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - sömestir
+        - önlük
+        - müfredat
+        - ceza
+        swipes:
+        - 1,2-1,1-1,0-0,0
+        - 0,0-1,0-2,1-2,0-1,1-0,1-0,2-0,3
+        - 4,1-4,0-3,0-2,1-2,2
+        - 4,0-3,0-3,1-2,2-3,2-3,3-4,3-4,4
+        isExtraPackLevel: 0

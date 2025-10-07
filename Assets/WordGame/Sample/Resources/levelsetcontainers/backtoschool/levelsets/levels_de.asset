@@ -1,0 +1,235 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_de
+  m_EditorClassIdentifier:
+  language: de
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Back to School
+      category: Back to School
+      categoryLocalized: Schulanfang
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: csthuflhe
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - schulheft
+        swipes:
+        - 1,2-0,2-0,1-1,1-0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: thicrrchueeetnim
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - unterricht
+        - chemie
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        - 0,1-1,0-0,0-1,1-0,2-1,2-2,3-2,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: hcieesbginiolgol
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - englisch
+        - biologie
+        swipes:
+        - 2,2-2,1-2,0-3,0-3,1-3,2-2,3-3,3
+        - 0,2-1,1-1,0-0,0-0,1-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: tbthflsceitdisue
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - deutsch
+        - bleistift
+        swipes:
+        - 1,3-1,2-0,1-0,0-1,0-2,0-1,1-0,2-0,3
+        - 3,1-3,0-2,0-2,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: kimerpsmlsklieuassznhygob
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - klassenzimmer
+        - physik
+        - globus
+        swipes:
+        - 2,0-3,1-3,0-4,0-4,1-4,2
+        - 0,1-0,0-1,0-1,1-1,2-0,2
+        - 0,2-1,2-0,1-1,1-2,1-3,2-4,1-3,1-2,2-2,3-2,4-3,4-4,4
+        isExtraPackLevel: 0
+      - board: agwtdaern
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - wandertag
+        swipes:
+        - 2,2-2,1-2,0-1,1-0,0-1,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: leftortapzlksire
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - sport
+        - zirkel
+        - tafel
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0
+        - 1,1-1,0-2,0-3,1-3,0-2,1
+        - 0,0-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: roerutaentlribeh
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - lehrer
+        - abitur
+        - note
+        swipes:
+        - 0,0-1,1-1,0-2,0
+        - 2,0-1,0-0,0-1,1-0,2-0,3
+        - 2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: siusnabcguzhnkel
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - zeugnis
+        - schulbank
+        swipes:
+        - 3,3-3,2-3,1-2,1-3,0-2,0-1,1-0,0-1,0
+        - 2,1-2,0-1,1-0,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: laotignbrnperatasbneuetar
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - pausenbrot
+        - algebra
+        - internat
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,1-3,0-2,0
+        - 1,1-0,1-0,0-1,0-2,1-2,2-3,2
+        - 0,2-0,1-0,0-1,1-1,2-1,3-2,3-3,3-2,4-3,4
+        isExtraPackLevel: 0
+      - board: rotpkeroj
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - projektor
+        swipes:
+        - 0,1-0,0-1,0-2,0-2,1-1,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: tnehsbaaegfutuas
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - hausaufgaben
+        - test
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 3,3-3,2-3,1-3,0-2,0-1,0-2,1-1,1-2,2-1,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: eshehctmcthasalu
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - schultasche
+        - mathe
+        swipes:
+        - 3,1-3,0-2,0-2,1-3,2
+        - 1,3-1,2-2,1-3,0-2,0-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: mmipugradieuraes
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - radiergummi
+        - pause
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0
+        - 0,0-1,0-0,1-1,1-2,1-2,2-1,2-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: dnabnipaedkllneterlrathte
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - diktat
+        - elternabend
+        - lehrplan
+        swipes:
+        - 1,1-1,0-2,0-2,1-1,2-2,2-2,3-1,3
+        - 4,2-3,1-3,0-4,0-4,1-3,2-2,3-3,4-3,3-4,4-4,3
+        - 0,4-0,3-0,2-0,1-0,0-1,0
+        isExtraPackLevel: 0
+      - board: tektnarnhosaceicnrsuhertb
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - taschenrechner
+        - subtraktion
+        swipes:
+        - 3,1-4,1-4,0-3,0-2,0-1,0-2,1-3,2-4,2-4,3-4,4
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-2,1-3,2-2,2-3,3-2,3-1,4-1,3
+        isExtraPackLevel: 0
+      - board: sademtanguabeyintlmslrena
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - gymnasium
+        - elternabend
+        - atlas
+        swipes:
+        - 1,0-0,1-0,0-1,1-0,2
+        - 3,0-2,1-1,1-2,0-1,0-0,1-0,2-1,2-2,2-2,3-2,4
+        - 3,3-3,2-3,1-3,0-4,0-4,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: muliligelertkkoonzrdlerei
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - kollegium
+        - lernziel
+        - direktor
+        swipes:
+        - 4,1-4,0-3,1-3,0-2,0-1,0-0,0-0,1
+        - 0,0-1,0-2,0-1,1-2,1-3,2-4,2-4,3
+        - 3,2-4,2-3,3-2,4-2,3-1,3-0,3-1,4-0,4
+        isExtraPackLevel: 0

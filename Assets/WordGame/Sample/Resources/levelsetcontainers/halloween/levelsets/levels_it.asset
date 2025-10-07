@@ -1,0 +1,234 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_it
+  m_EditorClassIdentifier:
+  language: it
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Halloween
+      category: Halloween
+      categoryLocalized: Halloween
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: cieacctri
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - cicatrice
+        swipes:
+        - 0,2-1,2-1,1-0,1-0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: atisrpiruatrseva
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - paura
+        - travestirsi
+        swipes:
+        - 2,1-3,1-3,0-2,0-1,0-0,0-1,1-2,2-3,2-3,3-2,3
+        - 1,2-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: aeoagtrrssoatrmb
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - mostro
+        - strega
+        - bara
+        swipes:
+        - 3,0-3,1-3,2-3,3
+        - 0,1-0,0-1,0-1,1-0,2-0,3
+        - 2,0-2,1-1,1-1,2-2,2-2,3
+        isExtraPackLevel: 0
+      - board: cmafitsrmteoiana
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - cimitero
+        - fantasma
+        swipes:
+        - 3,1-3,0-2,0-1,1-1,0-2,1-1,2-2,2
+        - 0,3-0,2-0,1-0,0-1,1-2,1-3,2-3,1
+        isExtraPackLevel: 0
+      - board: orebetrouiteczbdltmooreio
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - dolcetto
+        - terrore
+        - zombie
+        - buio
+        swipes:
+        - 3,2-3,1-3,0-4,0
+        - 3,2-4,1-3,1-4,2-4,3-4,4
+        - 2,1-2,0-1,0-1,1-2,2-1,2-2,3
+        - 0,1-0,0-1,1-2,2-1,2-0,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: fofegusta
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - festa
+        - gufo
+        swipes:
+        - 1,0-2,0-2,1-1,1
+        - 0,2-0,1-0,0-1,0-2,0
+        isExtraPackLevel: 0
+      - board: emceuaaltsrlocme
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - costume
+        - caramelle
+        swipes:
+        - 2,3-2,2-2,1-1,0-2,0-3,0-3,1-3,2-3,3
+        - 1,0-0,0-1,1-0,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ronoltareehnscam
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - scheletro
+        - mannaro
+        swipes:
+        - 3,0-2,0-3,1-2,2-2,1-3,2-3,3
+        - 0,0-1,0-2,1-1,1-0,2-0,1-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: rrtsotocoerhrhze
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - scherzetto
+        - horror
+        swipes:
+        - 1,0-0,1-0,0-1,1-0,2-0,3
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,1-1,2-2,3-2,2
+        isExtraPackLevel: 0
+      - board: detamioclaacohsvioeccloer
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - cioccolate
+        - diavolo
+        - maschere
+        swipes:
+        - 4,4-4,3-4,2-4,1-3,2-3,1-4,0-3,0
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0
+        - 0,0-1,1-2,1-1,2-2,3-2,2-3,3-3,4-2,4-1,4
+        isExtraPackLevel: 0
+      - board: elasprett
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - spettrale
+        swipes:
+        - 0,1-1,1-0,0-1,0-2,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: psoeitlapzcciurl
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - zucca
+        - pipistrello
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0-3,1-3,0-2,1-2,2
+        - 1,1-1,0-2,1-3,1-3,2
+        isExtraPackLevel: 0
+      - board: eabilanietnrbmag
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - ragnatele
+        - bambini
+        swipes:
+        - 0,0-1,1-1,0-2,1-3,1-2,0-3,0
+        - 3,1-2,0-3,0-2,1-1,2-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: onaiummemarcfoti
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - mummia
+        - citofonare
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-0,1-1,2-1,1-2,1-3,2
+        - 0,1-0,2-1,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: sabrmimaeinolistgortaoite
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - intagliare
+        - tomba
+        - misterioso
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,0-2,0-1,0-0,0-1,1
+        - 3,0-2,1-1,2-2,2-1,3
+        - 0,3-0,2-0,1-0,0-1,1-2,2-3,2-2,3-3,4-3,3
+        isExtraPackLevel: 0
+      - board: lonefeenoomadallnttcuedel
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - candele
+        - luna
+        - demone
+        - folletto
+        swipes:
+        - 4,3-4,2-4,1-4,0-3,0-2,0-3,1-3,2
+        - 2,0-1,0-0,0-1,1-2,2-3,3
+        - 0,1-0,0-1,1-1,2
+        - 4,1-3,2-2,3-2,2-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: srtaelaoidluntpiolgvmpoeuaeacteonlsp
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - lapide
+        - sangue
+        - vampiro
+        - castello
+        - notte
+        - lupo
+        swipes:
+        - 5,2-5,1-5,0-4,0
+        - 2,0-1,0-1,1-2,2-2,1
+        - 4,1-3,0-4,0-5,1-5,2-5,3-4,4-4,3
+        - 1,2-1,1-2,2-2,3-2,4-1,5-1,4
+        - 0,5-0,4-0,3-0,2-0,1-0,0
+        - 3,0-3,1-3,2-3,3-3,4-4,5
+        isExtraPackLevel: 0

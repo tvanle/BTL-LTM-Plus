@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 801791701, guid: b72a61945619903b4cd5297b49539484, type: 3}
+  m_Name: MagCenterTheme
+  m_EditorClassIdentifier:
+  _genericElementBackgroundColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+  _genericElementForegroundColor: {r: 0.19, g: 0.19, b: 0.19, a: 1}
+  _genericButtonBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  _genericButtonForegroundColor: {r: 0.19, g: 0.19, b: 0.19, a: 1}
+  _categoryBackgroundColor: {r: 0.06, g: 0.18, b: 0.2, a: 1}
+  _categoryForegroundColor: {r: 0.84, g: 0.89, b: 0.91, a: 1}
+  _articleBackgroundColor: {r: 0.31, g: 0.2, b: 0.35, a: 1}
+  _articleForegroundColor: {r: 0.86, g: 0.83, b: 0.88, a: 1}
+  _titleBackgroundColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+  _titleForegroundColor: {r: 1, g: 1, b: 1, a: 1}
+  _textBackgroundColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+  _textForegroundColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+  _logoBackgroundColor: {r: 0.49, g: 0.49, b: 0.49, a: 1}
+  _logoForegroundColor: {r: 1, g: 1, b: 1, a: 1}
+  _navbarForegroundColor: {r: 1, g: 1, b: 1, a: 1}
+  _navbarBackgroundColor: {r: 0.19, g: 0.19, b: 0.19, a: 1}
+  _preloaderLoadingBackgroundColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  _preloaderLoadingForegroundColor: {r: 0.55, g: 0.55, b: 0.55, a: 1}
+  _preloaderErrorBackgroundColor: {r: 0.82, g: 0.2, b: 0.2, a: 1}
+  _preloaderErrorForegroundColor: {r: 1, g: 0.55, b: 0.55, a: 1}
+  _searchBackgroundColor: {r: 0.1490196, g: 0.2078431, b: 0.5490196, a: 1}
+  _searchInputBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  _searchInputForegroundColor: {r: 0.1490196, g: 0.2078431, b: 0.5490196, a: 1}
+  _searchButtonBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  _searchButtonForegroundColor: {r: 0.1490196, g: 0.2078431, b: 0.5490196, a: 1}
+  _overlayBackgroundColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+  _titleFontSize: 23
+  _bodyFontSize: 20
+  _buttonFontSize: 23
+  _titleFont: {fileID: 12800000, guid: a6035ba8dd47b4a428079b6c00b8a4fa, type: 3}
+  _bodyFont: {fileID: 12800000, guid: 99977adb3658388428f446020f913fc4, type: 3}

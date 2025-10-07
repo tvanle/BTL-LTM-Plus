@@ -1,0 +1,204 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nl
+  m_EditorClassIdentifier:
+  language: nl
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Eco
+      category: Eco
+      categoryLocalized: Eco
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: obnomegro
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - groen
+        - boom
+        swipes:
+        - 1,1-0,1-0,0-1,0
+        - 0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: kmnsalmaaeatrdie
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - aarde
+        - klimaat
+        - mens
+        swipes:
+        - 2,0-3,0-2,1-3,1
+        - 0,0-1,0-2,0-1,1-2,1-3,2-3,1
+        - 0,2-0,1-0,0-1,0-1,1
+        isExtraPackLevel: 0
+      - board: mbtoedchocoushnl
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - lucht
+        - schoon
+        - bodem
+        swipes:
+        - 1,1-0,0-1,0-0,1-0,2
+        - 0,0-1,1-1,0-2,1-3,0-2,0
+        - 3,0-3,1-2,2-3,2-2,3
+        isExtraPackLevel: 0
+      - board: jeeliiedbwerengr
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - wereld
+        - energie
+        - bij
+        swipes:
+        - 0,0-0,1-0,2
+        - 0,0-1,0-2,1-3,0-2,0-1,1-1,2
+        - 1,1-2,1-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: rwfrhaiodeadtsnbwnianuebr
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - brandstof
+        - hernieuwbaar
+        - wind
+        swipes:
+        - 1,2-1,1-0,0-1,0
+        - 4,1-4,0-3,1-2,1-3,0-2,0-1,0-1,1-0,1-0,2-0,3-0,4
+        - 3,0-4,0-4,1-4,2-3,3-3,2-2,2-2,3-2,4
+        isExtraPackLevel: 0
+      - board: kporloing
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - kringloop
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: ticnsligacerlpyc
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - plastic
+        - recycling
+        swipes:
+        - 3,1-2,1-3,0-2,0-1,0-1,1-2,2-3,3-3,2
+        - 1,0-0,0-0,1-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: iemabgadiozuolru
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - duurzaam
+        - biologie
+        swipes:
+        - 0,2-0,1-0,0-1,0-1,1-1,2-0,3-1,3
+        - 3,2-3,1-3,0-2,0-2,1-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: miogesvotilocace
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - activisme
+        - ecoloog
+        swipes:
+        - 3,0-2,0-3,1-2,1-2,2-3,2-3,3
+        - 1,0-0,0-0,1-1,1-2,2-1,3-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: rdenheuoiaeswnrofermbiego
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - regenwoud
+        - harmonie
+        - biosfeer
+        swipes:
+        - 0,0-1,0-0,1-1,2-1,1-0,2-0,3-0,4
+        - 4,4-4,3-4,2-4,1-4,0-3,1-3,0-2,0
+        - 3,1-2,0-3,0-2,1-3,2-2,2-2,3-1,3-1,4
+        isExtraPackLevel: 0
+      - board: zmioilneu
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - milieu
+        - zon
+        swipes:
+        - 0,2-0,1-0,0
+        - 1,2-2,2-2,1-1,1-1,0-2,0
+        isExtraPackLevel: 0
+      - board: meettnsyuasoruce
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - ecosysteem
+        - natuur
+        swipes:
+        - 1,2-1,1-0,2-0,1-1,0-0,0
+        - 3,0-2,0-3,1-2,1-3,2-2,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: pemslanitnaoeerg
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - organisme
+        - planeet
+        swipes:
+        - 0,3-0,2-1,2-1,1-0,0-1,0-0,1
+        - 3,1-2,0-3,0-2,1-2,2-3,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: idlsebaneglafeeb
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - leefgebied
+        - balans
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2-3,3
+        - 2,1-2,0-1,0-0,0-1,1-0,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: ozpanekchaeensatwreoondec
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - wetenschap
+        - oceaan
+        - onderzoek
+        swipes:
+        - 0,0-1,0-2,0-3,0-2,1-1,2-0,2-0,1-1,1
+        - 4,1-4,0-3,1-4,2-4,3-4,4
+        - 1,1-0,2-0,1-1,2-2,2-3,2-2,3-3,3-3,4-2,4
+        isExtraPackLevel: 0

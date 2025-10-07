@@ -1,0 +1,244 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: valentineLevels_da
+  m_EditorClassIdentifier:
+  language: da
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Valentine's
+      category: Valentine's
+      categoryLocalized: Valentinsdag
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: kdhægerli
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - kærlighed
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,2-2,1-1,2
+        isExtraPackLevel: 0
+      - board: etobfvmloorsrlet
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - blomster
+        - forlovet
+        swipes:
+        - 0,2-0,1-0,0-1,0-1,1-1,2-0,3-1,3
+        - 3,3-3,2-2,3-2,2-3,1-3,0-2,0-2,1
+        isExtraPackLevel: 0
+      - board: lseokervesaetadr
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - date
+        - overraskelse
+        swipes:
+        - 3,3-3,2-3,1-2,1-3,0-2,0-1,0-0,0-1,1-0,1-1,2-2,2
+        - 2,0-1,0-0,0-0,1
+        isExtraPackLevel: 0
+      - board: eorfeldeosgemklufrmeusols
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - sommerfugle
+        - duo
+        - forelskelse
+        swipes:
+        - 3,3-3,2-2,1-2,0-3,0-4,0-3,1-4,1-4,2-4,3-4,4
+        - 1,0-0,0-1,1
+        - 1,0-2,0-3,1-2,2-1,2-2,1-1,1-0,1-0,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: nrauteimretroilgsnmsineåg
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - smile
+        - gåtur
+        - gnisten
+        - amoriner
+        swipes:
+        - 2,4-2,3-2,2-1,2-1,1-2,1-2,0-1,0
+        - 0,1-1,0-0,0-1,1-0,2-0,3-0,4
+        - 4,0-3,0-4,1-3,2-3,1
+        - 4,1-3,1-3,2-4,2-4,3
+        isExtraPackLevel: 0
+      - board: ehcdkoalo
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - chokolade
+        swipes:
+        - 2,2-1,2-2,1-1,1-2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: gdasaeukmitædser
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - kæreste
+        - usa
+        - middag
+        swipes:
+        - 0,1-1,0-0,0-1,1-0,2-0,3
+        - 2,0-3,0-2,1
+        - 3,2-3,1-3,0-2,0-1,0-2,1-1,2
+        isExtraPackLevel: 0
+      - board: ancnmerotodirait
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - tradition
+        - romance
+        swipes:
+        - 2,0-1,0-0,0-0,1-1,2-2,1-1,1
+        - 0,1-0,0-1,0-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: retnkadfmiureotøsbæamenvr
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - februar
+        - stævnemøde
+        - romantik
+        swipes:
+        - 4,0-3,0-3,1-4,1-3,2-4,2-4,3-4,4
+        - 1,1-2,1-3,1-3,0-2,0-1,0-0,0-0,1-1,2-1,3
+        - 2,3-2,2-2,1-1,2-0,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: bervneadmatgeotvnrjtadøse
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - rød
+        - varm
+        - betagende
+        - nattesjov
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,0-3,1-3,2-3,3
+        - 0,3-0,2-0,1-0,0-1,1-2,0-1,0-2,1-1,2
+        - 0,1-1,2-2,2-3,3
+        - 2,1-2,0-1,0
+        isExtraPackLevel: 0
+      - board: etryifskl
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - flirte
+        - kys
+        swipes:
+        - 1,0-0,1-0,0
+        - 2,1-2,0-1,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: igrrrieoresrfave
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - frieri
+        - gaver
+        - roser
+        swipes:
+        - 3,1-3,0-2,0-2,1-2,2
+        - 1,1-1,0-2,0-3,0-3,1
+        - 0,0-0,1-1,2-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: ebrestklnausdkee
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - danse
+        - buket
+        - elsker
+        swipes:
+        - 3,3-3,2-3,1-2,0-3,0-2,1
+        - 1,2-2,1-1,0-2,0-1,1
+        - 0,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: eanvsioinsfovpam
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - passion
+        - omfavne
+        - vi
+        swipes:
+        - 3,1-3,0
+        - 3,1-3,0-2,0-1,0-0,0-0,1-0,2
+        - 1,0-2,0-1,1-0,2-1,2-2,2-2,3
+        isExtraPackLevel: 0
+      - board: esenhflreneoejtvrrrploeta
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - partneren
+        - hjerte
+        - forlovelse
+        swipes:
+        - 0,3-1,2-1,1-0,0-1,0-0,1-0,2-1,3-1,4-0,4
+        - 4,0-3,1-2,2-2,1-3,0-2,0
+        - 4,1-4,0-3,1-4,2-4,3-3,3-2,3-2,4-3,4
+        isExtraPackLevel: 0
+      - board: reitbsndæemøsrukevendrnrd
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - beundrer
+        - stævnemøder
+        - drinks
+        swipes:
+        - 0,0-1,0-2,0-1,1-0,1-0,2
+        - 2,2-3,1-3,0-2,1-2,0-1,1-0,2-1,2-2,3-1,4-0,4
+        - 4,4-4,3-4,2-4,1-4,0-3,0-3,1-3,2
+        isExtraPackLevel: 0
+      - board: trbeetenadlkeaedmkssetlilegdbvknheøi
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - hede
+        - blikket
+        - mødes
+        - vild
+        - betagelsen
+        - tanker
+        swipes:
+        - 0,2-1,1-1,0-0,0-0,1-1,2
+        - 2,2-3,1-3,0-2,1-2,0-1,1-0,1-0,2-0,3-1,3
+        - 5,1-5,0-4,0-3,1
+        - 4,1-4,0-3,1-2,1-1,2
+        - 4,1-4,2-5,2-5,3-5,4-4,5-5,5
+        - 2,0-3,0-3,1-2,2
+        isExtraPackLevel: 0

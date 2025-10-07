@@ -1,0 +1,308 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_de
+  m_EditorClassIdentifier:
+  language: de
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Summer
+      category: Summer
+      categoryLocalized: Sommer
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: sellopolnoibnenr
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - sonnenbrille
+        - pool
+        swipes:
+        - 1,1-1,0-2,0-3,0
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,1-3,0-2,1-3,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: seanmireerbdeseb
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - meeresbrise
+        - baden
+        swipes:
+        - 3,0-2,0-3,1-3,2-3,3
+        - 0,2-0,1-0,0-1,1-2,0-1,0-2,1-2,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: cendraentüoaksmz
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - strand
+        - mücke
+        - ozean
+        swipes:
+        - 2,0-3,0-2,1-3,1-3,2
+        - 2,0-1,0-0,1-0,0-1,1
+        - 1,0-0,1-0,2-1,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: blefasfldpoiehop
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - badehose
+        - flipflop
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-1,1-2,0-1,0
+        - 0,3-0,2-0,1-0,0-1,0-2,1-1,2-2,3
+        isExtraPackLevel: 0
+      - board: imsdrhanoscnnnes
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - sonnenschirm
+        - sand
+        swipes:
+        - 2,1-2,0-3,0-3,1
+        - 1,1-0,1-0,0-1,0-2,0-3,1-3,0-2,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: anrgoweutoimndbm
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - gummiboot
+        - wandern
+        swipes:
+        - 1,1-0,1-0,0-1,0-2,0-2,1-1,2
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: meleeadirnomcsie
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - eiscreme
+        - limonade
+        swipes:
+        - 2,2-3,1-3,0-2,0-1,0-1,1-2,1-3,2
+        - 3,0-2,0-1,0-0,0-0,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: nrdnusraaobebnnn
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - sonnenbrand
+        - braun
+        swipes:
+        - 0,0-1,0-0,1-0,2-0,3
+        - 1,2-1,1-1,0-2,0-3,1-3,0-2,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: guembrreednasiis
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - sandburg
+        - eimer
+        - eis
+        swipes:
+        - 0,1-1,0-0,0
+        - 3,0-2,0-3,1-2,2-2,1
+        - 3,0-3,1-2,1-1,1-0,2-1,3-1,2-0,3
+        isExtraPackLevel: 0
+      - board: grttrelnblesifru
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - surfbrett
+        - grillen
+        swipes:
+        - 0,1-1,1-0,0-1,0-2,1-2,0-3,0
+        - 3,1-3,0-2,0-1,0-0,1-0,2-1,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: iiebnhliizkltewe
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - hitzewelle
+        - bikini
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-0,1
+        - 1,2-0,1-0,0-1,1-1,0-2,0-3,0-3,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: aphnsceinroskenn
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - sonnenschein
+        - park
+        swipes:
+        - 1,1-0,1-1,0-0,0
+        - 3,1-2,1-3,0-2,0-1,0-0,1-0,2-1,2-2,3-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: engsolraeeawrmss
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - wassermelone
+        - gras
+        swipes:
+        - 2,1-2,0-3,0-3,1
+        - 3,1-2,1-3,0-2,0-1,1-0,0-1,0-0,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ßisnewcehmmhsciw
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - schwimmen
+        - schweiß
+        swipes:
+        - 0,0-1,0-0,1-1,1-0,2-1,2-0,3
+        - 2,3-2,2-3,1-3,0-2,0-1,1-2,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: llabbudaarrnults
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - strandball
+        - urlaub
+        swipes:
+        - 0,0-1,1-1,0-0,1-1,2-0,2
+        - 3,0-2,0-2,1-3,2-3,1-2,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: bgnsauzadanledae
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - sandale
+        - badeanzug
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,1-2,0-1,1-1,2
+        - 3,3-3,2-2,1-1,0-2,0-3,1-3,0
+        isExtraPackLevel: 0
+      - board: fetsroieobbgdale
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - segelboot
+        - freibad
+        swipes:
+        - 0,2-0,1-1,1-2,1-2,0-1,0-0,0
+        - 3,3-3,2-3,1-3,0-2,0-1,1-0,1-1,2-2,3
+        isExtraPackLevel: 0
+      - board: rsmseueolbenienn
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - sonnenblume
+        - reise
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,1-0,1-1,2-2,3-2,2
+        isExtraPackLevel: 0
+      - board: tzeniwchhirekcss
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - schwitzen
+        - kirsche
+        swipes:
+        - 0,0-1,0-2,0-3,0-2,1-3,2-3,1
+        - 2,0-1,0-0,1-1,2-0,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: lteeiesheeulgtsi
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - liegestuhl
+        - eistee
+        swipes:
+        - 3,1-3,0-2,0-1,1-1,0-2,1
+        - 0,3-0,2-0,1-0,0-1,1-2,0-1,0-2,1-3,2-3,1
+        isExtraPackLevel: 0
+      - board: tteamanhtegäsugu
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - hängematte
+        - august
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-0,1
+        - 3,2-3,1-2,2-2,1-1,1-0,2-1,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: mapnelueshlicfer
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - schulferien
+        - palme
+        swipes:
+        - 2,0-1,1-1,0-0,1-0,0
+        - 0,1-0,0-1,1-2,2-2,1-1,0-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: suerthtereheordb
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - erdbeere
+        - strohhut
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1-2,1
+        - 1,1-1,0-2,0-3,0-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: kdpkolicrecinfkn
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - picknick
+        - kornfeld
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        - 2,3-2,2-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: fonirftkeuijilul
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - freiluftkino
+        - juli
+        swipes:
+        - 3,1-2,0-3,0-2,1
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-2,2-3,2-3,3-2,3-1,3
+        isExtraPackLevel: 0

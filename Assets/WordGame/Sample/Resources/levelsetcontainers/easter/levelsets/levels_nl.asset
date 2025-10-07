@@ -1,0 +1,298 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nl
+  m_EditorClassIdentifier:
+  language: nl
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Easter
+      category: Easter
+      categoryLocalized: Pasen
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: tepesafsa
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - paasfeest
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-0,1-1,2-1,1-0,2
+        isExtraPackLevel: 0
+      - board: kusinaegakleepie
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - paasei
+        - kuiken
+        - geel
+        swipes:
+        - 3,2-3,1-3,0-2,0
+        - 0,2-1,1-2,0-1,0-0,0-0,1
+        - 1,0-0,1-1,2-2,3-2,2-3,3
+        isExtraPackLevel: 0
+      - board: renaceilhocovers
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - chocola
+        - versieren
+        swipes:
+        - 0,0-1,0-2,0-3,0-2,1-1,2-0,1-1,1-2,2
+        - 0,2-0,1-1,1-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: lekpaenemstjmapi
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - pasen
+        - lammetje
+        - kip
+        swipes:
+        - 2,0-3,0-3,1
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,1-3,2
+        - 2,0-1,0-1,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: kerseojantnoeinitrcenjgnl
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - groen
+        - narcis
+        - konijntje
+        - lente
+        swipes:
+        - 4,0-4,1-4,2-4,3-4,4
+        - 0,4-0,3-0,2-0,1-1,0-0,0-1,1-1,2-1,3
+        - 3,0-2,0-2,1-3,1-3,2-3,3
+        - 2,0-2,1-1,2-2,2-3,3
+        isExtraPackLevel: 0
+      - board: eapjastie
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - paaseitje
+        swipes:
+        - 2,2-1,2-1,1-2,1-2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: savoaproahjaasar
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - paashaas
+        - voorjaar
+        swipes:
+        - 2,3-3,3-3,2-2,2-2,1-3,1-2,0-3,0
+        - 1,2-0,1-0,0-1,0-1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: kifejlaeormivili
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - ei
+        - familie
+        - vrolijk
+        swipes:
+        - 0,0-1,0-0,1-1,1-1,2-0,2-0,3
+        - 2,3-2,2-2,1-1,0-2,0-3,0-3,1
+        - 3,2-3,1
+        isExtraPackLevel: 0
+      - board: ktieernkkaaasvap
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - paasvakantie
+        - kerk
+        swipes:
+        - 0,2-0,1-1,0-0,0
+        - 3,0-2,0-1,1-0,0-1,0-2,1-3,2-3,1-2,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: lvnovpsegeatemeasbloeejnl
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - paasbloem
+        - vogelnestje
+        - leven
+        swipes:
+        - 0,1-0,0-1,0-2,0-2,1
+        - 4,2-3,2-3,1-4,1-4,0-3,0-2,1-1,2-1,1-2,0-1,0
+        - 0,3-0,2-0,1-1,1-2,1-3,1-4,1-4,2-3,2
+        isExtraPackLevel: 0
+      - board: dooprbaas
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - paasbrood
+        swipes:
+        - 0,1-0,0-1,0-2,0-2,1-1,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: phtgncuaulndrbzo
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - zondag
+        - brunch
+        - tulp
+        swipes:
+        - 2,1-2,0-1,0-0,0
+        - 1,0-0,0-0,1-0,2-1,2-1,3
+        - 2,0-3,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: knekapjuattisaek
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - paastak
+        - kuikentje
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-2,1-2,2-2,3
+        - 1,2-0,1-1,0-0,0-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: eidntjeeeekwpaas
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - paasweekend
+        - eitje
+        swipes:
+        - 0,2-1,1-0,1-1,0-0,0
+        - 0,0-1,0-2,0-3,0-3,1-2,2-1,1-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: nemenengoeetelitunadbiinb
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - buiten
+        - genieten
+        - mand
+        - bloeien
+        swipes:
+        - 4,0-3,0-3,1-4,2-4,1-3,2-4,3
+        - 2,0-3,1-3,0-4,1
+        - 2,3-2,2-2,1-2,0-1,1-1,0-0,0-0,1
+        - 0,0-1,1-1,0-0,1-0,2-1,3
+        isExtraPackLevel: 0
+      - board: inglnwdea
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - wandeling
+        swipes:
+        - 2,1-2,0-1,1-0,0-1,0-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: vtpeezeeroknsopn
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - zoeken
+        - verstoppen
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,1-2,0-3,1-3,0
+        - 1,2-1,1-2,2-2,1-3,2-3,1
+        isExtraPackLevel: 0
+      - board: htrtcoiftstesare
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - fietstocht
+        - terras
+        swipes:
+        - 3,1-3,0-2,1-2,0-1,0-0,0
+        - 3,2-2,2-3,1-2,1-1,1-0,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: apkelmtgpaajadsa
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - paasdag
+        - palmtakje
+        swipes:
+        - 1,1-0,1-0,0-1,0-2,0-3,0-2,1-3,1-3,2
+        - 0,1-0,0-1,1-2,0-1,0-2,1-3,2
+        isExtraPackLevel: 0
+      - board: lbneaoelpsgboematelfmdsap
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - palmpasen
+        - feestdag
+        - bloembol
+        swipes:
+        - 1,2-2,1-2,0-1,1-0,0-1,0-0,1-0,2
+        - 4,0-3,0-2,1-2,0-1,1-1,0-0,1-0,2
+        - 4,0-3,0-3,1-4,2-3,3-4,4-4,3-3,4-2,4
+        isExtraPackLevel: 0
+      - board: jeujpaittsbntiot
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - ontbijt
+        - uitstapje
+        swipes:
+        - 2,0-1,0-0,0-1,1-0,1-1,2-0,2-0,3-1,3
+        - 2,0-3,1-3,0-2,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: kpaaitrsrtboseke
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - strik
+        - boeket
+        - paars
+        swipes:
+        - 1,0-2,1-3,1-2,0-3,0
+        - 2,1-3,1-3,0-2,0-1,0-1,1
+        - 0,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: dneiederailsctreihotbecnl
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - beschilderen
+        - decoratie
+        - lint
+        swipes:
+        - 4,0-3,1-3,0-4,1
+        - 0,0-1,0-2,0-3,1-4,2-3,3-3,2-4,3-4,4
+        - 0,0-0,1-1,2-2,2-2,1-1,1-0,2-0,3-1,3-2,3-2,4-1,4
+        isExtraPackLevel: 0

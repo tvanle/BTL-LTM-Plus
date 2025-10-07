@@ -1,0 +1,302 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_fr
+  m_EditorClassIdentifier:
+  language: fr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Spring
+      category: Spring
+      categoryLocalized: Printemps
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: onsrebguo
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - bourgeons
+        swipes:
+        - 2,1-2,0-1,0-0,1-0,0-1,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: dsnnniioiojlsilu
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - oisillons
+        - nid
+        - juin
+        swipes:
+        - 2,0-3,0-2,1-3,1
+        - 0,0-1,0-0,1
+        - 1,1-0,1-0,0-1,0-2,0-3,1-3,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: éqneopuxnlaolipi
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - papillon
+        - équinoxe
+        swipes:
+        - 0,0-1,0-2,0-3,0-2,1-3,1-3,2-3,3
+        - 1,2-2,1-2,0-1,0-0,0-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: tdrtesrvratêreet
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - têtards
+        - terre
+        - vert
+        swipes:
+        - 3,0-2,0-2,1-3,1
+        - 0,3-0,2-0,1-0,0-1,0
+        - 3,0-3,1-2,1-1,1-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: tenseiriptmestmauororguma
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - marguerite
+        - marmotte
+        - poussin
+        swipes:
+        - 3,0-2,1-2,0-3,1-2,2-2,3-2,4
+        - 3,0-4,0-3,1-4,2-4,1-3,2-4,3-4,4
+        - 0,2-0,1-0,0-1,0-1,1-1,2-1,3-0,3-0,4-1,4
+        isExtraPackLevel: 0
+      - board: fsurotuir
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - fruit
+        - ours
+        swipes:
+        - 1,0-2,1-2,0-1,1
+        - 0,2-0,1-0,0-1,0-2,1
+        isExtraPackLevel: 0
+      - board: rppsimeievltèreu
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - tulipes
+        - primevère
+        swipes:
+        - 1,3-0,3-0,2-1,2-0,1-1,1-0,0-1,0-2,0
+        - 3,1-3,0-2,1-3,2-2,3-2,2-3,3
+        isExtraPackLevel: 0
+      - board: leleisliroblvabu
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - avril
+        - bulbe
+        - soleil
+        swipes:
+        - 1,1-1,0-2,0-3,1-3,0-2,1
+        - 2,0-3,0-3,1-2,1-1,2
+        - 1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: erealunglotriune
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - grenouille
+        - nature
+        swipes:
+        - 2,1-3,0-2,0-1,0-1,1-2,2
+        - 3,2-3,1-3,0-2,0-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: tiuaedndrsrgpareacmejuuav
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - averse
+        - jardin
+        - muguet
+        - crapaud
+        swipes:
+        - 2,0-3,1-3,0-2,1-3,2-2,3-2,2
+        - 3,0-2,0-1,1-1,0-0,0-0,1
+        - 0,0-1,1-0,2-0,3-1,4-1,3
+        - 3,0-4,0-4,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: uarveeuon
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - renouveau
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-0,1-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: péelatsljleionqu
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - jonquille
+        - pétales
+        swipes:
+        - 0,1-1,2-1,1-0,0-1,0-2,0-2,1
+        - 0,1-0,0-1,0-2,0-3,0-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: naiuielnppeplllo
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - pollen
+        - pluie
+        - lapin
+        swipes:
+        - 0,0-1,0-0,1-0,2-0,3
+        - 1,0-2,0-3,0-2,1-1,1
+        - 3,1-3,0-2,0-1,0-2,1-3,2
+        isExtraPackLevel: 0
+      - board: esxulleaincsehio
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - oiseaux
+        - chenilles
+        swipes:
+        - 2,0-1,0-0,0-1,1-0,1-0,2-1,2-0,3-1,3
+        - 3,0-2,0-3,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: eliseclrdloehalcnioecirnd
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - coccinelle
+        - hirondelle
+        - radis
+        swipes:
+        - 2,0-3,0-3,1-2,1-3,2
+        - 2,2-2,1-2,0-3,1-3,0-4,0-4,1-4,2-4,3-4,4
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3-1,4-0,4
+        isExtraPackLevel: 0
+      - board: eajgrdani
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - jardinage
+        swipes:
+        - 2,2-1,2-1,1-2,1-2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: moeranguurbeiolf
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - fleur
+        - bourgeon
+        - mai
+        swipes:
+        - 0,2-0,1-0,0
+        - 2,0-1,0-0,1-1,1-2,1-2,2-1,3-1,2
+        - 3,0-2,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: eeafssgyenorttia
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - nettoyage
+        - fraises
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,0-0,1-0,0
+        - 1,1-0,1-0,0-1,0-2,1-3,2-2,3-2,2-1,3
+        isExtraPackLevel: 0
+      - board: esonsnilsailicro
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - narcisse
+        - oisillon
+        swipes:
+        - 3,0-2,0-1,0-2,1-3,2-3,1-2,2-3,3
+        - 1,2-1,1-2,0-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: ceetegrssbaparaptherohmbu
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - potager
+        - herbe
+        - arbuste
+        - champs
+        swipes:
+        - 0,0-1,0-2,1-2,0-1,1-2,2
+        - 4,2-4,1-3,0-4,0-3,1-3,2-2,3
+        - 2,1-3,1-3,2-4,3-4,4
+        - 0,1-0,0-1,1-0,2-0,3-1,4-1,3
+        isExtraPackLevel: 0
+      - board: lséfgienramielue
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - graminées
+        - feuille
+        swipes:
+        - 3,1-3,0-2,0-1,1-0,1-1,0-0,0
+        - 0,2-0,1-1,1-2,1-3,1-3,2-2,3-2,2-1,3
+        isExtraPackLevel: 0
+      - board: iatoclomanganens
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - magnolia
+        - canetons
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-3,1-2,0-3,0
+        - 3,2-3,1-2,1-1,1-2,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: neroearnthroiugbcsénsajta
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - jacinthe
+        - arbre
+        - étang
+        - oursons
+        swipes:
+        - 3,1-3,0-2,1-2,0-1,0-0,1-0,0
+        - 3,1-3,0-4,0-4,1-4,2
+        - 0,3-0,2-0,1-1,1-1,2
+        - 2,0-1,0-1,1-2,2-2,3-3,3-4,3-4,4
+        isExtraPackLevel: 0

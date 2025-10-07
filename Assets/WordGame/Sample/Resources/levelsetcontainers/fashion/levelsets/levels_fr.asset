@@ -1,0 +1,300 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_fr
+  m_EditorClassIdentifier:
+  language: fr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Fashionista Event
+      category: Fashionista Event
+      categoryLocalized: Haute couture
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: cerodfuil
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - coudre
+        - fil
+        swipes:
+        - 2,1-1,0-2,0
+        - 0,2-0,1-0,0-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: stvsnmurveeeêtol
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - vêtements
+        - velours
+        swipes:
+        - 2,2-3,1-3,0-2,0-2,1-3,2-3,3
+        - 0,1-0,0-1,0-2,1-1,2-1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: inanottoccerollp
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - collection
+        - patron
+        swipes:
+        - 3,0-2,1-2,0-3,1-3,2-3,3
+        - 0,1-0,0-1,0-2,0-2,1-1,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: eniytuasuiqteqsimnnsraému
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - tissu
+        - mannequin
+        - asymétrique
+        swipes:
+        - 1,1-2,1-3,1-3,0-2,0-1,0-0,0-0,1-0,2-0,3-0,4
+        - 1,1-1,0-2,1-3,1-2,2-3,2-3,3-2,4-1,4
+        - 4,4-4,3-4,2-4,1-4,0
+        isExtraPackLevel: 0
+      - board: bserdiore
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - broderies
+        swipes:
+        - 0,2-0,1-0,0-1,1-2,0-1,0-2,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: bnotoelebedrimuo
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - ourlet
+        - mode
+        - bobine
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0
+        - 1,0-2,1-2,0-1,1
+        - 3,0-2,0-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: sayeegtsliesetxa
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - textiles
+        - essayage
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,1-1,0-0,0
+        - 2,2-2,1-2,0-1,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: bnerdobéiéuoèlftunqiotiue
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - boutique
+        - boutonnière
+        - défilé
+        swipes:
+        - 4,3-4,2-4,1-4,0-3,0-2,0
+        - 0,4-0,3-0,2-0,1-0,0-1,0-2,0-3,1-2,1-3,2-2,3
+        - 1,3-1,2-1,1-1,0-2,0-3,1-3,0-4,0
+        isExtraPackLevel: 0
+      - board: koeelicnbadanémnotirmempe
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - imperméable
+        - tendance
+        - kimono
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1
+        - 2,0-1,0-0,1-0,2-1,2-2,2-1,3-2,3
+        - 3,1-2,0-3,0-4,0-4,1-4,2-3,2-4,3-3,3-4,4-3,4
+        isExtraPackLevel: 0
+      - board: éeulqtasi
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - élastique
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-2,0-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: aegannytdeinrogv
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - vintage
+        - androgyne
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-2,1-1,2-1,1
+        - 3,0-2,1-3,1-3,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: sgléaielguipelni
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - aiguille
+        - épingles
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,1-1,0-0,0-0,1
+        - 0,2-1,2-0,1-1,1-2,1-3,2-2,3-2,2
+        isExtraPackLevel: 0
+      - board: gletrmrhueietjiacseniceab
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - jean
+        - bustier
+        - cachemire
+        - gilet
+        swipes:
+        - 0,1-0,0-1,0-2,0-2,1
+        - 1,0-0,1-1,1-2,2-1,2-0,3-0,2-1,3-2,3
+        - 4,0-3,0-2,1-3,1-4,1-4,2-4,3
+        - 3,2-3,1-3,0-4,1
+        isExtraPackLevel: 0
+      - board: grnaoilcu
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - galon
+        - cuir
+        swipes:
+        - 1,0-2,0-2,1-1,1
+        - 0,2-0,1-0,0-1,1-2,2
+        isExtraPackLevel: 0
+      - board: nsibaionbatourbu
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - bouton
+        - biais
+        - ruban
+        swipes:
+        - 1,0-0,0-0,1-0,2-0,3
+        - 3,0-2,0-1,1-1,2-1,3
+        - 2,0-3,1-3,0-2,1-2,2-3,2
+        isExtraPackLevel: 0
+      - board: peraooicdsmciuse
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - accessoire
+        - podium
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0
+        - 3,3-3,2-3,1-3,0-2,0-1,1-1,2-2,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: erelriukiéomangolmossgsli
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - glamour
+        - soie
+        - smoking
+        - résille
+        swipes:
+        - 4,3-4,2-4,1-4,0-3,1-3,0-2,0
+        - 2,0-2,1-3,1-2,2-3,3-3,2-4,2
+        - 0,0-0,1-0,2-0,3
+        - 1,0-1,1-2,2-1,2-0,2-1,3-1,4
+        isExtraPackLevel: 0
+      - board: mieanlscu
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - masculine
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-2,1-1,2-1,1-2,2
+        isExtraPackLevel: 0
+      - board: delnelienloatecl
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - dentelle
+        - laine
+        - col
+        swipes:
+        - 2,0-2,1-2,2
+        - 3,0-3,1-2,2-3,3-3,2
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: rerbélboviolersé
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - réversible
+        - boléro
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1-2,2-1,2-1,3
+        isExtraPackLevel: 0
+      - board: eoicrnshbouelism
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - blouson
+        - chemisier
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0-0,1-0,0
+        - 0,1-0,0-1,1-2,1-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: ealheroeiniruinpeamémmncf
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - féminine
+        - emmanchure
+        - polaire
+        swipes:
+        - 0,0-1,0-2,0-1,1-0,1-0,2-0,3
+        - 1,1-0,0-1,0-2,1-2,0-3,0-3,1-2,2-1,2-2,3
+        - 4,0-4,1-3,1-3,2-4,2-3,3-4,3-4,4
+        isExtraPackLevel: 0
+      - board: eebcrnmléuasrteceaierylqu
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - acrylique
+        - ensemble
+        - créateur
+        swipes:
+        - 3,2-2,1-3,1-2,0-3,0-4,0-4,1-4,2
+        - 1,0-0,0-1,1-0,1-1,2-2,3-2,2-1,3
+        - 0,2-0,1-0,0-1,0-2,0-3,1-3,0-4,0-4,1
+        isExtraPackLevel: 0

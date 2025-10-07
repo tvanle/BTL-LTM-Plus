@@ -1,0 +1,192 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_en
+  m_EditorClassIdentifier:
+  language: en
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 5
+    boardHeight: 5
+    packs:
+    - name: Eco
+      category: Eco
+      categoryLocalized: Eco
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: tetnprlae
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - plant
+        - tree
+        swipes:
+        - 2,2-2,1-2,0-1,0
+        - 1,1-0,0-1,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: canrniweeaoeblgr
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - organic
+        - renewable
+        swipes:
+        - 3,2-3,1-2,1-3,0-2,0-1,1-0,0-1,0-0,1
+        - 2,1-3,0-2,0-1,1-0,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: traehsueablsniat
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - sustainable
+        - earth
+        swipes:
+        - 3,0-2,0-1,0-0,1-0,0
+        - 1,2-2,2-3,1-3,0-2,0-1,0-0,0-0,1-1,1-2,1-3,2
+        isExtraPackLevel: 0
+      - board: feowildoldalwidn
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - wildlife
+        - woodland
+        swipes:
+        - 3,3-3,2-2,3-2,2-3,1-2,1-3,0-2,0
+        - 0,0-1,0-0,1-1,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: svanitettoforlfnreoaiaegr
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - rainforest
+        - vegetation
+        - flora
+        swipes:
+        - 4,2-3,1-3,0-4,0-4,1
+        - 1,0-2,0-3,0-2,1-2,2-2,3-3,3-4,4-4,3-3,4
+        - 1,1-1,0-0,0-0,1-0,2-1,2-2,2-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: rgneiccyl
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - recycling
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-2,0-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: tadeerennegdplna
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - endangered
+        - planet
+        swipes:
+        - 0,0-1,0-1,1-0,1-0,2-0,3
+        - 3,3-3,2-3,1-3,0-2,0-2,1-1,1-1,2-2,2-2,3
+        isExtraPackLevel: 0
+      - board: aesltphaacantibd
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - habitat
+        - landscape
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-0,0-1,1-1,2
+        - 2,2-2,1-2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: gloseacnomeathre
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - geothermal
+        - oceans
+        swipes:
+        - 2,1-2,0-3,0-3,1-3,2-3,3
+        - 0,3-0,2-0,1-0,0-1,0-2,1-2,0-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: emiotctsanoscyinosedervte
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - ecosystem
+        - conservation
+        - tide
+        swipes:
+        - 4,3-4,2-4,1-4,0
+        - 0,3-0,2-0,1-1,1-0,0-1,0-2,0-3,1-3,0-2,1-3,2-4,3
+        - 3,1-2,2-1,1-2,1-3,2-2,3-1,3-0,4-1,4
+        isExtraPackLevel: 0
+      - board: breiseoph
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - biosphere
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0-2,0-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: useeohefrenfgtce
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - greenhouse
+        - effect
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0
+        - 0,0-0,1-1,1-2,2-2,1-1,2-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: ctyhiiryletdecor
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - hydroelectricity
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,1-0,1-0,0-1,0-2,1-2,2-1,2-0,3-0,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: tsneilviaeorntmn
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - environmentalist
+        swipes:
+        - 3,3-2,3-2,2-3,2-3,1-2,1-3,0-2,0-1,1-0,0-1,0-0,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: tyalenicibarstietevourhdi
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - biodiversity
+        - nature
+        - ethical
+        swipes:
+        - 4,0-3,0-2,0-3,1-2,1-2,2-3,2
+        - 0,3-0,2-1,1-0,0-1,0-0,1
+        - 4,3-4,2-4,1-3,0-4,0-3,1-2,1-1,2-2,2-1,3-0,4-1,4
+        isExtraPackLevel: 0

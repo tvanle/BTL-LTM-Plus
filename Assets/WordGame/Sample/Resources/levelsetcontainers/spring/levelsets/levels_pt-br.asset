@@ -1,0 +1,306 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_pt-br
+  m_EditorClassIdentifier:
+  language: pt-br
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Spring
+      category: Spring
+      categoryLocalized: Primavera
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: odahvinin
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - ninho
+        - vida
+        swipes:
+        - 1,0-2,0-1,1-2,1
+        - 2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: drglaiaamgarraat
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - margarida
+        - lagarta
+        swipes:
+        - 3,3-3,2-2,2-2,1-3,1-3,0-2,0
+        - 0,1-1,0-0,0-1,1-2,2-1,3-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: osáprsiaahnêsort
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - hortênsia
+        - pássaro
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1-0,2-0,3
+        - 1,1-1,0-2,0-3,0-3,1-2,1-1,2-2,2-3,2
+        isExtraPackLevel: 0
+      - board: toodaelbfobolrir
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - borboleta
+        - florido
+        swipes:
+        - 0,1-0,0-1,1-1,0-2,0-3,0-2,1
+        - 3,2-3,1-3,0-2,1-1,1-2,2-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: oçooããaãoçtsrduelçpeforar
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - reprodução
+        - floração
+        - estação
+        swipes:
+        - 0,0-1,0-0,1-1,1-1,2-0,2-0,3
+        - 0,0-1,1-1,0-2,0-3,0-2,1-2,2-2,3
+        - 4,0-4,1-3,1-2,2-3,3-3,2-4,2-4,3-4,4-3,4
+        isExtraPackLevel: 0
+      - board: aprliotuc
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - tulipa
+        - cor
+        swipes:
+        - 2,0-2,1-2,2
+        - 0,0-1,0-0,1-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: dereadrdiloeumfv
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - umidade
+        - verde
+        - flor
+        swipes:
+        - 2,0-1,0-2,1-2,2
+        - 3,0-3,1-2,2-3,2-3,3
+        - 0,0-1,0-0,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: enóaglpbraehmala
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - abelha
+        - pólen
+        - grama
+        swipes:
+        - 0,2-0,1-1,1-0,0-1,0
+        - 2,0-2,1-1,2-0,3-1,3
+        - 3,3-3,2-2,1-2,0-3,1-3,0
+        isExtraPackLevel: 0
+      - board: ahvotcavnaucplra
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - planta
+        - chuva
+        - cravo
+        swipes:
+        - 3,1-2,0-3,0-2,1-3,2
+        - 1,0-1,1-2,1-3,2-2,2
+        - 0,0-1,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: gaedgeiuíérorqrmçnabãoare
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - orquídea
+        - germinação
+        - gérbera
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,0-3,1
+        - 0,4-0,3-0,2-0,1-1,2-2,1-2,0-1,1-0,0-1,0
+        - 1,2-2,2-3,2-2,3-3,3-3,4-2,4-1,4
+        isExtraPackLevel: 0
+      - board: áomgapauc
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - campo
+        - água
+        swipes:
+        - 0,2-0,1-1,0-0,0
+        - 2,0-1,1-2,2-2,1-1,2
+        isExtraPackLevel: 0
+      - board: lgpêoibisrarsasi
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - girassol
+        - brisa
+        - ipê
+        swipes:
+        - 3,0-2,0-3,1
+        - 2,2-3,1-3,0-2,0-2,1
+        - 1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: cltavlerioaoaros
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - violeta
+        - calor
+        - rosa
+        swipes:
+        - 3,2-3,1-3,0-2,0
+        - 0,1-0,0-1,1-2,0-1,0
+        - 0,2-0,1-1,1-1,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: sáeoorrsloaivncr
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - narciso
+        - árvore
+        - sol
+        swipes:
+        - 0,2-0,1-0,0
+        - 1,2-1,1-0,0-1,0-2,0-2,1
+        - 1,0-2,1-3,0-2,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: forcoocedimrsoreâroltnsic
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - colorido
+        - crisântemo
+        - frescor
+        swipes:
+        - 0,0-1,0-2,1-2,0-1,1-1,2-2,2
+        - 3,1-2,1-3,0-2,0-1,1-1,0-0,0-0,1-0,2-0,3
+        - 4,0-3,1-4,1-3,2-4,2-4,3-3,3-4,4
+        isExtraPackLevel: 0
+      - board: ltiórsusí
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - íris
+        - lótus
+        swipes:
+        - 0,2-0,1-1,1-0,0-1,0
+        - 2,0-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: liofídimrjoaralh
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - jardim
+        - lírio
+        - folha
+        swipes:
+        - 3,2-2,1-2,0-3,0-3,1
+        - 0,2-0,1-0,0-1,0-2,1
+        - 1,1-1,0-0,1-1,2-2,2-3,2
+        isExtraPackLevel: 0
+      - board: anorazieetnturca
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - canteiro
+        - natureza
+        swipes:
+        - 1,3-0,2-1,1-0,0-1,0-0,1-1,2-0,3
+        - 2,0-3,0-2,1-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: msiaegaaopmpasir
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - paisagem
+        - mariposa
+        swipes:
+        - 2,1-3,1-3,0-2,0-1,1-0,1-1,0-0,0
+        - 3,1-3,2-2,3-1,3-2,2-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: nóoesuicneeissmfqtteilhoe
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - filhotes
+        - equinócio
+        - sementes
+        swipes:
+        - 4,3-4,2-4,1-4,0-3,0-2,0-3,1-2,1
+        - 0,0-1,0-0,1-1,1-0,2-1,3-2,2-1,2-2,3
+        - 0,1-0,0-1,0-2,0-3,0-3,1-4,1-3,2
+        isExtraPackLevel: 0
+      - board: aielrgváalgderaa
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - agradável
+        - alegria
+        swipes:
+        - 0,1-1,0-0,0-1,1-0,2-1,2-0,3
+        - 3,0-2,1-1,0-2,0-3,1-3,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: rtnaeeocvaoéigrp
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - época
+        - revigorante
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,1-2,0-1,1-2,2-1,3-1,2
+        - 3,1-3,0-2,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: aádiããonçoaçtapizlnoliapl
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - plantação
+        - polinização
+        - dália
+        swipes:
+        - 2,0-1,0-0,0-0,1-0,2
+        - 4,2-4,1-4,0-3,0-2,0-1,0-1,1-0,2-1,2-0,3-1,3
+        - 3,0-2,1-2,0-3,1-2,2-3,2-3,3-4,4-4,3
+        isExtraPackLevel: 0

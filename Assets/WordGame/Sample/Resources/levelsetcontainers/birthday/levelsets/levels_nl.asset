@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nl
+  m_EditorClassIdentifier:
+  language: nl
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Birthday
+      category: Birthday
+      categoryLocalized: 10e Verjaardag
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: ktsneealf
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - knalfeest
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: vertjraaaaatrdgs
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - verjaardagstaart
+        swipes:
+        - 0,3-1,3-1,2-0,2-0,1-1,1-0,0-1,0-2,1-2,0-3,0-3,1-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: npneedtsnganizre
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - zingen
+        - dansen
+        - pret
+        swipes:
+        - 1,0-2,0-3,0-2,1
+        - 1,0-2,1-3,1-3,2-3,3-2,3
+        - 1,0-0,0-0,1-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: sitelnftigornces
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - confetti
+        - slingers
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,1-3,0
+        - 1,0-2,1-1,2-2,2-3,3-3,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: unergakineetkuidaasvcpier
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - cadeau
+        - versiering
+        - uitpakken
+        swipes:
+        - 3,0-2,0-1,1-1,0-2,1-1,2-2,2-2,3-1,3
+        - 4,1-3,0-4,0-3,1-4,2-4,3-3,4-2,3-3,3-4,4
+        - 0,0-1,1-0,1-0,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: kirtntlis
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - strik
+        - lint
+        swipes:
+        - 0,0-1,0-1,1-0,1
+        - 2,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: momusoejlrluagib
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - jubileum
+        - slagroom
+        swipes:
+        - 0,2-0,1-0,0-1,0-1,1-1,2-1,3-0,3
+        - 3,2-3,1-3,0-2,0-2,1-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: gnhlisnavascerre
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - verrassing
+        - lachen
+        swipes:
+        - 3,3-3,2-3,1-2,1-3,0-2,0
+        - 0,1-0,0-1,0-2,0-1,1-2,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: eskrjtetbapeegef
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - feestje
+        - gebak
+        - pret
+        swipes:
+        - 2,1-3,1-2,0-3,0
+        - 1,0-0,0-0,1-1,1-2,2
+        - 3,0-3,1-2,2-1,3-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: rebeizenlanllonp
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - plezier
+        - ballonnen
+        swipes:
+        - 2,2-1,1-0,1-0,0-1,0-2,1-2,0-3,1-3,0
+        - 3,0-3,1-2,2-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: fesiaeiloneoekespuoptmzsn
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - polonaise
+        - feestmuziek
+        - snoep
+        swipes:
+        - 3,0-4,0-3,1-4,2-4,1
+        - 0,4-0,3-0,2-0,1-0,0-1,0-2,1-2,0-1,1-2,2-3,2
+        - 1,1-1,2-2,3-3,3-4,3-4,4-3,4-2,4-1,4
+        isExtraPackLevel: 0
+      - board: irnrngllteebekevmezteogra
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - gezellig
+        - trakteren
+        - november
+        swipes:
+        - 2,0-1,0-0,1-0,0-1,1-1,2-0,2-1,3
+        - 4,1-3,0-4,0-3,1-3,2-4,2-3,3-4,3-4,4
+        - 2,0-2,1-3,1-2,2-2,3-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: vngellugidieuidomrrjkanrwrntioesioub
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - uitnodiging
+        - limonade
+        - vuurwerk
+        - borrel
+        - ijs
+        swipes:
+        - 2,0-1,1-1,0
+        - 5,0-5,1-5,2-5,3-5,4-5,5
+        - 0,5-0,4-0,3-0,2-0,1-0,0-1,1-2,1
+        - 4,2-4,1-4,0-3,0-2,1-3,1-3,2-3,3
+        - 4,0-4,1-3,1-4,2-3,3-2,3-1,3-1,4-2,4-1,5-2,5
+        isExtraPackLevel: 0
+      - board: nktisniarufndafpeeeaneribestvetjfele
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - bedankt
+        - tien
+        - jaar
+        - feestvieren
+        - spelen
+        - fuif
+        swipes:
+        - 2,0-3,0-3,1-2,1
+        - 4,1-3,1-3,0-4,0-5,0-5,1
+        - 4,4-4,3-3,2-2,1-3,1-4,1-5,2-5,1-4,2-5,3-5,4
+        - 1,0-1,1-1,2-2,3
+        - 0,0-0,1-1,1-2,2
+        - 0,1-0,2-0,3-1,4-0,5-1,5-2,5
+        isExtraPackLevel: 0

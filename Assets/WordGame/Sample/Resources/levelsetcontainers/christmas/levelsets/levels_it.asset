@@ -1,0 +1,320 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_it
+  m_EditorClassIdentifier:
+  language: it
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Holidays
+      category: Holidays
+      categoryLocalized: Feste
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: gmerlabdniimeoec
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - dicembre
+        - maglione
+        swipes:
+        - 1,3-1,2-0,3-0,2-1,1-1,0-0,1-0,0
+        - 3,2-2,1-3,0-2,0-3,1-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: indboeboicoazarb
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - babbo
+        - decorazioni
+        swipes:
+        - 2,2-1,2-1,1-2,1-2,0-1,0-0,0-0,1-0,2-1,3-0,3
+        - 3,0-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: iinineatvrcenomr
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - mercatini
+        - inverno
+        swipes:
+        - 0,3-0,2-0,1-1,2-1,1-0,0-1,0
+        - 2,0-3,1-3,0-2,1-2,2-3,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: cmlaapetaeitnlls
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - slitta
+        - campanelle
+        swipes:
+        - 0,3-0,2-1,3-1,2-0,1-0,0-1,1-1,0-2,1-2,0
+        - 3,0-2,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: cohnccioatetncro
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - tacchino
+        - concerto
+        swipes:
+        - 0,1-1,1-0,0-1,0-2,1-2,0-3,1-3,0
+        - 1,1-0,1-0,2-1,2-2,3-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: saottloaeclclcoi
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - cioccolato
+        - stella
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1
+        - 3,1-3,0-2,0-1,0-1,1-2,2-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: aeresspnorsgcata
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - castagne
+        - sorpresa
+        swipes:
+        - 0,1-0,0-1,0-2,0-2,1-1,2-1,1-0,2
+        - 0,0-1,0-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: mioendelcaggessa
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - candele
+        - messaggio
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,0-3,1-2,1-1,1-2,2
+        - 0,1-1,1-0,2-1,2-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: obicttboaddaenim
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - addobbi
+        - caminetto
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,0-0,0-0,1-1,1-0,2
+        - 0,1-1,1-2,1-3,2-2,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: aioiuoglgfraurig
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - agrifoglio
+        - auguri
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1
+        - 3,1-3,0-2,1-2,0-1,1-1,2-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: ilonoaracttsoigt
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - giocattoli
+        - nastro
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        - 2,0-1,0-0,0-0,1-1,2-2,1-1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ceaoapnilcarhicd
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - pacchi
+        - calendario
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-3,0-2,1-3,1-3,2-3,3
+        - 1,2-2,1-2,0-1,1-0,0-1,0
+        isExtraPackLevel: 0
+      - board: zoroentissziolze
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - solstizio
+        - zenzero
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,0-2,1-1,1
+        - 0,1-0,0-1,0-1,1-2,2-3,1-2,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: iaidliihmgcrafaa
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - famiglia
+        - arachidi
+        swipes:
+        - 2,0-3,1-3,0-2,1-3,2-2,2-3,3-2,3
+        - 1,0-0,0-0,1-1,2-1,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: roepoonadntnapte
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - panettone
+        - pandoro
+        swipes:
+        - 1,0-0,0-1,1-0,1-1,2-0,3-0,2
+        - 3,3-3,2-3,1-3,0-2,0-2,1-1,2-2,2-2,3
+        isExtraPackLevel: 0
+      - board: eooinchnmpetazoc
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - cotechino
+        - zampone
+        swipes:
+        - 1,0-0,0-0,1-1,1-1,2-0,2-0,3
+        - 3,0-2,0-3,1-2,1-1,2-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: nitolirzlepntora
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - pranzo
+        - tortellini
+        swipes:
+        - 0,0-1,0-2,0-2,1-1,1-0,1-0,2-1,2-0,3-1,3
+        - 2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: oirezzanppunnope
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - pupazzo
+        - pino
+        - renne
+        swipes:
+        - 2,0-3,0-3,1-3,2-3,3
+        - 0,1-1,1-0,0-1,0
+        - 2,0-2,1-1,1-2,2-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: ceranacfotliebre
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - elfi
+        - carbone
+        - carte
+        swipes:
+        - 0,1-1,1-2,0-1,0-0,0
+        - 2,1-3,0-2,0-1,0-0,1-0,2-1,3
+        - 3,0-2,1-3,2-3,1
+        isExtraPackLevel: 0
+      - board: imcfancitocoedoo
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - doni
+        - cometa
+        - fiocco
+        swipes:
+        - 3,3-3,2-3,1-2,1-2,0-3,0
+        - 2,1-2,0-1,0-0,0-0,1-0,2
+        - 1,0-1,1-1,2-0,3
+        isExtraPackLevel: 0
+      - board: vonviirisatohcto
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - torta
+        - vino
+        - vischio
+        swipes:
+        - 0,3-0,2-0,1-1,0-0,0-1,1-1,2
+        - 3,2-3,1-2,0-3,0
+        - 2,0-3,1-2,2-2,1-1,1
+        isExtraPackLevel: 0
+      - board: aonetlrrlsuoicit
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - lista
+        - torrone
+        - luci
+        swipes:
+        - 1,1-2,1-1,0-2,0
+        - 3,0-3,1-3,2-2,2-1,2-2,3-3,3
+        - 0,1-0,0-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: psvemueinaonetcn
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - spumante
+        - neve
+        - noci
+        swipes:
+        - 3,0-2,1-2,0-3,1
+        - 3,1-2,2-2,3-3,3
+        - 1,3-0,3-1,2-0,2-1,1-0,1-1,0-0,0
+        isExtraPackLevel: 0
+      - board: enoccsmaeilpepfp
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - pesce
+        - film
+        - cappone
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-0,0
+        - 2,0-1,0-2,1-2,2
+        - 1,0-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: saneoltocbeniomc
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - cenone
+        - tombola
+        - sci
+        swipes:
+        - 0,2-0,1-0,0
+        - 2,1-1,0-2,0-1,1-0,2-1,2-1,3
+        - 3,0-2,1-3,1-3,2-2,3-3,3
+        isExtraPackLevel: 0

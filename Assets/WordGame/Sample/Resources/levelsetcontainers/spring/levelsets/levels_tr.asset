@@ -1,0 +1,318 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_tr
+  m_EditorClassIdentifier:
+  language: tr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Spring
+      category: Spring
+      categoryLocalized: İlkbahar
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: atiipkmsa
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - kasimpati
+        swipes:
+        - 2,1-2,0-1,0-0,1-0,0-1,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: elallknesaeyigrl
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - nergis
+        - leylak
+        - lale
+        swipes:
+        - 1,1-1,0-0,0-0,1
+        - 3,3-3,2-3,1-3,0-2,0-1,1
+        - 2,2-2,1-2,0-1,0-0,0-0,1
+        isExtraPackLevel: 0
+      - board: odaçağuibrkmağne
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - çimen
+        - kurbağa
+        - doğa
+        swipes:
+        - 1,1-0,1-1,0-0,0
+        - 2,0-2,1-1,1-0,1-0,2-1,2-2,2
+        - 3,3-3,2-3,1-3,0-2,0
+        isExtraPackLevel: 0
+      - board: mmskionakraplais
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - ispanak
+        - morsalkim
+        swipes:
+        - 1,3-1,2-1,1-2,0-1,0-0,0-0,1-0,2-0,3
+        - 2,0-3,0-3,1-2,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: mbineiülavsümduvçğmgmesre
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - mevsim
+        - sümbül
+        - erguvan
+        - çiğdem
+        swipes:
+        - 1,0-2,1-2,0-3,1-4,0-3,0
+        - 4,0-3,0-4,1-4,2-4,3-3,3-3,4
+        - 2,0-1,1-2,2-1,3-1,2-2,3
+        - 0,0-1,0-0,1-0,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: koaukltar
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - tarla
+        - koku
+        swipes:
+        - 0,1-1,1-1,0-0,0
+        - 0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: keekşebmgelanütr
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - güneş
+        - kelebek
+        - mart
+        swipes:
+        - 3,2-3,1-3,0-2,0
+        - 0,0-1,0-2,1-1,1-2,2-2,3-3,3
+        - 0,1-1,0-0,0-1,1-0,2
+        isExtraPackLevel: 0
+      - board: skiçkngkoaeiinlr
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - kirlangiç
+        - ekinoks
+        swipes:
+        - 2,0-1,1-0,0-1,0-0,1-0,2-0,3
+        - 3,2-3,1-3,0-2,0-1,1-1,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: kzikelraciypböfa
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - filiz
+        - yaprak
+        - böcek
+        swipes:
+        - 0,0-1,0-0,1-0,2-0,3
+        - 2,0-3,0-3,1-2,1-3,2-3,3
+        - 2,0-1,1-1,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: ekumrylşzareagnlkiinalmoe
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - enginar
+        - leylek
+        - mimoza
+        - kuşlar
+        swipes:
+        - 1,1-2,1-2,0-1,0-0,0-0,1
+        - 3,2-2,1-2,0-3,0-3,1-2,2
+        - 0,1-1,2-0,3-1,3-0,4-1,4
+        - 4,0-4,1-3,2-3,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: zlaakmrie
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - kiraz
+        - elma
+        swipes:
+        - 2,0-1,0-2,1-2,2
+        - 1,1-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: tmetoçkoiupaçhrk
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - çiçek
+        - tohum
+        - toprak
+        swipes:
+        - 3,3-3,2-2,1-2,0-3,1-3,0
+        - 0,1-0,0-1,0-1,1-1,2
+        - 0,0-0,1-1,2-2,3-2,2
+        isExtraPackLevel: 0
+      - board: paagiitöltrçapyt
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - tirtil
+        - papatya
+        - göç
+        swipes:
+        - 3,2-3,1-3,0
+        - 0,1-0,0-1,0-2,1-3,0-2,0-1,1
+        - 2,2-1,2-2,1-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: arkufncriamudito
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - fidan
+        - tomurcuk
+        - ari
+        swipes:
+        - 0,0-1,1-1,0
+        - 2,0-3,0-2,1-3,1-3,2-2,2-3,3-2,3
+        - 0,2-0,1-0,0-1,1-1,2
+        isExtraPackLevel: 0
+      - board: eefenşeeldkekrenneakmdliç
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - çilek
+        - kardelen
+        - defne
+        - menekşe
+        swipes:
+        - 0,0-1,0-0,1-1,1-0,2-0,3-0,4
+        - 1,0-2,0-2,1-1,1-1,2
+        - 4,0-3,0-3,1-4,2-4,1-3,2-3,3-4,3
+        - 4,0-3,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: iklçğaare
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - çağla
+        - erik
+        swipes:
+        - 2,0-1,0-0,0-1,1
+        - 0,1-0,0-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: nausciyirmazakku
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - karinca
+        - mayis
+        - kuzu
+        swipes:
+        - 2,0-3,0-3,1-2,1
+        - 1,0-2,1-2,2-3,2-3,3
+        - 1,0-0,0-0,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: iğruaşkçmkuöatgu
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - gökkuşaği
+        - uçurtma
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,0-0,1-0,0
+        - 2,0-3,1-2,2-1,1-2,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: slanayatagzvnoal
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - lavanta
+        - salyangoz
+        swipes:
+        - 0,3-0,2-1,3-1,2-0,1-0,0-1,1-1,0-2,0
+        - 3,0-2,0-3,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: cabeaannlytipnolrolabaoem
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - manolya
+        - polen
+        - ortanca
+        - ebabil
+        swipes:
+        - 3,0-2,0-1,0-0,0-1,1-0,1
+        - 2,0-1,1-0,2-0,3-1,3-0,4-1,4
+        - 2,2-2,1-3,1-3,2-2,3
+        - 4,0-4,1-3,2-4,2-3,3-4,3-4,4
+        isExtraPackLevel: 0
+      - board: bauçakbmheaaçzhv
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - zambak
+        - bahçe
+        - havuç
+        swipes:
+        - 2,0-3,1-3,0-2,1-3,2
+        - 0,3-0,2-0,1-0,0-1,0
+        - 1,0-2,1-3,2-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: keabdndirhiköara
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - ördek
+        - karahindiba
+        swipes:
+        - 3,1-3,0-2,0-1,0-1,1-2,1-1,2-2,2-3,2-3,3-2,3
+        - 0,0-0,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: liişajekymlrakoataşriafea
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - aroma
+        - şakayik
+        - alerji
+        - şeftali
+        swipes:
+        - 3,1-3,0-2,0-1,1-1,0-0,1-0,0
+        - 0,1-0,2-1,3-1,2-0,3-1,4
+        - 3,1-2,1-3,2-2,2-3,3-2,4-2,3
+        - 4,0-4,1-4,2-4,3-4,4
+        isExtraPackLevel: 0

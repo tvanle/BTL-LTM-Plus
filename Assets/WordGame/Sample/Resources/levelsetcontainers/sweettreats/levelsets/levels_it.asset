@@ -1,0 +1,213 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_it
+  m_EditorClassIdentifier:
+  language: it
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Sweet Treats
+      category: Sweet Treats
+      categoryLocalized: Dolcezze
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: mleeoartt
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - torta
+        - mele
+        swipes:
+        - 0,1-0,0-1,0-2,0
+        - 2,0-1,1-0,0-1,0-2,1
+        isExtraPackLevel: 0
+      - board: taavcaiartlnsoig
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - crostata
+        - vaniglia
+        swipes:
+        - 3,3-3,2-3,1-2,0-3,0-2,1-2,2-2,3
+        - 0,2-0,1-1,0-0,0-1,1-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: locaaassotlcciog
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - glassa
+        - cioccolato
+        swipes:
+        - 0,0-1,0-2,0-3,0-2,1-1,2-0,3-0,2-1,1-0,1
+        - 3,0-2,1-1,2-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: cctouainscllelauoonnvaoeg
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - cannella
+        - uova
+        - gusto
+        - nocciole
+        swipes:
+        - 2,2-2,1-1,1-0,0-1,0-2,0-3,1-3,0
+        - 4,0-4,1-3,2-2,3-3,3
+        - 0,1-1,1-0,0-1,0
+        - 4,3-4,2-4,1-3,1-2,2-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: loclaamer
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - caramello
+        swipes:
+        - 2,2-2,1-2,0-1,1-0,0-1,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: otoretecsbchoruz
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - zucchero
+        - sorbetto
+        swipes:
+        - 0,1-0,0-1,0-1,1-0,2-1,2-1,3-0,3
+        - 3,0-2,0-2,1-3,2-3,1-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: wmacosralhmclaao
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - cacao
+        - marshmallow
+        swipes:
+        - 1,3-2,2-2,1-1,2-1,1-2,0-1,0-0,0-0,1-0,2-0,3
+        - 3,3-3,2-3,1-2,0-3,0
+        isExtraPackLevel: 0
+      - board: enigloihoomlicca
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - limone
+        - ghiacciolo
+        swipes:
+        - 3,2-3,1-2,1-3,0-2,0-1,0-0,0-1,1-0,2-0,1
+        - 3,1-2,2-2,1-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: espoemsvoloulgeriiaiopcsm
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - voglia
+        - sciroppo
+        - miele
+        - mousse
+        swipes:
+        - 0,1-0,0-1,0-1,1-1,2-0,2
+        - 4,0-4,1-4,2-4,3-4,4
+        - 3,0-2,0-1,1-0,1-0,0-1,0-2,1-3,1
+        - 2,3-3,3-3,2-2,2-2,1-3,1
+        isExtraPackLevel: 0
+      - board: cylhliant
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - chantilly
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-2,1-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: oneeizpriaietvel
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - lievitazione
+        - pere
+        swipes:
+        - 2,0-3,0-3,1-3,2
+        - 3,0-2,1-2,0-1,0-0,1-0,0-1,1-1,2-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: lelgalaomecraraf
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - fragole
+        - caramella
+        swipes:
+        - 2,1-2,0-1,0-0,0-0,1-1,1-1,2-0,3-0,2
+        - 3,0-3,1-2,2-3,3-3,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: fatcooakufrestrnisoaoacot
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - forno
+        - tartufo
+        - cassata
+        - cookie
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,0-1,1
+        - 2,0-1,0-2,1-2,2-1,3-2,4-1,4
+        - 4,0-4,1-4,2-3,2-3,3-4,3-4,4
+        - 0,4-0,3-0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: alcbliema
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - ciambella
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,1-0,0-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: asmamszreaaplena
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - melassa
+        - marzapane
+        swipes:
+        - 2,3-3,3-3,2-2,2-2,1-3,1-3,0-2,0-1,0
+        - 0,2-0,1-0,0-1,1-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ceraaninfamnraca
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - canna
+        - farina
+        - crema
+        swipes:
+        - 0,1-0,0-1,1-2,0-1,0
+        - 0,1-1,1-2,2-2,1-1,2-0,2
+        - 2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0

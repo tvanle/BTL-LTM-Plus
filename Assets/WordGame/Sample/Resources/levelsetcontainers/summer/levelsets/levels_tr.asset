@@ -1,0 +1,340 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_tr
+  m_EditorClassIdentifier:
+  language: tr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Summer
+      category: Summer
+      categoryLocalized: Sommar
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: uztkkpzrraolgöüş
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - şort
+        - gözlük
+        - karpuz
+        swipes:
+        - 0,1-1,0-0,0-1,1-0,2-1,2
+        - 0,0-1,0-2,1-3,0-2,0-3,1
+        - 3,0-2,1-3,2-2,3
+        isExtraPackLevel: 0
+      - board: açeİybğzçsulİahİ
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - sahİl
+        - ayçİçeğİ
+        - buz
+        swipes:
+        - 1,0-2,0-3,0
+        - 0,3-0,2-0,1-0,0-1,1-2,2-2,1-3,1
+        - 1,1-1,0-2,0-3,0-3,1
+        isExtraPackLevel: 0
+      - board: sulonayİaotaymtk
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - tatİl
+        - mayo
+        - okyanus
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-1,1-0,1
+        - 1,0-0,1-0,0-1,1
+        - 2,0-3,1-2,1-3,2-2,3
+        isExtraPackLevel: 0
+      - board: akrhşiaeesİlapsb
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - elbİse
+        - hasir
+        - şapka
+        swipes:
+        - 0,1-0,0-1,0-1,1-0,2
+        - 3,0-2,1-2,0-1,1-2,2
+        - 3,2-3,1-3,0-2,1-1,1-0,1
+        isExtraPackLevel: 0
+      - board: naucrrgaatünşenk
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - güneş
+        - cankurtaran
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,1-1,0-0,0-0,1-1,2-0,2
+        - 2,2-2,1-2,0-1,0-0,0
+        isExtraPackLevel: 0
+      - board: etatlkpabİovsİtl
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - bİsİklet
+        - top
+        - tavla
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0
+        - 2,0-2,1-2,2
+        - 0,1-1,0-0,0-1,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: İlaagmktüşlİenon
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - güneşlİk
+        - lİmonata
+        swipes:
+        - 1,1-0,0-1,0-2,0-3,0-2,1-3,1-3,2
+        - 0,2-0,1-1,0-0,0-1,1-2,1-3,1-2,2
+        isExtraPackLevel: 0
+      - board: paeorkblvljaoylp
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - plaj
+        - voleybol
+        - park
+        swipes:
+        - 0,1-1,1-0,0-1,0
+        - 0,1-0,0-1,1-2,1-1,0-2,0-3,1-3,0
+        - 3,0-2,0-3,1-2,1
+        isExtraPackLevel: 0
+      - board: mzkleküapmmskuay
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - kumsal
+        - yüzmek
+        - kamp
+        swipes:
+        - 2,1-2,0-1,0-0,0
+        - 3,0-2,1-1,2-0,2-0,1-1,1
+        - 0,0-1,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: gnkklzküoaoreşve
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - kova
+        - kürek
+        - şezlong
+        swipes:
+        - 1,0-0,0-1,1-0,2-0,1-1,2-0,3
+        - 3,3-3,2-3,1-3,0-2,0
+        - 2,2-2,1-2,0-1,1
+        isExtraPackLevel: 0
+      - board: ktbienaklalppİkİ
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - palet
+        - pİknİk
+        - balik
+        swipes:
+        - 2,2-2,1-2,0-3,1-3,0
+        - 3,1-3,0-2,0-1,1-1,0-0,0
+        - 0,0-1,1-0,1-0,2-1,3
+        isExtraPackLevel: 0
+      - board: aauadeumtrtçmmzu
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - uçurtma
+        - temmuz
+        - ada
+        swipes:
+        - 0,1-0,0-1,0
+        - 0,1-1,1-0,0-1,0-2,1-2,0
+        - 3,0-3,1-2,2-1,1-2,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: rknİemntİbsİkİİe
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - esİntİ
+        - bİkİnİ
+        - krem
+        swipes:
+        - 1,1-0,1-0,0-1,0
+        - 1,1-0,1-0,0-1,0-2,1-2,0
+        - 3,0-2,1-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: kubzzlnİueaebhçd
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - denİz
+        - buzluk
+        - bahçe
+        swipes:
+        - 2,2-2,1-1,0-2,0-1,1
+        - 0,0-0,1-0,2-1,2-1,3-0,3
+        - 3,0-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: hflearrkvösouzşn
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - şnorkel
+        - sörf
+        - havuz
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0
+        - 2,0-1,1-1,2-1,3
+        - 2,0-3,0-3,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: yİkseliilnclkeka
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - yelkenlİ
+        - sicaklik
+        swipes:
+        - 3,3-3,2-2,1-3,0-2,0-3,1-2,2-2,3
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: amltureandndodas
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - dondurma
+        - sandalet
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2-2,3-2,2-3,3
+        - 1,0-0,0-0,1-1,1-0,2-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: gelgalksammadana
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - dalga
+        - maske
+        - mangal
+        swipes:
+        - 1,1-1,0-2,0-3,1-3,0-2,1
+        - 2,1-3,1-3,2-2,2-1,2
+        - 0,0-0,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: gezezekgozİrgaçİ
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - gazoz
+        - çekİrge
+        - gezİ
+        swipes:
+        - 0,0-1,0-2,0-3,0
+        - 2,0-1,1-2,2-2,1-3,1-3,2-3,3
+        - 0,0-1,0-1,1-0,1-0,2
+        isExtraPackLevel: 0
+      - board: emknnkameuentkvu
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - tekne
+        - kum
+        - nem
+        - kavun
+        swipes:
+        - 2,2-2,1-2,0-3,0-3,1
+        - 3,1-2,1-3,2
+        - 1,0-1,1-1,2
+        - 0,0-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: akakmbİaaİdrhnha
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - hamak
+        - karahİndİba
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,1-1,0-2,1-2,2-1,2-2,3
+        - 0,0-0,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: olnsstotupİrğama
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - ağustos
+        - trampolİn
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,0-0,0-1,1-2,1-2,2
+        - 1,0-0,0-0,1-0,2-1,2-2,2-3,3
+        isExtraPackLevel: 0
+      - board: ikyrzliçkayaelİç
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - çİlek
+        - çayir
+        - yazlik
+        swipes:
+        - 2,0-1,0-0,0-1,1-0,1-1,2
+        - 3,1-3,0-2,0-2,1-3,2
+        - 3,0-2,0-1,0-0,0-0,1
+        isExtraPackLevel: 0
+      - board: aratnrhaİzİİhats
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - İstİrahat
+        - hazİran
+        swipes:
+        - 0,0-1,0-1,1-0,1-1,2-0,3-0,2
+        - 3,1-3,0-2,0-2,1-1,2-2,3-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: kemenİlsmsvİetİr
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - sİvrİsİnek
+        - meltem
+        swipes:
+        - 2,1-3,0-2,0-1,0-0,0-0,1
+        - 3,2-3,1-2,1-3,0-2,0-1,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0

@@ -1,0 +1,292 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_it
+  m_EditorClassIdentifier:
+  language: it
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Middle Ages
+      category: Middle Ages
+      categoryLocalized: Evento Medioevo
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: dfsadpeea
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - spada
+        - fede
+        swipes:
+        - 1,1-1,0-0,1-0,0
+        - 2,2-2,1-2,0-1,1-0,1
+        isExtraPackLevel: 0
+      - board: ovioeotoievamdel
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - medioevo
+        - levatoio
+        swipes:
+        - 3,0-2,0-2,1-3,1-2,2-3,2-2,3-3,3
+        - 0,0-1,1-1,0-0,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: iartgiosoenrlaot
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - giostra
+        - torneo
+        - lai
+        swipes:
+        - 0,0-1,0-0,1
+        - 3,0-2,0-3,1-2,1-1,1-0,1
+        - 0,2-1,2-2,2-3,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: liriaoleglistfaaotetacbat
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - castello
+        - battaglia
+        - feritoia
+        swipes:
+        - 3,1-3,0-2,1-1,1-2,0-1,0-0,1-0,0
+        - 2,0-3,0-4,0-4,1-4,2-3,3-4,3-3,4-4,4
+        - 1,0-0,1-1,2-2,2-2,3-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: ceraaevli
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - cavaliere
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0-2,0-2,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: eoinniuqzasiilto
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - alto
+        - inquisizione
+        swipes:
+        - 2,2-3,2-3,1-2,1-3,0-2,0-1,0-0,1-0,0-1,1-0,2-0,3
+        - 1,1-1,0-2,0-3,0
+        isExtraPackLevel: 0
+      - board: moioomesnsasachb
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - basso
+        - monachesimo
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-2,1-1,1-2,2-1,2-1,3
+        - 3,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: ielcmlaipedtrota
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - cittadella
+        - impero
+        swipes:
+        - 0,3-0,2-0,1-1,1-0,0-1,0
+        - 3,3-3,2-3,1-2,0-3,0-2,1-1,1-1,2-2,3-2,2
+        isExtraPackLevel: 0
+      - board: rboiadaartfoaasedtimulchi
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - feudatario
+        - alchimista
+        - bardo
+        swipes:
+        - 1,2-1,1-0,1-0,0-1,0
+        - 2,1-1,0-2,0-3,0-4,0-4,1-3,1-4,2-4,3-4,4
+        - 0,2-0,1-0,0-1,1-2,2-2,1-3,2-3,3-3,4-2,4
+        isExtraPackLevel: 0
+      - board: oofogerdu
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - feudo
+        - rogo
+        swipes:
+        - 0,0-1,1-1,0-0,1
+        - 2,2-2,1-2,0-1,0-0,1
+        isExtraPackLevel: 0
+      - board: eeeprvorlassavto
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - valvassore
+        - potere
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-0,1
+        - 1,0-0,0-0,1-1,2-1,1-2,1-3,1-2,2-3,2-2,3
+        isExtraPackLevel: 0
+      - board: smavtemansvloisa
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - valvassino
+        - stemma
+        swipes:
+        - 0,1-0,0-1,0-2,0-1,1-2,1
+        - 3,3-3,2-3,1-2,1-3,0-2,0-1,1-1,0-0,1-0,0
+        isExtraPackLevel: 0
+      - board: areacoallavrdeveiattscrel
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - servo
+        - cattedrale
+        - cavalleria
+        swipes:
+        - 4,3-4,2-4,1-3,2-3,1-4,0-3,0-2,0-1,0-0,0
+        - 1,0-2,1-3,1-4,1-3,2-2,2-1,3-1,2-2,3-2,4
+        - 0,0-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: dbagleama
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - gleba
+        - dama
+        swipes:
+        - 0,1-0,0-1,0-2,0
+        - 0,1-1,1-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: strmteofoasoanos
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - fossato
+        - monastero
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1-1,2-1,1-2,2-2,1
+        - 3,2-3,1-3,0-2,1-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: urastegpsleiatir
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - strega
+        - spirituale
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-0,1-0,0-1,1-2,1
+        - 0,1-0,2-1,3-1,2-2,2-2,3
+        isExtraPackLevel: 0
+      - board: zioneoaropicpeoanronmorct
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - corporazione
+        - romanico
+        - ponte
+        swipes:
+        - 4,3-4,2-4,1-4,0-3,0
+        - 2,0-1,0-0,0-0,1-1,1-0,2-1,2-0,3
+        - 3,0-3,1-2,1-2,2-3,3-2,3-1,3-0,4-1,4-2,4-3,4-4,4
+        isExtraPackLevel: 0
+      - board: darceolma
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - clero
+        - dama
+        swipes:
+        - 0,0-1,1-1,0-2,0
+        - 0,1-0,0-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: elaortpme
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - temporale
+        swipes:
+        - 2,1-2,0-1,0-0,0-0,1-1,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: ciagaroovectalli
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - cavalleria
+        - gotico
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1-1,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: aeatrlaiulcoigrc
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - giullare
+        - crociata
+        swipes:
+        - 3,0-2,0-3,1-2,1-3,2-2,2-3,3-2,3
+        - 1,0-0,0-0,1-1,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: edaoctanotomrenr
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - romano
+        - corte
+        - dante
+        swipes:
+        - 1,1-2,1-2,0-1,0-0,0
+        - 0,2-0,1-0,0-1,1-1,0
+        - 3,0-2,1-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: coeteomnornicsrvtiaoennrt
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - rinascimento
+        - torre
+        - convento
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-1,2
+        - 4,0-4,1-4,2-4,3-4,4
+        - 3,0-2,1-2,0-3,1-3,2-2,2-1,2-1,3-2,4-2,3-3,4-3,3
+        isExtraPackLevel: 0

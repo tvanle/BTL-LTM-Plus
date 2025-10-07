@@ -1,0 +1,288 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nb
+  m_EditorClassIdentifier:
+  language: no
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Ocean
+      category: Ocean
+      categoryLocalized: Hav-arrangement
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: kevoarrll
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - korallrev
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0-2,0-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: msetanshrmlameug
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - glassmanet
+        - hummer
+        swipes:
+        - 3,0-2,0-1,1-0,0-1,0-0,1
+        - 3,0-2,1-3,1-2,2-1,3-0,3-0,2-1,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: norptkpenayoplpl
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - polypper
+        - plankton
+        swipes:
+        - 0,0-1,0-1,1-0,1-1,2-0,2-1,3-0,3
+        - 2,0-3,1-3,0-2,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: etatuantrsmbokpnrleknellb
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - brennmanet
+        - blekksprut
+        - atoll
+        swipes:
+        - 2,4-2,3-2,2-2,1-2,0
+        - 4,0-3,0-3,1-4,1-3,2-4,3-4,2-3,3-4,4-3,4
+        - 1,2-1,1-1,0-0,0-0,1-0,2-0,3-1,3-0,4-1,4
+        isExtraPackLevel: 0
+      - board: yrkldolar
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - koralldyr
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,1-0,0-1,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: dellrjksideåvvbl
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - blåskjell
+        - drivved
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1
+        - 2,0-3,0-3,1-3,2-2,2-1,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: gtadhndeaapivskl
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - havskilpadde
+        - tang
+        swipes:
+        - 1,1-2,0-1,0-0,0
+        - 0,2-0,1-0,0-1,0-2,0-3,1-3,0-2,1-1,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: ldreaoanrmfgstta
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - artsmangfold
+        - tare
+        swipes:
+        - 2,0-3,0-2,1-3,1
+        - 0,2-0,1-1,0-0,0-1,1-2,2-3,2-3,1-2,1-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: snnankrvtaaynltlsaruldrev
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - saltvann
+        - naturvern
+        - skalldyr
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-1,2
+        - 4,4-4,3-4,2-4,1-3,1-4,0-3,0-2,0-2,1
+        - 1,1-2,1-3,2-3,3-2,3-3,4-2,4-1,4
+        isExtraPackLevel: 0
+      - board: ekkreoegn
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - kongereke
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-0,1-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: søemjkesøsytroos
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - sjørose
+        - økosystem
+        swipes:
+        - 1,1-1,0-2,0-3,0-2,1-3,2-3,1-2,2-3,3
+        - 0,3-0,2-0,1-0,0-1,0-1,1-2,2
+        isExtraPackLevel: 0
+      - board: sløskoikvnefrets
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - klovnefisk
+        - østers
+        swipes:
+        - 2,1-3,0-2,0-1,0-0,0-0,1
+        - 0,2-1,3-1,2-0,1-1,1-2,1-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: snntrjihaeøvagnpsbuaintil
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - laguner
+        - habitat
+        - sjøpinnsvin
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0-2,0-1,1-1,2-1,3-1,4
+        - 2,3-2,2-2,1-3,0-2,0-3,1-3,2
+        - 4,0-4,1-3,2-3,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: merusglin
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - muslinger
+        swipes:
+        - 0,2-0,1-1,1-0,0-1,0-2,0-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: ilalalvhhemkjksa
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - kamskjell
+        - hval
+        - hai
+        swipes:
+        - 0,0-0,1-0,2
+        - 3,0-2,0-2,1-3,1
+        - 3,1-3,0-2,1-2,0-1,0-0,0-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: psllmjliaøervsks
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - sjøsvamp
+        - sel
+        - krill
+        swipes:
+        - 2,0-3,0-3,1-2,1-3,2
+        - 3,0-2,1-2,2
+        - 1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: erbsesvtefejnkoøbyatølrso
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - fotosyntese
+        - krabbe
+        - sjøløver
+        swipes:
+        - 0,2-1,1-0,0-1,0-0,1-1,2-0,3-1,3
+        - 3,1-2,0-3,0-2,1-1,1-0,2
+        - 4,3-4,2-4,1-4,0-3,0-2,1-2,2-2,3-3,3-3,4-4,4
+        isExtraPackLevel: 0
+      - board: serjpsølø
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - sjøpølser
+        swipes:
+        - 0,2-0,1-0,0-1,1-2,0-1,0-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: ersstjehø
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - sjøhester
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-0,1-1,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: egngesinnruftyor
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - forurensning
+        - gyte
+        swipes:
+        - 1,1-1,0-0,0-0,1
+        - 3,1-2,0-3,0-2,1-1,1-0,2-0,1-1,2-2,3-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: ubngnniadtfrryom
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - armfoting
+        - bunndyr
+        swipes:
+        - 1,2-0,3-0,2-1,1-0,1-1,0-0,0
+        - 3,2-3,1-3,0-2,1-2,0-1,1-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: pesrgenmellmragakøtogisfl
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - golfstrømmen
+        - alger
+        - pelagisk
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0-2,0-1,1
+        - 3,0-4,0-4,1-3,1-3,2
+        - 4,2-4,1-4,0-3,0-2,0-3,1-2,2-2,1-1,2-2,3-1,4-1,3
+        isExtraPackLevel: 0
+      - board: krknspeeiglpljrmkibeutollllareopsodd
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - korallbleking
+        - oljeutslipp
+        - kreps
+        - leddorm
+        swipes:
+        - 4,1-5,1-5,0-4,0-3,0-2,0-3,1
+        - 0,1-1,1-0,0-1,0-2,0
+        - 0,0-0,1-1,2-1,1-2,1-3,1-4,2-5,2-5,3-5,4-5,5
+        - 4,3-4,2-4,1-3,1-2,1-1,1-0,2-0,3-1,4-2,5-2,4-3,5-3,4
+        isExtraPackLevel: 0

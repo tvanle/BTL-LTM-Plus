@@ -1,0 +1,312 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_de
+  m_EditorClassIdentifier:
+  language: de
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Ocean
+      category: Ocean
+      categoryLocalized: Meeres-Event
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: niiflehad
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - delfin
+        - hai
+        swipes:
+        - 0,0-1,0-2,0
+        - 2,0-2,1-1,1-0,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: llehrafcoegskali
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - koralle
+        - alge
+        - fisch
+        swipes:
+        - 2,0-3,0-3,1-3,2-3,3
+        - 1,0-2,0-2,1-1,1
+        - 0,0-0,1-0,2-1,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: bstnoboekeamrone
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - anemone
+        - krebs
+        - boot
+        swipes:
+        - 0,1-0,0-1,0-2,0
+        - 0,1-0,0-1,1-1,2-1,3
+        - 2,1-2,0-3,0-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: nseferastehmuisecefestels
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - schaum
+        - seestern
+        - tiefsee
+        - fels
+        swipes:
+        - 3,1-2,0-3,0-4,0
+        - 3,3-3,2-4,1-3,1-4,2-4,3-4,4
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2
+        - 0,0-1,1-0,2-1,3-2,2-1,2
+        isExtraPackLevel: 0
+      - board: kbeabrlko
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - robbe
+        - kalk
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 2,1-2,0-1,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: belkekhcoarsotmu
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - muschel
+        - krake
+        - boot
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 3,0-2,0-1,1-1,2-0,2
+        - 2,0-3,0-3,1-3,2-2,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: rnesichefdfefrep
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - seepferdchen
+        - riff
+        swipes:
+        - 0,3-0,2-0,1-0,0
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0-1,1-1,2-2,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: gsnontntrukamöpl
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - strömung
+        - plankton
+        swipes:
+        - 2,0-3,0-3,1-2,2-2,1-3,2-3,3-2,3
+        - 1,3-1,2-0,1-1,0-0,0-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: aneglrllaneueettaugesuqsa
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - seetang
+        - auster
+        - lagune
+        - qualle
+        swipes:
+        - 2,0-1,0-0,0-1,1-2,1-2,2
+        - 4,1-4,0-3,0-2,1-1,2-2,2
+        - 1,1-1,0-0,0-0,1-0,2-0,3
+        - 3,0-4,1-3,2-4,2-3,3-4,3-3,4
+        isExtraPackLevel: 0
+      - board: myssetokö
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - ökosystem
+        swipes:
+        - 2,0-1,0-0,0-0,1-1,2-2,2-2,1-1,1-0,2
+        isExtraPackLevel: 0
+      - board: chagrsaeallrbane
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - garnele
+        - barsch
+        - aal
+        swipes:
+        - 1,0-2,0-1,1
+        - 0,0-0,1-0,2-1,2-0,3-1,3
+        - 3,3-2,2-3,1-2,0-3,0-2,1-3,2
+        isExtraPackLevel: 0
+      - board: smmatgkwerahwccs
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - schwamm
+        - wrack
+        - steg
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 0,0-1,1-2,0-1,0-2,1
+        - 3,0-2,0-3,1-3,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: uswtzpeolfothulrtiblokele
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - oktopus
+        - treibholz
+        - welle
+        - flut
+        swipes:
+        - 4,1-4,0-3,0-3,1
+        - 2,1-2,0-3,0-4,1-4,0
+        - 1,0-0,0-1,1-2,1-3,1-2,2-2,3-3,3-4,4
+        - 0,0-1,0-1,1-0,2-0,3-0,4-1,4
+        isExtraPackLevel: 0
+      - board: nvmoeargn
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - mangroven
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-0,1-1,2-1,1-0,2
+        isExtraPackLevel: 0
+      - board: sdskeleaegtiinar
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - seeigel
+        - strand
+        - kai
+        swipes:
+        - 3,2-3,1-3,0
+        - 2,2-2,1-3,0-2,0-1,0-1,1
+        - 0,3-0,2-0,1-0,0-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: irashaermmgsahee
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - hammerhai
+        - seegras
+        swipes:
+        - 3,1-3,0-2,0-2,1-3,2-2,2-3,3
+        - 1,0-0,0-0,1-1,1-2,2-1,3-0,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: esrdblesureawzaraslnmkagn
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - salzwasser
+        - makrele
+        - brandung
+        swipes:
+        - 4,4-4,3-4,2-4,1-3,2-3,1-4,0-3,0
+        - 0,0-1,1-1,0-0,1-0,2-0,3-0,4
+        - 2,1-2,0-3,1-3,2-2,2-1,2-2,3-1,4-1,3-2,4
+        isExtraPackLevel: 0
+      - board: orlcnaehw
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - rochen
+        - wal
+        swipes:
+        - 2,0-2,1-2,2
+        - 1,2-0,2-0,1-1,0-0,0-1,1
+        isExtraPackLevel: 0
+      - board: bdaarurak
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - barrakuda
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0-2,0-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: wtksatwstüoaesrl
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - walross
+        - küste
+        - watt
+        swipes:
+        - 0,1-0,0-1,1-1,0
+        - 2,0-1,1-1,0-0,1-0,0
+        - 2,2-3,1-3,0-2,0-2,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: ebakbkhricugsfle
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - kugelfisch
+        - krabbe
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-0,1
+        - 1,2-2,1-3,1-3,0-2,0-1,0-0,1-0,0-1,1-2,2
+        isExtraPackLevel: 0
+      - board: uarlltgezadnhcarauhststsc
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - strandgut
+        - taucher
+        - salz
+        - lachs
+        swipes:
+        - 4,2-4,1-4,0-3,1-3,0
+        - 4,1-4,2-3,3-3,2
+        - 2,0-1,0-2,1-3,2-2,2-2,3-2,4
+        - 1,0-0,0-0,1-1,1-1,2-0,2-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: cbeierwutnhsihlncirotefcbswsureltolk
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - krustentier
+        - clownfisch
+        - wirbellose
+        - bucht
+        swipes:
+        - 1,2-1,1-0,0-1,0-2,0
+        - 0,4-0,3-0,2-0,1-0,0-1,0-2,1-1,2-1,1-2,2
+        - 5,0-4,0-3,0-2,1-3,1-4,1-5,1-5,2-4,2-4,3
+        - 5,0-5,1-4,1-3,1-2,2-3,2-3,3-2,4-3,5-4,5-5,5
+        isExtraPackLevel: 0

@@ -1,0 +1,284 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_pt-br
+  m_EditorClassIdentifier:
+  language: pt
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: NewYear
+      category: NewYear
+      categoryLocalized: Evento de Ano Novo
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: ntioeaiec
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - ceia
+        - noite
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0
+        - 2,0-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: ãiehonanuehprcma
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - champanhe
+        - reunião
+        swipes:
+        - 0,0-1,0-0,1-1,1-1,2-0,3-0,2
+        - 1,0-2,1-3,0-2,0-3,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: aepedsaduobnruir
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - brinde
+        - roupa
+        - adeus
+        swipes:
+        - 0,2-0,1-1,1-0,0-1,0
+        - 0,0-1,1-1,0-2,1-2,0
+        - 2,1-3,0-2,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: sriãouoseçcnrtiepaelbrgni
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - branco
+        - superstição
+        - lingerie
+        swipes:
+        - 4,1-4,0-3,0-2,0-3,1-2,1-2,2-3,2
+        - 0,2-0,1-1,0-0,0-1,1-2,2-3,2-4,2-4,3-3,4-4,4
+        - 0,0-1,0-2,1-1,2-0,2-1,3
+        isExtraPackLevel: 0
+      - board: fomsoãrog
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - romã
+        - fogos
+        swipes:
+        - 0,1-1,1-2,0-1,0-0,0
+        - 0,0-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: ianrlíoéamlvflie
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - família
+        - réveillon
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-2,1-2,2-2,3
+        - 0,0-0,1-1,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: maaçuçendnsaaper
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - esperança
+        - mudança
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2
+        - 2,2-2,1-1,0-2,0-3,0-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: coçaoãrtmaseemof
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - festa
+        - comemoração
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-2,1-1,1-2,2-1,2-1,3
+        - 3,0-3,1-2,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: edadpjtivrarsionftamaesse
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - festividade
+        - promessa
+        - jantar
+        swipes:
+        - 0,3-0,2-0,1-1,1-0,0-1,0
+        - 4,4-4,3-4,2-4,1-4,0-3,0-2,0-3,1
+        - 1,1-1,0-2,0-2,1-3,2-3,3-2,3-3,4-2,4-1,4-0,4
+        isExtraPackLevel: 0
+      - board: nedoúsvoa
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - saúde
+        - novo
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 2,1-2,0-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: jeapoeiiscnrdeto
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - desejo
+        - pirotecnia
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,1-1,0-2,1-2,2-2,3
+        - 0,0-1,0-0,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: saahdutlnoinavel
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - lentilha
+        - ondas
+        - uva
+        swipes:
+        - 1,1-1,0-0,0
+        - 1,1-0,1-0,2-1,3-0,3
+        - 3,0-2,0-3,1-2,2-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: celãooaducdicisfeleoncoçm
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - felicidade
+        - conclusão
+        - começo
+        swipes:
+        - 4,2-4,1-4,0-3,1-3,0-2,0
+        - 0,2-0,1-0,0-1,0-2,1-3,2-4,2-3,3-4,4
+        - 0,1-1,1-2,1-3,2-2,2-1,2-0,2-1,3-2,3-1,4
+        isExtraPackLevel: 0
+      - board: oraimpaar
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - praia
+        - amor
+        swipes:
+        - 2,0-1,0-0,0-1,1
+        - 2,1-2,0-1,0-0,1-0,0
+        isExtraPackLevel: 0
+      - board: ãiaraçrelglseouo
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - alegria
+        - resolução
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,1-0,0-1,0
+        - 0,2-0,1-0,0-1,1-2,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: omacãeroxgenelft
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - reflexão
+        - contagem
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-1,1-1,2
+        - 2,2-2,1-2,0-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: rosrosieidinhafdeuadsocse
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - desafiador
+        - dinheiro
+        - sucesso
+        swipes:
+        - 2,2-2,1-2,0-1,1-0,1-0,0-1,0
+        - 0,1-0,2-1,2-2,2-2,3-1,3-0,4-1,4
+        - 4,1-4,0-3,0-3,1-4,2-3,3-3,2-4,3-4,4-3,4
+        isExtraPackLevel: 0
+      - board: ãovorsiovebtdije
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - diversão
+        - objetivo
+        swipes:
+        - 3,2-2,1-2,0-3,0-3,1-2,2-2,3-3,3
+        - 0,0-1,0-0,1-1,1-0,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: otsoamnnmeoaigom
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - momento
+        - amigos
+        - ano
+        swipes:
+        - 3,0-3,1-3,2
+        - 0,2-0,1-0,0-1,0-2,0-2,1
+        - 3,0-2,1-1,2-1,1-2,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: tpaoerrmouoislzf
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - sorte
+        - louro
+        - paz
+        - fim
+        swipes:
+        - 3,0-3,1-3,2
+        - 1,0-2,1-2,0
+        - 1,0-2,1-1,1-2,2-3,3
+        - 0,0-0,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: doãdasavoahxijroapeiwibvi
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - show
+        - virada
+        - beijo
+        - paixão
+        - vida
+        swipes:
+        - 2,0-1,0-0,0-1,1
+        - 2,0-1,1-2,1-1,2-2,3-1,4
+        - 2,0-3,0-4,0-3,1-3,2
+        - 3,0-4,1-4,2-4,3-3,4-4,4
+        - 0,3-0,2-0,1-0,0
+        isExtraPackLevel: 0

@@ -1,0 +1,202 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_it
+  m_EditorClassIdentifier:
+  language: it
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Eco
+      category: Eco
+      categoryLocalized: Eco
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: erarcliic
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - riciclare
+        swipes:
+        - 0,1-0,0-1,1-1,0-2,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: ntaaeasmcsieoipt
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - pianta
+        - ecosistema
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0-2,0-3,0-3,1-3,2-3,3
+        - 2,0-2,1-1,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: dileonbvvanierer
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - rinnovabile
+        - verde
+        swipes:
+        - 3,0-2,0-1,0-0,1-0,0
+        - 3,0-3,1-2,1-1,2-0,2-0,1-1,1-2,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: aeetfrneosbibiam
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - ambiente
+        - biosfera
+        swipes:
+        - 0,0-1,0-0,1-1,1-0,2-1,3-1,2-0,3
+        - 2,0-3,0-2,1-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: iaraalatfrabatumiiltanhon
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - animali
+        - habitat
+        - flora
+        - natura
+        swipes:
+        - 4,0-3,0-4,1-4,2-4,3-4,4
+        - 3,2-3,1-3,0-2,0-1,0
+        - 2,0-1,1-1,0-2,1-3,2-2,2-2,3
+        - 0,0-1,0-1,1-0,1-0,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: erafmaost
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - atmosfera
+        swipes:
+        - 2,1-2,0-1,1-0,0-1,0-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: riesarloenbstiet
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - terra
+        - sostenibile
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,1-1,0-2,1-1,2-2,2-2,3
+        - 0,0-0,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: toaaaemznaziipna
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - pianeta
+        - amazzonia
+        swipes:
+        - 2,3-2,2-3,3-3,2-2,1-1,0-2,0-3,1-3,0
+        - 1,0-0,0-1,1-0,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: onascaaeilfreour
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - eolico
+        - fauna
+        - serra
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0
+        - 2,1-1,0-2,0-1,1-2,2
+        - 0,0-1,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: tobleryiadeagraolseokobid
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - biodegradabile
+        - solare
+        - kyoto
+        swipes:
+        - 0,0-1,0-1,1-0,2-0,1
+        - 2,0-1,0-1,1-1,2-0,3-0,2
+        - 2,0-3,0-4,1-4,0-3,1-2,2-3,2-4,2-4,3-3,3-2,4-2,3-3,4-4,4
+        isExtraPackLevel: 0
+      - board: gsoaacnie
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - oceani
+        - gas
+        swipes:
+        - 0,1-0,0-1,0
+        - 2,2-2,1-2,0-1,1-0,0-1,0
+        isExtraPackLevel: 0
+      - board: aaocriiafttloovo
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - fotovoltaico
+        - aria
+        swipes:
+        - 1,1-0,0-1,0-0,1
+        - 0,1-0,0-1,1-1,0-2,0-3,0-3,1-2,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: icoicatcgraahitn
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - antartico
+        - ghiacci
+        swipes:
+        - 0,1-0,0-1,0-1,1-0,2-1,2-0,3
+        - 3,1-3,0-2,0-2,1-1,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: oanevzioirenbcos
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - conservazione
+        - bio
+        swipes:
+        - 0,0-0,1-0,2
+        - 1,0-2,0-3,1-3,0-2,1-1,1-0,2-1,3-1,2-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: vasemasniabmeliioarcegnga
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - biomassa
+        - vegan
+        - clima
+        - energia
+        swipes:
+        - 3,2-2,1-2,0-3,1-3,0-4,1-4,0
+        - 4,1-3,2-3,3-4,4-4,3
+        - 0,1-0,0-1,0-2,1-2,0
+        - 0,2-0,1-1,1-1,2-0,3-1,3-2,4-1,4
+        isExtraPackLevel: 0

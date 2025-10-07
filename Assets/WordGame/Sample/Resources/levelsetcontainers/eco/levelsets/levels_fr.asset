@@ -1,0 +1,198 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_fr
+  m_EditorClassIdentifier:
+  language: fr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Eco
+      category: Eco
+      categoryLocalized: Écologie
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: upealtean
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - plante
+        - eau
+        swipes:
+        - 0,0-0,1-0,2
+        - 1,2-1,1-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: fereanueubrtraan
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - arbre
+        - faune
+        - nature
+        swipes:
+        - 3,0-2,0-3,1-2,1-2,2-3,2
+        - 0,2-0,1-0,0-1,0-1,1
+        - 1,0-0,0-1,1-2,1-3,2
+        isExtraPackLevel: 0
+      - board: selbiolabeoernuv
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - renouvelable
+        - bois
+        swipes:
+        - 0,0-1,0-0,1-0,2
+        - 0,0-1,1-1,0-2,1-2,0-3,0-3,1-2,2-3,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: teremnbreofoisle
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - flore
+        - reboisement
+        swipes:
+        - 2,1-3,0-2,0-1,1-0,0-1,0-0,1-0,2-1,3-1,2-0,3
+        - 2,1-2,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: tnrmstreoteioprcrpmoetoec
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - terre
+        - protection
+        - compost
+        - mer
+        swipes:
+        - 3,1-3,0-4,0
+        - 4,0-4,1-3,1-3,2-3,3-4,4-4,3
+        - 2,1-1,1-2,0-1,0-0,0-0,1-0,2-1,2-2,2-1,3
+        - 0,3-0,2-1,3-2,4-2,3
+        isExtraPackLevel: 0
+      - board: rgeelacyc
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - recyclage
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: phèeesortapbnèli
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - planète
+        - biosphère
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-1,1-2,1-3,2-3,3
+        - 2,1-2,0-1,1-0,0-1,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: ertntaiorégvppoé
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - végétation
+        - propre
+        swipes:
+        - 0,0-1,1-2,0-1,0-0,1-0,2
+        - 3,1-3,0-2,1-1,1-0,2-1,2-2,3-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: éelacmanèositsym
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - écosystème
+        - animal
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        - 0,3-0,2-1,1-2,1-2,0-1,0-0,0-0,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: arrievneuneratnieéeltpmoé
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - température
+        - éolienne
+        - avenir
+        swipes:
+        - 0,3-0,2-0,1-1,0-0,0-1,1
+        - 4,0-3,0-4,1-3,2-3,1-4,2-4,3-4,4
+        - 0,0-1,1-2,0-1,0-2,1-1,2-2,2-3,2-3,3-2,4-2,3
+        isExtraPackLevel: 0
+      - board: étidisver
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - diversité
+        swipes:
+        - 0,1-1,1-0,0-1,0-2,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: nmnrteenneroviia
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - environnement
+        - air
+        swipes:
+        - 3,0-2,0-3,1
+        - 1,1-0,1-0,0-1,0-2,1-3,1-3,2-2,3-2,2-1,3-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: yhétdrciéoitlecr
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - hydroélectricité
+        swipes:
+        - 1,3-0,3-0,2-1,2-1,1-0,1-0,0-1,0-2,0-3,1-3,0-2,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: boétidtrieievrsv
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - biodiversité
+        - vert
+        swipes:
+        - 3,0-3,1-3,2-3,3
+        - 0,3-0,2-1,3-1,2-0,1-0,0-1,1-1,0-2,0-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: egaeqasmiufyrpglsetéeurho
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - géothermique
+        - paysage
+        - fleurs
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1
+        - 3,0-2,1-1,2-1,3-0,3-1,4-0,4
+        - 4,2-4,1-4,0-3,1-3,0-2,1-2,2-2,3-3,3-4,4-4,3-3,4
+        isExtraPackLevel: 0

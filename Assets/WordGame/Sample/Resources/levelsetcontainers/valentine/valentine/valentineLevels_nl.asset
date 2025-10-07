@@ -1,0 +1,240 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: valentineLevels_nl
+  m_EditorClassIdentifier:
+  language: nl
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Valentine's
+      category: Valentine's
+      categoryLocalized: Valentijnsdag
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: cejatudea
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - cadeautje
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-2,1-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: edvrkeeafozaooln
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - aanzoek
+        - verloofde
+        swipes:
+        - 2,2-2,1-3,0-2,0-1,0-0,0-0,1-1,1-0,2
+        - 3,2-3,1-3,0-2,1-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: psekioajdpucrafa
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - cupido
+        - afspraakje
+        swipes:
+        - 3,0-2,0-1,1-0,1-0,0-1,0-2,1-3,2-3,1-2,2
+        - 3,1-2,1-1,1-0,2-0,1-1,2
+        isExtraPackLevel: 0
+      - board: ntefaemdolearicloholbkace
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - bloemen
+        - chocola
+        - liefde
+        - kaart
+        swipes:
+        - 1,0-2,0-1,1-2,1-1,2
+        - 4,1-3,0-4,0-3,1-2,2-2,3
+        - 3,0-2,1-3,1-4,2-3,3-4,3-4,4
+        - 0,0-0,1-1,1-0,2-1,3-0,3-0,4
+        isExtraPackLevel: 0
+      - board: annvnngeceegeataphfrlrmli
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - flirten
+        - champagne
+        - verlangen
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1-1,2-1,1-2,1-2,2
+        - 3,1-2,1-3,0-2,0-1,1-0,1-1,2-0,3-0,2
+        - 3,1-3,0-4,0-4,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: kerimotna
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - romantiek
+        swipes:
+        - 2,2-2,1-1,1-2,0-1,0-0,0-0,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: rbdeendrtinarapa
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - partner
+        - aanbidder
+        swipes:
+        - 3,1-3,0-2,0-1,1-1,0-2,1-2,2-3,3-3,2
+        - 2,0-1,0-0,0-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: riinaundbreifevr
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - februari
+        - vriendin
+        swipes:
+        - 2,0-3,0-3,1-2,1-2,2-3,2-2,3-3,3
+        - 0,0-1,0-0,1-1,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: terdstneforaliohererdaidv
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - verliefd
+        - roos
+        - hart
+        - date
+        - diner
+        swipes:
+        - 3,0-2,0-1,0-1,1-2,1
+        - 0,0-1,0-0,1-1,1
+        - 0,1-1,2-0,2-0,3
+        - 4,0-4,1-4,2-4,3
+        - 4,0-3,1-2,1-2,2-3,2-2,3-3,3-3,4
+        isExtraPackLevel: 0
+      - board: zmefmwelilidafjjsnleereie
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - serenade
+        - zwijmelfilm
+        - liefje
+        swipes:
+        - 2,0-3,0-4,0-3,1-4,2-4,1
+        - 0,3-0,2-0,1-0,0-1,0-2,1-3,1-3,2-3,3-4,3-4,4
+        - 1,1-0,0-1,0-2,0-2,1-2,2-1,2-1,3
+        isExtraPackLevel: 0
+      - board: tpksitosr
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - strik
+        - post
+        swipes:
+        - 1,0-0,0-0,1-0,2
+        - 1,0-2,1-2,0-1,1-2,2
+        isExtraPackLevel: 0
+      - board: rdmboieonhbnooeg
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - geheim
+        - bonbon
+        - rood
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 3,2-3,1-3,0-2,0-1,0-0,1
+        - 3,0-2,0-1,1-2,2-1,2-2,3
+        isExtraPackLevel: 0
+      - board: rntbeaeosuretatk
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - restaurant
+        - boeket
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0
+        - 0,3-0,2-0,1-0,0-1,0-1,1-2,1-1,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: tejdstnnueevkeir
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - kus
+        - etentje
+        - vriend
+        swipes:
+        - 3,1-3,0-2,0-2,1-3,2-3,3
+        - 1,0-0,0-1,1-2,2-1,2-2,3-1,3
+        - 0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: hsnigieseetcealieopfgdzde
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - passie
+        - geliefde
+        - zoen
+        - gedicht
+        swipes:
+        - 0,0-1,1-1,0-0,1-1,2-0,3-0,2
+        - 2,0-2,1-2,2-2,3
+        - 4,4-4,3-4,2-3,2-3,1-4,1-3,0-4,0
+        - 3,1-3,2-2,3-1,4-0,3-1,3
+        isExtraPackLevel: 0
+      - board: nefeiflebrefsdgkufelnrini
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - liefdesbrief
+        - knuffelen
+        - ring
+        swipes:
+        - 1,0-2,0-3,0-4,0
+        - 0,1-0,0-1,1-1,2-0,3-0,2-1,3-1,4-0,4
+        - 4,1-4,0-3,1-2,1-3,2-2,3-2,2-3,3-4,3-4,4-3,4-2,4
+        isExtraPackLevel: 0
+      - board: hsbtinatehclrnewsethzarroloaenctbkod
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - kaarslicht
+        - blozen
+        - bewonderen
+        - hartstocht
+        swipes:
+        - 0,5-0,4-0,3-0,2-1,3-1,2-0,1-0,0-1,1-1,0
+        - 2,1-2,0-3,0-4,0-5,1-5,0-4,1-5,2-5,3-5,4
+        - 2,0-1,1-2,1-2,2-2,3-1,3
+        - 3,0-3,1-3,2-4,2-4,3-5,4-4,5-4,4-3,4-3,5
+        isExtraPackLevel: 0

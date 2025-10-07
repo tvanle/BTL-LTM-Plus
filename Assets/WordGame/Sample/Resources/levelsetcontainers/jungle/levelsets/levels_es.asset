@@ -1,0 +1,320 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_es
+  m_EditorClassIdentifier:
+  language: es
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Jungle
+      category: Jungle
+      categoryLocalized: Selva
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: aoovleccs
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - selva
+        - coco
+        swipes:
+        - 0,0-1,1-1,0-2,0
+        - 2,0-2,1-1,1-0,1-0,2
+        isExtraPackLevel: 0
+      - board: maomassqazuinoto
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - amazonas
+        - mosquito
+        swipes:
+        - 3,3-2,3-2,2-3,2-2,1-3,1-2,0-3,0
+        - 1,3-0,3-0,2-1,1-1,0-0,0-0,1-1,2
+        isExtraPackLevel: 0
+      - board: agírludancacjosa
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - cascada
+        - jungla
+        - río
+        swipes:
+        - 3,0-2,0-1,0
+        - 0,0-1,1-0,1-1,2-0,2-0,3
+        - 3,1-3,0-2,0-1,1-2,1-2,2-3,2
+        isExtraPackLevel: 0
+      - board: aooátlláneibienrrtprguces
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - serpiente
+        - tucán
+        - árbol
+        - gorila
+        swipes:
+        - 0,0-1,0-0,1-0,2-0,3-0,4
+        - 2,0-1,0-1,1-2,1-1,2
+        - 2,1-1,0-2,0-3,0-4,0
+        - 4,0-3,0-4,1-3,1-2,2-3,2-3,3-4,4-4,3
+        isExtraPackLevel: 0
+      - board: oooznnomo
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - ozono
+        - mono
+        swipes:
+        - 1,0-2,0-2,1-1,1
+        - 0,2-0,1-0,0-1,1-2,2
+        isExtraPackLevel: 0
+      - board: nauaraejjaibagal
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - liana
+        - abeja
+        - jaguar
+        swipes:
+        - 0,1-0,0-1,0-2,0-1,1-0,2
+        - 2,0-3,0-2,1-3,1-3,2
+        - 3,0-2,1-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: acovlcdeoraromro
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - macaco
+        - verdor
+        - loro
+        swipes:
+        - 0,2-0,1-1,0-0,0
+        - 3,3-3,2-3,1-2,1-3,0-2,0
+        - 1,0-2,1-1,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: auélapmmsvoniilroórucnzpl
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - plurisilva
+        - monzón
+        - lémur
+        - copa
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 3,0-2,0-1,0-1,1-0,1
+        - 2,2-1,1-1,0-2,0-2,1-1,2
+        - 3,0-4,0-4,1-3,1-2,2-3,3-3,2-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: amraletoicsedtpciarosouce
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - ecosistema
+        - ecuador
+        - tropical
+        swipes:
+        - 3,1-3,0-4,0-4,1-3,2-4,2-3,3-4,3
+        - 4,0-3,0-2,0-2,1-2,2-2,3-2,4
+        - 1,2-0,1-1,0-0,0-1,1-0,2-1,3-0,3-1,4-0,4
+        isExtraPackLevel: 0
+      - board: agojsuohm
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - musgo
+        - hoja
+        swipes:
+        - 1,0-0,0-0,1-0,2
+        - 2,0-2,1-1,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: edadcmloouoihcdr
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - humedad
+        - cocodrilo
+        swipes:
+        - 0,1-0,0-1,0-2,1-2,0-3,0-3,1-2,2-3,2
+        - 0,0-1,1-1,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: abmahmuhoceeiopl
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - helecho
+        - puma
+        - bioma
+        swipes:
+        - 1,1-0,0-1,0-2,0-3,0
+        - 2,0-2,1-1,1-0,1
+        - 3,2-3,1-3,0-2,1-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: fndeaaquuososneb
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - bosque
+        - denso
+        - fauna
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0
+        - 2,1-2,0-1,0-0,0-1,1
+        - 3,0-3,1-2,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: rfironaddodtsiap
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - frondosidad
+        - tapir
+        swipes:
+        - 3,1-2,0-3,0-2,1-3,2
+        - 1,3-0,3-0,2-1,2-0,1-1,1-0,0-1,0-2,1-2,2-3,2
+        isExtraPackLevel: 0
+      - board: piaravaalnupyualagmgalani
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - iguana
+        - manglar
+        - lluvia
+        - papaya
+        swipes:
+        - 0,1-0,0-1,1-1,0-2,0-2,1
+        - 1,0-0,1-0,2-0,3-1,4-1,3
+        - 3,1-2,0-3,0-2,1-3,2-2,3-3,3
+        - 4,0-4,1-3,2-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: foiaílsoñroezbrreroaapcla
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - flora
+        - perezoso
+        - colibrí
+        - araña
+        swipes:
+        - 3,1-4,2-4,1-3,0-4,0
+        - 2,0-3,1-3,0-2,1-3,2-4,3-4,4
+        - 1,0-1,1-2,1-1,2-2,2-2,3-1,3-1,4
+        - 0,4-0,3-0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: nátnguaro
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - orangután
+        swipes:
+        - 2,0-1,0-0,0-0,1-1,1-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: rsamaapacobrapii
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - capibara
+        - mariposa
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-1,1-2,1
+        - 0,1-0,0-1,0-2,0-2,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: araolmúfictnlone
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - nenúfar
+        - loto
+        - clima
+        swipes:
+        - 1,0-0,1-0,0-1,1-0,2
+        - 0,0-1,0-2,0-3,0
+        - 2,0-3,0-3,1-2,2-3,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: aetaídeduqmaorpl
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - templada
+        - orquídea
+        swipes:
+        - 0,0-1,0-1,1-0,1-0,2-1,2-1,3-0,3
+        - 2,3-2,2-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: míomalgunaératic
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - murciélago
+        - manatí
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1
+        - 3,3-3,2-3,1-3,0-2,0-2,1-1,2-1,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: viónrecaanrtgómeeealvdnpu
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - vegetación
+        - pulmón
+        - verde
+        - rana
+        swipes:
+        - 4,0-3,0-2,0-3,1
+        - 0,3-0,2-0,1-1,0-0,0
+        - 3,0-4,0-4,1-4,2-3,2-4,3
+        - 0,0-1,1-2,2-2,1-1,2-2,3-1,3-1,4-2,4-3,4
+        isExtraPackLevel: 0
+      - board: atadbagosdotuairairtpdefnlivoítabipe
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - biodiversidad
+        - epífita
+        - planta
+        - tortuga
+        - boa
+        swipes:
+        - 4,2-4,1-4,0
+        - 0,0-1,0-0,1-1,1-0,2-0,3-0,4
+        - 2,0-1,1-1,0-0,1-1,2-1,3
+        - 5,0-4,0-5,1-5,2-5,3-5,4-5,5
+        - 2,0-3,0-4,1-3,2-2,1-3,1-4,2-3,3-2,4-2,3-3,4-2,5-3,5
+        isExtraPackLevel: 0

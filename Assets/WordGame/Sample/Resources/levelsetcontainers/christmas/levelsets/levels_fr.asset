@@ -1,0 +1,328 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_fr
+  m_EditorClassIdentifier:
+  language: fr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Holidays
+      category: Holidays
+      categoryLocalized: Noël
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: eerdnébéeimcmhce
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - décembre
+        - cheminée
+        swipes:
+        - 2,0-1,0-0,1-0,0-1,1-0,2-1,2-0,3
+        - 3,3-3,2-3,1-3,0-2,1-2,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: glsxnuauiaeaepcd
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - cadeaux
+        - sapin
+        - luge
+        swipes:
+        - 1,1-1,0-0,1-0,0
+        - 2,0-1,1-1,0-0,1-0,2
+        - 2,0-3,1-3,0-2,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: casdtrnéeioctaro
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - décorations
+        - carte
+        swipes:
+        - 0,2-1,1-1,0-0,1-0,0
+        - 3,3-3,2-3,1-3,0-2,0-1,0-0,0-1,1-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: eflnegneincenoro
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - neige
+        - renne
+        - flocon
+        swipes:
+        - 1,1-2,1-3,0-2,0-1,0-0,0
+        - 2,0-3,1-2,2-3,3-3,2
+        - 1,1-0,2-0,1-1,2-0,3
+        isExtraPackLevel: 0
+      - board: neisdaberlugiugo
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - guirlande
+        - bougies
+        swipes:
+        - 2,1-3,0-2,0-3,1-2,2-3,2-3,3
+        - 2,0-1,0-0,0-0,1-1,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: tlscoanhcooahcsn
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - chocolat
+        - chansons
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2-2,3
+        - 1,0-0,0-1,1-0,1-0,2-1,3-1,2-0,3
+        isExtraPackLevel: 0
+      - board: folexamlufsihête
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - fêtes
+        - houx
+        - famille
+        swipes:
+        - 0,0-1,0-2,0-3,0-2,1-3,1-3,2
+        - 0,0-1,1-0,1-0,2
+        - 1,1-1,0-2,0-3,0-2,1
+        isExtraPackLevel: 0
+      - board: ertjutsoirrunoue
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - nourriture
+        - jouets
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0
+        - 0,0-1,0-2,0-2,1-1,1-0,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: eruinnooostclsec
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - couronne
+        - solstice
+        swipes:
+        - 1,1-0,1-0,0-1,0-2,1-3,1-3,0-2,0
+        - 3,1-3,2-2,3-1,3-2,2-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: htieecrléûheboiv
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - hiver
+        - bûche
+        - étoile
+        swipes:
+        - 0,0-1,1-1,0-2,0-3,0-3,1
+        - 0,0-1,1-1,2-0,3-0,2
+        - 2,1-2,0-3,0-3,1-2,2
+        isExtraPackLevel: 0
+      - board: rbexuuqusijeuman
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - jeux
+        - musique
+        - ruban
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,0
+        - 1,0-0,0-0,1-1,1-2,1-1,2-2,2
+        - 2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: tachetcéeruhmssa
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - chaussette
+        - marché
+        swipes:
+        - 0,0-1,1-1,0-2,0-3,1-3,0
+        - 2,2-3,1-3,0-2,1-2,0-1,0-0,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: etinlitssouevexf
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - festin
+        - voeux
+        - liste
+        swipes:
+        - 0,1-1,0-0,0-1,1-0,2
+        - 0,0-1,1-1,0-2,1-2,0
+        - 3,0-3,1-3,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: asnlnelugoutebsi
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - boules
+        - ange
+        - lutins
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0
+        - 0,3-0,2-0,1-0,0
+        - 1,0-1,1-2,1-2,2-1,2-1,3
+        isExtraPackLevel: 0
+      - board: nolsilcecevhloér
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - réveillon
+        - cloches
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,0-3,1-3,2
+        - 3,0-2,0-2,1-1,1-0,2-1,2-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: seedaisnepcirépd
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - dinde
+        - repas
+        - épices
+        swipes:
+        - 1,0-2,0-1,1-2,1-1,2-2,2
+        - 0,0-0,1-1,1-0,2-0,3
+        - 3,0-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: csenhtgaompgaler
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - grelots
+        - champagne
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-3,0-2,1-3,1-2,2
+        - 3,1-3,0-2,0-1,0-0,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: taugresgantaîiun
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - traîneau
+        - gants
+        - gui
+        swipes:
+        - 3,0-2,0-1,0
+        - 3,2-3,1-3,0-2,1-2,2
+        - 0,3-0,2-0,1-0,0-1,1-1,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: betsomcinmushobi
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - bonhomme
+        - biscuits
+        swipes:
+        - 2,0-3,0-3,1-2,2-2,1-3,2-2,3-3,3
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: inerovaprahéngec
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - écharpe
+        - orange
+        - vin
+        swipes:
+        - 1,0-0,0-1,1
+        - 0,2-0,1-1,1-0,0-1,0-2,0
+        - 3,1-3,0-2,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: rtelomarpehottec
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - chorale
+        - trompette
+        swipes:
+        - 1,3-0,3-0,2-1,2-0,1-1,1-0,0-1,0-2,0
+        - 3,0-2,1-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: cierranodltsenna
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - calendrier
+        - santon
+        swipes:
+        - 3,1-3,0-2,0-2,1-3,2-2,2
+        - 0,3-1,2-1,1-0,0-1,0-0,1-0,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: enoretnoagubvent
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - avent
+        - bonnet
+        - rouge
+        swipes:
+        - 3,0-2,1-2,0-1,0-0,0
+        - 3,0-3,1-2,1-1,2-0,1-1,1
+        - 0,1-0,0-1,0-2,0-3,0
+        isExtraPackLevel: 0
+      - board: steaeteutmnfboau
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - bottes
+        - manteau
+        - feu
+        swipes:
+        - 3,1-2,0-3,0
+        - 1,0-2,0-2,1-1,1-2,2-3,3-3,2
+        - 0,0-1,0-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: setocngraveacasc
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - vacances
+        - escargot
+        swipes:
+        - 2,1-2,0-3,0-3,1-3,2-2,2-3,3-2,3
+        - 1,1-1,0-0,0-0,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0

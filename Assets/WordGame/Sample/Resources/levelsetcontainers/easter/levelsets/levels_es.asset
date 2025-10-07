@@ -1,0 +1,310 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_es
+  m_EditorClassIdentifier:
+  language: es
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Easter
+      category: Easter
+      categoryLocalized: Pascua
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: agotrzoma
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - marzo
+        - gota
+        swipes:
+        - 1,0-0,0-0,1-0,2
+        - 1,0-2,0-1,1-2,1-2,2
+        isExtraPackLevel: 0
+      - board: rtoloeallscofohc
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - flor
+        - chocolate
+        - sol
+        swipes:
+        - 1,0-2,0-3,0
+        - 3,0-2,0-1,0-2,1-3,1-3,2-2,2-1,3-1,2
+        - 0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: lcovoohaprtrinue
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - pintar
+        - huevo
+        - color
+        swipes:
+        - 1,2-1,1-0,1-0,0-1,0
+        - 2,1-2,0-3,0-3,1-2,2
+        - 0,1-0,0-1,0-2,1-3,2-3,1
+        isExtraPackLevel: 0
+      - board: rscaaiorsírmopia
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - mariposa
+        - arcoíris
+        swipes:
+        - 3,1-3,0-2,1-2,0-1,0-0,0-1,1-1,2
+        - 3,1-3,0-2,1-2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: nsosooasrnimnoaniiírcecco
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - rocío
+        - narciso
+        - incienso
+        - monas
+        swipes:
+        - 1,0-0,0-0,1-1,1-1,2
+        - 0,2-0,1-0,0-1,1-1,0-2,0-2,1-2,2
+        - 4,1-4,0-3,0-2,0-2,1-3,1-4,2
+        - 4,1-4,0-3,0-3,1-3,2
+        isExtraPackLevel: 0
+      - board: alanenull
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - luna
+        - llena
+        swipes:
+        - 1,1-2,0-1,0-2,1-2,2
+        - 1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: amatapriolgaaram
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - margarita
+        - amapola
+        swipes:
+        - 0,3-1,2-0,2-1,1-0,1-1,0-0,0
+        - 3,0-2,0-1,0-2,1-3,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: neojesrelonoapcf
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - polen
+        - conejo
+        - fresa
+        swipes:
+        - 3,0-2,0-1,1-1,0-0,0
+        - 2,0-3,1-2,1-3,2-3,3-2,3
+        - 1,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: ranaahibzierahod
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - azahar
+        - hierba
+        - nido
+        swipes:
+        - 2,2-2,1-3,0-2,0
+        - 1,0-1,1-2,1-3,1-3,2-3,3
+        - 0,0-0,1-0,2-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: asoavemasacrlecauniabacoc
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - vacaciones
+        - bacalao
+        - cuaresma
+        swipes:
+        - 0,1-1,0-0,0-1,1-0,2-1,3-1,2-0,3
+        - 0,0-1,0-2,0-3,0-2,1-2,2-2,3
+        - 4,4-4,3-4,2-4,1-4,0-3,1-3,0-2,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: iónsopecr
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - procesión
+        swipes:
+        - 2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: tijaoperrravrmia
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - primavera
+        - torrija
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,0
+        - 1,2-1,1-2,0-1,0-2,1-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: seanencpriveazin
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - viernes
+        - ceniza
+        - pan
+        swipes:
+        - 3,0-2,0-3,1
+        - 2,1-3,1-3,0-2,0-1,0-0,0
+        - 2,1-1,1-0,2-0,1-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: creaeebjaztoebra
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - brote
+        - abeja
+        - cereza
+        swipes:
+        - 0,3-0,2-1,1-0,0-1,0-0,1
+        - 3,0-2,0-2,1-3,1-3,2
+        - 1,0-2,0-3,1-2,1-1,2
+        isExtraPackLevel: 0
+      - board: roooteicandnaliraamñvocpe
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - cordero
+        - campana
+        - niño
+        - violeta
+        swipes:
+        - 0,0-1,0-2,0-3,0-4,0-4,1-3,1
+        - 4,3-4,2-4,1-3,2
+        - 2,2-2,1-3,1-3,0-2,0-1,1-1,0
+        - 2,0-1,0-0,1-0,2-0,3-0,4-1,4
+        isExtraPackLevel: 0
+      - board: nótcirida
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - tradición
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-0,1-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: nolarevcanaazarn
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - nazareno
+        - carnaval
+        swipes:
+        - 3,2-2,1-2,0-3,0-3,1-2,2-3,3-2,3
+        - 1,1-1,0-0,0-0,1-0,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: cónceicesarltabe
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - celebración
+        - cesta
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0
+        - 3,3-3,2-3,1-3,0-2,0-2,1-1,1-2,2-1,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: alvsgrieurjeoabu
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - oruga
+        - abril
+        - jueves
+        swipes:
+        - 2,0-3,0-3,1-2,1-3,2-3,3
+        - 1,0-2,0-1,1-2,2-1,2
+        - 0,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: looipneusauñómsbonragimod
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - buñuelo
+        - domingo
+        - ramos
+        - pasión
+        swipes:
+        - 4,2-4,1-4,0-3,0-2,1-2,0
+        - 3,0-4,0-3,1-2,2-3,2
+        - 4,0-3,0-2,0-1,0-0,1-0,0-1,1
+        - 0,1-0,2-1,2-2,3-1,3-0,4-1,4
+        isExtraPackLevel: 0
+      - board: inglazaifiloaman
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - familia
+        - longaniza
+        swipes:
+        - 3,2-3,1-3,0-2,1-2,0-1,1-0,1-1,0-0,0
+        - 0,1-0,0-1,0-1,1-2,1-3,2-2,2
+        isExtraPackLevel: 0
+      - board: auneivlqicluocoi
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - lluvia
+        - equinoccio
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,1-1,0-0,1-0,0
+        - 2,1-2,2-1,3-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: aíeldcrgieanmelsaacatarro
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - alegría
+        - decorar
+        - canasta
+        - miel
+        swipes:
+        - 2,0-3,0-2,1-3,1
+        - 0,3-0,2-1,2-1,1-0,1-0,0-1,0
+        - 4,2-4,1-3,1-4,0-3,0-2,1-2,0
+        - 4,1-4,2-3,2-2,3-1,3-1,4-0,4
+        isExtraPackLevel: 0

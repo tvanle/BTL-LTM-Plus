@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_tr
+  m_EditorClassIdentifier:
+  language: tr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Fall
+      category: Fall
+      categoryLocalized: SONBAHAR
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: rakypiğaatkryamu
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - yaprak
+        - atki
+        - yağmur
+        swipes:
+        - 3,3-3,2-2,1-2,0-3,0-3,1
+        - 1,0-1,1-2,1-1,2
+        - 0,0-0,1-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: uağkcmounutsleru
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - turuncu
+        - elma
+        - soğuk
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2
+        - 1,0-0,0-1,1-1,2
+        - 2,1-3,0-2,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: misrsskoisulakai
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - sis
+        - kasim
+        - okul
+        - sari
+        swipes:
+        - 2,1-2,0-3,1-3,0
+        - 3,2-2,2-2,1-3,1
+        - 1,0-0,0-1,1-0,1-0,2
+        - 0,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: neâriçsümrezizrg
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - serin
+        - çizme
+        - rüzgâr
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0
+        - 1,1-0,0-1,0-0,1-1,2
+        - 2,2-2,1-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: riaaapckncinismş
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - incir
+        - akşam
+        - sincap
+        swipes:
+        - 1,0-0,0-0,1-1,1-0,2-1,2
+        - 3,2-3,1-3,0-2,1-2,0
+        - 2,1-3,1-2,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: boksntyeieniakta
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - ekinoks
+        - battaniye
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,0-2,1-3,1-2,2-3,2
+        - 1,1-1,0-0,1-0,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: gtülasyöüahlzegç
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - hasat
+        - eylül
+        - güz
+        - göç
+        swipes:
+        - 2,0-3,1-3,0
+        - 0,2-0,1-0,0
+        - 1,0-2,1-3,1-2,2-3,3
+        - 2,1-1,1-1,2-0,2-1,3
+        isExtraPackLevel: 0
+      - board: akalğanvarkyçaai
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - ayva
+        - karanlik
+        - ağaç
+        swipes:
+        - 0,3-0,2-0,1-0,0
+        - 1,3-1,2-1,1-1,0-2,1-3,1-3,0-2,0
+        - 2,0-3,1-3,2-2,3
+        isExtraPackLevel: 0
+      - board: izamkinairinmlad
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - mandalina
+        - kirmizi
+        swipes:
+        - 0,2-1,1-1,0-0,0-0,1-1,2-0,3
+        - 3,3-3,2-3,1-3,0-2,0-1,0-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: ileykosianmşleme
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - şemsiye
+        - melankoli
+        swipes:
+        - 2,0-1,0-0,0-0,1-1,1-0,2-1,2-1,3-0,3
+        - 3,1-3,0-2,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: kemeankezatsakik
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - kestane
+        - ekim
+        - kazak
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0
+        - 3,1-3,0-2,0-2,1
+        - 2,2-3,2-3,1-2,1-1,1-1,2-1,3
+        isExtraPackLevel: 0

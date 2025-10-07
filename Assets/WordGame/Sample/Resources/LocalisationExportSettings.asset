@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32bb494ec95366292ceddba506ffbeac, type: 3}
+  m_Name: LocalisationExportSettings
+  m_EditorClassIdentifier:
+  m_languages:
+  - da
+  - de
+  - en
+  - es
+  - fr
+  - it
+  - nb
+  - nl
+  - sv
+  - tr
+  - pt-br
+  m_exportSettings:
+  - m_exportName: da
+    m_toExport:
+    - da
+  - m_exportName: de
+    m_toExport:
+    - de
+  - m_exportName: en
+    m_toExport:
+    - en
+  - m_exportName: es
+    m_toExport:
+    - es
+  - m_exportName: fr
+    m_toExport:
+    - fr
+  - m_exportName: it
+    m_toExport:
+    - it
+  - m_exportName: nb
+    m_toExport:
+    - nb
+  - m_exportName: nl
+    m_toExport:
+    - nl
+  - m_exportName: sv
+    m_toExport:
+    - sv
+  - m_exportName: tr
+    m_toExport:
+    - tr
+  - m_exportName: pt-br
+    m_toExport:
+    - pt-br

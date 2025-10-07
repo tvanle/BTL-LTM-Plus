@@ -1,0 +1,312 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_it
+  m_EditorClassIdentifier:
+  language: it
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Fashionista Event
+      category: Fashionista Event
+      categoryLocalized: Evento Super Moda
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: orlloyarc
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - lycra
+        - orlo
+        swipes:
+        - 0,1-1,1-0,0-1,0
+        - 2,2-2,1-2,0-1,0-0,0
+        isExtraPackLevel: 0
+      - board: ttfrrousedasntec
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - tessuto
+        - frac
+        - trend
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0
+        - 2,1-3,1-2,0-3,0
+        - 1,0-2,0-3,1-3,2-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: tsilfeasantaaana
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - fantasia
+        - lana
+        - seta
+        swipes:
+        - 1,1-1,0-0,1-0,0
+        - 3,1-3,0-2,0-1,0
+        - 0,2-0,1-1,1-2,1-3,1-3,2-2,3-2,2
+        isExtraPackLevel: 0
+      - board: ztooaanadtegrprlbaaoezeel
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - eleganza
+        - zebrato
+        - leopardato
+        swipes:
+        - 4,0-3,0-4,1-3,2-3,1-4,2-3,3-4,4-4,3-3,4
+        - 1,0-2,0-1,1-2,2-2,1-1,2-2,3
+        - 0,0-0,1-0,2-1,2-2,3-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: recihamec
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - cachemire
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: eaopnldmotlelana
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - modella
+        - pantalone
+        swipes:
+        - 3,1-3,0-2,0-1,1-1,0-0,0-0,1-0,2-0,3
+        - 3,2-2,3-2,2-3,1-2,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: agoktsaofanllion
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - sfilata
+        - gonna
+        - look
+        swipes:
+        - 3,0-2,0-3,1-3,2
+        - 1,0-2,0-3,0-2,1-2,2
+        - 1,2-0,1-1,0-0,0-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: agflaaealetnneristssviaap
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - vintage
+        - fantasia
+        - passerella
+        swipes:
+        - 4,0-3,0-3,1-4,1-3,2-4,2-4,3-3,3-3,4-4,4
+        - 2,4-2,3-2,2-2,1-2,0-1,1-1,0-0,0
+        - 0,0-0,1-1,2-0,2-0,3-1,4-1,3
+        isExtraPackLevel: 0
+      - board: ampaouracntittvnibiscmtui
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - stampa
+        - tubino
+        - cintura
+        - victim
+        swipes:
+        - 4,1-4,0-3,0-2,0-1,1-1,0
+        - 0,0-1,1-0,1-0,2-0,3-1,3-0,4
+        - 2,0-3,0-2,1-3,1-4,2-4,3
+        - 4,1-3,2-2,3-1,4-2,4-3,4
+        isExtraPackLevel: 0
+      - board: reaiinlam
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - animalier
+        swipes:
+        - 2,2-2,1-1,1-2,0-1,0-0,0-0,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: rmozuoaznlploiig
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - glamour
+        - lino
+        - pizzo
+        swipes:
+        - 2,1-2,0-3,0-3,1-2,2
+        - 1,1-1,0-0,1-0,0
+        - 3,0-3,1-2,2-1,3-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: attontluoralptev
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - velluto
+        - tartan
+        - top
+        swipes:
+        - 1,0-0,1-0,0
+        - 1,0-2,0-1,1-1,2-0,3-0,2
+        - 3,0-2,0-3,1-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: onzaeeidnrrvenuloectpstou
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - tendenza
+        - spolverino
+        - couture
+        swipes:
+        - 3,1-3,0-4,0-4,1-4,2-4,3-4,4
+        - 1,0-0,0-1,1-0,1-1,2-0,3-0,2-1,3-1,4-0,4
+        - 2,0-2,1-3,2-2,3-2,2-3,3-2,4-3,4
+        isExtraPackLevel: 0
+      - board: sodnaebjy
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - jeans
+        - body
+        swipes:
+        - 0,0-1,0-2,1-2,0
+        - 1,0-2,1-1,1-0,1-0,2
+        isExtraPackLevel: 0
+      - board: tasasiaiilrrtsto
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - stilista
+        - sartoria
+        swipes:
+        - 2,3-2,2-2,1-2,0-3,0-3,1-3,2-3,3
+        - 1,0-0,0-0,1-1,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: nioceozeolofirnc
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - confezione
+        - colori
+        swipes:
+        - 3,0-2,0-1,1-0,1-1,0-0,0
+        - 3,0-2,1-2,0-3,1-3,2-2,2-1,3-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: oastopsmslcgameikeuinsoft
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - seamless
+        - smoking
+        - outfit
+        - capo
+        swipes:
+        - 0,0-1,0-0,1-0,2
+        - 4,2-3,1-4,0-3,0-4,1-3,2
+        - 1,2-2,1-2,0-1,0-0,1-0,0-1,1
+        - 1,0-2,1-2,2-3,2-4,3-4,2-3,3-2,4
+        isExtraPackLevel: 0
+      - board: pogoiellt
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - gilet
+        - polo
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 2,2-1,1-1,0-2,1-2,0
+        isExtraPackLevel: 0
+      - board: ttanndrtuaasabel
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - elastan
+        - brand
+        - tuta
+        swipes:
+        - 0,2-0,1-1,0-0,0
+        - 1,0-2,0-1,1-0,2-1,2
+        - 2,0-3,0-2,1-3,1-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: ceenoezotnicollo
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - cotone
+        - collezione
+        swipes:
+        - 3,1-3,0-2,0-1,0-1,1-2,2-2,1-3,2-3,3-2,3
+        - 0,3-0,2-0,1-0,0-1,1-1,2
+        isExtraPackLevel: 0
+      - board: aalilstaeadttnlo
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - sandali
+        - total
+        - tela
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 3,1-3,0-2,1-1,0-2,0
+        - 1,2-1,1-1,0-2,1-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: olledinamontohftmraaioics
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - cartamodello
+        - fashion
+        - intimo
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0
+        - 4,2-4,1-4,0-3,0-2,0-2,1-1,2
+        - 3,0-3,1-2,1-1,2-2,3-3,3-4,3-4,4-3,4-2,4-1,4-0,4
+        isExtraPackLevel: 0
+      - board: sotezatalaimaecnrgvrdeana
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - cravatta
+        - eleganza
+        - denim
+        - raso
+        swipes:
+        - 1,0-0,0-0,1-1,1
+        - 0,0-1,0-0,1-0,2-1,2
+        - 3,3-3,2-3,1-2,1-2,0-3,0-4,1-4,0
+        - 4,2-4,1-4,0-3,1-2,2-1,3-2,4-2,3
+        isExtraPackLevel: 0

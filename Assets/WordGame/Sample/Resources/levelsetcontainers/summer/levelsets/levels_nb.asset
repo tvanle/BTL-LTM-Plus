@@ -1,0 +1,306 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nb
+  m_EditorClassIdentifier:
+  language: no
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Summer
+      category: Summer
+      categoryLocalized: Sommer
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: retslliksorjlbrø
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - solbriller
+        - skjørt
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        - 0,1-1,1-0,0-1,0-2,1-2,2-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: øyertoslebsødalp
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - badetøy
+        - pølser
+        - sol
+        swipes:
+        - 2,1-1,0-2,0
+        - 3,0-3,1-3,2-2,2-2,3-3,3
+        - 1,1-1,0-0,0-0,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: botsarnddtrasehs
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - badestrand
+        - shorts
+        swipes:
+        - 3,0-2,0-1,1-1,0-2,1-3,1
+        - 0,3-0,2-0,1-1,0-0,0-1,1-2,1-3,1-2,2-3,2
+        isExtraPackLevel: 0
+      - board: ngnsminomsiløvks
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - solskinn
+        - svømming
+        swipes:
+        - 1,1-1,0-0,0-0,1-0,2-1,2-0,3-1,3
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: osjrlemelostbklo
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - blomster
+        - solkjole
+        swipes:
+        - 1,2-0,1-0,0-1,0-2,1-3,0-2,0-1,1
+        - 0,0-0,1-1,1-2,2-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: ksslrgpanacapipm
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - campingplass
+        - park
+        swipes:
+        - 0,0-1,0-0,1-0,2
+        - 2,1-3,1-3,0-2,0-1,0-0,1-1,2-2,2-3,3-3,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: bgkkagyidgtmines
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - bading
+        - myggestikk
+        swipes:
+        - 3,1-2,2-1,1-1,0-2,0-3,0-2,1-3,2-3,3-2,3
+        - 0,3-0,2-0,1-0,0-1,0-1,1
+        isExtraPackLevel: 0
+      - board: daruedttltbktera
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - telttur
+        - badedrakt
+        swipes:
+        - 2,1-1,1-0,1-0,0-1,0-2,0-3,0-3,1-3,2
+        - 0,0-1,0-0,1-1,1-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: nbrtiikteiuefrbs
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - bikini
+        - surfebrett
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1-1,1-2,1-3,1-3,2-3,3
+        - 2,0-1,1-2,2-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: bsnsaeklduoebekr
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - badebukse
+        - snorkel
+        swipes:
+        - 3,3-2,2-2,1-3,0-2,0-3,1-3,2
+        - 0,3-0,2-0,1-1,0-0,0-1,1-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: mettrolsskndlosa
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - sandslott
+        - solkrem
+        swipes:
+        - 0,1-1,0-0,0-1,1-0,2-1,2-0,3
+        - 2,0-3,0-2,1-3,1-3,2-2,2-1,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: brtnåeertrobtuls
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - solbrent
+        - båtturer
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        - 3,0-2,1-2,0-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: stgselkygflnriil
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - grillfest
+        - sykling
+        swipes:
+        - 3,3-3,2-2,1-3,0-2,0-3,1-2,2
+        - 0,1-0,0-1,0-2,1-1,2-1,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: ngrubitfraeidesk
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - fisketur
+        - badering
+        swipes:
+        - 0,2-1,1-0,0-1,0-0,1-1,2-0,3-1,3
+        - 3,2-3,1-2,0-3,0-2,1-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: tthoavalnnlomens
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - solhatt
+        - vannmelon
+        swipes:
+        - 1,2-0,2-0,1-1,1-0,0-1,0-2,1-3,0-2,0
+        - 3,0-3,1-3,2-2,3-2,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ojslrdserbakælpe
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - lekeplass
+        - jordbær
+        swipes:
+        - 1,2-0,3-0,2-1,1-1,0-0,0-0,1
+        - 3,3-3,2-3,1-3,0-2,0-1,0-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: ergstygmslmømobr
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - smørblomster
+        - mygg
+        swipes:
+        - 2,0-1,0-2,1-2,2
+        - 3,3-3,2-3,1-3,0-2,0-1,1-1,0-0,0-0,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: hebiareigknkaipd
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - piknik
+        - hagearbeid
+        swipes:
+        - 0,3-0,2-0,1-1,1-0,0-1,0-2,1-2,0-3,1-3,0
+        - 2,0-1,0-1,1-2,1-3,2-3,1
+        isExtraPackLevel: 0
+      - board: brrvræeæbidaegnb
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - badevær
+        - bringebær
+        swipes:
+        - 0,3-0,2-1,1-2,0-1,0-0,0-0,1-1,2-1,3
+        - 3,0-3,1-2,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: nirmsbæadrkrryoj
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - markjordbær
+        - syrin
+        swipes:
+        - 0,1-1,0-0,0-1,1-0,2
+        - 3,3-3,2-3,1-2,1-3,0-2,0-1,1-0,1-1,2-2,2-2,3
+        isExtraPackLevel: 0
+      - board: rvsperergaksepte
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - prestekrager
+        - veps
+        swipes:
+        - 1,1-0,0-1,0-2,0
+        - 3,3-3,2-2,2-3,1-2,0-3,0-2,1-1,2-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: bneelgepomerstrl
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - blomstereng
+        - epler
+        swipes:
+        - 3,2-3,1-3,0-2,1-2,0
+        - 0,3-0,2-0,1-1,1-0,0-1,0-2,1-3,1-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: sisrpmterlosbrøm
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - smørblomster
+        - rips
+        swipes:
+        - 0,0-1,0-0,1-0,2
+        - 3,1-3,0-2,0-1,0-0,0-1,1-2,1-1,2-2,3-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: reørsnkæokåbrebl
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - blåbær
+        - nøkkeroser
+        swipes:
+        - 1,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,3-0,3
+        - 2,0-3,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: kndeeklrsislaaos
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - solsikke
+        - sandaler
+        swipes:
+        - 0,1-0,0-1,1-2,1-1,0-2,0-3,1-3,0
+        - 3,0-2,0-3,1-2,1-1,1-1,2-0,3-0,2
+        isExtraPackLevel: 0

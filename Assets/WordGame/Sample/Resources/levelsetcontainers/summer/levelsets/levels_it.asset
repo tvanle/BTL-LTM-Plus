@@ -1,0 +1,322 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_it
+  m_EditorClassIdentifier:
+  language: it
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Summer
+      category: Summer
+      categoryLocalized: Estate
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: ilsomoelanmaatre
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - mare
+        - sole
+        - limonata
+        swipes:
+        - 1,3-0,3-0,2-1,2-1,1-0,1-1,0-0,0
+        - 2,1-3,1-3,0-2,0
+        - 2,1-3,1-2,0-3,0
+        isExtraPackLevel: 0
+      - board: anolgmleaopptnac
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - montagna
+        - cappello
+        swipes:
+        - 3,0-2,0-3,1-2,1-3,2-2,2-3,3-2,3
+        - 1,2-1,1-1,0-0,0-0,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ldotcoaiglireabl
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - gelato
+        - caldo
+        - libri
+        swipes:
+        - 3,0-2,1-2,0-3,1-3,2
+        - 0,0-1,0-0,1-1,2-1,1
+        - 0,1-0,0-1,1-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: eznvzaoeaacainlv
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - vacanze
+        - vela
+        - zaino
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0
+        - 3,1-3,0-2,0-1,1
+        - 3,0-3,1-2,1-1,2-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: rinoardsibaegeet
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - giardino
+        - erba
+        - sete
+        swipes:
+        - 3,2-3,1-3,0-2,0
+        - 1,0-0,0-1,1-2,1
+        - 0,0-0,1-0,2-1,2-2,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: oaaseliaiubbcqca
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - cielo
+        - acqua
+        - sabbia
+        swipes:
+        - 3,2-3,1-3,0-2,0-2,1-2,2
+        - 3,0-2,0-1,0-1,1-1,2
+        - 0,0-0,1-0,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: pegoatotsuagsnei
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - nuoto
+        - passeggiate
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-2,2-3,1-3,0-2,1-1,0-2,0
+        - 1,0-1,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: gocoiaapsstaeggi
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - passeggiata
+        - gioco
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,0
+        - 3,2-2,2-1,1-0,1-0,0-1,0-2,0-3,0-3,1-2,1-1,2
+        isExtraPackLevel: 0
+      - board: siniucnortalfnap
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - surf
+        - pantaloncini
+        swipes:
+        - 3,0-2,0-1,0-1,1-2,1-3,1-3,2-2,2-1,2-1,3-2,3-3,3
+        - 0,3-0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: itoàzislmuioidts
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - solstizio
+        - umidità
+        swipes:
+        - 1,1-0,1-0,0-1,0-2,1-2,0-3,0
+        - 3,0-3,1-3,2-2,2-1,3-0,3-0,2-1,2-2,3
+        isExtraPackLevel: 0
+      - board: oreacerhomcsocam
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - cocomero
+        - maschera
+        swipes:
+        - 3,0-2,0-3,1-2,1-3,2-2,3-2,2-3,3
+        - 0,2-0,1-1,0-0,0-1,1-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: atcetiinbemolcel
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - melone
+        - bicicletta
+        swipes:
+        - 0,1-1,2-2,1-2,0-1,0-0,0-1,1-0,2-1,3-0,3
+        - 2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: eoiciggsladapman
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - sandali
+        - campeggio
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1-1,1-2,1-2,2-1,2
+        - 3,2-3,1-3,0-2,1-1,1-0,1-0,2
+        isExtraPackLevel: 0
+      - board: ilciiaalchlscote
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - castelli
+        - occhiali
+        swipes:
+        - 1,0-0,1-0,0-1,1-0,2-1,2-1,3-0,3
+        - 2,3-2,2-3,1-2,0-3,0-2,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: atuavortottacsla
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - scottatura
+        - tavola
+        swipes:
+        - 1,1-0,1-0,0-1,0-2,0-3,0
+        - 1,0-0,0-0,1-1,1-2,1-3,1-3,2-2,3-2,2-3,3
+        isExtraPackLevel: 0
+      - board: pncaoenscieoeanp
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - oceano
+        - pinne
+        - pesca
+        swipes:
+        - 3,0-2,0-3,1-2,1-3,2
+        - 0,0-1,0-2,1-1,2-1,1
+        - 0,2-0,1-0,0-1,0-2,0-3,1
+        isExtraPackLevel: 0
+      - board: sioleinbchkiciel
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - bikini
+        - secchiello
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0-3,0-3,1-2,1
+        - 3,2-3,1-2,1-1,2-2,2-1,3
+        isExtraPackLevel: 0
+      - board: oilonboanllvgaap
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - pallavolo
+        - bagnino
+        swipes:
+        - 1,1-1,0-0,0-0,1-1,2-0,2-0,3
+        - 3,0-2,0-1,1-2,1-3,2-3,1-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: onopnetrguiegioz
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - giugno
+        - protezione
+        swipes:
+        - 3,3-3,2-2,3-2,2-3,1-3,0-2,1-2,0-1,1-1,0
+        - 0,0-1,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: zocbaeconrlaazig
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - zanzare
+        - boccaglio
+        swipes:
+        - 3,3-3,2-2,3-2,2-3,1-3,0-2,1-2,0-1,0
+        - 0,3-0,2-0,1-1,0-0,0-1,1-1,2
+        isExtraPackLevel: 0
+      - board: amoecinizalnreos
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - insolazione
+        - crema
+        swipes:
+        - 0,1-0,0-1,0-1,1-0,2
+        - 3,2-3,1-3,0-2,0-2,1-1,1-0,1-1,2-2,3-2,2-3,3
+        isExtraPackLevel: 0
+      - board: onioaolegsgutodl
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - agosto
+        - luglio
+        - onde
+        swipes:
+        - 0,0-1,0-2,0-3,0
+        - 3,0-3,1-2,1-2,2-2,3-3,3
+        - 0,2-0,1-1,2-1,1-0,0-1,0
+        isExtraPackLevel: 0
+      - board: cgpainanciigaour
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - anguria
+        - picnic
+        - goa
+        swipes:
+        - 1,1-1,0-0,0
+        - 2,0-1,1-0,1-1,2-0,2-0,3
+        - 3,3-3,2-3,1-2,0-3,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: etvatrolrsdeihsu
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - sudore
+        - vela
+        - tshirt
+        swipes:
+        - 1,2-1,1-1,0-0,0-0,1-0,2
+        - 2,0-3,0-3,1-3,2
+        - 2,0-3,0-2,1-2,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: vncaetorilaeatrb
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - barca
+        - ventilatore
+        swipes:
+        - 0,3-0,2-1,3-1,2-0,1-1,1-0,0-1,0-2,1-2,0-3,0
+        - 3,0-2,1-3,2-2,3-3,3
+        isExtraPackLevel: 0

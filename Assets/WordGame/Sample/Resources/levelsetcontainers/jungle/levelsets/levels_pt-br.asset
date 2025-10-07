@@ -1,0 +1,302 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_pt-br
+  m_EditorClassIdentifier:
+  language: pt
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Jungle
+      category: Jungle
+      categoryLocalized: Selva
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: lvaetmsaa
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - selva
+        - mata
+        swipes:
+        - 2,1-2,0-1,1-1,0
+        - 0,0-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: naerafamáuoirvob
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - bioma
+        - árvore
+        - fauna
+        swipes:
+        - 1,1-0,0-1,0-0,1-1,2
+        - 0,1-0,0-1,0-2,0-3,0-2,1
+        - 3,0-3,1-2,1-3,2-2,2
+        isExtraPackLevel: 0
+      - board: asaibzônamsmaioa
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - amazônia
+        - biomassa
+        swipes:
+        - 0,0-1,0-2,0-3,1-3,0-2,1-1,1-0,1
+        - 0,0-1,1-0,1-1,2-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: ãameeoçvgcvaaloteeglgeiso
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - vegetação
+        - selvagem
+        - ecologia
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,0-2,0-1,0
+        - 3,0-2,1-3,2-2,3-2,2-3,3-3,4-2,4
+        - 0,2-1,1-0,0-1,0-0,1-1,2-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: óiaprlcfo
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - flora
+        - cipó
+        swipes:
+        - 0,0-1,0-0,1-0,2
+        - 1,0-2,1-2,0-1,1-2,2
+        isExtraPackLevel: 0
+      - board: ovddnioíaerncute
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - tucano
+        - índio
+        - verde
+        swipes:
+        - 1,1-1,0-2,0-3,1-3,0
+        - 3,2-3,1-2,2-1,1-2,1
+        - 2,0-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: edivadãtdizasrer
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - tarzã
+        - diversidade
+        swipes:
+        - 1,2-2,1-3,0-2,0-1,0-0,0-1,1-0,1-0,2-1,3-0,3
+        - 3,2-3,1-3,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: gáemauedtiandssrasoeaimuc
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - ecossistema
+        - umidade
+        - guaraná
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1
+        - 3,0-2,0-1,0-2,1-1,1-2,2-1,3
+        - 4,1-4,0-3,1-2,1-3,2-4,3-4,2-3,3-2,4-3,4-4,4
+        isExtraPackLevel: 0
+      - board: iadeodsvozrbainveiôcidouh
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - biodiversidade
+        - chuva
+        - ozônio
+        swipes:
+        - 4,2-4,1-3,0-4,0-3,1-3,2
+        - 4,1-4,0-3,0-2,1-2,0
+        - 1,2-2,1-2,0-1,0-0,0-0,1-1,1-0,2-1,3-0,4-0,3-1,4-2,4-3,4
+        isExtraPackLevel: 0
+      - board: óíapaçiga
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - igapó
+        - açaí
+        swipes:
+        - 2,2-2,1-2,0-1,0
+        - 0,0-1,0-1,1-0,1-0,2
+        isExtraPackLevel: 0
+      - board: frauauartaacesca
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - estufa
+        - arara
+        - cacau
+        swipes:
+        - 3,1-3,0-2,0-2,1-3,2
+        - 1,0-1,1-2,1-3,2-2,3
+        - 0,0-1,0-0,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: laraanvatpiaancp
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - pantanal
+        - capivara
+        swipes:
+        - 2,0-3,1-3,0-2,1-2,2-3,2-2,3-3,3
+        - 1,1-0,0-1,0-0,1-0,2-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: oaaãnoçoçpniexts
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - extinção
+        - sapo
+        - onça
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 3,0-2,0-1,0-1,1
+        - 0,0-1,0-2,0-3,1-2,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: femaqogduimaelha
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - queimada
+        - folhagem
+        swipes:
+        - 0,0-1,1-1,0-2,0-3,0-2,1-1,2-2,2
+        - 0,2-0,1-0,0-1,1-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: caéirhloucibmolmznuipaqsu
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - quilombola
+        - chimpanzé
+        - sucuri
+        swipes:
+        - 3,0-4,0-4,1-3,1-4,2-3,2
+        - 0,4-0,3-0,2-0,1-0,0-1,0-2,0-1,1-2,1
+        - 2,0-3,1-4,1-4,2-3,2-2,2-1,2-2,3-1,3-1,4
+        isExtraPackLevel: 0
+      - board: acedsraaiuieldscibntohate
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - sustentabilidade
+        - cachoeira
+        swipes:
+        - 1,3-1,2-0,1-1,0-0,0-1,1-0,2-0,3-0,4
+        - 4,4-4,3-4,2-4,1-4,0-3,1-3,0-2,0-2,1-1,1-2,2-3,3-3,2-2,3-3,4-2,4
+        isExtraPackLevel: 0
+      - board: aoboiabtc
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - bacia
+        - boto
+        swipes:
+        - 0,0-1,1-1,0-0,1
+        - 2,2-2,1-2,0-1,1-0,2
+        isExtraPackLevel: 0
+      - board: aalacnarpitihorr
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - tropical
+        - ariranha
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-0,0-0,1
+        - 2,1-2,0-1,0-0,1-1,1-0,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: cooarslmouaúcmdi
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - sumaúma
+        - crocodilo
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,0-2,1-2,2
+        - 1,2-1,1-1,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: elbaaqjiriuootai
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - equatorial
+        - jiboia
+        swipes:
+        - 2,0-3,0-2,1-3,1-3,2-3,3
+        - 0,3-1,2-2,1-2,0-1,0-0,0-0,1-1,1-0,2-1,3
+        isExtraPackLevel: 0
+      - board: dteaeonmstacmaap
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - desmatamento
+        - paca
+        swipes:
+        - 3,0-2,0-3,1-3,2
+        - 0,3-0,2-0,1-0,0-1,0-1,1-2,1-3,2-2,3-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: seorpeueiimgnirntaraesehn
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - seringueiro
+        - piranha
+        - semente
+        swipes:
+        - 0,4-0,3-0,2-1,1-0,1-1,0-0,0
+        - 4,4-4,3-4,2-4,1-4,0-3,0-2,0
+        - 1,0-2,0-3,1-3,2-2,2-1,2-1,3-2,3-3,3-3,4-2,4
+        isExtraPackLevel: 0
+      - board: oecaeotmamtnnetlceasrlouqidofpueesit
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - desflorestamento
+        - aquecimento
+        - eucalipto
+        swipes:
+        - 5,3-5,2-4,2-3,1-3,0-4,0-5,1-5,0-4,1
+        - 0,2-0,1-0,0-1,0-2,0-1,1-1,2-1,3-0,3-0,4-0,5
+        - 2,1-2,0-3,0-4,1-3,2-3,1-2,2-1,3-1,2-2,3-2,4-3,4-4,5-5,4-4,4-5,5
+        isExtraPackLevel: 0

@@ -1,0 +1,274 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_en
+  m_EditorClassIdentifier:
+  language: en
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Nature
+      category: Nature
+      categoryLocalized: Nature
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: lubfiotnu
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - bountiful
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-1,1-0,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: senktateesibdhae
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - habitat
+        - keen
+        - seeds
+        swipes:
+        - 0,2-0,1-1,1-0,0-1,0
+        - 3,2-3,1-3,0-2,0
+        - 1,0-2,0-3,1-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: mmryuostsoerrhfo
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - forestry
+        - mushroom
+        swipes:
+        - 0,3-0,2-0,1-1,0-0,0-1,1-1,2-1,3
+        - 2,0-3,0-3,1-2,1-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: arigngonioufmatn
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - mountain
+        - foraging
+        swipes:
+        - 3,0-2,0-1,1-0,0-1,0-2,1-3,1-3,2
+        - 0,0-1,1-2,1-3,0-2,0-1,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: glewnssiueeljnrd
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - jungle
+        - wilderness
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0-1,1-2,2-1,2
+        - 0,0-0,1-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: rherepeawomtlfso
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - flower
+        - atmosphere
+        swipes:
+        - 3,2-3,1-2,1-3,0-2,0-1,0-1,1-2,2-3,3-2,3
+        - 1,0-0,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: erisdbakisatselk
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - seaside
+        - brisk
+        - talk
+        swipes:
+        - 3,1-2,1-2,0-3,0
+        - 1,0-1,1-2,2-3,3-3,2
+        - 0,0-1,0-2,1-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: wloniatileiedrcf
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - creation
+        - wildlife
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,0-3,1
+        - 2,0-1,0-1,1-1,2-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: pionotaelnraliht
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - pollination
+        - earth
+        swipes:
+        - 3,2-3,1-2,1-3,0-2,0
+        - 0,3-0,2-0,1-0,0-1,0-1,1-2,2-1,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: eqcezbsieertauaa
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - breeze
+        - aquatic
+        - sea
+        swipes:
+        - 2,0-3,1-3,0
+        - 0,0-1,1-1,0-2,0-3,1-3,2-2,2
+        - 1,2-2,1-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: ndtnttanecbubifeyaigauman
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - abundant
+        - beauty
+        - magnificent
+        swipes:
+        - 2,0-3,0-4,1-4,0-3,1-4,2-3,2-4,3-3,3-3,4-4,4
+        - 0,2-0,1-0,0-1,0-2,1-1,1
+        - 2,1-2,2-1,2-2,3-1,4-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: gniuptlif
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - uplifting
+        swipes:
+        - 0,1-1,1-0,0-1,0-2,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: vcimitnaeponwidy
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - dynamic
+        - viewpoint
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-2,0-1,0-2,1-1,2
+        - 2,0-3,0-3,1-3,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: eenegaevioreflgr
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - evergreen
+        - foliage
+        swipes:
+        - 0,0-1,1-1,0-0,1-1,2-0,2-0,3
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: wondlzoeliowfarh
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - fallow
+        - horizon
+        - dew
+        swipes:
+        - 3,2-3,1-3,0
+        - 3,0-2,1-2,0-1,0-1,1-2,2-2,3
+        - 0,0-1,0-0,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: oelosmraunniigeicadivogln
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - indigenous
+        - glacial
+        - omnivore
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-1,2
+        - 2,0-3,0-2,1-1,1-1,2-2,2-2,3
+        - 4,1-4,0-3,1-2,2-3,2-4,2-4,3-3,4-3,3-4,4
+        isExtraPackLevel: 0
+      - board: mcpiaaron
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - panoramic
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-1,1-0,2-0,1-1,2
+        isExtraPackLevel: 0
+      - board: tsiwninaeirllgak
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - air
+        - walking
+        - silent
+        swipes:
+        - 1,1-1,0-0,0-0,1-0,2-0,3
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0
+        - 2,0-1,1-2,1
+        isExtraPackLevel: 0
+      - board: smudwcanalaurosf
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - fauna
+        - clouds
+        - swarm
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0
+        - 1,2-1,1-1,0-2,1-3,0-2,0
+        - 3,0-2,1-3,1-3,2-2,2
+        isExtraPackLevel: 0
+      - board: myngirwigtoaradr
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - migratory
+        - drawing
+        swipes:
+        - 2,0-3,0-3,1-2,1-3,2-2,2-3,3
+        - 0,3-0,2-0,1-0,0-1,0-1,1-2,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: araerscpurixsoirefrvniibe
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - river
+        - xeriscape
+        - fibrous
+        - rain
+        swipes:
+        - 1,1-0,1-1,0-0,0
+        - 2,1-2,0-3,0-4,0-3,1-3,2-2,2
+        - 1,2-1,1-0,1-0,2-0,3-1,3-2,4-2,3-3,3
+        - 4,3-4,2-4,1-4,0-3,1
+        isExtraPackLevel: 0

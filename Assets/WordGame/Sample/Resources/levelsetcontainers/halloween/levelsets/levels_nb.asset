@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nb
+  m_EditorClassIdentifier:
+  language: no
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Halloween
+      category: Halloween
+      categoryLocalized: Halloween
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: nnmieåksn
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - måneskinn
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: rbereelskokstopø
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - spøkelser
+        - oktober
+        swipes:
+        - 1,0-0,1-0,0-1,1-1,2-0,2-0,3
+        - 3,1-2,0-3,0-2,1-1,2-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: kdråiegsrlukkemm
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - skummel
+        - kirkegård
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,0-2,1-1,1
+        - 3,2-3,1-2,1-3,0-2,0-1,0-1,1
+        isExtraPackLevel: 0
+      - board: kreiknpbnkemasoz
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - zombier
+        - knask
+        - knep
+        swipes:
+        - 0,0-1,0-2,0-2,1
+        - 0,2-0,1-0,0-1,0-1,1
+        - 3,0-2,0-3,1-3,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: urrdsesetkkenfuheglmlejem
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - gjenferd
+        - hekser
+        - skummelt
+        - ule
+        swipes:
+        - 0,1-0,0-1,0
+        - 4,4-4,3-4,2-4,1-4,0-3,0-3,1-3,2
+        - 0,1-1,1-0,2-1,2-0,3-1,3
+        - 2,1-2,0-1,1-2,2-3,2-2,3-2,4-3,4
+        isExtraPackLevel: 0
+      - board: hødstlkve
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - høstkveld
+        swipes:
+        - 0,2-1,2-0,1-1,1-0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: sjtrkyreelpvetma
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - vampyrer
+        - skjelett
+        swipes:
+        - 0,3-0,2-1,2-0,1-1,1-0,0-1,0-2,0
+        - 3,1-3,0-2,0-2,1-1,2-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: etmesyrkdokodepp
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - kostyme
+        - edderkopp
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-3,2-3,1-2,0-3,0
+        - 2,1-1,1-0,2-1,3-1,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: arddgklerskfsero
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - gresskar
+        - forkledd
+        swipes:
+        - 3,1-3,0-2,0-2,1-2,2-3,2-3,3-2,3
+        - 0,2-0,1-1,0-0,0-1,1-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: vdkfkesatleonsotskpvvlein
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - kosteskaft
+        - spindelvev
+        - klovn
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0
+        - 3,2-3,1-3,0-2,1-1,1-2,0-1,0-0,0-0,1-0,2
+        - 2,1-1,2-1,1-0,1-0,2-1,3-2,4-2,3-3,4-3,3
+        isExtraPackLevel: 0
+      - board: dråkrgike
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - kirkegård
+        swipes:
+        - 0,1-0,0-1,1-1,0-2,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: ulmøltsrvykøehhe
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - høst
+        - mørke
+        - ulvehyl
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2
+        - 2,1-3,2-3,1-2,0-3,0
+        - 2,0-3,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: drineeetmavsonrg
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - gravstein
+        - demoner
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2
+        - 3,0-2,0-1,1-2,1-3,1-3,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: heymetrukemrsgei
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - mumier
+        - heksegryte
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0-2,1-1,2-1,3
+        - 3,3-3,2-2,1-3,0-2,0-3,1
+        isExtraPackLevel: 0
+      - board: ukvksrkliogsurtearorkrvev
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - varulv
+        - overtroisk
+        - skrekk
+        - gru
+        swipes:
+        - 0,0-0,1-0,2
+        - 1,1-0,0-1,0-0,1-1,2-1,3
+        - 3,1-4,0-3,0-4,1-4,2-3,2-4,3-3,3-4,4-3,4
+        - 2,0-1,1-2,1-2,2-2,3-2,4
+        isExtraPackLevel: 0
+      - board: ntmemmsrnakoeåsisllktefue
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - kiste
+        - monster
+        - maske
+        - fullmåne
+        swipes:
+        - 2,0-3,0-3,1-2,1-2,2-3,2-3,3-3,4
+        - 4,4-4,3-4,2-4,1-4,0
+        - 0,0-1,0-0,1-1,1-1,2-2,2-2,3
+        - 0,2-0,1-1,1-0,0-1,0
+        isExtraPackLevel: 0
+      - board: itdgsurdieuheermgggnlegfomesglmerkya
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - flaggermus
+        - uhyggelig
+        - skremmende
+        - godteri
+        swipes:
+        - 0,1-0,0-1,0-1,1-0,2-0,3-0,4
+        - 3,1-3,0-2,0-1,0-0,0-1,1-2,1-1,2-2,2-1,3
+        - 5,2-5,1-4,0-5,0-4,1-3,2-2,2-2,3-3,3
+        - 5,2-5,1-5,0-4,1-4,2-3,2-2,3-3,3-4,4-4,5
+        isExtraPackLevel: 0

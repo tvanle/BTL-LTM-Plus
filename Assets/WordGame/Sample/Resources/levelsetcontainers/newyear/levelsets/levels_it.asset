@@ -1,0 +1,274 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_it
+  m_EditorClassIdentifier:
+  language: it
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: NewYear
+      category: NewYear
+      categoryLocalized: Evento di Capodanno
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: necgmhapa
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - champagne
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: dottinemvtiuerrb
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - divertimento
+        - brut
+        swipes:
+        - 3,0-2,0-3,1-3,2
+        - 0,3-0,2-0,1-0,0-1,0-1,1-2,1-3,2-2,2-1,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: iteaciaternlsche
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - serata
+        - lenticchie
+        swipes:
+        - 3,1-3,0-2,1-1,2-0,1-0,0-1,0-2,0-1,1-2,2
+        - 0,0-0,1-1,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: atrecnfagauteigrosenfeled
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - fortuna
+        - festeggiare
+        - candele
+        swipes:
+        - 4,3-4,2-4,1-4,0-3,1-2,0-3,0
+        - 1,1-1,0-2,1-1,2-2,2-3,3-4,2-3,2-2,3-2,4-3,4
+        - 0,0-1,1-0,1-1,2-0,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: ptirsiopo
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - propositi
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: fteculoeiasnneen
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - salute
+        - cenone
+        - fine
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 3,3-3,2-3,1-2,1-3,0-2,0
+        - 2,1-1,1-1,2-0,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: clsioibicadrktni
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - cocktail
+        - brindisi
+        swipes:
+        - 2,2-3,1-3,0-2,0-2,1-3,2-2,3-3,3
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: iafacbimcbglaria
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - abbracci
+        - famiglia
+        swipes:
+        - 2,3-3,3-3,2-2,2-2,1-3,1-2,0-3,0
+        - 1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: ezaeftarnindstencaasaorpt
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - procastinare
+        - danzante
+        - festa
+        swipes:
+        - 4,3-4,2-4,1-4,0-3,0
+        - 1,0-0,0-0,1-1,2-1,1-0,2-0,3-0,4
+        - 3,0-2,0-1,0-1,1-2,1-2,2-3,2-4,3-3,3-2,4-2,3-3,4
+        isExtraPackLevel: 0
+      - board: cacaiimib
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - amici
+        - baci
+        swipes:
+        - 2,0-1,1-0,0-1,0
+        - 0,1-0,0-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: nooaconientegihc
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - gennaio
+        - cotechino
+        swipes:
+        - 0,0-1,1-2,1-3,1-3,0-2,0-1,0-0,1-1,2
+        - 0,0-0,1-1,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: oaihnvscauofclnu
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - vulcano
+        - fuochi
+        - san
+        swipes:
+        - 2,1-1,0-2,0
+        - 3,1-3,0-2,1-3,2-3,3-2,3
+        - 1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: bantotoeanummazlacreisasp
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - saluto
+        - cambiamento
+        - speranza
+        swipes:
+        - 3,0-4,0-4,1-3,1-3,2-4,3-4,2-3,3
+        - 2,1-2,0-1,0-0,1-0,0-1,1-2,2-2,3-2,4-3,4-4,4
+        - 1,0-1,1-0,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: friaaimil
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - familiari
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-2,1-1,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: citanviaiamhdeoc
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - videochiamata
+        - cin
+        swipes:
+        - 0,1-1,0-0,0
+        - 1,2-0,1-0,0-1,0-2,0-3,0-3,1-2,2-1,1-2,1-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: znwoaotdmnenpcou
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - countdown
+        - zampone
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0
+        - 1,0-2,0-3,0-3,1-2,2-3,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: ilefdaiccirbiaieamurrtiug
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - auguri
+        - artificiali
+        - dicembre
+        swipes:
+        - 4,1-4,0-3,0-2,1-2,0-1,0-0,1-0,0
+        - 1,1-0,0-1,0-2,0-3,1-2,2-2,3-1,3-0,3-1,4-0,4
+        - 3,2-3,1-4,0-3,0-4,1-4,2
+        isExtraPackLevel: 0
+      - board: ofnaneiunrotaerf
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - anno
+        - fortuna
+        - ferie
+        swipes:
+        - 1,3-1,2-1,1-2,0-1,0
+        - 3,0-2,1-2,0-3,1-3,2-2,3-3,3
+        - 0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: innoiooviztuetno
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - nuovo
+        - notte
+        - inizio
+        swipes:
+        - 0,2-1,2-0,1-1,0-0,0-1,1
+        - 2,1-3,0-2,0-1,0-0,0
+        - 2,0-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: dinbocualicmeosu
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - musica
+        - buoni
+        - dolce
+        swipes:
+        - 0,3-0,2-0,1-1,0-0,0
+        - 3,0-2,0-1,0-2,1-1,2
+        - 3,1-3,0-2,0-1,1-2,1-3,2
+        isExtraPackLevel: 0
+      - board: bottoniterictlsiceovpirsi
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - pirotecnici
+        - silvestro
+        - botti
+        swipes:
+        - 0,0-1,1-2,1-2,0-1,0
+        - 3,0-4,0-3,1-4,1-3,2-4,2-3,3-4,3-4,4
+        - 0,0-1,0-2,0-3,1-2,2-2,1-1,2-0,3-0,2-1,1-0,1
+        isExtraPackLevel: 0

@@ -1,0 +1,306 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_en
+  m_EditorClassIdentifier:
+  language: en
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Spring
+      category: Spring
+      categoryLocalized: Spring
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: slifadfod
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - daffodils
+        swipes:
+        - 2,0-1,1-0,1-0,0-1,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: ntceehkzscseibre
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - breeze
+        - chicks
+        - nest
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 2,2-1,1-0,0-1,0-2,1-2,0
+        - 1,0-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: nyngisaiailardsp
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - rain
+        - sapling
+        - daisy
+        swipes:
+        - 1,0-2,0-1,1-1,2-1,3
+        - 2,0-3,1-3,0-2,1-3,2-2,3-3,3
+        - 0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: lessopnudahsteni
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - tadpoles
+        - sunshine
+        swipes:
+        - 3,3-3,2-2,2-3,1-2,1-3,0-2,0-1,0
+        - 0,0-1,1-0,1-1,2-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: hstpianelntioigcbtlghrpna
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - hatch
+        - planting
+        - piglet
+        - robins
+        swipes:
+        - 1,0-2,0-1,1-1,2-1,3-1,4
+        - 3,1-4,1-4,0-3,0-2,1-2,2
+        - 2,0-3,1-4,0-3,0-2,1-3,2-4,3-4,2
+        - 0,4-0,3-0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: lybfturet
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - butterfly
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: negoeinxlrieefqu
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - equinox
+        - green
+        - life
+        swipes:
+        - 0,1-1,1-1,0-0,0
+        - 2,0-1,1-0,2-1,3-0,3
+        - 3,1-2,0-3,0-2,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: spilemturldpawud
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - puddle
+        - tulips
+        - warm
+        swipes:
+        - 1,0-0,0-0,1-1,1
+        - 2,0-3,0-3,1-2,1-1,2-0,2
+        - 3,1-2,0-3,0-2,1-1,1-0,2
+        isExtraPackLevel: 0
+      - board: srawllcaieahrptt
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - caterpillars
+        - thaw
+        swipes:
+        - 3,0-3,1-3,2-3,3
+        - 2,2-2,1-2,0-1,1-0,0-1,0-0,1-0,2-1,2-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: brslrbewopussulnlfifnyihc
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - flowers
+        - bunny
+        - blissful
+        - chirp
+        swipes:
+        - 4,0-3,0-3,1-4,2-4,1
+        - 0,0-1,0-2,0-1,1-2,2-2,1-3,2-3,3
+        - 0,3-0,2-0,1-0,0-1,0
+        - 4,1-4,2-3,3-2,3-1,3-1,4-2,4
+        isExtraPackLevel: 0
+      - board: eeiprlasb
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - april
+        - bees
+        swipes:
+        - 2,0-1,1-0,0-1,0
+        - 0,0-0,1-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: sidsnmseloosbgle
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - blossom
+        - seedlings
+        swipes:
+        - 3,2-3,1-3,0-2,1-2,0-1,1-0,0-1,0-0,1
+        - 0,0-0,1-1,1-2,2-3,1-2,1-1,2
+        isExtraPackLevel: 0
+      - board: snrbbesildllbupo
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - bulbs
+        - pollen
+        - birds
+        swipes:
+        - 3,1-3,0-2,1-1,0-2,0
+        - 2,0-3,0-3,1-2,1-1,1-1,2
+        - 0,0-1,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: rssmetgressaalab
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - easter
+        - grass
+        - lambs
+        swipes:
+        - 1,0-2,0-3,1-3,0-2,1
+        - 2,2-3,2-3,1-2,1-1,1
+        - 0,1-0,0-1,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: sgcslnugraiortfcwaelrolpo
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - petals
+        - floral
+        - growing
+        - crocus
+        swipes:
+        - 0,1-0,0-1,0-2,0-1,1-0,2
+        - 2,1-2,0-1,0-1,1-0,2-0,3-1,4
+        - 4,2-4,1-4,0-3,0-2,1-2,0
+        - 3,0-3,1-3,2-4,3-4,4-3,4
+        isExtraPackLevel: 0
+      - board: sngpitrou
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - sprouting
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-2,1-1,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: yrwpesesutrilbnc
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - crisp
+        - blustery
+        - new
+        swipes:
+        - 2,0-2,1-2,2
+        - 1,0-0,0-0,1-1,2-1,1-0,2-1,3-0,3
+        - 3,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: esfsilblfruaetto
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - butterflies
+        - foals
+        swipes:
+        - 2,0-3,0-3,1-3,2-3,3
+        - 2,2-2,1-2,0-1,0-0,0-1,1-0,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: giosinprudaddbnr
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - budding
+        - raindrops
+        swipes:
+        - 3,0-2,1-1,0-2,0-3,1-3,2-2,3-2,2-3,3
+        - 1,0-0,1-0,0-1,1-0,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: gongvtipienanmrireadnurtn
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - verdant
+        - germination
+        - pruning
+        swipes:
+        - 2,0-1,1-1,0-0,0-0,1-0,2-0,3
+        - 3,2-2,1-2,0-3,0-3,1-2,2-1,2-0,3-1,3-1,4-2,4
+        - 4,4-4,3-4,2-4,1-3,1-4,0-3,0
+        isExtraPackLevel: 0
+      - board: igwnntlaaivirogn
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - invigorating
+        - lawn
+        swipes:
+        - 2,0-3,0-2,1-3,1
+        - 3,1-3,0-2,1-1,1-2,0-1,0-0,0-0,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: rfgwerdoeniashem
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - meadow
+        - refreshing
+        swipes:
+        - 0,3-0,2-1,3-1,2-0,1-0,0-1,0-2,0-1,1-2,1
+        - 3,0-2,0-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: srghsponislnuioeorgwdlfin
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - flourishing
+        - splendor
+        - sowing
+        swipes:
+        - 4,3-4,2-4,1-3,0-4,0-3,1
+        - 0,4-0,3-0,2-0,1-1,0-0,0-1,1-1,2
+        - 2,0-1,0-1,1-2,2-2,1-3,2-4,3-3,4-3,3-2,3-2,4
+        isExtraPackLevel: 0

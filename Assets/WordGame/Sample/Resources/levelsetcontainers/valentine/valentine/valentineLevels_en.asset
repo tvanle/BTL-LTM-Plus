@@ -1,0 +1,242 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: valentineLevels_en
+  m_EditorClassIdentifier:
+  language: en
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Valentine's
+      category: Valentine's
+      categoryLocalized: Valentine's
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: etclahoco
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - chocolate
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-0,1-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: rndneriedfginilr
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - girlfriend
+        - dinner
+        swipes:
+        - 0,1-1,0-0,0-1,1-0,2-0,3
+        - 2,1-3,1-3,0-2,0-1,1-1,2-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: yrwiaopdfubuebrc
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - cupid
+        - february
+        - bow
+        swipes:
+        - 2,0-1,0-2,1
+        - 0,1-0,0-1,0-2,0-1,1-0,2-1,3-0,3
+        - 3,0-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: ioencinlsostcaosapoponrpn
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - passion
+        - proposal
+        - connection
+        swipes:
+        - 4,2-4,1-4,0-3,0-2,1-2,0-1,1-0,1-0,0-1,0
+        - 3,0-2,0-3,1-4,1-4,2-3,3-3,2-2,2
+        - 2,1-1,1-0,1-0,2-0,3-1,4-1,3
+        isExtraPackLevel: 0
+      - board: odelraeraesneotnoiniswphs
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - serenade
+        - swoon
+        - relationship
+        swipes:
+        - 4,4-4,3-3,4-3,3-4,2-4,1-3,2-3,1-4,0-3,0-2,1-2,0
+        - 0,0-1,0-1,1-0,2-0,1
+        - 0,2-1,3-2,3-2,2-1,2-0,3-1,4-2,4
+        isExtraPackLevel: 0
+      - board: defoitvgs
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - gift
+        - doves
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0
+        - 1,0-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: isncphdéfneriafi
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - friendship
+        - fiancé
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,1-3,0
+        - 2,0-3,1-3,0-2,1-1,1-2,2-1,3-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: drwdnaoahrbtusae
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - date
+        - husband
+        - arrow
+        swipes:
+        - 2,0-1,1-1,0-2,1-2,2
+        - 0,1-0,0-1,0-2,1-1,2-0,2-0,3
+        - 3,3-3,2-3,1-3,0
+        isExtraPackLevel: 0
+      - board: elsirerrdenowerrtpomvalfa
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - flowers
+        - admirer
+        - partner
+        - love
+        swipes:
+        - 1,1-1,0-0,0-0,1
+        - 2,0-1,0-0,1-1,1-0,2-0,3-1,3
+        - 4,0-3,0-4,1-3,1-4,2-4,3-4,4
+        - 3,0-2,0-3,1-2,2-3,2-2,3-2,4
+        isExtraPackLevel: 0
+      - board: euersdromuamtconvaaoeitpa
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - enamoured
+        - captivate
+        - amorous
+        swipes:
+        - 4,0-3,0-4,1-3,1-4,2-4,3-4,4
+        - 3,2-3,1-3,0-2,0-1,0-1,1-2,1-2,2-2,3
+        - 0,0-0,1-0,2-1,2-2,3-1,4-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: inaotfcef
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - affection
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-1,1-0,2-0,1-1,2
+        isExtraPackLevel: 0
+      - board: ecndrnieoafrmboy
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - romance
+        - boyfriend
+        swipes:
+        - 1,0-2,0-3,0-2,1-3,1-2,2-3,2-2,3-3,3
+        - 0,2-0,1-0,0-1,1-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: teulsiqutrfoksib
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - bouquet
+        - flirt
+        - kiss
+        swipes:
+        - 0,0-1,1-1,0-0,1
+        - 2,1-3,0-2,0-1,1-0,1
+        - 3,0-3,1-3,2-2,2-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: tecdratrefeahprc
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - heart
+        - card
+        - perfect
+        swipes:
+        - 1,0-2,1-2,0-1,1-1,2-2,3-2,2
+        - 3,0-3,1-3,2-3,3
+        - 0,0-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: zsseneneioedrotasntvloude
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - devotion
+        - tenderness
+        - zealous
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1
+        - 3,0-3,1-2,1-1,2-2,3-2,2-1,3-0,3-1,4-2,4
+        - 3,0-4,0-4,1-3,2-4,2-3,3-4,3-4,4
+        isExtraPackLevel: 0
+      - board: hdeecswftneirreneirmhceaa
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - cherish
+        - wife
+        - endearment
+        - care
+        swipes:
+        - 4,1-4,0-3,0-3,1
+        - 0,1-0,0-1,0-2,0-3,0-3,1-4,1-4,2-4,3-3,3
+        - 1,0-2,1-2,2-2,3
+        - 1,0-0,0-1,1-2,2-1,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: yferleuitocllaunhbtosbaauderovjraadi
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - adorable
+        - chivalrous
+        - ardent
+        - beautiful
+        - joy
+        swipes:
+        - 0,0-1,0-0,1
+        - 3,0-2,0-1,1-0,1-0,2-1,2-1,3-0,4-0,3
+        - 2,0-1,0-1,1-2,1-3,1-2,2
+        - 4,1-4,0-5,0-5,1-5,2-4,2-3,3-3,2-2,3-2,2
+        - 3,0-4,0-4,1-3,1-4,2-5,3-5,4-5,5
+        isExtraPackLevel: 0

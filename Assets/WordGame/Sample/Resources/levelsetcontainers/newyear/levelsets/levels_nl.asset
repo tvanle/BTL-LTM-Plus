@@ -1,0 +1,270 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nl
+  m_EditorClassIdentifier:
+  language: nl
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: NewYear
+      category: NewYear
+      categoryLocalized: Nieuwjaarsevent
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: jarawunie
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - nieuwjaar
+        swipes:
+        - 0,0-1,0-2,0-2,1-1,1-0,2-0,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: apolpaibplelelfo
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - oliebol
+        - appelflap
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1-1,2-1,3
+        - 3,0-3,1-2,2-2,1-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: lsigezlleeobpgdr
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - gezellig
+        - bordspel
+        swipes:
+        - 3,1-2,1-3,0-2,0-1,0-0,0-0,1-0,2
+        - 1,0-0,1-1,2-1,1-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: saerakknajilmjnbereitguzn
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - terugblikken
+        - samenzijn
+        - jaar
+        swipes:
+        - 4,0-3,0-4,1-3,1
+        - 0,0-1,0-2,0-3,1-4,0-3,0-4,1-3,2-4,2
+        - 0,0-1,1-2,1-2,0-1,0-0,1-1,2-0,2-0,3-1,3-2,4-2,3
+        isExtraPackLevel: 0
+      - board: necgmhapa
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - champagne
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: nvtuekeskrufewra
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - afsteken
+        - vuurwerk
+        swipes:
+        - 1,2-2,1-3,0-2,0-1,0-0,0-1,1-0,1
+        - 3,0-3,1-3,2-2,3-2,2-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: nelleteuidfunaer
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - aftellen
+        - uur
+        - einde
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0
+        - 3,2-3,1-3,0
+        - 1,0-2,1-1,2-2,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: brenemtgdeeeceni
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - december
+        - genieten
+        swipes:
+        - 3,2-3,1-2,0-3,0-2,1-2,2-2,3-3,3
+        - 0,1-1,0-0,0-1,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: kokiuueasdtirajitriwdanue
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - nieuwjaarsduik
+        - traditie
+        - kou
+        swipes:
+        - 0,1-1,0-0,0
+        - 1,1-2,0-1,0-0,0-0,1-0,2-1,2-1,3
+        - 2,0-3,1-4,0-3,0-4,1-4,2-3,2-2,3-2,2-3,3-4,3-4,4-3,4-2,4
+        isExtraPackLevel: 0
+      - board: eiseitvle
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - televisie
+        swipes:
+        - 2,1-2,0-1,0-0,1-0,0-1,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: nkusgilerasswiaj
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - jaarwisseling
+        - kus
+        swipes:
+        - 1,0-2,0-3,0
+        - 3,0-2,0-1,1-0,1-0,0-1,0-2,1-3,1-3,2-2,2-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: gninvreieaegrdnb
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - verandering
+        - begin
+        swipes:
+        - 3,0-2,0-3,1-3,2-3,3
+        - 0,2-0,1-0,0-1,1-2,0-1,0-2,1-1,2-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: vnneioeemrldnrahuonuoovaj
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - voornemen
+        - volhouden
+        - januari
+        swipes:
+        - 4,0-3,0-3,1-4,1-4,2-4,3-4,4
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        - 2,0-1,0-2,1-3,2-2,2-2,3-3,3-3,4-2,4
+        isExtraPackLevel: 0
+      - board: vdeoroosp
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - voorspoed
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0-2,0-2,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: edopihdntogosezr
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - gezondheid
+        - proost
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-0,1
+        - 2,1-1,0-2,0-3,1-3,2-2,2-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: fdekeonietzusvam
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - muziek
+        - feest
+        - avond
+        swipes:
+        - 2,0-1,0-1,1-2,1-1,2
+        - 0,3-0,2-0,1-0,0-1,1
+        - 3,0-3,1-2,1-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: feahtdrnacdljwtiarivmlpuu
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - middernacht
+        - vuurpijl
+        - twaalf
+        swipes:
+        - 4,0-3,0-2,0-1,1-1,0-0,0
+        - 4,1-4,0-3,0-2,1-2,0-3,1-2,2-1,2
+        - 0,0-0,1-0,2-0,3-1,4-1,3-2,3-3,3-4,3-3,4-4,4
+        isExtraPackLevel: 0
+      - board: kejenlstalteenrr
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - knallen
+        - sterretje
+        swipes:
+        - 2,2-2,1-1,0-2,0-3,0-3,1-3,2-2,3-3,3
+        - 0,3-0,2-0,1-1,2-1,1-0,0-1,0
+        isExtraPackLevel: 0
+      - board: eawsifanlimesmen
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - familie
+        - samen
+        - wens
+        swipes:
+        - 2,0-3,0-3,1-3,2
+        - 0,0-1,1-1,0-2,0-3,0
+        - 1,2-2,2-2,1-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: kdelhjreanappjes
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - spel
+        - hapje
+        - drankje
+        swipes:
+        - 1,2-2,1-2,0-1,0-0,0-1,1-2,2
+        - 0,2-0,1-0,0-1,0-2,0
+        - 3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: dehavtlsprsmodifikteecoen
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - toekomst
+        - vriendschap
+        - liefde
+        swipes:
+        - 1,1-1,0-0,0-0,1-0,2-1,2
+        - 4,4-4,3-4,2-4,1-4,0-3,0-2,0-1,0-2,1-3,2-3,1
+        - 3,1-2,0-3,0-2,1-2,2-1,2-0,2-0,3
+        isExtraPackLevel: 0

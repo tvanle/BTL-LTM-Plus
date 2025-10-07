@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="mag_help_center"><foo><![CDATA[MAGs hjelpesenter]]></foo></string>
+	<string name="open"><foo><![CDATA[Åpne]]></foo></string>
+	<string name="contact_us"><foo><![CDATA[Kontakt oss]]></foo></string>
+	<string name="contact_us_description"><foo><![CDATA[Ta gjerne kontakt hvis du ikke finner en løsning på hjelpesenteret vårt. Du kan bruke alternativene under.]]></foo></string>
+	<string name="send_email"><foo><![CDATA[Send e-post]]></foo></string>
+	<string name="support_email_subject"><foo><![CDATA[Anmodning om hjelp]]></foo></string>
+	<string name="support_email_body"><foo><![CDATA[Forklar hva du trenger hjelp med:\n(skriv her):]]></foo></string>
+	<string name="loading"><foo><![CDATA[Laster inn]]></foo></string>
+	<string name="loading_error"><foo><![CDATA[Feil under innlasting]]></foo></string>
+
+	<string name="important_notice"><foo><![CDATA[VIKTIG MELDING]]></foo></string>
+	<string name="terms_description"><foo><![CDATA[Trykk på OK for å godta våre vilkår og retningslinjer for personvern.]]></foo></string>
+	<string name="terms_of_service"><foo><![CDATA[TJENESTEVILKÅR]]></foo></string>
+	<string name="ok"><foo><![CDATA[OK]]></foo></string>
+
+
+	<string name="data_management_title"><foo><![CDATA[Personvernmekanismer]]></foo></string>
+	<string name="data_management_description"><foo><![CDATA[Her kan du be om tilgang til alle de personlige dataene vi har om deg, eller be oss fjerne alle de personlige dataene vi har om deg.]]></foo></string>
+
+	<string name="request_data_title"><foo><![CDATA[Be om data]]></foo></string>
+	<string name="request_data_description"><foo><![CDATA[Her kan du be om tilgang til alle de personlige dataene vi har om deg. Vi vil sende deg en e-post med de personlige dataene dine innen to dager.]]></foo></string>
+	<string name="request_data_pending_description"><foo><![CDATA[Vi har mottatt henvendelsen din, og det kan ta inntil to dager å behandle den. Du vil motta en e-post som inneholder en kryptert ZIP-fil. Passordet til å åpne den filen, vil du finne i e-posten.]]></foo></string>
+	<string name="request_data_ready_description"><foo><![CDATA[Anmodningen din er behandlet, og vi har sendt en kryptert ZIP-fil med dataene dine til e-postadressen under. Du kan åpne filen med passordet nederst.]]></foo></string>
+	<string name="enter_your_email"><foo><![CDATA[Skriv inn e-postadressen din over]]></foo></string>
+	<string name="press_ok"><foo><![CDATA[Trykk på OK når du har skrevet inn e-postadressen din]]></foo></string>
+	<string name="invalid_email"><foo><![CDATA[Ugyldig e-postadresse]]></foo></string>
+	<string name="your_request_is_pending_status"><foo><![CDATA[Henvendelsen din er under behandling]]></foo></string>
+	<string name="data_ready_description_status"><foo><![CDATA[Bruk dette passordet til å åpne filen: {0}]]></foo></string>
+
+	<string name="remove_data_title"><foo><![CDATA[Fjern data]]></foo></string>
+	<string name="remove_data_description"><foo><![CDATA[ADVARSEL: Hvis du fjerner dataene dine, slettes fremdrift og kontoer i alle spillene fra MAG. Disse kan ikke gjenopprettes. Spillene fra MAG må også fjernes fra enhetene dine slik at dataene ikke registreres på nytt. Anmodninger blir behandlet i løpet av 14 dager, og kan kanselleres før den tid.]]></foo></string>
+	<string name="remove_data_cannot_be_undone_status"><foo><![CDATA[Fjerning av data kan ikke gjøres om. Er du sikker?]]></foo></string>
+	<string name="cancel_data_removal"><foo><![CDATA[Avbryt fjerning av data]]></foo></string>
+	<string name="notify_me_via_email_when_done"><foo><![CDATA[Send meg en e-post når fullført]]></foo></string>
+	<string name="day_remaining"><foo><![CDATA[{0} dag igjen]]></foo></string>
+	<string name="days_remaining"><foo><![CDATA[{0} dager igjen]]></foo></string>
+
+	<string name="remove_data_confirmation_title"><foo><![CDATA[Fjerne data: Sikker?]]></foo></string>
+	<string name="remove_data_confirmation_description"><foo><![CDATA[ADVARSEL: Hvis du fjerner dataene dine, slettes fremdrift og kontoer i alle spillene fra MAG. Disse kan ikke gjenopprettes. Spillene fra MAG må også fjernes fra enhetene dine slik at dataene ikke registreres på nytt. Anmodninger blir behandlet i løpet av 14 dager, og kan kanselleres før den tid.]]></foo></string>
+	<string name="data_removal_pending_status"><foo><![CDATA[Henvendelsen din er under behandling. Den kan fortsatt kanselleres.]]></foo></string>
+	<string name="confirm"><foo><![CDATA[Bekreft]]></foo></string>
+	<string name="cancel"><foo><![CDATA[Avbryt]]></foo></string>
+
+	<string name="search_results_title"><foo><![CDATA[Søkeresultater]]></foo></string>
+	<string name="search_no_results_title"><foo><![CDATA[Ingen treff]]></foo></string>
+	<string name="search_placeholder"><foo><![CDATA[Søk …]]></foo></string>
+	<string name="article_rating_question"><foo><![CDATA[Var denne artikkelen nyttig?]]></foo></string>
+	<string name="article_rating_thanks"><foo><![CDATA[Takk for tilbakemeldingen!]]></foo></string>
+
+	<string name="tracking_title"><foo><![CDATA[Er du lei av tilfeldige annonser?]]></foo></string>
+	<string name="tracking_description_a"><foo><![CDATA[For å gjøre spillet vårt best mulig, vil du tillate at vi sporer hvem som sender deg spillannonsene våre samt andre annonser? Det holder appen gratis for deg.]]></foo></string>
+	<string name="tracking_description_b"><foo><![CDATA[Trykk på «Tillat» på den neste skjermen hvis du vil godta dette, eller «Be appen om å ikke spore» hvis ikke.]]></foo></string>
+
+    <string name="tracking_plate_title"><foo><![CDATA[Vi ♥ gratis spilling!]]></foo></string>
+    <string name="tracking_plate_description"><foo><![CDATA[«Tillat» gjør at vi kan lage gøyale, gratis og glimrende spill!]]></foo></string>
+
+    <string name="terms_title"><foo><![CDATA[Klar til å spille?]]></foo></string>
+	<string name="terms_description_a"><foo><![CDATA[Klikk OK nedenfor for å godkjenne tjenestevilkårene og personvernreglene for å fortsette å spille.]]></foo></string>
+
+	<!-- IDFA AB Testing keys -->
+	<string name="tracking_description_a_1"><foo><![CDATA[For å gjøre spillet vårt best mulig, vil du tillate at vi sporer hvem som sender deg annonsene som vises i spillet vårt? Det holder appen gratis for deg.]]></foo></string>
+	<string name="tracking_description_a_2"><foo><![CDATA[For å gi deg en best mulig oppplevelse, vil du tillate at vi sporer annonseaktiviteten din i dette spillet? Det holder appen gratis for deg.]]></foo></string>
+	<string name="tracking_description_a_3"><foo><![CDATA[For å bidra til en bedre opplevelse for deg trenger vi din tillatelse for å fortsette å vise deg relevante annonser. Tillater du at vi sporer annonseaktiviteten din?]]></foo></string>
+
+    <string name="tracking_plate_title_1"><foo><![CDATA[MAG ♥ gratis spilling!]]></foo></string>
+    <string name="tracking_plate_title_2"><foo><![CDATA[Vi elsker gratis spilling!]]></foo></string>
+    <string name="tracking_plate_title_3"><foo><![CDATA[MAG elsker gratis spilling!]]></foo></string>
+    <string name="tracking_plate_title_4"><foo><![CDATA[Gratisspill rocker]]></foo></string>
+    <string name="tracking_plate_title_5"><foo><![CDATA[Vi støtter at spillere kan velge]]></foo></string>
+    <string name="tracking_plate_title_6"><foo><![CDATA[MAG støtter at spillere kan velge]]></foo></string>
+
+    <string name="tracking_plate_description_1"><foo><![CDATA[Trykk på «Tillat» for å hjelpe oss å lage gratis spill til dere!]]></foo></string>
+    <string name="tracking_plate_description_2"><foo><![CDATA[Hvis du tillater sporing, bidrar det til å holde spillene gratis!]]></foo></string>
+    <string name="tracking_plate_description_3"><foo><![CDATA[Tillat sporing, så får du noe styring over reklamen du ser.]]></foo></string>
+    <string name="tracking_plate_description_4"><foo><![CDATA[Trykk på «Tillat» for å få noe kontroll over reklamen du ser.]]></foo></string>
+    <string name="tracking_plate_description_5"><foo><![CDATA[Hvis du trykker på «Tillat», fortsetter vi å lage gratis spill!]]></foo></string>
+    <string name="tracking_plate_description_6"><foo><![CDATA[Trykk på «Tillat», så fortsetter vi å lage spill som er gratis!]]></foo></string>
+
+	<string name="licenses_title"><foo><![CDATA[LISENSER]]></foo></string>
+
+    <!-- Native keys that are used with Xcode. Use the prefix 'NATIVE_KEY:' -->
+	<string name="NATIVE_KEY:NSUserTrackingUsageDescription"><foo><![CDATA[Det er ikke farlig! Det bare forhindrer irrelevante annonser og holder spillet gratis.]]></foo></string>
+</resources>

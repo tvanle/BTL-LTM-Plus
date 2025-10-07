@@ -1,0 +1,304 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nb
+  m_EditorClassIdentifier:
+  language: no
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: HolidaySeason
+      category: Holidays
+      categoryLocalized: Jul
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: kerkipaerekekppr
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - pepperkaker
+        - kirke
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0
+        - 1,2-1,1-1,0-2,0-3,1-3,0-2,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: efierjsstøjselun
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - juletre
+        - fjøsnisse
+        swipes:
+        - 1,2-1,1-1,0-2,0-3,0-2,1-3,1-3,2-3,3
+        - 2,1-2,0-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: sseøinrteugrjlis
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - julenisse
+        - risgrøt
+        swipes:
+        - 3,1-2,0-3,0-2,1-2,2-3,3-3,2
+        - 0,0-1,1-1,0-0,1-1,2-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: eknekarepjejults
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - julestjerne
+        - pakke
+        swipes:
+        - 0,0-1,0-1,1-0,1-0,2
+        - 1,1-0,0-1,0-2,1-3,0-2,0-3,1-3,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: kinjfseuletltufa
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - julaften
+        - lutefisk
+        swipes:
+        - 0,1-1,0-0,0-1,1-0,2-1,3-1,2-0,3
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: ijujruldtlreseob
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - julestri
+        - julebord
+        swipes:
+        - 3,3-2,3-2,2-3,1-3,0-2,0-2,1-3,2
+        - 1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: saninnreøjlemuef
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - juleferie
+        - snømann
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0
+        - 1,1-1,0-2,1-2,0-3,0-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: ntgnyjaspuelleuj
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - julepynt
+        - julesang
+        swipes:
+        - 3,0-2,0-3,1-2,1-3,2-2,2-3,3-2,3
+        - 1,2-1,1-0,0-1,0-0,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: fgreeikanekjrilu
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - julekaker
+        - feiring
+        swipes:
+        - 0,3-0,2-1,1-0,0-1,0-0,1-1,2
+        - 3,1-3,0-2,0-1,1-2,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: jletueiøeaglvnel
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - juleevangeliet
+        - øl
+        swipes:
+        - 3,1-3,0
+        - 0,3-0,2-1,3-1,2-0,1-0,0-1,1-1,0-2,1-2,0-3,1-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: berjtbiuneelyprt
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - juletrepynt
+        - ribbe
+        swipes:
+        - 2,1-2,0-1,0-0,0-1,1
+        - 3,3-3,2-3,1-2,1-3,0-2,0-1,1-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: tjstsuakerlbfete
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - juletrefest
+        - bakst
+        swipes:
+        - 3,0-2,0-3,1-2,1-3,2
+        - 1,3-1,2-2,1-3,0-2,0-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: trnlgøueejjrulom
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - julegrøt
+        - romjulen
+        swipes:
+        - 3,1-2,0-3,0-2,1-2,2-3,3-3,2-2,3
+        - 1,1-0,0-1,0-0,1-0,2-1,3-1,2-0,3
+        isExtraPackLevel: 0
+      - board: avrededensantkle
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - adventskalendere
+        swipes:
+        - 0,3-0,2-1,3-1,2-0,1-0,0-1,1-1,0-2,1-2,0-3,0-3,1-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: esteneljtjeusdug
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - julegudstjeneste
+        swipes:
+        - 3,2-3,1-2,2-2,1-3,0-2,0-1,0-0,0-0,1-1,1-1,2-0,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: rsdteyrtiaeenkbr
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - akebrett
+        - reinsdyr
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-2,1-1,0-2,0
+        - 1,1-1,0-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: jereubytlbinekrv
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - vinter
+        - julekrybbe
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-2,1-1,1-1,2-1,3
+        - 3,0-2,1-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: gkegirlløbaisnld
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - snøballkrig
+        - gilde
+        swipes:
+        - 3,2-3,1-2,0-3,0-2,1
+        - 0,0-1,0-0,1-1,1-2,1-3,2-2,2-1,3-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: tøtrkymølønsrgem
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - snølykt
+        - rømmegrøt
+        swipes:
+        - 3,2-3,1-3,0-2,1-2,0-1,0-0,0-1,1-2,2
+        - 3,1-2,1-1,1-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: jttdovllueoelpkv
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - polvott
+        - julekveld
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-3,0-3,1-3,2-3,3
+        - 1,0-2,1-2,2-1,2-0,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: ttøjpyekinidntøh
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - pinnekjøtt
+        - høytid
+        swipes:
+        - 3,0-2,0-1,1-1,0-2,1-3,1
+        - 0,2-0,1-0,0-1,1-2,2-3,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: kntfeleskeadjtev
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - kjelke
+        - advent
+        - fest
+        swipes:
+        - 3,1-2,0-3,0-2,1
+        - 2,1-3,1-3,0-2,0-1,1-1,0
+        - 0,1-0,0-1,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: psnøeuhspekkpera
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - pepperkakehus
+        - snø
+        swipes:
+        - 3,0-2,0-3,1
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,1-3,0-2,1-1,1-2,2-1,2-1,3
+        isExtraPackLevel: 0
+      - board: gkbjgfuuunølknse
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - snøfnugg
+        - julebukk
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0-0,0
+        - 2,0-1,0-2,1-1,2-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: lveyejlsguagnele
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - engel
+        - julegave
+        - lys
+        swipes:
+        - 2,0-3,1-3,0
+        - 1,1-1,0-2,0-3,0-3,1-2,1-1,2-2,3
+        - 1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0

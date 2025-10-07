@@ -1,0 +1,302 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_da
+  m_EditorClassIdentifier:
+  language: da
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Fashionista Event
+      category: Fashionista Event
+      categoryLocalized: Fashionista-udfordring
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: mejsnedoa
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - jeans
+        - mode
+        swipes:
+        - 0,1-1,0-0,0-1,1
+        - 2,2-2,1-2,0-1,1-0,1
+        isExtraPackLevel: 0
+      - board: erorabdebksmluse
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - bluser
+        - modeskaber
+        swipes:
+        - 3,1-2,2-2,1-3,0-2,0-1,0-0,0-1,1-0,1-1,2
+        - 0,1-0,0-1,0-2,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: dsinlymeårsknåta
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - nål
+        - tråd
+        - symaskine
+        swipes:
+        - 1,1-1,0-2,1-3,0-2,0-3,1-2,2-3,3-3,2
+        - 2,0-1,1-1,0-0,0
+        - 0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: euksmhshloedoadmowaetwctl
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - modehus
+        - model
+        - catwalk
+        - showet
+        swipes:
+        - 3,0-2,1-2,0-1,0-0,1-0,0
+        - 2,0-3,1-3,0-2,1-3,2-3,3-2,4
+        - 4,4-4,3-4,2-4,1-4,0
+        - 0,1-1,1-1,2-0,2-0,3-1,4-1,3
+        isExtraPackLevel: 0
+      - board: tmoadthsi
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - modist
+        - hat
+        swipes:
+        - 0,0-0,1-0,2
+        - 1,2-2,2-1,1-2,0-1,0-2,1
+        isExtraPackLevel: 0
+      - board: uelbnroldejoekdn
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - blonde
+        - underkjole
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0-2,1-2,2-1,2
+        - 3,3-3,2-3,1-3,0-2,0-1,1
+        isExtraPackLevel: 0
+      - board: resksuosbkrtepmø
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - strømpebukser
+        - sok
+        swipes:
+        - 2,1-2,0-3,0
+        - 3,2-3,1-2,1-3,0-2,0-1,0-0,0-0,1-1,2-1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: dtureoetstceoratuaelnhrtj
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - hautecoture
+        - talje
+        - trend
+        - sort
+        swipes:
+        - 3,1-2,0-3,0-2,1
+        - 3,0-2,0-1,0-0,0-0,1
+        - 4,3-4,2-4,1-4,0-3,1
+        - 1,0-2,1-1,1-0,1-1,2-0,2-0,3-1,4-2,4-3,4-4,4
+        isExtraPackLevel: 0
+      - board: pkeoerljslekovøitrtkreksj
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - støvle
+        - skjortekjole
+        - prikker
+        swipes:
+        - 0,3-0,2-0,1-1,1-2,0-1,0-0,0
+        - 3,0-4,1-4,0-3,1-2,1-1,1-0,2-1,2-2,3-2,2-1,3-2,4
+        - 3,0-3,1-4,2-3,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: snetirrbe
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - striberne
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0-2,0-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: sliikaknusdbbani
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - sandal
+        - bikini
+        - buks
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 3,1-3,0-2,0-2,1-3,2-3,3
+        - 1,1-1,0-2,0-2,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: eerkktsisaortkst
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - korset
+        - strik
+        - taske
+        swipes:
+        - 0,0-1,0-0,1-0,2-0,3
+        - 2,0-3,0-2,1-3,1-3,2
+        - 1,0-2,1-3,1-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: foitoansapsuesnhlmaeibevt
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - mavebluse
+        - fashionistaen
+        - top
+        swipes:
+        - 3,0-4,1-4,0
+        - 0,4-0,3-0,2-0,1-0,0-1,1-1,0-2,0-3,0-4,0-3,1-4,1-4,2
+        - 2,1-3,1-3,0-2,0-1,0-1,1-1,2-2,3-2,2
+        isExtraPackLevel: 0
+      - board: ksnakeett
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - kasketten
+        swipes:
+        - 0,2-0,1-1,2-1,1-0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: rælsehettstiaewl
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - sweater
+        - stilethæl
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0-1,1-2,2
+        - 1,1-2,0-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: sreltelsyiboltrl
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - solbriller
+        - stylet
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0
+        - 3,2-3,1-3,0-2,1-2,0-1,1-2,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: lsrekieorkvjlykektirnilon
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - krinolinekjoler
+        - livstykker
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-3,0-4,0-4,1-3,2-3,1
+        - 4,2-4,1-3,1-4,0-3,0-2,0-1,0-0,0-0,1-1,1-1,2-2,3-2,2-1,3-2,4
+        isExtraPackLevel: 0
+      - board: senmrkyke
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - smykkerne
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-2,0-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: elktedæørknrhasd
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - handsker
+        - tørklæde
+        swipes:
+        - 3,2-3,1-3,0-2,1-1,1-2,0-1,0-0,0
+        - 0,0-1,0-2,1-3,0-2,0-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: tserrktsoeubmpko
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - trompetbukser
+        - sko
+        swipes:
+        - 3,1-2,0-3,0
+        - 0,3-0,2-0,1-0,0-1,0-1,1-2,2-3,1-2,1-1,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: esketlolæniobhcj
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - bælte
+        - chinos
+        - kjole
+        swipes:
+        - 2,0-3,0-3,1-3,2-3,3
+        - 2,0-1,0-2,1-1,1-2,2-1,2
+        - 0,0-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: rtasjehspatbkikiejlktrose
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - skjorte
+        - habitter
+        - jakke
+        - slips
+        swipes:
+        - 3,0-3,1-3,2-3,3-3,4
+        - 4,4-4,3-4,2-4,1-4,0
+        - 1,1-2,0-1,0-0,0-0,1-1,2-0,2-0,3
+        - 2,3-2,2-2,1-2,0-1,0-0,0-1,1
+        isExtraPackLevel: 0
+      - board: frjølurtdeneyerdletnbuted
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - undertøj
+        - butterfly
+        - nederdel
+        swipes:
+        - 4,1-3,0-4,0-3,1-4,2-3,2-4,3-4,4
+        - 0,0-1,0-2,0-3,1-2,1-1,2-0,1-1,1-2,2
+        - 0,3-0,2-0,1-1,2-1,3-2,3-3,4-2,4
+        isExtraPackLevel: 0

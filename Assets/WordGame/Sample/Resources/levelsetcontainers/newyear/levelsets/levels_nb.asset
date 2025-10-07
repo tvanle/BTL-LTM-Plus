@@ -1,0 +1,280 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nb
+  m_EditorClassIdentifier:
+  language: no
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: NewYear
+      category: NewYear
+      categoryLocalized: Nyttårsutfordring
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: snteasdef
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - fest
+        - danse
+        swipes:
+        - 0,0-1,0-1,1-0,2-0,1
+        - 2,0-1,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: irknkekurevafyrl
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - fyrverkeri
+        - kalkun
+        swipes:
+        - 2,0-3,1-3,0-2,1-3,2-3,3
+        - 0,0-1,0-2,0-2,1-1,1-0,1-0,2-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: gnnriruaeiønfsaj
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - feiring
+        - januar
+        - snø
+        swipes:
+        - 1,0-2,1-2,0
+        - 3,0-2,0-3,1-2,2-3,2-3,3
+        - 0,0-0,1-1,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: kddkrlrsueemrenmsnenetjev
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - stjerneskudd
+        - venner
+        - klemmer
+        swipes:
+        - 0,4-0,3-0,2-0,1-1,0-0,0-1,1
+        - 4,0-3,0-4,1-4,2-4,3-4,4
+        - 1,1-1,0-2,0-3,1-2,2-2,1-3,2-2,3-3,4-3,3-2,4-1,4
+        isExtraPackLevel: 0
+      - board: necgmhapa
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - champagne
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: dthmtdminairityø
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - midnatt
+        - høytid
+        - rim
+        swipes:
+        - 3,0-3,1-3,2
+        - 2,1-3,0-2,0-1,0-0,0-0,1
+        - 2,2-2,1-1,2-0,1-1,1-0,2-1,3
+        isExtraPackLevel: 0
+      - board: velgilinnrenttde
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - nedtelling
+        - vinter
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0
+        - 3,1-3,0-2,0-1,0-2,1-1,2-2,3-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: otieamlifsråfret
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - familie
+        - frost
+        - året
+        swipes:
+        - 3,1-2,1-2,0-3,0
+        - 0,0-1,0-0,1-1,1-1,2
+        - 0,1-0,2-1,2-2,3-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: seretskoktyfrserslåsåttyn
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - nyttårsforsetter
+        - kyss
+        - skåle
+        swipes:
+        - 4,0-3,1-3,0-2,0-1,0
+        - 1,0-0,0-0,1-0,2
+        - 4,0-3,0-2,0-1,0-0,0-0,1-1,1-1,2-2,3-2,2-3,2-4,2-4,3-4,4-3,4-2,4
+        isExtraPackLevel: 0
+      - board: vylolktke
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - tolv
+        - lykke
+        swipes:
+        - 2,2-1,1-2,1-1,0-2,0
+        - 0,0-0,1-1,1-0,2
+        isExtraPackLevel: 0
+      - board: rbtreteslerrbote
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - treretters
+        - bobler
+        swipes:
+        - 1,1-1,0-0,0-0,1-0,2-0,3
+        - 2,0-3,1-3,0-2,1-1,1-1,2-2,3-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: rkaietkttoetenfr
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - konfetti
+        - raketter
+        swipes:
+        - 3,0-2,0-1,1-0,0-1,0-0,1-0,2-0,3
+        - 2,2-1,1-1,0-2,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: nirbdgpeaenelvskluseærntm
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - penklær
+        - avslutning
+        - desember
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,0-2,0-2,1
+        - 3,3-3,2-3,1-2,2-2,1-3,0-2,0-1,0-0,1-0,0
+        - 1,3-1,2-0,2-0,1-1,1-0,0-1,0
+        isExtraPackLevel: 0
+      - board: rælmvåasm
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - samvær
+        - mål
+        swipes:
+        - 2,0-2,1-2,2
+        - 1,0-0,0-0,1-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: elngdelaekokgkkl
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - klokkeklang
+        - glede
+        swipes:
+        - 0,0-1,1-1,0-0,1-0,2
+        - 3,1-3,0-2,1-2,0-1,0-0,1-1,1-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: maksupkksslsikie
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - selskap
+        - musikk
+        - ski
+        swipes:
+        - 3,1-3,0-2,0
+        - 0,3-0,2-0,1-0,0-1,0-2,1
+        - 3,1-3,0-2,1-1,1-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: tentnhgfeyikkntalmettasrå
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - takknemlighet
+        - nyttårsaften
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,0-2,0-1,0-2,1-3,2-3,1-2,2
+        - 0,0-0,1-1,2-2,2-3,2-3,1-2,1-1,1-0,2-1,3-0,3-1,4-0,4
+        isExtraPackLevel: 0
+      - board: htfsystatesnteif
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - finstas
+        - hyttefest
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1-1,2-1,3
+        - 3,0-2,0-3,1-2,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: erortsattltvgire
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - glitter
+        - start
+        - over
+        swipes:
+        - 2,1-3,1-3,0-2,0
+        - 1,0-2,1-2,2-3,3-3,2
+        - 0,0-1,1-1,0-0,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: nnertårseftnølyt
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - nyttårsrenn
+        - løfte
+        swipes:
+        - 1,0-0,0-1,1-0,2-0,1
+        - 3,1-2,0-3,0-2,1-1,2-2,2-3,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: åvrslnlåpgyttioieeldrtret
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - godt
+        - nyttår
+        - til
+        - våre
+        - spillere
+        swipes:
+        - 3,4-3,3-3,2-3,1-4,0-3,0-2,0-2,1
+        - 1,1-0,1-0,0-1,0
+        - 1,0-0,1-1,2
+        - 0,3-0,2-1,2-2,2-2,3-2,4
+        - 4,3-4,2-4,1-4,0
+        isExtraPackLevel: 0

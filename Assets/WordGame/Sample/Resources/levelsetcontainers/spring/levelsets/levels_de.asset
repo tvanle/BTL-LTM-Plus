@@ -1,0 +1,298 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_de
+  m_EditorClassIdentifier:
+  language: de
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Spring
+      category: Spring
+      categoryLocalized: Frühling
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: neuürgblm
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - grün
+        - blume
+        swipes:
+        - 0,0-1,0-2,1-2,0-1,1
+        - 2,1-1,1-0,1-0,2
+        isExtraPackLevel: 0
+      - board: tesnutkelkühporc
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - küken
+        - storch
+        - tulpe
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0
+        - 2,1-1,1-1,0-2,0-3,0-3,1
+        - 1,1-2,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: ngiailmsrtmcteeh
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - schmetterling
+        - mai
+        swipes:
+        - 2,0-3,0-2,1
+        - 3,2-3,1-3,0-2,1-2,0-1,1-0,0-1,0-0,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: thinsecsesennonn
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - sonnenschein
+        - nest
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 1,1-1,0-2,0-3,0-2,1-3,1-3,2-2,2-1,3-1,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: genebntitrikeetlsibükmnlü
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - blüte
+        - insekt
+        - brüten
+        - keimling
+        swipes:
+        - 0,0-1,1-2,0-1,0-0,1-0,2-0,3-0,4
+        - 4,2-4,1-4,0-3,0-3,1-2,1
+        - 2,1-2,0-1,1-2,2-1,2-1,3
+        - 3,1-3,0-4,1-4,2-3,2
+        isExtraPackLevel: 0
+      - board: rmreungew
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - regenwurm
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-2,0-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: ernetteepalwribi
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - aprilwetter
+        - biene
+        swipes:
+        - 2,0-3,0-3,1-2,1-3,2
+        - 1,1-0,1-0,0-1,0-2,1-3,1-2,2-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: fenhhpuaehnsusce
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - hase
+        - heuschnupfen
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-2,2-1,2-0,3-1,3-2,3
+        - 3,3-3,2-3,1-3,0
+        isExtraPackLevel: 0
+      - board: nnenegaztlnaarfp
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - anpflanzen
+        - garten
+        swipes:
+        - 1,1-0,0-1,0-0,1-0,2-0,3
+        - 3,1-2,1-3,0-2,0-1,1-2,2-3,3-3,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: knohwecrfetebnssverpreafe
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - wespe
+        - verstecken
+        - farbenfroh
+        swipes:
+        - 3,0-2,0-3,1-2,2-2,1-3,2-3,3-2,3-2,4-3,4
+        - 1,1-1,0-0,0-0,1-0,2-1,2-1,3-0,4-0,3-1,4
+        - 4,4-4,3-4,2-4,1-4,0
+        isExtraPackLevel: 0
+      - board: gnsictkle
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - steckling
+        swipes:
+        - 2,2-2,1-2,0-1,1-0,0-1,0-0,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: nzeieirnhüsables
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - blühen
+        - narzisse
+        - ei
+        swipes:
+        - 2,0-3,0
+        - 3,2-3,1-2,2-1,1-1,0-2,1-3,0-2,0
+        - 0,0-1,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: lmseeaponllnmpok
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - knospe
+        - pollen
+        - lamm
+        swipes:
+        - 0,1-1,0-0,0-1,1
+        - 1,0-2,0-2,1-1,1-0,2-0,1
+        - 3,0-3,1-3,2-2,3-2,2-3,3
+        isExtraPackLevel: 0
+      - board: hlsnuearmgoemrst
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - ostern
+        - gras
+        - hummel
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1
+        - 1,1-1,0-2,0-2,1
+        - 2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: baaekatsniluriskseeaonapm
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - same
+        - pikieren
+        - balkon
+        - aussaat
+        swipes:
+        - 2,0-1,1-1,0-2,1-2,2-1,3-1,2
+        - 0,4-0,3-0,2-0,1-0,0-1,0
+        - 3,0-4,0-4,1-3,1-2,1-2,2-3,3-3,2
+        - 4,2-4,1-4,0-3,1
+        isExtraPackLevel: 0
+      - board: kttealimb
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - keimblatt
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-2,1-1,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: amchiknecgellözn
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - maiglöckchen
+        - lenz
+        swipes:
+        - 3,1-2,1-3,0-2,0
+        - 1,3-0,3-0,2-1,1-0,0-1,0-0,1-1,2-2,3-3,3-3,2-2,2
+        isExtraPackLevel: 0
+      - board: ftzurupsüahrjhat
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - frühjahrsputz
+        - tau
+        swipes:
+        - 3,0-2,0-3,1
+        - 0,3-0,2-0,1-1,0-0,0-1,1-2,1-3,1-3,2-2,2-1,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: nbeneltsäueasmkn
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - säen
+        - blumenkasten
+        swipes:
+        - 1,3-1,2-1,1-1,0-2,1-3,0-2,0-3,1-3,2-2,2-2,3-3,3
+        - 0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: sknlmunzeüoitkderieirkevg
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - vereinzeln
+        - müdigkeit
+        - krokus
+        swipes:
+        - 1,0-0,0-0,1-1,1-0,2-0,3
+        - 4,4-4,3-4,2-4,1-4,0-3,1-3,0-2,0-2,1
+        - 3,0-2,0-1,1-0,1-1,2-1,3-2,3-3,3-3,4-2,4
+        isExtraPackLevel: 0
+      - board: fbenoieahrtulens
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - austreiben
+        - fohlen
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0
+        - 3,2-3,1-3,0-2,1-1,1-2,2-1,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: muenwtuaasftchau
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - auftauen
+        - wachstum
+        swipes:
+        - 0,2-0,1-0,0-1,0-1,1-1,2-1,3-0,3
+        - 2,0-3,0-2,1-3,1-3,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: neägebhnblcylsamüshwbacbe
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - schwalbe
+        - gänseblümchen
+        - baby
+        swipes:
+        - 0,0-1,0-0,1-1,1
+        - 3,2-2,2-2,1-3,1-4,0-3,0-2,0-1,1-0,1-0,2-1,3-1,4-0,4
+        - 2,1-2,0-3,1-4,1-4,2-4,3-3,3-4,4
+        isExtraPackLevel: 0

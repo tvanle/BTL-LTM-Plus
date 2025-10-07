@@ -1,0 +1,290 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nb
+  m_EditorClassIdentifier:
+  language: no
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Nature
+      category: Nature
+      categoryLocalized: Natur
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: ksttiteru
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - utsikt
+        - tre
+        swipes:
+        - 2,0-1,0-0,0
+        - 2,0-2,1-1,2-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: sssaorkpesglldna
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - landskap
+        - gress
+        - sol
+        swipes:
+        - 0,2-0,1-0,0
+        - 2,0-1,0-0,1-1,1-2,1
+        - 3,1-3,0-2,0-1,0-1,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: srvsteebksplogmo
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - blomster
+        - skog
+        - veps
+        swipes:
+        - 2,2-2,1-2,0-3,0
+        - 0,2-0,1-0,0-1,0
+        - 3,2-3,1-3,0-2,0-1,1-0,2-1,2-1,3
+        isExtraPackLevel: 0
+      - board: rjenfoofjddjellr
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - fjell
+        - fjord
+        - jorden
+        swipes:
+        - 1,2-1,1-0,0-1,0-2,0-3,0
+        - 3,2-3,1-2,1-3,0-2,0
+        - 0,2-0,1-0,0-1,0-2,0
+        isExtraPackLevel: 0
+      - board: gekegglrufrkudav
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - fugler
+        - vakker
+        - dugg
+        swipes:
+        - 1,0-0,0-0,1-0,2
+        - 3,0-2,0-3,1-2,2-1,1-2,1
+        - 1,1-0,1-1,2-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: svrbtirioleyrmsd
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - dyreliv
+        - storm
+        - bris
+        swipes:
+        - 3,1-2,1-3,0-2,0
+        - 0,3-0,2-0,1-0,0-1,0
+        - 3,0-3,1-2,2-2,1-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: skhrogakvmotilll
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - villmark
+        - skogholt
+        swipes:
+        - 0,1-1,1-0,0-1,0-2,1-2,0-3,0-3,1
+        - 0,1-0,0-1,0-2,0-1,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: maleoalmrnøvapuh
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - løv
+        - panorama
+        - humle
+        swipes:
+        - 3,0-2,0-3,1-2,1-3,2
+        - 1,0-0,0-1,1-0,2-0,1-1,2-0,3-1,3
+        - 2,2-2,1-3,1
+        isExtraPackLevel: 0
+      - board: rispevtpngkobres
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - sopp
+        - bregner
+        - kvist
+        swipes:
+        - 2,0-1,0-1,1-2,2-2,1
+        - 0,0-1,0-2,0-1,1-0,1-0,2-0,3
+        - 3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: ærrereybltksnåie
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - nåletrær
+        - skyer
+        - bie
+        swipes:
+        - 3,1-2,0-3,0
+        - 3,1-2,1-2,2-3,3-2,3
+        - 0,0-1,0-0,1-1,2-1,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: remvrtniræpanetjellhlfdeo
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - fjellheim
+        - tordenvær
+        - planter
+        swipes:
+        - 0,1-0,0-1,0-1,1-0,2-1,2-0,3
+        - 4,1-4,0-3,1-2,0-3,0-2,1-3,2-4,2-4,3
+        - 1,0-0,1-1,1-2,1-3,1-4,1-3,2-2,3-2,4
+        isExtraPackLevel: 0
+      - board: rerriæpsb
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - bær
+        - spirer
+        swipes:
+        - 1,0-0,0-1,1-0,1-1,2-0,2
+        - 2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: grtreneslomebflu
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - blomstereng
+        - fluer
+        swipes:
+        - 1,0-2,0-3,0-3,1-3,2
+        - 0,0-0,1-1,1-2,1-3,2-2,3-2,2-1,3-0,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: senjsnsøoirsfgok
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - innsjø
+        - foss
+        - skoger
+        swipes:
+        - 3,1-3,0-2,0-1,0-1,1-2,1
+        - 0,0-0,1-0,2-0,3
+        - 1,1-1,2-2,3-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: gnedegldervelebr
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - elvebredd
+        - elg
+        - regn
+        swipes:
+        - 1,0-0,0-0,1-1,1
+        - 0,1-0,0-1,1
+        - 2,3-2,2-2,1-1,0-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: errærgkgetølrurmbulkåefno
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - furutrær
+        - kongler
+        - bølger
+        - måke
+        swipes:
+        - 0,1-0,0-1,1-1,0
+        - 1,1-0,2-1,2-0,3-0,4-1,4
+        - 4,1-4,0-3,0-2,0-3,1-3,2-4,2
+        - 2,0-2,1-2,2-3,2-4,3-4,4-3,4-2,4
+        isExtraPackLevel: 0
+      - board: sgmupyvrg
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - spurv
+        - mygg
+        swipes:
+        - 2,2-2,1-2,0-1,0
+        - 0,2-1,1-0,1-1,0-0,0
+        isExtraPackLevel: 0
+      - board: tsnhmmøaøosvrblr
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - smørblomst
+        - havørn
+        swipes:
+        - 3,3-3,2-3,1-2,0-3,0-2,1
+        - 2,1-1,2-0,1-0,0-1,0-2,0-1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: nlærnørtavanterg
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - løvetann
+        - grantrær
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2-2,2-2,3-3,3
+        - 1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: vitvoheseleølhbl
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - hestehov
+        - løv
+        - bille
+        swipes:
+        - 2,0-1,1-0,0-1,0-0,1
+        - 3,0-3,1-3,2
+        - 1,0-2,1-3,2-2,3-2,2-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: mgregrtenrosmkeholbrogmar
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - markblomster
+        - hoggorm
+        - grener
+        swipes:
+        - 4,3-4,2-3,1-3,0-4,1-4,0
+        - 0,1-0,0-1,0-1,1-0,2-0,3-0,4
+        - 2,0-3,0-4,1-3,2-3,1-2,1-1,1-2,2-1,2-1,3-2,3-2,4
+        isExtraPackLevel: 0

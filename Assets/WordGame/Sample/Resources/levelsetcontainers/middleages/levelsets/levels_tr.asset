@@ -1,0 +1,314 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_tr
+  m_EditorClassIdentifier:
+  language: tr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Middle Ages
+      category: Middle Ages
+      categoryLocalized: ORTA ÇAĞ ETKİNLİĞİ
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: taeşvyöal
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - şövalye
+        - at
+        swipes:
+        - 1,0-0,0
+        - 0,1-0,0-1,1-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: itakcaympolizusr
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - simyaci
+        - kral
+        - topuz
+        swipes:
+        - 1,2-1,1-0,1-1,0-0,0
+        - 3,1-3,0-2,1-2,0
+        - 2,0-3,1-3,2-2,2-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: itigrayokeotalsk
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - soytari
+        - gotik
+        - kale
+        swipes:
+        - 0,1-0,0-1,0-1,1
+        - 3,3-3,2-3,1-2,0-3,0
+        - 2,0-2,1-2,2-1,3-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: urkeiklonşateekradecimpnh
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - imparatorluk
+        - hendek
+        - işkence
+        swipes:
+        - 4,3-4,2-4,1-3,2-3,1-4,0-3,0
+        - 4,0-3,1-3,0-2,0-2,1-2,2
+        - 0,0-1,0-2,0-1,1-0,1-0,2-1,2-2,3-1,4-1,3-0,4-0,3
+        isExtraPackLevel: 0
+      - board: evasrboke
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - korse
+        - veba
+        swipes:
+        - 1,0-2,0-2,1-2,2
+        - 1,0-0,0-1,1-0,1-0,2
+        isExtraPackLevel: 0
+      - board: izlkümralkonyöca
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - köylü
+        - mizrak
+        - lonca
+        swipes:
+        - 2,2-2,1-3,1-2,0-3,0
+        - 1,0-0,0-1,1-2,2-3,2-3,3
+        - 1,1-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: hdrereaçisanzthn
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - hançer
+        - destan
+        - zirh
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 1,3-1,2-1,1-1,0-2,0-3,0
+        - 2,0-2,1-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: eçzmilniaatrrkmo
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - romantizm
+        - kraliçe
+        swipes:
+        - 1,0-0,0-0,1-1,1-0,2-1,2-0,3
+        - 3,1-3,0-2,0-1,1-2,2-2,1-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: kşkaşiüivalvlysişöelçdöva
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - kiliç
+        - dövüş
+        - şövalyelik
+        - savaş
+        swipes:
+        - 4,0-3,1-3,0-4,1-4,2
+        - 1,0-2,0-3,0-4,0-4,1-3,2-3,1-2,1-2,2-2,3
+        - 1,0-2,1-1,2-1,3-1,4
+        - 0,4-0,3-0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: znacezafi
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - ceza
+        - infaz
+        swipes:
+        - 2,0-1,1-1,0-0,0-0,1
+        - 0,1-1,1-2,1-2,2
+        isExtraPackLevel: 0
+      - board: ryosellkçömaguvi
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - kavimler
+        - göç
+        - soylu
+        swipes:
+        - 3,0-2,1-1,1-2,0-1,0
+        - 0,0-1,1-0,1
+        - 3,2-3,1-2,0-3,0-2,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: kaayriabsaptvüro
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - süvari
+        - toprak
+        - yaba
+        swipes:
+        - 3,1-2,0-3,0-2,1
+        - 3,1-3,0-2,1-2,0-1,0-0,0
+        - 0,1-1,0-0,0-1,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: tarukaktarmkosiutçluşapot
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - aristokrat
+        - topçuluk
+        - kuşatma
+        swipes:
+        - 1,2-0,1-0,0-1,0-1,1-0,2-0,3
+        - 4,0-3,0-2,0-2,1-3,2-3,1-4,1-4,2
+        - 3,3-4,3-4,2-3,2-2,3-2,2-1,3-2,4-1,4-0,4
+        isExtraPackLevel: 0
+      - board: rrdseoefl
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - lord
+        - sefer
+        swipes:
+        - 0,1-0,0-1,0-1,1-0,2
+        - 2,0-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: kirlniianchlamaç
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - haçlilar
+        - mancinik
+        swipes:
+        - 1,0-0,0-0,1-1,1-1,2-0,2-1,3-0,3
+        - 2,1-2,0-3,0-3,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: kieslyruebarredl
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - surlar
+        - derebeylik
+        swipes:
+        - 2,0-1,0-0,0-0,1-1,1-2,1-1,2-0,2-1,3-0,3
+        - 3,3-3,2-3,1-3,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: zkerhterösvtşaereaonsirbm
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - barones
+        - şöhret
+        - servet
+        - markiz
+        swipes:
+        - 4,0-3,0-2,0-1,1-1,0-0,0
+        - 0,0-1,1-0,1-0,2-1,2-0,3
+        - 2,0-3,1-4,1-3,2-2,2-1,2
+        - 3,0-2,1-2,0-3,1-4,1-4,2-4,3
+        isExtraPackLevel: 0
+      - board: çisylaear
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - elçi
+        - saray
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0
+        - 0,0-1,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: bayinazys
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - yay
+        - bizans
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0-2,0
+        - 1,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: fzrugratüaibetyz
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - gürz
+        - ziyafet
+        - barut
+        swipes:
+        - 3,0-2,0-2,1-3,2-3,1
+        - 3,0-2,1-2,0-1,1-0,1-0,0-1,0
+        - 0,2-0,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: rmekratuofülercc
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - reform
+        - tüccar
+        - kule
+        swipes:
+        - 3,2-3,1-3,0-2,0
+        - 2,2-2,1-3,0-2,0-1,0-0,0
+        - 1,0-0,0-1,1-0,1-0,2-1,3
+        isExtraPackLevel: 0
+      - board: dükieştlölekskas
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - kölelik
+        - kast
+        - düşes
+        swipes:
+        - 0,2-1,1-1,0-0,1-0,0
+        - 3,1-2,0-3,0-2,1
+        - 1,0-0,1-1,1-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: ziansravunitjramnsusaröbe
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - burjuvazi
+        - rönesans
+        - manastir
+        swipes:
+        - 0,1-0,0-1,0-2,1-2,0-1,1-0,2-0,3
+        - 1,0-2,0-3,0-4,0-4,1-4,2-4,3-4,4
+        - 3,0-3,1-3,2-2,2-3,3-2,3-1,3-0,4-1,4
+        isExtraPackLevel: 0

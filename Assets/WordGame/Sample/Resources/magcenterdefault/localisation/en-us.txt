@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="mag_help_center"><foo><![CDATA[MAG Help Center]]></foo></string>
+	<string name="open"><foo><![CDATA[Open]]></foo></string>
+	<string name="contact_us"><foo><![CDATA[Contact Us]]></foo></string>
+	<string name="contact_us_description"><foo><![CDATA[If you could not find a solution using our Help Center, feel free to contact us using the options below.]]></foo></string>
+	<string name="send_email"><foo><![CDATA[Send Email]]></foo></string>
+	<string name="support_email_subject"><foo><![CDATA[Support request]]></foo></string>
+	<string name="support_email_body"><foo><![CDATA[Please, describe your request below:\n(type here):]]></foo></string>
+	<string name="loading"><foo><![CDATA[Loading]]></foo></string>
+	<string name="loading_error"><foo><![CDATA[Loading error]]></foo></string>
+
+	<string name="important_notice"><foo><![CDATA[Important Notice]]></foo></string>
+	<string name="terms_of_service"><foo><![CDATA[Terms of Service]]></foo></string>
+	<string name="terms_description"><foo><![CDATA[Tap 'OK' to accept our Terms and Privacy Policy]]></foo></string>
+	<string name="ok"><foo><![CDATA[OK]]></foo></string>
+
+	<string name="data_management_title"><foo><![CDATA[Privacy Controls]]></foo></string>
+	<string name="data_management_description"><foo><![CDATA[Here you can ask for the personal data we have about you, or ask that we remove all personal data we have about you.]]></foo></string>
+	
+	<string name="request_data_title"><foo><![CDATA[Request data]]></foo></string>
+	<string name="request_data_description"><foo><![CDATA[Here you can request the personal data we have about you. We will send you an email with your personal data within 2 days.]]></foo></string>
+	<string name="request_data_pending_description"><foo><![CDATA[We have received your request and it may take up to 2 days to be processed. You will receive an email containing an encrypted ZIP file. You will find the password to open that file here.]]></foo></string>
+	<string name="request_data_ready_description"><foo><![CDATA[Your request was processed and we have sent an encrypted ZIP file containing your data to the email below. You can open the file using the password at the bottom.]]></foo></string>
+	<string name="enter_your_email"><foo><![CDATA[Enter your email address above]]></foo></string>
+	<string name="press_ok"><foo><![CDATA[Press OK after typing your email]]></foo></string>
+	<string name="invalid_email"><foo><![CDATA[Invalid email]]></foo></string>
+	<string name="your_request_is_pending_status"><foo><![CDATA[Your request is pending]]></foo></string>
+	<string name="data_ready_description_status"><foo><![CDATA[Use this password to open the file: {0}]]></foo></string>
+
+	<string name="remove_data_title"><foo><![CDATA[Remove data]]></foo></string>
+	<string name="remove_data_description"><foo><![CDATA[WARNING: Removing your user data deletes progress and accounts in all MAG games. Deleted data cannot be restored. MAG games must also be removed from your devices to ensure your data is not registered again. Requests are processed in 14 days and may be cancelled before then.]]></foo></string>
+	<string name="remove_data_cannot_be_undone_status"><foo><![CDATA[Removing your data cannot be undone, are you sure?]]></foo></string>
+	<string name="cancel_data_removal"><foo><![CDATA[Cancel data removal]]></foo></string>
+	<string name="notify_me_via_email_when_done"><foo><![CDATA[Notify me via email when done]]></foo></string>
+	<string name="day_remaining"><foo><![CDATA[{0} day remaining]]></foo></string>
+	<string name="days_remaining"><foo><![CDATA[{0} days remaining]]></foo></string>
+
+	<string name="remove_data_confirmation_title"><foo><![CDATA[Remove data: Are you sure?]]></foo></string>
+	<string name="remove_data_confirmation_description"><foo><![CDATA[WARNING: Removing your user data deletes progress and accounts in all MAG games. Deleted data cannot be restored. MAG games must also be removed from your devices to ensure your data is not registered again. Requests are processed in 14 days and may be cancelled before then.]]></foo></string>
+	<string name="data_removal_pending_status"><foo><![CDATA[Your request is pending. You can still cancel it.]]></foo></string>
+	<string name="confirm"><foo><![CDATA[Confirm]]></foo></string>
+	<string name="cancel"><foo><![CDATA[Cancel]]></foo></string>
+
+	<string name="search_results_title"><foo><![CDATA[Search results]]></foo></string>
+	<string name="search_no_results_title"><foo><![CDATA[No results]]></foo></string>
+	<string name="search_placeholder"><foo><![CDATA[Search ...]]></foo></string>
+	<string name="article_rating_question"><foo><![CDATA[Was this article helpful?]]></foo></string>
+	<string name="article_rating_thanks"><foo><![CDATA[Thanks for your feedback!]]></foo></string>
+
+	<string name="tracking_title"><foo><![CDATA[Tired of\nRandom Ads?]]></foo></string>
+	<string name="tracking_description_a"><foo><![CDATA[To optimize our game for you, would you allow us to track who sends you our game’s ads as well as other ads? It keeps the app free for you.]]></foo></string>
+	<string name="tracking_description_b"><foo><![CDATA[Tap ‘Allow’ on the next screen if you agree, or ‘Ask App not to Track’ if you don’t.]]></foo></string>
+
+    <string name="tracking_plate_title"><foo><![CDATA[We ♥ Free Gaming!]]></foo></string>
+    <string name="tracking_plate_description"><foo><![CDATA["Allow" helps us make games fun, free and fantastic!]]></foo></string>
+	
+	<string name="terms_title"><foo><![CDATA[Ready To Play?]]></foo></string>
+	<string name="terms_description_a"><foo><![CDATA[To start playing, first tap OK below to accept our Terms of Service and Privacy Policy.]]></foo></string>
+
+	<!-- IDFA AB Testing keys -->
+	<string name="tracking_description_a_1"><foo><![CDATA[To optimize our game for you, would you allow us to track who sends you the ads displayed in our game? It keeps the app free for you.]]></foo></string>
+	<string name="tracking_description_a_2"><foo><![CDATA[To optimize your experience, will you allow us to track your ad activity in this game? It keeps the app free for you.]]></foo></string>
+	<string name="tracking_description_a_3"><foo><![CDATA[To help improve your experience, we need your permission to keep serving you relevant ads. Will you allow us to track your ad activity?]]></foo></string>
+
+    <string name="tracking_plate_title_1"><foo><![CDATA[MAG ♥ Free Gaming!]]></foo></string>
+    <string name="tracking_plate_title_2"><foo><![CDATA[We Love Free Gaming!]]></foo></string>
+    <string name="tracking_plate_title_3"><foo><![CDATA[MAG Loves Free Gaming!]]></foo></string>
+    <string name="tracking_plate_title_4"><foo><![CDATA[Free Games Rock]]></foo></string>
+    <string name="tracking_plate_title_5"><foo><![CDATA[We Support Player Choice]]></foo></string>
+    <string name="tracking_plate_title_6"><foo><![CDATA[MAG Supports Player Choice]]></foo></string>
+    
+    <string name="tracking_plate_description_1"><foo><![CDATA[Tapping "Allow" helps us make free games for you!]]></foo></string>
+    <string name="tracking_plate_description_2"><foo><![CDATA["Allowing" tracking helps keep the fun free for you!]]></foo></string>
+    <string name="tracking_plate_description_3"><foo><![CDATA["Allowing" tracking helps you guide your own ads experience!]]></foo></string>
+    <string name="tracking_plate_description_4"><foo><![CDATA[Tapping "Allow" helps you shape what ads you see!]]></foo></string>
+    <string name="tracking_plate_description_5"><foo><![CDATA[If you "Allow" us we'll keep the free games coming!]]></foo></string>
+    <string name="tracking_plate_description_6"><foo><![CDATA[If you “Allow” us we'll keep making games free for you!]]></foo></string>
+
+	<string name="licenses_title"><foo><![CDATA[LICENSES]]></foo></string>
+	
+	<!-- Native keys that are used with Xcode. Use the prefix 'NATIVE_KEY:' -->
+	<string name="NATIVE_KEY:NSUserTrackingUsageDescription"><foo><![CDATA[Don't worry! This avoids irrelevant ads and keeps your game free.]]></foo></string>
+</resources>

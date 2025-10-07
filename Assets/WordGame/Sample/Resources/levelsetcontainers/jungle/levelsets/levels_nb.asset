@@ -1,0 +1,300 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nb
+  m_EditorClassIdentifier:
+  language: no
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Jungle
+      category: Jungle
+      categoryLocalized: Jungel
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: eærblrilt
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - trær
+        - bille
+        swipes:
+        - 0,1-0,0-1,0-1,1-0,2
+        - 2,0-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: lneselglikakdoor
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - krokodille
+        - slange
+        swipes:
+        - 3,1-3,0-2,0-1,0-2,1-2,2
+        - 3,1-3,0-2,0-1,1-1,0-0,0-0,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: fieliasarodnfnka
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - anakonda
+        - firfisle
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,0-2,1
+        - 3,2-3,1-3,0-2,0-1,1-1,0-2,1-1,2
+        isExtraPackLevel: 0
+      - board: bsnrtukanttoesabypekregpa
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - apekatt
+        - bregner
+        - pyton
+        - buskas
+        swipes:
+        - 0,1-0,0-1,1-1,0-2,0-3,0
+        - 2,0-1,0-0,0-1,1-2,2
+        - 0,1-0,0-1,0-2,0-3,1-2,2-3,2
+        - 4,0-3,0-3,1-4,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: ppeokdred
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - edderkopp
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-1,1-0,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: rnevseiepnalidvl
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - lianer
+        - spindelvev
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0-2,1-3,0-2,0-3,1-3,2
+        - 3,1-2,2-2,1-1,1-1,2-0,3
+        isExtraPackLevel: 0
+      - board: eygopøskgarnepge
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - papegøye
+        - regnskog
+        swipes:
+        - 2,1-3,0-2,0-3,1-2,2-3,2-3,3-2,3
+        - 0,2-1,1-1,0-0,0-0,1-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: estrktiretnnllolainrpeval
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - villnis
+        - torner
+        - klatreplante
+        swipes:
+        - 4,1-4,0-3,0-2,1-2,0-1,0-0,0-0,1-1,1-0,2-0,3-0,4
+        - 4,3-4,2-4,1-3,1-3,2-3,3
+        - 2,0-2,1-3,2-2,2-1,2-1,3-1,4
+        isExtraPackLevel: 0
+      - board: nskonaosaszapijmrovtatege
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - amazonas
+        - tropisk
+        - vegetasjon
+        swipes:
+        - 3,1-2,0-3,0-4,0-4,1-3,2-4,3-4,2-3,3-4,4
+        - 1,0-1,1-2,1-2,2-3,2-2,3-2,4
+        - 0,0-0,1-1,2-0,2-1,3-0,4-0,3-1,4
+        isExtraPackLevel: 0
+      - board: kskburtta
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - kratt
+        - busk
+        swipes:
+        - 0,0-1,0-1,1-0,1
+        - 2,2-2,1-2,0-1,0-0,0
+        isExtraPackLevel: 0
+      - board: goaonrnruadktgéi
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - orkidé
+        - orangutang
+        swipes:
+        - 1,3-1,2-2,1-2,0-1,0-0,1-0,0-1,1-0,2-0,3
+        - 3,3-3,2-3,1-3,0-2,1-2,0
+        isExtraPackLevel: 0
+      - board: drkrynlaedmlvoiv
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - villmark
+        - dovendyr
+        swipes:
+        - 1,1-1,0-0,0-0,1-1,2-0,3-0,2-1,3
+        - 3,0-2,0-3,1-2,2-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: nkstvoeettfltaet
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - tettvokst
+        - elefant
+        swipes:
+        - 3,1-3,0-2,1-2,0-1,0-0,1-0,0
+        - 3,0-2,0-1,1-0,1-0,2-1,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: ikufgdfarooraban
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - frodig
+        - fauna
+        - kobra
+        swipes:
+        - 1,2-1,1-1,0-0,1-0,0
+        - 3,2-3,1-2,1-3,0-2,0
+        - 2,2-3,1-2,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: glllttnilastøarokoeaorktn
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - kokosnøtt
+        - gorilla
+        - tarantell
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,0-3,1-3,2-3,3
+        - 0,1-0,0-1,0-2,0-1,1-2,1-3,2
+        - 2,0-2,1-1,1-0,1-0,2-1,3-2,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: tthikukegoantilulfkifturb
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - luftfuktighet
+        - tukan
+        - kolibri
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,0-3,1
+        - 0,2-0,1-1,1-0,0-1,0
+        - 1,1-0,1-0,0-1,0-2,1-2,0-3,1-2,2-3,2-3,3-2,4-2,3-1,4
+        isExtraPackLevel: 0
+      - board: øemkstosy
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - økosystem
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: nrjiesohnssnapme
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - neshorn
+        - sjimpanse
+        swipes:
+        - 1,1-2,1-3,0-2,0-1,0-0,0-0,1-1,2-0,2
+        - 3,1-3,0-2,1-3,2-2,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: lkmpøreuvespvmla
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - løvverk
+        - sump
+        - palme
+        swipes:
+        - 3,1-3,0-2,0-1,0-2,1
+        - 2,1-3,2-2,3-3,3
+        - 0,3-0,2-0,1-0,0-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: reertsbpmoarbllø
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - blomster
+        - brølaper
+        swipes:
+        - 2,2-3,1-3,0-2,0-2,1-3,2-2,3-3,3
+        - 0,0-1,0-1,1-0,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ejnvberaanlnanli
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - bananer
+        - vannlilje
+        swipes:
+        - 3,3-3,2-3,1-2,2-2,1-3,0-2,0-1,0-0,0
+        - 0,2-0,1-1,0-0,0-1,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: natapurssjsgunomnasbojmol
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - monsun
+        - jaguar
+        - pasjonsblomst
+        swipes:
+        - 4,4-3,4-3,3-4,3-4,2-3,2-3,1-4,1-4,0-3,0-2,0-2,1-2,2
+        - 1,0-2,1-1,1-2,2-1,3-1,2
+        - 0,1-0,0-1,1-0,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: elgporkouldfvrfageaspnmtirasnatdaatr
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - artsmangfold
+        - panter
+        - paradisfugl
+        - ekvator
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,1-1,0
+        - 2,2-2,1-1,1-2,0-1,0-0,1-1,2-2,3-2,4-2,5-1,5
+        - 3,1-3,0-4,0-5,0-5,1-5,2
+        - 5,1-5,0-4,0-3,1-4,2-3,3-3,2-4,3-5,4-4,5-3,4-4,4
+        isExtraPackLevel: 0

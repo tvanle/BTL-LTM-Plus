@@ -1,0 +1,314 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_es
+  m_EditorClassIdentifier:
+  language: es
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Middle Ages
+      category: Middle Ages
+      categoryLocalized: Reto medieval
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: fojoausst
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - justa
+        - foso
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 2,2-2,1-1,0-2,0-1,1
+        isExtraPackLevel: 0
+      - board: olceerliycttasor
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - castillo
+        - corte
+        - rey
+        swipes:
+        - 1,0-0,1-0,0
+        - 2,1-2,0-3,0-3,1-3,2
+        - 1,1-0,0-1,0-2,1-3,2-2,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: rozaelleclobaban
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - caballero
+        - nobleza
+        swipes:
+        - 3,0-2,0-3,1-2,1-3,2-2,2-3,3
+        - 0,1-0,0-1,0-2,0-1,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: lalaclgtraabuorutadmjaara
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - batalla
+        - armadura
+        - juglar
+        - cota
+        swipes:
+        - 4,0-3,0-2,0-1,0
+        - 0,0-0,1-1,1-2,1-3,2-3,1
+        - 4,3-4,2-4,1-4,0-3,1-2,1-3,0-2,0
+        - 1,2-2,1-1,1-0,2-0,3-0,4-1,4
+        isExtraPackLevel: 0
+      - board: edalmaiab
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - baile
+        - dama
+        swipes:
+        - 1,1-2,1-1,0-2,0
+        - 2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: eapiscrebnntaque
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - banquete
+        - princesa
+        swipes:
+        - 2,2-2,1-3,0-2,0-1,0-0,1-0,0-1,1
+        - 0,1-0,0-1,1-1,0-2,0-3,0-3,1-3,2
+        isExtraPackLevel: 0
+      - board: zaoalnadepinsare
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - espada
+        - lanza
+        - reino
+        swipes:
+        - 2,0-3,0-2,1-3,1-2,2
+        - 0,0-1,0-1,1-0,1-1,2
+        - 0,1-0,0-1,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: oastdcatsuroeneo
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - escudo
+        - torneo
+        - asta
+        swipes:
+        - 1,0-2,1-3,0-2,0
+        - 3,2-3,1-2,1-1,0-2,0-3,0
+        - 0,0-0,1-1,2-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: etdororaneyeaadetniusmlfe
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - estandarte
+        - yelmo
+        - feudo
+        - reina
+        swipes:
+        - 4,1-4,0-3,0-2,0-3,1
+        - 3,0-4,0-4,1-4,2-3,3
+        - 0,0-1,1-2,0-1,0-0,1
+        - 0,1-0,0-1,1-2,2-3,3-2,4-2,3-1,3-1,4-0,4
+        isExtraPackLevel: 0
+      - board: ronamogoh
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - honor
+        - mago
+        swipes:
+        - 1,1-0,1-0,0-1,0
+        - 2,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: iaeoamrdlicuquse
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - alquimia
+        - escudero
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2-2,3-2,2-3,3
+        - 0,2-0,1-0,0-1,0-1,1-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: odmoaezdritoceid
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - criado
+        - diezmo
+        - dote
+        swipes:
+        - 3,1-3,0-2,0-1,0
+        - 3,0-2,0-1,1-2,2-2,3-3,3
+        - 0,0-0,1-1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: gcooaótilncraaoadotrteirc
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - catedral
+        - gótico
+        - atrio
+        - corona
+        swipes:
+        - 4,0-3,0-4,1-4,2-4,3-4,4
+        - 3,2-3,1-3,0-2,0-2,1
+        - 0,1-0,0-1,0-2,0-1,1-2,1
+        - 0,2-0,1-0,0-1,0-1,1-1,2-2,2-3,3
+        isExtraPackLevel: 0
+      - board: rapoclaga
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - plaga
+        - arco
+        swipes:
+        - 1,1-0,1-1,0-0,0
+        - 2,2-2,1-2,0-1,0-0,0
+        isExtraPackLevel: 0
+      - board: sotoardbceaáerrb
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - bárbaro
+        - sacerdote
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,0-2,1-1,1
+        - 3,2-3,1-2,0-3,0-2,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: rlldovoaeñabsasa
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - señor
+        - vasallo
+        - abad
+        swipes:
+        - 3,0-3,1-3,2-3,3
+        - 1,1-1,0-2,0-2,1-1,2-2,3-2,2
+        - 0,0-0,1-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: areotrvrséeinorrdgioviikc
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - corsé
+        - vidriera
+        - vikingo
+        - torre
+        swipes:
+        - 4,0-3,0-2,0-1,0-2,1
+        - 1,0-2,0-3,0-3,1-2,2-2,1-3,2
+        - 0,0-1,0-1,1-0,1-1,2-0,2-0,3-0,4
+        - 4,0-4,1-4,2-3,3-4,3
+        isExtraPackLevel: 0
+      - board: ltauacpat
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - catapulta
+        swipes:
+        - 2,1-1,1-2,0-1,0-0,0-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: conasimpe
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - campesino
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: teaaaslpazlaambr
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - ballesta
+        - arpa
+        - maza
+        swipes:
+        - 1,0-0,0-1,1-0,1
+        - 2,0-3,0-3,1-3,2
+        - 2,0-3,1-2,1-2,2-1,3-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: aúlptdcaaiaagloi
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - gaita
+        - laúd
+        - palacio
+        swipes:
+        - 3,3-3,2-2,2-3,1-2,1-3,0-2,0
+        - 1,0-2,1-1,2-1,1
+        - 0,0-0,1-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: omennoiortjlonom
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - molino
+        - trono
+        - monje
+        swipes:
+        - 1,1-0,0-1,0-2,0-2,1
+        - 1,1-0,1-1,2-0,2-0,3
+        - 3,0-2,0-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: tfneonelatfóeneusvpubídiz
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - puente
+        - levadizo
+        - bufón
+        - festín
+        swipes:
+        - 1,3-1,2-1,1-0,0-1,0-2,0
+        - 0,0-0,1-0,2-1,2-0,3
+        - 2,3-2,2-2,1-3,1-2,0-3,0-4,0-4,1
+        - 3,1-4,1-4,2-3,2-4,3-3,4
+        isExtraPackLevel: 0

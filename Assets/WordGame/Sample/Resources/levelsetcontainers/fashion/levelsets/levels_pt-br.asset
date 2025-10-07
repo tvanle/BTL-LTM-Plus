@@ -1,0 +1,318 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_pt-br
+  m_EditorClassIdentifier:
+  language: pt
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Fashionista Event
+      category: Fashionista Event
+      categoryLocalized: Evento Fashionista
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: rocoumado
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - moda
+        - couro
+        swipes:
+        - 2,0-1,1-1,0-0,1-0,0
+        - 2,1-2,0-1,0-0,0
+        isExtraPackLevel: 0
+      - board: olasdcuatiasecai
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - tecido
+        - casual
+        - saia
+        swipes:
+        - 3,2-3,1-3,0-2,0
+        - 1,0-2,0-3,1-2,2-2,1-1,1
+        - 0,1-0,0-1,0-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: rahairnsahóbblai
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - barra
+        - ilhós
+        - bainha
+        swipes:
+        - 3,1-2,0-3,0-2,1-2,2-3,2
+        - 0,0-1,0-1,1-2,1-3,2
+        - 0,0-0,1-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: joahoadvcnqueolulsepetaru
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - poncho
+        - saruel
+        - veludo
+        - jaqueta
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0-2,0
+        - 2,1-2,0-1,1-1,2-1,3-1,4
+        - 2,1-2,0-3,0-4,0-3,1-4,1
+        - 4,1-3,2-4,3-3,3-3,4-4,4
+        isExtraPackLevel: 0
+      - board: álfoorpal
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - floral
+        - poá
+        swipes:
+        - 0,0-0,1-0,2
+        - 2,2-1,2-1,1-2,1-1,0-2,0
+        isExtraPackLevel: 0
+      - board: atexabtrmouoleml
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - lurex
+        - moletom
+        - bata
+        swipes:
+        - 1,0-0,0-1,1-0,1
+        - 0,1-1,1-0,0-1,0-2,1-3,0-2,0
+        - 3,0-2,1-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: eentciprhleiaroc
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - tricoline
+        - echarpe
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,1-2,0
+        - 3,3-3,2-3,1-3,0-2,0-1,1-1,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: aoaclgsreaesrajrapirpquas
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - prega
+        - passarela
+        - sarja
+        - croqui
+        swipes:
+        - 3,1-2,1-1,1-1,0-2,0-3,0
+        - 4,0-3,0-4,1-4,2-3,2
+        - 2,1-1,1-1,2-1,3-2,4-2,3-3,3-4,4-4,3
+        - 0,0-0,1-0,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: thidsroaoeasolcjsnsieilpv
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - viscose
+        - traje
+        - plissado
+        - linho
+        swipes:
+        - 3,0-2,1-2,0-1,1-1,0
+        - 3,0-2,0-1,0-1,1-1,2-2,3-3,2-2,2
+        - 0,4-0,3-0,2-0,1-0,0
+        - 4,0-4,1-3,1-4,2-3,3-4,4-4,3
+        isExtraPackLevel: 0
+      - board: nceexlpae
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - pence
+        - xale
+        swipes:
+        - 1,1-1,0-2,1-2,0
+        - 0,0-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: brcelrtpaeiezcôr
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - blazer
+        - tricô
+        - crepe
+        swipes:
+        - 2,0-3,0-3,1-3,2-3,3
+        - 2,2-1,1-2,1-1,0-2,0
+        - 0,3-0,2-0,1-0,0-1,1-1,2
+        isExtraPackLevel: 0
+      - board: lvltteiuaelsuauh
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - silhueta
+        - tule
+        - luva
+        swipes:
+        - 0,1-0,0-1,1-1,0
+        - 3,1-3,0-2,0-1,1
+        - 3,1-2,2-2,1-3,0-2,0-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: staotpinnaepiocsfhilasoep
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - pelica
+        - fashionista
+        - pesponto
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-3,1-4,0-3,0
+        - 1,1-0,0-1,0-2,1-2,2-3,2-2,3-1,3-0,4-1,4-2,4
+        - 4,0-3,0-4,1-3,1-4,2-4,3
+        isExtraPackLevel: 0
+      - board: repadíesz
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - zíper
+        - seda
+        swipes:
+        - 1,0-0,0-1,1-0,1
+        - 2,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: argctunaartsamgi
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - gramatura
+        - casting
+        swipes:
+        - 3,3-3,2-3,1-2,0-3,0-2,1-2,2
+        - 2,0-1,1-0,0-1,0-0,1-0,2-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: oãsmçioisobrperb
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - sobreposição
+        - brim
+        swipes:
+        - 3,0-3,1-3,2-3,3
+        - 2,3-2,2-2,1-2,0-1,0-0,0-1,1-0,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: larlaenafaatraieteatndeir
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - entretela
+        - alfaiataria
+        - renda
+        swipes:
+        - 2,1-2,0-1,1-1,0-0,0
+        - 4,4-3,4-3,3-4,3-4,2-3,2-4,1-3,1-4,0-3,0-2,1
+        - 0,1-0,0-1,1-2,2-2,1-1,2-0,3-0,4-1,4
+        isExtraPackLevel: 0
+      - board: eoatclvro
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - corte
+        - voal
+        swipes:
+        - 0,0-1,0-2,1-2,0
+        - 1,1-2,0-1,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: eemclgieuvatmalm
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - lavagem
+        - mule
+        - cetim
+        swipes:
+        - 3,3-3,2-3,1-2,0-3,0
+        - 0,0-0,1-0,2-0,3
+        - 2,0-1,0-1,1-2,1-1,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: empogadrnaleorob
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - bolero
+        - padronagem
+        swipes:
+        - 2,1-1,1-2,0-1,0-0,0-0,1-1,2-0,2-0,3-1,3
+        - 3,0-2,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: arsxzipemotlcusu
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - customizar
+        - suplex
+        swipes:
+        - 2,1-3,0-2,0-3,1-3,2-3,3
+        - 0,0-1,0-2,0-2,1-1,1-0,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: nsmoyhlatnaajsnaeaenvimki
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - aviamento
+        - skinny
+        - jeans
+        - malha
+        swipes:
+        - 2,1-2,0-1,0-0,1-0,0
+        - 2,0-1,0-1,1-0,2-1,3
+        - 3,1-3,0-4,0-4,1-4,2-4,3
+        - 0,1-0,0-1,0-2,1-2,0-3,1-4,2-3,3-3,4
+        isExtraPackLevel: 0
+      - board: lrobmãoráiibascoeifrlhcio
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - microfibra
+        - olheiro
+        - lã
+        - básico
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        - 0,1-0,0
+        - 0,1-0,0-1,0-1,1-0,2-1,3-1,2
+        - 4,4-4,3-4,2-4,1-4,0-3,1-2,1-1,2-2,3-2,2
+        isExtraPackLevel: 0

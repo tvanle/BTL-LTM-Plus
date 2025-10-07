@@ -1,0 +1,288 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_pt-br
+  m_EditorClassIdentifier:
+  language: pt-br
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Nature
+      category: Nature
+      categoryLocalized: Natureza
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: áaegrduve
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - verde
+        - água
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 1,0-2,0-1,1-2,1-2,2
+        isExtraPackLevel: 0
+      - board: atairsogeololfec
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - ecologia
+        - floresta
+        swipes:
+        - 1,0-0,0-1,1-0,2-0,1-1,2-1,3-0,3
+        - 2,0-3,0-3,1-2,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: lubaaicaotarslgr
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - glacial
+        - ar
+        - arbusto
+        swipes:
+        - 3,1-3,0-2,0-1,1-0,0-1,0-0,1
+        - 3,2-3,1
+        - 2,0-1,0-2,1-2,2-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: leatavrerutanern
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - natural
+        - terra
+        - neve
+        swipes:
+        - 0,0-1,0-1,1-1,2
+        - 3,1-3,0-2,0-2,1-2,2
+        - 3,0-3,1-2,1-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: taeaufxtprlneiap
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - planta
+        - peixe
+        - fruta
+        swipes:
+        - 1,1-1,0-0,0-0,1-1,2
+        - 0,1-0,0-1,0-2,0-2,1
+        - 3,0-2,1-2,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: eetnroervámermas
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - semente
+        - mar
+        - árvore
+        swipes:
+        - 1,0-0,0-0,1-1,1-0,2-0,3
+        - 1,0-2,0-3,0
+        - 3,0-3,1-2,1-2,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: tlloaeiaegarvmin
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - vegetal
+        - rio
+        - animal
+        swipes:
+        - 3,1-3,0-2,0-1,0-2,1-2,2
+        - 3,1-2,2-3,3
+        - 0,0-0,1-1,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: vldaattrnosueven
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - vento
+        - selva
+        - tundra
+        swipes:
+        - 2,0-3,1-3,0-2,1-3,2-3,3
+        - 2,1-2,0-1,0-0,1-0,0
+        - 1,0-0,0-0,1-1,2-1,1
+        isExtraPackLevel: 0
+      - board: omeilagrcicetesn
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - reciclagem
+        - inseto
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-0,1
+        - 3,2-3,1-2,1-1,1-0,1-0,2-1,2-2,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: auaomavcrhnegcoa
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - grama
+        - chuva
+        - oceano
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0
+        - 1,0-1,1-1,2-2,2-2,3
+        - 0,0-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: iaaamraaiodaghoroclrpllva
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - pradaria
+        - orvalho
+        - clima
+        - lagoa
+        swipes:
+        - 1,0-2,1-2,0-1,1-2,2
+        - 2,1-2,0-3,0-4,0-3,1
+        - 4,2-4,1-3,0-4,0-3,1-3,2-4,3
+        - 0,0-0,1-1,2-0,2-1,3-0,3-0,4-1,4
+        isExtraPackLevel: 0
+      - board: fnaagouel
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - gelo
+        - fauna
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0
+        - 1,1-1,0-2,0-2,1
+        isExtraPackLevel: 0
+      - board: mehagsnaaetnlvmo
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - montanha
+        - selvagem
+        swipes:
+        - 1,2-1,1-0,0-1,0-0,1-0,2-1,3-0,3
+        - 2,0-3,0-3,1-2,1-3,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: maemtagafllhorfo
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - folhagem
+        - flor
+        - mata
+        swipes:
+        - 0,1-1,1-0,0-1,0
+        - 0,1-1,1-0,0-1,0
+        - 2,0-3,0-2,1-3,1-3,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: harlhraoocprocai
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - riacho
+        - rocha
+        - polar
+        swipes:
+        - 2,0-3,0-3,1-2,1-2,2
+        - 1,1-0,0-1,0-0,1-1,2
+        - 3,1-3,0-2,0-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: osboacirigonglarâlobgaioi
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - lago
+        - biologia
+        - orgânico
+        - brisa
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0
+        - 0,2-0,1-0,0-1,1-1,2-1,3-0,3-0,4
+        - 4,1-4,0-3,0-2,1-3,1-2,2-3,2-4,2
+        - 3,2-4,2-4,3-3,4
+        isExtraPackLevel: 0
+      - board: adomivund
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - vida
+        - mundo
+        swipes:
+        - 0,1-0,0-1,0-2,0-2,1
+        - 2,1-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: tletaneabinaampl
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - ambiental
+        - planeta
+        swipes:
+        - 2,0-3,0-3,1-2,1-2,2-3,3-3,2
+        - 0,0-1,0-0,1-1,1-2,2-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: onosêiregiivoxnu
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - universo
+        - oxigênio
+        swipes:
+        - 0,0-1,0-1,1-0,1-0,2-1,3-1,2-0,3
+        - 3,0-2,0-2,1-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: atderoseihrceoca
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - cachoeira
+        - deserto
+        swipes:
+        - 2,2-3,1-2,1-3,0-2,0-1,1-1,0
+        - 3,1-3,0-2,0-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: coinpouírageeallmtfaecmos
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - atmosfera
+        - planície
+        - cogumelo
+        swipes:
+        - 0,4-0,3-0,2-1,1-1,0-0,0-0,1-1,2
+        - 4,2-4,1-4,0-3,0-2,0-1,0-2,1-1,2
+        - 3,2-2,1-2,0-3,0-4,0-3,1-2,2-3,3-4,3
+        isExtraPackLevel: 0

@@ -1,0 +1,302 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_sv
+  m_EditorClassIdentifier:
+  language: sv
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Easter
+      category: Easter
+      categoryLocalized: Påsk
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: älegysgsp
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - ägg
+        - pyssel
+        swipes:
+        - 2,0-1,1-1,0-2,1-2,2-1,2
+        - 0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: vyppotnårxhsåräk
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - häxor
+        - vår
+        - påskpynt
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-1,1-2,0-1,0
+        - 0,1-0,0-1,0
+        - 2,1-2,0-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: girnorigäkpådsks
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - påskkärring
+        - godis
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0
+        - 2,1-3,1-3,0-2,0-1,1-0,1-1,2-2,3-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: rtlaoklbskluåpåk
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - blåkulla
+        - påskkort
+        swipes:
+        - 1,0-0,0-0,1-1,2-1,1-0,2-0,3-1,3
+        - 3,2-2,1-2,0-3,0-3,1-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: gearlnrsuiaphkrtlokpulera
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - april
+        - tulpaner
+        - krokusar
+        - helg
+        swipes:
+        - 2,1-2,0-1,0-0,0
+        - 3,1-3,0-2,1-3,2-3,3-2,3-2,4-3,4
+        - 0,1-0,0-1,1-1,2-0,2-0,3-1,4-1,3
+        - 4,0-4,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: nervnväol
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - vänner
+        - lov
+        swipes:
+        - 2,0-1,0-2,1
+        - 0,1-0,0-1,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: sionsrtikåidptra
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - påskris
+        - tradition
+        swipes:
+        - 1,0-2,0-3,0-3,1-2,1-2,2-3,2-2,3-3,3
+        - 0,0-1,1-0,2-0,1-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: drogpsbgåkdägois
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - godisägg
+        - påskbord
+        swipes:
+        - 0,1-0,0-1,1-1,0-2,0-2,1-1,2-0,2
+        - 0,0-1,0-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: fvlpjouåädlsregk
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - påsklov
+        - fjäder
+        - gul
+        swipes:
+        - 2,0-2,1-2,2
+        - 0,3-0,2-0,1-1,1-1,0-0,0
+        - 3,3-3,2-3,1-3,0-2,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: ausadknioliballgkrckbsröh
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - skinka
+        - gubbröra
+        - sill
+        - choklad
+        swipes:
+        - 3,0-4,0-3,1-4,1-4,2-3,2-4,3
+        - 2,1-2,0-3,1-4,2
+        - 0,1-1,1-0,0-1,0-2,0-3,0-2,1-2,2
+        - 1,0-1,1-0,2-1,3-0,3-0,4
+        isExtraPackLevel: 0
+      - board: roäavglhg
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - ägghalvor
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,1-0,0-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: pskoommrållabilj
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - blommor
+        - påsklilja
+        swipes:
+        - 0,1-0,0-1,1-2,2-2,1-1,0-2,0-3,0-3,1
+        - 0,0-1,1-0,2-1,2-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: antspiumsrskmapå
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - påskmust
+        - marsipan
+        swipes:
+        - 0,0-1,0-1,1-0,1-1,2-0,2-0,3-1,3
+        - 2,0-3,0-2,1-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: ergnahilkåpkskyc
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - kyckling
+        - påskhare
+        swipes:
+        - 2,0-1,0-0,0-0,1-1,1-0,2-1,2-0,3
+        - 1,0-2,0-3,0-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: åraanppoöpnorlpkvhtsrkänu
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - knoppar
+        - vårkänslor
+        - tupp
+        - höna
+        swipes:
+        - 2,0-3,0-4,0-3,1
+        - 3,0-4,0-4,1-4,2
+        - 1,1-0,1-0,0-1,0-2,0-3,0-4,1-3,2-2,3-2,2
+        - 0,1-0,2-1,2-0,3-1,3-2,4-1,4
+        isExtraPackLevel: 0
+      - board: rahgaedgl
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - helgdagar
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-1,1-0,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: ledsaggkdiräsrot
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - skärtorsdag
+        - ledig
+        swipes:
+        - 0,0-1,1-2,1-1,0-2,0
+        - 3,3-3,2-3,1-2,1-3,0-2,0-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: ngjaflkvaipomilp
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - familj
+        - avkoppling
+        swipes:
+        - 3,3-3,2-2,2-3,1-2,1-3,0-2,0-1,0-0,0-1,1
+        - 0,2-0,1-0,0-1,1-1,2-2,3
+        isExtraPackLevel: 0
+      - board: ägnogaftåkjasptk
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - påskafton
+        - äggjakt
+        swipes:
+        - 0,1-0,0-1,0-2,1-3,1-3,0-2,0
+        - 1,0-0,1-0,0-1,1-1,2-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: junagfederlåbgfulnbnglile
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - gullefjun
+        - långfredag
+        - bibeln
+        swipes:
+        - 2,1-2,0-3,1-4,0-3,0-4,1
+        - 1,0-1,1-2,1-3,2-4,2-4,3-3,3-2,3-3,4-4,4
+        - 0,0-0,1-1,1-0,2-1,3-0,3-0,4-1,4-2,4
+        isExtraPackLevel: 0
+      - board: ktdmritgieöoshnd
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - högtid
+        - kristendom
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0-3,0-3,1-3,2
+        - 1,0-2,1-3,2-2,2-1,2-2,3
+        isExtraPackLevel: 0
+      - board: tiasaamklpsnvspå
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - påskmat
+        - snaps
+        - vila
+        swipes:
+        - 0,0-1,0-0,1-0,2
+        - 3,1-3,0-2,0-1,1-1,0
+        - 2,0-3,0-2,1-3,2-2,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: lgegvomåeäussmrrånsmvpake
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - vårsol
+        - umgås
+        - gemenskap
+        - värme
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0
+        - 3,4-3,3-3,2-2,2-2,1-3,1-3,0-2,0-1,0
+        - 0,0-1,1-1,2-2,3-2,2
+        - 0,0-1,1-0,1-1,2-0,3-0,4
+        isExtraPackLevel: 0

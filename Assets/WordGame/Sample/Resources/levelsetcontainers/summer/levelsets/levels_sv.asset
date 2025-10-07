@@ -1,0 +1,308 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_sv
+  m_EditorClassIdentifier:
+  language: sv
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Summer
+      category: Summer
+      categoryLocalized: Sommar
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: sntrmoesurseltem
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - smultron
+        - semester
+        swipes:
+        - 2,1-2,0-3,0-3,1-3,2-2,3-2,2-3,3
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: rallmsabomdomidb
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - midsommar
+        - badboll
+        swipes:
+        - 3,2-2,1-2,0-3,0-3,1-2,2-3,3
+        - 0,0-1,0-2,1-1,2-0,1-1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: aoabntfanbsrärlo
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - solbränna
+        - barfota
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,1-1,0-2,1
+        - 2,1-3,0-2,0-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: aresstmoomaplarr
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - sommarpratare
+        - sol
+        swipes:
+        - 0,2-0,1-0,0
+        - 3,3-3,2-2,2-1,1-1,0-2,0-3,1-3,0-2,1-1,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: ebatbgltjudhorso
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - jordgubbe
+        - solhatt
+        swipes:
+        - 2,0-3,0-2,1-3,1-2,2-3,2-3,3
+        - 0,1-0,0-1,0-2,1-1,2-1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: kpbbpvälsoäådllr
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - kvällsdopp
+        - blåbär
+        swipes:
+        - 3,3-3,2-3,1-2,1-2,0-3,0
+        - 0,3-1,2-2,1-2,0-1,0-0,1-0,0-1,1-0,2-1,3
+        isExtraPackLevel: 0
+      - board: lmyglreggingsgnå
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - engångsgrill
+        - mygg
+        swipes:
+        - 1,0-2,0-3,0-3,1
+        - 2,2-2,1-3,1-3,0-2,0-1,0-0,0-0,1-1,2-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: kprecildicnanksa
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - picknick
+        - sandaler
+        swipes:
+        - 2,0-3,0-2,1-3,2-3,1-2,2-3,3-2,3
+        - 1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: inöjvblaäekbmrii
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - värmebölja
+        - bikini
+        swipes:
+        - 3,1-3,0-2,1-2,0-1,0-0,0
+        - 0,2-0,1-1,0-0,0-1,1-1,2-2,3-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: gnnsoöeysgsrallo
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - solglasögon
+        - syren
+        swipes:
+        - 3,2-3,1-3,0-2,0-2,1
+        - 2,1-3,0-2,0-1,1-1,0-0,0-0,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: gnopirloeveurest
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - uteservering
+        - pool
+        swipes:
+        - 3,1-2,1-3,0-2,0
+        - 3,1-3,0-2,1-2,0-1,0-0,0-1,1-0,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: lottnsgbdaansdri
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - sandslott
+        - badring
+        swipes:
+        - 3,2-2,1-1,0-2,0-3,0-3,1-2,2
+        - 0,0-1,1-0,2-0,1-1,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: kivastoskfrlärso
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - kräftskiva
+        - solros
+        swipes:
+        - 2,0-3,0-3,1-2,1-2,2-3,2
+        - 0,1-1,0-0,0-1,1-1,2-0,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: emrsärrovskmsysa
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - maskros
+        - ryssvärme
+        swipes:
+        - 2,0-1,0-0,0-1,1-0,1-0,2-1,2-1,3-0,3
+        - 3,1-3,0-2,0-2,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: lsraokngjäslkfra
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - fräknar
+        - glass
+        - kjol
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 3,2-3,1-3,0-2,0-1,0
+        - 1,0-2,0-1,1-1,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: lgnivongsärpklip
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - gräsklippning
+        - lov
+        swipes:
+        - 0,1-1,0-0,0
+        - 3,2-2,1-1,1-0,1-0,0-1,0-2,0-3,0-3,1-2,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: nlmnoteavhmlaute
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - humla
+        - vattenmelon
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,0-3,1-2,2-2,1-1,1-0,2-0,3
+        - 1,1-1,0-2,1-3,1-3,2
+        isExtraPackLevel: 0
+      - board: sroxegybiltkgnor
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - kortbyxor
+        - segling
+        swipes:
+        - 0,3-0,2-1,2-1,1-0,1-1,0-0,0
+        - 3,1-2,0-3,0-2,1-3,2-2,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: sågaolttmapämral
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - sommarplåga
+        - tälta
+        swipes:
+        - 3,2-3,1-3,0-2,1-2,0
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,1-1,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: fmåvlikgnokcigul
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - minigolf
+        - vågkluck
+        swipes:
+        - 3,3-2,3-3,2-2,1-3,0-2,0-3,1-2,2
+        - 1,3-1,2-0,1-0,0-1,0-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: bjbrbuerulbakiar
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - juli
+        - kubb
+        - rabarber
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2-2,3-2,2-3,3
+        - 0,0-0,1-0,2-0,3
+        - 1,3-1,2-1,1-1,0
+        isExtraPackLevel: 0
+      - board: tfodnskloelilsgr
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - grilldoft
+        - solsken
+        swipes:
+        - 1,2-0,1-0,0-1,0-2,0-1,1-0,2
+        - 2,0-3,0-3,1-2,1-3,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: loagkskrvslöälsn
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - kvällssol
+        - grönska
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2
+        - 0,2-0,1-0,0-1,0-2,1-1,1-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: gaynnolhiealplkc
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - hallon
+        - nyckelpiga
+        swipes:
+        - 3,1-2,1-3,0-2,0-1,1-1,0-0,0-0,1-0,2-1,2
+        - 3,2-2,1-3,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: safäittrjusoinpk
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - färskpotatis
+        - juni
+        swipes:
+        - 0,1-1,1-1,0-0,0
+        - 2,3-3,3-3,2-2,1-3,0-2,0-3,1-2,2-1,3-1,2-0,2-0,3
+        isExtraPackLevel: 0

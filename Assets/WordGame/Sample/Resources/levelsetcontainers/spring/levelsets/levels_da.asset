@@ -1,0 +1,292 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_da
+  m_EditorClassIdentifier:
+  language: da
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Spring
+      category: Spring
+      categoryLocalized: Forår
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: ækvrgietn
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - vintergæk
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-0,1-1,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: ssnhtieønamirear
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - mariehøns
+        - erantis
+        swipes:
+        - 1,0-0,0-1,1-0,1-0,2-1,2-0,3
+        - 2,1-2,0-3,0-3,1-2,2-3,3-3,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: rnesøgkælåsrvipg
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - påske
+        - græs
+        - liv
+        - grøn
+        swipes:
+        - 1,0-0,1-0,0-1,1
+        - 0,1-1,0-0,0
+        - 3,0-3,1-3,2-3,3
+        - 2,0-1,1-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: tlkgåsæeupreipan
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - påskeæg
+        - tulipaner
+        swipes:
+        - 0,2-0,1-1,1-0,0-1,0-2,0-3,0-3,1-2,1
+        - 1,1-0,2-1,2-2,3-3,2-2,2-3,3
+        isExtraPackLevel: 0
+      - board: rdeehetavanalpdrøgjbjolre
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - løgplanter
+        - jord
+        - havearbejde
+        swipes:
+        - 4,4-4,3-3,2-2,1-2,0-3,0-4,1-4,0-3,1-4,2-3,3
+        - 0,0-1,0-0,1-1,1
+        - 2,0-1,1-2,1-3,2-2,2-1,2-0,2-1,3-0,3-0,4
+        isExtraPackLevel: 0
+      - board: rgtenetøj
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - regntøjet
+        swipes:
+        - 0,2-0,1-1,2-1,1-0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: knrbooianimtfrie
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - konfirmation
+        - bier
+        swipes:
+        - 3,1-2,0-3,0-2,1
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,1-3,2-3,1-2,2-1,2-1,3
+        isExtraPackLevel: 0
+      - board: eaprsoliflreeksl
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - forelskelse
+        - april
+        swipes:
+        - 1,0-2,1-3,1-3,0-2,0
+        - 0,1-1,2-2,1-3,1-3,0-2,0-1,0-0,0-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: glosufjsrmmaemyl
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - maj
+        - lys
+        - sommerfugl
+        swipes:
+        - 3,0-2,0-1,1-1,0-0,0-0,1-1,2-0,2-0,3-1,3
+        - 3,0-2,0-3,1
+        - 2,1-3,1-2,2
+        isExtraPackLevel: 0
+      - board: erserbadkshkednavhvaeraeh
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - havehandsker
+        - haveredskaber
+        swipes:
+        - 0,2-0,1-1,1-0,0-1,0-2,0-2,1-2,2-1,2-1,3-0,3-0,4-1,4
+        - 2,1-2,0-3,1-3,0-4,0-4,1-4,2-3,2-4,3-3,3-3,4-4,4
+        isExtraPackLevel: 0
+      - board: syrnkøedb
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - nedbør
+        - sky
+        swipes:
+        - 0,0-1,0-1,1
+        - 0,1-0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: annksgsislufoelg
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - solskin
+        - fuglesang
+        swipes:
+        - 3,1-2,1-3,0-2,0-1,0-0,0-0,1-1,2-1,1
+        - 0,1-0,0-1,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: eripjllipeknåses
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - pinse
+        - påskeliljer
+        swipes:
+        - 0,1-0,0-1,0-2,0-1,1-2,1-2,2-1,2-0,2-0,3-1,3
+        - 3,3-3,2-3,1-3,0-2,0
+        isExtraPackLevel: 0
+      - board: reertsonlmmeobna
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - blomster
+        - anemoner
+        swipes:
+        - 3,0-2,0-3,1-2,1-2,2-3,2-2,3-3,3
+        - 1,0-0,1-0,0-1,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: niiebegvrøelvilrgedslarkl
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - kredsløb
+        - livgiver
+        - allergien
+        swipes:
+        - 1,0-0,0-1,1-0,2-0,1-1,2-1,3-0,3-0,4
+        - 4,0-3,0-2,0-1,1-2,2-2,1-3,2-3,1
+        - 3,0-2,0-2,1-3,1-4,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: gvonapidn
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - opvanding
+        swipes:
+        - 2,2-2,1-1,2-1,1-2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: msrvanoprelltmea
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - pollen
+        - varme
+        - marts
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0
+        - 3,1-3,0-2,1-1,0-2,0
+        - 3,2-2,2-3,1-2,1-1,1-1,2
+        isExtraPackLevel: 0
+      - board: seveukerokbgkrkæ
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - gækkebreve
+        - krokus
+        swipes:
+        - 0,0-1,0-0,1-1,1-0,2-0,3
+        - 3,1-3,0-2,0-1,1-2,2-2,1-3,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: ingimtrnsoselbtk
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - blomstring
+        - insekt
+        swipes:
+        - 0,0-1,0-2,1-3,1-3,0-2,0
+        - 1,0-0,0-1,1-0,2-0,1-1,2-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: noreragelsrefedrrteresrbe
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - narrestreger
+        - forberedelser
+        swipes:
+        - 2,1-1,0-2,0-3,0-4,0-4,1-3,1-4,2-3,2-3,3-4,3-3,4-4,4
+        - 0,4-0,3-0,2-0,1-0,0-1,0-2,1-1,1-1,2-1,3-2,3-2,4
+        isExtraPackLevel: 0
+      - board: ndåberrelenpossi
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - pinsesolen
+        - dråber
+        swipes:
+        - 1,1-1,0-2,1-3,1-3,0-2,0
+        - 3,1-3,0-2,1-2,0-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: vignleirpntealdu
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - plantering
+        - udeliv
+        swipes:
+        - 3,0-2,0-1,0-0,0-1,1-0,1
+        - 0,1-1,0-0,0-1,1-2,1-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: eodggdorinndldøjumsnbsåæd
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - såsæd
+        - gødning
+        - muldjord
+        - bonde
+        swipes:
+        - 0,0-1,0-0,1-0,2-0,3
+        - 2,0-1,0-2,1-1,1-0,1-1,2-2,2-2,3
+        - 3,2-4,1-3,0-4,0-3,1-4,2-4,3
+        - 1,0-2,0-3,1-3,0-4,0
+        isExtraPackLevel: 0

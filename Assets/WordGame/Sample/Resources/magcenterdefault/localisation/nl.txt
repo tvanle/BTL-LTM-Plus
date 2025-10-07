@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="mag_help_center"><foo><![CDATA[Helpcentrum van MAG]]></foo></string>
+	<string name="open"><foo><![CDATA[Openen]]></foo></string>
+	<string name="contact_us"><foo><![CDATA[Contact opnemen]]></foo></string>
+	<string name="contact_us_description"><foo><![CDATA[Als je in ons Helpcentrum geen oplossing hebt gevonden, neem dan contact met ons op via de opties hieronder.]]></foo></string>
+	<string name="send_email"><foo><![CDATA[E-mail sturen]]></foo></string>
+	<string name="support_email_subject"><foo><![CDATA[Ondersteuningsverzoek]]></foo></string>
+	<string name="support_email_body"><foo><![CDATA[Beschrijf je verzoek hieronder:\n(hier typen):]]></foo></string>
+	<string name="loading"><foo><![CDATA[Laden…]]></foo></string>
+	<string name="loading_error"><foo><![CDATA[Fout bij laden]]></foo></string>
+
+	<string name="important_notice"><foo><![CDATA[BELANGRIJK]]></foo></string>
+	<string name="terms_description"><foo><![CDATA[Tik op OK om onze Voorwaarden en het Privacybeleid te accepteren]]></foo></string>
+	<string name="terms_of_service"><foo><![CDATA[SERVICEVOORWAARDEN]]></foo></string>
+	<string name="ok"><foo><![CDATA[OK]]></foo></string>
+
+	<string name="data_management_title"><foo><![CDATA[Privacyinstellingen]]></foo></string>
+	<string name="data_management_description"><foo><![CDATA[Hier kun je de persoonlijke gegevens opvragen die we van je hebben of ons vragen om alle persoonlijke gegevens te verwijderen die we van je hebben vastgelegd.]]></foo></string>
+
+	<string name="request_data_title"><foo><![CDATA[Gegevens opvragen]]></foo></string>
+	<string name="request_data_description"><foo><![CDATA[Hier kun je de persoonlijke gegevens opvragen die we van je hebben vastgelegd. We sturen je binnen twee dagen een e-mail met je persoonlijke gegevens.]]></foo></string>
+	<string name="request_data_pending_description"><foo><![CDATA[We hebben je verzoek ontvangen, het wordt binnen maximaal twee dagen afgehandeld. Je ontvangt een e-mail met een versleuteld ZIP-bestand. Het wachtwoord om dat bestand te openen, vind je hier.]]></foo></string>
+	<string name="request_data_ready_description"><foo><![CDATA[Je aanvraag is verwerkt en we hebben een versleuteld ZIP-bestand met je gegevens gestuurd naar het onderstaande e-mailadres. Je kunt het bestand openen met het wachtwoord hieronder.]]></foo></string>
+	<string name="enter_your_email"><foo><![CDATA[Voer hierboven je e-mailadres in]]></foo></string>
+	<string name="press_ok"><foo><![CDATA[Tik op OK als je je e-mailadres hebt ingevoerd]]></foo></string>
+	<string name="invalid_email"><foo><![CDATA[Ongeldig e-mailadres]]></foo></string>
+	<string name="your_request_is_pending_status"><foo><![CDATA[Je aanvraag is in behandeling]]></foo></string>
+	<string name="data_ready_description_status"><foo><![CDATA[Gebruik dit wachtwoord om het bestand te openen: {0}]]></foo></string>
+
+	<string name="remove_data_title"><foo><![CDATA[Gegevens verwijderen]]></foo></string>
+	<string name="remove_data_description"><foo><![CDATA[LET OP: Je voortgang en accounts in alle MAG-games worden ook gewist en je gegevens kunnen niet worden hersteld. MAG-games moeten van alle apparaten worden verwijderd, zodat je gegevens niet opnieuw worden vastgelegd. Aanvragen worden binnen 14 dagen verwerkt en kunnen tot dan worden geannuleerd.]]></foo></string>
+	<string name="remove_data_cannot_be_undone_status"><foo><![CDATA[Verwijderde gegevens kunnen niet hersteld worden. Weet je het zeker?]]></foo></string>
+	<string name="cancel_data_removal"><foo><![CDATA[Verwijderen annuleren]]></foo></string>
+	<string name="notify_me_via_email_when_done"><foo><![CDATA[Stuur me na voltooiing een e-mail]]></foo></string>
+	<string name="day_remaining"><foo><![CDATA[Nog {0} dag]]></foo></string>
+	<string name="days_remaining"><foo><![CDATA[Nog {0} dagen]]></foo></string>
+
+	<string name="remove_data_confirmation_title"><foo><![CDATA[Gegevens verwijderen?]]></foo></string>
+	<string name="remove_data_confirmation_description"><foo><![CDATA[LET OP: Je voortgang en accounts in alle MAG-games worden ook gewist en je gegevens kunnen niet worden hersteld. MAG-games moeten van alle apparaten worden verwijderd, zodat je gegevens niet opnieuw worden vastgelegd. Aanvragen worden binnen 14 dagen verwerkt en kunnen tot dan worden geannuleerd.]]></foo></string>
+	<string name="data_removal_pending_status"><foo><![CDATA[Je aanvraag is in behandeling. Je kunt deze nog annuleren.]]></foo></string>
+	<string name="confirm"><foo><![CDATA[Bevestigen]]></foo></string>
+	<string name="cancel"><foo><![CDATA[Annuleren]]></foo></string>
+
+	<string name="search_results_title"><foo><![CDATA[Zoekresultaten]]></foo></string>
+	<string name="search_no_results_title"><foo><![CDATA[Geen resultaten]]></foo></string>
+	<string name="search_placeholder"><foo><![CDATA[Zoeken...]]></foo></string>
+	<string name="article_rating_question"><foo><![CDATA[Was dit artikel nuttig?]]></foo></string>
+	<string name="article_rating_thanks"><foo><![CDATA[Bedankt voor je feedback!]]></foo></string>
+
+	<string name="tracking_title"><foo><![CDATA[Klaar met irrelevante advertenties?]]></foo></string>
+	<string name="tracking_description_a"><foo><![CDATA[Mogen we bijhouden wie je advertenties van onze games en andere advertenties stuurt? Dan kunnen we je game-ervaring verbeteren en blijft de app gratis.]]></foo></string>
+	<string name="tracking_description_b"><foo><![CDATA[Tik op 'Sta toe' in het volgende scherm als je akkoord gaat, of op 'Vraag app om niet te tracken' als je dat niet doet.]]></foo></string>
+
+    <string name="tracking_plate_title"><foo><![CDATA[We ♥ gratis spelen!]]></foo></string>
+    <string name="tracking_plate_description"><foo><![CDATA[Met "Sta toe" blijven onze games gratis en geweldig!]]></foo></string>
+
+    <string name="terms_title"><foo><![CDATA[Klaar Om Te Spelen?]]></foo></string>
+	<string name="terms_description_a"><foo><![CDATA[Om te beginnen met spelen, tik je eerst op OK hieronder om onze Servicevoorwaarden en ons Privacybeleid te accepteren.]]></foo></string>
+
+	<!-- IDFA AB Testing keys -->
+	<string name="tracking_description_a_1"><foo><![CDATA[Mogen we bijhouden wie je de advertenties stuurt die in onze game getoond worden? Dan kunnen we je game-ervaring verbeteren en blijft de app gratis.]]></foo></string>
+	<string name="tracking_description_a_2"><foo><![CDATA[Mogen we je advertentie-activiteit in deze game bijhouden? Dan kunnen we je game-ervaring verbeteren en blijft de app voor jou gratis.]]></foo></string>
+	<string name="tracking_description_a_3"><foo><![CDATA[We hebben je toestemming nodig om je relevante advertenties te tonen en je game-ervaring te verbeteren. Mogen we je advertentie-activiteit bijhouden?]]></foo></string>
+
+    <string name="tracking_plate_title_1"><foo><![CDATA[MAG ♥ gratis spelen!]]></foo></string>
+    <string name="tracking_plate_title_2"><foo><![CDATA[Wij zijn dol op gratis spelen!]]></foo></string>
+    <string name="tracking_plate_title_3"><foo><![CDATA[MAG is dol op gratis spelen!]]></foo></string>
+    <string name="tracking_plate_title_4"><foo><![CDATA[Gratis games zijn te gek]]></foo></string>
+    <string name="tracking_plate_title_5"><foo><![CDATA[Bij ons heeft de speler de keuze]]></foo></string>
+    <string name="tracking_plate_title_6"><foo><![CDATA[Bij MAG heeft de speler de keuze]]></foo></string>
+
+    <string name="tracking_plate_description_1"><foo><![CDATA[Tik je op "Sta toe", dan kunnen wij gratis games blijven maken!]]></foo></string>
+    <string name="tracking_plate_description_2"><foo><![CDATA[Als je tracken toestaat, blijft de game voor jou gratis!]]></foo></string>
+    <string name="tracking_plate_description_3"><foo><![CDATA[Als je tracken toestaat, heb je meer controle over advertenties!]]></foo></string>
+    <string name="tracking_plate_description_4"><foo><![CDATA[Een tik op "Sta toe" betekent minder irrelevante advertenties!]]></foo></string>
+    <string name="tracking_plate_description_5"><foo><![CDATA[Met "Sta toe" kunnen wij gratis games voor je blijven maken!]]></foo></string>
+    <string name="tracking_plate_description_6"><foo><![CDATA["Sta toe" betekent dat wij gratis games voor je blijven maken!]]></foo></string>
+
+	<string name="licenses_title"><foo><![CDATA[LICENTIES]]></foo></string>
+
+    <!-- Native keys that are used with Xcode. Use the prefix 'NATIVE_KEY:' -->
+	<string name="NATIVE_KEY:NSUserTrackingUsageDescription"><foo><![CDATA[Geen zorgen! Hiermee krijg je minder irrelevante advertenties te zien en blijft de game gratis.]]></foo></string>
+</resources>

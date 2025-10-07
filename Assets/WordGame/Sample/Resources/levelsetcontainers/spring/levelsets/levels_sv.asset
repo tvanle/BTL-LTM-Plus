@@ -1,0 +1,296 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_sv
+  m_EditorClassIdentifier:
+  language: sv
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Spring
+      category: Spring
+      categoryLocalized: Vår
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: rnpvapklo
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - larv
+        - knopp
+        swipes:
+        - 0,0-1,0-2,0-2,1-2,2
+        - 1,0-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: kcngniiraspljmvö
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - lövsprickning
+        - maj
+        swipes:
+        - 1,0-0,1-0,0
+        - 3,1-3,0-2,0-1,1-2,1-3,2-2,2-1,3-0,3-0,2-1,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: fotpsipavtaiisvp
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - vitsippa
+        - tofsvipa
+        swipes:
+        - 2,2-1,1-0,0-1,0-2,0-3,1-3,0-2,1
+        - 0,1-0,0-1,1-0,2-1,2-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: uegipvrnåtreskes
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - påsk
+        - uteservering
+        swipes:
+        - 0,0-1,0-2,0-3,0-3,1-2,1-1,1-1,2-2,2-3,3-3,2-2,3
+        - 0,2-0,1-0,0-1,0
+        isExtraPackLevel: 0
+      - board: stlaavrikmaörpmlrgaoönsbl
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - april
+        - grönska
+        - blomma
+        - svalört
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2
+        - 3,0-4,0-4,1-4,2-4,3-4,4
+        - 2,1-1,1-0,0-1,0-2,0-3,1-3,2
+        - 3,1-3,2-2,2-2,3-2,4
+        isExtraPackLevel: 0
+      - board: ölvvlåkir
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - liv
+        - vårlök
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,1-0,0
+        - 1,1-1,0-0,1
+        isExtraPackLevel: 0
+      - board: iamclrtiäjrorsfn
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - citronfjäril
+        - mars
+        swipes:
+        - 2,0-1,1-0,0-1,0
+        - 3,3-3,2-2,2-2,1-3,1-3,0-2,0-1,1-0,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: tggnsisipinsnslo
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - islossning
+        - pingst
+        swipes:
+        - 0,1-1,0-0,0-1,1-0,2-0,3
+        - 1,1-1,0-2,0-3,0-3,1-2,2-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: vglaånhurindstäm
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - vårstädning
+        - humla
+        swipes:
+        - 2,0-3,1-3,0-2,1-3,2
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,1-2,1-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: rsspvellaptsmiäjåomrulbbe
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - blomster
+        - blåsippa
+        - värme
+        - ljus
+        swipes:
+        - 1,0-0,1-0,0-1,1
+        - 4,3-4,2-4,1-3,0-4,0
+        - 3,0-2,0-1,0-2,1-3,2-4,3-3,4-3,3
+        - 2,0-1,0-2,1-2,2-1,2-0,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: söendprop
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - snödroppe
+        swipes:
+        - 0,2-0,1-1,2-1,1-0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: pansåjlosielklks
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - påsklilja
+        - solsken
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2
+        - 0,3-0,2-0,1-0,0-1,0-1,1-2,2-1,2-1,3
+        isExtraPackLevel: 0
+      - board: atlppmäorlklisen
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - aprilskämt
+        - pollen
+        swipes:
+        - 3,3-3,2-3,1-2,1-2,0-3,0
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,1-2,2-1,2-1,3
+        isExtraPackLevel: 0
+      - board: asatamjrsndarban
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - trandans
+        - majbrasa
+        swipes:
+        - 1,1-2,1-2,0-1,0-0,0-0,1-1,2-0,2
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,1-0,1
+        isExtraPackLevel: 0
+      - board: vdlatvahskivluehoglnotsäi
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - gullviva
+        - insekt
+        - hästhov
+        - odla
+        swipes:
+        - 0,0-1,0-2,0-3,0
+        - 2,1-3,0-2,0-1,0-0,1-1,1-0,2
+        - 4,0-4,1-3,1-4,2-4,3-4,4
+        - 2,1-3,2-3,1-2,2-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: bpaacpksi
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - backsippa
+        swipes:
+        - 0,2-0,1-1,1-0,0-1,0-2,0-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: strgsuovoibagall
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - tussilago
+        - valborg
+        swipes:
+        - 3,2-3,1-3,0-2,0-2,1-2,2-3,3
+        - 1,3-1,2-0,3-0,2-1,1-2,0-1,0-0,0-0,1
+        isExtraPackLevel: 0
+      - board: ilnrräjfnselsäge
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - nässelfjäril
+        - regn
+        swipes:
+        - 3,1-3,0-2,0-2,1
+        - 0,1-1,0-0,0-1,1-2,1-3,1-3,2-2,2-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: skcäurgrkokevint
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - vintergäck
+        - krokus
+        swipes:
+        - 2,0-1,1-1,0-0,0-0,1-0,2
+        - 0,0-1,0-2,0-3,0-3,1-3,2-2,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: rgdlitoårfrägeådgrbgdynal
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - fåglar
+        - trädgård
+        - grodyngel
+        - bi
+        swipes:
+        - 3,0-4,0
+        - 1,2-0,1-1,1-0,0-1,0-2,0-2,1-3,1-3,2
+        - 0,3-0,2-1,2-0,1-1,1-2,2-3,2-2,3
+        - 4,3-4,2-4,1-4,0-3,0-2,1
+        isExtraPackLevel: 0
+      - board: bangleiponrlmtna
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - blomning
+        - plantera
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,0-1,1-2,1-1,2
+        - 0,3-0,2-0,1-0,0-1,1-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: vnglårindamogjäs
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - vårdagjämning
+        - sol
+        swipes:
+        - 3,0-3,1-3,2
+        - 0,3-0,2-1,2-0,1-1,1-0,0-1,0-2,0-2,1-3,2-2,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: ngscbvinslåjnoatälldrteek
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - tjällossning
+        - vårtecken
+        - blad
+        swipes:
+        - 4,3-4,2-4,1-4,0
+        - 0,2-0,1-0,0-1,0-2,0-3,1-4,0-3,0-2,1
+        - 0,1-1,2-1,1-2,1-3,1-3,2-3,3-2,4-2,3-1,3-0,4-1,4
+        isExtraPackLevel: 0

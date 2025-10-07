@@ -1,0 +1,302 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_it
+  m_EditorClassIdentifier:
+  language: it
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Spring
+      category: Spring
+      categoryLocalized: Primavera
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: adontfies
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - festa
+        - nido
+        swipes:
+        - 0,1-0,0-1,0-2,0
+        - 2,1-1,0-2,0-1,1-0,2
+        isExtraPackLevel: 0
+      - board: niaoalrutettpaor
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - petali
+        - natura
+        - orto
+        swipes:
+        - 2,0-3,0-3,1-3,2
+        - 0,0-1,0-2,1-3,2-2,2-2,3
+        - 0,0-1,1-0,1-0,2-1,2-1,3
+        isExtraPackLevel: 0
+      - board: loomiocaocinblrd
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - boccioli
+        - mandorlo
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0-1,1
+        - 0,0-0,1-1,1-2,2-2,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: oauosqmdzaalrapc
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - caldo
+        - pasqua
+        - marzo
+        swipes:
+        - 2,0-1,0-0,0-0,1-0,2
+        - 2,0-1,1-0,2-1,2-2,2-1,3
+        - 3,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: oclsapnnoiaiclciularnetoc
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - tulipano
+        - narciso
+        - coccinella
+        swipes:
+        - 4,0-3,0-2,0-1,1-0,1-0,0-1,0-2,1-3,1-4,1
+        - 2,1-3,1-4,1-4,2-4,3-3,4-3,3
+        - 2,0-1,1-2,1-1,2-0,3-0,2-1,3-0,4
+        isExtraPackLevel: 0
+      - board: rebeeessn
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - benessere
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: iociroospineefap
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - fiori
+        - pesco
+        - peonia
+        swipes:
+        - 0,1-0,0-1,0-2,1-3,0-2,0
+        - 3,0-3,1-3,2-2,3-2,2
+        - 1,0-1,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: tiaitgopieimnsga
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - insetti
+        - maggio
+        - api
+        swipes:
+        - 2,0-3,0-3,1
+        - 3,1-3,0-2,0-1,0-2,1-2,2
+        - 0,1-0,0-1,0-1,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: ionezdornanreito
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - rotazione
+        - rondine
+        swipes:
+        - 3,0-2,1-2,0-1,1-1,0-0,1-0,0
+        - 3,1-3,0-2,0-1,1-0,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: llaeoegorbtoauoagreprftlb
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - fragola
+        - letargo
+        - tepore
+        - bulbo
+        swipes:
+        - 4,0-3,1-3,0-4,1-4,2
+        - 2,0-3,1-4,1-4,2-3,3-3,4
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1
+        - 1,0-2,1-2,2-1,3-2,3-1,4-2,4
+        isExtraPackLevel: 0
+      - board: aloosilev
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - viola
+        - sole
+        swipes:
+        - 1,1-0,1-0,0-1,0
+        - 2,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: aereliallrgoeabs
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - sole
+        - allergia
+        - erba
+        swipes:
+        - 1,1-2,1-2,0-1,0
+        - 0,3-0,2-0,1-0,0-1,1-2,1-1,2-2,2
+        - 3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: ripoeaccilbonels
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - sbocciare
+        - polline
+        swipes:
+        - 2,1-3,0-2,0-1,1-0,1-0,0-1,0
+        - 3,0-2,1-3,1-3,2-2,2-1,3-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: allafooiarclfnig
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - farfalla
+        - coniglio
+        swipes:
+        - 2,1-1,1-1,0-2,0-3,0-3,1-3,2-2,2
+        - 0,0-0,1-1,1-0,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: apcrereatirlelaeuaiitprre
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - aprile
+        - luce
+        - terra
+        - parietarie
+        swipes:
+        - 1,0-2,0-3,0-4,1-4,0-3,1-4,2-3,2-4,3-4,4
+        - 0,0-0,1-0,2-0,3-0,4
+        - 1,1-1,0-2,1-1,2
+        - 2,1-1,0-2,0-3,1-3,2-2,2
+        isExtraPackLevel: 0
+      - board: ioeziqonu
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - equinozio
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: siuanirtacirrfio
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - narcisi
+        - fioritura
+        swipes:
+        - 1,0-2,0-3,0-3,1-2,1-3,2-2,3-2,2-3,3
+        - 0,2-0,1-0,0-1,1-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: gioeggenormipiaz
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - piogge
+        - migrazione
+        swipes:
+        - 2,1-1,1-0,0-1,0-2,0-3,0-3,1-2,2-3,2-3,3
+        - 0,0-1,0-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: emironadntcdisor
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - nontiscordardime
+        swipes:
+        - 1,2-0,2-0,1-1,1-0,0-1,0-2,1-2,0-3,0-3,1-2,2-3,3-3,2-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: tobtatearideuehneqgrpasam
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - pasqua
+        - margherita
+        - benedetto
+        swipes:
+        - 2,0-1,1-0,0-1,0-0,1-1,2-0,3-0,2-1,3
+        - 4,0-3,0-4,1-3,1-4,2-3,2-3,3-4,3-3,4-4,4
+        - 0,0-1,0-2,0-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: heobmcolirocfoci
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - bocciolo
+        - formiche
+        swipes:
+        - 0,0-1,0-1,1-0,2-0,1-1,2-0,3-1,3
+        - 3,3-2,2-3,1-2,0-3,0-2,1-3,2-2,3
+        isExtraPackLevel: 0
+      - board: dehiarecspovevrc
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - verde
+        - vespa
+        - crochi
+        swipes:
+        - 3,0-2,0-2,1-3,1-2,2-3,2
+        - 1,0-0,0-0,1-1,1-0,2
+        - 3,1-2,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: egollertrecazzeamalaniape
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - graminacee
+        - pazzerello
+        - talea
+        swipes:
+        - 2,1-2,0-3,0-4,0-4,1
+        - 3,0-2,1-2,2-3,2-4,2-3,3-4,3-4,4-3,4-2,4
+        - 1,4-1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3-0,4
+        isExtraPackLevel: 0

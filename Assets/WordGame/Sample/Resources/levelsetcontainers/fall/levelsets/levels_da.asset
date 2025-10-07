@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_da
+  m_EditorClassIdentifier:
+  language: da
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Fall
+      category: Fall
+      categoryLocalized: Efterår
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: dereælvjøknertrg
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - regnvejr
+        - tørklæde
+        swipes:
+        - 1,0-0,1-0,0-1,1-1,2-0,2-0,3-1,3
+        - 2,0-3,1-3,0-2,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: ettodsokalrbbefe
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - blade
+        - oktoberfest
+        swipes:
+        - 3,3-3,2-2,3-2,2-3,1-3,0-2,1-2,0-1,0-1,1-1,2
+        - 0,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: trlssaåttergteko
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - gråt
+        - skolestart
+        - te
+        swipes:
+        - 0,0-1,0
+        - 3,1-2,0-3,0-2,1-1,1-0,2-0,1-1,2-1,3-0,3
+        - 3,1-2,1-2,2-3,2
+        isExtraPackLevel: 0
+      - board: fvøralbespemetdl
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - september
+        - løvfald
+        swipes:
+        - 3,0-2,1-1,1-0,1-0,0-1,0-2,0
+        - 0,1-0,0-1,1-1,0-2,1-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: diretlbtsrkovøåo
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - oktober
+        - årstid
+        - løv
+        swipes:
+        - 1,1-1,0-0,0
+        - 2,0-1,1-0,1-0,2-1,3-0,3
+        - 3,0-2,1-3,2-3,1-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: emegrbeaovtnnsed
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - november
+        - andesteg
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,0-2,1-2,2-3,3
+        - 0,0-0,1-1,1-2,2-1,3-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: edøhnewhiosattll
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - halloween
+        - høsttid
+        swipes:
+        - 3,0-2,1-2,0-1,0-0,0-0,1-1,1
+        - 3,2-3,1-3,0-2,0-1,1-2,2-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: nafasetlgnhlelee
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - allehelgensaften
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0-0,1-0,0-1,1-0,2-1,3-2,3-2,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: æsasrltvæemelbbp
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - æbler
+        - blæst
+        - svampe
+        swipes:
+        - 3,3-3,2-2,1-2,0-3,0-3,1
+        - 2,0-1,0-0,0-1,1-2,2
+        - 0,1-1,0-0,0-1,1-0,2
+        isExtraPackLevel: 0
+      - board: votperyakslryeap
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - paraply
+        - overskyet
+        swipes:
+        - 1,3-0,3-0,2-1,2-1,1-0,1-0,0-1,0-2,0
+        - 3,3-3,2-3,1-2,0-3,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: therøsløugtvmmis
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - gummistøvler
+        - høst
+        swipes:
+        - 1,1-0,0-1,0-0,1
+        - 1,1-0,1-0,0-1,0-2,0-3,0-2,1-3,2-3,1-2,2-2,3-3,3
+        isExtraPackLevel: 0

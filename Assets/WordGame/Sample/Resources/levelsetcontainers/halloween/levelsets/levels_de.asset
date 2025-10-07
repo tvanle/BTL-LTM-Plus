@@ -1,0 +1,228 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_de
+  m_EditorClassIdentifier:
+  language: de
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Halloween
+      category: Halloween
+      categoryLocalized: Halloween
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: eigmdaonm
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - magie
+        - mond
+        swipes:
+        - 0,1-0,0-1,0-1,1
+        - 2,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: riesvpximerbhakü
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - hexe
+        - kürbis
+        - vampir
+        swipes:
+        - 0,1-1,0-0,0-1,1-1,2-0,2
+        - 2,0-3,0-2,1-3,1-3,2-3,3
+        - 0,0-1,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: rfdtieshgefnspeo
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - gespenst
+        - friedhof
+        swipes:
+        - 1,1-0,1-0,0-1,0-2,1-3,1-3,0-2,0
+        - 0,1-1,1-0,0-1,0-2,0-3,1-2,2-3,3
+        isExtraPackLevel: 0
+      - board: rsgretnmetbonisa
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - monster
+        - grabstein
+        swipes:
+        - 2,2-3,1-3,0-2,1-2,0-1,1-0,1-1,0-0,0
+        - 3,2-3,1-2,2-1,3-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: nismferblzksüooukwibpwere
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - kürbis
+        - werwolf
+        - spuken
+        - zombie
+        swipes:
+        - 4,3-4,2-3,1-4,1-3,0-4,0
+        - 1,0-0,0-0,1-0,2-0,3-0,4
+        - 1,0-2,0-3,0-2,1-3,2-3,3-4,4
+        - 1,1-2,2-1,3-2,3-1,4-2,4
+        isExtraPackLevel: 0
+      - board: sebpneiwn
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - spinnwebe
+        swipes:
+        - 0,2-0,1-0,0-1,1-2,0-1,0-2,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: hselesbnxkeeenes
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - hexenkessel
+        - besen
+        swipes:
+        - 2,1-2,0-3,0-3,1-3,2
+        - 0,3-0,2-0,1-0,0-1,0-1,1-2,1-1,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: lenefuchuheitesm
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - teufel
+        - heimsuchen
+        swipes:
+        - 1,0-2,1-3,1-3,0-2,0-1,1-2,2-3,2-3,3-2,3
+        - 0,0-1,0-0,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: suetamdhfruclerf
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - furcht
+        - fledermaus
+        swipes:
+        - 0,1-0,0-1,0-2,0-2,1-1,1-1,2-0,2-1,3-0,3
+        - 3,0-2,1-2,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: szaennarublchwaesulrgrbeg
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - gruseln
+        - schwarz
+        - aberglauben
+        swipes:
+        - 1,0-2,0-3,0-4,1-4,0-3,1-4,2-3,2-4,3-3,3-4,4
+        - 0,0-1,0-2,1-3,2-2,3-2,2-1,2
+        - 0,0-1,0-2,1-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: medaraske
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - maskerade
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: aeenitkgnsiügtsß
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - süßigkeiten
+        - angst
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0
+        - 2,0-3,1-3,0-2,1-3,2-2,2-1,3-0,2-1,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: smevnaneekkrdiel
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - verkleiden
+        - masken
+        swipes:
+        - 1,2-1,1-0,0-1,0-2,1-2,0
+        - 3,3-3,2-3,1-2,1-3,0-2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: tosshlegcskssipu
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - spukschloss
+        - geist
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1
+        - 3,1-2,0-3,0-2,1-1,1-0,1-0,2-1,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: ettserekadohchwrosbnlrele
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - horror
+        - nebelschwade
+        - skelett
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1-1,1-2,1
+        - 4,1-4,0-3,1-2,0-3,0-2,1-2,2-3,2-4,2-3,3-4,3-4,4
+        - 1,2-1,1-1,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: shfsuacraktuspoaskotniezh
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - hokuspokus
+        - fratze
+        - satanisch
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        - 2,2-2,1-3,1-4,0-3,0-2,0
+        - 4,0-3,1-2,1-1,2-2,2-3,2-4,2-4,3-4,4-3,4
+        isExtraPackLevel: 0
+      - board: gntetyudtersliekapealvkmntkeüserlrot
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - verkleidung
+        - laterne
+        - kostümparty
+        - skelett
+        swipes:
+        - 5,0-4,0-3,0-2,0-3,1-2,1-2,2
+        - 3,0-4,0-5,1-5,0-4,1-5,2-5,3-4,3-4,4-4,5-5,5
+        - 0,3-1,2-1,1-0,0-1,0-0,1-0,2
+        - 3,2-3,1-3,0-2,1-2,2-2,3-1,3-1,4-0,4-1,5-0,5
+        isExtraPackLevel: 0

@@ -1,0 +1,296 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nl
+  m_EditorClassIdentifier:
+  language: nl
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Jungle
+      category: Jungle
+      categoryLocalized: Jungle
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: tpeigrjaa
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - tijger
+        - aap
+        swipes:
+        - 2,0-1,0-1,1
+        - 0,2-0,1-0,0-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: ecoreheiisammpnb
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - chimpansee
+        - rimboe
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0
+        - 1,3-1,2-0,1-0,0-1,0-2,1-2,0-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: oindspwolegoeruv
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - vogelspin
+        - oerwoud
+        swipes:
+        - 0,1-0,0-1,0-2,1-3,0-2,0-3,1
+        - 3,0-3,1-2,1-1,1-0,1-0,2-1,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: aarrcbgnidmsyereetooondso
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - ondoordringbaar
+        - ecosysteem
+        swipes:
+        - 3,1-4,1-4,0-3,0-2,1-1,1-2,0-1,0-0,0-0,1
+        - 0,0-1,0-2,0-3,1-4,1-4,2-4,3-3,4-3,3-2,3-1,3-0,3-0,4-1,4-2,4
+        isExtraPackLevel: 0
+      - board: vieettgea
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - vegetatie
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-2,0-1,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: sinrotaelnidiflw
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - wildernis
+        - olifant
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-1,2
+        - 3,0-2,1-2,0-3,1-3,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ialapavrgaewepat
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - papegaai
+        - waterval
+        swipes:
+        - 3,1-2,0-3,0-2,1-3,2-2,2-3,3-2,3
+        - 0,2-1,1-1,0-0,0-0,1-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: wmietnstibosreimesvooardi
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - biodiversiteit
+        - moesson
+        - warm
+        swipes:
+        - 0,0-1,0-2,0-1,1
+        - 0,1-0,0-1,1-2,1-1,2-0,2-0,3
+        - 4,3-4,2-4,1-3,0-4,0-3,1-3,2-2,2-1,3-2,4-2,3-3,4-3,3-4,4
+        isExtraPackLevel: 0
+      - board: lhckaidtsdkoreroadoirklbp
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - bladerdak
+        - tropisch
+        - krokodil
+        swipes:
+        - 1,0-0,0-1,1-0,2-0,1-1,2-0,3-0,4
+        - 2,1-2,0-3,0-4,0-4,1-3,1-2,2-1,3
+        - 3,0-2,0-1,1-2,1-3,2-4,2-4,3-4,4-3,4
+        isExtraPackLevel: 0
+      - board: onborokmo
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - boomkroon
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-1,1-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: koorotneksldovin
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - vlinder
+        - kokosnoot
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-2,1-1,2-1,1
+        - 1,0-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: cheoisrvotmgxean
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - mangrove
+        - exotisch
+        swipes:
+        - 1,0-0,0-0,1-1,1-0,2-1,2-0,3-1,3
+        - 2,1-2,0-3,0-3,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: okoelereiicdbrih
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - orchidee
+        - kolibrie
+        swipes:
+        - 1,3-0,3-0,2-1,1-0,0-1,0-0,1-1,2
+        - 2,3-2,2-2,1-3,0-2,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: rdjtreaciaseugin
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - insect
+        - jaguar
+        - dier
+        swipes:
+        - 1,1-0,0-1,0-0,1
+        - 2,1-2,0-1,0-0,0-1,1-0,2
+        - 2,0-3,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: lnurdtutrrepeaamanpaaiijl
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - temperatuur
+        - nijlpaard
+        - liaan
+        swipes:
+        - 0,1-1,0-0,0-1,1-1,2
+        - 2,1-2,0-3,0-4,0-3,1-4,1-4,2-4,3-4,4
+        - 0,3-0,2-0,1-1,2-2,2-3,3-3,2-2,3-1,3-2,4-3,4
+        isExtraPackLevel: 0
+      - board: ebomlnwomeenlbipnatpisper
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - palmboom
+        - reptiel
+        - spinnenweb
+        swipes:
+        - 1,0-0,1-0,0-1,1-1,2-0,2-0,3-1,3-0,4-1,4
+        - 4,0-3,0-4,1-3,1-4,2-4,3-4,4
+        - 2,0-2,1-2,2-3,3-3,2-2,3-2,4-3,4
+        isExtraPackLevel: 0
+      - board: ktallnimp
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - klimplant
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,2-2,1-1,2
+        isExtraPackLevel: 0
+      - board: geiuvrrglizlorla
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - zilverrug
+        - gorilla
+        swipes:
+        - 0,1-0,0-1,0-2,1-2,0-3,1-3,0
+        - 2,1-1,1-0,1-0,2-1,3-1,2-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: nazreteaewvarane
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - evenaar
+        - zweten
+        - ara
+        swipes:
+        - 1,0-0,0-1,1
+        - 2,0-1,1-0,1-1,2-0,2-0,3
+        - 2,2-2,1-3,0-2,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: igngthlacogsvruw
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - vochtig
+        - wurgslang
+        swipes:
+        - 3,0-2,0-1,0-2,1-3,1-2,2-3,2-2,3-3,3
+        - 0,0-1,1-0,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: ruerubvitaimnroo
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - natuur
+        - rivier
+        - boom
+        swipes:
+        - 1,0-2,0-3,0-3,1
+        - 1,0-2,1-2,2-3,2-2,3-3,3
+        - 0,0-1,1-0,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: lmeolacpbgnssiedapnrshaeo
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - passiebloem
+        - groen
+        - landschap
+        swipes:
+        - 0,4-0,3-0,2-0,1-0,0-1,1-1,0-2,0-2,1
+        - 4,2-4,1-4,0-3,0-3,1
+        - 2,1-1,1-1,2-2,2-3,2-4,2-3,3-4,4-3,4-2,4-1,4
+        isExtraPackLevel: 0
+      - board: nvmegpeoliinneaeaaerodgrrlgesoakijbv
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - begroeiing
+        - paradijsvogel
+        - kameleon
+        - varen
+        swipes:
+        - 1,0-0,0-0,1-0,2-0,3
+        - 1,0-2,0-2,1-1,2-1,1-0,2-1,3-0,3
+        - 5,4-5,3-5,2-4,2-3,1-2,0-3,0-4,0-5,0-5,1-4,1-3,2-2,2
+        - 4,0-3,1-2,1-1,2-2,2-3,3-3,4-4,4-5,4-4,5
+        isExtraPackLevel: 0

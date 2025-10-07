@@ -1,0 +1,324 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_es
+  m_EditorClassIdentifier:
+  language: es
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Holidays
+      category: Holidays
+      categoryLocalized: Navidad
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: lcaobontroebároa
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - árbol
+        - abeto
+        - corona
+        swipes:
+        - 1,2-1,1-1,0-2,0-2,1-2,2
+        - 3,0-3,1-2,1-3,2-3,3
+        - 0,0-0,1-0,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: ápbanmoéaalnzebl
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - belén
+        - bola
+        - mazapán
+        swipes:
+        - 1,1-1,0-0,0-0,1-1,2-0,3-0,2
+        - 2,1-2,0-3,0-3,1
+        - 2,0-1,0-2,1-3,2-3,1
+        isExtraPackLevel: 0
+      - board: ogandaíomrenuérs
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - muérdago
+        - reno
+        - anís
+        swipes:
+        - 2,1-3,1-2,0-3,0
+        - 2,0-2,1-3,1-3,2
+        - 0,1-0,0-1,0-1,1-0,2-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: rglneaóloumilpse
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - espumillón
+        - regalo
+        swipes:
+        - 0,3-0,2-1,1-1,0-0,0-0,1
+        - 3,0-2,0-1,0-1,1-2,1-3,1-3,2-2,3-2,2-3,3
+        isExtraPackLevel: 0
+      - board: cpaianurmgndaala
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - guirnalda
+        - campana
+        swipes:
+        - 0,3-0,2-0,1-1,1-0,0-1,0-2,0
+        - 1,1-2,2-3,3-3,2-2,1-1,0-2,0-3,1-3,0
+        isExtraPackLevel: 0
+      - board: iocitvcnullarrón
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - turrón
+        - villancico
+        swipes:
+        - 1,1-0,0-1,0-2,0-3,0-3,1-2,1-3,2-2,2-1,2
+        - 0,2-0,1-0,0-1,0-2,0-3,0
+        isExtraPackLevel: 0
+      - board: mbreleicoaíiterd
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - diciembre
+        - lotería
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-2,1-1,1
+        - 3,0-3,1-3,2-2,2-1,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: aotínetnenircfes
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - cena
+        - trineo
+        - festín
+        swipes:
+        - 1,0-2,0-3,0-2,1-3,2-3,1
+        - 2,2-3,1-2,1-1,1-1,2-1,3
+        - 0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: ónacnbeuncrbohea
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - nochebuena
+        - carbón
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,1-0,0
+        - 0,1-0,0-1,1-1,0-2,0-3,1-3,2-2,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: resmoysascrgnóeo
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - roscón
+        - reyes
+        - magos
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0
+        - 2,1-2,0-1,0-1,1-2,2
+        - 0,3-0,2-0,1-1,1-1,0-0,0
+        isExtraPackLevel: 0
+      - board: aeeocnmvofeahilp
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - elfo
+        - chimenea
+        - pavo
+        swipes:
+        - 3,0-3,1-3,2-3,3
+        - 0,1-0,0-1,0-2,0-2,1-1,1-1,2-0,2
+        - 2,1-2,0-1,1-0,1
+        isExtraPackLevel: 0
+      - board: odafmecaatlmnaii
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - mantecado
+        - familia
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0
+        - 0,2-0,1-0,0-1,1-1,2-2,2-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ncaeáhltpmoochac
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - champán
+        - chocolate
+        swipes:
+        - 1,1-1,0-2,0-3,0-3,1-2,1-2,2-3,2-3,3
+        - 0,0-1,0-2,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: noínrietneccival
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - invierno
+        - calcetín
+        swipes:
+        - 2,1-2,0-3,0-3,1-2,2-3,2-2,3-3,3
+        - 1,2-0,1-1,0-0,0-1,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: orrlsoaoazcgrpmo
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - compras
+        - gorro
+        - lazo
+        swipes:
+        - 3,0-2,0-1,0-0,0
+        - 3,0-3,1-2,1-1,2-1,1
+        - 2,1-3,0-2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: napaetntpaóender
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - pandereta
+        - panetón
+        swipes:
+        - 2,2-1,1-0,1-0,0-1,0-2,0-2,1
+        - 0,1-1,1-0,0-1,0-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: pbeoeradsugleina
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - aguinaldo
+        - pesebre
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0
+        - 2,2-2,1-1,1-1,0-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: coobvmeceeuaeñin
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - nieve
+        - acebo
+        - muñeco
+        swipes:
+        - 1,1-2,0-1,0-0,0-0,1-1,2
+        - 3,0-3,1-2,1-3,2-2,2
+        - 3,0-2,0-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: tpnjaeóarjmaatiñ
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - tarjeta
+        - piña
+        - jamón
+        swipes:
+        - 3,1-3,0-2,0-2,1-2,2
+        - 1,0-2,0-3,0-3,1
+        - 1,0-0,0-0,1-1,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: dadispvitatsrofe
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - festividad
+        - pastor
+        swipes:
+        - 1,2-1,1-0,2-0,1-1,0-0,0
+        - 2,0-3,0-3,1-2,1-3,2-2,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: noreirvlevvonien
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - envolver
+        - invierno
+        swipes:
+        - 1,0-0,0-1,1-0,2-0,1-1,2-0,3-1,3
+        - 2,0-3,0-2,1-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: oaríredoctocrafr
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - cordero
+        - frío
+        - carta
+        swipes:
+        - 0,1-1,0-0,0-1,1-1,2
+        - 2,0-3,0-3,1-2,1
+        - 3,1-3,2-2,3-2,2-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: aebabmomtslarezl
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - zambomba
+        - estrella
+        swipes:
+        - 1,2-1,1-0,1-0,0-1,0-2,0-3,0-3,1
+        - 2,0-3,1-3,2-2,3-2,2-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: ajeichevoeohtecn
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - nochevieja
+        - cohete
+        swipes:
+        - 0,2-0,1-1,2-1,1-0,0-1,0
+        - 3,0-2,1-2,0-3,1-2,2-3,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: erónsitrppvoílou
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - polvorón
+        - espíritu
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0-3,0
+        - 1,1-2,0-1,0-2,1-3,1-3,2-2,3-3,3
+        isExtraPackLevel: 0

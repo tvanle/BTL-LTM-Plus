@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 111026525, guid: b72a61945619903b4cd5297b49539484, type: 3}
+  m_Name: MagCenterSettings
+  m_EditorClassIdentifier:
+  _gameId: 2
+  _theme: {fileID: 11400000, guid: 09504e07ec9ae9f4590c491b9cfb7df0, type: 2}
+  _socialSettings:
+    _twitterProfileAddress: https://twitter.com/maginteractive
+    _facebookProfileAddress: https://www.facebook.com/maginteractive
+    _websiteAddress: http://maginteractive.com
+  _supportEmailAddress: wordbrain2@maginteractive.se
+  _frameRate: 60
+  _checkForOrientation: 0
+  _useDontDestroyOnLoad: 1
+  _useEventSystem: 0
+  _overrideAttIosMessageEnglish:
+  _licenses: {fileID: 0}
+  _individualLicenses: []
+  _company: 0
+  _minSearchAttempts: 2
+  _maxSearchResults: 3
+  _supportedLanguages: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a000000
+  _helpshiftConfig:
+    _domainName: magsupport.helpshift.com
+    _appIdiOS: magsupport_platform_20240222135155841-305f8b5334fdf72
+    _appIdAndroid: magsupport_platform_20240222135155881-51fe9b4624fcf60
+    _enableContactUsDefault: 3
+    _enableContactUsPayer: 3
+    _forceDisableContactUs: 1
+    _enableLogging: 0
+  _viewPrefab: {fileID: 114733736976178154, guid: 3f39f9fa1077c8f4ea90d66ad7a1d578, type: 2}

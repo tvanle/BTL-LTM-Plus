@@ -1,0 +1,328 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_fr
+  m_EditorClassIdentifier:
+  language: fr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Summer
+      category: Summer
+      categoryLocalized: Été
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: vcsetocrhrmnasae
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - short
+        - vacances
+        - mer
+        swipes:
+        - 2,0-3,0-3,1
+        - 0,1-0,0-1,0-2,0-3,1-2,2-3,3-2,3
+        - 1,0-0,1-1,2-1,1-0,2
+        isExtraPackLevel: 0
+      - board: tallmiotoourlsen
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - maillot
+        - tournesol
+        swipes:
+        - 0,2-1,1-2,1-3,1-3,0-2,0-1,0-0,1-0,0
+        - 0,2-1,3-1,2-2,3-3,3-2,2-3,2
+        isExtraPackLevel: 0
+      - board: auplesaitolebarc
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - bateau
+        - soleil
+        - parc
+        swipes:
+        - 2,2-2,1-2,0-3,0
+        - 1,1-1,0-2,1-3,1-3,2-3,3
+        - 0,0-1,0-0,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: jloeaisarargdpna
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - parasol
+        - jardinage
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,0-3,1-3,2
+        - 1,0-1,1-2,1-3,2-2,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: seieuqtdmoalusba
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - balade
+        - moustiques
+        swipes:
+        - 0,1-1,1-0,0-1,0-2,0-2,1-1,2-0,2-1,3-0,3
+        - 2,0-3,0-3,1-2,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: yeselgalolebvalp
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - volley
+        - plage
+        - sable
+        swipes:
+        - 2,1-2,0-3,0-3,1-3,2
+        - 3,0-2,0-1,0-1,1-2,1
+        - 0,0-0,1-1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: caeoisechrcéudan
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - océan
+        - cerise
+        - chaud
+        swipes:
+        - 0,2-0,1-1,1-0,0-1,0
+        - 2,0-2,1-1,1-0,2-1,2-2,2
+        - 3,3-3,2-3,1-2,0-3,0
+        isExtraPackLevel: 0
+      - board: sdnluanireamedgo
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - nager
+        - limonade
+        - sud
+        swipes:
+        - 0,1-0,0-1,0
+        - 3,3-3,2-3,1-3,0-2,0-1,1-1,0-0,0
+        - 2,2-2,1-2,0-1,1-0,1
+        isExtraPackLevel: 0
+      - board: luceseiulosqpatè
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - pastèque
+        - lucioles
+        swipes:
+        - 0,2-1,2-2,1-2,0-1,0-0,0-1,1-0,1
+        - 0,0-1,0-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: romtollebiueebrj
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - juillet
+        - ombre
+        - robe
+        swipes:
+        - 0,3-0,2-0,1-0,0
+        - 1,1-2,1-1,0-2,0-3,0
+        - 3,0-2,1-1,1-1,2-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: saatatlsnaûedoub
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - août
+        - sandales
+        - tuba
+        swipes:
+        - 3,1-2,0-3,0-2,1
+        - 0,3-0,2-0,1-0,0-1,0-2,1-3,1-3,2
+        - 1,1-1,0-2,1-1,2
+        isExtraPackLevel: 0
+      - board: ebueualccrinebca
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - barbecue
+        - canicule
+        swipes:
+        - 2,0-3,0-3,1-2,1-3,2-2,3-2,2-3,3
+        - 1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: fuauhesecpcprêah
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - pêche
+        - chapeau
+        - surf
+        swipes:
+        - 2,0-1,0-0,0-0,1
+        - 2,1-3,0-2,0-3,1-3,2-2,3-3,3
+        - 1,1-1,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: sglcelpjgaeuicae
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - cigales
+        - jupe
+        - glace
+        swipes:
+        - 1,0-2,1-2,0-3,1-3,0
+        - 3,2-3,1-2,2-2,1
+        - 1,0-0,0-0,1-1,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: cordlouéndebeira
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - débardeur
+        - colonie
+        swipes:
+        - 0,3-1,2-0,2-1,1-0,1-1,0-0,0
+        - 3,3-3,2-3,1-3,0-2,0-1,1-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: nsetsoisietovreb
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - boisson
+        - serviette
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1-1,1-2,1-3,1-2,2
+        - 3,0-3,1-2,2-1,3-0,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: ctieoatscilcknse
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - insectes
+        - cocktail
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,1-2,0
+        - 1,1-1,0-2,0-3,0-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: eénjupeiiscuboin
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - piscine
+        - bouée
+        - juin
+        swipes:
+        - 3,2-3,1-2,0-3,0
+        - 0,0-1,0-0,1-1,1-0,2
+        - 1,2-0,1-1,1-2,1-3,2-2,3-2,2
+        isExtraPackLevel: 0
+      - board: nadegsnsbisoaiob
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - baignade
+        - boissons
+        swipes:
+        - 3,0-2,0-1,0-1,1-2,1-3,1-2,2-3,2
+        - 0,1-0,0-1,1-0,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: ueevgifooggyarea
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - voyage
+        - orage
+        - figue
+        swipes:
+        - 2,0-1,0-0,0-0,1-1,1
+        - 0,1-1,0-0,0-1,1-2,1
+        - 3,3-3,2-3,1-3,0-2,1-2,0
+        isExtraPackLevel: 0
+      - board: letnontauittnesa
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - natation
+        - lunettes
+        swipes:
+        - 0,2-0,1-0,0-1,1-2,2-2,1-1,0-2,0
+        - 3,3-3,2-3,1-3,0-2,1-1,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: oeçsnlenmrmoûalg
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - melon
+        - glaçons
+        - mûre
+        swipes:
+        - 0,1-0,0-1,0-1,1
+        - 3,0-2,0-1,0-2,1-3,1-3,2-3,3
+        - 2,1-2,2-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: chardepuamreenol
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - promenade
+        - chaleur
+        swipes:
+        - 0,0-1,0-2,0-3,0-3,1-3,2-3,3
+        - 2,2-2,1-2,0-1,1-0,0-1,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: geicillaengmsorp
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - groseille
+        - camping
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-0,0
+        - 2,1-2,0-1,0-0,0-0,1-0,2-1,2-2,2-1,3
+        isExtraPackLevel: 0
+      - board: seeaeorbptcrtmbi
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - abricot
+        - septembre
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0-2,1-2,2
+        - 3,3-3,2-3,1-3,0-2,1-1,2-1,1
+        isExtraPackLevel: 0

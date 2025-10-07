@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="mag_help_center"><foo><![CDATA[MAG-Hilfe-Center]]></foo></string>
+	<string name="open"><foo><![CDATA[Öffnen]]></foo></string>
+	<string name="contact_us"><foo><![CDATA[Kontaktiere uns]]></foo></string>
+	<string name="contact_us_description"><foo><![CDATA[Wenn du keine Lösung in unserem Hilfe-Center finden konntest, kannst du uns gerne mithilfe einer der Optionen unten kontaktieren.]]></foo></string>
+	<string name="send_email"><foo><![CDATA[E-Mail senden]]></foo></string>
+	<string name="support_email_subject"><foo><![CDATA[Support-Anfrage]]></foo></string>
+	<string name="support_email_body"><foo><![CDATA[Bitte beschreibe dein Anliegen:\n(hier Text eingeben):]]></foo></string>
+	<string name="loading"><foo><![CDATA[Lädt]]></foo></string>
+	<string name="loading_error"><foo><![CDATA[Ladefehler]]></foo></string>
+
+	<string name="important_notice"><foo><![CDATA[WICHTIGER HINWEIS]]></foo></string>
+	<string name="terms_description"><foo><![CDATA[Tippe auf „OK“, um unsere Nutzungsbedingungen und Datenschutzrichtline zu akzeptieren.]]></foo></string>
+	<string name="terms_of_service"><foo><![CDATA[NUTZUNGSBEDINGUNGEN]]></foo></string>
+	<string name="ok"><foo><![CDATA[OK]]></foo></string>
+
+	<string name="data_management_title"><foo><![CDATA[Datenschutz-Einstellungen]]></foo></string>
+	<string name="data_management_description"><foo><![CDATA[Hier kannst du dich informieren, welche personenbezogenen Daten wir von dir gespeichert haben, oder anfordern, dass wir alle personenbezogenen Daten über dich löschen.]]></foo></string>
+
+	<string name="request_data_title"><foo><![CDATA[Daten anfordern]]></foo></string>
+	<string name="request_data_description"><foo><![CDATA[Hier kannst du dich über die personenbezogenen Daten, die wir über dich gespeichert haben, informieren. Wir schicken dir innerhalb von 2 Tagen eine E-Mail mit deinen persönlichen Daten.]]></foo></string>
+	<string name="request_data_pending_description"><foo><![CDATA[Wir haben deine Anfrage erhalten, die Bearbeitung kann bis zu 2 Tage dauern. Du erhältst eine E-Mail mit einer verschlüsselten ZIP-Datei. Das Passwort zum Öffnen dieser Datei findest du hier.]]></foo></string>
+	<string name="request_data_ready_description"><foo><![CDATA[Deine Anfrage wurde bearbeitet und wir haben dir eine E-Mail mit einer verschlüsselten ZIP-Datei an die unten angegebene geschickt. Du kannst die Datei mithilfe des unten angegebenen Passworts öffnen.]]></foo></string>
+	<string name="enter_your_email"><foo><![CDATA[Gib oben deine E-Mail-Adresse an.]]></foo></string>
+	<string name="press_ok"><foo><![CDATA[Drücke OK, nachdem du deine E-Mail-Adresse eingegeben hast.]]></foo></string>
+	<string name="invalid_email"><foo><![CDATA[Ungültige E-Mail-Adresse]]></foo></string>
+	<string name="your_request_is_pending_status"><foo><![CDATA[Deine Anfrage wird bearbeitet.]]></foo></string>
+	<string name="data_ready_description_status"><foo><![CDATA[Verwende zum Öffnen der Datei dieses Passwort: {0}]]></foo></string>
+
+	<string name="remove_data_title"><foo><![CDATA[Daten löschen]]></foo></string>
+	<string name="remove_data_description"><foo><![CDATA[WARNUNG: Fortschritt und Konten in allen MAG-Spielen werden gelöscht und können nicht wiederhergestellt werden. Damit die Daten nicht erneut gespeichert werden, musst du alle MAG-Spiele deinstallieren. Anfragen werden nach 14 Tagen bearbeitet und können vor diesem Zeitpunkt annulliert werden.]]></foo></string>
+	<string name="remove_data_cannot_be_undone_status"><foo><![CDATA[Das Löschen der Daten kann nicht rückgängig gemacht werden. Weiter?]]></foo></string>
+	<string name="cancel_data_removal"><foo><![CDATA[Datenlöschung annullieren]]></foo></string>
+	<string name="notify_me_via_email_when_done"><foo><![CDATA[Ich möchte eine E-Mail-Bestätigung]]></foo></string>
+	<string name="day_remaining"><foo><![CDATA[Noch {0} Tag]]></foo></string>
+	<string name="days_remaining"><foo><![CDATA[Noch {0} Tage]]></foo></string>
+
+	<string name="remove_data_confirmation_title"><foo><![CDATA[Daten wirklich löschen?]]></foo></string>
+	<string name="remove_data_confirmation_description"><foo><![CDATA[WARNUNG: Fortschritt und Konten in allen MAG-Spielen werden gelöscht und können nicht wiederhergestellt werden. Damit die Daten nicht erneut gespeichert werden, musst du alle MAG-Spiele deinstallieren. Anfragen werden nach 14 Tagen bearbeitet und können vor diesem Zeitpunkt annulliert werden.]]></foo></string>
+	<string name="data_removal_pending_status"><foo><![CDATA[Deine Anfrage wird bearbeitet, du kannst sie noch stornieren.]]></foo></string>
+	<string name="confirm"><foo><![CDATA[Bestätigen]]></foo></string>
+	<string name="cancel"><foo><![CDATA[Abbrechen]]></foo></string>
+
+	<string name="search_results_title"><foo><![CDATA[Suchergebnisse]]></foo></string>
+	<string name="search_no_results_title"><foo><![CDATA[Keine Ergebnisse]]></foo></string>
+	<string name="search_placeholder"><foo><![CDATA[Suche ...]]></foo></string>
+	<string name="article_rating_question"><foo><![CDATA[War dieser Artikel hilfreich?]]></foo></string>
+	<string name="article_rating_thanks"><foo><![CDATA[Danke für dein Feedback!]]></foo></string>
+
+	<string name="tracking_title"><foo><![CDATA[Keine Lust auf irrelevante Werbung?]]></foo></string>
+	<string name="tracking_description_a"><foo><![CDATA[Erlaubst du uns, zur Optimierung unseres Spiels zu erfassen, wer dir Werbung für unsere Spiele und andere Werbung anzeigt? Dadurch bleibt die App kostenlos für dich.]]></foo></string>
+	<string name="tracking_description_b"><foo><![CDATA[Wenn du einverstanden bist, tippe auf dem nächsten Bildschirm auf „Erlauben“, andernfalls auf „App-Tracking ablehnen“.]]></foo></string>
+
+    <string name="tracking_plate_title"><foo><![CDATA[Wir ♥ Gratisspiele!]]></foo></string>
+    <string name="tracking_plate_description"><foo><![CDATA[Mit „Erlauben“ hilfst du uns grandiose Gratisspiele zu schaffen.]]></foo></string>
+
+    <string name="terms_title"><foo><![CDATA[Bereit zum Spielen?]]></foo></string>
+	<string name="terms_description_a"><foo><![CDATA[Um loslegen zu können musst du unsere Nutzungsbedingungen und Datenschutzrichtlinie akzeptieren. Tippe dazu auf "OK".]]></foo></string>
+
+	<!-- IDFA AB Testing keys -->
+	<string name="tracking_description_a_1"><foo><![CDATA[Erlaubst du uns, zur Optimierung unseres Spiels zu erfassen, wessen Werbung in unserem Spiel angezeigt wird? Dadurch bleibt die App kostenlos für dich.]]></foo></string>
+	<string name="tracking_description_a_2"><foo><![CDATA[Erlaubst du uns, zur Optimierung deines Spielerlebnisses die Werbeaktivitäten in diesem Spiel zu erfassen? Dadurch bleibt die App kostenlos für dich.]]></foo></string>
+	<string name="tracking_description_a_3"><foo><![CDATA[Um uns dabei zu helfen, dein Spielerlebnis zu verbessern, brauchen wir deine Erlaubnis, um dir weiterhin relevante Werbung anzeigen zu können. Erlaubst du uns, deine Werbeaktivitäten zu erfassen?]]></foo></string>
+
+    <string name="tracking_plate_title_1"><foo><![CDATA[MAG ♥ Gratisspiele!]]></foo></string>
+    <string name="tracking_plate_title_2"><foo><![CDATA[Wir lieben Gratisspiele!]]></foo></string>
+    <string name="tracking_plate_title_3"><foo><![CDATA[MAG liebt Gratisspiele!]]></foo></string>
+    <string name="tracking_plate_title_4"><foo><![CDATA[Gratisspiele rocken!]]></foo></string>
+    <string name="tracking_plate_title_5"><foo><![CDATA[Bei uns haben Spieler die Wahl.]]></foo></string>
+    <string name="tracking_plate_title_6"><foo><![CDATA[Bei MAG haben Spieler die Wahl.]]></foo></string>
+
+    <string name="tracking_plate_description_1"><foo><![CDATA[Tippst du auf „Erlauben“, hilfst du uns, Gratisspiele anzubieten!]]></foo></string>
+    <string name="tracking_plate_description_2"><foo><![CDATA[Durch „Erlauben“ hilfst du uns, das Spiel gratis zu machen!]]></foo></string>
+    <string name="tracking_plate_description_3"><foo><![CDATA[Durch „Erlauben“ bestimmst du dein eigenes Werbeerlebnis!]]></foo></string>
+    <string name="tracking_plate_description_4"><foo><![CDATA[Tippe auf „Erlauben“ und beeinflusse die Werbung, die du siehst!]]></foo></string>
+    <string name="tracking_plate_description_5"><foo><![CDATA[Tippe auf „Erlauben“, damit unsere Spiele weiter gratis bleiben!]]></foo></string>
+    <string name="tracking_plate_description_6"><foo><![CDATA[„Erlaube“ uns, weiter Gratisspiele für dich machen zu können!]]></foo></string>
+
+	<string name="licenses_title"><foo><![CDATA[LIZENZEN]]></foo></string>
+
+    <!-- Native keys that are used with Xcode. Use the prefix 'NATIVE_KEY:' -->
+	<string name="NATIVE_KEY:NSUserTrackingUsageDescription"><foo><![CDATA[Keine Sorge! Das erspart dir für dich nicht relevante Werbung und lässt das Spiel gratis bleiben.]]></foo></string>
+</resources>

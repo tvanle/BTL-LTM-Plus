@@ -1,0 +1,300 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_en
+  m_EditorClassIdentifier:
+  language: en
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Middle Ages Event
+      category: Middle Ages Event
+      categoryLocalized: Middle Ages Event
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: atslimche
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - alchemist
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-2,1-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: lmnaavgtmeoiedik
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - medieval
+        - king
+        - moat
+        swipes:
+        - 1,0-2,0-3,1-3,0
+        - 3,0-3,1-2,2-2,1
+        - 0,1-0,0-1,0-2,0-1,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: tnemeranetrtsjuo
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - tournament
+        - jester
+        swipes:
+        - 1,0-0,1-0,0-1,1-0,2-1,2
+        - 3,1-3,0-2,0-2,1-3,2-2,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ycererliraicauihelmstogtq
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - gothic
+        - mace
+        - squire
+        - artillery
+        swipes:
+        - 4,0-3,1-3,0-2,1-1,1-2,0-1,0-0,0-0,1
+        - 4,1-4,0-3,1-4,2-3,3-4,4
+        - 3,1-2,1-1,2-2,3
+        - 2,0-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: reauedtnv
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - adventure
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: cylahririlpevaim
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - imperial
+        - chivalry
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        - 2,0-3,0-2,1-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: ahktgtnegirsasoc
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - corset
+        - knight
+        - saga
+        swipes:
+        - 1,0-0,0-0,1-0,2
+        - 2,1-2,0-1,1-0,2-1,3-1,2
+        - 3,0-2,0-2,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: etitcinynoquamra
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - romance
+        - antiquity
+        swipes:
+        - 3,0-2,1-1,1-1,0-2,0-3,1-2,2-3,3-3,2
+        - 2,0-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: lstteilsmnucdhstrinipompu
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - punishment
+        - midst
+        - portcullis
+        swipes:
+        - 0,0-1,0-1,1-0,1-1,2-0,2-1,3-0,4-0,3-1,4
+        - 2,0-2,1-2,2-2,3-2,4
+        - 3,0-4,0-3,1-4,1-4,2-3,2-3,3-4,4-4,3-3,4
+        isExtraPackLevel: 0
+      - board: rkpofihct
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - pitchfork
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-1,1-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: jentonsaurupstae
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - joust
+        - rune
+        - peasant
+        swipes:
+        - 3,1-3,0-2,0-2,1-3,2-2,2-3,3
+        - 1,0-2,1-1,1-1,2
+        - 0,3-0,2-0,1-0,0-1,0
+        isExtraPackLevel: 0
+      - board: parmlbuioaraguet
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - atrium
+        - boar
+        - plague
+        swipes:
+        - 0,2-0,1-1,1-0,0-1,0-2,0
+        - 1,2-0,1-1,1-2,1
+        - 3,1-3,0-2,1-3,2-2,2-3,3
+        isExtraPackLevel: 0
+      - board: esepehsxquleaikodteepcuna
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - poleaxe
+        - antique
+        - duchess
+        - keep
+        swipes:
+        - 4,1-4,0-3,0-3,1
+        - 1,1-2,0-1,0-0,0-0,1-1,2-1,3
+        - 4,0-3,0-2,1-3,2-3,3-4,3-4,4
+        - 0,0-0,1-0,2-1,2-2,2-2,3-2,4
+        isExtraPackLevel: 0
+      - board: qteuskepi
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - pike
+        - quest
+        swipes:
+        - 0,2-0,1-0,0-1,0-1,1
+        - 1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: edalbrcnacoeamrl
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - macabre
+        - lord
+        - lance
+        swipes:
+        - 3,2-2,1-3,1-2,0-3,0
+        - 3,0-2,1-2,0-1,0
+        - 1,0-0,0-1,1-0,1-0,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: ssncenhoobairapm
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - champion
+        - baroness
+        swipes:
+        - 1,1-1,0-0,0-0,1-1,2-0,2-0,3-1,3
+        - 3,3-2,2-2,1-3,0-2,0-3,1-3,2-2,3
+        isExtraPackLevel: 0
+      - board: duleswkonseotueaslqmcbgra
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - marquess
+        - castle
+        - longbow
+        - duke
+        swipes:
+        - 0,1-1,1-1,0-0,0
+        - 2,2-2,1-3,0-2,0-1,0-1,1-0,1
+        - 0,0-0,1-1,1-2,2-2,1-3,1
+        - 4,1-4,0-3,0-3,1-3,2-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: ctiadlnel
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - candlelit
+        swipes:
+        - 0,2-0,1-0,0-1,1-2,0-1,0-2,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: ecneoelqu
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - eloquence
+        swipes:
+        - 0,1-0,0-1,1-1,0-2,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: stanadlonahiiert
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - herald
+        - sanitation
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,0-3,1-3,2-3,3
+        - 2,1-1,0-2,0-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: eaelbttngseqeiue
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - battle
+        - queen
+        - siege
+        swipes:
+        - 1,1-1,0-0,0-0,1-0,2
+        - 3,1-2,0-3,0-2,1-3,2
+        - 0,2-1,3-1,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: cnrelaanlisiefas
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - flail
+        - renaissance
+        swipes:
+        - 2,3-3,3-3,2-2,2-3,1-2,1-3,0-2,0-1,0-0,1-0,0
+        - 1,0-0,1-1,2-1,1-0,2
+        isExtraPackLevel: 0
+      - board: ecnodnliaeyemisponurrtibc
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - crusade
+        - prominence
+        - nobility
+        swipes:
+        - 2,2-3,1-3,0-2,1-1,1-2,0-1,0-0,0
+        - 0,1-0,0-1,1-2,2-3,1-2,1-1,2-0,3-1,4-0,4
+        - 4,0-4,1-3,1-4,2-3,3-4,4-4,3
+        isExtraPackLevel: 0

@@ -1,0 +1,306 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nl
+  m_EditorClassIdentifier:
+  language: nl
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Summer
+      category: Summer
+      categoryLocalized: Zomer
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: loblseripannraoz
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - zonnebril
+        - parasol
+        swipes:
+        - 0,1-1,0-0,0-1,1-0,2-1,2-0,3
+        - 3,0-2,0-3,1-2,1-1,2-2,3-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: kezdteonsnsanetr
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - strand
+        - zonnesteek
+        swipes:
+        - 2,1-2,0-1,1-0,0-1,0-0,1-0,2-1,2-1,3-0,3
+        - 2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: paiekntsapervils
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - vakantie
+        - slippers
+        swipes:
+        - 3,0-2,0-1,0-0,0-1,1-2,1-3,1-3,2
+        - 0,0-0,1-0,2-1,3-1,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: keeeorhibwsjmezt
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - zwembroek
+        - ijsthee
+        swipes:
+        - 3,2-3,1-2,0-3,0-2,1-2,2-3,3
+        - 2,0-1,1-1,0-0,0-0,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: nelndazebnzeneoi
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - zonnebaden
+        - zeilen
+        swipes:
+        - 2,0-3,1-3,0-2,1-3,2-3,3
+        - 2,1-2,0-1,1-0,0-1,0-0,1-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: utfnlbsemenuuggr
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - muggenbult
+        - surfen
+        swipes:
+        - 2,0-3,1-3,0-2,1-3,2-3,3
+        - 0,1-0,0-1,0-2,0-1,1-2,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: elnnradetbkveore
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - verbranden
+        - koelte
+        swipes:
+        - 2,0-1,0-0,0-1,1-0,1-0,2
+        - 3,1-3,0-2,0-1,1-0,2-1,2-2,3-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: ndckabniemckzwpi
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - picknick
+        - zwemband
+        swipes:
+        - 0,0-1,0-0,1-1,1-1,2-0,2-0,3-1,3
+        - 2,0-3,0-2,1-3,1-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: dkinuereipalbrmk
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - kamperen
+        - duikbril
+        swipes:
+        - 0,3-0,2-0,1-1,1-0,0-1,0-2,0-3,0
+        - 3,0-2,1-2,0-1,1-1,2-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: keozelbwoahaddnd
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - badhanddoek
+        - zwoel
+        swipes:
+        - 3,1-3,0-2,0-1,1-1,0
+        - 2,2-3,1-3,0-2,1-1,1-2,0-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: rtfarelnjaeeesrn
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - terrasje
+        - flaneren
+        swipes:
+        - 2,3-2,2-3,3-3,2-2,1-2,0-3,1-3,0
+        - 1,3-1,2-0,3-0,2-1,1-1,0-0,1-0,0
+        isExtraPackLevel: 0
+      - board: lzneeaetetwdsakz
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - zweet
+        - zandkasteel
+        swipes:
+        - 1,3-1,2-2,1-3,0-2,0-1,0-0,0-1,1-0,1-0,2-0,3
+        - 3,0-2,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: pksfelereonnzebi
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - zonneklep
+        - frisbee
+        swipes:
+        - 3,2-3,1-3,0-2,1-2,0-1,0-0,0
+        - 0,0-1,1-2,1-3,1-2,2-1,3-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: woenaeletmjsreji
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - watermeloen
+        - ijsje
+        swipes:
+        - 3,0-2,0-3,1-2,1-3,2
+        - 0,3-0,2-0,1-1,0-0,0-1,1-1,2-2,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: debranabloeumice
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - barbecue
+        - limonade
+        swipes:
+        - 0,1-1,0-0,0-1,1-1,2-0,2-0,3-1,3
+        - 2,3-2,2-3,3-3,2-2,1-2,0-3,1-3,0
+        isExtraPackLevel: 0
+      - board: ionvniterkaibitl
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - bikini
+        - ventilator
+        swipes:
+        - 3,3-3,2-2,3-2,2-3,1-3,0-2,1-2,0-1,0-0,0
+        - 0,0-1,0-1,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: niselubotekmepal
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - klamboe
+        - speeltuin
+        swipes:
+        - 2,0-1,0-0,0-1,1-0,2-0,1-1,2-1,3-0,3
+        - 2,1-3,0-2,0-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: llenazadbynvello
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - volleyballen
+        - zand
+        swipes:
+        - 1,0-2,1-2,0-3,0
+        - 3,1-3,0-2,0-1,0-0,0-1,1-0,1-0,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: nzlrovpelihsegec
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - schelp
+        - vlieger
+        - zon
+        swipes:
+        - 1,0-0,0-0,1
+        - 1,2-0,1-1,1-0,0-1,0-2,0-3,0
+        - 3,1-3,0-2,1-3,2-2,3-2,2
+        isExtraPackLevel: 0
+      - board: uwpzdkeoahlnscen
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - schaduw
+        - zonneklep
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-2,1-2,2-2,3
+        - 0,0-1,0-1,1-0,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: ztrkelanepsusefr
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - surfplank
+        - zeester
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0
+        - 2,1-3,1-3,0-2,0-1,1-1,2-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: reenekciocknwnip
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - picknicken
+        - onweer
+        swipes:
+        - 0,1-1,0-0,0-1,1-0,2-0,3
+        - 3,0-2,0-1,1-2,1-3,1-3,2-2,2-1,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: rngckumajrmzipeo
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - zomerjurk
+        - camping
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-1,1-2,1
+        - 3,1-3,0-2,1-2,0-1,1-0,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: uralkuivvastmpef
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - festival
+        - kampvuur
+        swipes:
+        - 0,2-1,1-0,0-1,0-0,1-1,2-0,3-1,3
+        - 3,0-2,0-2,1-3,1-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: aklmpoebzdaeonnb
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - zonnebloem
+        - badpak
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1-1,1
+        - 0,1-0,0-1,0-2,0-3,1-3,2-2,3-1,2-2,2-3,3
+        isExtraPackLevel: 0

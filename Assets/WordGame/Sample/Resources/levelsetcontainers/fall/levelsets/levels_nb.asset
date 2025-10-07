@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_nb
+  m_EditorClassIdentifier:
+  language: no
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Fall
+      category: Fall
+      categoryLocalized: Høst
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: ttetrasleekotkås
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - skolestart
+        - tåkete
+        swipes:
+        - 3,0-2,0-1,0-0,1-0,0-1,1
+        - 3,0-2,1-3,1-3,2-2,3-2,2-1,3-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: reerlvøsugitmmng
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - gummistøvler
+        - regn
+        swipes:
+        - 3,1-2,1-3,0-2,0
+        - 1,1-0,1-0,0-1,0-2,1-3,2-3,1-2,2-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: aaetokkheolanewl
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - halloween
+        - kakao
+        - te
+        swipes:
+        - 3,0-2,0
+        - 2,0-1,1-1,0-0,1-0,0
+        - 3,2-3,1-3,0-2,1-1,1-2,0-1,0-0,1-0,0
+        isExtraPackLevel: 0
+      - board: hørestmbletpvøse
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - september
+        - høstløv
+        swipes:
+        - 0,3-1,2-0,2-1,1-0,1-1,0-0,0
+        - 2,0-3,0-3,1-2,1-1,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: errekkubolokslot
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - oktober
+        - ullsokker
+        swipes:
+        - 2,0-1,1-1,0-0,0-0,1-1,2-0,2-0,3-1,3
+        - 2,0-3,1-3,0-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: shrbnømeoetsvtfe
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - november
+        - høstfest
+        swipes:
+        - 1,2-1,1-0,0-1,0-2,0-3,0-3,1-2,1
+        - 0,2-0,1-0,0-1,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: trrsugoelvgkøhau
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - løvhauger
+        - skogtur
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,1-0,0-1,1
+        - 0,1-0,0-1,1-1,0-2,0-3,0-2,1-3,2-2,3
+        isExtraPackLevel: 0
+      - board: hgntøødksjantevj
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - høstjevndøgn
+        - jakt
+        swipes:
+        - 3,0-2,0-3,1-3,2
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0-3,1-2,2-1,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: gnltitsoiøhrnnug
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - innhøsting
+        - gulrot
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2-3,3
+        - 0,1-0,0-1,0-2,1-1,1-2,2-1,2-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: seskksarykegdekr
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - gresskar
+        - skydekke
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1-1,2
+        - 3,1-3,0-2,1-1,2-2,3-3,3-2,2-3,2
+        isExtraPackLevel: 0
+      - board: yrejlpnpkaaastar
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - kastanjer
+        - paraply
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,0-0,0-0,1
+        - 0,1-1,1-0,0-1,0-2,1-2,2-3,3-2,3-1,3
+        isExtraPackLevel: 0

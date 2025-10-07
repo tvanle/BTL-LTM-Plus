@@ -1,0 +1,300 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_sv
+  m_EditorClassIdentifier:
+  language: sv
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Fashionista Event
+      category: Fashionista Event
+      categoryLocalized: Modeutmaning
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: aracosces
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - accessoar
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,1-2,0-1,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: nalmireaksatimys
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - symaskin
+        - material
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,0-0,0-1,1-2,1
+        - 3,0-2,0-1,0-2,1-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: ånralfapärpngerk
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - knappar
+        - färger
+        - nål
+        swipes:
+        - 1,0-0,1-0,0
+        - 1,2-0,1-1,1-0,0-1,0-2,0
+        - 3,0-3,1-2,2-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: asrtnbogrdreaeogdfmennilr
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - fingerborg
+        - sandaler
+        - modernt
+        swipes:
+        - 3,0-4,0-4,1-3,1-3,2-4,2-3,3
+        - 1,1-0,1-0,0-1,0-2,0-3,0-4,1-4,0
+        - 2,1-2,0-1,0-0,1-1,2-0,2-0,3-1,3-2,4-2,3
+        isExtraPackLevel: 0
+      - board: trielexti
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - textilier
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,2-2,1-1,2
+        isExtraPackLevel: 0
+      - board: neredläditrkksyc
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - siden
+        - kläder
+        - tryck
+        swipes:
+        - 1,0-2,1-2,0-3,0-3,1
+        - 0,0-1,1-2,2-3,2-3,3-2,3
+        - 1,0-0,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: mgttonhadiläeknn
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - klänning
+        - mode
+        - hatt
+        swipes:
+        - 2,0-3,0-2,1-3,1
+        - 0,3-0,2-0,1-0,0
+        - 1,0-2,1-3,1-3,0-2,0-1,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: ksrayräeorblgnsodlslmudak
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - kalsonger
+        - bomull
+        - skräddarsy
+        swipes:
+        - 1,2-0,1-0,0-1,1-1,0-2,0-3,1-4,0-3,0-4,1
+        - 0,2-0,1-0,0-1,0-2,1-1,2
+        - 4,0-3,0-4,1-4,2-3,3-3,2-2,2-2,3-2,4
+        isExtraPackLevel: 0
+      - board: rueyledtmlpaneeoskrdmktom
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - trender
+        - kostym
+        - modell
+        - makeup
+        swipes:
+        - 0,0-1,0-2,0-2,1-1,1-0,1
+        - 4,0-3,0-4,1-4,2-4,3-4,4
+        - 1,0-0,1-1,1-2,1-3,2-3,1
+        - 2,0-3,1-3,2-2,2-1,3-0,3-0,4
+        isExtraPackLevel: 0
+      - board: slplagäpg
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - päls
+        - plagg
+        swipes:
+        - 2,2-1,1-1,0-2,1-2,0
+        - 1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: erysaljnsdeaangt
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - sandaler
+        - jeans
+        - tyg
+        swipes:
+        - 3,0-2,1-2,0
+        - 2,2-2,1-3,1-3,2-3,3
+        - 0,1-0,0-1,0-1,1-0,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: eorsrdmtylärxbpu
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - läder
+        - strumpbyxor
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0-0,1-0,0-1,1-2,2
+        - 1,1-2,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: nertkojlalitltakoewakeldc
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - catwalk
+        - detaljer
+        - kollektion
+        swipes:
+        - 0,0-1,1-2,1-2,0-1,0-0,1-1,2-0,2-0,3-0,4
+        - 3,0-2,1-3,2-3,1-2,2-1,3-1,4-2,4
+        - 4,0-4,1-3,2-3,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: areddsärk
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - skräddare
+        swipes:
+        - 2,1-2,0-1,0-0,0-0,1-1,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: meräamkenögtnnsn
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - mönster
+        - mannekäng
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,1-3,1-3,0-2,0
+        - 1,2-1,1-1,0-2,0-3,1-3,2-2,3
+        isExtraPackLevel: 0
+      - board: bxnegatxyartrova
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - extravagant
+        - byxor
+        swipes:
+        - 0,2-0,1-1,1-1,0-0,0
+        - 3,3-3,2-3,1-2,1-3,0-2,0-1,1-0,2-1,2-2,3-2,2
+        isExtraPackLevel: 0
+      - board: tksamriisiätslnnrkaideväm
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - minimalistiskt
+        - ränder
+        - väska
+        swipes:
+        - 2,0-3,0-3,1-2,1-3,2
+        - 0,3-0,2-0,1-0,0-1,0-1,1
+        - 4,4-4,3-4,2-4,1-4,0-3,1-3,2-2,3-2,2-1,2-1,3-2,4-1,4-0,4
+        isExtraPackLevel: 0
+      - board: ajdkedgar
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - dragkedja
+        swipes:
+        - 2,1-2,0-1,0-0,0-0,1-1,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: gimbtbeloumutiqo
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - boutique
+        - blommigt
+        swipes:
+        - 3,2-3,1-3,0-2,1-2,0-1,0-0,1-0,0
+        - 1,2-0,1-1,1-0,0-1,0-2,0-3,1-2,2
+        isExtraPackLevel: 0
+      - board: sortoksafstriike
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - sofistikerat
+        - skor
+        swipes:
+        - 2,0-1,0-1,1-2,1
+        - 0,3-0,2-0,1-0,0-1,1-2,1-1,0-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: ertggnikdiicsepr
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - designer
+        - prickigt
+        swipes:
+        - 2,0-3,0-2,1-3,1-3,2-2,2-3,3-2,3
+        - 0,1-1,0-0,0-1,1-0,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: ktratjsskiilydfsthutloano
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - outfit
+        - stylist
+        - handskar
+        - kjol
+        swipes:
+        - 0,2-0,1-1,0-0,0
+        - 2,1-2,0-3,0-3,1-2,2-3,2-3,3-2,3
+        - 0,1-1,1-2,2-1,2-0,2-1,3-1,4
+        - 4,0-3,1-4,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: attenvnskcifieyahnmgsoias
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - fashionista
+        - smycken
+        - vintage
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,0-4,0-3,1
+        - 4,0-3,1-4,2-4,3-3,3-3,4-4,4
+        - 1,2-0,1-0,0-1,1-2,0-1,0-2,1-2,2-2,3-1,4-0,4
+        isExtraPackLevel: 0

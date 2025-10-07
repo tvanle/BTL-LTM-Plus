@@ -1,0 +1,304 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_tr
+  m_EditorClassIdentifier:
+  language: tr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Nature
+      category: Nature
+      categoryLocalized: DOĞA
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: çhaçivkea
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - çiçek
+        - hava
+        swipes:
+        - 1,0-2,0-2,1-2,2
+        - 0,2-1,1-0,1-1,0-0,0
+        isExtraPackLevel: 0
+      - board: onnlyçşiinaemeky
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - yeşil
+        - kanyon
+        - çimen
+        swipes:
+        - 1,1-0,1-0,0-1,0-2,0
+        - 2,0-2,1-1,1-0,2-0,3-1,3
+        - 3,0-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: klrnnaheuaoimsmr
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - orman
+        - nehir
+        - kumsal
+        swipes:
+        - 0,2-0,1-0,0-1,0-1,1-1,2
+        - 3,2-3,1-2,0-3,0-2,1
+        - 2,1-3,0-2,0-1,1-0,2
+        isExtraPackLevel: 0
+      - board: adlöğlanahaaçyvg
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - ağaç
+        - hayvan
+        - göl
+        - dal
+        swipes:
+        - 1,1-2,0-1,0
+        - 3,0-3,1-2,1
+        - 1,1-2,1-1,0-2,0-3,1-3,2
+        - 0,3-0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: uskanagrğyüzador
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - rüzgar
+        - okyanus
+        - dağ
+        swipes:
+        - 1,0-0,0-0,1
+        - 2,0-2,1-1,1-1,2-0,2-0,3-1,3
+        - 3,0-2,1-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: rslufeomçittyaub
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - atmosfer
+        - çiy
+        - bulut
+        swipes:
+        - 3,0-2,0-2,1-3,2-3,1
+        - 0,1-1,0-0,0
+        - 1,0-2,1-3,2-2,2-1,3-0,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: brçyhaeasakpahar
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - yaprak
+        - sahra
+        - bahçe
+        swipes:
+        - 0,1-0,0-1,0-2,1-2,0
+        - 0,1-1,1-0,2-1,3-1,2
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        isExtraPackLevel: 0
+      - board: rkkihiçluenaufğa
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - ağaçlik
+        - nehir
+        - ufuk
+        swipes:
+        - 0,0-1,0-0,1-1,1
+        - 2,0-1,1-0,2-1,2-0,3
+        - 3,0-2,0-3,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: üikyşülzsyriessü
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - sessizlik
+        - yürüyüş
+        swipes:
+        - 3,1-3,0-2,0-1,1-1,0-0,1-0,0
+        - 0,1-0,0-1,0-2,0-3,1-3,2-2,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: dzergielönyvçeem
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - göç
+        - deniz
+        - meyveler
+        swipes:
+        - 3,0-2,0-2,1-3,1-2,2-3,2-2,3-3,3
+        - 0,0-1,0-1,1-1,2-1,3
+        - 0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: krnbrieaatltaynkeççaporim
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - mantar
+        - çiçekler
+        - yaban
+        - tropik
+        swipes:
+        - 1,1-2,0-1,0-0,0-0,1-0,2
+        - 3,0-2,1-3,1-2,2-2,3
+        - 3,1-3,0-2,1-1,1-0,1-0,2-1,3-1,4
+        - 4,0-4,1-4,2-4,3-3,3-4,4
+        isExtraPackLevel: 0
+      - board: dasailnça
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - nadas
+        - çali
+        swipes:
+        - 1,0-2,0-2,1-1,1
+        - 0,0-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: tkböelecöarkgtop
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - gölet
+        - toprak
+        - böcek
+        swipes:
+        - 2,1-3,2-3,1-2,0-3,0
+        - 1,0-2,0-3,0-2,1-1,1-1,2
+        - 0,0-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: tarkslaraeihhtsa
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - hasat
+        - sahil
+        - krater
+        swipes:
+        - 3,1-3,0-2,0-1,0-1,1-2,1
+        - 2,0-3,0-3,1-2,1-1,2
+        - 0,0-0,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: kşgaukknsalvirao
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - volkan
+        - kasirga
+        - kuş
+        swipes:
+        - 0,1-0,0-1,0
+        - 1,2-1,1-0,1-0,0-1,0-2,1-2,0
+        - 3,1-3,0-2,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: adşeelamdaraialğgyraamaal
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - mağara
+        - dalga
+        - yarimada
+        - şelale
+        swipes:
+        - 2,0-3,0-4,0-4,1-4,2-4,3
+        - 2,0-3,0-3,1-2,1-2,2-3,2-3,3-4,3
+        - 1,1-0,1-0,0-1,0-2,0
+        - 1,0-0,0-0,1-1,2-0,2-1,3
+        isExtraPackLevel: 0
+      - board: inmgnuayk
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - kum
+        - yangin
+        swipes:
+        - 1,0-0,0-1,1-0,1-0,2-1,2
+        - 2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: bneileitozunupls
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - polen
+        - buzul
+        - esinti
+        swipes:
+        - 2,1-3,0-2,0-3,1-3,2-3,3
+        - 0,1-0,0-1,0-2,1-2,0
+        - 1,0-0,1-0,2-1,2-1,3
+        isExtraPackLevel: 0
+      - board: ovrmmehuyleoevat
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - tohum
+        - meyveler
+        - ova
+        swipes:
+        - 0,0-1,0-2,0
+        - 0,2-1,2-0,1-1,0-0,0-1,1-2,1-2,2
+        - 3,0-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: kbitatiaamkiirbt
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - irmak
+        - tabiat
+        - bitki
+        swipes:
+        - 2,0-3,1-3,0-2,1-2,2
+        - 1,0-0,0-1,1-2,2-3,2-3,3
+        - 0,0-1,0-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: ümyölaliairnkrçzaakgzümiö
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - manzara
+        - iklim
+        - gökyüzü
+        - ari
+        - çöl
+        swipes:
+        - 4,0-3,0-4,1
+        - 3,1-3,0-4,1
+        - 4,1-4,0-3,0-2,0-1,0-0,0-0,1
+        - 3,0-2,0-1,1-2,1-1,2
+        - 2,0-2,1-1,2-0,1-1,1-0,2-0,3
+        isExtraPackLevel: 0

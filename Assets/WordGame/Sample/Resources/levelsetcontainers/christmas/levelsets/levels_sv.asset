@@ -1,0 +1,306 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_sv
+  m_EditorClassIdentifier:
+  language: sv
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Holidays
+      category: Holidays
+      categoryLocalized: Jultider
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: taeatkrnlgljussu
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - julgran
+        - lussekatt
+        swipes:
+        - 0,1-0,0-1,0-2,0-2,1-1,1-1,2-0,3-0,2
+        - 3,1-3,0-2,1-1,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: eaujcilkudlarlne
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - lucia
+        - julkalender
+        swipes:
+        - 3,3-2,3-2,2-3,2-3,1-2,1-3,0-2,0-1,0-0,1-0,0
+        - 1,0-0,1-0,2-1,2-1,3
+        isExtraPackLevel: 0
+      - board: grötsnyrtorilbsg
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - risgrynsgröt
+        - blot
+        swipes:
+        - 1,0-0,0-1,1-0,1
+        - 3,2-3,1-2,0-3,0-2,1-2,2-1,2-0,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: aenselmöralasgdn
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - mellandagsrea
+        - snö
+        swipes:
+        - 3,1-2,0-3,0
+        - 2,2-1,3-1,2-2,1-3,1-3,0-2,0-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: vtdröbtaröofrmte
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - tomtefar
+        - vörtbröd
+        swipes:
+        - 0,3-0,2-0,1-1,2-1,1-0,0-1,0-2,0
+        - 2,2-2,1-1,0-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: meenaradnalddppo
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - dopparedan
+        - mandel
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0
+        - 3,1-3,0-2,0-1,0-1,1-1,2-2,3-3,2-2,2-3,3
+        isExtraPackLevel: 0
+      - board: gmiurrjlöksatink
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - julskinka
+        - grötrim
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1
+        - 2,2-3,3-3,2-2,1-1,1-1,0-2,0-3,0-3,1
+        isExtraPackLevel: 0
+      - board: atnadräjvnutejls
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - julstjärna
+        - advent
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1
+        - 1,0-2,1-2,0-3,0-3,1-3,2-2,2-1,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: llemsrarmenaällk
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - smällkaramell
+        - ren
+        swipes:
+        - 1,1-1,0-2,0
+        - 0,2-0,1-0,0-1,0-2,0-3,0-3,1-3,2-2,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: nejegarvduuäljkl
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - julkärve
+        - juldagen
+        swipes:
+        - 2,0-1,0-0,0-0,1-1,1-0,2-1,2-0,3
+        - 1,0-2,1-3,0-2,0-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: suhpxskeakaplrap
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - pepparkakshus
+        - lax
+        swipes:
+        - 0,0-0,1-0,2
+        - 3,3-3,2-3,1-3,0-2,0-1,0-1,1-2,1-2,2-1,2-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ssjltesöjgolärnu
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - stjärngosse
+        - julöl
+        swipes:
+        - 2,0-3,0-3,1-3,2-3,3
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1-2,1-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: nmtstororfljifau
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - julafton
+        - rimfrost
+        swipes:
+        - 0,1-0,0-1,1-1,0-2,0-3,0-3,1-2,1
+        - 3,1-3,0-2,1-2,0-1,1-0,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: mnegieansnadtlna
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - annandagen
+        - mistel
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0
+        - 3,0-2,0-1,1-2,1-3,2-3,1-2,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: ljbaukubtsuriflk
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - lutfisk
+        - julkrubba
+        swipes:
+        - 1,0-2,1-2,0-3,0-3,1-2,2-3,2-2,3-3,3
+        - 0,3-0,2-0,1-1,0-0,0-1,1-1,2
+        isExtraPackLevel: 0
+      - board: jäketarnlsönieks
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - önskelista
+        - järnek
+        swipes:
+        - 0,0-1,0-2,0-3,0-3,1-2,1
+        - 2,1-3,1-3,0-2,0-1,0-0,1-0,0-1,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: rmredontbjiiuldv
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - julbord
+        - midvinter
+        swipes:
+        - 1,0-2,1-2,0-3,0-3,1-2,2-3,2-3,3-2,3
+        - 1,1-0,0-1,0-0,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: luskjktöesljatsu
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - julstök
+        - ljusstake
+        swipes:
+        - 0,3-0,2-1,2-2,1-2,0-1,0-0,0-1,1-0,1
+        - 3,1-3,0-2,1-1,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: gotjgsfuölrlgang
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - glögg
+        - julgransfot
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-1,0-2,0-1,1-2,2-1,2-2,3
+        - 0,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: kjårcuynälvrknäd
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - knäck
+        - julvärd
+        - nyår
+        swipes:
+        - 3,0-2,0-2,1-3,1
+        - 1,2-1,1-1,0-2,1-2,0-3,1-3,0
+        - 0,0-1,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: macnuokembvgmelä
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - gävlebocken
+        - mumma
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0
+        - 3,1-3,0-2,1-2,0-1,0-1,1-1,2-2,3-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: staduilkmlsojuch
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - julmust
+        - ischoklad
+        swipes:
+        - 1,0-2,1-2,0-3,0-3,1-3,2-2,2-2,3-3,3
+        - 0,0-1,0-1,1-0,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: stgdsohibomtletö
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - tomtebloss
+        - högtid
+        swipes:
+        - 2,0-3,0-2,1-3,1-3,2-3,3
+        - 1,3-1,2-2,1-2,0-1,0-0,1-0,0-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: rdakökrndjåaulml
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - julmarknad
+        - rödkål
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-3,0
+        - 1,1-0,0-1,0-2,0-3,1-2,2-3,3-3,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: atrprvtokoulsnij
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - julotta
+        - prinskorv
+        swipes:
+        - 3,0-2,1-2,0-1,0-0,0-0,1-1,1-0,2-1,2
+        - 3,0-2,1-3,1-3,2-2,2-1,3-0,3
+        isExtraPackLevel: 0

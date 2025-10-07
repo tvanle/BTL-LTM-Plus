@@ -1,0 +1,296 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_fr
+  m_EditorClassIdentifier:
+  language: fr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Middle Ages
+      category: Middle Ages
+      categoryLocalized: Événement Médiéval
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: ierlhcave
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - chevalier
+        swipes:
+        - 2,1-1,1-2,0-1,0-0,0-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: itecsmglaiéelchr
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - alchimiste
+        - clergé
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0
+        - 0,1-0,0-1,0-2,0-1,1-1,2-0,3-0,2-1,3-2,3
+        isExtraPackLevel: 0
+      - board: deesacserschioud
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - croisade
+        - duchesse
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2-2,2-3,3-2,3
+        - 1,2-0,1-1,0-0,0-1,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: rselaeancvydsércuineéméia
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - écuyer
+        - médiéval
+        - renaissance
+        swipes:
+        - 4,2-4,1-3,1-4,0-3,0-2,0-1,1-1,0-2,1-3,2-2,2
+        - 1,0-2,0-1,1-2,1-3,2-4,3-4,4-3,4
+        - 0,0-0,1-1,1-0,2-0,3-0,4
+        isExtraPackLevel: 0
+      - board: edneiermî
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - reine
+        - dîme
+        swipes:
+        - 1,1-2,0-1,0-0,0
+        - 0,0-0,1-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: qeruuieehgprtoem
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - gothique
+        - empereur
+        swipes:
+        - 2,0-3,0-2,1-3,2-3,1-2,2-3,3-2,3
+        - 1,1-1,0-0,0-0,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: esncesuhpcaâriet
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - château
+        - princesse
+        swipes:
+        - 0,1-0,0-1,0-2,0-1,1-0,2-1,3-1,2-0,3
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: ioinorriunfttoes
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - festin
+        - tournoi
+        - roi
+        swipes:
+        - 2,0-1,0-2,1
+        - 0,0-1,0-0,1-1,2-1,1-0,2-0,3
+        - 2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: eolannrbsirireseudaegvble
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - barde
+        - guerre
+        - vilain
+        - noblesse
+        swipes:
+        - 0,0-1,0-2,0-3,0-4,0-3,1-4,2-4,1
+        - 1,0-1,1-2,1-3,2-4,3-4,4
+        - 0,0-1,1-0,1-0,2-1,3-0,4
+        - 2,0-3,1-2,2-2,1-3,2
+        isExtraPackLevel: 0
+      - board: ipeèséegé
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - siège
+        - épée
+        swipes:
+        - 2,0-1,0-2,1-2,2
+        - 1,1-0,2-0,1-1,0-0,0
+        isExtraPackLevel: 0
+      - board: elaraluermncbmah
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - armure
+        - chambellan
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-0,1-1,2-1,1-2,2-2,1
+        - 0,2-0,1-1,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: ecudcaesnasclrro
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - lance
+        - carrosse
+        - duc
+        swipes:
+        - 3,1-2,0-3,0
+        - 1,2-1,1-1,0-2,0-3,0-2,1-3,2-2,2
+        - 0,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: miaeèasrterfrbsqotesueral
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - forteresse
+        - marquis
+        - arbalète
+        swipes:
+        - 2,1-2,0-3,1-3,0-4,0-4,1-3,2-3,3
+        - 0,4-0,3-0,2-0,1-0,0-1,1-1,0
+        - 1,2-1,1-2,2-2,1-1,0-2,0-3,1-4,1-4,2-4,3
+        isExtraPackLevel: 0
+      - board: celialted
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - citadelle
+        swipes:
+        - 0,2-0,1-0,0-1,1-2,0-1,0-2,1-2,2-1,2
+        isExtraPackLevel: 0
+      - board: essetavcmovhlice
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - vicomtesse
+        - cheval
+        swipes:
+        - 3,2-3,1-3,0-2,0-1,0-0,0
+        - 2,1-1,0-2,0-1,1-0,1-0,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: openualtbltiiead
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - oubliette
+        - paladin
+        swipes:
+        - 1,1-1,0-2,1-2,0-3,0-3,1-3,2
+        - 0,3-0,2-0,1-1,1-0,0-1,0-2,1-3,2-2,3
+        isExtraPackLevel: 0
+      - board: eotobnncnonemauroedfubuof
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - adoubement
+        - bouffon
+        - couronne
+        swipes:
+        - 2,0-1,0-0,0-0,1-1,1-0,2-0,3-0,4
+        - 4,4-4,3-4,2-4,1-4,0-3,1-3,0
+        - 3,2-3,1-3,0-2,0-1,0-2,1-2,2-1,2-1,3-2,4
+        isExtraPackLevel: 0
+      - board: sfnerorab
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - baron
+        - serf
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 2,0-1,0-1,1-2,1-2,2
+        isExtraPackLevel: 0
+      - board: emuécaheu
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - heaume
+        - écu
+        swipes:
+        - 0,0-1,0-2,0
+        - 0,0-1,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: vouraldassbtauor
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - troubadour
+        - vassal
+        swipes:
+        - 0,3-0,2-0,1-1,0-0,0-1,1
+        - 3,1-3,0-2,0-1,0-2,1-3,2-2,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: rïapeineenrepalf
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - palefrenier
+        - païen
+        swipes:
+        - 3,0-2,0-1,1-0,0-1,0
+        - 0,0-1,0-2,0-3,1-3,0-2,1-3,2-2,2-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: nidrraeeesiszurt
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - suzerain
+        - destrier
+        swipes:
+        - 2,3-2,2-3,1-3,0-2,0-2,1-3,2-3,3
+        - 1,1-1,0-0,0-0,1-0,2-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: tltmeabeuamfréreotnéficsh
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - combat
+        - héraut
+        - ménestrel
+        - fief
+        swipes:
+        - 0,0-1,0-0,1-1,1
+        - 3,3-3,2-3,1-4,0-3,0-2,0-2,1-2,2-1,2
+        - 4,0-4,1-4,2-4,3-3,3-2,3
+        - 2,0-1,1-0,2-1,3-0,3-0,4
+        isExtraPackLevel: 0

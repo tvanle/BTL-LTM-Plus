@@ -1,0 +1,221 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_tr
+  m_EditorClassIdentifier:
+  language: tr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Sweet Treats
+      category: Sweet Treats
+      categoryLocalized: TATLI İKRAMLAR
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: emeeşlker
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - şekerleme
+        swipes:
+        - 1,1-0,1-0,0-1,0-2,0-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: kateuaiçrlyiabok
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - çikolata
+        - kurabiye
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,1-2,0-3,0
+        - 3,2-3,1-3,0-2,0-1,1-1,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: eiztlrbeezolşamk
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - şerbet
+        - leziz
+        - lokma
+        swipes:
+        - 3,1-2,1-3,0-2,0-1,0
+        - 0,0-0,1-1,1-1,2-2,2
+        - 0,0-0,1-1,2-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: üsbattlareerauzmşudtüeder
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - turta
+        - zerde
+        - aşure
+        - badem
+        - sütlü
+        swipes:
+        - 1,1-0,2-0,1-1,0-0,0
+        - 2,2-2,1-2,0-1,0-0,1
+        - 2,2-1,1-2,1-1,2-0,2
+        - 4,1-3,0-4,0-3,1-4,2
+        - 4,1-3,2-3,3-4,4-3,4
+        isExtraPackLevel: 0
+      - board: azbtpesae
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - pasta
+        - beze
+        swipes:
+        - 2,2-2,1-1,0-2,0
+        - 1,1-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: oçakaürekalöklgç
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - çörek
+        - kakao
+        - güllaç
+        swipes:
+        - 2,0-1,1-1,0-2,1-2,2-1,2
+        - 0,0-1,1-0,1-0,2-0,3
+        - 3,0-3,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: mçeraenkrirektaş
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - şeker
+        - krema
+        - tarçin
+        swipes:
+        - 1,0-2,0-2,1-1,2-1,1-2,2
+        - 0,0-0,1-1,2-0,3-0,2
+        - 3,0-3,1-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: malirdteuoezndzl
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - lezzetli
+        - dondurma
+        swipes:
+        - 1,2-1,1-0,0-1,0-0,1-0,2-0,3-1,3
+        - 3,0-2,1-2,0-3,1-3,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: pvaakeeaoiklbrnmakgazhelv
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - organik
+        - helva
+        - baklava
+        - pekmez
+        swipes:
+        - 0,4-0,3-0,2-0,1-1,0-0,0
+        - 2,1-1,0-2,0-1,1-2,2-1,3-2,3
+        - 1,0-2,0-3,0-4,0-3,1
+        - 3,3-3,2-3,1-4,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: siefrpenk
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - krep
+        - nefis
+        swipes:
+        - 1,0-0,0-0,1-1,1-0,2
+        - 2,0-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: lmeiekblmalharua
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - karamel
+        - muhallebi
+        swipes:
+        - 1,0-2,0-3,1-3,0-2,1-3,2-2,3-2,2-3,3
+        - 1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: lrikiebaeşizkdna
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - kazandibi
+        - şekerli
+        swipes:
+        - 1,0-0,1-0,0-1,1-1,2-0,3-0,2
+        - 3,3-3,2-3,1-3,0-2,0-1,0-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: ayeakrakmlezyaeekfiedcark
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - cezerye
+        - kadayif
+        - karamela
+        - kek
+        swipes:
+        - 4,2-4,1-4,0
+        - 2,1-2,0-3,0-3,1-3,2-4,2-4,3-3,3
+        - 1,0-0,1-0,0-1,1-2,2-3,1-2,1
+        - 1,0-0,1-1,2-0,2-0,3-1,4-2,4
+        isExtraPackLevel: 0
+      - board: pyeimişan
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - pişmaniye
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0-2,0-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: reytapieşkrşeeöb
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - şekerpare
+        - şöbiyet
+        swipes:
+        - 3,1-2,0-3,0-2,1-2,2-3,2-3,3
+        - 0,1-0,0-1,1-1,0-2,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: slemungiperhamşö
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - höşmerim
+        - supangle
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1-2,1
+        - 3,1-3,0-2,0-1,0-1,1-2,1-3,2-3,3
+        isExtraPackLevel: 0

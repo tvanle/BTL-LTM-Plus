@@ -1,0 +1,245 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_da
+  m_EditorClassIdentifier:
+  language: da
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Back to School
+      category: Back to School
+      categoryLocalized: Skolestart
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: gikystmna
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - gymnastik
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: shdnuneilpepaegp
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - pegepind
+        - penalhus
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1-1,1-0,2-0,3
+        - 1,1-1,0-2,0-2,1-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: eraetsltetvtkkya
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - tavle
+        - kateter
+        - tysk
+        swipes:
+        - 3,0-2,0-1,0-0,0
+        - 1,0-2,1-1,1-0,1-0,2-0,3-1,3
+        - 3,1-3,0-2,1-2,2-3,3
+        isExtraPackLevel: 0
+      - board: srekkeøgobalelss
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - skolebøger
+        - klasse
+        swipes:
+        - 3,2-3,1-2,1-3,0-2,0-1,0
+        - 0,3-0,2-0,1-1,0-0,0-1,1-2,2-3,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: nrstipeilfgergaluerokæleg
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - geografi
+        - kuglepen
+        - lærer
+        - stil
+        swipes:
+        - 2,1-3,1-2,0-3,0
+        - 2,0-1,0-1,1-2,1-2,2
+        - 0,0-1,1-0,2-0,1-1,2-0,3-1,3-0,4
+        - 4,0-3,0-4,1-3,2-3,1-4,2-4,3-4,4
+        isExtraPackLevel: 0
+      - board: kikemifys
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - fysik
+        - kemi
+        swipes:
+        - 0,1-0,0-1,0-1,1
+        - 0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: ekmeotanbikeibls
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - bibliotek
+        - eksamen
+        swipes:
+        - 3,1-2,0-3,0-2,1-2,2-3,3-3,2
+        - 0,1-0,0-1,0-2,0-1,1-0,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: maakrmrieklttieg
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - lektier
+        - grammatik
+        swipes:
+        - 3,0-2,0-1,1-0,0-1,0-2,1-3,1-3,2-3,3
+        - 2,1-2,0-1,1-0,0-1,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: rfrreroertikavkt
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - frikvarter
+        - rektor
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-2,1
+        - 1,3-1,2-2,1-2,0-1,0-0,0-0,1-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: stdldseræeknuksaibkisllev
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - viskelæder
+        - billedkunst
+        - saks
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 2,1-1,1-1,0-2,0-3,0-4,0-3,1-2,2-1,2-0,3-1,3
+        - 4,0-4,1-4,2-3,2-4,3-3,4-3,3-2,4-1,3-2,3
+        isExtraPackLevel: 0
+      - board: æletrdeiv
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - idræt
+        - elev
+        swipes:
+        - 0,0-1,0-2,1-2,0
+        - 1,0-2,1-1,1-0,2-0,1
+        isExtraPackLevel: 0
+      - board: ksknetatablyelos
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - blyant
+        - skoletaske
+        swipes:
+        - 3,0-2,1-2,0-1,0-0,0-1,1-0,1-1,2-0,3-0,2
+        - 1,1-2,1-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: rvrseenklleaeræd
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - dansk
+        - lærer
+        - elever
+        swipes:
+        - 1,0-0,1-0,0-1,1-0,2-0,3
+        - 1,1-2,0-1,0-2,1-2,2
+        - 3,0-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: iskektanmamgtele
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - matematik
+        - engelsk
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-2,1
+        - 0,1-1,1-0,0-1,0-2,1-2,2-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: kesagsnhsfaiidnrfsumrotaf
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - fransk
+        - historie
+        - samfundsfag
+        swipes:
+        - 2,0-3,0-4,1-4,0-3,1-4,2-3,2-3,3-4,3-3,4-4,4
+        - 2,3-2,2-2,1-2,0-1,0-0,0-1,1-1,2
+        - 1,1-0,1-0,2-1,3-0,3-0,4
+        isExtraPackLevel: 0
+      - board: bfgdtivajaoigøtlgaskollid
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - biologi
+        - diktat
+        - sløjd
+        - valgfag
+        swipes:
+        - 1,1-2,0-1,0-2,1-1,2-2,2-2,3
+        - 3,0-2,0-3,1-3,2-3,3
+        - 4,0-3,0-4,1-4,2-4,3-4,4
+        - 0,4-0,3-0,2-0,1-0,0-1,1-1,2
+        isExtraPackLevel: 0
+      - board: bgkevlnsinæinlakguleremni
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - blækregning
+        - musik
+        - lineal
+        - ven
+        swipes:
+        - 4,1-3,0-4,0
+        - 3,1-4,0-3,0-4,1-4,2-3,2
+        - 2,0-2,1-2,2-3,3-2,3
+        - 0,4-0,3-0,2-0,1-0,0-1,0-1,1-2,2-1,2-1,3-1,4
+        isExtraPackLevel: 0
+      - board: hgieocvervsagtsuopertsnng
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - opgave
+        - overstregningstusch
+        swipes:
+        - 4,4-4,3-3,4-3,3-4,2-3,2-4,1-3,1-4,0-3,0-2,1-2,0-1,1-1,0-0,0-0,1-0,2-0,3-0,4
+        - 1,1-2,1-2,2-1,2-1,3-2,3
+        isExtraPackLevel: 0

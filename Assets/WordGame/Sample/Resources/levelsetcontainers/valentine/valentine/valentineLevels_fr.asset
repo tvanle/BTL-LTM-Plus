@@ -1,0 +1,240 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: valentineLevels_fr
+  m_EditorClassIdentifier:
+  language: fr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Valentine's
+      category: Valentine's
+      categoryLocalized: Saint-Valentin
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: êentfarub
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - ruban
+        - fête
+        swipes:
+        - 1,0-0,1-0,0-1,1
+        - 0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: rîoisinresaadnpm
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - passion
+        - dîner
+        - mari
+        swipes:
+        - 3,0-3,1-3,2-3,3
+        - 0,0-1,1-1,0-0,1-0,2
+        - 2,0-2,1-1,1-0,2-1,2-2,3-2,2
+        isExtraPackLevel: 0
+      - board: acrarteuaeudmoac
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - cadeau
+        - amour
+        - carte
+        swipes:
+        - 1,2-0,1-0,0-1,1-1,0
+        - 0,1-0,0-1,0-2,0-2,1
+        - 3,0-2,0-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: onuxgadaaeirierpmuoeucrtt
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - cupidon
+        - mariage
+        - tourtereaux
+        swipes:
+        - 4,0-3,1-2,1-2,0-3,0-4,1-4,2-3,2-2,2-2,3-3,3
+        - 1,0-0,0-1,1-2,2-3,3-4,4-4,3
+        - 1,0-0,0-0,1-0,2-1,3-0,4-1,4
+        isExtraPackLevel: 0
+      - board: ragenrennoiémmiophtsmacoc
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - chérie
+        - compagnon
+        - romantisme
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-3,0-4,1-4,0-3,1-3,2
+        - 4,0-3,0-2,0-1,1-1,2-2,2-3,3-4,3-4,4
+        - 2,0-2,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: necgmhapa
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - champagne
+        swipes:
+        - 2,2-2,1-2,0-1,1-1,0-0,0-0,1-0,2-1,2
+        isExtraPackLevel: 0
+      - board: reefsrurogcuuoel
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - coeur
+        - fleurs
+        - rouge
+        swipes:
+        - 0,2-0,1-0,0-1,0-1,1
+        - 3,1-3,0-2,1-2,0-1,1-0,2
+        - 2,1-1,0-2,0-3,1-3,2
+        isExtraPackLevel: 0
+      - board: eupluioerqtnomac
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - romantique
+        - couple
+        swipes:
+        - 3,0-2,0-1,0-2,1-3,2-3,1
+        - 0,1-0,0-1,0-2,0-3,1-2,1-1,2-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: éseltcclalhounioiaçapofse
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - fiançailles
+        - chocolat
+        - épouse
+        swipes:
+        - 0,1-0,0-1,0-2,0-3,0-4,0
+        - 0,3-0,2-0,1-1,2-1,1-2,1-3,1-4,1
+        - 2,0-1,1-2,1-3,2-3,1-4,1-4,2-4,3-3,4-2,4-1,4
+        isExtraPackLevel: 0
+      - board: dlonrybtieéarelléliaciont
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - célébration
+        - idylle
+        - relation
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,1-2,0-3,0
+        - 1,0-0,1-0,0-1,1-2,1-3,2
+        - 0,0-1,1-0,1-0,2-1,3-2,2-1,2-2,3-3,3-2,4-3,4
+        isExtraPackLevel: 0
+      - board: ellcdehan
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - chandelle
+        swipes:
+        - 0,1-0,0-1,0-2,0-1,1-2,1-2,2-1,2-0,2
+        isExtraPackLevel: 0
+      - board: nelagplemaciocna
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - compagne
+        - alliance
+        swipes:
+        - 3,3-2,3-2,2-3,1-3,0-2,0-2,1-3,2
+        - 1,0-0,0-0,1-1,2-1,1-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: rstsetnuauobrasi
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - bisous
+        - restaurant
+        swipes:
+        - 0,3-0,2-1,3-1,2-0,1-1,1-0,0-1,0-2,0-2,1
+        - 3,1-3,0-2,0-2,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: uiseegbmvaconbol
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - colombes
+        - bague
+        - vin
+        swipes:
+        - 0,1-1,0-0,0
+        - 1,0-1,1-1,2-0,3-0,2
+        - 2,1-2,0-3,0-3,1-3,2-2,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: rirdréslaoecncsclnfroeaie
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - fiancés
+        - collier
+        - rencard
+        - rose
+        swipes:
+        - 4,3-4,2-4,1-4,0
+        - 2,1-1,0-2,0-3,0-3,1-4,1-3,2
+        - 0,1-0,0-1,1-2,1-1,2-0,2-0,3
+        - 3,1-3,0-2,0-2,1-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: rexquaiuernpbmueaooatrute
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - amoureux
+        - bouquet
+        - partenaire
+        swipes:
+        - 1,2-1,1-1,0-0,0-0,1-0,2-0,3-1,3-0,4-1,4
+        - 2,2-2,1-2,0-3,1-4,1-4,0-3,0
+        - 4,1-3,2-3,1-4,2-4,3-3,3-2,3-2,4
+        isExtraPackLevel: 0
+      - board: stcosaenlretminrénvetaiaoasétmygeiba
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - amant
+        - sentiments
+        - voyage
+        - célibataire
+        - éros
+        swipes:
+        - 4,0-3,0-3,1-4,1
+        - 2,1-3,1-2,0-3,0-4,0-5,0-4,1-3,2-4,2-3,3-4,4
+        - 0,2-0,1-0,0-1,1-1,0-2,0
+        - 2,1-1,2-2,3-2,2-1,3-0,3-0,4-1,4-1,5-0,5
+        - 5,0-5,1-5,2-5,3-5,4
+        isExtraPackLevel: 0

@@ -1,0 +1,308 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_fr
+  m_EditorClassIdentifier:
+  language: fr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Jungle
+      category: Jungle
+      categoryLocalized: Jungle
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: clerciood
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - crocodile
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0-2,0-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: tlanenpaiotcnlou
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - toucan
+        - plante
+        - lion
+        swipes:
+        - 1,1-0,1-1,0-0,0
+        - 2,0-1,0-2,1-1,2-0,3-0,2
+        - 2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: cdcéheasipnamazc
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - cascade
+        - chimpanzé
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,1-2,0-3,0
+        - 3,0-3,1-3,2-2,3-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: rllnvpueoéahalgpciaéinott
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - chaleur
+        - papillon
+        - végétation
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,1-3,0-2,1-2,0-1,0
+        - 0,3-0,2-0,1-0,0-1,1-2,2-3,2-3,3
+        - 1,1-1,2-2,2-3,2-2,3-1,3-0,4
+        isExtraPackLevel: 0
+      - board: polluniae
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - liane
+        - loup
+        swipes:
+        - 2,0-1,1-1,0-0,0
+        - 0,1-0,0-1,0-2,1-2,0
+        isExtraPackLevel: 0
+      - board: eomléruédcnrihei
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - orchidée
+        - lémurien
+        swipes:
+        - 3,3-3,2-2,3-2,2-3,1-3,0-2,0-2,1
+        - 1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: eéltnairgcaoiarp
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - araignée
+        - tropical
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0-1,1-2,1
+        - 2,1-2,0-1,0-0,0-0,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: endrsrguonitrseniasutepmo
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - mousson
+        - tigre
+        - serpent
+        - durian
+        swipes:
+        - 2,3-2,2-2,1-1,0-2,0-1,1
+        - 4,1-4,0-3,0-2,0-1,0-0,1-0,0
+        - 1,2-0,2-1,3-0,3-0,4
+        - 3,0-4,0-4,1-3,1-3,2-3,3-4,3
+        isExtraPackLevel: 0
+      - board: eosleicraloémrinnihoozarg
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - gorille
+        - rhinocéros
+        - amazonie
+        swipes:
+        - 3,0-2,1-2,0-1,0-0,0-0,1-0,2-0,3
+        - 3,0-3,1-2,1-1,1-0,2-1,3-1,2-2,3-1,4-2,4
+        - 4,0-4,1-3,2-4,2-4,3-3,4-4,4
+        isExtraPackLevel: 0
+      - board: agiruaaen
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - iguane
+        - ara
+        swipes:
+        - 0,0-0,1-0,2
+        - 2,2-1,2-1,1-2,1-2,0-1,0
+        isExtraPackLevel: 0
+      - board: hdétutiémnéliahp
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - éléphant
+        - humidité
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,0-2,1
+        - 3,2-3,1-2,1-3,0-2,0-1,0-1,1-1,2
+        isExtraPackLevel: 0
+      - board: iteynamadlcpeiap
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - inde
+        - papaye
+        - climat
+        swipes:
+        - 2,0-1,1-1,0-2,1-1,2-1,3
+        - 3,0-2,0-3,1-3,2-3,3-2,3
+        - 0,3-0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: uneraanibauéretq
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - bananier
+        - équateur
+        swipes:
+        - 3,1-3,0-2,1-1,1-2,0-1,0-0,1-0,0
+        - 0,1-0,2-1,3-1,2-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: êtrerdlnoazuféaf
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - faune
+        - forêt
+        - lézard
+        swipes:
+        - 2,1-1,0-2,0-1,1-2,2-1,2
+        - 0,0-0,1-0,2-0,3-1,3
+        - 3,0-2,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: erétsivrcèutpéoépmcalaeta
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - tempéré
+        - palétuvier
+        - cacatoès
+        swipes:
+        - 3,1-4,0-3,0-4,1-3,2-4,2-4,3-4,4
+        - 1,1-1,0-0,0-0,1-1,2-0,2-1,3-0,3-0,4-1,4
+        - 3,0-2,0-2,1-2,2-3,2-2,3-2,4
+        isExtraPackLevel: 0
+      - board: egjuxllissroueenerrpauaga
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - grenouille
+        - paresseux
+        - jaguar
+        swipes:
+        - 2,1-2,0-1,1-1,0-0,0-0,1
+        - 4,1-4,0-3,0-3,1-3,2-4,3-4,2-3,3-4,4
+        - 3,0-2,1-1,1-0,1-1,2-2,2-2,3-1,3-0,3-0,4
+        isExtraPackLevel: 0
+      - board: uetpqoerr
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - perroquet
+        swipes:
+        - 0,1-0,0-1,0-2,0-2,1-1,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: geraacyamébparca
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - capybara
+        - marécage
+        swipes:
+        - 0,1-0,0-1,0-1,1-1,2-0,2-0,3-1,3
+        - 2,0-3,0-3,1-2,2-2,1-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: emataèsyéotscvoc
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - écosystème
+        - avocat
+        swipes:
+        - 0,0-1,0-2,0-3,0-2,1-3,1
+        - 0,1-0,0-1,1-2,2-3,2-3,1-2,1-1,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: aasenfgarlnieosn
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - flore
+        - ananas
+        - singe
+        swipes:
+        - 2,0-3,1-3,0-2,1-3,2
+        - 0,1-0,0-1,0-2,1-3,2-2,3
+        - 1,2-1,1-1,0-0,1-0,0
+        isExtraPackLevel: 0
+      - board: detcenhaaépnlïao
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - canopée
+        - thaïlande
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,0-0,1-1,1-0,2-1,2
+        - 3,3-3,2-3,1-3,0-2,1-1,1-0,2
+        isExtraPackLevel: 0
+      - board: neteionenngvmesaicnnlrote
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - environnement
+        - insecte
+        - lagon
+        swipes:
+        - 0,0-0,1-0,2-0,3-0,4
+        - 4,3-4,2-4,1-3,1-2,0-3,0-4,0
+        - 1,4-1,3-1,2-1,1-1,0-2,0-3,1-4,1-3,2-2,2-2,3-3,3-2,4
+        isExtraPackLevel: 0
+      - board: eaorefgrubaetimabiapgrèuvanuglsueiop
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - tapir
+        - sauvage
+        - pluie
+        - bambou
+        - fougère
+        - graine
+        swipes:
+        - 2,2-3,1-4,0-3,0-2,1-2,0
+        - 5,0-4,0-3,1-4,1-4,2-3,3-4,4
+        - 4,3-3,3-2,3-3,4-2,5-2,4
+        - 5,0-5,1-5,2-5,3-5,4
+        - 0,0-1,1-1,0-0,1-1,2-0,2-0,3
+        - 0,3-0,2-1,2-1,3-1,4
+        isExtraPackLevel: 0

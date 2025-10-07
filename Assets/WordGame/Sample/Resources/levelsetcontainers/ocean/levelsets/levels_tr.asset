@@ -1,0 +1,314 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_tr
+  m_EditorClassIdentifier:
+  language: tr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Ocean
+      category: Ocean
+      categoryLocalized: OKYANUS ETKİNLİĞİ
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: karsmaual
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - su
+        - kalamar
+        swipes:
+        - 0,0-1,0-2,0-2,1-1,1-1,2-2,2
+        - 0,1-0,0
+        isExtraPackLevel: 0
+      - board: nzsfusiroysöokat
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - yosun
+        - istakoz
+        - sörf
+        swipes:
+        - 2,0-3,0-3,1-3,2
+        - 2,2-2,1-3,0-2,0-1,0-0,0-1,1
+        - 1,1-0,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: itkptnoldaiaenzn
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - denizati
+        - plankton
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-1,1-2,0-1,0
+        - 0,1-0,0-1,0-2,1-2,0-1,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: rnkoaratihceyltmfiaaeskap
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - mercan
+        - resif
+        - kayalik
+        - ahtapot
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0-3,0-2,0
+        - 2,0-3,0-2,1-3,1-3,2-3,3-2,3
+        - 0,1-0,0-1,0-2,1-1,1
+        - 0,1-1,2-0,3-0,2-1,3-1,4
+        isExtraPackLevel: 0
+      - board: ttinuazik
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - akinti
+        - tuz
+        swipes:
+        - 0,1-1,0-0,0
+        - 2,1-2,0-1,0-0,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: inemsaodiyzeanin
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - denizayisi
+        - anemon
+        swipes:
+        - 0,0-1,0-2,1-3,0-2,0-1,1
+        - 3,2-3,1-3,0-2,0-2,1-1,2-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: esbhmtiatasetiok
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - ekosistem
+        - habitat
+        swipes:
+        - 3,1-3,0-2,0-1,0-0,0-1,1-0,1
+        - 3,1-3,0-2,0-2,1-2,2-1,3-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: tnieiggrelsagmük
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - gelgit
+        - sünger
+        - akim
+        swipes:
+        - 3,1-3,0-2,0-1,0
+        - 2,1-2,0-1,1-2,2-3,3-3,2
+        - 0,0-0,1-1,1-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: klinbilktaiaükslrglakipit
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - plastik
+        - kirlilik
+        - lagün
+        - batik
+        swipes:
+        - 4,2-4,1-4,0-3,0-3,1
+        - 1,1-1,0-2,0-2,1-3,2
+        - 0,0-1,0-1,1-0,1-0,2-1,3-0,3-0,4
+        - 2,0-3,1-4,1-4,2-3,3-2,4-2,3
+        isExtraPackLevel: 0
+      - board: eyirdsiit
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - istiridye
+        swipes:
+        - 2,2-2,1-2,0-1,0-0,1-0,0-1,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: eikbhliasaölzfrk
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - sahil
+        - körfez
+        - balik
+        swipes:
+        - 3,2-3,1-3,0-2,0-2,1
+        - 3,0-2,1-2,0-1,0-0,1-0,0
+        - 0,1-1,1-0,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: aormğtoldemepeli
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - petrol
+        - doğa
+        - memeli
+        swipes:
+        - 3,2-3,1-2,1-1,0-2,0-3,0
+        - 0,0-1,1-0,1-0,2
+        - 0,0-1,1-1,2-2,3-2,2-3,2
+        isExtraPackLevel: 0
+      - board: raiioalkljlilyokitçiitşeb
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - biyoloji
+        - çeşitlilik
+        - kitalar
+        swipes:
+        - 0,1-0,0-1,0-1,1-0,2-0,3-0,4
+        - 3,1-3,0-2,0-1,1-2,1-2,2-1,2-1,3-2,4-2,3
+        - 4,0-4,1-3,2-4,2-3,3-4,4-4,3-3,4
+        isExtraPackLevel: 0
+      - board: emgymedii
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - midye
+        - gemi
+        swipes:
+        - 2,2-2,1-1,0-2,0
+        - 1,1-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: ğsikionttzlavaat
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - atlantik
+        - vatoz
+        - siğ
+        swipes:
+        - 1,0-0,0-0,1
+        - 0,0-1,0-0,1-1,2-1,1
+        - 2,0-3,0-2,1-3,1-2,2-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: akdarigikarntled
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - derin
+        - dalga
+        - arktik
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-1,1
+        - 2,1-1,1-1,0-2,0-3,0
+        - 3,0-2,0-2,1-3,2-3,1
+        isExtraPackLevel: 0
+      - board: naçnaeteeikealrseblgngyla
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - balina
+        - yengeç
+        - kestane
+        - algler
+        swipes:
+        - 4,0-3,0-4,1-3,1-3,2-4,2
+        - 0,1-1,0-0,0-1,1-1,2-0,3-0,2
+        - 2,0-1,1-0,0-1,0-2,1-2,2
+        - 2,1-2,2-3,2-4,3-3,4-4,4
+        isExtraPackLevel: 0
+      - board: caimalivn
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - mavi
+        - canli
+        swipes:
+        - 0,0-1,0-2,0-2,1-2,2
+        - 0,1-1,1-1,0-0,0
+        isExtraPackLevel: 0
+      - board: nordayyas
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - radyasyon
+        swipes:
+        - 2,2-1,1-0,1-0,0-1,0-2,0-2,1-1,2-0,2
+        isExtraPackLevel: 0
+      - board: prkdilieeczntoli
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - denizcilik
+        - petrol
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0-2,0
+        - 3,3-3,2-3,1-3,0-2,1-1,1-0,2-1,2-2,2-2,3
+        isExtraPackLevel: 0
+      - board: iigçklçiabkalidl
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - balikçilik
+        - dalgiç
+        swipes:
+        - 2,0-3,1-3,0-2,1-3,2-3,3
+        - 1,1-0,1-0,0-1,0-2,1-2,2-1,3-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: spseçeduneiryygaeennknugu
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - karides
+        - penguen
+        - yunus
+        - yengeç
+        swipes:
+        - 2,0-3,0-4,0-4,1-4,2-4,3
+        - 3,0-4,0-3,1-2,1-2,2
+        - 1,2-2,1-3,1-3,0-2,0-1,1-1,0
+        - 0,0-0,1-1,2-0,2-1,3-0,3-0,4
+        isExtraPackLevel: 0
+      - board: ozskonkdilneaezpaytmnanisaşaisyiaiek
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - istakoz
+        - yaşam
+        - denizanasi
+        - pelikan
+        - oksiyen
+        swipes:
+        - 4,0-5,0-5,1-5,2-5,3-5,4-5,5
+        - 3,0-4,0-3,1-4,1-3,2-4,2-4,3
+        - 1,1-1,0-2,0-3,0-2,1-3,1-4,2-3,2-2,3-2,2
+        - 0,0-1,0-2,1-2,0-1,1
+        - 1,0-0,1-0,2-0,3-0,4-0,5-1,5
+        isExtraPackLevel: 0

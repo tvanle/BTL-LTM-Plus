@@ -1,0 +1,318 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_tr
+  m_EditorClassIdentifier:
+  language: tr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 3
+    boardHeight: 3
+    packs:
+    - name: Easter
+      category: Easter
+      categoryLocalized: PASKALYA
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: şuidynoğa
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - ayin
+        - doğuş
+        swipes:
+        - 0,1-0,0-1,0-1,1-0,2
+        - 2,0-1,1-2,2-2,1
+        isExtraPackLevel: 0
+      - board: kiliiannresimiza
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - nisan
+        - aile
+        - kirmizi
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1
+        - 3,0-3,1-2,1-1,1
+        - 3,2-3,1-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: ymniuurtraeytlaz
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - zeytin
+        - yumurtalar
+        swipes:
+        - 0,3-0,2-1,3-1,2-0,1-0,0-1,1-1,0-2,0-2,1
+        - 3,0-2,1-3,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: çvatvciriammcrhi
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - civciv
+        - çarmih
+        - mart
+        swipes:
+        - 3,0-2,0-3,1-3,2
+        - 0,0-1,1-1,0-2,1-3,0-2,0
+        - 0,0-0,1-0,2-1,2-2,2-1,3
+        isExtraPackLevel: 0
+      - board: şnsakavimkataşunelltrgaru
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - kutlama
+        - kuşlar
+        - nergis
+        - tavşan
+        swipes:
+        - 1,0-0,0-1,1-0,2-0,1-1,2
+        - 0,1-1,1-0,0-1,0-2,0-2,1
+        - 4,1-4,0-3,1-2,1-2,0-3,0
+        - 4,3-4,2-4,1-3,1-2,2-3,3-3,4
+        isExtraPackLevel: 0
+      - board: pruaazzuk
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - kuzu
+        - pazar
+        swipes:
+        - 0,2-0,1-0,0-1,0-1,1
+        - 2,0-1,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: rdmihraşaiybçila
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - haç
+        - bayram
+        - diriliş
+        swipes:
+        - 1,2-1,1-0,0-1,0-2,0-3,1-3,0
+        - 3,1-3,0-2,1-1,2-2,2-2,3
+        - 0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: çraiihtlklakoaab
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - ilkbahar
+        - çikolata
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,1-2,0
+        - 3,3-3,2-3,1-3,0-2,1-1,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: mekeeleşüsçesiçn
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - çiçek
+        - neşe
+        - süsleme
+        swipes:
+        - 1,0-0,1-0,0-1,1-1,2-0,3-0,2
+        - 3,0-3,1-3,2-3,3
+        - 2,0-1,0-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: eklpelazlnleeekegrirbüsek
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - gelenek
+        - sürpriz
+        - kelebek
+        - lale
+        swipes:
+        - 0,0-1,0-0,1-0,2
+        - 4,0-3,0-2,0-1,0-0,0-0,1-1,2
+        - 2,0-1,0-2,1-3,2-4,1-3,1-2,2
+        - 1,1-2,2-3,3-4,4-4,3-3,2-4,2
+        isExtraPackLevel: 0
+      - board: aldstukua
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - dua
+        - kutsal
+        swipes:
+        - 0,0-1,0-1,1-0,1-0,2-1,2
+        - 2,2-2,1-2,0
+        isExtraPackLevel: 0
+      - board: tepraişaneizsnpa
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - pazar
+        - sepet
+        - inaniş
+        swipes:
+        - 2,0-1,0-0,1-0,0-1,1-2,1
+        - 0,0-1,1-2,2-1,3-0,3
+        - 2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: bşisrieikasgilve
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - sevgi
+        - kilise
+        - bariş
+        swipes:
+        - 0,1-1,0-0,0-1,1-1,2
+        - 0,1-0,0-1,0-2,1-3,0-2,0
+        - 2,1-3,0-2,0-3,1-3,2
+        isExtraPackLevel: 0
+      - board: aaouçmbtökorreyy
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - çörek
+        - boyama
+        - yortu
+        swipes:
+        - 3,0-2,0-3,1-3,2-3,3
+        - 2,2-2,1-2,0-1,1-1,0-0,0
+        - 0,2-0,1-0,0-1,0-1,1
+        isExtraPackLevel: 0
+      - board: çalracoverkanlfanekorukrs
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - karnaval
+        - çocuk
+        - sofra
+        - renkler
+        swipes:
+        - 3,0-2,0-2,1-3,1-3,2-3,3-3,4
+        - 4,0-4,1-4,2-4,3-4,4
+        - 0,1-1,1-0,0-1,0-2,0
+        - 0,2-0,1-0,0-1,1-1,2-2,3-1,4-2,4
+        isExtraPackLevel: 0
+      - board: rhnisatiy
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - hristiyan
+        swipes:
+        - 1,2-0,2-0,1-1,1-0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: raeaartkiybrzala
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - ziyaret
+        - akrabalar
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-1,1-2,0-1,0-0,0
+        - 0,0-0,1-1,1-0,2-1,2-2,3-2,2
+        isExtraPackLevel: 0
+      - board: eşçikingonlaksab
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - ekinoks
+        - başlangiç
+        swipes:
+        - 3,0-2,0-1,0-2,1-3,1-2,2-3,2-3,3-2,3
+        - 0,3-0,2-1,2-1,1-0,1-0,0-1,0
+        isExtraPackLevel: 0
+      - board: emiptkmebrerezuh
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - bereket
+        - mum
+        - perhiz
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0
+        - 2,1-2,0-1,1
+        - 0,1-0,0-1,1-2,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: tlrentiaciezzerşöevüetlgn
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - güvercin
+        - lezzetli
+        - ateş
+        - tören
+        swipes:
+        - 0,0-1,0-2,0-3,0-4,0
+        - 2,0-1,0-0,0-0,1
+        - 2,0-2,1-2,2-1,2-0,2-0,3-1,4-1,3
+        - 3,0-4,1-3,1-3,2-4,2-3,3-4,3-4,4
+        isExtraPackLevel: 0
+      - board: çnoyaoasrrkemihd
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - dekorasyon
+        - çarmih
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0
+        - 3,0-3,1-2,1-1,2-1,1-2,2-3,2-3,3-2,3-1,3
+        isExtraPackLevel: 0
+      - board: saldtnituzyokeağ
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - kutsal
+        - zeytin
+        - doğa
+        swipes:
+        - 3,2-3,1-3,0-2,0
+        - 1,1-1,0-2,1-3,2-2,2-1,2
+        - 0,0-0,1-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: ehtezmüidişdeatüdiafnöbyv
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - vaftiz
+        - ibadet
+        - dönüşüm
+        - hediye
+        swipes:
+        - 1,1-0,0-1,0-2,1-3,0-2,0
+        - 1,1-1,0-0,0-0,1-0,2-1,3-0,3
+        - 2,1-2,0-3,1-3,2-3,3-2,4
+        - 4,0-3,1-4,1-4,2-4,3-4,4
+        isExtraPackLevel: 0

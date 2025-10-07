@@ -1,0 +1,211 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_tr
+  m_EditorClassIdentifier:
+  language: tr
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Birthday
+      category: Birthday
+      categoryLocalized: 10. Yaş Günü Etkinliği
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: indtsarap
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - parti
+        - dans
+        swipes:
+        - 2,1-2,0-1,1-1,0
+        - 2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: teumkitklbulriul
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - birlikte
+        - mutluluk
+        swipes:
+        - 3,3-2,3-2,2-3,1-2,0-3,0-2,1-3,2
+        - 1,1-1,0-0,0-0,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: enciğtlklieoeefn
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - konfeti
+        - eğlenceli
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-2,1-1,0-2,0-3,0
+        - 3,2-3,1-3,0-2,0-2,1-1,2-1,1
+        isExtraPackLevel: 0
+      - board: arrenlşlolreabke
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - balonlar
+        - şekerler
+        swipes:
+        - 2,2-3,1-2,0-3,0-2,1-3,2-3,3-2,3
+        - 1,0-0,0-1,1-0,1-0,2-1,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: kmaatanoalhhıiçkıksaalyok
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - on
+        - yıl
+        - kasım
+        - kahkaha
+        - çikolata
+        swipes:
+        - 4,0-3,1-2,0-3,0-4,1-3,2-4,2-3,3
+        - 0,4-0,3-0,2-0,1-0,0-1,0-2,1
+        - 4,0-4,1-3,1-2,1-1,1
+        - 2,0-1,1-1,0
+        - 2,3-1,3
+        isExtraPackLevel: 0
+      - board: lereyhide
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - hediyeler
+        swipes:
+        - 2,1-2,0-1,0-0,0-1,1-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: kirllşşanekaarda
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - arkadaşlar
+        - şenlik
+        swipes:
+        - 1,1-1,0-0,0-0,1-1,2-0,2
+        - 0,0-1,0-2,1-3,0-2,0-3,1-2,2-3,3-3,2-2,3
+        isExtraPackLevel: 0
+      - board: elıklmaairıtaıtş
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - aile
+        - atıştırmalık
+        swipes:
+        - 3,2-3,1-2,1-3,0-2,0-1,0-1,1-1,2-2,2-1,3-2,3-3,3
+        - 0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: eşkietlsennnkiad
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - neşe
+        - etkinlik
+        - dans
+        swipes:
+        - 3,0-2,0-3,1-3,2
+        - 0,1-1,1-0,0-1,0-2,1-2,2-3,3-2,3
+        - 1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: larsıkreianvşlçi
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - şarkılar
+        - sevinçli
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0-1,0-0,0
+        - 0,0-1,1-2,2-1,2-0,2-0,3-1,3-2,3
+        isExtraPackLevel: 0
+      - board: rsıeçeülkilstiçelazümetmk
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - müzik
+        - çiçek
+        - süslemeler
+        - tatlı
+        swipes:
+        - 2,0-2,1-2,2-2,3-2,4
+        - 1,4-1,3-1,2-1,1-1,0-0,0-0,1-0,2-0,3-0,4
+        - 4,3-4,2-4,1-3,0-4,0
+        - 3,0-4,1-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: kaakkesıpetmallırtaiktşıd
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - atıştırmalık
+        - pasta
+        - dilek
+        - kek
+        swipes:
+        - 0,0-0,1-0,2
+        - 4,0-4,1-4,2-4,3-4,4
+        - 3,0-2,0-1,0-0,1-1,1
+        - 3,1-2,1-3,0-2,0-1,0-0,1-1,1-1,2-2,2-3,2-2,3-3,4
+        isExtraPackLevel: 0
+      - board: ilelımfirnedyralyaeechivtkyeteebikmu
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - heyecanlı
+        - davetiye
+        - tebrikler
+        - keyifli
+        - mum
+        swipes:
+        - 5,1-5,0-4,0
+        - 1,0-0,0-0,1-1,1-0,2-1,2-0,3
+        - 0,1-0,0-1,0-2,1-2,0-3,0-3,1-2,2-1,2
+        - 5,4-5,3-5,2-5,1-4,1-4,2-4,3-4,4
+        - 3,2-3,1-2,1-1,2-2,2-2,3-3,4-3,5-4,5
+        isExtraPackLevel: 0
+      - board: irtaruieelamelşlrucreıltiykynlnükoyu
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - nice
+        - mutlu
+        - yıllar
+        - iyi
+        - oyunlar
+        - teşekkürler
+        swipes:
+        - 2,5-2,4-2,3-2,2-2,1-2,0-1,0-1,1-1,2-1,3-1,4
+        - 3,0-4,0-5,0-4,1-3,1-3,2-4,2
+        - 0,0-1,1-0,1
+        - 3,1-3,2-4,2-3,3-4,4-4,3
+        - 5,4-5,3-5,2-5,1-5,0
+        - 0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0

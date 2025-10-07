@@ -1,0 +1,223 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_sv
+  m_EditorClassIdentifier:
+  language: sv
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Sweet Treats
+      category: Sweet Treats
+      categoryLocalized: Sötsaker
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: sgaslkaak
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - kaka
+        - glass
+        swipes:
+        - 1,1-1,0-0,0-0,1-0,2
+        - 2,0-1,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: glisoördtdaotgsg
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - lördagsgodis
+        - gott
+        swipes:
+        - 0,3-0,2-0,1-0,0
+        - 1,3-1,2-2,2-1,1-2,1-1,0-2,0-3,0-3,1-3,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: cdasplkoaoerjhtb
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - paj
+        - choklad
+        - sorbet
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,1-2,0
+        - 0,0-1,0-1,1-2,2-1,2-2,3-1,3
+        - 0,2-0,1-0,0
+        isExtraPackLevel: 0
+      - board: ketsislkerenltookhimabdim
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - bakelse
+        - konditori
+        - himmelskt
+        swipes:
+        - 2,0-3,0-4,0-4,1-3,1-2,1-3,2-2,2-2,3
+        - 0,1-0,0-1,0-2,0-3,1-3,2-4,2-4,3-4,4
+        - 1,0-0,0-1,1-0,2-1,3-0,3-1,4
+        isExtraPackLevel: 0
+      - board: söattlsem
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - semla
+        - sött
+        swipes:
+        - 0,1-1,1-0,0-1,0
+        - 0,0-1,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: ssinnklbalapleur
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - pralin
+        - bulle
+        - snask
+        swipes:
+        - 0,2-0,1-0,0-1,1-1,0
+        - 3,0-2,0-1,1-0,0-1,0
+        - 3,1-3,0-2,1-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: ödrwrbienrskeeco
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - socker
+        - wienerbröd
+        swipes:
+        - 3,0-2,0-1,0-0,1-0,0-1,1-1,2-0,2-0,3-1,3
+        - 2,1-3,0-2,0-3,1-3,2-2,3
+        isExtraPackLevel: 0
+      - board: tjakkluainavöstb
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - vanilj
+        - baka
+        - utsökt
+        swipes:
+        - 2,1-2,0-1,0-0,0-0,1-0,2
+        - 3,0-3,1-3,2-2,2
+        - 3,1-2,1-1,1-0,1-1,2-1,3
+        isExtraPackLevel: 0
+      - board: kenakkipbarsvmfanraflekae
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - marsipan
+        - bakverk
+        - kanel
+        - kaffe
+        swipes:
+        - 4,4-4,3-4,2-4,1-4,0
+        - 0,2-0,1-1,1-1,0-0,0
+        - 3,1-3,0-2,0-2,1-1,2-0,2-0,3
+        - 3,2-3,1-2,1-1,2-1,3-2,3-3,4-2,4
+        isExtraPackLevel: 0
+      - board: afktiaråt
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - tårta
+        - fika
+        swipes:
+        - 1,1-1,0-2,1-2,0
+        - 2,0-1,0-0,0-0,1-0,2
+        isExtraPackLevel: 0
+      - board: gstrnälyargsmyla
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - glasyr
+        - maräng
+        - sylt
+        swipes:
+        - 1,1-1,0-2,0-2,1
+        - 0,0-0,1-1,1-1,2-0,2-0,3
+        - 2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: aahallttoolokrgn
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - hallongrotta
+        - kola
+        swipes:
+        - 0,0-0,1-0,2-0,3
+        - 2,3-1,3-1,2-2,1-3,1-3,0-2,0-1,0-1,1-2,2-3,2-3,3
+        isExtraPackLevel: 0
+      - board: srvakvokiaåfkskalfiamåkbo
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - kakao
+        - våffla
+        - biskvi
+        - småkakor
+        swipes:
+        - 0,1-0,0-1,0-2,1-3,0-2,0-1,1-1,2
+        - 3,0-3,1-3,2-2,2-2,3-3,3
+        - 0,3-0,2-1,2-2,1-1,1-0,1
+        - 4,4-4,3-4,2-4,1-4,0
+        isExtraPackLevel: 0
+      - board: sikdunogm
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - munk
+        - godis
+        swipes:
+        - 1,0-0,0-0,1-1,1-0,2
+        - 2,0-1,1-2,1-2,2
+        isExtraPackLevel: 0
+      - board: lssåatisknjlirav
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - vaniljsås
+        - lakrits
+        swipes:
+        - 0,3-0,2-0,1-1,0-0,0-1,1-1,2
+        - 3,0-2,0-1,1-2,2-3,1-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: ngsijnsduimotngå
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - njutning
+        - smågodis
+        swipes:
+        - 2,2-2,1-3,0-2,0-3,1-3,2-3,3-2,3
+        - 0,3-0,2-0,1-0,0-1,0-1,1-1,2-1,3
+        isExtraPackLevel: 0

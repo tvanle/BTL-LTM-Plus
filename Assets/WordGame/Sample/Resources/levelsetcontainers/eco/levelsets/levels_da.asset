@@ -1,0 +1,202 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_da
+  m_EditorClassIdentifier:
+  language: da
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 5
+    boardHeight: 5
+    packs:
+    - name: Eco
+      category: Eco
+      categoryLocalized: Miljø
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: bgiieroen
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - bioenergi
+        swipes:
+        - 0,2-0,1-0,0-1,0-2,0-1,1-2,1-1,2-2,2
+        isExtraPackLevel: 0
+      - board: tjøkeøliiglmskoo
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - miljøet
+        - økologisk
+        swipes:
+        - 2,2-3,1-3,0-2,1-2,0-1,1-0,1-0,0-1,0
+        - 3,1-3,2-2,2-1,3-1,2-0,2-0,3
+        isExtraPackLevel: 0
+      - board: guelrvølbnmnegid
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - genbrug
+        - vindmølle
+        swipes:
+        - 1,0-2,0-3,1-3,0-2,1-2,2-3,3-3,2-2,3
+        - 1,0-0,0-1,1-0,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: begdædhirdgteyry
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - bæredygtighed
+        - dyr
+        swipes:
+        - 3,1-3,0-2,0
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,1-3,1-3,2-2,3-2,2-1,3-1,2
+        isExtraPackLevel: 0
+      - board: dekdenrsliaeiikvefgevdren
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - vedvarende
+        - energikilde
+        - fisk
+        swipes:
+        - 2,0-2,1-2,2-2,3
+        - 4,1-4,0-3,0-2,0-3,1-3,2-4,2-4,3-3,3-3,4-4,4
+        - 0,0-1,1-1,0-0,1-0,2-1,3-1,2-0,3-0,4-1,4
+        isExtraPackLevel: 0
+      - board: guefedrlf
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - frede
+        - fugl
+        swipes:
+        - 2,0-1,1-0,0-1,0
+        - 0,1-0,0-1,1-2,1-2,2
+        isExtraPackLevel: 0
+      - board: earendvtronlhjpa
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - planter
+        - jorden
+        - hav
+        swipes:
+        - 0,0-1,0-2,0
+        - 1,0-1,1-0,1-1,2-0,3-0,2
+        - 2,0-3,1-3,0-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: mitsjliiøtvrkatæ
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - miljøaktivist
+        - træ
+        swipes:
+        - 2,0-3,1-3,0
+        - 0,3-1,3-1,2-0,2-0,1-1,0-0,0-1,1-2,2-2,1-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: tendemvniaaeklgn
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - genanvend
+        - klimaet
+        swipes:
+        - 0,0-1,0-0,1-1,2-1,1-0,2-0,3
+        - 2,0-3,1-3,0-2,1-3,2-2,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: hedskdtmnasiilgvelesbøjov
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - miljøbevidsthed
+        - vegansk
+        - sol
+        swipes:
+        - 4,0-3,0-3,1
+        - 4,0-3,1-4,2-4,3-3,3-3,4-4,4
+        - 2,3-2,2-2,1-2,0-1,0-0,0-1,1-0,1-1,2-0,3-0,2-1,3-0,4-1,4-2,4
+        isExtraPackLevel: 0
+      - board: xidoulkid
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - kuldioxid
+        swipes:
+        - 0,0-1,1-2,1-2,0-1,0-0,1-0,2-1,2-2,2
+        isExtraPackLevel: 0
+      - board: tlnrefoanaauplaf
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - planet
+        - flora
+        - fauna
+        swipes:
+        - 3,0-2,0-3,1-2,2-2,1
+        - 1,0-1,1-2,2-3,3-3,2
+        - 0,0-1,0-1,1-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: tnovuekserrntrge
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - regnskov
+        - truet
+        - ren
+        swipes:
+        - 1,0-0,0-1,1
+        - 0,0-1,1-0,2-1,2-0,3
+        - 2,1-3,0-2,0-3,1-3,2-2,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: htaeatlrblelicos
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - solceller
+        - habitat
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-1,1
+        - 3,0-2,0-1,1-1,0-2,1-3,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: rugeknriræenvømetijiadnml
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - vindenergi
+        - natur
+        - miljømærke
+        swipes:
+        - 3,0-4,1-4,0-3,1-3,2-4,2-4,3-3,3-4,4-3,4
+        - 0,1-0,0-1,0-1,1-0,2
+        - 2,2-2,1-2,0-1,0-0,1-1,2-0,2-1,3-2,4-2,3
+        isExtraPackLevel: 0

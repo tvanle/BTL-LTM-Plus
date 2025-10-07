@@ -1,0 +1,302 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ad4d2030f140c9472624b1f7b5078, type: 3}
+  m_Name: levels_de
+  m_EditorClassIdentifier:
+  language: de
+  singleSolutionGenerated: 1
+  chapters:
+  - name: Chapter 0
+    chapterId: 0
+    boardWidth: 4
+    boardHeight: 4
+    packs:
+    - name: Holidays
+      category: Holidays
+      categoryLocalized: Weihnachten
+      packId: 0
+      packInChapterId: 0
+      chapterId: 0
+      levels:
+      - board: erknbmheezcgdese
+        chapterId: 0
+        packId: 0
+        levelId: 0
+        words:
+        - dezember
+        - geschenk
+        swipes:
+        - 3,1-3,0-2,0-2,1-2,2-3,2-3,3-2,3
+        - 0,0-1,0-1,1-0,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: reuemsnfitmielak
+        chapterId: 0
+        packId: 0
+        levelId: 1
+        words:
+        - kaminfeuer
+        - mistel
+        swipes:
+        - 0,2-0,1-1,2-1,1-0,0-1,0
+        - 3,0-2,0-2,1-3,1-2,2-3,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: wglneeukinshhact
+        chapterId: 0
+        packId: 0
+        levelId: 2
+        words:
+        - weihnachtskugeln
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0-3,1-3,0-2,1-3,2-2,2-1,3-1,2-2,3-3,3
+        isExtraPackLevel: 0
+      - board: gmublknaoentcean
+        chapterId: 0
+        packId: 0
+        levelId: 3
+        words:
+        - tannenbaum
+        - glocke
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0
+        - 3,1-2,0-3,0-2,1-1,1-2,2-3,3-3,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: nrelnhsiancemeed
+        chapterId: 0
+        packId: 0
+        levelId: 4
+        words:
+        - schneemann
+        - lieder
+        swipes:
+        - 3,3-3,2-3,1-3,0-2,0-1,0
+        - 2,2-2,1-1,2-1,1-2,0-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
+      - board: rineezpfnasitere
+        chapterId: 0
+        packId: 0
+        levelId: 5
+        words:
+        - eiszapfen
+        - rentier
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,1-1,0-2,0
+        - 3,0-3,1-2,1-1,2-1,1-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: neenhcseultlkbol
+        chapterId: 0
+        packId: 0
+        levelId: 6
+        words:
+        - stollen
+        - lebkuchen
+        swipes:
+        - 1,1-2,0-1,0-0,0-0,1-1,2-0,2-1,3-0,3
+        - 2,2-2,1-2,0-3,0-3,1-3,2-3,3
+        isExtraPackLevel: 0
+      - board: enlmhcnazpertäno
+        chapterId: 0
+        packId: 0
+        levelId: 7
+        words:
+        - maronen
+        - plätzchen
+        swipes:
+        - 1,1-2,0-1,0-0,0-0,1-1,2-0,2-0,3-1,3
+        - 3,3-3,2-3,1-3,0-2,0-2,1-2,2
+        isExtraPackLevel: 0
+      - board: ltenethwtlichcis
+        chapterId: 0
+        packId: 0
+        levelId: 8
+        words:
+        - schlitten
+        - wichtel
+        swipes:
+        - 3,0-2,0-1,0-0,0-0,1-0,2-0,3
+        - 3,0-3,1-2,2-1,1-2,1-1,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: tnrneasebrätesng
+        chapterId: 0
+        packId: 0
+        levelId: 9
+        words:
+        - gänsebraten
+        - stern
+        swipes:
+        - 2,0-3,0-3,1-2,1-3,2
+        - 3,0-2,1-2,0-1,0-0,0-0,1-1,1-1,2-0,3-0,2-1,3
+        isExtraPackLevel: 0
+      - board: usinalewoihünkgl
+        chapterId: 0
+        packId: 0
+        levelId: 10
+        words:
+        - nikolaus
+        - glühwein
+        swipes:
+        - 2,0-3,0-3,1-2,1-3,2-2,2-2,3-3,3
+        - 0,0-1,1-1,0-0,1-1,2-0,2-0,3-1,3
+        isExtraPackLevel: 0
+      - board: ntdcehnhrkiritsi
+        chapterId: 0
+        packId: 0
+        levelId: 11
+        words:
+        - christkind
+        - hirten
+        swipes:
+        - 1,0-0,0-0,1-1,1-0,2-0,3
+        - 3,3-3,2-3,1-3,0-2,0-1,0-1,1-2,1-2,2-2,3
+        isExtraPackLevel: 0
+      - board: skedckalhropoipe
+        chapterId: 0
+        packId: 0
+        levelId: 12
+        words:
+        - krippe
+        - schokolade
+        swipes:
+        - 0,3-0,2-0,1-0,0-1,0-2,0-3,0-2,1-3,1-2,2
+        - 1,2-1,1-1,0-2,0-3,1-3,0
+        isExtraPackLevel: 0
+      - board: zrleanksadetvens
+        chapterId: 0
+        packId: 0
+        levelId: 13
+        words:
+        - adventskranz
+        - esel
+        swipes:
+        - 3,1-3,0-2,0-2,1
+        - 0,1-1,1-0,0-1,0-2,0-3,1-3,2-2,2-1,3-0,2-1,2-0,3
+        isExtraPackLevel: 0
+      - board: eallbenesngshcni
+        chapterId: 0
+        packId: 0
+        levelId: 14
+        words:
+        - schneeball
+        - singen
+        swipes:
+        - 3,1-3,0-2,0-2,1-3,2-2,2
+        - 0,1-1,0-0,0-1,1-1,2-0,3-0,2-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: netlustiskecreth
+        chapterId: 0
+        packId: 0
+        levelId: 15
+        words:
+        - lichterkette
+        - nuss
+        swipes:
+        - 0,2-0,1-0,0-1,0
+        - 3,3-3,2-3,1-3,0-2,0-1,0-0,0-1,1-2,1-2,2-2,3-1,3
+        isExtraPackLevel: 0
+      - board: eksfcneeholfcste
+        chapterId: 0
+        packId: 0
+        levelId: 16
+        words:
+        - schneeflocke
+        - fest
+        swipes:
+        - 3,1-3,0-2,1-2,0
+        - 1,0-0,0-0,1-1,2-2,2-3,2-3,1-2,1-1,1-0,2-1,3-0,3
+        isExtraPackLevel: 0
+      - board: ressnknrcuteanks
+        chapterId: 0
+        packId: 0
+        levelId: 17
+        words:
+        - stern
+        - nussknacker
+        swipes:
+        - 0,2-1,1-2,1-3,0-2,0-1,0-0,0-0,1-1,2-1,3-0,3
+        - 3,0-2,1-3,1-3,2-2,2
+        isExtraPackLevel: 0
+      - board: lgsteltagaeauklm
+        chapterId: 0
+        packId: 0
+        levelId: 18
+        words:
+        - lametta
+        - glaskugel
+        swipes:
+        - 1,3-1,2-1,1-2,0-1,0-0,0-0,1-0,2-0,3
+        - 2,0-3,1-3,0-2,1-2,2-3,3-3,2
+        isExtraPackLevel: 0
+      - board: nieheescbnzragek
+        chapterId: 0
+        packId: 0
+        levelId: 19
+        words:
+        - kerzenschein
+        - gabe
+        swipes:
+        - 1,0-0,0-0,1-0,2
+        - 3,0-2,0-3,1-2,1-1,2-1,1-2,2-3,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: dnabgenksetmhczi
+        chapterId: 0
+        packId: 0
+        levelId: 20
+        words:
+        - geschenkband
+        - zimt
+        swipes:
+        - 2,0-3,0-3,1-2,1
+        - 0,2-1,2-0,1-1,0-0,0-1,1-2,2-3,2-3,3-2,3-1,3-0,3
+        isExtraPackLevel: 0
+      - board: krgnierucchbehse
+        chapterId: 0
+        packId: 0
+        levelId: 21
+        words:
+        - bescherung
+        - kirche
+        swipes:
+        - 0,3-0,2-1,1-0,1-1,0-0,0
+        - 3,1-3,0-2,0-1,1-2,1-1,2-2,2-3,2-3,3-2,3
+        isExtraPackLevel: 0
+      - board: aniegteltfrnseeu
+        chapterId: 0
+        packId: 0
+        levelId: 22
+        words:
+        - festtag
+        - neunerlei
+        swipes:
+        - 1,0-2,0-3,0-3,1-2,2-2,1-3,2-3,3-2,3
+        - 1,1-1,0-0,0-0,1-1,2-0,3-0,2
+        isExtraPackLevel: 0
+      - board: bendahekeghoilil
+        chapterId: 0
+        packId: 0
+        levelId: 23
+        words:
+        - heiligabend
+        - kohle
+        swipes:
+        - 3,2-3,1-2,0-3,0-2,1
+        - 1,2-0,1-0,0-1,0-2,0-1,1-0,2-0,3-1,3-2,3-3,3
+        isExtraPackLevel: 0
+      - board: recoesstghrenisn
+        chapterId: 0
+        packId: 0
+        levelId: 24
+        words:
+        - sternsinger
+        - ochse
+        swipes:
+        - 3,0-2,0-1,0-1,1-1,2
+        - 2,2-3,2-3,1-2,1-3,0-2,0-1,0-0,0-0,1-0,2-0,3
+        isExtraPackLevel: 0
