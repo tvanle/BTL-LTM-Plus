@@ -330,13 +330,10 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     /// </summary>
     private void UpdateLine()
     {
+        // Disabled line animation
         this.lineSegmentPool.ReturnAllObjectsToPool();
         this.lineEnd.gameObject.SetActive(false);
-
-        if (!this.enableLine || this.selectedLetterTiles.Count == 0)
-        {
-            return;
-        }
+        return;
 
         var lineScale = 3f / (float)this.currentBoardSize;
 
