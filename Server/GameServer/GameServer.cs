@@ -92,9 +92,6 @@ public class GameServer
                 case "LEAVE_ROOM":
                     await this.HandleLeaveRoom(connection);
                     break;
-                case "PLAYER_READY":
-                    await this.HandlePlayerReady(connection);
-                    break;
                 case "START_GAME":
                     await this.HandleStartGame(connection);
                     break;
@@ -125,8 +122,7 @@ public class GameServer
         {
             Id = Guid.NewGuid(),
             ConnectionId = connection.Id,
-            Username = data.Username,
-            IsReady = true  // Host is automatically ready
+            Username = data.Username
         };
 
         this._players[player.Id] = player;
@@ -150,7 +146,7 @@ public class GameServer
         await connection.SendAsync(new GameMessage
         {
             Type = "ROOM_CREATED",
-            Data = JsonSerializer.Serialize(new { roomCode, player = new { player.Id, player.Username, player.IsReady } })
+            Data = JsonSerializer.Serialize(new { roomCode, player = new { player.Id, player.Username } })
         });
 
         Console.WriteLine($"Room {roomCode} created by {player.Username}");
@@ -191,7 +187,7 @@ public class GameServer
             {
                 roomCode = room.Code,
                 playerId = player.Id,
-                players = room.Players.Values.Select(p => new { p.Id, p.Username, p.IsReady })
+                players = room.Players.Values.Select(p => new { p.Id, p.Username })
             })
         });
 
@@ -234,28 +230,6 @@ public class GameServer
         }
     }
 
-    private async Task HandlePlayerReady(ClientConnection connection)
-    {
-        if (!connection.PlayerId.HasValue)
-            return;
-
-        var player = this._players.GetValueOrDefault(connection.PlayerId.Value);
-        if (player?.RoomCode == null)
-            return;
-
-        var room = this._rooms.GetValueOrDefault(player.RoomCode);
-        if (room == null)
-            return;
-
-        player.IsReady = true;
-
-        await this.BroadcastToRoom(room, new GameMessage
-        {
-            Type = "PLAYER_READY",
-            Data = JsonSerializer.Serialize(new { playerId = player.Id, isReady = true })
-        });
-    }
-
     private async Task HandleStartGame(ClientConnection connection)
     {
         if (!connection.PlayerId.HasValue)
@@ -280,18 +254,6 @@ public class GameServer
         if (room.HostId != player.Id)
         {
             throw new Exception($"Only host can start the game. Host: {room.HostId}, Player: {player.Id}");
-        }
-
-        // Debug: Log player ready states
-        foreach (var p in room.Players.Values)
-        {
-            Console.WriteLine($"[DEBUG] Player {p.Username} (ID: {p.Id}) - Ready: {p.IsReady}");
-        }
-
-        if (!room.Players.Values.All(p => p.IsReady))
-        {
-            var notReadyPlayers = room.Players.Values.Where(p => !p.IsReady).Select(p => p.Username);
-            throw new Exception($"Not all players are ready. Not ready: {string.Join(", ", notReadyPlayers)}");
         }
 
         room.GameState = new GameState
@@ -505,7 +467,6 @@ public class GameServer
         room.GameState = null;
         foreach (var player in room.Players.Values)
         {
-            player.IsReady = false;
             player.Score = 0;
         }
     }
@@ -712,7 +673,6 @@ public class Player
     public Guid ConnectionId { get; set; }
     public string Username { get; set; } = string.Empty;
     public string? RoomCode { get; set; }
-    public bool IsReady { get; set; } = true;
     public int Score { get; set; }
 }
 

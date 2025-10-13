@@ -147,12 +147,6 @@ namespace WordGame.Network
             this.RoomPlayers.Clear();
         }
 
-        public async Task SetReady()
-        {
-            var message = new GameMessage { Type = "PLAYER_READY" };
-            await this.SendMessageAsync(message);
-        }
-
         public async Task StartGame()
         {
             var message = new GameMessage { Type = "START_GAME" };
@@ -342,7 +336,7 @@ namespace WordGame.Network
                             if (this.RoomPlayers.All(p => p.Id != playerJoined.Id))
                             {
                                 this.RoomPlayers.Add(new PlayerInfo
-                                    { Id = playerJoined.Id, Username = playerJoined.Username, IsReady = false });
+                                    { Id = playerJoined.Id, Username = playerJoined.Username });
                             }
                             else
                             {
@@ -407,7 +401,6 @@ namespace WordGame.Network
         {
             public string Id;
             public string Username;
-            public bool IsReady;
         }
 
         [Serializable]
