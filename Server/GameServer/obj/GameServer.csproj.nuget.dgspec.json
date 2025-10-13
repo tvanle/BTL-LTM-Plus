@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Server/GameServer/GameServer.csproj": {}
+    "C:\\Users\\admin\\Desktop\\unity_btl\\BTL-LTM-Plus\\Server\\GameServer\\GameServer.csproj": {}
   },
   "projects": {
-    "/Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Server/GameServer/GameServer.csproj": {
+    "C:\\Users\\admin\\Desktop\\unity_btl\\BTL-LTM-Plus\\Server\\GameServer\\GameServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Server/GameServer/GameServer.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\Desktop\\unity_btl\\BTL-LTM-Plus\\Server\\GameServer\\GameServer.csproj",
         "projectName": "GameServer",
-        "projectPath": "/Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Server/GameServer/GameServer.csproj",
-        "packagesPath": "/Users/tvanlee/.nuget/packages/",
-        "outputPath": "/Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Server/GameServer/obj/",
+        "projectPath": "C:\\Users\\admin\\Desktop\\unity_btl\\BTL-LTM-Plus\\Server\\GameServer\\GameServer.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\admin\\Desktop\\unity_btl\\BTL-LTM-Plus\\Server\\GameServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/tvanlee/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -43,6 +43,34 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
+            "Microsoft.Extensions.Configuration.EnvironmentVariables": {
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -59,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -15,7 +15,9 @@ namespace WordGame.Network
         public static NetworkManager Instance => instance;
 
         [Header("Connection Settings")] [SerializeField]
+        // private string serverHost = "172.11.86.87";
         private string serverHost = "localhost";
+
 
         [SerializeField] private int serverPort = 8080;
 

@@ -5,20 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e4c2a72-4304-4c5d-889f-02afab2639ce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.claude/settings.local.json" beforeDir="false" afterPath="$PROJECT_DIR$/.claude/settings.local.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BTL-LTM-Plus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BTL-LTM-Plus/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens/UIScreenCategories.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens/UIScreenCategories.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens/UIScreenCategoryLevels.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens/UIScreenCategoryLevels.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens/UIScreenCompleteOverlay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens/UIScreenCompleteOverlay.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/Models/AnswerResultData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/Models/AnswerResultData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/Models/GameStartData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/Models/GameStartData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Sample/Font/MAG_medium_crosspromo SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Sample/Font/MAG_medium_crosspromo SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/NetworkManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/NetworkMessageType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/NetworkMessageType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenMultiplayerMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenMultiplayerMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenMultiplayerRoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenMultiplayerRoom.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/GameServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/GameServer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.runtimeconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.runtimeconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/ref/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/ref/GameServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/refint/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/refint/GameServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/GameServer.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/GameServer.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/GameServer.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/GameServer.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/GameServer.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/GameServer.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/project.nuget.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +46,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
@@ -106,7 +125,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;trong/develop&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -118,7 +137,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../../Applications/Unity/Editors/6000.2.2f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.6f2\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath $PROJECT_DIR$ -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -130,7 +149,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../../Applications/Unity/Editors/6000.2.2f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.6f2\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -187,6 +206,9 @@
       <workItem from="1757701120841" duration="473000" />
       <workItem from="1757701616069" duration="838000" />
       <workItem from="1758938963968" duration="24850000" />
+      <workItem from="1760355905541" duration="1175000" />
+      <workItem from="1760366856868" duration="3071000" />
+      <workItem from="1760373273086" duration="1215000" />
     </task>
     <task id="LOCAL-00001" summary="Add project documentation for multiplayer architecture and client gameplay details">
       <option name="closed" value="true" />
