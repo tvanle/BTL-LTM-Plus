@@ -318,11 +318,30 @@ public class GameServer
         // Mark player as completed
         room.GameState.CompletedPlayers.Add(player.Id);
 
-        // Calculate score
+        // Calculate score server-side (authoritative)
         var timeTaken = data?.TimeTaken ?? 60;
-        player.Score += this.CalculateScore(timeTaken);
+        player.Streak++; // Increment streak on level completion
+        player.WordsFoundThisLevel++;
+        var scoreGained = this.CalculateCorrectAnswerScore(player, timeTaken, room.LevelDuration);
+        player.Score += scoreGained;
 
-        Console.WriteLine($"Player {player.Username} completed level {room.GameState.CurrentLevel} in {timeTaken}s");
+        Console.WriteLine($"Player {player.Username} completed level {room.GameState.CurrentLevel} in {timeTaken}s. Total Score: {player.Score}");
+
+        // Send score update back to this player
+        var playerConnection = this._connections.GetValueOrDefault(player.ConnectionId);
+        if (playerConnection != null)
+        {
+            await playerConnection.SendAsync(new GameMessage
+            {
+                Type = "SCORE_UPDATE",
+                Data = JsonSerializer.Serialize(new
+                {
+                    scoreGained = scoreGained,
+                    totalScore = player.Score,
+                    streak = player.Streak
+                })
+            });
+        }
 
         // Check if all players completed
         if (room.GameState.CompletedPlayers.Count == room.Players.Count)
@@ -354,12 +373,14 @@ public class GameServer
 
         Console.WriteLine($"Level {room.GameState.CurrentLevel} timer expired for room {room.Code}");
 
-        // Mark all non-completed players as timed out (score = 0 for this level)
+        // Mark all non-completed players as timed out (score = 0 for this level, streak reset)
         foreach (var player in room.Players.Values)
         {
             if (room.GameState.CompletedPlayers.Add(player.Id))
             {
-                Console.WriteLine($"Player {player.Username} timed out on level {room.GameState.CurrentLevel}");
+                // Reset streak for players who didn't complete in time
+                player.Streak = 0;
+                Console.WriteLine($"Player {player.Username} timed out on level {room.GameState.CurrentLevel}. Streak reset!");
             }
         }
 
@@ -410,6 +431,12 @@ public class GameServer
         room.GameState.CurrentLevel++;
         room.GameState.CompletedPlayers.Clear();
         room.GameState.LevelStartTime = DateTime.UtcNow;
+
+        // Reset words found counter for all players
+        foreach (var player in room.Players.Values)
+        {
+            player.WordsFoundThisLevel = 0;
+        }
 
         if (room.GameState.CurrentLevel > room.TotalLevels)
         {
@@ -468,6 +495,8 @@ public class GameServer
         foreach (var player in room.Players.Values)
         {
             player.Score = 0;
+            player.Streak = 0;
+            player.WordsFoundThisLevel = 0;
         }
     }
 
@@ -542,11 +571,34 @@ public class GameServer
 
     // Removed GenerateGrid and GenerateTargetWords - client will use local board data
 
-    private int CalculateScore(int timeTaken)
+    /// <summary>
+    /// Calculates score for a correct answer based on speed and streak
+    /// Formula: Base * (Speed factor + Streak multiplier)
+    /// This matches the client's CalculateCorrectAnswerScore logic
+    /// </summary>
+    private int CalculateCorrectAnswerScore(Player player, float timeTaken, float levelDuration = 60f)
     {
-        var baseScore = 100;
-        var timeBonus = Math.Max(0, 60 - timeTaken) * 2;
-        return baseScore + timeBonus;
+        const int BASE_SCORE = 1000;
+        const float MIN_SPEED_FACTOR = 0.5f;
+        const float MAX_SPEED_FACTOR = 1.0f;
+        const float STREAK_BONUS_PER_STREAK = 0.1f;
+        const float MAX_STREAK_MULTIPLIER = 1.5f;
+
+        // Calculate speed factor based on time remaining (0.5 to 1.0)
+        var timeRemaining = Math.Max(0, levelDuration - timeTaken);
+        var percentTimeRemaining = timeRemaining / levelDuration;
+        var speedFactor = MIN_SPEED_FACTOR + (MAX_SPEED_FACTOR - MIN_SPEED_FACTOR) * percentTimeRemaining;
+
+        // Calculate streak multiplier (0.1 per streak, max 1.5)
+        var streakMultiplier = Math.Min(player.Streak * STREAK_BONUS_PER_STREAK, MAX_STREAK_MULTIPLIER);
+
+        // Calculate total score
+        var totalMultiplier = speedFactor + streakMultiplier;
+        var scoreGained = (int)Math.Round(BASE_SCORE * totalMultiplier);
+
+        Console.WriteLine($"[Scoring] Player {player.Username}: +{scoreGained} points | Speed: {speedFactor:F2}x | Streak: {player.Streak} ({streakMultiplier:F2}x) | Time: {timeTaken:F1}s");
+
+        return scoreGained;
     }
 
     public async Task StopAsync()
@@ -674,6 +726,8 @@ public class Player
     public string Username { get; set; } = string.Empty;
     public string? RoomCode { get; set; }
     public int Score { get; set; }
+    public int Streak { get; set; }
+    public int WordsFoundThisLevel { get; set; }
 }
 
 public class GameState

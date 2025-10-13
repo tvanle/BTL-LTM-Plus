@@ -158,6 +158,37 @@ public class GameManager : SingletonComponent<GameManager>
 
 		// Setup events
 		this.letterBoard.OnWordFound += this.OnWordFound;
+
+		// Subscribe to network score updates (if NetworkManager exists)
+		if (NetworkManager.Instance != null)
+		{
+			NetworkManager.Instance.OnScoreUpdate += this.HandleServerScoreUpdate;
+		}
+	}
+
+	private void OnDestroy()
+	{
+		// Unsubscribe from events
+		if (this.letterBoard != null)
+		{
+			this.letterBoard.OnWordFound -= this.OnWordFound;
+		}
+
+		if (NetworkManager.Instance != null)
+		{
+			NetworkManager.Instance.OnScoreUpdate -= this.HandleServerScoreUpdate;
+		}
+	}
+
+	/// <summary>
+	/// Handles score updates from the server (multiplayer only)
+	/// </summary>
+	private void HandleServerScoreUpdate(NetworkManager.ScoreUpdateData scoreData)
+	{
+		this.CurrentScore = scoreData.totalScore;
+		this.CurrentStreak = scoreData.streak;
+
+		Debug.Log($"[Server Score] Total: {scoreData.totalScore} | Gained: {scoreData.scoreGained} | Streak: {scoreData.streak}");
 	}
 
 
@@ -167,14 +198,7 @@ public class GameManager : SingletonComponent<GameManager>
 		this.ActiveCategory = category;
 		this.ActiveLevelIndex  = levelIndex;
 
-		// Check if previous level was completed, if not reset streak
-		if (this.ActiveBoardState != null && !this.levelCompleted)
-		{
-			this.CurrentStreak = 0;
-			Debug.Log("[Scoring] Previous level not completed. Streak reset!");
-		}
-
-		// Reset scoring variables for new game (not for multiplayer levels)
+		// Reset scoring variables for new game
 		if (this.ActiveBoardState == null)
 		{
 			this.CurrentScore = 0;
@@ -330,8 +354,7 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	private void OnWordFound(string word, List<LetterTile> letterTile, bool foundAllWords)
 	{
-		// Handle correct answer scoring
-		this.HandleCorrectAnswer();
+		// Server calculates all scores - no local scoring
 
 		// Set all the tileStates for the found game tiles to BoardState.TileState.Found to indicate the tile has been found
 		foreach (var t in letterTile)
@@ -424,15 +447,12 @@ public class GameManager : SingletonComponent<GameManager>
 		// Calculate time taken
 		var timeTaken = this.GetElapsedTime();
 
-		// Send level completed to server
+		// Send completion to server - server will calculate and send back score
 		await NetworkManager.Instance.LevelCompleted((int)timeTaken);
 
-		// Use the calculated score from our scoring system
-
-		Debug.Log($"[Level Complete] Final Score: {this.CurrentScore} | Time: {timeTaken}s | Streak: {this.CurrentStreak}");
-
-		// Show complete overlay with score - wait for server instruction
-		UIScreenController.Instance.Show(UIScreenController.CompleteScreenId, false, true, true, Tween.TweenStyle.EaseOut, null, this.CurrentScore);
+		// Server will send SCORE_UPDATE message with the authoritative score
+		// The score will be displayed when the server sends LEVEL_ENDED
+		Debug.Log($"[Level Complete] Waiting for server score... | Time: {timeTaken}s");
 
 		// Clear board state
 		this.ActiveBoardState = null;
@@ -450,45 +470,6 @@ public class GameManager : SingletonComponent<GameManager>
 		return 0f;
 	}
 
-	/// <summary>
-	/// Calculates score for a correct answer based on speed and streak
-	/// Formula: Base * (Speed factor + Streak multiplier)
-	/// </summary>
-	private int CalculateCorrectAnswerScore(float levelDuration = 60f)
-	{
-		const int BASE_SCORE = 1000;
-		const float MIN_SPEED_FACTOR = 0.5f;
-		const float MAX_SPEED_FACTOR = 1.0f;
-		const float STREAK_BONUS_PER_STREAK = 0.1f;
-		const float MAX_STREAK_MULTIPLIER = 1.5f;
-
-		// Calculate speed factor based on time remaining (0.5 to 1.0)
-		var elapsedTime = this.GetElapsedTime();
-		var timeRemaining = Mathf.Max(0, levelDuration - elapsedTime);
-		var percentTimeRemaining = timeRemaining / levelDuration;
-		var speedFactor = Mathf.Lerp(MIN_SPEED_FACTOR, MAX_SPEED_FACTOR, percentTimeRemaining);
-
-		// Calculate streak multiplier (0.1 per streak, max 1.5)
-		var streakMultiplier = Mathf.Min(this.CurrentStreak * STREAK_BONUS_PER_STREAK, MAX_STREAK_MULTIPLIER);
-
-		// Calculate total score
-		var totalMultiplier = speedFactor + streakMultiplier;
-		var scoreGained = Mathf.RoundToInt(BASE_SCORE * totalMultiplier);
-
-		return scoreGained;
-	}
-
-	/// <summary>
-	/// Handles correct answer: adds score and increases streak
-	/// </summary>
-	private void HandleCorrectAnswer()
-	{
-		var scoreGained = this.CalculateCorrectAnswerScore();
-		this.CurrentScore += scoreGained;
-		this.CurrentStreak++;
-
-		Debug.Log($"[Scoring] Correct! +{scoreGained} points | Streak: {this.CurrentStreak} | Total Score: {this.CurrentScore}");
-	}
 
 
     private void OnApplicationPause(bool pause)
