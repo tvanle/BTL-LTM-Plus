@@ -164,7 +164,7 @@ namespace WordGame.UI
         public void InitializeRoom(string roomCode, bool isHost)
         {
             _isHost = isHost;
-            roomCodeText.text = $"Room Code: {roomCode}";
+            roomCodeText.text = $"{roomCode}";
             startGameButton.gameObject.SetActive(isHost);
         }
 

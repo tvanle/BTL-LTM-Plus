@@ -101,7 +101,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 663800c5755994adbbd8120df341cfe0, type: 3}
+  m_Sprite: {fileID: -5993112012373322873, guid: 0b07e5c2b2ec6d94d9fdfb4a85811cda,
+    type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -110,7 +111,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 3.2
+  m_PixelsPerUnitMultiplier: 0.52
 --- !u!1 &1004323172830306708
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +308,6 @@ MonoBehaviour:
   playerListContainer: {fileID: 3353036511010444908}
   playerListItemPrefab: {fileID: 1518174320611077746, guid: 026bb52f4203d4e97a36b06a2b6057a3,
     type: 3}
-  readyButton: {fileID: 7257287200033267586}
   startGameButton: {fileID: 1906549923139327946}
   leaveRoomButton: {fileID: 7374886138828280362}
 --- !u!1 &1419281601730302605
@@ -1012,8 +1012,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.8392685}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -340, y: 0}
-  m_SizeDelta: {x: -680, y: 0}
+  m_AnchoredPosition: {x: -305, y: 7.5}
+  m_SizeDelta: {x: -680, y: -15.0000105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7446386691461692027
 CanvasRenderer:
