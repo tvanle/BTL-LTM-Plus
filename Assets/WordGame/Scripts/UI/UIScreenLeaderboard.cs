@@ -79,7 +79,7 @@ public class UIScreenLeaderboard : UIScreen
             {
                 tmpTexts[0].text = rank.ToString(); // Rank
                 tmpTexts[1].text = result.Username; // Name
-                tmpTexts[2].text = result.Score.ToString(); // Score
+                tmpTexts[2].text = result.Score.ToString() + " points"; // Score
             }
 
             leaderboardItems.Add(item);
