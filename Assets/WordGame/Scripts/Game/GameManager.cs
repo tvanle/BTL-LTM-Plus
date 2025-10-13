@@ -437,52 +437,7 @@ public class GameManager : SingletonComponent<GameManager>
 		// Clear board state
 		this.ActiveBoardState = null;
 	}
-
-
-	/// <summary>
-	/// Gets the current game state for multiplayer synchronization
-	/// </summary>
-	public Dictionary<string, object> GetGameStateForSync()
-	{
-		var gameState = new Dictionary<string, object>();
-
-		if (this.ActiveBoardState != null)
-		{
-			gameState["boardId"] = this.ActiveBoardState.wordBoardId;
-			gameState["foundWords"] = this.ActiveBoardState.foundWords;
-			gameState["tileStates"] = this.ActiveBoardState.tileStates;
-			gameState["hints"] = this.CurrentHints;
-			gameState["elapsedTime"] = Time.time - this.ActiveBoardState.startTime;
-		}
-
-		return gameState;
-	}
-
-	/// <summary>
-	/// Updates game state from multiplayer sync data
-	/// </summary>
-	public void UpdateGameStateFromSync(Dictionary<string, object> syncData)
-	{
-		if (syncData.ContainsKey("hints"))
-		{
-			this.CurrentHints = (int)syncData["hints"];
-		}
-
-		if (this.ActiveBoardState != null && syncData.ContainsKey("foundWords"))
-		{
-			this.ActiveBoardState.foundWords = (bool[])syncData["foundWords"];
-			this.ActiveBoardState.tileStates = (BoardState.TileState[])syncData["tileStates"];
-
-			if (syncData.ContainsKey("elapsedTime"))
-			{
-				this.ActiveBoardState.elapsedTime = (float)syncData["elapsedTime"];
-			}
-
-			// Refresh the display
-			this.SetupActiveBoard();
-		}
-	}
-
+	
 	/// <summary>
 	/// Gets the elapsed time for the current board
 	/// </summary>
