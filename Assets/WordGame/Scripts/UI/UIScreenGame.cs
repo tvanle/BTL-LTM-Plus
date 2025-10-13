@@ -19,7 +19,6 @@ public class UIScreenGame : UIScreen
 	private bool isMultiplayer = false;
 	private float levelTimer;
 	private bool isLevelActive;
-	private bool hasCompletedLevel = false;
 	private NetworkManager networkManager;
 	
 
@@ -122,7 +121,6 @@ public class UIScreenGame : UIScreen
 	{
 		isMultiplayer = true;
 		isLevelActive = true;
-		hasCompletedLevel = false;
 		levelTimer = 60; //Default
 
 		// Show timer for multiplayer
@@ -142,7 +140,6 @@ public class UIScreenGame : UIScreen
 	{
 		isMultiplayer = false;
 		isLevelActive = false;
-		hasCompletedLevel = false;
 		levelTimer = 0;
 
 		if (timerText != null)
