@@ -99,6 +99,11 @@ public class GameManager : SingletonComponent<GameManager>
 	public bool								AnimatingWord				{ get; private set; }
 	public System.DateTime					NextDailyPuzzleAt			{ get; private set; }
 
+	// Scoring system properties
+	public int								CurrentScore				{ get; private set; }
+	public int								CurrentStreak				{ get; private set; }
+	private bool							levelCompleted;
+
 	public List<CategoryInfo> CategoryInfos
 	{
 		get
@@ -153,6 +158,37 @@ public class GameManager : SingletonComponent<GameManager>
 
 		// Setup events
 		this.letterBoard.OnWordFound += this.OnWordFound;
+
+		// Subscribe to network score updates (if NetworkManager exists)
+		if (NetworkManager.Instance != null)
+		{
+			NetworkManager.Instance.OnScoreUpdate += this.HandleServerScoreUpdate;
+		}
+	}
+
+	private void OnDestroy()
+	{
+		// Unsubscribe from events
+		if (this.letterBoard != null)
+		{
+			this.letterBoard.OnWordFound -= this.OnWordFound;
+		}
+
+		if (NetworkManager.Instance != null)
+		{
+			NetworkManager.Instance.OnScoreUpdate -= this.HandleServerScoreUpdate;
+		}
+	}
+
+	/// <summary>
+	/// Handles score updates from the server (multiplayer only)
+	/// </summary>
+	private void HandleServerScoreUpdate(NetworkManager.ScoreUpdateData scoreData)
+	{
+		this.CurrentScore = scoreData.totalScore;
+		this.CurrentStreak = scoreData.streak;
+
+		Debug.Log($"[Server Score] Total: {scoreData.totalScore} | Gained: {scoreData.scoreGained} | Streak: {scoreData.streak}");
 	}
 
 
@@ -161,6 +197,16 @@ public class GameManager : SingletonComponent<GameManager>
 	{
 		this.ActiveCategory = category;
 		this.ActiveLevelIndex  = levelIndex;
+
+		// Reset scoring variables for new game
+		if (this.ActiveBoardState == null)
+		{
+			this.CurrentScore = 0;
+			this.CurrentStreak = 0;
+		}
+
+		// Mark level as not completed yet
+		this.levelCompleted = false;
 
 		// Get the board id for the level and load the WordBoard from Resources
 		var boardId = Utilities.FormatBoardId(this.ActiveCategory, this.ActiveLevelIndex);
@@ -308,6 +354,8 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	private void OnWordFound(string word, List<LetterTile> letterTile, bool foundAllWords)
 	{
+		// Server calculates all scores - no local scoring
+
 		// Set all the tileStates for the found game tiles to BoardState.TileState.Found to indicate the tile has been found
 		foreach (var t in letterTile)
 		{
@@ -393,66 +441,23 @@ public class GameManager : SingletonComponent<GameManager>
 	/// </summary>
 	private async void BoardComplete()
 	{
+		// Mark level as completed (so streak won't be reset on next level)
+		this.levelCompleted = true;
+
 		// Calculate time taken
 		var timeTaken = this.GetElapsedTime();
 
-		// Send level completed to server
+		// Send completion to server - server will calculate and send back score
 		await NetworkManager.Instance.LevelCompleted((int)timeTaken);
 
-		int displayScore = Mathf.Max(100 - (int)timeTaken, 0);
-
-		// Show complete overlay with score - wait for server instruction
-		UIScreenController.Instance.Show(UIScreenController.CompleteScreenId, false, true, true, Tween.TweenStyle.EaseOut, null, displayScore);
+		// Server will send SCORE_UPDATE message with the authoritative score
+		// The score will be displayed when the server sends LEVEL_ENDED
+		Debug.Log($"[Level Complete] Waiting for server score... | Time: {timeTaken}s");
 
 		// Clear board state
 		this.ActiveBoardState = null;
 	}
-
-
-	/// <summary>
-	/// Gets the current game state for multiplayer synchronization
-	/// </summary>
-	public Dictionary<string, object> GetGameStateForSync()
-	{
-		var gameState = new Dictionary<string, object>();
-
-		if (this.ActiveBoardState != null)
-		{
-			gameState["boardId"] = this.ActiveBoardState.wordBoardId;
-			gameState["foundWords"] = this.ActiveBoardState.foundWords;
-			gameState["tileStates"] = this.ActiveBoardState.tileStates;
-			gameState["hints"] = this.CurrentHints;
-			gameState["elapsedTime"] = Time.time - this.ActiveBoardState.startTime;
-		}
-
-		return gameState;
-	}
-
-	/// <summary>
-	/// Updates game state from multiplayer sync data
-	/// </summary>
-	public void UpdateGameStateFromSync(Dictionary<string, object> syncData)
-	{
-		if (syncData.ContainsKey("hints"))
-		{
-			this.CurrentHints = (int)syncData["hints"];
-		}
-
-		if (this.ActiveBoardState != null && syncData.ContainsKey("foundWords"))
-		{
-			this.ActiveBoardState.foundWords = (bool[])syncData["foundWords"];
-			this.ActiveBoardState.tileStates = (BoardState.TileState[])syncData["tileStates"];
-
-			if (syncData.ContainsKey("elapsedTime"))
-			{
-				this.ActiveBoardState.elapsedTime = (float)syncData["elapsedTime"];
-			}
-
-			// Refresh the display
-			this.SetupActiveBoard();
-		}
-	}
-
+	
 	/// <summary>
 	/// Gets the elapsed time for the current board
 	/// </summary>
@@ -464,6 +469,7 @@ public class GameManager : SingletonComponent<GameManager>
 		}
 		return 0f;
 	}
+
 
 
     private void OnApplicationPause(bool pause)

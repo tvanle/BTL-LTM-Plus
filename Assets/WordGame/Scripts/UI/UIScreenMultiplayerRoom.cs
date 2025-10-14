@@ -17,7 +17,6 @@ namespace WordGame.UI
 
         [SerializeField] private Transform playerListContainer;
         [SerializeField] private GameObject playerListItemPrefab;
-        [SerializeField] private Button readyButton;
         [SerializeField] private Button startGameButton;
         [SerializeField] private Button leaveRoomButton;
 
@@ -34,7 +33,6 @@ namespace WordGame.UI
                 networkManager.OnMessageReceived += OnMessageReceived;
             }
 
-            readyButton.onClick.AddListener(HandleReady);
             startGameButton.onClick.AddListener(HandleStartGame);
             leaveRoomButton.onClick.AddListener(HandleLeaveRoom);
         }
@@ -60,7 +58,6 @@ namespace WordGame.UI
             {
                 case "PLAYER_JOINED":
                 case "PLAYER_LEFT":
-                case "PLAYER_READY":
                     if (networkManager != null)
                     {
                         UpdatePlayerList(networkManager.RoomPlayers);
@@ -135,15 +132,6 @@ namespace WordGame.UI
             }
         }
 
-        private async void HandleReady()
-        {
-            if (networkManager != null)
-            {
-                await networkManager.SetReady();
-                SetReadyButtonInteractable(false);
-            }
-        }
-
         private async void HandleStartGame()
         {
             if (_isHost && networkManager != null)
@@ -164,7 +152,6 @@ namespace WordGame.UI
 
         private void OnDestroy()
         {
-            readyButton.onClick.RemoveAllListeners();
             startGameButton.onClick.RemoveAllListeners();
             leaveRoomButton.onClick.RemoveAllListeners();
 
@@ -177,9 +164,8 @@ namespace WordGame.UI
         public void InitializeRoom(string roomCode, bool isHost)
         {
             _isHost = isHost;
-            roomCodeText.text = $"Room Code: {roomCode}";
+            roomCodeText.text = $"{roomCode}";
             startGameButton.gameObject.SetActive(isHost);
-            readyButton.interactable = true;
         }
 
         public void UpdatePlayerList(List<NetworkManager.PlayerInfo> players)
@@ -207,25 +193,13 @@ namespace WordGame.UI
                     }
                 }
 
-                // Find ReadyIcon child
-                var readyIconTransform = item.transform.Find("ReadyIcon");
-                if (readyIconTransform != null)
-                {
-                    readyIconTransform.gameObject.SetActive(player.IsReady);
-                }
-
                 _playerListItems[player.Id] = item;
             }
         }
 
-        public void SetReadyButtonInteractable(bool interactable)
-        {
-            readyButton.interactable = interactable;
-        }
-
         public void Reset()
         {
-            readyButton.interactable = true;
+            // Reset any room state if needed
         }
     }
 }
