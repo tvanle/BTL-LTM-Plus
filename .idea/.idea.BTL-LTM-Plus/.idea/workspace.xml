@@ -7,6 +7,15 @@
     <list default="true" id="0e4c2a72-4304-4c5d-889f-02afab2639ce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BTL-LTM-Plus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BTL-LTM-Plus/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/WordGame/Sample/Font/MAG_medium_crosspromo SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Sample/Font/MAG_medium_crosspromo SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/ref/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/ref/GameServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/refint/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/refint/GameServer.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,22 +102,22 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/quandd",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/quandd&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.6f2\Editor\Unity.exe" />
@@ -183,6 +192,7 @@
       <workItem from="1760355905541" duration="1175000" />
       <workItem from="1760366856868" duration="3071000" />
       <workItem from="1760373273086" duration="1948000" />
+      <workItem from="1760411069935" duration="538000" />
     </task>
     <task id="LOCAL-00001" summary="Add project documentation for multiplayer architecture and client gameplay details">
       <option name="closed" value="true" />
