@@ -733,7 +733,6 @@ public class Player
 public class GameState
 {
     public int CurrentLevel { get; set; }
-    public Dictionary<string, int> PlayerScores { get; set; } = new();
     public HashSet<Guid> CompletedPlayers { get; set; } = new();
     public DateTime LevelStartTime { get; set; }
     public Timer? LevelTimer { get; set; }
