@@ -33,6 +33,7 @@ namespace WordGame.Network
         // Player and Room Info
         public string PlayerId { get; private set; }
         public string RoomCode { get; private set; }
+        public string Category { get; private set; }
         public List<PlayerInfo> RoomPlayers { get; private set; } = new List<PlayerInfo>();
 
         private void Awake()
@@ -145,6 +146,7 @@ namespace WordGame.Network
             var message = new GameMessage { Type = "LEAVE_ROOM" };
             await this.SendMessageAsync(message);
             this.RoomCode = null;
+            this.Category = null;
             this.RoomPlayers.Clear();
         }
 
@@ -306,6 +308,7 @@ namespace WordGame.Network
                         if (createData != null)
                         {
                             this.RoomCode = createData.roomCode;
+                            this.Category = createData.category;
                             if (createData.player != null)
                             {
                                 this.PlayerId = createData.player.Id;
@@ -323,6 +326,7 @@ namespace WordGame.Network
                         if (joinData != null)
                         {
                             this.RoomCode = joinData.roomCode;
+                            this.Category = joinData.category;
                             this.PlayerId = joinData.playerId;
                             this.RoomPlayers = joinData.players ?? new List<PlayerInfo>();
                         }
@@ -417,6 +421,7 @@ namespace WordGame.Network
         private class RoomCreatedData
         {
             public string roomCode;
+            public string category;
             public PlayerInfo player;
         }
 
@@ -424,6 +429,7 @@ namespace WordGame.Network
         private class RoomJoinedData
         {
             public string roomCode;
+            public string category;
             public string playerId;
             public List<PlayerInfo> players;
         }
