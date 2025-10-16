@@ -34,6 +34,7 @@ namespace WordGame.Network
         public string PlayerId { get; private set; }
         public string RoomCode { get; private set; }
         public string Category { get; private set; }
+        public int NumQuestions { get; private set; } = 10;
         public List<PlayerInfo> RoomPlayers { get; private set; } = new List<PlayerInfo>();
 
         private void Awake()
@@ -102,13 +103,14 @@ namespace WordGame.Network
             await Task.CompletedTask;
         }
 
-        public async Task<bool> CreateRoom(string username, string category, int levelDuration = 30)
+        public async Task<bool> CreateRoom(string username, string category, int levelDuration = 30, int numQuestions = 10)
         {
             var createData = new CreateRoomData
             {
                 Username = username,
                 Category = category,
-                LevelDuration = levelDuration
+                LevelDuration = levelDuration,
+                NumQuestions = numQuestions
             };
 
             var message = new GameMessage
@@ -145,6 +147,7 @@ namespace WordGame.Network
             await this.SendMessageAsync(message);
             this.RoomCode = null;
             this.Category = null;
+            this.NumQuestions = 10;
             this.RoomPlayers.Clear();
         }
 
@@ -307,6 +310,7 @@ namespace WordGame.Network
                         {
                             this.RoomCode = createData.roomCode;
                             this.Category = createData.category;
+                            this.NumQuestions = createData.numQuestions;
                             if (createData.player != null)
                             {
                                 this.PlayerId = createData.player.Id;
@@ -325,6 +329,7 @@ namespace WordGame.Network
                         {
                             this.RoomCode = joinData.roomCode;
                             this.Category = joinData.category;
+                            this.NumQuestions = joinData.numQuestions;
                             this.PlayerId = joinData.playerId;
                             this.RoomPlayers = joinData.players ?? new List<PlayerInfo>();
                         }
@@ -420,6 +425,7 @@ namespace WordGame.Network
         {
             public string roomCode;
             public string category;
+            public int numQuestions;
             public PlayerInfo player;
         }
 
@@ -428,6 +434,7 @@ namespace WordGame.Network
         {
             public string roomCode;
             public string category;
+            public int numQuestions;
             public string playerId;
             public List<PlayerInfo> players;
         }
@@ -438,6 +445,7 @@ namespace WordGame.Network
             public string Username;
             public string Category;
             public int LevelDuration;
+            public int NumQuestions;
         }
 
         [Serializable]

@@ -141,9 +141,9 @@ namespace WordGame.UI
                 {
                     InitializeRoom(networkManager.RoomCode, _isHost);
                     UpdatePlayerList(networkManager.RoomPlayers);
-                    // Update room info with category from NetworkManager
+                    // Update room info with category and numQuestions from NetworkManager
                     string category = !string.IsNullOrEmpty(networkManager.Category) ? networkManager.Category : "Category 1";
-                    UpdateRoomInfo(category, networkManager.RoomPlayers?.Count ?? 1, 10);
+                    UpdateRoomInfo(category, networkManager.RoomPlayers?.Count ?? 1, networkManager.NumQuestions);
                 }
             }
         }
@@ -157,9 +157,9 @@ namespace WordGame.UI
                     if (networkManager != null)
                     {
                         UpdatePlayerList(networkManager.RoomPlayers);
-                        // Update player count in room info with category from NetworkManager
+                        // Update player count in room info with category and numQuestions from NetworkManager
                         string category = !string.IsNullOrEmpty(networkManager.Category) ? networkManager.Category : "Category 1";
-                        UpdateRoomInfo(category, networkManager.RoomPlayers?.Count ?? 1, 10);
+                        UpdateRoomInfo(category, networkManager.RoomPlayers?.Count ?? 1, networkManager.NumQuestions);
                     }
 
                     break;

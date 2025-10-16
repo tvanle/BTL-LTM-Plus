@@ -134,7 +134,8 @@ public class GameServer
             Code = roomCode,
             HostId = player.Id,
             Category = data.Category,
-            LevelDuration = data.LevelDuration
+            LevelDuration = data.LevelDuration,
+            NumQuestions = data.NumQuestions
         };
 
         room.Players[player.Id] = player;
@@ -145,7 +146,7 @@ public class GameServer
         await connection.SendAsync(new GameMessage
         {
             Type = "ROOM_CREATED",
-            Data = JsonSerializer.Serialize(new { roomCode, category = room.Category, player = new { player.Id, player.Username } })
+            Data = JsonSerializer.Serialize(new { roomCode, category = room.Category, numQuestions = room.NumQuestions, player = new { player.Id, player.Username } })
         });
 
         Console.WriteLine($"Room {roomCode} created by {player.Username}");
@@ -181,6 +182,7 @@ public class GameServer
             {
                 roomCode = room.Code,
                 category = room.Category,
+                numQuestions = room.NumQuestions,
                 playerId = player.Id,
                 players = room.Players.Values.Select(p => new { p.Id, p.Username })
             })
@@ -709,6 +711,7 @@ public class GameRoom
     public string Category { get; set; }
     public int LevelDuration { get; set; } = 30;
     public int TotalLevels { get; set; } = 10;
+    public int NumQuestions { get; set; } = 10;
     public ConcurrentDictionary<Guid, Player> Players { get; } = new();
     public GameState? GameState { get; set; }
 }
@@ -743,6 +746,7 @@ public class CreateRoomData
     public string Username { get; set; } = string.Empty;
     public string Category { get; set; } = string.Empty;
     public int LevelDuration { get; set; } = 30;
+    public int NumQuestions { get; set; } = 10;
 }
 
 public class JoinRoomData
