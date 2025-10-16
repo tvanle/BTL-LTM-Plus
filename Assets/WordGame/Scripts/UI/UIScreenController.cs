@@ -4,8 +4,6 @@ using System.Linq;
 
 public class UIScreenController : SingletonComponent<UIScreenController>
 {
-
-	[SerializeField] private float			animationSpeed;
 	[SerializeField] private List<UIScreen> uiScreens;
 
 
@@ -23,7 +21,6 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 
 	// The screen that is currently being shown
 	private UIScreen	currentUIScreen;
-	private bool		isAnimating;
 
 
 
@@ -33,9 +30,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 		for (var i = 0; i < this.uiScreens.Count; i++)
 		{
 			this.uiScreens[i].Initialize();
-			this.uiScreens[i].gameObject.SetActive(true);
-
-			this.HideUIScreen(this.uiScreens[i], false, false, Tween.TweenStyle.EaseOut, null);
+			this.uiScreens[i].gameObject.SetActive(false);
 		}
 
 		// Show the multiplayer menu screen when the app starts up
@@ -54,24 +49,27 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 	/// <param name="onTweenFinished">Called when the screens finish animating.</param>
 	public void Show(string id, bool fromLeft = false, bool animate = true, bool overlay = false, Tween.TweenStyle style = Tween.TweenStyle.EaseOut, System.Action onTweenFinished = null, object data = null)
 	{
-		if (this.isAnimating)
-		{
-			return;
-		}
-
 		var uiScreen = this.GetScreenInfo(id);
 
 		if (uiScreen != null)
 		{
-			this.ShowUIScreen(uiScreen, animate, fromLeft, style, onTweenFinished, data);
-
-			// If its not an overlay screen then hide the current screen
+			// If not overlay, deactivate all other screens
 			if (!overlay)
 			{
-				this.HideUIScreen(this.currentUIScreen, animate, fromLeft, style, null);
+				for (var i = 0; i < this.uiScreens.Count; i++)
+				{
+					if (this.uiScreens[i] != uiScreen)
+					{
+						this.uiScreens[i].gameObject.SetActive(false);
+					}
+				}
 
 				this.currentUIScreen = uiScreen;
 			}
+
+			// Activate and show the target screen
+			uiScreen.gameObject.SetActive(true);
+			this.ShowUIScreen(uiScreen, animate, fromLeft, style, onTweenFinished, data);
 		}
 	}
 
@@ -80,7 +78,15 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 	/// </summary>
 	public void HideOverlay(string id, bool fromLeft, Tween.TweenStyle style, System.Action onTweenFinished = null)
 	{
-		this.HideUIScreen(this.GetScreenInfo(id), true, fromLeft, style, onTweenFinished);
+		var screen = this.GetScreenInfo(id);
+		if (screen != null)
+		{
+			this.HideUIScreen(screen, true, fromLeft, style, () =>
+			{
+				screen.gameObject.SetActive(false);
+				onTweenFinished?.Invoke();
+			});
+		}
 
 		if (this.currentUIScreen != null)
 		{
@@ -93,7 +99,12 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 	/// </summary>
 	public void HideOverlayInstant(string id)
 	{
-		this.HideUIScreen(this.GetScreenInfo(id), false, false, Tween.TweenStyle.EaseOut, null);
+		var screen = this.GetScreenInfo(id);
+		if (screen != null)
+		{
+			this.HideUIScreen(screen, false, false, Tween.TweenStyle.EaseOut, null);
+			screen.gameObject.SetActive(false);
+		}
 
 		if (this.currentUIScreen != null)
 		{
@@ -112,24 +123,16 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 
 		uiScreen.OnShowing(data);
 
-		var direction = (fromLeft ? -1f : 1f);
+		// Reset position to center (0,0)
+		uiScreen.RectT.anchoredPosition = new Vector2(0, uiScreen.RectT.anchoredPosition.y);
 
-		var fromX			= uiScreen.RectT.rect.width * direction;
-		float toX			= 0;
-		var fromWorldX	= Utilities.WorldWidth * direction;
-		float toWorldX		= 0;
-
-		this.isAnimating = animate;
-
-		this.TransitionUIScreen(uiScreen, fromX, toX, fromWorldX, toWorldX, animate, style, () =>
+		// Reset world objects position
+		for (var i = 0; i < uiScreen.worldObjects.Count; i++)
 		{
-			this.isAnimating = false;
+			uiScreen.worldObjects[i].transform.position = new Vector3(0, uiScreen.worldObjects[i].transform.position.y, uiScreen.worldObjects[i].transform.position.z);
+		}
 
-			if (onTweenFinished != null)
-			{
-				onTweenFinished();
-			}
-		});
+		onTweenFinished?.Invoke();
 	}
 
 	private void HideUIScreen(UIScreen uiScreen, bool animate, bool fromBack, Tween.TweenStyle style, System.Action onTweenFinished)
@@ -139,49 +142,8 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 			return;
 		}
 
-		var direction = (fromBack ? 1f : -1f);
-
-		float fromX			= 0;
-		var toX			= uiScreen.RectT.rect.width * direction;
-		float fromWorldX	= 0;
-		var toWorldX		= Utilities.WorldWidth * direction;
-
-		this.TransitionUIScreen(uiScreen, fromX, toX, fromWorldX, toWorldX, animate, style, onTweenFinished);
-	}
-
-	private void TransitionUIScreen(UIScreen uiScreen, float fromX, float toX, float worldFromX, float worldToX, bool animate, Tween.TweenStyle style, System.Action onTweenFinished)
-	{
-		uiScreen.RectT.anchoredPosition = new Vector2(fromX, uiScreen.RectT.anchoredPosition.y);
-
-		if (animate)
-		{
-			var tween = Tween.PositionX(uiScreen.RectT, style, fromX, toX, this.animationSpeed);
-			
-			tween.SetUseRectTransform(true);
-
-			if (onTweenFinished != null)
-			{
-				tween.SetFinishCallback((tweenedObject, bundleObjects) => { onTweenFinished(); });
-			}
-		}
-		else
-		{
-			uiScreen.RectT.anchoredPosition = new Vector2(toX, uiScreen.RectT.anchoredPosition.y);
-		}
-		
-		for (var i = 0; i < uiScreen.worldObjects.Count; i++)
-		{
-			uiScreen.worldObjects[i].transform.position = new Vector3(worldFromX, uiScreen.worldObjects[i].transform.position.y, uiScreen.worldObjects[i].transform.position.z);
-
-			if (animate)
-			{
-				Tween.PositionX(uiScreen.worldObjects[i].transform, style, worldFromX, worldToX, this.animationSpeed);
-			}
-			else
-			{
-				uiScreen.worldObjects[i].transform.position = new Vector3(worldToX, uiScreen.worldObjects[i].transform.position.y, uiScreen.worldObjects[i].transform.position.z);
-			}
-		}
+		// No animation needed, just invoke callback
+		onTweenFinished?.Invoke();
 	}
 
 	private UIScreen GetScreenInfo(string id)
@@ -214,7 +176,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
         {
             for (var i = 0; i < this.uiScreens.Count; i++)
             {
-                if (this.uiScreens[i].RectT.anchoredPosition.x == 0)
+                if (this.uiScreens[i].gameObject.activeSelf)
                 {
                     if (i == 0)
                     {
