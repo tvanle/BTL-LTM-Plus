@@ -8,26 +8,32 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Timer = System.Threading.Timer;
+
+using WordBrainServer.Data;
+using WordBrainServer.Data.Entities;
 
 namespace WordBrainServer;
 
 public class GameServer
 {
-    private readonly TcpListener                                  _tcpListener;
-    private readonly ConcurrentDictionary<string, GameRoom>       _rooms       = new();
-    private readonly ConcurrentDictionary<Guid, Player>           _players     = new();
+    private readonly TcpListener _tcpListener;
+    private readonly ConcurrentDictionary<string, GameRoom> _rooms = new();
+    private readonly ConcurrentDictionary<Guid, Player> _players = new();
     private readonly ConcurrentDictionary<Guid, ClientConnection> _connections = new();
-    private          bool                                         _isRunning;
-    private readonly int                                          _port;
+    private bool _isRunning;
+    private readonly int _port;
+    private readonly IDbContextFactory<GameServerDbContext> _dbContextFactory;
 
-    public GameServer(int port = 8080)
+    public GameServer(IDbContextFactory<GameServerDbContext> dbContextFactory, int port = 8080)
     {
-        this._port     = port;
+        this._dbContextFactory = dbContextFactory ?? throw new ArgumentNullException(nameof(dbContextFactory));
+        this._port = port;
         this._tcpListener = new TcpListener(IPAddress.Any, port);
     }
 
-    public async Task StartAsync()
+    public Task StartAsync()
     {
         this._tcpListener.Start();
         this._isRunning = true;
@@ -35,6 +41,8 @@ public class GameServer
 
         _ = Task.Run(this.AcceptClientsAsync);
         _ = Task.Run(this.HeartbeatLoopAsync);
+
+        return Task.CompletedTask;
     }
 
     private async Task AcceptClientsAsync()
@@ -43,7 +51,7 @@ public class GameServer
         {
             try
             {
-                var tcpClient  = await this._tcpListener.AcceptTcpClientAsync();
+                var tcpClient = await this._tcpListener.AcceptTcpClientAsync();
                 var connection = new ClientConnection(tcpClient);
                 this._connections[connection.Id] = connection;
 
@@ -92,6 +100,9 @@ public class GameServer
                 case "LEAVE_ROOM":
                     await this.HandleLeaveRoom(connection);
                     break;
+                case "PLAYER_READY":
+                    await this.HandlePlayerReady(connection);
+                    break;
                 case "START_GAME":
                     await this.HandleStartGame(connection);
                     break;
@@ -116,13 +127,15 @@ public class GameServer
     private async Task HandleCreateRoom(ClientConnection connection, GameMessage message)
     {
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        var data = JsonSerializer.Deserialize<CreateRoomData>(message.Data, options);
+        var data = JsonSerializer.Deserialize<CreateRoomData>(message.Data, options)
+               ?? throw new InvalidOperationException("Invalid CREATE_ROOM payload.");
 
         var player = new Player
         {
             Id = Guid.NewGuid(),
             ConnectionId = connection.Id,
-            Username = data.Username
+            Username = data.Username,
+            IsReady = false
         };
 
         this._players[player.Id] = player;
@@ -143,10 +156,12 @@ public class GameServer
 
         this._rooms[roomCode] = room;
 
+        await this.CreateRoomRecordAsync(room, player);
+
         await connection.SendAsync(new GameMessage
         {
             Type = "ROOM_CREATED",
-            Data = JsonSerializer.Serialize(new { roomCode, player = new { player.Id, player.Username } })
+            Data = JsonSerializer.Serialize(new { roomCode, player = new { player.Id, player.Username, player.IsReady } })
         });
 
         Console.WriteLine($"Room {roomCode} created by {player.Username}");
@@ -156,7 +171,8 @@ public class GameServer
     private async Task HandleJoinRoom(ClientConnection connection, GameMessage message)
     {
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        var data = JsonSerializer.Deserialize<JoinRoomData>(message.Data, options);
+        var data = JsonSerializer.Deserialize<JoinRoomData>(message.Data, options)
+                   ?? throw new InvalidOperationException("Invalid JOIN_ROOM payload.");
 
         if (!this._rooms.TryGetValue(data.RoomCode, out var room))
         {
@@ -180,6 +196,8 @@ public class GameServer
         connection.PlayerId = player.Id;
         room.Players[player.Id] = player;
 
+        await this.AddPlayerRecordAsync(player);
+
         await connection.SendAsync(new GameMessage
         {
             Type = "ROOM_JOINED",
@@ -187,7 +205,7 @@ public class GameServer
             {
                 roomCode = room.Code,
                 playerId = player.Id,
-                players = room.Players.Values.Select(p => new { p.Id, p.Username })
+                players = room.Players.Values.Select(p => new { p.Id, p.Username, p.IsReady })
             })
         });
 
@@ -223,11 +241,38 @@ public class GameServer
             Data = JsonSerializer.Serialize(new { playerId = player.Id })
         });
 
+        await this.RemovePlayerRecordAsync(player.Id);
+
         if (room.Players.Count == 0)
         {
             this._rooms.TryRemove(room.Code, out _);
+            await this.RemoveRoomRecordAsync(room.Code);
             Console.WriteLine($"Room {room.Code} closed");
         }
+    }
+
+    private async Task HandlePlayerReady(ClientConnection connection)
+    {
+        if (!connection.PlayerId.HasValue)
+            return;
+
+        var player = this._players.GetValueOrDefault(connection.PlayerId.Value);
+        if (player?.RoomCode == null)
+            return;
+
+        var room = this._rooms.GetValueOrDefault(player.RoomCode);
+        if (room == null)
+            return;
+
+        player.IsReady = true;
+
+        await this.UpdatePlayerRecordAsync(player);
+
+        await this.BroadcastToRoom(room, new GameMessage
+        {
+            Type = "PLAYER_READY",
+            Data = JsonSerializer.Serialize(new { playerId = player.Id, isReady = true })
+        });
     }
 
     private async Task HandleStartGame(ClientConnection connection)
@@ -254,6 +299,18 @@ public class GameServer
         if (room.HostId != player.Id)
         {
             throw new Exception($"Only host can start the game. Host: {room.HostId}, Player: {player.Id}");
+        }
+
+        // Debug: Log player ready states
+        foreach (var p in room.Players.Values)
+        {
+            Console.WriteLine($"[DEBUG] Player {p.Username} (ID: {p.Id}) - Ready: {p.IsReady}");
+        }
+
+        if (!room.Players.Values.All(p => p.IsReady))
+        {
+            var notReadyPlayers = room.Players.Values.Where(p => !p.IsReady).Select(p => p.Username);
+            throw new Exception($"Not all players are ready. Not ready: {string.Join(", ", notReadyPlayers)}");
         }
 
         room.GameState = new GameState
@@ -295,9 +352,17 @@ public class GameServer
             })
         });
 
+        await using var dbContext = await this._dbContextFactory.CreateDbContextAsync();
+        var roomEntity = await dbContext.Rooms.FindAsync([room.Code]);
+        if (roomEntity is not null)
+        {
+            roomEntity.Category = actualCategory;
+            await dbContext.SaveChangesAsync();
+        }
+
         Console.WriteLine($"Game started in room {room.Code}");
     }
-    
+
     private async Task HandleLevelCompleted(ClientConnection connection, GameMessage message)
     {
         if (!connection.PlayerId.HasValue)
@@ -313,35 +378,17 @@ public class GameServer
 
         // Parse time taken
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        var data = JsonSerializer.Deserialize<LevelCompletedData>(message.Data, options);
+        var data = JsonSerializer.Deserialize<LevelCompletedData>(message.Data, options)
+                   ?? throw new InvalidOperationException("Invalid LEVEL_COMPLETED payload.");
 
         // Mark player as completed
         room.GameState.CompletedPlayers.Add(player.Id);
 
-        // Calculate score server-side (authoritative)
+        // Calculate score
         var timeTaken = data?.TimeTaken ?? 60;
-        player.Streak++; // Increment streak on level completion
-        player.WordsFoundThisLevel++;
-        var scoreGained = this.CalculateCorrectAnswerScore(player, timeTaken, room.LevelDuration);
-        player.Score += scoreGained;
+        player.Score += this.CalculateScore(timeTaken);
 
-        Console.WriteLine($"Player {player.Username} completed level {room.GameState.CurrentLevel} in {timeTaken}s. Total Score: {player.Score}");
-
-        // Send score update back to this player
-        var playerConnection = this._connections.GetValueOrDefault(player.ConnectionId);
-        if (playerConnection != null)
-        {
-            await playerConnection.SendAsync(new GameMessage
-            {
-                Type = "SCORE_UPDATE",
-                Data = JsonSerializer.Serialize(new
-                {
-                    scoreGained = scoreGained,
-                    totalScore = player.Score,
-                    streak = player.Streak
-                })
-            });
-        }
+        Console.WriteLine($"Player {player.Username} completed level {room.GameState.CurrentLevel} in {timeTaken}s");
 
         // Check if all players completed
         if (room.GameState.CompletedPlayers.Count == room.Players.Count)
@@ -373,14 +420,12 @@ public class GameServer
 
         Console.WriteLine($"Level {room.GameState.CurrentLevel} timer expired for room {room.Code}");
 
-        // Mark all non-completed players as timed out (score = 0 for this level, streak reset)
+        // Mark all non-completed players as timed out (score = 0 for this level)
         foreach (var player in room.Players.Values)
         {
             if (room.GameState.CompletedPlayers.Add(player.Id))
             {
-                // Reset streak for players who didn't complete in time
-                player.Streak = 0;
-                Console.WriteLine($"Player {player.Username} timed out on level {room.GameState.CurrentLevel}. Streak reset!");
+                Console.WriteLine($"Player {player.Username} timed out on level {room.GameState.CurrentLevel}");
             }
         }
 
@@ -410,6 +455,8 @@ public class GameServer
             })
             .ToList();
 
+        var resultMap = results.ToDictionary(r => Guid.Parse(r.Id));
+
         await this.BroadcastToRoom(room, new GameMessage
         {
             Type = "LEVEL_ENDED",
@@ -419,6 +466,12 @@ public class GameServer
                 results = results
             })
         });
+
+        foreach (var player in room.Players.Values)
+        {
+            var totalScore = resultMap[player.Id].Score;
+            await this.UpsertPlayerScoreAsync(player, room.GameState.CurrentLevel, totalScore);
+        }
 
         Console.WriteLine($"Level {room.GameState.CurrentLevel} ended in room {room.Code}");
     }
@@ -431,12 +484,6 @@ public class GameServer
         room.GameState.CurrentLevel++;
         room.GameState.CompletedPlayers.Clear();
         room.GameState.LevelStartTime = DateTime.UtcNow;
-
-        // Reset words found counter for all players
-        foreach (var player in room.Players.Values)
-        {
-            player.WordsFoundThisLevel = 0;
-        }
 
         if (room.GameState.CurrentLevel > room.TotalLevels)
         {
@@ -494,9 +541,10 @@ public class GameServer
         room.GameState = null;
         foreach (var player in room.Players.Values)
         {
+            player.IsReady = false;
             player.Score = 0;
-            player.Streak = 0;
-            player.WordsFoundThisLevel = 0;
+
+            await this.UpdatePlayerRecordAsync(player);
         }
     }
 
@@ -504,7 +552,7 @@ public class GameServer
     {
         var tasks = room.Players.Values
             .Select(p => this._connections.GetValueOrDefault(p.ConnectionId))
-            .Where(c => c != null)
+            .OfType<ClientConnection>()
             .Select(c => c.SendAsync(message));
 
         await Task.WhenAll(tasks);
@@ -515,7 +563,7 @@ public class GameServer
         var tasks = room.Players.Values
             .Where(p => p.ConnectionId != exceptConnectionId)
             .Select(p => this._connections.GetValueOrDefault(p.ConnectionId))
-            .Where(c => c != null)
+            .OfType<ClientConnection>()
             .Select(c => c.SendAsync(message));
 
         await Task.WhenAll(tasks);
@@ -571,34 +619,162 @@ public class GameServer
 
     // Removed GenerateGrid and GenerateTargetWords - client will use local board data
 
-    /// <summary>
-    /// Calculates score for a correct answer based on speed and streak
-    /// Formula: Base * (Speed factor + Streak multiplier)
-    /// This matches the client's CalculateCorrectAnswerScore logic
-    /// </summary>
-    private int CalculateCorrectAnswerScore(Player player, float timeTaken, float levelDuration = 60f)
+    private int CalculateScore(int timeTaken)
     {
-        const int BASE_SCORE = 1000;
-        const float MIN_SPEED_FACTOR = 0.5f;
-        const float MAX_SPEED_FACTOR = 1.0f;
-        const float STREAK_BONUS_PER_STREAK = 0.1f;
-        const float MAX_STREAK_MULTIPLIER = 1.5f;
+        var baseScore = 100;
+        var timeBonus = Math.Max(0, 60 - timeTaken) * 2;
+        return baseScore + timeBonus;
+    }
 
-        // Calculate speed factor based on time remaining (0.5 to 1.0)
-        var timeRemaining = Math.Max(0, levelDuration - timeTaken);
-        var percentTimeRemaining = timeRemaining / levelDuration;
-        var speedFactor = MIN_SPEED_FACTOR + (MAX_SPEED_FACTOR - MIN_SPEED_FACTOR) * percentTimeRemaining;
+    private async Task CreateRoomRecordAsync(GameRoom room, Player host, CancellationToken cancellationToken = default)
+    {
+        await using var dbContext = await this._dbContextFactory.CreateDbContextAsync(cancellationToken);
 
-        // Calculate streak multiplier (0.1 per streak, max 1.5)
-        var streakMultiplier = Math.Min(player.Streak * STREAK_BONUS_PER_STREAK, MAX_STREAK_MULTIPLIER);
+        var roomEntity = new GameRoomEntity
+        {
+            Code = room.Code,
+            HostId = room.HostId,
+            Category = room.Category,
+            MaxPlayers = room.MaxPlayers,
+            LevelDuration = room.LevelDuration,
+            TotalLevels = room.TotalLevels
+        };
 
-        // Calculate total score
-        var totalMultiplier = speedFactor + streakMultiplier;
-        var scoreGained = (int)Math.Round(BASE_SCORE * totalMultiplier);
+        var hostEntity = new PlayerEntity
+        {
+            Id = host.Id,
+            Username = host.Username,
+            RoomCode = room.Code,
+            IsReady = host.IsReady,
+            Score = host.Score
+        };
 
-        Console.WriteLine($"[Scoring] Player {player.Username}: +{scoreGained} points | Speed: {speedFactor:F2}x | Streak: {player.Streak} ({streakMultiplier:F2}x) | Time: {timeTaken:F1}s");
+        dbContext.Rooms.Add(roomEntity);
+        dbContext.Players.Add(hostEntity);
+        await dbContext.SaveChangesAsync(cancellationToken);
+    }
 
-        return scoreGained;
+    private async Task AddPlayerRecordAsync(Player player, CancellationToken cancellationToken = default)
+    {
+        if (player.RoomCode is null)
+        {
+            return;
+        }
+
+        await using var dbContext = await this._dbContextFactory.CreateDbContextAsync(cancellationToken);
+
+        var playerEntity = new PlayerEntity
+        {
+            Id = player.Id,
+            Username = player.Username,
+            RoomCode = player.RoomCode,
+            IsReady = player.IsReady,
+            Score = player.Score
+        };
+
+        dbContext.Players.Add(playerEntity);
+        await dbContext.SaveChangesAsync(cancellationToken);
+    }
+
+    private async Task UpdatePlayerRecordAsync(Player player, CancellationToken cancellationToken = default)
+    {
+        await using var dbContext = await this._dbContextFactory.CreateDbContextAsync(cancellationToken);
+
+        var entity = await dbContext.Players.FindAsync([player.Id], cancellationToken);
+        if (entity is null)
+        {
+            dbContext.Players.Add(new PlayerEntity
+            {
+                Id = player.Id,
+                Username = player.Username,
+                RoomCode = player.RoomCode,
+                IsReady = player.IsReady,
+                Score = player.Score
+            });
+        }
+        else
+        {
+            entity.Username = player.Username;
+            entity.RoomCode = player.RoomCode;
+            entity.IsReady = player.IsReady;
+            entity.Score = player.Score;
+        }
+
+        await dbContext.SaveChangesAsync(cancellationToken);
+    }
+
+    private async Task RemovePlayerRecordAsync(Guid playerId, CancellationToken cancellationToken = default)
+    {
+        await using var dbContext = await this._dbContextFactory.CreateDbContextAsync(cancellationToken);
+
+        var entity = await dbContext.Players.FindAsync([playerId], cancellationToken);
+        if (entity is null)
+        {
+            return;
+        }
+
+        dbContext.Players.Remove(entity);
+        await dbContext.SaveChangesAsync(cancellationToken);
+    }
+
+    private async Task RemoveRoomRecordAsync(string roomCode, CancellationToken cancellationToken = default)
+    {
+        await using var dbContext = await this._dbContextFactory.CreateDbContextAsync(cancellationToken);
+
+        var roomEntity = await dbContext.Rooms.FindAsync([roomCode], cancellationToken);
+        if (roomEntity is null)
+        {
+            return;
+        }
+
+        dbContext.Rooms.Remove(roomEntity);
+        await dbContext.SaveChangesAsync(cancellationToken);
+    }
+
+    private async Task UpsertPlayerScoreAsync(Player player, int level, int levelScore, CancellationToken cancellationToken = default)
+    {
+        await using var dbContext = await this._dbContextFactory.CreateDbContextAsync(cancellationToken);
+
+        var playerEntity = await dbContext.Players.FindAsync([player.Id], cancellationToken);
+        if (playerEntity is null)
+        {
+            playerEntity = new PlayerEntity
+            {
+                Id = player.Id,
+                Username = player.Username,
+                RoomCode = player.RoomCode,
+                IsReady = player.IsReady,
+                Score = player.Score
+            };
+
+            dbContext.Players.Add(playerEntity);
+        }
+        else
+        {
+            playerEntity.Score = player.Score;
+            playerEntity.IsReady = player.IsReady;
+        }
+
+        var scoreEntity = await dbContext.PlayerScores.FindAsync([player.Id, level], cancellationToken);
+        if (scoreEntity is null)
+        {
+            scoreEntity = new PlayerScoreEntity
+            {
+                PlayerId = player.Id,
+                Level = level,
+                Score = levelScore,
+                RecordedAt = DateTime.UtcNow
+            };
+
+            dbContext.PlayerScores.Add(scoreEntity);
+        }
+        else
+        {
+            scoreEntity.Score = levelScore;
+            scoreEntity.RecordedAt = DateTime.UtcNow;
+        }
+
+        await dbContext.SaveChangesAsync(cancellationToken);
     }
 
     public async Task StopAsync()
@@ -625,9 +801,9 @@ public class ClientConnection
 
     public ClientConnection(TcpClient tcpClient)
     {
-        this.Id          = Guid.NewGuid();
-        this._tcpClient  = tcpClient;
-        this._stream     = tcpClient.GetStream();
+        this.Id = Guid.NewGuid();
+        this._tcpClient = tcpClient;
+        this._stream = tcpClient.GetStream();
         this._lastHeartbeat = DateTime.UtcNow;
     }
 
@@ -709,9 +885,9 @@ public class ClientConnection
 
 public class GameRoom
 {
-    public string Code { get; set; }
+    public string Code { get; set; } = string.Empty;
     public Guid HostId { get; set; }
-    public string Category { get; set; }
+    public string Category { get; set; } = string.Empty;
     public int MaxPlayers { get; set; } = 50;
     public int LevelDuration { get; set; } = 30;
     public int TotalLevels { get; set; } = 10;
@@ -725,9 +901,8 @@ public class Player
     public Guid ConnectionId { get; set; }
     public string Username { get; set; } = string.Empty;
     public string? RoomCode { get; set; }
+    public bool IsReady { get; set; } = true;
     public int Score { get; set; }
-    public int Streak { get; set; }
-    public int WordsFoundThisLevel { get; set; }
 }
 
 public class GameState

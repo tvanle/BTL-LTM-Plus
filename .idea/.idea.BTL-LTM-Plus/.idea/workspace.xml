@@ -7,6 +7,7 @@
     <list default="true" id="0e4c2a72-4304-4c5d-889f-02afab2639ce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BTL-LTM-Plus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BTL-LTM-Plus/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/WordGame/Sample/Font/MAG_medium_crosspromo SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Sample/Font/MAG_medium_crosspromo SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/GameServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/GameServer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.AssemblyInfo.cs" afterDir="false" />
@@ -16,6 +17,9 @@
       <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/ref/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/ref/GameServer.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/refint/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/refint/GameServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/GameServer.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/GameServer.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/project.nuget.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,54 +42,15 @@
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/.claude/settings.local.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/.claude/settings.local.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/.claude/settings.local.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/bf/056add9c/Action.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/d7/c7e9543c/Action`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/.claude/settings.local.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/.claude/settings.local.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/.claude/settings.local.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Editor/BoardFileCreatorWindow.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Editor/GameManagerEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens.meta" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Prefabs/Screens/UIScreenCategories.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/WordGame/Prefabs/Screens/UIScreenCategories.prefab" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scenes/Main.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scenes/Main.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scenes/Main.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scenes/Main.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/admin/Desktop/unity_btl/BTL-LTM-Plus/Assets/WordGame/Sample/Font/MAG_medium_crosspromo SDF.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/WordGame/Sample/Font/MAG_medium_crosspromo SDF.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/WordGame/Scenes/Main.unity" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scenes/Main.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Game/DailyPuzzleButton.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Game/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Game/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Game/LetterBoard.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Game/LetterTile.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/MyCombo/CRotate.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Network/MultiplayerGameController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Network/MultiplayerGameController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Network/MultiplayerGameController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Network/MultiplayerGameController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/Network/MultiplayerGameController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenCategories.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenCategoryLevels.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenCategoryLevels.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenCategoryLevels.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenCompleteOverlay.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenCompleteOverlay.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenGame.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenGame.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenGame.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenLeaderboard.cs.meta" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenMain.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenMain.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Assets/WordGame/Scripts/UI/UIScreenMultiplayerMenu.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Packages/manifest.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/Packages/packages-lock.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/ProjectSettings/SceneTemplateSettings.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/ProjectSettings/SceneTemplateSettings.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/TRONGLV/Projects/Games/Unity/Personal/BTL-LTM-Plus/ProjectSettings/SceneTemplateSettings.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -192,7 +157,8 @@
       <workItem from="1760355905541" duration="1175000" />
       <workItem from="1760366856868" duration="3071000" />
       <workItem from="1760373273086" duration="1948000" />
-      <workItem from="1760411069935" duration="538000" />
+      <workItem from="1760411069935" duration="4680000" />
+      <workItem from="1760575118137" duration="658000" />
     </task>
     <task id="LOCAL-00001" summary="Add project documentation for multiplayer architecture and client gameplay details">
       <option name="closed" value="true" />
@@ -298,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759033181660</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix">
+      <option name="closed" value="true" />
+      <created>1760411636351</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1760411636351</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +312,8 @@
     <MESSAGE value="update prefab screens" />
     <MESSAGE value="Implement multiplayer UI screens and functionality" />
     <MESSAGE value="Add multiplayer functionality to UI screens and network management" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add multiplayer functionality to UI screens and network management" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -355,6 +330,19 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/WordGame/Scripts/Network/NetworkManager.cs</url>
+          <line>261</line>
+          <properties documentPath="C:\Users\admin\Desktop\unity_btl\BTL-LTM-Plus\Assets\WordGame\Scripts\Network\NetworkManager.cs" containingFunctionPresentation="Method 'ReceiveMessagesAsync'">
+            <startOffsets>
+              <option value="8645" />
+            </startOffsets>
+            <endOffsets>
+              <option value="8719" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
