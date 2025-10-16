@@ -146,7 +146,7 @@ public class GameServer
         await connection.SendAsync(new GameMessage
         {
             Type = "ROOM_CREATED",
-            Data = JsonSerializer.Serialize(new { roomCode, player = new { player.Id, player.Username } })
+            Data = JsonSerializer.Serialize(new { roomCode, category = room.Category, player = new { player.Id, player.Username } })
         });
 
         Console.WriteLine($"Room {roomCode} created by {player.Username}");
@@ -186,6 +186,7 @@ public class GameServer
             Data = JsonSerializer.Serialize(new
             {
                 roomCode = room.Code,
+                category = room.Category,
                 playerId = player.Id,
                 players = room.Players.Values.Select(p => new { p.Id, p.Username })
             })
