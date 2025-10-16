@@ -134,7 +134,6 @@ public class GameServer
             Code = roomCode,
             HostId = player.Id,
             Category = data.Category,
-            MaxPlayers = data.MaxPlayers,
             LevelDuration = data.LevelDuration
         };
 
@@ -161,11 +160,6 @@ public class GameServer
         if (!this._rooms.TryGetValue(data.RoomCode, out var room))
         {
             throw new Exception("Room not found");
-        }
-
-        if (room.Players.Count >= room.MaxPlayers)
-        {
-            throw new Exception("Room is full");
         }
 
         var player = new Player
@@ -713,7 +707,6 @@ public class GameRoom
     public string Code { get; set; }
     public Guid HostId { get; set; }
     public string Category { get; set; }
-    public int MaxPlayers { get; set; } = 50;
     public int LevelDuration { get; set; } = 30;
     public int TotalLevels { get; set; } = 10;
     public ConcurrentDictionary<Guid, Player> Players { get; } = new();
@@ -749,7 +742,6 @@ public class CreateRoomData
 {
     public string Username { get; set; } = string.Empty;
     public string Category { get; set; } = string.Empty;
-    public int MaxPlayers { get; set; } = 50;
     public int LevelDuration { get; set; } = 30;
 }
 

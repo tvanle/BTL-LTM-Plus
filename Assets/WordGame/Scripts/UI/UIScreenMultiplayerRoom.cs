@@ -143,7 +143,7 @@ namespace WordGame.UI
                     UpdatePlayerList(networkManager.RoomPlayers);
                     // Update room info with category from NetworkManager
                     string category = !string.IsNullOrEmpty(networkManager.Category) ? networkManager.Category : "Category 1";
-                    UpdateRoomInfo(category, networkManager.RoomPlayers?.Count ?? 1, 4, 10);
+                    UpdateRoomInfo(category, networkManager.RoomPlayers?.Count ?? 1, 10);
                 }
             }
         }
@@ -159,7 +159,7 @@ namespace WordGame.UI
                         UpdatePlayerList(networkManager.RoomPlayers);
                         // Update player count in room info with category from NetworkManager
                         string category = !string.IsNullOrEmpty(networkManager.Category) ? networkManager.Category : "Category 1";
-                        UpdateRoomInfo(category, networkManager.RoomPlayers?.Count ?? 1, 4, 10);
+                        UpdateRoomInfo(category, networkManager.RoomPlayers?.Count ?? 1, 10);
                     }
 
                     break;
@@ -306,10 +306,8 @@ namespace WordGame.UI
         /// </summary>
         /// <param name="category">Category name (e.g., "Category 1")</param>
         /// <param name="numPlayers">Current number of players in room</param>
-        /// <param name="maxPlayers">Maximum number of players allowed</param>
         /// <param name="numQuestions">Number of questions/words in game</param>
-        public void UpdateRoomInfo(string category = "Category 1", int numPlayers = 1, int maxPlayers = 4,
-            int numQuestions = 10)
+        public void UpdateRoomInfo(string category = "Category 1", int numPlayers = 1, int numQuestions = 10)
         {
             // Update category icon
             if (categoryIconImage != null && _categoryIcons != null && _categoryIcons.ContainsKey(category))
@@ -333,7 +331,7 @@ namespace WordGame.UI
             // Update number of players
             if (numPlayersText != null)
             {
-                numPlayersText.text = $"{numPlayers}/{maxPlayers} Players";
+                numPlayersText.text = $"{numPlayers} Players";
             }
 
             // Update number of questions

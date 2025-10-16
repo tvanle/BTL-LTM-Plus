@@ -102,14 +102,12 @@ namespace WordGame.Network
             await Task.CompletedTask;
         }
 
-        public async Task<bool> CreateRoom(string username, string category, int maxPlayers = 50,
-            int levelDuration = 30)
+        public async Task<bool> CreateRoom(string username, string category, int levelDuration = 30)
         {
             var createData = new CreateRoomData
             {
                 Username = username,
                 Category = category,
-                MaxPlayers = maxPlayers,
                 LevelDuration = levelDuration
             };
 
@@ -439,7 +437,6 @@ namespace WordGame.Network
         {
             public string Username;
             public string Category;
-            public int MaxPlayers;
             public int LevelDuration;
         }
 
