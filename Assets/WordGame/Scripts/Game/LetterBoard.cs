@@ -330,75 +330,9 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     /// </summary>
     private void UpdateLine()
     {
+        // Disabled line animation
         this.lineSegmentPool.ReturnAllObjectsToPool();
         this.lineEnd.gameObject.SetActive(false);
-
-        if (!this.enableLine || this.selectedLetterTiles.Count == 0)
-        {
-            return;
-        }
-
-        var lineScale = 3f / (float)this.currentBoardSize;
-
-        for (var i = 0; i < this.selectedLetterTiles.Count - 1; i++)
-        {
-            var lineSegmentRectT = this.lineSegmentPool.GetObject().transform as RectTransform;
-            var startPosition    = ((RectTransform)this.selectedLetterTiles[i].transform.parent).anchoredPosition;
-            var endPosition      = ((RectTransform)this.selectedLetterTiles[i + 1].transform.parent).anchoredPosition;
-
-            // Set the scale of the line
-            lineSegmentRectT.localScale = new Vector3(lineScale, lineScale, 1f);
-
-            var angle    = Vector2.Angle(new Vector2(1f, 0f), endPosition - startPosition);
-            var distance = Vector2.Distance(startPosition, endPosition);
-            var width    = distance / lineScale + lineSegmentRectT.sizeDelta.y;
-
-            // Set position and size
-            lineSegmentRectT.anchoredPosition = startPosition + (endPosition - startPosition) / 2f;
-            lineSegmentRectT.sizeDelta        = new Vector2(width, lineSegmentRectT.sizeDelta.y);
-
-            lineSegmentRectT.gameObject.SetActive(true);
-
-            // Set angle
-            if (startPosition.y > endPosition.y)
-            {
-                angle = -angle;
-            }
-
-            lineSegmentRectT.eulerAngles = new Vector3(0f, 0f, angle);
-        }
-
-        // Now position the line end
-        var lineEndRectT = this.lineEnd.transform as RectTransform;
-        lineEndRectT.anchoredPosition = ((RectTransform)this.selectedLetterTiles[^1].transform.parent).anchoredPosition;
-        this.lineEnd.gameObject.SetActive(true);
-        this.lineEnd.transform.SetAsLastSibling();
-
-        if (this.selectedLetterTiles.Count > 1)
-        {
-            var v1  = ((RectTransform)this.selectedLetterTiles[^1].transform.parent).anchoredPosition;
-            var v2  = ((RectTransform)this.selectedLetterTiles[^2].transform.parent).anchoredPosition;
-            var dir = (v1 - v2).normalized;
-
-            var flip = (dir.x > 0) ? -1f : 1f;
-
-            // Set the direction the line end is facing based on the direction of the last line segment
-            lineEndRectT.localScale = new Vector3(flip * lineScale, lineScale, 1);
-
-            var angle = Vector2.Angle(new Vector2(lineEndRectT.localScale.x, 0f), v2 - v1);
-
-            if (v1.y * flip > v2.y * flip)
-            {
-                angle = -angle;
-            }
-
-            lineEndRectT.eulerAngles = new Vector3(0f, 0f, angle);
-        }
-        else
-        {
-            lineEndRectT.eulerAngles = Vector3.zero;
-            lineEndRectT.localScale  = new Vector3(lineScale, lineScale, 1);
-        }
     }
 
 }

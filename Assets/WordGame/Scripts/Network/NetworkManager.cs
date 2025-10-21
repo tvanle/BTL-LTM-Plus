@@ -15,7 +15,9 @@ namespace WordGame.Network
         public static NetworkManager Instance => instance;
 
         [Header("Connection Settings")] [SerializeField]
+        // private string serverHost = "172.11.86.87";
         private string serverHost = "localhost";
+
 
         [SerializeField] private int serverPort = 8080;
 
@@ -28,6 +30,7 @@ namespace WordGame.Network
         public event Action OnConnected;
         public event Action OnDisconnected;
         public event Action<string> OnError;
+        public event Action<ScoreUpdateData> OnScoreUpdate;
 
         // Player and Room Info
         public string PlayerId { get; private set; }
@@ -145,12 +148,6 @@ namespace WordGame.Network
             await this.SendMessageAsync(message);
             this.RoomCode = null;
             this.RoomPlayers.Clear();
-        }
-
-        public async Task SetReady()
-        {
-            var message = new GameMessage { Type = "PLAYER_READY" };
-            await this.SendMessageAsync(message);
         }
 
         public async Task StartGame()
@@ -342,7 +339,7 @@ namespace WordGame.Network
                             if (this.RoomPlayers.All(p => p.Id != playerJoined.Id))
                             {
                                 this.RoomPlayers.Add(new PlayerInfo
-                                    { Id = playerJoined.Id, Username = playerJoined.Username, IsReady = false });
+                                    { Id = playerJoined.Id, Username = playerJoined.Username });
                             }
                             else
                             {
@@ -364,6 +361,15 @@ namespace WordGame.Network
                         if (errorData != null)
                         {
                             this.OnError?.Invoke(errorData.error);
+                        }
+                        break;
+
+                    case "SCORE_UPDATE":
+                        var scoreData = JsonUtility.FromJson<ScoreUpdateData>(message.Data);
+                        if (scoreData != null)
+                        {
+                            Debug.Log($"[Score Update] Gained: {scoreData.scoreGained} | Total: {scoreData.totalScore} | Streak: {scoreData.streak}");
+                            this.OnScoreUpdate?.Invoke(scoreData);
                         }
                         break;
                     }
@@ -407,7 +413,6 @@ namespace WordGame.Network
         {
             public string Id;
             public string Username;
-            public bool IsReady;
         }
 
         [Serializable]
@@ -464,6 +469,14 @@ namespace WordGame.Network
         public class ErrorData
         {
             public string error;
+        }
+
+        [Serializable]
+        public class ScoreUpdateData
+        {
+            public int scoreGained;
+            public int totalScore;
+            public int streak;
         }
     }
 }
