@@ -8,7 +8,10 @@ Console.WriteLine("=====================");
 
 var port = args.Length > 0 && int.TryParse(args[0], out var p) ? p : 8080;
 
-var server = new GameServer(port);
+// Connection string for MySQL (update with your credentials)
+var connectionString = "Server=localhost;Database=word_game;User=root;Password=;";
+
+var server = new WordBrainServer.GameServer(port, connectionString);
 
 // Start server in background
 var serverTask = Task.Run(async () => await server.StartAsync());

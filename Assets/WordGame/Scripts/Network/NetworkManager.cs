@@ -173,6 +173,49 @@ namespace WordGame.Network
             await this.SendMessageAsync(message);
         }
 
+        public async Task<bool> Login(string usernameOrEmail, string password)
+        {
+            var loginData = new LoginData
+            {
+                UsernameOrEmail = usernameOrEmail,
+                Password = password
+            };
+
+            var message = new GameMessage
+            {
+                Type = "LOGIN",
+                Data = JsonUtility.ToJson(loginData)
+            };
+
+            await this.SendMessageAsync(message);
+            return true;
+        }
+
+        public async Task<bool> Register(string username, string email, string password)
+        {
+            var registerData = new RegisterData
+            {
+                Username = username,
+                Email = email,
+                Password = password
+            };
+
+            var message = new GameMessage
+            {
+                Type = "REGISTER",
+                Data = JsonUtility.ToJson(registerData)
+            };
+
+            await this.SendMessageAsync(message);
+            return true;
+        }
+
+        public async Task Logout()
+        {
+            var message = new GameMessage { Type = "LOGOUT" };
+            await this.SendMessageAsync(message);
+        }
+
 
         private async Task SendMessageAsync(GameMessage message)
         {
@@ -486,6 +529,21 @@ namespace WordGame.Network
             public int scoreGained;
             public int totalScore;
             public int streak;
+        }
+
+        [Serializable]
+        public class LoginData
+        {
+            public string UsernameOrEmail;
+            public string Password;
+        }
+
+        [Serializable]
+        public class RegisterData
+        {
+            public string Username;
+            public string Email;
+            public string Password;
         }
     }
 }

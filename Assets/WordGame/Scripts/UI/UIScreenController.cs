@@ -15,6 +15,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 	public const string GameScreenId			= "game";
 	public const string CompleteScreenId		= "complete";
 
+	public const string LoginScreenId			= "login";
 	public const string MultiplayerMenuScreenId	= "multiplayer_menu";
 	public const string MultiplayerRoomScreenId	= "multiplayer_room";
 	public const string LeaderboardScreenId		= "leaderboard";
@@ -33,8 +34,11 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 			this.uiScreens[i].gameObject.SetActive(false);
 		}
 
-		// Show the multiplayer menu screen when the app starts up
-		this.Show(MultiplayerMenuScreenId, false, false);
+		// Check if user is already logged in
+		bool isLoggedIn = !string.IsNullOrEmpty(PlayerPrefs.GetString("auth_token", ""));
+
+		// Show login screen if not logged in, otherwise show multiplayer menu
+		this.Show(isLoggedIn ? MultiplayerMenuScreenId : LoginScreenId, false, false);
 	}
 
 

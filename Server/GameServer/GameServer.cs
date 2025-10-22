@@ -8,6 +8,8 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using GameServer.Services;
+using GameServer.Models;
 using Timer = System.Threading.Timer;
 
 namespace WordBrainServer;
@@ -20,11 +22,18 @@ public class GameServer
     private readonly ConcurrentDictionary<Guid, ClientConnection> _connections = new();
     private          bool                                         _isRunning;
     private readonly int                                          _port;
+    private readonly DatabaseService                             _database;
+    private readonly AuthenticationService                       _auth;
 
-    public GameServer(int port = 8080)
+    public GameServer(int port = 8080, string? connectionString = null)
     {
         this._port     = port;
         this._tcpListener = new TcpListener(IPAddress.Any, port);
+
+        // Initialize database (use default connection string if none provided)
+        connectionString ??= "Server=localhost;Database=word_game;User=root;Password=;";
+        this._database = new DatabaseService(connectionString);
+        this._auth = new AuthenticationService(this._database);
     }
 
     public async Task StartAsync()
@@ -83,6 +92,15 @@ public class GameServer
         {
             switch (message.Type)
             {
+                case "REGISTER":
+                    await this.HandleRegister(connection, message);
+                    break;
+                case "LOGIN":
+                    await this.HandleLogin(connection, message);
+                    break;
+                case "LOGOUT":
+                    await this.HandleLogout(connection);
+                    break;
                 case "CREATE_ROOM":
                     await this.HandleCreateRoom(connection, message);
                     break;
@@ -97,6 +115,18 @@ public class GameServer
                     break;
                 case "LEVEL_COMPLETED":
                     await this.HandleLevelCompleted(connection, message);
+                    break;
+                case "GET_FRIENDS":
+                    await this.HandleGetFriends(connection);
+                    break;
+                case "ADD_FRIEND":
+                    await this.HandleAddFriend(connection, message);
+                    break;
+                case "ACCEPT_FRIEND":
+                    await this.HandleAcceptFriend(connection, message);
+                    break;
+                case "REMOVE_FRIEND":
+                    await this.HandleRemoveFriend(connection, message);
                     break;
                 case "HEARTBEAT":
                     await connection.SendAsync(new GameMessage { Type = "HEARTBEAT" });
@@ -488,6 +518,47 @@ public class GameServer
             Data = JsonSerializer.Serialize(new { results })
         });
 
+        // Save match history to database
+        if (room.Players.Count > 0)
+        {
+            try
+            {
+                // Find winner
+                var winner = room.Players.Values.OrderByDescending(p => p.Score).First();
+
+                // Create match history
+                var match = await this._database.CreateMatchHistoryAsync(
+                    room.Code, room.Category, room.LevelDuration,
+                    room.TotalLevels, room.NumQuestions, room.HostId);
+
+                // Complete match with winner
+                await this._database.CompleteMatchAsync(match.Id, winner.Id);
+
+                // Save player results and update stats
+                int rank = 1;
+                foreach (var player in room.Players.Values.OrderByDescending(p => p.Score))
+                {
+                    // Save match result
+                    await this._database.AddMatchPlayerResultAsync(
+                        match.Id, player.Id, player.Score, player.Streak,
+                        player.WordsFoundThisLevel, 0, room.GameState?.CurrentLevel ?? 0, rank);
+
+                    // Update user stats
+                    await this._database.UpdateUserStatsAsync(
+                        player.Id, player.Score, player.Streak,
+                        player.WordsFoundThisLevel, player.Id == winner.Id);
+
+                    rank++;
+                }
+
+                Console.WriteLine($"Match history saved for room {room.Code}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving match history: {ex.Message}");
+            }
+        }
+
         room.GameState = null;
         foreach (var player in room.Players.Values)
         {
@@ -495,6 +566,252 @@ public class GameServer
             player.Streak = 0;
             player.WordsFoundThisLevel = 0;
         }
+    }
+
+    // ============================================
+    // Authentication Handlers
+    // ============================================
+
+    private async Task HandleRegister(ClientConnection connection, GameMessage message)
+    {
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<RegisterData>(message.Data, options);
+
+        if (data == null)
+        {
+            throw new Exception("Invalid registration data");
+        }
+
+        var result = await this._auth.RegisterAsync(data.Username, data.Email, data.Password);
+
+        if (result.Success && result.User != null && result.Token != null)
+        {
+            // Get user stats
+            var stats = await this._database.GetUserStatsAsync(result.User.Id);
+
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "REGISTER_SUCCESS",
+                Data = JsonSerializer.Serialize(new
+                {
+                    token = result.Token,
+                    user = new
+                    {
+                        id = result.User.Id,
+                        username = result.User.Username,
+                        email = result.User.Email,
+                        displayName = result.User.DisplayName,
+                        avatarUrl = result.User.AvatarUrl
+                    },
+                    stats = stats != null ? new
+                    {
+                        totalScore = stats.TotalScore,
+                        bestScore = stats.BestScore,
+                        bestStreak = stats.BestStreak,
+                        gamesPlayed = stats.GamesPlayed,
+                        gamesWon = stats.GamesWon
+                    } : null
+                })
+            });
+
+            Console.WriteLine($"User registered: {result.User.Username}");
+        }
+        else
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "REGISTER_FAILED",
+                Data = JsonSerializer.Serialize(new { error = result.Error })
+            });
+        }
+    }
+
+    private async Task HandleLogin(ClientConnection connection, GameMessage message)
+    {
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<LoginData>(message.Data, options);
+
+        if (data == null)
+        {
+            throw new Exception("Invalid login data");
+        }
+
+        var result = await this._auth.LoginAsync(data.UsernameOrEmail, data.Password);
+
+        if (result.Success && result.User != null && result.Token != null)
+        {
+            connection.UserId = result.User.Id;
+
+            // Get user stats
+            var stats = await this._database.GetUserStatsAsync(result.User.Id);
+
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "LOGIN_SUCCESS",
+                Data = JsonSerializer.Serialize(new
+                {
+                    token = result.Token,
+                    user = new
+                    {
+                        id = result.User.Id,
+                        username = result.User.Username,
+                        email = result.User.Email,
+                        displayName = result.User.DisplayName,
+                        avatarUrl = result.User.AvatarUrl
+                    },
+                    stats = stats != null ? new
+                    {
+                        totalScore = stats.TotalScore,
+                        bestScore = stats.BestScore,
+                        bestStreak = stats.BestStreak,
+                        gamesPlayed = stats.GamesPlayed,
+                        gamesWon = stats.GamesWon
+                    } : null
+                })
+            });
+
+            Console.WriteLine($"User logged in: {result.User.Username}");
+        }
+        else
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "LOGIN_FAILED",
+                Data = JsonSerializer.Serialize(new { error = result.Error })
+            });
+        }
+    }
+
+    private async Task HandleLogout(ClientConnection connection)
+    {
+        if (connection.UserId.HasValue)
+        {
+            await this._auth.LogoutAsync(connection.UserId.Value);
+            Console.WriteLine($"User logged out: {connection.UserId}");
+        }
+
+        await connection.SendAsync(new GameMessage { Type = "LOGOUT_SUCCESS" });
+    }
+
+    // ============================================
+    // Friends Handlers
+    // ============================================
+
+    private async Task HandleGetFriends(ClientConnection connection)
+    {
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("Not authenticated");
+        }
+
+        var friends = await this._database.GetUserFriendsAsync(connection.UserId.Value);
+
+        await connection.SendAsync(new GameMessage
+        {
+            Type = "FRIENDS_LIST",
+            Data = JsonSerializer.Serialize(new
+            {
+                friends = friends.Select(f => new
+                {
+                    id = f.Id,
+                    username = f.Username,
+                    displayName = f.DisplayName,
+                    avatarUrl = f.AvatarUrl,
+                    isOnline = f.IsOnline
+                })
+            })
+        });
+    }
+
+    private async Task HandleAddFriend(ClientConnection connection, GameMessage message)
+    {
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("Not authenticated");
+        }
+
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<AddFriendData>(message.Data, options);
+
+        if (data == null)
+        {
+            throw new Exception("Invalid data");
+        }
+
+        // Find friend by username
+        var friend = await this._database.GetUserByUsernameAsync(data.Username);
+        if (friend == null)
+        {
+            throw new Exception("User not found");
+        }
+
+        if (friend.Id == connection.UserId.Value)
+        {
+            throw new Exception("Cannot add yourself as friend");
+        }
+
+        // Check if friendship already exists
+        var existing = await this._database.GetFriendshipAsync(connection.UserId.Value, friend.Id);
+        if (existing != null)
+        {
+            throw new Exception("Friendship already exists");
+        }
+
+        // Create friendship request
+        var friendship = await this._database.CreateFriendshipRequestAsync(
+            connection.UserId.Value, friend.Id);
+
+        await connection.SendAsync(new GameMessage
+        {
+            Type = "FRIEND_REQUEST_SENT",
+            Data = JsonSerializer.Serialize(new { friendshipId = friendship.Id, username = friend.Username })
+        });
+
+        Console.WriteLine($"Friend request sent from {connection.UserId} to {friend.Username}");
+    }
+
+    private async Task HandleAcceptFriend(ClientConnection connection, GameMessage message)
+    {
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("Not authenticated");
+        }
+
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<AcceptFriendData>(message.Data, options);
+
+        if (data == null)
+        {
+            throw new Exception("Invalid data");
+        }
+
+        await this._database.AcceptFriendshipAsync(data.FriendshipId);
+
+        await connection.SendAsync(new GameMessage { Type = "FRIEND_REQUEST_ACCEPTED" });
+
+        Console.WriteLine($"Friend request accepted: {data.FriendshipId}");
+    }
+
+    private async Task HandleRemoveFriend(ClientConnection connection, GameMessage message)
+    {
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("Not authenticated");
+        }
+
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<RemoveFriendData>(message.Data, options);
+
+        if (data == null)
+        {
+            throw new Exception("Invalid data");
+        }
+
+        await this._database.DeleteFriendshipAsync(data.FriendshipId);
+
+        await connection.SendAsync(new GameMessage { Type = "FRIEND_REMOVED" });
+
+        Console.WriteLine($"Friendship removed: {data.FriendshipId}");
     }
 
     private async Task BroadcastToRoom(GameRoom room, GameMessage message)
@@ -616,6 +933,7 @@ public class ClientConnection
 {
     public Guid Id { get; }
     public Guid? PlayerId { get; set; }
+    public Guid? UserId { get; set; } // Added for authentication
     private readonly TcpClient _tcpClient;
     private readonly NetworkStream _stream;
     private DateTime _lastHeartbeat;
@@ -764,4 +1082,32 @@ public class SubmitAnswerData
 public class LevelCompletedData
 {
     public int TimeTaken { get; set; }
+}
+
+public class RegisterData
+{
+    public string Username { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
+}
+
+public class LoginData
+{
+    public string UsernameOrEmail { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
+}
+
+public class AddFriendData
+{
+    public string Username { get; set; } = string.Empty;
+}
+
+public class AcceptFriendData
+{
+    public Guid FriendshipId { get; set; }
+}
+
+public class RemoveFriendData
+{
+    public Guid FriendshipId { get; set; }
 }
