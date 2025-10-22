@@ -5,7 +5,6 @@ using WordGame.Network;
 public class UIScreenCompleteOverlay : UIScreen
 {
 	[Header("Multiplayer Score Display")]
-	[SerializeField] private GameObject multiplayerScorePanel;
 	[SerializeField] private TextMeshProUGUI scoreEarnedText;
 	[SerializeField] private TextMeshProUGUI totalScoreText;
 	[SerializeField] private TextMeshProUGUI streakText;
@@ -20,11 +19,6 @@ public class UIScreenCompleteOverlay : UIScreen
 
 	private void ShowScore(NetworkManager.ScoreUpdateData scoreData)
 	{
-		// Show multiplayer score panel
-		if (this.multiplayerScorePanel != null)
-		{
-			this.multiplayerScorePanel.SetActive(true);
-		}
 
 		// Display score information
 		if (this.scoreEarnedText != null)
@@ -39,7 +33,7 @@ public class UIScreenCompleteOverlay : UIScreen
 
 		if (this.streakText != null)
 		{
-			this.streakText.text = $"Streak: {scoreData.streak}x";
+			this.streakText.text = $"COMPLETED Streak: {scoreData.streak}x";
 		}
 
 		Debug.Log($"[Complete Overlay] Score: +{scoreData.scoreGained} | Total: {scoreData.totalScore} | Streak: {scoreData.streak}");
