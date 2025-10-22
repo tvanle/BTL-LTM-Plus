@@ -189,6 +189,9 @@ public class GameManager : SingletonComponent<GameManager>
 		this.CurrentStreak = scoreData.streak;
 
 		Debug.Log($"[Server Score] Total: {scoreData.totalScore} | Gained: {scoreData.scoreGained} | Streak: {scoreData.streak}");
+
+		// Show complete overlay with score information
+		UIScreenController.Instance.Show(UIScreenController.CompleteScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, scoreData);
 	}
 
 

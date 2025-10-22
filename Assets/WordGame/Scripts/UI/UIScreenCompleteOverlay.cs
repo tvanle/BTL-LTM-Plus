@@ -1,40 +1,47 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
+using TMPro;
+using WordGame.Network;
 
 public class UIScreenCompleteOverlay : UIScreen
 {
-
-	[SerializeField] private Image		categoryIconImage;
-	[SerializeField] private Text		categoryNameText;
-	[SerializeField] private Text		categoryLevelText;
-	[SerializeField] private Text	    plusHintText;
-
-
-
-
-
+	[Header("Multiplayer Score Display")]
+	[SerializeField] private GameObject multiplayerScorePanel;
+	[SerializeField] private TextMeshProUGUI scoreEarnedText;
+	[SerializeField] private TextMeshProUGUI totalScoreText;
+	[SerializeField] private TextMeshProUGUI streakText;
 
 	public override void OnShowing(object data)
 	{
-		var categoryInfo = GameManager.Instance.GetCategoryInfo(GameManager.Instance.ActiveCategory);
-
-		this.categoryIconImage.sprite = categoryInfo.icon;
-		this.categoryNameText.text       = GameManager.Instance.ActiveCategory;
-
-		if (GameManager.Instance.ActiveCategory == GameManager.dailyPuzzleId)
+		if (data is NetworkManager.ScoreUpdateData scoreData)
 		{
-			this.categoryLevelText.gameObject.SetActive(false);
+			this.ShowScore(scoreData);
 		}
-		else
-		{
-			this.categoryLevelText.gameObject.SetActive(true);
-			this.categoryLevelText.text = "Level " + (GameManager.Instance.ActiveLevelIndex + 1).ToString();
-		}
-
-        var number = (int)data;
-		this.plusHintText.gameObject.SetActive(number > 0);
-		this.plusHintText.text = "+ " + number + (number == 1 ? " Hint" : " Hints");
 	}
 
+	private void ShowScore(NetworkManager.ScoreUpdateData scoreData)
+	{
+		// Show multiplayer score panel
+		if (this.multiplayerScorePanel != null)
+		{
+			this.multiplayerScorePanel.SetActive(true);
+		}
+
+		// Display score information
+		if (this.scoreEarnedText != null)
+		{
+			this.scoreEarnedText.text = $"+{scoreData.scoreGained}";
+		}
+
+		if (this.totalScoreText != null)
+		{
+			this.totalScoreText.text = $"Total Score: {scoreData.totalScore}";
+		}
+
+		if (this.streakText != null)
+		{
+			this.streakText.text = $"Streak: {scoreData.streak}x";
+		}
+
+		Debug.Log($"[Complete Overlay] Score: +{scoreData.scoreGained} | Total: {scoreData.totalScore} | Streak: {scoreData.streak}");
+	}
 }
