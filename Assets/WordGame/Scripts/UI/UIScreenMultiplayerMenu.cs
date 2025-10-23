@@ -18,7 +18,6 @@ namespace WordGame.UI
         [SerializeField] private TMP_InputField roomCodeInput;
         [SerializeField] private Button createRoomButton;
         [SerializeField] private Button joinRoomButton;
-        [SerializeField] private Text statusText;
 
         public override void Initialize()
         {
@@ -50,24 +49,24 @@ namespace WordGame.UI
                 var connected = await networkManager.ConnectAsync();
                 if (!connected)
                 {
-                    SetStatus("Failed to connect to server");
+                    ToastController.Instance?.ShowError("Failed to connect to server");
                 }
             }
         }
 
         private void OnConnected()
         {
-            SetStatus("Connected to server");
+            ToastController.Instance?.ShowSuccess("Connected to server");
         }
 
         private void OnDisconnected()
         {
-            SetStatus("Disconnected from server");
+            ToastController.Instance?.ShowWarning("Disconnected from server");
         }
 
         private void OnError(string error)
         {
-            SetStatus($"Error: {error}");
+            ToastController.Instance?.ShowError($"Error: {error}");
         }
 
         private void OnMessageReceived(NetworkManager.GameMessage message)
@@ -109,7 +108,7 @@ namespace WordGame.UI
 
             if (string.IsNullOrEmpty(username))
             {
-                SetStatus("Please enter username");
+                ToastController.Instance?.ShowWarning("Please enter username");
                 return;
             }
 
@@ -126,21 +125,13 @@ namespace WordGame.UI
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(roomCode))
             {
-                SetStatus("Please enter username and room code");
+                ToastController.Instance?.ShowWarning("Please enter username and room code");
                 return;
             }
 
             if (networkManager != null)
             {
                 await networkManager.JoinRoom(roomCode, username);
-            }
-        }
-
-        public void SetStatus(string message)
-        {
-            if (statusText != null)
-            {
-                statusText.text = message;
             }
         }
 

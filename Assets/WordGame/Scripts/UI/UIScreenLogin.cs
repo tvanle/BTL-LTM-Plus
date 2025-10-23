@@ -24,7 +24,6 @@ namespace WordGame.UI
         [SerializeField] private Button switchToLoginButton;
 
         [Header("Common")]
-        [SerializeField] private Text statusText;
         [SerializeField] private GameObject loadingIndicator;
 
         private NetworkManager networkManager;
@@ -61,7 +60,7 @@ namespace WordGame.UI
             if (this.networkManager != null && !this.isConnecting)
             {
                 this.isConnecting = true;
-                this.SetStatus("Connecting to server...");
+                ToastController.Instance?.ShowInfo("Connecting to server...");
                 this.ShowLoading(true);
 
                 var connected = await this.networkManager.ConnectAsync();
@@ -69,7 +68,7 @@ namespace WordGame.UI
 
                 if (!connected)
                 {
-                    this.SetStatus("Failed to connect to server. Please check your connection.");
+                    ToastController.Instance?.ShowError("Failed to connect to server. Please check your connection.");
                     this.ShowLoading(false);
                 }
             }
@@ -77,19 +76,19 @@ namespace WordGame.UI
 
         private void OnConnected()
         {
-            this.SetStatus("Connected to server");
+            ToastController.Instance?.ShowSuccess("Connected to server");
             this.ShowLoading(false);
         }
 
         private void OnDisconnected()
         {
-            this.SetStatus("Disconnected from server");
+            ToastController.Instance?.ShowWarning("Disconnected from server");
             this.ShowLoading(false);
         }
 
         private void OnError(string error)
         {
-            this.SetStatus($"Error: {error}");
+            ToastController.Instance?.ShowError($"Error: {error}");
             this.ShowLoading(false);
         }
 
@@ -120,18 +119,18 @@ namespace WordGame.UI
             // Validation
             if (string.IsNullOrWhiteSpace(username))
             {
-                this.SetStatus("Please enter username or email");
+                ToastController.Instance?.ShowWarning("Please enter username or email");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(password))
             {
-                this.SetStatus("Please enter password");
+                ToastController.Instance?.ShowWarning("Please enter password");
                 return;
             }
 
             // Send login request
-            this.SetStatus("Logging in...");
+            ToastController.Instance?.ShowInfo("Logging in...");
             this.ShowLoading(true);
             this.networkManager.Login(username, password);
         }
@@ -146,42 +145,42 @@ namespace WordGame.UI
             // Validation
             if (string.IsNullOrWhiteSpace(username))
             {
-                this.SetStatus("Please enter username");
+                ToastController.Instance?.ShowWarning("Please enter username");
                 return;
             }
 
             if (username.Length < 3)
             {
-                this.SetStatus("Username must be at least 3 characters");
+                ToastController.Instance?.ShowWarning("Username must be at least 3 characters");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
             {
-                this.SetStatus("Please enter a valid email");
+                ToastController.Instance?.ShowWarning("Please enter a valid email");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(password))
             {
-                this.SetStatus("Please enter password");
+                ToastController.Instance?.ShowWarning("Please enter password");
                 return;
             }
 
             if (password.Length < 6)
             {
-                this.SetStatus("Password must be at least 6 characters");
+                ToastController.Instance?.ShowWarning("Password must be at least 6 characters");
                 return;
             }
 
             if (password != confirmPassword)
             {
-                this.SetStatus("Passwords do not match");
+                ToastController.Instance?.ShowWarning("Passwords do not match");
                 return;
             }
 
             // Send register request
-            this.SetStatus("Registering...");
+            ToastController.Instance?.ShowInfo("Registering...");
             this.ShowLoading(true);
             this.networkManager.Register(username, email, password);
         }
@@ -189,7 +188,7 @@ namespace WordGame.UI
         private void HandleLoginSuccess(string data)
         {
             this.ShowLoading(false);
-            this.SetStatus("Login successful!");
+            ToastController.Instance?.ShowSuccess("Login successful!");
 
             // Parse user data
             var responseData = JsonUtility.FromJson<LoginResponse>(data);
@@ -216,18 +215,18 @@ namespace WordGame.UI
             var errorData = JsonUtility.FromJson<ErrorResponse>(data);
             if (errorData != null)
             {
-                this.SetStatus($"Login failed: {errorData.error}");
+                ToastController.Instance?.ShowError($"Login failed: {errorData.error}");
             }
             else
             {
-                this.SetStatus("Login failed. Please try again.");
+                ToastController.Instance?.ShowError("Login failed. Please try again.");
             }
         }
 
         private void HandleRegisterSuccess(string data)
         {
             this.ShowLoading(false);
-            this.SetStatus("Registration successful!");
+            ToastController.Instance?.ShowSuccess("Registration successful!");
 
             // Parse user data
             var responseData = JsonUtility.FromJson<LoginResponse>(data);
@@ -254,11 +253,11 @@ namespace WordGame.UI
             var errorData = JsonUtility.FromJson<ErrorResponse>(data);
             if (errorData != null)
             {
-                this.SetStatus($"Registration failed: {errorData.error}");
+                ToastController.Instance?.ShowError($"Registration failed: {errorData.error}");
             }
             else
             {
-                this.SetStatus("Registration failed. Please try again.");
+                ToastController.Instance?.ShowError("Registration failed. Please try again.");
             }
         }
 
@@ -266,22 +265,12 @@ namespace WordGame.UI
         {
             this.loginPanel.SetActive(true);
             this.registerPanel.SetActive(false);
-            this.SetStatus("");
         }
 
         private void ShowRegisterPanel()
         {
             this.loginPanel.SetActive(false);
             this.registerPanel.SetActive(true);
-            this.SetStatus("");
-        }
-
-        private void SetStatus(string message)
-        {
-            if (this.statusText != null)
-            {
-                this.statusText.text = message;
-            }
         }
 
         private void ShowLoading(bool show)
