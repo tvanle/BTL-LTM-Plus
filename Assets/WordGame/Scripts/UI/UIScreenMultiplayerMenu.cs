@@ -49,24 +49,24 @@ namespace WordGame.UI
                 var connected = await networkManager.ConnectAsync();
                 if (!connected)
                 {
-                    ToastController.Instance?.ShowError("Failed to connect to server");
+                    Toast.instance?.ShowMessage("Failed to connect to server", 3f);
                 }
             }
         }
 
         private void OnConnected()
         {
-            ToastController.Instance?.ShowSuccess("Connected to server");
+            Toast.instance?.ShowMessage("Connected to server");
         }
 
         private void OnDisconnected()
         {
-            ToastController.Instance?.ShowWarning("Disconnected from server");
+            Toast.instance?.ShowMessage("Disconnected from server");
         }
 
         private void OnError(string error)
         {
-            ToastController.Instance?.ShowError($"Error: {error}");
+            Toast.instance?.ShowMessage($"Error: {error}", 3f);
         }
 
         private void OnMessageReceived(NetworkManager.GameMessage message)
@@ -108,7 +108,7 @@ namespace WordGame.UI
 
             if (string.IsNullOrEmpty(username))
             {
-                ToastController.Instance?.ShowWarning("Please enter username");
+                Toast.instance?.ShowMessage("Please enter username");
                 return;
             }
 
@@ -125,7 +125,7 @@ namespace WordGame.UI
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(roomCode))
             {
-                ToastController.Instance?.ShowWarning("Please enter username and room code");
+                Toast.instance?.ShowMessage("Please enter username and room code");
                 return;
             }
 
