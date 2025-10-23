@@ -51,6 +51,7 @@ public class Toast : MonoBehaviour
 
     public void ShowMessage(string msg, float time = 2f)
     {
+        Debug.Log("Toast: " + msg);
         var aToast = new AToast(msg, time);
         this.queue.Enqueue(aToast);
 
