@@ -30,9 +30,6 @@ namespace WordGame.UI
                 networkManager.OnDisconnected += OnDisconnected;
                 networkManager.OnError += OnError;
                 networkManager.OnMessageReceived += OnMessageReceived;
-
-                // Start connection
-                ConnectToServer();
             }
 
             createRoomButton.onClick.AddListener(HandleCreateRoom);
@@ -42,17 +39,6 @@ namespace WordGame.UI
             PopulateCategoryDropdown();
         }
 
-        private async void ConnectToServer()
-        {
-            if (networkManager != null)
-            {
-                var connected = await networkManager.ConnectAsync();
-                if (!connected)
-                {
-                    Toast.instance?.ShowMessage("Failed to connect to server", 3f);
-                }
-            }
-        }
 
         private void OnConnected()
         {
