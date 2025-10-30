@@ -1,4 +1,4 @@
-using MySql.Data.MySqlClient;
+using Microsoft.Data.Sqlite;
 using GameServer.Models;
 using System.Data;
 
@@ -11,11 +11,27 @@ public class DatabaseService
     public DatabaseService(string connectionString)
     {
         _connectionString = connectionString;
+        InitializeDatabase();
     }
 
-    private MySqlConnection GetConnection()
+    private SqliteConnection GetConnection()
     {
-        return new MySqlConnection(_connectionString);
+        return new SqliteConnection(_connectionString);
+    }
+
+    private void InitializeDatabase()
+    {
+        using var conn = GetConnection();
+        conn.Open();
+
+        // Read and execute schema
+        var schemaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "Database", "schema_sqlite.sql");
+        if (File.Exists(schemaPath))
+        {
+            var schema = File.ReadAllText(schemaPath);
+            using var cmd = new SqliteCommand(schema, conn);
+            cmd.ExecuteNonQuery();
+        }
     }
 
     // ============================================
@@ -27,7 +43,7 @@ public class DatabaseService
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             "SELECT * FROM users WHERE id = @id", conn);
         cmd.Parameters.AddWithValue("@id", userId.ToString());
 
@@ -44,7 +60,7 @@ public class DatabaseService
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             "SELECT * FROM users WHERE username = @username", conn);
         cmd.Parameters.AddWithValue("@username", username);
 
@@ -61,7 +77,7 @@ public class DatabaseService
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             "SELECT * FROM users WHERE email = @email", conn);
         cmd.Parameters.AddWithValue("@email", email);
 
@@ -81,15 +97,15 @@ public class DatabaseService
         var userId = Guid.NewGuid();
         var now = DateTime.UtcNow;
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             @"INSERT INTO users (id, username, email, password_hash, created_at, updated_at)
               VALUES (@id, @username, @email, @passwordHash, @createdAt, @updatedAt)", conn);
         cmd.Parameters.AddWithValue("@id", userId.ToString());
         cmd.Parameters.AddWithValue("@username", username);
         cmd.Parameters.AddWithValue("@email", email);
         cmd.Parameters.AddWithValue("@passwordHash", passwordHash);
-        cmd.Parameters.AddWithValue("@createdAt", now);
-        cmd.Parameters.AddWithValue("@updatedAt", now);
+        cmd.Parameters.AddWithValue("@createdAt", now.ToString("o"));
+        cmd.Parameters.AddWithValue("@updatedAt", now.ToString("o"));
 
         await cmd.ExecuteNonQueryAsync();
 
@@ -112,11 +128,11 @@ public class DatabaseService
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             @"UPDATE users SET is_online = @isOnline, last_login_at = @lastLogin
               WHERE id = @id", conn);
-        cmd.Parameters.AddWithValue("@isOnline", isOnline);
-        cmd.Parameters.AddWithValue("@lastLogin", DateTime.UtcNow);
+        cmd.Parameters.AddWithValue("@isOnline", isOnline ? 1 : 0);
+        cmd.Parameters.AddWithValue("@lastLogin", DateTime.UtcNow.ToString("o"));
         cmd.Parameters.AddWithValue("@id", userId.ToString());
 
         await cmd.ExecuteNonQueryAsync();
@@ -136,7 +152,7 @@ public class DatabaseService
         var now = DateTime.UtcNow;
         var expiresAt = now.AddDays(30); // Token valid for 30 days
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             @"INSERT INTO session_tokens
               (id, user_id, token, device_info, ip_address, expires_at, created_at, last_used_at)
               VALUES (@id, @userId, @token, @deviceInfo, @ipAddress, @expiresAt, @createdAt, @lastUsedAt)", conn);
@@ -145,9 +161,9 @@ public class DatabaseService
         cmd.Parameters.AddWithValue("@token", token);
         cmd.Parameters.AddWithValue("@deviceInfo", deviceInfo ?? (object)DBNull.Value);
         cmd.Parameters.AddWithValue("@ipAddress", ipAddress ?? (object)DBNull.Value);
-        cmd.Parameters.AddWithValue("@expiresAt", expiresAt);
-        cmd.Parameters.AddWithValue("@createdAt", now);
-        cmd.Parameters.AddWithValue("@lastUsedAt", now);
+        cmd.Parameters.AddWithValue("@expiresAt", expiresAt.ToString("o"));
+        cmd.Parameters.AddWithValue("@createdAt", now.ToString("o"));
+        cmd.Parameters.AddWithValue("@lastUsedAt", now.ToString("o"));
 
         await cmd.ExecuteNonQueryAsync();
 
@@ -169,11 +185,11 @@ public class DatabaseService
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             @"SELECT * FROM session_tokens
               WHERE token = @token AND expires_at > @now", conn);
         cmd.Parameters.AddWithValue("@token", token);
-        cmd.Parameters.AddWithValue("@now", DateTime.UtcNow);
+        cmd.Parameters.AddWithValue("@now", DateTime.UtcNow.ToString("o"));
 
         using var reader = await cmd.ExecuteReaderAsync();
         if (await reader.ReadAsync())
@@ -192,7 +208,7 @@ public class DatabaseService
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             "SELECT * FROM user_stats WHERE user_id = @userId", conn);
         cmd.Parameters.AddWithValue("@userId", userId.ToString());
 
@@ -209,7 +225,7 @@ public class DatabaseService
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             @"INSERT INTO user_stats (id, user_id) VALUES (@id, @userId)", conn);
         cmd.Parameters.AddWithValue("@id", Guid.NewGuid().ToString());
         cmd.Parameters.AddWithValue("@userId", userId.ToString());
@@ -222,7 +238,7 @@ public class DatabaseService
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             @"UPDATE user_stats SET
               total_score = total_score + @score,
               best_score = GREATEST(best_score, @score),
@@ -249,7 +265,17 @@ public class DatabaseService
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        var cmd = new MySqlCommand("CALL GetUserFriends(@userId)", conn);
+        var cmd = new SqliteCommand(
+            @"SELECT u.* FROM users u
+              INNER JOIN friendships f ON (
+                  CASE
+                      WHEN f.user_id1 = @userId THEN f.user_id2
+                      ELSE f.user_id1
+                  END = u.id
+              )
+              WHERE (f.user_id1 = @userId OR f.user_id2 = @userId)
+              AND f.status = 'accepted'
+              ORDER BY u.is_online DESC, u.username ASC", conn);
         cmd.Parameters.AddWithValue("@userId", userId.ToString());
 
         var friends = new List<User>();
@@ -266,7 +292,7 @@ public class DatabaseService
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             @"SELECT * FROM friendships
               WHERE (user_id1 = @user1 AND user_id2 = @user2)
                  OR (user_id1 = @user2 AND user_id2 = @user1)", conn);
@@ -289,14 +315,14 @@ public class DatabaseService
         var friendshipId = Guid.NewGuid();
         var now = DateTime.UtcNow;
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             @"INSERT INTO friendships (id, user_id1, user_id2, status, requester_id, created_at)
               VALUES (@id, @user1, @user2, 'pending', @requester, @createdAt)", conn);
         cmd.Parameters.AddWithValue("@id", friendshipId.ToString());
         cmd.Parameters.AddWithValue("@user1", requesterId.ToString());
         cmd.Parameters.AddWithValue("@user2", receiverId.ToString());
         cmd.Parameters.AddWithValue("@requester", requesterId.ToString());
-        cmd.Parameters.AddWithValue("@createdAt", now);
+        cmd.Parameters.AddWithValue("@createdAt", now.ToString("o"));
 
         await cmd.ExecuteNonQueryAsync();
 
@@ -316,10 +342,10 @@ public class DatabaseService
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             @"UPDATE friendships SET status = 'accepted', accepted_at = @acceptedAt
               WHERE id = @id", conn);
-        cmd.Parameters.AddWithValue("@acceptedAt", DateTime.UtcNow);
+        cmd.Parameters.AddWithValue("@acceptedAt", DateTime.UtcNow.ToString("o"));
         cmd.Parameters.AddWithValue("@id", friendshipId.ToString());
 
         await cmd.ExecuteNonQueryAsync();
@@ -330,7 +356,7 @@ public class DatabaseService
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        var cmd = new MySqlCommand("DELETE FROM friendships WHERE id = @id", conn);
+        var cmd = new SqliteCommand("DELETE FROM friendships WHERE id = @id", conn);
         cmd.Parameters.AddWithValue("@id", friendshipId.ToString());
 
         await cmd.ExecuteNonQueryAsync();
@@ -350,7 +376,7 @@ public class DatabaseService
         var matchId = Guid.NewGuid();
         var now = DateTime.UtcNow;
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             @"INSERT INTO match_history
               (id, room_code, category, level_duration, total_levels, num_questions, host_id, started_at)
               VALUES (@id, @roomCode, @category, @levelDuration, @totalLevels, @numQuestions, @hostId, @startedAt)", conn);
@@ -361,7 +387,7 @@ public class DatabaseService
         cmd.Parameters.AddWithValue("@totalLevels", totalLevels);
         cmd.Parameters.AddWithValue("@numQuestions", numQuestions);
         cmd.Parameters.AddWithValue("@hostId", hostId.ToString());
-        cmd.Parameters.AddWithValue("@startedAt", now);
+        cmd.Parameters.AddWithValue("@startedAt", now.ToString("o"));
 
         await cmd.ExecuteNonQueryAsync();
 
@@ -383,13 +409,13 @@ public class DatabaseService
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             @"UPDATE match_history SET
               winner_id = @winnerId,
               completed_at = @completedAt
               WHERE id = @id", conn);
         cmd.Parameters.AddWithValue("@winnerId", winnerId?.ToString() ?? (object)DBNull.Value);
-        cmd.Parameters.AddWithValue("@completedAt", DateTime.UtcNow);
+        cmd.Parameters.AddWithValue("@completedAt", DateTime.UtcNow.ToString("o"));
         cmd.Parameters.AddWithValue("@id", matchId.ToString());
 
         await cmd.ExecuteNonQueryAsync();
@@ -402,7 +428,7 @@ public class DatabaseService
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        var cmd = new MySqlCommand(
+        var cmd = new SqliteCommand(
             @"INSERT INTO match_player_results
               (id, match_id, user_id, final_score, best_streak, total_words_found,
                average_time_per_level, completed_levels, rank_position)
@@ -434,10 +460,10 @@ public class DatabaseService
             PasswordHash = reader.GetString(reader.GetOrdinal("password_hash")),
             DisplayName = reader.IsDBNull(reader.GetOrdinal("display_name")) ? null : reader.GetString(reader.GetOrdinal("display_name")),
             AvatarUrl = reader.IsDBNull(reader.GetOrdinal("avatar_url")) ? null : reader.GetString(reader.GetOrdinal("avatar_url")),
-            IsOnline = reader.GetBoolean(reader.GetOrdinal("is_online")),
-            LastLoginAt = reader.IsDBNull(reader.GetOrdinal("last_login_at")) ? null : reader.GetDateTime(reader.GetOrdinal("last_login_at")),
-            CreatedAt = reader.GetDateTime(reader.GetOrdinal("created_at")),
-            UpdatedAt = reader.GetDateTime(reader.GetOrdinal("updated_at"))
+            IsOnline = reader.GetInt32(reader.GetOrdinal("is_online")) == 1,
+            LastLoginAt = reader.IsDBNull(reader.GetOrdinal("last_login_at")) ? null : DateTime.Parse(reader.GetString(reader.GetOrdinal("last_login_at"))),
+            CreatedAt = DateTime.Parse(reader.GetString(reader.GetOrdinal("created_at"))),
+            UpdatedAt = DateTime.Parse(reader.GetString(reader.GetOrdinal("updated_at")))
         };
     }
 
@@ -467,8 +493,8 @@ public class DatabaseService
             UserId2 = Guid.Parse(reader.GetString(reader.GetOrdinal("user_id2"))),
             Status = reader.GetString(reader.GetOrdinal("status")),
             RequesterId = Guid.Parse(reader.GetString(reader.GetOrdinal("requester_id"))),
-            CreatedAt = reader.GetDateTime(reader.GetOrdinal("created_at")),
-            AcceptedAt = reader.IsDBNull(reader.GetOrdinal("accepted_at")) ? null : reader.GetDateTime(reader.GetOrdinal("accepted_at"))
+            CreatedAt = DateTime.Parse(reader.GetString(reader.GetOrdinal("created_at"))),
+            AcceptedAt = reader.IsDBNull(reader.GetOrdinal("accepted_at")) ? null : DateTime.Parse(reader.GetString(reader.GetOrdinal("accepted_at")))
         };
     }
 
@@ -481,9 +507,9 @@ public class DatabaseService
             Token = reader.GetString(reader.GetOrdinal("token")),
             DeviceInfo = reader.IsDBNull(reader.GetOrdinal("device_info")) ? null : reader.GetString(reader.GetOrdinal("device_info")),
             IpAddress = reader.IsDBNull(reader.GetOrdinal("ip_address")) ? null : reader.GetString(reader.GetOrdinal("ip_address")),
-            ExpiresAt = reader.GetDateTime(reader.GetOrdinal("expires_at")),
-            CreatedAt = reader.GetDateTime(reader.GetOrdinal("created_at")),
-            LastUsedAt = reader.GetDateTime(reader.GetOrdinal("last_used_at"))
+            ExpiresAt = DateTime.Parse(reader.GetString(reader.GetOrdinal("expires_at"))),
+            CreatedAt = DateTime.Parse(reader.GetString(reader.GetOrdinal("created_at"))),
+            LastUsedAt = DateTime.Parse(reader.GetString(reader.GetOrdinal("last_used_at")))
         };
     }
 }

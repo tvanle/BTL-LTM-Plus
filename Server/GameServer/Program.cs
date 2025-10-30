@@ -8,8 +8,11 @@ Console.WriteLine("=====================");
 
 var port = args.Length > 0 && int.TryParse(args[0], out var p) ? p : 8080;
 
-// Connection string for MySQL (update with your credentials)
-var connectionString = "Server=localhost;Database=word_game;User=root;Password=;";
+// Connection string for SQLite (database file will be created automatically)
+var dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "word_game.db");
+var connectionString = $"Data Source={dbPath}";
+
+Console.WriteLine($"Database: {dbPath}");
 
 var server = new WordBrainServer.GameServer(port, connectionString);
 
