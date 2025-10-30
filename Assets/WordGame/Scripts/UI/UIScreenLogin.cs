@@ -27,7 +27,6 @@ namespace WordGame.UI
         [SerializeField] private GameObject loadingIndicator;
 
         private NetworkManager networkManager;
-        private bool isConnecting = false;
 
         public override void Initialize()
         {
@@ -36,13 +35,11 @@ namespace WordGame.UI
             this.networkManager = NetworkManager.Instance;
             if (this.networkManager != null)
             {
+                // Subscribe to network events for UI updates
                 this.networkManager.OnConnected       += this.OnConnected;
                 this.networkManager.OnDisconnected    += this.OnDisconnected;
                 this.networkManager.OnError           += this.OnError;
                 this.networkManager.OnMessageReceived += this.OnMessageReceived;
-
-                // Auto connect to server
-                this.ConnectToServer();
             }
 
             // Setup button listeners
@@ -53,25 +50,6 @@ namespace WordGame.UI
 
             // Show login panel by default
             this.ShowLoginPanel();
-        }
-
-        private async void ConnectToServer()
-        {
-            if (this.networkManager != null && !this.isConnecting)
-            {
-                this.isConnecting = true;
-                Toast.instance?.ShowMessage("Connecting to server...");
-                this.ShowLoading(true);
-
-                var connected = await this.networkManager.ConnectAsync();
-                this.isConnecting = false;
-
-                if (!connected)
-                {
-                    Toast.instance?.ShowMessage("Failed to connect to server. Please check your connection.", 3f);
-                    this.ShowLoading(false);
-                }
-            }
         }
 
         private void OnConnected()

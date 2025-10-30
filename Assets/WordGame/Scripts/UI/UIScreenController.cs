@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using WordGame.Network;
 
 public class UIScreenController : SingletonComponent<UIScreenController>
 {
 	[SerializeField] private List<UIScreen> uiScreens;
 
-
+	private NetworkManager networkManager;
 
 	// The UIScreen Ids currently used in the game
 	public const string MainScreenId			= "main";
@@ -25,7 +26,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 
 
 
-	private void Start()
+	private async void Start()
 	{
 		// Initialize and hide all the screens
 		for (var i = 0; i < this.uiScreens.Count; i++)
@@ -34,14 +35,19 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 			this.uiScreens[i].gameObject.SetActive(false);
 		}
 
+		// Connect to server first before showing any screen
+		this.networkManager = NetworkManager.Instance;
+		if (this.networkManager != null)
+		{
+			await this.networkManager.ConnectAsync();
+		}
+
 		// Check if user is already logged in
-		bool isLoggedIn = !string.IsNullOrEmpty(PlayerPrefs.GetString("auth_token", ""));
+		var isLoggedIn = !string.IsNullOrEmpty(PlayerPrefs.GetString("auth_token", ""));
 
 		// Show login screen if not logged in, otherwise show multiplayer menu
 		this.Show(isLoggedIn ? MultiplayerMenuScreenId : LoginScreenId, false, false);
 	}
-
-
 
 	/// <summary>
 	/// Shows the screen with the specified id.
@@ -153,12 +159,12 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 	private UIScreen GetScreenInfo(string id)
 	{
 		var screen = this.uiScreens.FirstOrDefault(screen => id == screen.id);
-		
+
 		if (screen == null)
 		{
 			Debug.LogError("[UIScreenController] No UIScreen exists with the id " + id);
 		}
-		
+
 		return screen;
 	}
 
