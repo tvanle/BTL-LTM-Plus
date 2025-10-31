@@ -54,8 +54,7 @@ public class UIScreenCategories : UIScreen
 
 	public override void OnBackClicked()
 	{
-		// Go back to main screen
-		UIScreenController.Instance.Show(UIScreenController.MainScreenId, true);
+		UIScreenController.Instance.Show(UIScreenController.MultiplayerMenuScreenId, true);
 	}
 
 }
