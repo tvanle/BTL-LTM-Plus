@@ -11,9 +11,7 @@ namespace WordGame.UI
     {
         private NetworkManager networkManager;
 
-        [Header("UI References")] [SerializeField]
-        private TMP_InputField usernameInput;
-
+        [Header("UI References")]
         [SerializeField] private TMP_Dropdown categoryDropdown;
         [SerializeField] private TMP_InputField roomCodeInput;
         [SerializeField] private Button createRoomButton;
@@ -23,20 +21,20 @@ namespace WordGame.UI
         {
             base.Initialize();
 
-            networkManager = NetworkManager.Instance;
-            if (networkManager != null)
+            this.networkManager = NetworkManager.Instance;
+            if (this.networkManager != null)
             {
-                networkManager.OnConnected += OnConnected;
-                networkManager.OnDisconnected += OnDisconnected;
-                networkManager.OnError += OnError;
-                networkManager.OnMessageReceived += OnMessageReceived;
+                this.networkManager.OnConnected       += this.OnConnected;
+                this.networkManager.OnDisconnected    += this.OnDisconnected;
+                this.networkManager.OnError           += this.OnError;
+                this.networkManager.OnMessageReceived += this.OnMessageReceived;
             }
 
-            createRoomButton.onClick.AddListener(HandleCreateRoom);
-            joinRoomButton.onClick.AddListener(HandleJoinRoom);
+            this.createRoomButton.onClick.AddListener(this.HandleCreateRoom);
+            this.joinRoomButton.onClick.AddListener(this.HandleJoinRoom);
 
             // Populate category dropdown
-            PopulateCategoryDropdown();
+            this.PopulateCategoryDropdown();
         }
 
 
@@ -73,70 +71,80 @@ namespace WordGame.UI
 
         private void OnDestroy()
         {
-            createRoomButton.onClick.RemoveListener(HandleCreateRoom);
-            joinRoomButton.onClick.RemoveListener(HandleJoinRoom);
+            this.createRoomButton.onClick.RemoveListener(this.HandleCreateRoom);
+            this.joinRoomButton.onClick.RemoveListener(this.HandleJoinRoom);
 
-            if (networkManager != null)
+            if (this.networkManager != null)
             {
-                networkManager.OnConnected -= OnConnected;
-                networkManager.OnDisconnected -= OnDisconnected;
-                networkManager.OnError -= OnError;
-                networkManager.OnMessageReceived -= OnMessageReceived;
+                this.networkManager.OnConnected       -= this.OnConnected;
+                this.networkManager.OnDisconnected    -= this.OnDisconnected;
+                this.networkManager.OnError           -= this.OnError;
+                this.networkManager.OnMessageReceived -= this.OnMessageReceived;
             }
+        }
+
+        private string GetCurrentUsername()
+        {
+            return PlayerPrefs.GetString("username", "");
         }
 
         private async void HandleCreateRoom()
         {
-            var username = usernameInput.text.Trim();
-            var category = categoryDropdown != null && categoryDropdown.options.Count > 0
-                ? categoryDropdown.options[categoryDropdown.value].text
+            var username = this.GetCurrentUsername();
+            var category = this.categoryDropdown != null && this.categoryDropdown.options.Count > 0
+                ? this.categoryDropdown.options[this.categoryDropdown.value].text
                 : "ANIMALS";
 
             if (string.IsNullOrEmpty(username))
             {
-                Toast.instance?.ShowMessage("Please enter username");
+                Toast.instance?.ShowMessage("User not logged in");
                 return;
             }
 
-            if (networkManager != null)
+            if (this.networkManager != null)
             {
-                await networkManager.CreateRoom(username, category);
+                await this.networkManager.CreateRoom(username, category);
             }
         }
 
         private async void HandleJoinRoom()
         {
-            var username = usernameInput.text.Trim();
-            var roomCode = roomCodeInput.text.Trim().ToUpper();
+            var username = this.GetCurrentUsername();
+            var roomCode = this.roomCodeInput.text.Trim().ToUpper();
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(roomCode))
+            if (string.IsNullOrEmpty(username))
             {
-                Toast.instance?.ShowMessage("Please enter username and room code");
+                Toast.instance?.ShowMessage("User not logged in");
                 return;
             }
 
-            if (networkManager != null)
+            if (string.IsNullOrEmpty(roomCode))
             {
-                await networkManager.JoinRoom(roomCode, username);
+                Toast.instance?.ShowMessage("Please enter room code");
+                return;
+            }
+
+            if (this.networkManager != null)
+            {
+                await this.networkManager.JoinRoom(roomCode, username);
             }
         }
 
 
         public void ResetInputs()
         {
-            usernameInput.text = "";
-            roomCodeInput.text = "";
-            if (categoryDropdown != null && categoryDropdown.options.Count > 0)
+            this.roomCodeInput.text = "";
+            if (this.categoryDropdown != null && this.categoryDropdown.options.Count > 0)
             {
-                categoryDropdown.value = 0;
+                this.categoryDropdown.value = 0;
             }
         }
 
         private void PopulateCategoryDropdown()
         {
-            if (categoryDropdown == null) return;
+            if (this.categoryDropdown == null) return;
 
-            categoryDropdown.ClearOptions();
+            this.categoryDropdown.ClearOptions();
 
             // Get categories from GameManager if available
             var categories = new List<string>();
@@ -148,7 +156,7 @@ namespace WordGame.UI
                 }
             }
 
-            categoryDropdown.AddOptions(categories);
+            this.categoryDropdown.AddOptions(categories);
         }
     }
 }

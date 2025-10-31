@@ -11,49 +11,49 @@ public class UIScreenTimeline : MonoBehaviour
     private TaskCompletionSource<bool> currentTask;
     private bool isPlaying = false;
 
-    public bool IsPlaying => isPlaying;
+    public bool IsPlaying => this.isPlaying;
 
     public async Task PlayShowAnimation(bool fromLeft = false)
     {
-        if (isPlaying) return;
+        if (this.isPlaying) return;
 
-        isPlaying = true;
-        currentTask = new TaskCompletionSource<bool>();
+        this.isPlaying = true;
+        this.currentTask  = new TaskCompletionSource<bool>();
 
-        var rectTransform = GetComponent<RectTransform>();
-        var direction = fromLeft ? -1f : 1f;
-        var startX = rectTransform.rect.width * direction;
-        var endX = 0f;
+        var rectTransform = this.GetComponent<RectTransform>();
+        var direction     = fromLeft ? -1f : 1f;
+        var startX        = rectTransform.rect.width * direction;
+        var endX          = 0f;
 
-        await AnimatePosition(rectTransform, startX, endX, showDuration, showCurve);
+        await this.AnimatePosition(rectTransform, startX, endX, this.showDuration, this.showCurve);
 
-        isPlaying = false;
-        currentTask.SetResult(true);
+        this.isPlaying = false;
+        this.currentTask.SetResult(true);
     }
 
     public async Task PlayHideAnimation(bool toLeft = false)
     {
-        if (isPlaying) return;
+        if (this.isPlaying) return;
 
-        isPlaying = true;
-        currentTask = new TaskCompletionSource<bool>();
+        this.isPlaying = true;
+        this.currentTask  = new TaskCompletionSource<bool>();
 
-        var rectTransform = GetComponent<RectTransform>();
-        var direction = toLeft ? -1f : 1f;
-        var startX = 0f;
-        var endX = rectTransform.rect.width * direction;
+        var rectTransform = this.GetComponent<RectTransform>();
+        var direction     = toLeft ? -1f : 1f;
+        var startX        = 0f;
+        var endX          = rectTransform.rect.width * direction;
 
-        await AnimatePosition(rectTransform, startX, endX, hideDuration, hideCurve);
+        await this.AnimatePosition(rectTransform, startX, endX, this.hideDuration, this.hideCurve);
 
-        isPlaying = false;
-        currentTask.SetResult(true);
+        this.isPlaying = false;
+        this.currentTask.SetResult(true);
     }
 
     public async Task WaitForCompletion()
     {
-        if (currentTask != null)
+        if (this.currentTask != null)
         {
-            await currentTask.Task;
+            await this.currentTask.Task;
         }
     }
 

@@ -25,17 +25,17 @@ public class UIScreenLeaderboard : UIScreen
         if (data is LevelEndData levelEndData)
         {
             Debug.Log($"[LEADERBOARD] Level {levelEndData.level}, Results count: {levelEndData.results?.Count ?? 0}");
-            DisplayLeaderboard(levelEndData.results);
+            this.DisplayLeaderboard(levelEndData.results);
 
-            if (titleText != null)
+            if (this.titleText != null)
             {
-                titleText.text = $"Leaderboard - Level {levelEndData.level}";
+                this.titleText.text = $"Leaderboard - Level {levelEndData.level}";
             }
         }
         else if (data is List<PlayerResult> results)
         {
             Debug.Log($"[LEADERBOARD] Direct results list, count: {results?.Count ?? 0}");
-            DisplayLeaderboard(results);
+            this.DisplayLeaderboard(results);
         }
         else
         {
@@ -49,11 +49,11 @@ public class UIScreenLeaderboard : UIScreen
         Debug.Log($"[LEADERBOARD] DisplayLeaderboard called with {results?.Count ?? 0} results");
 
         // Clear existing items
-        foreach (var item in leaderboardItems)
+        foreach (var item in this.leaderboardItems)
         {
             Destroy(item);
         }
-        leaderboardItems.Clear();
+        this.leaderboardItems.Clear();
 
         if (results == null || results.Count == 0)
         {
@@ -70,7 +70,7 @@ public class UIScreenLeaderboard : UIScreen
         {
             Debug.Log($"[LEADERBOARD] Processing rank {rank}: {result.Username} - {result.Score}");
 
-            var item = Instantiate(leaderboardItemPrefab, leaderboardContainer);
+            var item = Instantiate(this.leaderboardItemPrefab, this.leaderboardContainer);
             item.SetActive(true);
 
             // Try TextMeshProUGUI first
@@ -82,20 +82,20 @@ public class UIScreenLeaderboard : UIScreen
                 tmpTexts[2].text = result.Score.ToString() + " points"; // Score
             }
 
-            leaderboardItems.Add(item);
+            this.leaderboardItems.Add(item);
             rank++;
         }
 
-        Debug.Log($"[LEADERBOARD] Created {leaderboardItems.Count} leaderboard items");
+        Debug.Log($"[LEADERBOARD] Created {this.leaderboardItems.Count} leaderboard items");
     }
 
     private void OnDisable()
     {
         // Clear items when screen is disabled
-        foreach (var item in leaderboardItems)
+        foreach (var item in this.leaderboardItems)
         {
             Destroy(item);
         }
-        leaderboardItems.Clear();
+        this.leaderboardItems.Clear();
     }
 }

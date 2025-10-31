@@ -28,21 +28,21 @@ public class UIScreenGame : UIScreen
 		this.hintBtnText.text = $"HINT ({GameManager.Instance.CurrentHints})";
 
 		// Update multiplayer timer
-		if (isMultiplayer && isLevelActive && levelTimer > 0)
+		if (this.isMultiplayer && this.isLevelActive && this.levelTimer > 0)
 		{
-			levelTimer -= Time.deltaTime;
-			if (timerText != null && timerText.gameObject.activeSelf)
+			this.levelTimer -= Time.deltaTime;
+			if (this.timerText != null && this.timerText.gameObject.activeSelf)
 			{
-				timerText.text = $"Time: {Mathf.RoundToInt(levelTimer)}";
+				this.timerText.text = $"Time: {Mathf.RoundToInt(this.levelTimer)}";
 			}
 
-			if (levelTimer <= 0)
+			if (this.levelTimer <= 0)
 			{
-				levelTimer = 0;
-				isLevelActive = false;
-				if (timerText != null)
+				this.levelTimer = 0;
+				this.isLevelActive = false;
+				if (this.timerText != null)
 				{
-					timerText.text = "Time's up!";
+					this.timerText.text = "Time's up!";
 				}
 			}
 		}
@@ -60,7 +60,7 @@ public class UIScreenGame : UIScreen
 		};
 
 		// Get reference to NetworkManager
-		networkManager = NetworkManager.Instance;
+		this.networkManager = NetworkManager.Instance;
 	}
 
 	public override void OnShowing(object data)
@@ -68,7 +68,7 @@ public class UIScreenGame : UIScreen
 		// Check if this is multiplayer game data
 		if (data is GameStartData gameData)
 		{
-			StartMultiplayerLevel(gameData);
+			this.StartMultiplayerLevel(gameData);
 			return;
 		}
 
@@ -99,7 +99,7 @@ public class UIScreenGame : UIScreen
 	{
 		if (!GameManager.Instance.AnimatingWord)
 		{
-			if (isMultiplayer)
+			if (this.isMultiplayer)
 			{
 				// Don't allow back during multiplayer game
 				return;
@@ -119,32 +119,32 @@ public class UIScreenGame : UIScreen
 	// Multiplayer methods
 	public void StartMultiplayerLevel(GameStartData gameData)
 	{
-		isMultiplayer = true;
-		isLevelActive = true;
-		levelTimer = 60; //Default
+		this.isMultiplayer = true;
+		this.isLevelActive = true;
+		this.levelTimer       = 60; //Default
 
 		// Show timer for multiplayer
-		if (timerText != null)
+		if (this.timerText != null)
 		{
-			timerText.gameObject.SetActive(true);
-			timerText.text = $"Time: {levelTimer}";
+			this.timerText.gameObject.SetActive(true);
+			this.timerText.text = $"Time: {this.levelTimer}";
 		}
 
-		levelText.text = $"Level {gameData.level}";
-		categoryText.text = gameData.category?.ToUpper() ?? "MULTIPLAYER";
+		this.levelText.text = $"Level {gameData.level}";
+		this.categoryText.text = gameData.category?.ToUpper() ?? "MULTIPLAYER";
 
 		// The board is already loaded by GameManager.StartLevel()
 	}
 
 	public void ResetMultiplayer()
 	{
-		isMultiplayer = false;
-		isLevelActive = false;
-		levelTimer = 0;
+		this.isMultiplayer = false;
+		this.isLevelActive = false;
+		this.levelTimer       = 0;
 
-		if (timerText != null)
+		if (this.timerText != null)
 		{
-			timerText.gameObject.SetActive(false);
+			this.timerText.gameObject.SetActive(false);
 		}
 	}
 
