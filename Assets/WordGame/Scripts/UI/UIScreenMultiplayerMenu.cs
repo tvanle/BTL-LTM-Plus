@@ -15,6 +15,8 @@ namespace WordGame.UI
         [SerializeField] private TMP_InputField roomCodeInput;
         [SerializeField] private Button createRoomButton;
         [SerializeField] private Button joinRoomButton;
+        [SerializeField] private Button profileButton;
+        [SerializeField] private UIProfilePanel profilePanel;
 
         public override void Initialize()
         {
@@ -31,6 +33,18 @@ namespace WordGame.UI
 
             this.createRoomButton.onClick.AddListener(this.HandleCreateRoom);
             this.joinRoomButton.onClick.AddListener(this.HandleJoinRoom);
+
+            if (this.profileButton != null)
+            {
+                this.profileButton.onClick.AddListener(this.HandleProfileButton);
+            }
+
+            if (this.profilePanel != null)
+            {
+                this.profilePanel.OnEditProfileClicked += this.HandleEditProfile;
+                this.profilePanel.OnLogoutClicked += this.HandleLogout;
+                this.profilePanel.OnMatchHistoryClicked += this.HandleMatchHistory;
+            }
         }
 
 
@@ -69,6 +83,18 @@ namespace WordGame.UI
         {
             this.createRoomButton.onClick.RemoveListener(this.HandleCreateRoom);
             this.joinRoomButton.onClick.RemoveListener(this.HandleJoinRoom);
+
+            if (this.profileButton != null)
+            {
+                this.profileButton.onClick.RemoveListener(this.HandleProfileButton);
+            }
+
+            if (this.profilePanel != null)
+            {
+                this.profilePanel.OnEditProfileClicked -= this.HandleEditProfile;
+                this.profilePanel.OnLogoutClicked -= this.HandleLogout;
+                this.profilePanel.OnMatchHistoryClicked -= this.HandleMatchHistory;
+            }
 
             if (this.networkManager != null)
             {
@@ -143,6 +169,47 @@ namespace WordGame.UI
         public void ResetInputs()
         {
             this.roomCodeInput.text = "";
+        }
+
+        private void HandleProfileButton()
+        {
+            if (this.profilePanel != null)
+            {
+                this.profilePanel.Show();
+            }
+        }
+
+        private void HandleEditProfile()
+        {
+            // TODO: Show Edit Profile screen
+            Toast.instance?.ShowMessage("Edit Profile - Coming soon");
+        }
+
+        private void HandleLogout()
+        {
+            // Clear stored credentials
+            PlayerPrefs.DeleteKey("auth_token");
+            PlayerPrefs.DeleteKey("user_id");
+            PlayerPrefs.DeleteKey("username");
+            PlayerPrefs.DeleteKey("avatar_url");
+            PlayerPrefs.Save();
+
+            // Disconnect from network
+            if (this.networkManager != null)
+            {
+                this.networkManager.Disconnect();
+            }
+
+            // Go back to login screen
+            UIScreenController.Instance.Show(UIScreenController.LoginScreenId, true);
+
+            Toast.instance?.ShowMessage("Logged out successfully");
+        }
+
+        private void HandleMatchHistory()
+        {
+            // TODO: Show Match History screen
+            Toast.instance?.ShowMessage("Match History - Coming soon");
         }
     }
 }

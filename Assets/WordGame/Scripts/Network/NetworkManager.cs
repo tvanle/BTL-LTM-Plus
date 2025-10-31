@@ -216,6 +216,24 @@ namespace WordGame.Network
             await this.SendMessageAsync(message);
         }
 
+        public async Task<bool> UpdateProfile(string displayName, string avatarUrl)
+        {
+            var updateData = new UpdateProfileData
+            {
+                DisplayName = displayName,
+                AvatarUrl = avatarUrl
+            };
+
+            var message = new GameMessage
+            {
+                Type = "UPDATE_PROFILE",
+                Data = JsonUtility.ToJson(updateData)
+            };
+
+            await this.SendMessageAsync(message);
+            return true;
+        }
+
 
         private async Task SendMessageAsync(GameMessage message)
         {
@@ -544,6 +562,13 @@ namespace WordGame.Network
             public string Username;
             public string Email;
             public string Password;
+        }
+
+        [Serializable]
+        public class UpdateProfileData
+        {
+            public string DisplayName;
+            public string AvatarUrl;
         }
     }
 }

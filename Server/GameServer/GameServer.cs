@@ -101,6 +101,9 @@ public class GameServer
                 case "LOGOUT":
                     await this.HandleLogout(connection);
                     break;
+                case "UPDATE_PROFILE":
+                    await this.HandleUpdateProfile(connection, message);
+                    break;
                 case "CREATE_ROOM":
                     await this.HandleCreateRoom(connection, message);
                     break;
@@ -693,6 +696,53 @@ public class GameServer
         await connection.SendAsync(new GameMessage { Type = "LOGOUT_SUCCESS" });
     }
 
+    private async Task HandleUpdateProfile(ClientConnection connection, GameMessage message)
+    {
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("Not authenticated");
+        }
+
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<UpdateProfileData>(message.Data, options);
+
+        if (data == null)
+        {
+            throw new Exception("Invalid update profile data");
+        }
+
+        var result = await this._auth.UpdateProfileAsync(connection.UserId.Value, data.DisplayName, data.AvatarUrl);
+
+        if (result.Success && result.User != null)
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "UPDATE_PROFILE_SUCCESS",
+                Data = JsonSerializer.Serialize(new
+                {
+                    user = new
+                    {
+                        id = result.User.Id,
+                        username = result.User.Username,
+                        email = result.User.Email,
+                        displayName = result.User.DisplayName,
+                        avatarUrl = result.User.AvatarUrl
+                    }
+                })
+            });
+
+            Console.WriteLine($"User profile updated: {result.User.Username}");
+        }
+        else
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "UPDATE_PROFILE_FAILED",
+                Data = JsonSerializer.Serialize(new { error = result.Error })
+            });
+        }
+    }
+
     // ============================================
     // Friends Handlers
     // ============================================
@@ -1095,6 +1145,12 @@ public class LoginData
 {
     public string UsernameOrEmail { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
+}
+
+public class UpdateProfileData
+{
+    public string? DisplayName { get; set; }
+    public string? AvatarUrl { get; set; }
 }
 
 public class AddFriendData

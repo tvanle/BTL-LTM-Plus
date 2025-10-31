@@ -176,6 +176,7 @@ namespace WordGame.UI
                 PlayerPrefs.SetString("auth_token", responseData.token);
                 PlayerPrefs.SetString("user_id", responseData.user.id);
                 PlayerPrefs.SetString("username", responseData.user.username);
+                PlayerPrefs.SetString("avatar_url", responseData.user.avatarUrl ?? "");
                 PlayerPrefs.Save();
 
                 Debug.Log($"Logged in as: {responseData.user.username}");
@@ -214,6 +215,7 @@ namespace WordGame.UI
                 PlayerPrefs.SetString("auth_token", responseData.token);
                 PlayerPrefs.SetString("user_id", responseData.user.id);
                 PlayerPrefs.SetString("username", responseData.user.username);
+                PlayerPrefs.SetString("avatar_url", responseData.user.avatarUrl ?? "");
                 PlayerPrefs.Save();
 
                 Debug.Log($"Registered as: {responseData.user.username}");
