@@ -12,7 +12,6 @@ namespace WordGame.UI
         private NetworkManager networkManager;
 
         [Header("UI References")]
-        [SerializeField] private TMP_Dropdown categoryDropdown;
         [SerializeField] private TMP_InputField roomCodeInput;
         [SerializeField] private Button createRoomButton;
         [SerializeField] private Button joinRoomButton;
@@ -32,9 +31,6 @@ namespace WordGame.UI
 
             this.createRoomButton.onClick.AddListener(this.HandleCreateRoom);
             this.joinRoomButton.onClick.AddListener(this.HandleJoinRoom);
-
-            // Populate category dropdown
-            this.PopulateCategoryDropdown();
         }
 
 
@@ -88,18 +84,31 @@ namespace WordGame.UI
             return PlayerPrefs.GetString("username", "");
         }
 
-        private async void HandleCreateRoom()
+        private void HandleCreateRoom()
         {
             var username = this.GetCurrentUsername();
-            var category = this.categoryDropdown != null && this.categoryDropdown.options.Count > 0
-                ? this.categoryDropdown.options[this.categoryDropdown.value].text
-                : "ANIMALS";
 
             if (string.IsNullOrEmpty(username))
             {
                 Toast.instance?.ShowMessage("User not logged in");
                 return;
             }
+
+            // Show category selection screen with callback
+            UIScreenController.Instance.Show(
+                UIScreenController.CategoriesScreenId,
+                false,
+                true,
+                false,
+                Tween.TweenStyle.EaseOut,
+                null,
+                (Action<string>)this.CreateRoomWithCategory
+            );
+        }
+
+        private async void CreateRoomWithCategory(string category)
+        {
+            var username = this.GetCurrentUsername();
 
             if (this.networkManager != null)
             {
@@ -134,29 +143,6 @@ namespace WordGame.UI
         public void ResetInputs()
         {
             this.roomCodeInput.text = "";
-            if (this.categoryDropdown != null && this.categoryDropdown.options.Count > 0)
-            {
-                this.categoryDropdown.value = 0;
-            }
-        }
-
-        private void PopulateCategoryDropdown()
-        {
-            if (this.categoryDropdown == null) return;
-
-            this.categoryDropdown.ClearOptions();
-
-            // Get categories from GameManager if available
-            var categories = new List<string>();
-            foreach (var categoryInfo in GameManager.Instance.CategoryInfos)
-            {
-                if (categoryInfo.name != GameManager.dailyPuzzleId)
-                {
-                    categories.Add(categoryInfo.name);
-                }
-            }
-
-            this.categoryDropdown.AddOptions(categories);
         }
     }
 }
