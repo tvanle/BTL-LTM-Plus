@@ -107,7 +107,6 @@ public class UIScreenLeaderboard : UIScreen
         if (string.IsNullOrEmpty(avatarUrl))
         {
             // Set default avatar
-            avatarImage.color = new Color(0.7f, 0.7f, 0.7f);
             return;
         }
 

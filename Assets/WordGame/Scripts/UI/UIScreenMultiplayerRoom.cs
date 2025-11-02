@@ -290,10 +290,10 @@ namespace WordGame.UI
                 }
 
                 // Find PlayerAvatar child
-                var playerAvatarTransform = item.transform.Find("PlayerName");
+                var playerAvatarTransform = item.transform.Find("Icon");
                 if (playerAvatarTransform != null)
                 {
-                    var avatarImage = item.transform.GetComponentInChildren<Image>();
+                    var avatarImage = item.transform.GetComponent<Image>();
                     if (avatarImage != null)
                     {
                         this.LoadPlayerAvatar(avatarImage, player.AvatarUrl);
@@ -309,7 +309,6 @@ namespace WordGame.UI
             if (string.IsNullOrEmpty(avatarUrl))
             {
                 // Set default avatar
-                avatarImage.color = new Color(0.7f, 0.7f, 0.7f);
                 return;
             }
 
