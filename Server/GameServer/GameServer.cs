@@ -151,11 +151,16 @@ public class GameServer
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         var data = JsonSerializer.Deserialize<CreateRoomData>(message.Data, options);
 
+        // Get user avatar from database
+        var user = await this._database.GetUserByUsernameAsync(data.Username);
+        string? avatarUrl = user?.AvatarUrl;
+
         var player = new Player
         {
             Id = Guid.NewGuid(),
             ConnectionId = connection.Id,
-            Username = data.Username
+            Username = data.Username,
+            AvatarUrl = avatarUrl
         };
 
         this._players[player.Id] = player;
@@ -179,7 +184,7 @@ public class GameServer
         await connection.SendAsync(new GameMessage
         {
             Type = "ROOM_CREATED",
-            Data = JsonSerializer.Serialize(new { roomCode, category = room.Category, numQuestions = room.NumQuestions, player = new { player.Id, player.Username } })
+            Data = JsonSerializer.Serialize(new { roomCode, category = room.Category, numQuestions = room.NumQuestions, player = new { player.Id, player.Username, player.AvatarUrl } })
         });
 
         Console.WriteLine($"Room {roomCode} created by {player.Username}");
@@ -196,11 +201,16 @@ public class GameServer
             throw new Exception("Room not found");
         }
 
+        // Get user avatar from database
+        var user = await this._database.GetUserByUsernameAsync(data.Username);
+        string? avatarUrl = user?.AvatarUrl;
+
         var player = new Player
         {
             Id = Guid.NewGuid(),
             ConnectionId = connection.Id,
             Username = data.Username,
+            AvatarUrl = avatarUrl,
             RoomCode = data.RoomCode
         };
 
@@ -217,14 +227,14 @@ public class GameServer
                 category = room.Category,
                 numQuestions = room.NumQuestions,
                 playerId = player.Id,
-                players = room.Players.Values.Select(p => new { p.Id, p.Username })
+                players = room.Players.Values.Select(p => new { p.Id, p.Username, p.AvatarUrl })
             })
         });
 
         await this.BroadcastToRoomExcept(room, connection.Id, new GameMessage
         {
             Type = "PLAYER_JOINED",
-            Data = JsonSerializer.Serialize(new { player.Id, player.Username })
+            Data = JsonSerializer.Serialize(new { player.Id, player.Username, player.AvatarUrl })
         });
 
         Console.WriteLine($"{player.Username} joined room {room.Code}");
@@ -436,6 +446,7 @@ public class GameServer
             {
                 Id = p.Id.ToString(),
                 Username = p.Username,
+                AvatarUrl = p.AvatarUrl,
                 Score = p.Score
             })
             .ToList();
@@ -512,7 +523,7 @@ public class GameServer
     {
         var results = room.Players.Values
             .OrderByDescending(p => p.Score)
-            .Select(p => new { p.Id, p.Username, p.Score })
+            .Select(p => new { p.Id, p.Username, p.AvatarUrl, p.Score })
             .ToList();
 
         await this.BroadcastToRoom(room, new GameMessage
@@ -1089,6 +1100,7 @@ public class Player
     public Guid Id { get; set; }
     public Guid ConnectionId { get; set; }
     public string Username { get; set; } = string.Empty;
+    public string? AvatarUrl { get; set; }
     public string? RoomCode { get; set; }
     public int Score { get; set; }
     public int Streak { get; set; }

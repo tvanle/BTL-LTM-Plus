@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using WordGame.Network;
 using WordGame.Network.Models;
+using WordGame.Utilities;
 
 public class UIScreenLeaderboard : UIScreen
 {
@@ -42,7 +44,7 @@ public class UIScreenLeaderboard : UIScreen
             Debug.LogWarning($"[LEADERBOARD] Unknown data type: {data?.GetType().Name}");
         }
     }
-    
+
 
     private void DisplayLeaderboard(List<PlayerResult> results)
     {
@@ -82,11 +84,57 @@ public class UIScreenLeaderboard : UIScreen
                 tmpTexts[2].text = result.Score.ToString() + " points"; // Score
             }
 
+            // Load player avatar
+            var avatarTransform = item.transform.Find("Avatar");
+            if (avatarTransform != null)
+            {
+                var avatarImage = avatarTransform.GetComponent<Image>();
+                if (avatarImage != null)
+                {
+                    this.LoadPlayerAvatar(avatarImage, result.AvatarUrl);
+                }
+            }
+
             this.leaderboardItems.Add(item);
             rank++;
         }
 
         Debug.Log($"[LEADERBOARD] Created {this.leaderboardItems.Count} leaderboard items");
+    }
+
+    private void LoadPlayerAvatar(Image avatarImage, string avatarUrl)
+    {
+        if (string.IsNullOrEmpty(avatarUrl))
+        {
+            // Set default avatar
+            avatarImage.color = new Color(0.7f, 0.7f, 0.7f);
+            return;
+        }
+
+        try
+        {
+            var texture = ImagePicker.LoadTextureFromBase64(avatarUrl);
+            if (texture != null)
+            {
+                var sprite = Sprite.Create(
+                    texture,
+                    new Rect(0, 0, texture.width, texture.height),
+                    new Vector2(0.5f, 0.5f)
+                );
+                avatarImage.sprite = sprite;
+                avatarImage.color = Color.white;
+            }
+            else
+            {
+                // Fallback to default
+                avatarImage.color = new Color(0.7f, 0.7f, 0.7f);
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogWarning($"Failed to load avatar: {ex.Message}");
+            avatarImage.color = new Color(0.7f, 0.7f, 0.7f);
+        }
     }
 
     private void OnDisable()

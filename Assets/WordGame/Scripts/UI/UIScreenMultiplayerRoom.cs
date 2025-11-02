@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using WordGame.Network;
 using WordGame.Network.Models;
+using WordGame.Utilities;
 
 namespace WordGame.UI
 {
@@ -288,7 +289,53 @@ namespace WordGame.UI
                     }
                 }
 
+                // Find PlayerAvatar child
+                var playerAvatarTransform = item.transform.Find("PlayerAvatar");
+                if (playerAvatarTransform != null)
+                {
+                    var avatarImage = item.transform.GetComponentInChildren<Image>();
+                    if (avatarImage != null)
+                    {
+                        this.LoadPlayerAvatar(avatarImage, player.AvatarUrl);
+                    }
+                }
+
                 this._playerListItems[player.Id] = item;
+            }
+        }
+
+        private void LoadPlayerAvatar(Image avatarImage, string avatarUrl)
+        {
+            if (string.IsNullOrEmpty(avatarUrl))
+            {
+                // Set default avatar
+                avatarImage.color = new Color(0.7f, 0.7f, 0.7f);
+                return;
+            }
+
+            try
+            {
+                var texture = ImagePicker.LoadTextureFromBase64(avatarUrl);
+                if (texture != null)
+                {
+                    var sprite = Sprite.Create(
+                        texture,
+                        new Rect(0, 0, texture.width, texture.height),
+                        new Vector2(0.5f, 0.5f)
+                    );
+                    avatarImage.sprite = sprite;
+                    avatarImage.color = Color.white;
+                }
+                else
+                {
+                    // Fallback to default
+                    avatarImage.color = new Color(0.7f, 0.7f, 0.7f);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning($"Failed to load avatar: {ex.Message}");
+                avatarImage.color = new Color(0.7f, 0.7f, 0.7f);
             }
         }
 

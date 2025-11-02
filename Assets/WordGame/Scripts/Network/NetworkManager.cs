@@ -39,12 +39,6 @@ namespace WordGame.Network
 
         private void Awake()
         {
-            if (instance != null && instance != this)
-            {
-                Destroy(this.gameObject);
-                return;
-            }
-
             instance = this;
             DontDestroyOnLoad(this.gameObject);
 
@@ -479,6 +473,7 @@ namespace WordGame.Network
         {
             public string Id;
             public string Username;
+            public string AvatarUrl;
         }
 
         [Serializable]
