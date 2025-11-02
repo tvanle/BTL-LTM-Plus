@@ -91,6 +91,26 @@ public class AuthenticationService
         await _database.UpdateUserOnlineStatusAsync(userId, false);
     }
 
+    public async Task<(bool Success, User? User, string? Error)> UpdateProfileAsync(
+        Guid userId, string? displayName, string? avatarUrl)
+    {
+        try
+        {
+            await _database.UpdateUserProfileAsync(userId, displayName, avatarUrl);
+
+            // Get updated user data
+            var user = await _database.GetUserByIdAsync(userId);
+            if (user == null)
+                return (false, null, "User not found");
+
+            return (true, user, null);
+        }
+        catch (Exception ex)
+        {
+            return (false, null, $"Update failed: {ex.Message}");
+        }
+    }
+
     private string GenerateSecureToken()
     {
         var bytes = new byte[32];

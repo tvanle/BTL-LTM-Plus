@@ -351,6 +351,22 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
         await cmd.ExecuteNonQueryAsync();
     }
 
+    public async Task UpdateUserProfileAsync(Guid userId, string? displayName, string? avatarUrl)
+    {
+        using var conn = GetConnection();
+        await conn.OpenAsync();
+
+        var cmd = new SqliteCommand(
+            @"UPDATE users SET display_name = @displayName, avatar_url = @avatarUrl, updated_at = @updatedAt
+              WHERE id = @id", conn);
+        cmd.Parameters.AddWithValue("@displayName", displayName ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@avatarUrl", avatarUrl ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@updatedAt", DateTime.UtcNow.ToString("o"));
+        cmd.Parameters.AddWithValue("@id", userId.ToString());
+
+        await cmd.ExecuteNonQueryAsync();
+    }
+
     // ============================================
     // Session Tokens
     // ============================================
