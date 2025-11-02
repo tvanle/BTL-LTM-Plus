@@ -290,7 +290,7 @@ namespace WordGame.UI
                 }
 
                 // Find PlayerAvatar child
-                var playerAvatarTransform = item.transform.Find("PlayerAvatar");
+                var playerAvatarTransform = item.transform.Find("PlayerName");
                 if (playerAvatarTransform != null)
                 {
                     var avatarImage = item.transform.GetComponentInChildren<Image>();
