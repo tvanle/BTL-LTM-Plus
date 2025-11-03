@@ -84,7 +84,7 @@ public class UIScreenCompleteOverlay : UIScreen
 		// Display score information
 		if (this.scoreEarnedText != null)
 		{
-			this.scoreEarnedText.text = $"+{scoreData.scoreGained}";
+			this.scoreEarnedText.text = $"{scoreData.scoreGained}";
 		}
 
 		if (this.totalScoreText != null)
