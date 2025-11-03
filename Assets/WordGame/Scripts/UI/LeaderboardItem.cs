@@ -13,9 +13,6 @@ public class LeaderboardItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI pointText;
 
-    [Header("Optional Highlight")]
-    [SerializeField] private Image backgroundImage;
-
     private PlayerResult playerData;
 
     public void Setup(int rank, PlayerResult result, bool isCurrentPlayer = false)
@@ -44,16 +41,6 @@ public class LeaderboardItem : MonoBehaviour
         if (this.avatarImage != null)
         {
             this.LoadAvatar(result.AvatarUrl);
-        }
-
-        // Highlight current player
-        if (isCurrentPlayer && this.backgroundImage != null)
-        {
-            this.backgroundImage.color = new Color(1f, 1f, 0.7f, 0.3f); // Light yellow
-        }
-        else if (this.backgroundImage != null)
-        {
-            this.backgroundImage.color = new Color(1f, 1f, 1f, 0.1f); // Default
         }
     }
 
