@@ -1,3 +1,5 @@
+using System;
+using System.Threading.Tasks;
 using GameServer.Models;
 using BCrypt.Net;
 using System.Security.Cryptography;

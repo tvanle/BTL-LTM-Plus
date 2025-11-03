@@ -276,6 +276,68 @@ public class GameServer
         {
             Console.WriteLine($"[DEBUG] Connection has no PlayerId");
             return;
+        }
+
+        var player = this._players.GetValueOrDefault(connection.PlayerId.Value);
+        if (player?.RoomCode == null)
+        {
+            Console.WriteLine($"[DEBUG] Player {connection.PlayerId.Value} has no room");
+            return;
+        }
+
+        var room = this._rooms.GetValueOrDefault(player.RoomCode);
+        if (room == null)
+        {
+            throw new Exception($"Room {player.RoomCode} not found");
+        }
+
+        if (room.HostId != player.Id)
+        {
+            throw new Exception($"Only host can start the game. Host: {room.HostId}, Player: {player.Id}");
+        }
+
+        room.GameState = new GameState
+        {
+            CurrentLevel = 1,
+            LevelStartTime = DateTime.UtcNow
+        };
+
+        // Handle "Random" category by selecting a random category and level
+        string actualCategory = room.Category;
+        int actualLevel = room.GameState.CurrentLevel;
+
+        if (room.Category.Equals("Random", StringComparison.OrdinalIgnoreCase))
+        {
+            // Pick a random category from 1-10 (adjust based on your actual categories)
+            var random = new Random();
+            int categoryNum = random.Next(1, 16); // Categories 1-15
+            actualCategory = $"Category {categoryNum}";
+
+            // Pick a random level (0-19 is common range, adjust as needed)
+            actualLevel = random.Next(0, 20);
+        }
+
+        // Start level timer (60 seconds - server manages completely)
+        room.GameState.LevelTimer = new Timer(
+            async _ => await this.HandleLevelTimerExpired(room),
+            null,
+            TimeSpan.FromSeconds(60),
+            Timeout.InfiniteTimeSpan
+        );
+
+        await this.BroadcastToRoom(room, new GameMessage
+        {
+            Type = "GAME_STARTED",
+            Data = JsonSerializer.Serialize(new
+            {
+                category = actualCategory,
+                level = actualLevel
+            })
+        });
+
+        Console.WriteLine($"Game started in room {room.Code}");
+    }
+
     private async Task HandleGetOnlinePlayers(ClientConnection connection)
     {
         if (!connection.PlayerId.HasValue)
@@ -405,68 +467,6 @@ public class GameServer
         Console.WriteLine($"[SEND_INVITE] {sender.Username} invited {targetPlayer.Username} to room {sender.RoomCode}");
     }
 
-        }
-
-        var player = this._players.GetValueOrDefault(connection.PlayerId.Value);
-        if (player?.RoomCode == null)
-        {
-            Console.WriteLine($"[DEBUG] Player {connection.PlayerId.Value} has no room");
-            return;
-        }
-
-        var room = this._rooms.GetValueOrDefault(player.RoomCode);
-        if (room == null)
-        {
-            throw new Exception($"Room {player.RoomCode} not found");
-        }
-
-        if (room.HostId != player.Id)
-        {
-            throw new Exception($"Only host can start the game. Host: {room.HostId}, Player: {player.Id}");
-        }
-
-        room.GameState = new GameState
-        {
-            CurrentLevel = 1,
-            LevelStartTime = DateTime.UtcNow
-        };
-
-        // Handle "Random" category by selecting a random category and level
-        string actualCategory = room.Category;
-        int actualLevel = room.GameState.CurrentLevel;
-
-        if (room.Category.Equals("Random", StringComparison.OrdinalIgnoreCase))
-        {
-            // Pick a random category from 1-10 (adjust based on your actual categories)
-            var random = new Random();
-            int categoryNum = random.Next(1, 16); // Categories 1-15
-            actualCategory = $"Category {categoryNum}";
-
-            // Pick a random level (0-19 is common range, adjust as needed)
-            actualLevel = random.Next(0, 20);
-        }
-
-        // Start level timer (60 seconds - server manages completely)
-        room.GameState.LevelTimer = new Timer(
-            async _ => await this.HandleLevelTimerExpired(room),
-            null,
-            TimeSpan.FromSeconds(60),
-            Timeout.InfiniteTimeSpan
-        );
-
-        await this.BroadcastToRoom(room, new GameMessage
-        {
-            Type = "GAME_STARTED",
-            Data = JsonSerializer.Serialize(new
-            {
-                category = actualCategory,
-                level = actualLevel
-            })
-        });
-
-        Console.WriteLine($"Game started in room {room.Code}");
-    }
-    
     private async Task HandleLevelCompleted(ClientConnection connection, GameMessage message)
     {
         if (!connection.PlayerId.HasValue)
@@ -1394,4 +1394,9 @@ public class AcceptFriendData
 public class RemoveFriendData
 {
     public Guid FriendshipId { get; set; }
+}
+
+public class SendInviteData
+{
+    public string TargetPlayerId { get; set; } = string.Empty;
 }
