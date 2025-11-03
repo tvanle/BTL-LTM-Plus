@@ -220,10 +220,11 @@ namespace WordGame.UI
 
                 case "GAME_ENDED":
                     var endData = JsonUtility.FromJson<GameEndData>(message.Data);
+                    Debug.Log($"[MULTIPLAYER_ROOM] Game ended with {endData.results?.Count ?? 0} results");
                     this.Reset();
-                    // Return to room after game ends
-                    UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false,
-                        Tween.TweenStyle.EaseOut, null, false);
+                    // Show game result screen with final leaderboard and XP
+                    UIScreenController.Instance.Show(UIScreenController.GameResultScreenId, false, true, false,
+                        Tween.TweenStyle.EaseOut, null, endData);
                     break;
             }
         }

@@ -276,6 +276,135 @@ public class GameServer
         {
             Console.WriteLine($"[DEBUG] Connection has no PlayerId");
             return;
+    private async Task HandleGetOnlinePlayers(ClientConnection connection)
+    {
+        if (!connection.PlayerId.HasValue)
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
+                Data = JsonSerializer.Serialize(new { error = "Not logged in" })
+            });
+            return;
+        }
+
+        var currentPlayer = this._players.GetValueOrDefault(connection.PlayerId.Value);
+        if (currentPlayer == null)
+        {
+            return;
+        }
+
+        // Get all online players
+        var onlinePlayers = this._players.Values
+            .Where(p => p.Id != currentPlayer.Id) // Exclude self
+            .Select(p => new
+            {
+                PlayerId = p.Id.ToString(),
+                Username = p.Username,
+                InRoom = !string.IsNullOrEmpty(p.RoomCode)
+            })
+            .ToList();
+
+        await connection.SendAsync(new GameMessage
+        {
+            Type = "ONLINE_PLAYERS",
+            Data = JsonSerializer.Serialize(new { players = onlinePlayers })
+        });
+
+        Console.WriteLine($"[GET_ONLINE_PLAYERS] Sent {onlinePlayers.Count} online players to {currentPlayer.Username}");
+    }
+
+    private async Task HandleSendInvite(ClientConnection connection, GameMessage message)
+    {
+        if (!connection.PlayerId.HasValue)
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
+                Data = JsonSerializer.Serialize(new { error = "Not logged in" })
+            });
+            return;
+        }
+
+        var sender = this._players.GetValueOrDefault(connection.PlayerId.Value);
+        if (sender == null || string.IsNullOrEmpty(sender.RoomCode))
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
+                Data = JsonSerializer.Serialize(new { error = "Not in a room" })
+            });
+            return;
+        }
+
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<SendInviteData>(message.Data, options);
+
+        if (!Guid.TryParse(data.TargetPlayerId, out var targetPlayerId))
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
+                Data = JsonSerializer.Serialize(new { error = "Invalid player ID" })
+            });
+            return;
+        }
+
+        var targetPlayer = this._players.GetValueOrDefault(targetPlayerId);
+        if (targetPlayer == null)
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
+                Data = JsonSerializer.Serialize(new { error = "Target player not found" })
+            });
+            return;
+        }
+
+        // Check if target player is already in a room
+        if (!string.IsNullOrEmpty(targetPlayer.RoomCode))
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
+                Data = JsonSerializer.Serialize(new { error = "Player is already in a room" })
+            });
+            return;
+        }
+
+        // Get target player's connection
+        var targetConnection = this._connections.Values.FirstOrDefault(c => c.PlayerId == targetPlayerId);
+        if (targetConnection == null)
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
+                Data = JsonSerializer.Serialize(new { error = "Target player is offline" })
+            });
+            return;
+        }
+
+        // Send invite to target player
+        await targetConnection.SendAsync(new GameMessage
+        {
+            Type = "ROOM_INVITE",
+            Data = JsonSerializer.Serialize(new
+            {
+                inviterName = sender.Username,
+                roomCode = sender.RoomCode
+            })
+        });
+
+        // Confirm to sender
+        await connection.SendAsync(new GameMessage
+        {
+            Type = "INVITE_SENT",
+            Data = JsonSerializer.Serialize(new { success = true })
+        });
+
+        Console.WriteLine($"[SEND_INVITE] {sender.Username} invited {targetPlayer.Username} to room {sender.RoomCode}");
+    }
+
         }
 
         var player = this._players.GetValueOrDefault(connection.PlayerId.Value);
@@ -362,6 +491,7 @@ public class GameServer
         var timeTaken = data?.TimeTaken ?? 60;
         player.Streak++; // Increment streak on level completion
         player.WordsFoundThisLevel++;
+        player.TotalWordsFound++;
         var scoreGained = this.CalculateCorrectAnswerScore(player, timeTaken, room.LevelDuration);
         player.Score += scoreGained;
 
@@ -521,18 +651,13 @@ public class GameServer
 
     private async Task EndGame(GameRoom room)
     {
-        var results = room.Players.Values
-            .OrderByDescending(p => p.Score)
-            .Select(p => new { p.Id, p.Username, p.AvatarUrl, p.Score })
-            .ToList();
+        // Calculate total words in game
+        int totalWords = room.TotalLevels;
 
-        await this.BroadcastToRoom(room, new GameMessage
-        {
-            Type = "GAME_ENDED",
-            Data = JsonSerializer.Serialize(new { results })
-        });
+        // Build results with XP and stats
+        var resultsWithXP = new List<object>();
 
-        // Save match history to database
+        // Save match history to database first
         if (room.Players.Count > 0)
         {
             try
@@ -552,15 +677,38 @@ public class GameServer
                 int rank = 1;
                 foreach (var player in room.Players.Values.OrderByDescending(p => p.Score))
                 {
-                    // Save match result
+                    // Calculate XP gained
+                    int xpGained = this.CalculateXPGained(player.Score, rank, player.Id == winner.Id);
+
+                    // Get current user stats
+                    var stats = await this._database.GetUserStatsAsync(player.Id);
+                    int currentTotalXP = stats?.TotalXP ?? 0;
+                    int newTotalXP = currentTotalXP + xpGained;
+                    int newLevel = this.CalculateLevelFromXP(newTotalXP);
+
+                    // Save match result with XP
                     await this._database.AddMatchPlayerResultAsync(
                         match.Id, player.Id, player.Score, player.Streak,
-                        player.WordsFoundThisLevel, 0, room.GameState?.CurrentLevel ?? 0, rank);
+                        player.TotalWordsFound, 0, room.GameState?.CurrentLevel ?? 0, rank, xpGained);
 
-                    // Update user stats
+                    // Update user stats with XP
                     await this._database.UpdateUserStatsAsync(
                         player.Id, player.Score, player.Streak,
-                        player.WordsFoundThisLevel, player.Id == winner.Id);
+                        player.TotalWordsFound, player.Id == winner.Id, xpGained, newLevel);
+
+                    // Add to results
+                    resultsWithXP.Add(new
+                    {
+                        Id = player.Id.ToString(),
+                        Username = player.Username,
+                        AvatarUrl = player.AvatarUrl,
+                        Score = player.Score,
+                        WordsFound = player.TotalWordsFound,
+                        TotalWords = totalWords,
+                        XPGained = xpGained,
+                        TotalXP = newTotalXP,
+                        Level = newLevel
+                    });
 
                     rank++;
                 }
@@ -570,8 +718,31 @@ public class GameServer
             catch (Exception ex)
             {
                 Console.WriteLine($"Error saving match history: {ex.Message}");
+                // Fallback to simple results
+                resultsWithXP = room.Players.Values
+                    .OrderByDescending(p => p.Score)
+                    .Select(p => new
+                    {
+                        Id = p.Id.ToString(),
+                        Username = p.Username,
+                        AvatarUrl = p.AvatarUrl,
+                        Score = p.Score,
+                        WordsFound = p.TotalWordsFound,
+                        TotalWords = totalWords,
+                        XPGained = 0,
+                        TotalXP = 0,
+                        Level = 1
+                    } as object)
+                    .ToList();
             }
         }
+
+        // Broadcast game end with XP data
+        await this.BroadcastToRoom(room, new GameMessage
+        {
+            Type = "GAME_ENDED",
+            Data = JsonSerializer.Serialize(new { results = resultsWithXP })
+        });
 
         room.GameState = null;
         foreach (var player in room.Players.Values)
@@ -579,6 +750,7 @@ public class GameServer
             player.Score = 0;
             player.Streak = 0;
             player.WordsFoundThisLevel = 0;
+            player.TotalWordsFound = 0;
         }
     }
 
@@ -976,6 +1148,49 @@ public class GameServer
         return scoreGained;
     }
 
+    /// <summary>
+    /// Calculate XP gained from a match based on performance
+    /// XP Formula: Base XP (100) + Score bonus (Score / 50) + Win bonus (500)
+    /// </summary>
+    private int CalculateXPGained(int score, int rank, bool isWinner)
+    {
+        const int BASE_XP = 100;
+        const int SCORE_TO_XP_RATIO = 50; // 1 XP per 50 score
+        const int WIN_BONUS = 500;
+        const int SECOND_PLACE_BONUS = 300;
+        const int THIRD_PLACE_BONUS = 150;
+
+        int xpGained = BASE_XP;
+
+        // Score bonus
+        xpGained += score / SCORE_TO_XP_RATIO;
+
+        // Rank bonuses
+        if (isWinner || rank == 1)
+        {
+            xpGained += WIN_BONUS;
+        }
+        else if (rank == 2)
+        {
+            xpGained += SECOND_PLACE_BONUS;
+        }
+        else if (rank == 3)
+        {
+            xpGained += THIRD_PLACE_BONUS;
+        }
+
+        return xpGained;
+    }
+
+    /// <summary>
+    /// Calculate player level from total XP
+    /// Level Formula: Level = floor(sqrt(TotalXP / 100))
+    /// </summary>
+    private int CalculateLevelFromXP(int totalXP)
+    {
+        return (int)Math.Floor(Math.Sqrt(totalXP / 100.0)) + 1;
+    }
+
     public async Task StopAsync()
     {
         this._isRunning = false;
@@ -1105,6 +1320,7 @@ public class Player
     public int Score { get; set; }
     public int Streak { get; set; }
     public int WordsFoundThisLevel { get; set; }
+    public int TotalWordsFound { get; set; }
 }
 
 public class GameState

@@ -118,6 +118,8 @@ CREATE TABLE IF NOT EXISTS user_stats (
     total_words_found INTEGER DEFAULT 0,
     average_completion_time REAL DEFAULT 0,
     rank_position INTEGER DEFAULT 0,
+    total_xp INTEGER DEFAULT 0,
+    level INTEGER DEFAULT 1,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
@@ -199,6 +201,7 @@ CREATE TABLE IF NOT EXISTS match_player_results (
     average_time_per_level REAL DEFAULT 0,
     completed_levels INTEGER DEFAULT 0,
     rank_position INTEGER DEFAULT 0,
+    xp_gained INTEGER DEFAULT 0,
     FOREIGN KEY (match_id) REFERENCES match_history(id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
@@ -462,7 +465,7 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
         await cmd.ExecuteNonQueryAsync();
     }
 
-    public async Task UpdateUserStatsAsync(Guid userId, int score, int streak, int wordsFound, bool isWinner)
+    public async Task UpdateUserStatsAsync(Guid userId, int score, int streak, int wordsFound, bool isWinner, int xpGained = 0, int newLevel = 1)
     {
         using var conn = GetConnection();
         await conn.OpenAsync();
@@ -474,12 +477,16 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
               best_streak = GREATEST(best_streak, @streak),
               games_played = games_played + 1,
               games_won = games_won + @won,
-              total_words_found = total_words_found + @words
+              total_words_found = total_words_found + @words,
+              total_xp = total_xp + @xp,
+              level = @level
               WHERE user_id = @userId", conn);
         cmd.Parameters.AddWithValue("@score", score);
         cmd.Parameters.AddWithValue("@streak", streak);
         cmd.Parameters.AddWithValue("@won", isWinner ? 1 : 0);
         cmd.Parameters.AddWithValue("@words", wordsFound);
+        cmd.Parameters.AddWithValue("@xp", xpGained);
+        cmd.Parameters.AddWithValue("@level", newLevel);
         cmd.Parameters.AddWithValue("@userId", userId.ToString());
 
         await cmd.ExecuteNonQueryAsync();
@@ -652,7 +659,7 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
 
     public async Task AddMatchPlayerResultAsync(
         Guid matchId, Guid userId, int finalScore, int bestStreak,
-        int totalWordsFound, float avgTime, int completedLevels, int rankPosition)
+        int totalWordsFound, float avgTime, int completedLevels, int rankPosition, int xpGained = 0)
     {
         using var conn = GetConnection();
         await conn.OpenAsync();
@@ -660,8 +667,8 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
         var cmd = new SqliteCommand(
             @"INSERT INTO match_player_results
               (id, match_id, user_id, final_score, best_streak, total_words_found,
-               average_time_per_level, completed_levels, rank_position)
-              VALUES (@id, @matchId, @userId, @score, @streak, @words, @avgTime, @completed, @rank)", conn);
+               average_time_per_level, completed_levels, rank_position, xp_gained)
+              VALUES (@id, @matchId, @userId, @score, @streak, @words, @avgTime, @completed, @rank, @xp)", conn);
         cmd.Parameters.AddWithValue("@id", Guid.NewGuid().ToString());
         cmd.Parameters.AddWithValue("@matchId", matchId.ToString());
         cmd.Parameters.AddWithValue("@userId", userId.ToString());
@@ -671,6 +678,7 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
         cmd.Parameters.AddWithValue("@avgTime", avgTime);
         cmd.Parameters.AddWithValue("@completed", completedLevels);
         cmd.Parameters.AddWithValue("@rank", rankPosition);
+        cmd.Parameters.AddWithValue("@xp", xpGained);
 
         await cmd.ExecuteNonQueryAsync();
     }
@@ -709,7 +717,9 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
             GamesWon = reader.GetInt32(reader.GetOrdinal("games_won")),
             TotalWordsFound = reader.GetInt32(reader.GetOrdinal("total_words_found")),
             AverageCompletionTime = reader.GetFloat(reader.GetOrdinal("average_completion_time")),
-            RankPosition = reader.GetInt32(reader.GetOrdinal("rank_position"))
+            RankPosition = reader.GetInt32(reader.GetOrdinal("rank_position")),
+            TotalXP = reader.IsDBNull(reader.GetOrdinal("total_xp")) ? 0 : reader.GetInt32(reader.GetOrdinal("total_xp")),
+            Level = reader.IsDBNull(reader.GetOrdinal("level")) ? 1 : reader.GetInt32(reader.GetOrdinal("level"))
         };
     }
 

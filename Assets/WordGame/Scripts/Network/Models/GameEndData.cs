@@ -16,5 +16,10 @@ namespace WordGame.Network.Models
         public string Username;
         public string AvatarUrl;
         public int Score;
+        public int WordsFound;
+        public int TotalWords;
+        public int XPGained;
+        public int TotalXP;
+        public int Level;
     }
 }

@@ -66,74 +66,35 @@ public class UIScreenLeaderboard : UIScreen
         // Sort results by score (descending)
         results.Sort((a, b) => b.Score.CompareTo(a.Score));
 
+        // Get current player ID for highlighting
+        var currentPlayerId = NetworkManager.Instance?.PlayerId;
+
         // Add new leaderboard items
         var rank = 1;
         foreach (var result in results)
         {
             Debug.Log($"[LEADERBOARD] Processing rank {rank}: {result.Username} - {result.Score}");
 
-            var item = Instantiate(this.leaderboardItemPrefab, this.leaderboardContainer);
-            item.SetActive(true);
+            var itemGO = Instantiate(this.leaderboardItemPrefab, this.leaderboardContainer);
+            itemGO.SetActive(true);
 
-            // Try TextMeshProUGUI first
-            var tmpTexts = item.GetComponentsInChildren<TextMeshProUGUI>();
-            if (tmpTexts.Length >= 3)
+            // Setup using LeaderboardItem script
+            var leaderboardItem = itemGO.GetComponent<LeaderboardItem>();
+            if (leaderboardItem != null)
             {
-                tmpTexts[0].text = rank.ToString(); // Rank
-                tmpTexts[1].text = result.Username; // Name
-                tmpTexts[2].text = result.Score.ToString() + " points"; // Score
+                var isCurrentPlayer = !string.IsNullOrEmpty(currentPlayerId) && result.Id == currentPlayerId;
+                leaderboardItem.Setup(rank, result, isCurrentPlayer);
+            }
+            else
+            {
+                Debug.LogWarning("[LEADERBOARD] LeaderboardItem component not found on prefab");
             }
 
-            // Load player avatar
-            var avatarTransform = item.transform.Find("Avatar");
-            if (avatarTransform != null)
-            {
-                var avatarImage = avatarTransform.GetComponent<Image>();
-                if (avatarImage != null)
-                {
-                    this.LoadPlayerAvatar(avatarImage, result.AvatarUrl);
-                }
-            }
-
-            this.leaderboardItems.Add(item);
+            this.leaderboardItems.Add(itemGO);
             rank++;
         }
 
         Debug.Log($"[LEADERBOARD] Created {this.leaderboardItems.Count} leaderboard items");
-    }
-
-    private void LoadPlayerAvatar(Image avatarImage, string avatarUrl)
-    {
-        if (string.IsNullOrEmpty(avatarUrl))
-        {
-            // Set default avatar
-            return;
-        }
-
-        try
-        {
-            var texture = ImagePicker.LoadTextureFromBase64(avatarUrl);
-            if (texture != null)
-            {
-                var sprite = Sprite.Create(
-                    texture,
-                    new Rect(0, 0, texture.width, texture.height),
-                    new Vector2(0.5f, 0.5f)
-                );
-                avatarImage.sprite = sprite;
-                avatarImage.color = Color.white;
-            }
-            else
-            {
-                // Fallback to default
-                avatarImage.color = new Color(0.7f, 0.7f, 0.7f);
-            }
-        }
-        catch (Exception ex)
-        {
-            Debug.LogWarning($"Failed to load avatar: {ex.Message}");
-            avatarImage.color = new Color(0.7f, 0.7f, 0.7f);
-        }
     }
 
     private void OnDisable()

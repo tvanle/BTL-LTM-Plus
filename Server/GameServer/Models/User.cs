@@ -26,6 +26,8 @@ public class UserStats
     public int TotalWordsFound { get; set; }
     public float AverageCompletionTime { get; set; }
     public int RankPosition { get; set; }
+    public int TotalXP { get; set; }
+    public int Level { get; set; }
 }
 
 public class Friendship
@@ -78,6 +80,7 @@ public class MatchPlayerResult
     public float AverageTimePerLevel { get; set; }
     public int CompletedLevels { get; set; }
     public int RankPosition { get; set; }
+    public int XPGained { get; set; }
 }
 
 public class SessionToken
