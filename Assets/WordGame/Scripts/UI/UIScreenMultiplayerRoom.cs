@@ -294,7 +294,7 @@ namespace WordGame.UI
                 var playerAvatarTransform = item.transform.Find("Icon");
                 if (playerAvatarTransform != null)
                 {
-                    var avatarImage = item.transform.GetComponent<Image>();
+                    var avatarImage = playerAvatarTransform.GetComponent<Image>();
                     if (avatarImage != null)
                     {
                         this.LoadPlayerAvatar(avatarImage, player.AvatarUrl);
