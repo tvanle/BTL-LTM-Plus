@@ -122,6 +122,9 @@ public class GameServer
                 case "GET_FRIENDS":
                     await this.HandleGetFriends(connection);
                     break;
+                case "GET_MATCH_HISTORY":
+                    await this.HandleGetMatchHistory(connection);
+                    break;
                 case "ADD_FRIEND":
                     await this.HandleAddFriend(connection, message);
                     break;
@@ -967,6 +970,36 @@ public class GameServer
                 })
             })
         });
+    }
+
+    private async Task HandleGetMatchHistory(ClientConnection connection)
+    {
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("Not authenticated");
+        }
+
+        var history = await this._database.GetUserMatchHistoryAsync(connection.UserId.Value);
+
+        await connection.SendAsync(new GameMessage
+        {
+            Type = "MATCH_HISTORY",
+            Data = JsonSerializer.Serialize(new
+            {
+                history = history.Select(h => new
+                {
+                    matchId = h.MatchId,
+                    category = h.Category,
+                    completedAt = h.CompletedAt,
+                    finalScore = h.FinalScore,
+                    rank = h.Rank,
+                    xpGained = h.XPGained,
+                    isWinner = h.IsWinner
+                })
+            })
+        });
+
+        Console.WriteLine($"Match history sent for user: {connection.UserId}");
     }
 
     private async Task HandleAddFriend(ClientConnection connection, GameMessage message)

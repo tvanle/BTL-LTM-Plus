@@ -211,8 +211,7 @@ namespace WordGame.UI
 
         private void HandleMatchHistory()
         {
-            // TODO: Show Match History screen
-            Toast.instance?.ShowMessage("Match History - Coming soon");
+            UIScreenController.Instance.Show(UIScreenController.MatchHistoryScreenId);
         }
     }
 }

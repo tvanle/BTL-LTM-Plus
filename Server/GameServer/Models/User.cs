@@ -96,3 +96,14 @@ public class SessionToken
     public DateTime CreatedAt { get; set; }
     public DateTime LastUsedAt { get; set; }
 }
+
+public class UserMatchHistoryDto
+{
+    public Guid MatchId { get; set; }
+    public string Category { get; set; } = string.Empty;
+    public string CompletedAt { get; set; } = string.Empty;
+    public int FinalScore { get; set; }
+    public int Rank { get; set; }
+    public int XPGained { get; set; }
+    public bool IsWinner { get; set; }
+}

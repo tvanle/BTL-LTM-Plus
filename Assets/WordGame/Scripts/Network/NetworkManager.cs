@@ -228,6 +228,50 @@ namespace WordGame.Network
             return true;
         }
 
+        public async Task<List<MatchHistoryData>> GetMatchHistory()
+        {
+            var message = new GameMessage { Type = "GET_MATCH_HISTORY" };
+
+            // Create task completion source to wait for response
+            var tcs = new TaskCompletionSource<List<MatchHistoryData>>();
+
+            // Subscribe to message received for this specific request
+            void OnMessageHandler(GameMessage response)
+            {
+                if (response.Type == "MATCH_HISTORY")
+                {
+                    try
+                    {
+                        var wrapper = JsonUtility.FromJson<MatchHistoryWrapper>(response.Data);
+                        tcs.TrySetResult(wrapper.history);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError($"Error parsing match history: {ex.Message}");
+                        tcs.TrySetResult(new List<MatchHistoryData>());
+                    }
+                    this.OnMessageReceived -= OnMessageHandler;
+                }
+            }
+
+            this.OnMessageReceived += OnMessageHandler;
+
+            // Send request
+            await this.SendMessageAsync(message);
+
+            // Wait for response with timeout
+            var timeoutTask = Task.Delay(10000); // 10 second timeout
+            var completedTask = await Task.WhenAny(tcs.Task, timeoutTask);
+
+            if (completedTask == timeoutTask)
+            {
+                this.OnMessageReceived -= OnMessageHandler;
+                Debug.LogError("Get match history timed out");
+                return new List<MatchHistoryData>();
+            }
+
+            return await tcs.Task;
+        }
 
         private async Task SendMessageAsync(GameMessage message)
         {
@@ -564,6 +608,12 @@ namespace WordGame.Network
         {
             public string DisplayName;
             public string AvatarUrl;
+        }
+
+        [Serializable]
+        private class MatchHistoryWrapper
+        {
+            public List<MatchHistoryData> history;
         }
     }
 }

@@ -687,6 +687,52 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
         await cmd.ExecuteNonQueryAsync();
     }
 
+    public async Task<List<UserMatchHistoryDto>> GetUserMatchHistoryAsync(Guid userId, int limit = 20)
+    {
+        using var conn = GetConnection();
+        await conn.OpenAsync();
+
+        var cmd = new SqliteCommand(
+            @"SELECT
+                mh.id as match_id,
+                mh.category,
+                mh.completed_at,
+                mpr.final_score,
+                mpr.rank_position,
+                mpr.xp_gained,
+                mh.winner_id
+              FROM match_player_results mpr
+              INNER JOIN match_history mh ON mpr.match_id = mh.id
+              WHERE mpr.user_id = @userId
+              AND mh.completed_at IS NOT NULL
+              ORDER BY mh.completed_at DESC
+              LIMIT @limit", conn);
+        cmd.Parameters.AddWithValue("@userId", userId.ToString());
+        cmd.Parameters.AddWithValue("@limit", limit);
+
+        var history = new List<UserMatchHistoryDto>();
+        using var reader = await cmd.ExecuteReaderAsync();
+        while (await reader.ReadAsync())
+        {
+            var winnerId = reader.IsDBNull(reader.GetOrdinal("winner_id"))
+                ? (Guid?)null
+                : Guid.Parse(reader.GetString(reader.GetOrdinal("winner_id")));
+
+            history.Add(new UserMatchHistoryDto
+            {
+                MatchId = Guid.Parse(reader.GetString(reader.GetOrdinal("match_id"))),
+                Category = reader.GetString(reader.GetOrdinal("category")),
+                CompletedAt = reader.GetString(reader.GetOrdinal("completed_at")),
+                FinalScore = reader.GetInt32(reader.GetOrdinal("final_score")),
+                Rank = reader.GetInt32(reader.GetOrdinal("rank_position")),
+                XPGained = reader.GetInt32(reader.GetOrdinal("xp_gained")),
+                IsWinner = winnerId.HasValue && winnerId.Value == userId
+            });
+        }
+
+        return history;
+    }
+
     // ============================================
     // Helper Mappers
     // ============================================

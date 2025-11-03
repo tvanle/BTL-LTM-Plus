@@ -21,6 +21,7 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 	public const string MultiplayerRoomScreenId	= "multiplayer_room";
 	public const string LeaderboardScreenId		= "leaderboard";
 	public const string GameResultScreenId		= "game_result";
+	public const string MatchHistoryScreenId	= "match_history";
 
 	// The screen that is currently being shown
 	private UIScreen	currentUIScreen;
