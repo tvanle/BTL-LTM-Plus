@@ -876,6 +876,19 @@ public class GameServer
             Console.WriteLine($"User logged out: {connection.UserId}");
         }
 
+        // Leave room if in one (but keep connection alive)
+        await this.HandleLeaveRoom(connection);
+
+        // Remove player from players dictionary
+        if (connection.PlayerId.HasValue)
+        {
+            this._players.TryRemove(connection.PlayerId.Value, out _);
+            connection.PlayerId = null;
+        }
+
+        // Clear user ID from connection (keep connection alive)
+        connection.UserId = null;
+
         await connection.SendAsync(new GameMessage { Type = "LOGOUT_SUCCESS" });
     }
 

@@ -1,17 +1,15 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using WordGame.Network;
 using WordGame.Network.Models;
-using WordGame.Utilities;
 
 public class UIScreenLeaderboard : UIScreen
 {
     [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private Transform leaderboardContainer;
     [SerializeField] private GameObject leaderboardItemPrefab;
+    [SerializeField] private TextMeshProUGUI levelEndText;
 
     private List<GameObject> leaderboardItems = new List<GameObject>();
 
@@ -31,13 +29,12 @@ public class UIScreenLeaderboard : UIScreen
 
             if (this.titleText != null)
             {
-                this.titleText.text = $"Leaderboard - Level {levelEndData.level}";
+                this.titleText.text = $"Leaderboard";
             }
-        }
-        else if (data is List<PlayerResult> results)
-        {
-            Debug.Log($"[LEADERBOARD] Direct results list, count: {results?.Count ?? 0}");
-            this.DisplayLeaderboard(results);
+            if (this.levelEndText != null)
+            {
+                this.levelEndText.text = $"Level {levelEndData.level} Completed!";
+            }
         }
         else
         {

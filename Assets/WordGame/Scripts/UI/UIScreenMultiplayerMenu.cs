@@ -185,8 +185,14 @@ namespace WordGame.UI
             Toast.instance?.ShowMessage("Edit Profile - Coming soon");
         }
 
-        private void HandleLogout()
+        private async void HandleLogout()
         {
+            // Send logout message to server to invalidate session
+            if (this.networkManager != null)
+            {
+                await this.networkManager.Logout();
+            }
+
             // Clear stored credentials
             PlayerPrefs.DeleteKey("auth_token");
             PlayerPrefs.DeleteKey("user_id");
@@ -194,11 +200,8 @@ namespace WordGame.UI
             PlayerPrefs.DeleteKey("avatar_url");
             PlayerPrefs.Save();
 
-            // Disconnect from network
-            if (this.networkManager != null)
-            {
-                this.networkManager.Disconnect();
-            }
+            // Note: Connection stays alive for faster re-login
+            // Server invalidates session token but keeps connection
 
             // Go back to login screen
             UIScreenController.Instance.Show(UIScreenController.LoginScreenId, true);
