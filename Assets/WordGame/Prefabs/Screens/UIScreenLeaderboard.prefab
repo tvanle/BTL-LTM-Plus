@@ -254,7 +254,7 @@ MonoBehaviour:
   leaderboardContainer: {fileID: 1333682355930720509}
   leaderboardItemPrefab: {fileID: 6771034623742637036, guid: b2fa05b79f25149b78448e0fa4e14bf6,
     type: 3}
-  levelEndText: {fileID: 0}
+  levelEndText: {fileID: 8786656422324572285}
 --- !u!1 &6529592973927274039
 GameObject:
   m_ObjectHideFlags: 0

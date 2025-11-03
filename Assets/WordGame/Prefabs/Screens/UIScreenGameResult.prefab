@@ -1007,7 +1007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd45edadc608cbd47b7907784cff5bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: gameresult
+  id: game_result
   worldObjects: []
   rankText: {fileID: 1771766119870622786}
   usernameText: {fileID: 8369899332596980134}
