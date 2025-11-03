@@ -6278,6 +6278,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1518547154}
+    - target: {fileID: 702521202039197153, guid: b2fd03c08c368424eb22b14981a9a313,
+        type: 3}
+      propertyPath: uiParticlePrefab
+      value: 
+      objectReference: {fileID: 1834044090297996, guid: 967a388c0904c064c9bd683db8394cfc,
+        type: 3}
     - target: {fileID: 1255215178242388301, guid: b2fd03c08c368424eb22b14981a9a313,
         type: 3}
       propertyPath: m_AnchorMax.y
