@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using WordGame.Network;
 using System.Collections;
+using System.Collections.Generic;
 
 public class UIScreenCompleteOverlay : UIScreen
 {
@@ -10,29 +12,62 @@ public class UIScreenCompleteOverlay : UIScreen
 	[SerializeField] private TextMeshProUGUI totalScoreText;
 	[SerializeField] private TextMeshProUGUI streakText;
 
-	[Header("Animation Settings")]
-	[SerializeField] private float fadeDuration = 0.3f;
-	[SerializeField] private float scaleDuration = 0.5f;
-	[SerializeField] private AnimationCurve scaleCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+	[Header("Cross Dissolve Animation")]
+	[SerializeField] private float dissolveDuration = 1.2f;
+	[SerializeField] private AnimationCurve dissolveCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+	[SerializeField] private Color dissolveEdgeColor = new Color(1f, 0.8f, 0.2f, 1f);
+	[SerializeField] private float dissolveGlowIntensity = 2.5f;
+	[SerializeField] private float dissolveEdgeWidth = 0.08f;
 
+	private Material dissolveMaterial;
+	private List<Graphic> graphicsToDissolve = new List<Graphic>();
 	private CanvasGroup canvasGroup;
-	private RectTransform containerTransform;
+
+	private static readonly int DissolveAmountProperty = Shader.PropertyToID("_DissolveAmount");
+	private static readonly int DissolveColorProperty = Shader.PropertyToID("_DissolveColor");
+	private static readonly int DissolveGlowProperty = Shader.PropertyToID("_DissolveGlow");
+	private static readonly int DissolveEdgeWidthProperty = Shader.PropertyToID("_DissolveEdgeWidth");
 
 	public override void Initialize()
 	{
-		// Get or add CanvasGroup for fade effect
+		// Create dissolve material from shader
+		Shader dissolveShader = Shader.Find("UI/FadeCrossDissolve");
+		if (dissolveShader != null)
+		{
+			this.dissolveMaterial = new Material(dissolveShader);
+			this.dissolveMaterial.SetColor(DissolveColorProperty, this.dissolveEdgeColor);
+			this.dissolveMaterial.SetFloat(DissolveGlowProperty, this.dissolveGlowIntensity);
+			this.dissolveMaterial.SetFloat(DissolveEdgeWidthProperty, this.dissolveEdgeWidth);
+		}
+		else
+		{
+			Debug.LogError("[UIScreenCompleteOverlay] Shader 'UI/FadeCrossDissolve' not found!");
+		}
+
+		// Get or add CanvasGroup
 		this.canvasGroup = this.GetComponent<CanvasGroup>();
 		if (this.canvasGroup == null)
 		{
 			this.canvasGroup = this.gameObject.AddComponent<CanvasGroup>();
 		}
 
-		// Find the Container transform for scale animation
-		Transform container = this.transform.Find("Container");
-		if (container != null)
+		// Find all UI graphics to apply dissolve effect
+		this.FindGraphicsToDissolve();
+	}
+
+	private void FindGraphicsToDissolve()
+	{
+		this.graphicsToDissolve.Clear();
+
+		// Get all Image and TextMeshProUGUI components
+		Image[] images = this.GetComponentsInChildren<Image>(true);
+		foreach (Image img in images)
 		{
-			this.containerTransform = container.GetComponent<RectTransform>();
+			this.graphicsToDissolve.Add(img);
 		}
+
+		// Note: TextMeshPro doesn't support material override the same way
+		// So we'll use CanvasGroup alpha for overall fade
 	}
 
 	public override void OnShowing(object data)
@@ -40,7 +75,7 @@ public class UIScreenCompleteOverlay : UIScreen
 		if (data is NetworkManager.ScoreUpdateData scoreData)
 		{
 			this.ShowScore(scoreData);
-			this.StartCoroutine(this.PlayShowAnimation());
+			this.StartCoroutine(this.PlayDissolveAnimation());
 		}
 	}
 
@@ -65,68 +100,74 @@ public class UIScreenCompleteOverlay : UIScreen
 		Debug.Log($"[Complete Overlay] Score: +{scoreData.scoreGained} | Total: {scoreData.totalScore} | Streak: {scoreData.streak}");
 	}
 
-	private IEnumerator PlayShowAnimation()
+	private IEnumerator PlayDissolveAnimation()
 	{
-		// Initialize CanvasGroup if not already done
-		if (this.canvasGroup == null)
+		// Initialize if not already done
+		if (this.dissolveMaterial == null)
 		{
 			this.Initialize();
 		}
 
-		// Start with invisible and scaled down
-		this.canvasGroup.alpha = 0f;
-		if (this.containerTransform != null)
+		// Apply dissolve material to graphics
+		if (this.dissolveMaterial != null)
 		{
-			this.containerTransform.localScale = Vector3.zero;
+			foreach (Graphic graphic in this.graphicsToDissolve)
+			{
+				if (graphic != null)
+				{
+					graphic.material = this.dissolveMaterial;
+				}
+			}
+		}
+
+		// Start with fully dissolved
+		if (this.dissolveMaterial != null)
+		{
+			this.dissolveMaterial.SetFloat(DissolveAmountProperty, 0f);
 		}
 
 		float elapsedTime = 0f;
 
-		// Animate both fade and scale simultaneously
-		while (elapsedTime < Mathf.Max(this.fadeDuration, this.scaleDuration))
+		// Animate dissolve
+		while (elapsedTime < this.dissolveDuration)
 		{
 			elapsedTime += Time.deltaTime;
+			float progress = elapsedTime / this.dissolveDuration;
+			float curvedProgress = this.dissolveCurve.Evaluate(progress);
 
-			// Fade in
-			if (elapsedTime < this.fadeDuration)
+			// Update dissolve amount (0 = fully dissolved, 1 = fully visible)
+			if (this.dissolveMaterial != null)
 			{
-				float fadeProgress = elapsedTime / this.fadeDuration;
-				this.canvasGroup.alpha = Mathf.Lerp(0f, 1f, fadeProgress);
-			}
-			else
-			{
-				this.canvasGroup.alpha = 1f;
+				this.dissolveMaterial.SetFloat(DissolveAmountProperty, curvedProgress);
 			}
 
-			// Scale up with bounce effect
-			if (this.containerTransform != null && elapsedTime < this.scaleDuration)
+			// Also fade in the canvas group for text
+			if (this.canvasGroup != null)
 			{
-				float scaleProgress = elapsedTime / this.scaleDuration;
-				float curveValue = this.scaleCurve.Evaluate(scaleProgress);
-
-				// Add elastic overshoot effect
-				float elasticValue = curveValue;
-				if (scaleProgress > 0.7f)
-				{
-					float overshoot = Mathf.Sin((scaleProgress - 0.7f) * Mathf.PI * 3f) * 0.1f;
-					elasticValue += overshoot;
-				}
-
-				this.containerTransform.localScale = Vector3.one * Mathf.Lerp(0f, 1f, elasticValue);
-			}
-			else if (this.containerTransform != null)
-			{
-				this.containerTransform.localScale = Vector3.one;
+				this.canvasGroup.alpha = curvedProgress;
 			}
 
 			yield return null;
 		}
 
 		// Ensure final state
-		this.canvasGroup.alpha = 1f;
-		if (this.containerTransform != null)
+		if (this.dissolveMaterial != null)
 		{
-			this.containerTransform.localScale = Vector3.one;
+			this.dissolveMaterial.SetFloat(DissolveAmountProperty, 1f);
+		}
+
+		if (this.canvasGroup != null)
+		{
+			this.canvasGroup.alpha = 1f;
+		}
+	}
+
+	private void OnDestroy()
+	{
+		// Clean up material
+		if (this.dissolveMaterial != null)
+		{
+			Destroy(this.dissolveMaterial);
 		}
 	}
 }
