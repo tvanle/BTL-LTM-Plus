@@ -38,7 +38,7 @@ public class UIScreenGameResult : UIScreen
         }
     }
 
-    public override void OnShowing(object data)
+    protected override void OnShowingContent(object data)
     {
         Debug.Log($"[GAME_RESULT] OnShowing called with data: {data?.GetType().Name ?? "null"}");
 

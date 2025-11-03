@@ -131,10 +131,8 @@ namespace WordGame.UI
             }
         }
 
-        public override void OnShowing(object data)
+        protected override void OnShowingContent(object data)
         {
-            base.OnShowing(data);
-
             if (data is bool isHost)
             {
                 this._isHost = isHost;

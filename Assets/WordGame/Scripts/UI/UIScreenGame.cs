@@ -61,7 +61,7 @@ public class UIScreenGame : UIScreen
 		this.networkManager = NetworkManager.Instance;
 	}
 
-	public override void OnShowing(object data)
+	protected override void OnShowingContent(object data)
 	{
 		// Check if this is multiplayer game data
 		if (data is GameStartData gameData)

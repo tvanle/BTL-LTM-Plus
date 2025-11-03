@@ -18,7 +18,7 @@ public class UIScreenCategoryLevels : UIScreen
 		this.levelItemObjectPool = new ObjectPool(this.levelListItemPrefab.gameObject, 10, this.levelListContainer);
 	}
 	
-	public override void OnShowing(object categoryName)
+	protected override void OnShowingContent(object categoryName)
 	{
 		this.levelItemObjectPool.ReturnAllObjectsToPool();
 

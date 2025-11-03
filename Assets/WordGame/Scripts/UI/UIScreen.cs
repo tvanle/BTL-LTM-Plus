@@ -20,7 +20,26 @@ public class UIScreen : MonoBehaviour
 
 	}
 
-	public virtual void OnShowing(object data)
+	// Template Method Pattern: Sealed method controls the flow
+	public void OnShowing(object data)
+	{
+		// 1. Play show animation first (common for all screens)
+		this.PlayShowAnimation();
+
+		// 2. Then execute screen-specific logic
+		this.OnShowingContent(data);
+	}
+
+	// Virtual method for show animation - screens can override to customize
+	protected virtual void PlayShowAnimation()
+	{
+		// Default animation implementation
+		// Can be overridden by child screens for custom animations
+	}
+
+	// Virtual method for screen-specific content initialization
+	// Screens should override this instead of OnShowing
+	protected virtual void OnShowingContent(object data)
 	{
 
 	}

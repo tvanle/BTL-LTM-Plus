@@ -18,7 +18,7 @@ public class UIScreenLeaderboard : UIScreen
         base.Initialize();
     }
 
-    public override void OnShowing(object data)
+    protected override void OnShowingContent(object data)
     {
         Debug.Log($"[LEADERBOARD] OnShowing called with data: {data?.GetType().Name ?? "null"}");
 

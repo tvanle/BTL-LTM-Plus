@@ -29,7 +29,7 @@ public class UIScreenCompleteOverlay : UIScreen
 		this.rectTransform = this.GetComponent<RectTransform>();
 	}
 
-	public override void OnShowing(object data)
+	protected override void OnShowingContent(object data)
 	{
 		if (data is NetworkManager.ScoreUpdateData scoreData)
 		{

@@ -36,10 +36,8 @@ public class UIScreenMatchHistory : UIScreen
         this.networkManager = NetworkManager.Instance;
     }
 
-    public override void OnShowing(object data)
+    protected override void OnShowingContent(object data)
     {
-        base.OnShowing(data);
-
         if (this.titleText != null)
         {
             this.titleText.text = "Match History";

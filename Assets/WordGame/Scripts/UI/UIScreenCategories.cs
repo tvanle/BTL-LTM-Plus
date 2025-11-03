@@ -21,7 +21,7 @@ public class UIScreenCategories : UIScreen
 		this.categoryItemObjectPool = new ObjectPool(this.categoryListItemPrefab.gameObject, 10, this.categoriesListContainer);
 	}
 
-	public override void OnShowing(object data)
+	protected override void OnShowingContent(object data)
 	{
 		this.categoryItemObjectPool.ReturnAllObjectsToPool();
 
