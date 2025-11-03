@@ -523,21 +523,40 @@ public class GameServer
             room.GameState.LevelTimer?.Change(Timeout.Infinite, Timeout.Infinite);
             room.GameState.LevelTimer?.Dispose();
 
-            // Wait 3 seconds before showing leaderboard
-            await Task.Delay(3000);
-
-            // Send level ended with scores
-            await this.SendLevelEnded(room);
-
-            // Wait 6 seconds for leaderboard display
-            await Task.Delay(6000);
-
-            // Then move to next level
-            await this.NextLevel(room);
+            // Handle level completion with 3s delay before showing results
+            await this.HandleLevelCompleted(room, 3000);
         }
     }
 
     // Removed HandleLevelTimeout - server timer handles everything automatically
+
+    private async Task HandleLevelCompleted(GameRoom room, int delayBeforeAction = 0)
+    {
+        if (room.GameState == null)
+            return;
+
+        // Optional delay before showing results
+        if (delayBeforeAction > 0)
+        {
+            await Task.Delay(delayBeforeAction);
+        }
+
+        // Check if this is the final level
+        bool isFinalLevel = room.GameState.CurrentLevel >= room.TotalLevels;
+
+        if (isFinalLevel)
+        {
+            // Final level: skip leaderboard, go directly to game end
+            await this.EndGame(room);
+        }
+        else
+        {
+            // Non-final level: show leaderboard then continue
+            await this.SendLevelEnded(room);
+            await Task.Delay(6000);
+            await this.NextLevel(room);
+        }
+    }
 
     private async Task HandleLevelTimerExpired(GameRoom room)
     {
@@ -557,14 +576,8 @@ public class GameServer
             }
         }
 
-        // Send level ended with current scores
-        await this.SendLevelEnded(room);
-
-        // Wait 6 seconds for leaderboard display
-        await Task.Delay(6000);
-
-        // Then move to next level
-        await this.NextLevel(room);
+        // Handle level completion immediately (no delay)
+        await this.HandleLevelCompleted(room);
     }
 
     private async Task SendLevelEnded(GameRoom room)
