@@ -3478,6 +3478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2004906281}
   - component: {fileID: 2004906280}
+  - component: {fileID: 2004906282}
   m_Layer: 0
   m_Name: Game Settings
   m_TagString: Untagged
@@ -3517,6 +3518,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2004906282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004906279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9f2e4c3b1a7f6e5d8c9a0b4e7d3c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DebugCheats
+  enableCheats: 1
+  completeOneKey: 290
+  jumpToEndKey: 291
+  showOverlayKey: 292
+  maxLevelsToComplete: 10
 --- !u!224 &2018097594 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8192775465294874466, guid: 47ed3a1f0a5b649278185fa8a4f44a15,
@@ -6569,10 +6587,10 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 649131327}
   - {fileID: 796082210}
   - {fileID: 1687174150}
   - {fileID: 1518547155}
   - {fileID: 875211338}
   - {fileID: 1756520418}
   - {fileID: 2004906281}
-  - {fileID: 649131327}
