@@ -15,11 +15,9 @@ Shader "UI/FadeCrossDissolve"
 
         [Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 0
 
-        // Dissolve properties
+        // Cross-fade properties
         _DissolveAmount ("Dissolve Amount", Range(0, 1)) = 0
-        _DissolveColor ("Dissolve Edge Color", Color) = (1, 0.8, 0.2, 1)
-        _DissolveEdgeWidth ("Dissolve Edge Width", Range(0, 0.2)) = 0.05
-        _DissolveGlow ("Dissolve Glow Intensity", Range(0, 5)) = 2
+        _BGColor ("Background Color", Color) = (0.89, 0.53, 0.47, 1) // #E38877
     }
 
     SubShader
@@ -88,9 +86,7 @@ Shader "UI/FadeCrossDissolve"
             float4 _MainTex_ST;
 
             float _DissolveAmount;
-            fixed4 _DissolveColor;
-            float _DissolveEdgeWidth;
-            float _DissolveGlow;
+            fixed4 _BGColor;
 
             v2f vert(appdata_t v)
             {
@@ -106,35 +102,6 @@ Shader "UI/FadeCrossDissolve"
                 return OUT;
             }
 
-            // Noise function for dissolve pattern
-            float noise(float2 uv)
-            {
-                return frac(sin(dot(uv, float2(12.9898, 78.233))) * 43758.5453);
-            }
-
-            // Voronoi-like pattern for organic dissolve
-            float voronoiNoise(float2 uv)
-            {
-                float2 i = floor(uv);
-                float2 f = frac(uv);
-
-                float minDist = 1.0;
-
-                for(int y = -1; y <= 1; y++)
-                {
-                    for(int x = -1; x <= 1; x++)
-                    {
-                        float2 neighbor = float2(float(x), float(y));
-                        float2 cellPoint = i + neighbor;
-                        float2 diff = neighbor + noise(cellPoint) - f;
-                        float dist = length(diff);
-                        minDist = min(minDist, dist);
-                    }
-                }
-
-                return minDist;
-            }
-
             fixed4 frag(v2f IN) : SV_Target
             {
                 half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
@@ -143,31 +110,32 @@ Shader "UI/FadeCrossDissolve"
                 color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
                 #endif
 
-                // Generate dissolve pattern
-                float2 dissolveUV = IN.texcoord * 8.0; // Scale for pattern
-                float noiseValue = voronoiNoise(dissolveUV);
+                // Cross-fade transition: 4 bars from edges
+                float2 uv = IN.texcoord;
 
-                // Add animated distortion
-                float time = _Time.y * 0.5;
-                noiseValue += noise(IN.texcoord * 5.0 + time) * 0.1;
+                // Distance from each edge
+                float fromLeft = uv.x;
+                float fromRight = 1.0 - uv.x;
+                float fromTop = uv.y;
+                float fromBottom = 1.0 - uv.y;
 
-                // Calculate dissolve threshold
-                float dissolveThreshold = 1.0 - _DissolveAmount;
-                float dissolveEdge = dissolveThreshold + _DissolveEdgeWidth;
+                // Progress: each bar goes from 0 to 0.5 (halfway across screen)
+                float progress = _DissolveAmount * 0.5;
 
-                // Apply dissolve
-                if(noiseValue < dissolveThreshold)
-                {
-                    discard;
-                }
+                // Smooth edge transition
+                float edgeWidth = 0.02;
 
-                // Add glowing edge
-                if(noiseValue < dissolveEdge)
-                {
-                    float edgeFactor = (dissolveEdge - noiseValue) / _DissolveEdgeWidth;
-                    float3 edgeGlow = _DissolveColor.rgb * edgeFactor * _DissolveGlow;
-                    color.rgb += edgeGlow;
-                }
+                // Create smooth bars from each edge
+                float leftBar = smoothstep(progress + edgeWidth, progress - edgeWidth, fromLeft);
+                float rightBar = smoothstep(progress + edgeWidth, progress - edgeWidth, fromRight);
+                float topBar = smoothstep(progress + edgeWidth, progress - edgeWidth, fromTop);
+                float bottomBar = smoothstep(progress + edgeWidth, progress - edgeWidth, fromBottom);
+
+                // Combine bars
+                float crossMask = max(max(leftBar, rightBar), max(topBar, bottomBar));
+
+                // Simple crossfade: texture -> background color
+                color.rgb = lerp(color.rgb, _BGColor.rgb, crossMask);
 
                 #ifdef UNITY_UI_ALPHACLIP
                 clip (color.a - 0.001);
