@@ -9,11 +9,14 @@ using WordGame.Utilities;
 
 public class UIScreenGameResult : UIScreen
 {
-    [Header("Summary Section")]
+    [Header("Summary Section - Top Row")]
+    [SerializeField] private TextMeshProUGUI rankText;
+    [SerializeField] private TextMeshProUGUI usernameText;
+    [SerializeField] private TextMeshProUGUI xpGainedText;
+
+    [Header("Summary Section - Stats Row")]
     [SerializeField] private TextMeshProUGUI wordsCompleteText;
     [SerializeField] private TextMeshProUGUI yourScoreText;
-    [SerializeField] private TextMeshProUGUI xpGainedText;
-    [SerializeField] private TextMeshProUGUI levelText;
 
     [Header("Leaderboard Section")]
     [SerializeField] private Transform leaderboardContainer;
@@ -77,14 +80,20 @@ public class UIScreenGameResult : UIScreen
         // Display summary section
         if (myResult != null)
         {
-            if (this.wordsCompleteText != null)
+            // Find rank
+            var sortedResults = new List<PlayerResult>(gameData.results);
+            sortedResults.Sort((a, b) => b.Score.CompareTo(a.Score));
+            var myRank = sortedResults.FindIndex(r => r.Id == myResult.Id) + 1;
+
+            // Top row
+            if (this.rankText != null)
             {
-                this.wordsCompleteText.text = $"{myResult.WordsFound}/{myResult.TotalWords}";
+                this.rankText.text = $"#{myRank}";
             }
 
-            if (this.yourScoreText != null)
+            if (this.usernameText != null)
             {
-                this.yourScoreText.text = myResult.Score.ToString();
+                this.usernameText.text = myResult.Username;
             }
 
             if (this.xpGainedText != null)
@@ -92,9 +101,15 @@ public class UIScreenGameResult : UIScreen
                 this.xpGainedText.text = $"+{myResult.XPGained} XP";
             }
 
-            if (this.levelText != null)
+            // Stats row
+            if (this.wordsCompleteText != null)
             {
-                this.levelText.text = $"Level {myResult.Level}";
+                this.wordsCompleteText.text = $"{myResult.WordsFound}/{myResult.TotalWords}";
+            }
+
+            if (this.yourScoreText != null)
+            {
+                this.yourScoreText.text = $"+{myResult.Score.ToString()}";
             }
         }
 

@@ -33,6 +33,8 @@ CREATE TABLE IF NOT EXISTS user_stats (
     total_words_found INTEGER DEFAULT 0,
     average_completion_time REAL DEFAULT 0,
     rank_position INTEGER DEFAULT 0,
+    total_xp INTEGER DEFAULT 0,
+    level INTEGER DEFAULT 1,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
@@ -114,6 +116,7 @@ CREATE TABLE IF NOT EXISTS match_player_results (
     average_time_per_level REAL DEFAULT 0,
     completed_levels INTEGER DEFAULT 0,
     rank_position INTEGER DEFAULT 0,
+    xp_gained INTEGER DEFAULT 0,
     FOREIGN KEY (match_id) REFERENCES match_history(id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
