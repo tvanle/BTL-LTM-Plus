@@ -570,7 +570,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5558974350001090908}
   - component: {fileID: 5014134935253065451}
-  - component: {fileID: 3597520002868472401}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -600,8 +599,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 0, y: -200}
+  m_AnchoredPosition: {x: 0, y: 25}
+  m_SizeDelta: {x: -300, y: -350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5014134935253065451
 MonoBehaviour:
@@ -629,20 +628,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &3597520002868472401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6714298653188633243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 0
 --- !u!1 &8279290519478513522
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,10 +680,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: complete
   worldObjects: []
-  multiplayerScorePanel: {fileID: 0}
   scoreEarnedText: {fileID: 5719315078328618375}
   totalScoreText: {fileID: 8117279683760162197}
   streakText: {fileID: 3627207954025326410}
+  fadeDuration: 0.3
+  scaleDuration: 0.5
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8320008388519951722
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,8 +877,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 128.6
-  m_fontSizeBase: 128.6
+  m_fontSize: 110
+  m_fontSizeBase: 110
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
