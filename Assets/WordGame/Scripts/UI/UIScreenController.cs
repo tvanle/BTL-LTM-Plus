@@ -44,8 +44,19 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 			await this.networkManager.ConnectAsync();
 		}
 
-		// Check if user is already logged in
-		var isLoggedIn = !string.IsNullOrEmpty(PlayerPrefs.GetString("auth_token", ""));
+		// Check if user has saved auth token
+		var authToken = PlayerPrefs.GetString("auth_token", "");
+		var isLoggedIn = !string.IsNullOrEmpty(authToken);
+
+		// If logged in with token, authenticate with server
+		if (isLoggedIn && this.networkManager != null)
+		{
+			Debug.Log("[AUTO-LOGIN] Authenticating with saved token...");
+			await this.networkManager.AuthenticateWithToken(authToken);
+
+			// Wait a bit for server response
+			await System.Threading.Tasks.Task.Delay(500);
+		}
 
 		// Show login screen if not logged in, otherwise show multiplayer menu
 		this.Show(isLoggedIn ? MultiplayerMenuScreenId : LoginScreenId, false, false);

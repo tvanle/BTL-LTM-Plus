@@ -137,6 +137,9 @@ public class GameServer
                 case "HEARTBEAT":
                     await connection.SendAsync(new GameMessage { Type = "HEARTBEAT" });
                     break;
+                case "AUTHENTICATE_TOKEN":
+                    await this.HandleAuthenticateToken(connection, message);
+                    break;
             }
         }
         catch (Exception ex)
@@ -151,19 +154,29 @@ public class GameServer
 
     private async Task HandleCreateRoom(ClientConnection connection, GameMessage message)
     {
+        // Require authentication to create room
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("You must be logged in to create a room");
+        }
+
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         var data = JsonSerializer.Deserialize<CreateRoomData>(message.Data, options);
 
-        // Get user avatar from database
-        var user = await this._database.GetUserByUsernameAsync(data.Username);
-        string? avatarUrl = user?.AvatarUrl;
+        // Get user from database to ensure they exist
+        var user = await this._database.GetUserByIdAsync(connection.UserId.Value);
+        if (user == null)
+        {
+            throw new Exception("User not found");
+        }
 
+        // Use authenticated User ID as Player ID (not a new GUID!)
         var player = new Player
         {
-            Id = Guid.NewGuid(),
+            Id = connection.UserId.Value,  // Use User.Id from authentication
             ConnectionId = connection.Id,
-            Username = data.Username,
-            AvatarUrl = avatarUrl
+            Username = user.Username,
+            AvatarUrl = user.AvatarUrl
         };
 
         this._players[player.Id] = player;
@@ -196,6 +209,12 @@ public class GameServer
 
     private async Task HandleJoinRoom(ClientConnection connection, GameMessage message)
     {
+        // Require authentication to join room
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("You must be logged in to join a room");
+        }
+
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         var data = JsonSerializer.Deserialize<JoinRoomData>(message.Data, options);
 
@@ -204,16 +223,20 @@ public class GameServer
             throw new Exception("Room not found");
         }
 
-        // Get user avatar from database
-        var user = await this._database.GetUserByUsernameAsync(data.Username);
-        string? avatarUrl = user?.AvatarUrl;
+        // Get user from database to ensure they exist
+        var user = await this._database.GetUserByIdAsync(connection.UserId.Value);
+        if (user == null)
+        {
+            throw new Exception("User not found");
+        }
 
+        // Use authenticated User ID as Player ID (not a new GUID!)
         var player = new Player
         {
-            Id = Guid.NewGuid(),
+            Id = connection.UserId.Value,  // Use User.Id from authentication
             ConnectionId = connection.Id,
-            Username = data.Username,
-            AvatarUrl = avatarUrl,
+            Username = user.Username,
+            AvatarUrl = user.AvatarUrl,
             RoomCode = data.RoomCode
         };
 
@@ -955,6 +978,91 @@ public class GameServer
         }
     }
 
+    private async Task HandleAuthenticateToken(ClientConnection connection, GameMessage message)
+    {
+        try
+        {
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            var data = JsonSerializer.Deserialize<TokenAuthData>(message.Data, options);
+
+            if (data == null || string.IsNullOrEmpty(data.Token))
+            {
+                throw new Exception("Invalid token data");
+            }
+
+            // Verify token from database
+            var sessionToken = await this._database.GetSessionTokenAsync(data.Token);
+
+            if (sessionToken == null)
+            {
+                Console.WriteLine($"[AUTH] Token not found or expired");
+                await connection.SendAsync(new GameMessage
+                {
+                    Type = "AUTHENTICATE_FAILED",
+                    Data = JsonSerializer.Serialize(new { error = "Invalid or expired token" })
+                });
+                return;
+            }
+
+            // Get user from database
+            var user = await this._database.GetUserByIdAsync(sessionToken.UserId);
+            if (user == null)
+            {
+                Console.WriteLine($"[AUTH] User not found for token");
+                await connection.SendAsync(new GameMessage
+                {
+                    Type = "AUTHENTICATE_FAILED",
+                    Data = JsonSerializer.Serialize(new { error = "User not found" })
+                });
+                return;
+            }
+
+            // Set connection user ID
+            connection.UserId = user.Id;
+
+            // Update user online status
+            await this._database.UpdateUserOnlineStatusAsync(user.Id, true);
+
+            // Get user stats
+            var stats = await this._database.GetUserStatsAsync(user.Id);
+
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "AUTHENTICATE_SUCCESS",
+                Data = JsonSerializer.Serialize(new
+                {
+                    user = new
+                    {
+                        id = user.Id,
+                        username = user.Username,
+                        email = user.Email,
+                        displayName = user.DisplayName,
+                        avatarUrl = user.AvatarUrl
+                    },
+                    stats = stats != null ? new
+                    {
+                        totalScore = stats.TotalScore,
+                        bestScore = stats.BestScore,
+                        bestStreak = stats.BestStreak,
+                        gamesPlayed = stats.GamesPlayed,
+                        gamesWon = stats.GamesWon
+                    } : null
+                })
+            });
+
+            Console.WriteLine($"[AUTH] Token authenticated for user: {user.Username}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"[AUTH] Error: {ex.Message}");
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "AUTHENTICATE_FAILED",
+                Data = JsonSerializer.Serialize(new { error = ex.Message })
+            });
+        }
+    }
+
     // ============================================
     // Friends Handlers
     // ============================================
@@ -1458,4 +1566,9 @@ public class RemoveFriendData
 public class SendInviteData
 {
     public string TargetPlayerId { get; set; } = string.Empty;
+}
+
+public class TokenAuthData
+{
+    public string Token { get; set; } = string.Empty;
 }

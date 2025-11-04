@@ -210,6 +210,23 @@ namespace WordGame.Network
             await this.SendMessageAsync(message);
         }
 
+        public async Task<bool> AuthenticateWithToken(string token)
+        {
+            var tokenData = new TokenAuthData
+            {
+                Token = token
+            };
+
+            var message = new GameMessage
+            {
+                Type = "AUTHENTICATE_TOKEN",
+                Data = JsonUtility.ToJson(tokenData)
+            };
+
+            await this.SendMessageAsync(message);
+            return true;
+        }
+
         public async Task<bool> UpdateProfile(string displayName, string avatarUrl)
         {
             var updateData = new UpdateProfileData
@@ -476,6 +493,20 @@ namespace WordGame.Network
                             this.OnScoreUpdate?.Invoke(scoreData);
                         }
                         break;
+
+                    case "AUTHENTICATE_SUCCESS":
+                        Debug.Log("[AUTH] Token authentication successful");
+                        break;
+
+                    case "AUTHENTICATE_FAILED":
+                        Debug.LogWarning("[AUTH] Token authentication failed - clearing saved data");
+                        PlayerPrefs.DeleteKey("auth_token");
+                        PlayerPrefs.DeleteKey("user_id");
+                        PlayerPrefs.DeleteKey("username");
+                        PlayerPrefs.Save();
+                        // Reload login screen
+                        UIScreenController.Instance?.Show(UIScreenController.LoginScreenId);
+                        break;
                     }
 
                     this.OnMessageReceived?.Invoke(message);
@@ -614,6 +645,12 @@ namespace WordGame.Network
         private class MatchHistoryWrapper
         {
             public List<MatchHistoryData> history;
+        }
+
+        [Serializable]
+        public class TokenAuthData
+        {
+            public string Token;
         }
     }
 }
