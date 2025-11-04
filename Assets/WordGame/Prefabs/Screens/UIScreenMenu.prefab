@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 59400743254715981}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 120, y: 120, z: 1}
+  m_LocalPosition: {x: 327, y: 273, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -97,7 +97,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 200
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -178,9 +178,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 20
-      minScalar: 1
+      minMaxState: 3
+      scalar: 1
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -195,7 +195,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -212,7 +212,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -287,7 +287,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -355,7 +355,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 110.1805
+      value: 1
       mode: 0
       spread: 0
       speed:
@@ -2624,7 +2624,7 @@ Transform:
   m_GameObject: {fileID: 818490856142384418}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 640, z: 40}
+  m_LocalPosition: {x: 0, y: 2328, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2639,7 +2639,7 @@ ParticleSystem:
   m_GameObject: {fileID: 818490856142384418}
   serializedVersion: 8
   lengthInSec: 2
-  simulationSpeed: 0.8
+  simulationSpeed: 0.6
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
@@ -2694,7 +2694,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 200
+      scalar: 4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2776,8 +2776,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 20
-      minScalar: 40
+      scalar: 1
+      minScalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -2884,7 +2884,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 0.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2999,7 +2999,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 21.86
+      scalar: 3
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5655,6 +5655,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WordGame.UI.UIScreenMultiplayerMenu
   id: multiplayer_menu
   worldObjects: []
+  enableShowAnimation: 1
+  fadeDuration: 0.15
   roomCodeInput: {fileID: 7014235581797580787}
   createRoomButton: {fileID: 3027455317976825557}
   joinRoomButton: {fileID: 3723655443373856444}
