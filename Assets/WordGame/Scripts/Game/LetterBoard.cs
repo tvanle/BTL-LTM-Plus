@@ -190,8 +190,20 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                 continue;
             }
 
-            Vector2 tilePosition  = this.letterTiles[i].transform.position;
-            var     scaleTileSize = this.currentTileSize * this.uiCanvas.scaleFactor * this.tileTouchOffset;
+            // Convert tile position to screen space for consistent comparison
+            Vector2 tilePosition;
+            if (this.uiCanvas.renderMode == RenderMode.ScreenSpaceCamera && this.uiCanvas.worldCamera != null)
+            {
+                // For Screen Space - Camera mode, convert world position to screen position
+                tilePosition = RectTransformUtility.WorldToScreenPoint(this.uiCanvas.worldCamera, this.letterTiles[i].transform.position);
+            }
+            else
+            {
+                // For Overlay mode, transform.position is already in screen space
+                tilePosition = this.letterTiles[i].transform.position;
+            }
+
+            var scaleTileSize = this.currentTileSize * this.uiCanvas.scaleFactor * this.tileTouchOffset;
 
             var top    = tilePosition.y + scaleTileSize / 2f;
             var bottom = tilePosition.y - scaleTileSize / 2f;
