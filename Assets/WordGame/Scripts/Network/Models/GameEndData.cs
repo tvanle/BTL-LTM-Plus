@@ -20,6 +20,5 @@ namespace WordGame.Network.Models
         public int TotalWords;
         public int XPGained;
         public int TotalXP;
-        public int Level;
     }
 }

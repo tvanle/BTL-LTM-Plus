@@ -29,6 +29,7 @@ namespace WordGame.Network
         public event Action OnDisconnected;
         public event Action<string> OnError;
         public event Action<ScoreUpdateData> OnScoreUpdate;
+        public event Action<Models.RankingData> OnRankingReceived;
 
         // Player and Room Info
         public string PlayerId { get; private set; }
@@ -165,6 +166,24 @@ namespace WordGame.Network
             };
 
             await this.SendMessageAsync(message);
+        }
+
+        public async Task RequestRanking(int limit = 100, int offset = 0)
+        {
+            var requestData = new
+            {
+                limit = limit,
+                offset = offset
+            };
+
+            var message = new GameMessage
+            {
+                Type = "GET_RANKING",
+                Data = JsonUtility.ToJson(requestData)
+            };
+
+            await this.SendMessageAsync(message);
+            Debug.Log($"[RANKING] Requested ranking (limit: {limit}, offset: {offset})");
         }
 
         public async Task<bool> Login(string usernameOrEmail, string password)
@@ -506,6 +525,15 @@ namespace WordGame.Network
                         PlayerPrefs.Save();
                         // Reload login screen
                         UIScreenController.Instance?.Show(UIScreenController.LoginScreenId);
+                        break;
+
+                    case "RANKING":
+                        var rankingData = JsonUtility.FromJson<Models.RankingData>(message.Data);
+                        if (rankingData != null)
+                        {
+                            Debug.Log($"[RANKING] Received {rankingData.ranking?.Count ?? 0} entries");
+                            this.OnRankingReceived?.Invoke(rankingData);
+                        }
                         break;
                     }
 
