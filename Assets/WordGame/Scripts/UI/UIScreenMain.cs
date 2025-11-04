@@ -11,58 +11,8 @@ public class UIScreenMain : UIScreen
 	[SerializeField] private Text			continueBtnBottomText;
 	[SerializeField] private Image			continueBtnImage;
 
-	[Header("Main Screen Animation")]
-	[SerializeField] private float slideDistance = 100f;
-	[SerializeField] private float slideAndFadeDuration = 0.25f;
-
 	private string	continueBtnCategory;
 	private int		continueBtnLevelIndex;
-
-
-
-	protected override void PlayShowAnimation()
-	{
-		// Custom slide up + fade animation
-		this.StartCoroutine(this.SlideAndFadeIn());
-	}
-
-	private IEnumerator SlideAndFadeIn()
-	{
-		var canvasGroup = this.GetComponent<CanvasGroup>();
-		if (canvasGroup == null)
-		{
-			canvasGroup = this.gameObject.AddComponent<CanvasGroup>();
-		}
-
-		var rectT = this.RectT;
-		var startY = rectT.anchoredPosition.y - this.slideDistance;
-		var targetY = rectT.anchoredPosition.y;
-		var elapsedTime = 0f;
-
-		// Start invisible and below
-		canvasGroup.alpha = 0f;
-		rectT.anchoredPosition = new Vector2(rectT.anchoredPosition.x, startY);
-
-		// Slide up and fade in
-		while (elapsedTime < this.slideAndFadeDuration)
-		{
-			elapsedTime += Time.deltaTime;
-			var progress = Mathf.Clamp01(elapsedTime / this.slideAndFadeDuration);
-
-			// Ease out curve
-			var smoothProgress = 1f - Mathf.Pow(1f - progress, 3f);
-
-			canvasGroup.alpha = progress;
-			var currentY = Mathf.Lerp(startY, targetY, smoothProgress);
-			rectT.anchoredPosition = new Vector2(rectT.anchoredPosition.x, currentY);
-
-			yield return null;
-		}
-
-		// Ensure final state
-		canvasGroup.alpha = 1f;
-		rectT.anchoredPosition = new Vector2(rectT.anchoredPosition.x, targetY);
-	}
 
 	protected override void OnShowingContent(object data)
 	{

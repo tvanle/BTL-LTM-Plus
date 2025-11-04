@@ -5,13 +5,13 @@ using System.Collections;
 
 public class UIScreenCompleteOverlay : UIScreen
 {
-	[Header("Multiplayer Score Display")]
+	[Header("Multiplayer Score Display")] 
+	[SerializeField] private Transform brainIcon;
 	[SerializeField] private TextMeshProUGUI scoreEarnedText;
 	[SerializeField] private TextMeshProUGUI totalScoreText;
 	[SerializeField] private TextMeshProUGUI streakText;
 
 	[Header("Animation Settings")]
-	[SerializeField] private float fadeInDuration = 0.5f;
 	[SerializeField] private float scaleBounceDuration = 0.6f;
 	[SerializeField] private AnimationCurve scaleBounceCurve = AnimationCurve.EaseInOut(0, 0, 1, 1.2f);
 
@@ -36,7 +36,6 @@ public class UIScreenCompleteOverlay : UIScreen
 		if (data is NetworkManager.ScoreUpdateData scoreData)
 		{
 			this.ShowScore(scoreData);
-			this.StartCoroutine(this.PlayShowAnimation());
 		}
 	}
 
@@ -58,53 +57,5 @@ public class UIScreenCompleteOverlay : UIScreen
 		}
 
 		Debug.Log($"[Complete Overlay] Score: +{scoreData.scoreGained} | Total: {scoreData.totalScore} | Streak: {scoreData.streak}");
-	}
-
-	private IEnumerator PlayShowAnimation()
-	{
-		if (this.canvasGroup == null || this.rectTransform == null)
-		{
-			this.Initialize();
-		}
-
-		// Start invisible and small
-		this.canvasGroup.alpha = 0f;
-		this.rectTransform.localScale = Vector3.zero;
-
-		float elapsedTime = 0f;
-
-		// Fade in and scale up with bounce
-		while (elapsedTime < Mathf.Max(this.fadeInDuration, this.scaleBounceDuration))
-		{
-			elapsedTime += Time.deltaTime;
-
-			// Fade in alpha
-			if (elapsedTime < this.fadeInDuration)
-			{
-				this.canvasGroup.alpha = elapsedTime / this.fadeInDuration;
-			}
-			else
-			{
-				this.canvasGroup.alpha = 1f;
-			}
-
-			// Scale with bounce curve
-			if (elapsedTime < this.scaleBounceDuration)
-			{
-				float scaleProgress = elapsedTime / this.scaleBounceDuration;
-				float scaleValue = this.scaleBounceCurve.Evaluate(scaleProgress);
-				this.rectTransform.localScale = Vector3.one * scaleValue;
-			}
-			else
-			{
-				this.rectTransform.localScale = Vector3.one;
-			}
-
-			yield return null;
-		}
-
-		// Ensure final state
-		this.canvasGroup.alpha = 1f;
-		this.rectTransform.localScale = Vector3.one;
 	}
 }

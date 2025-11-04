@@ -15,10 +15,6 @@ public class UIScreenGame : UIScreen
 	[SerializeField] private LetterBoard	letterBoard;
 	[SerializeField] private TextMeshProUGUI timerText;
 
-	[Header("Game Screen Animation")]
-	[SerializeField] private float scaleAnimDuration = 0.3f;
-	[SerializeField] private float scaleFrom = 0.9f;
-
 	private float levelTimer;
 	private bool isLevelActive;
 	private NetworkManager networkManager;
@@ -65,57 +61,6 @@ public class UIScreenGame : UIScreen
 
 		// Get reference to NetworkManager
 		this.networkManager = NetworkManager.Instance;
-	}
-
-	protected override void PlayShowAnimation()
-	{
-		// Dramatic zoom + fade for game screen
-		this.StartCoroutine(this.ScaleAndFadeIn());
-	}
-
-	private IEnumerator ScaleAndFadeIn()
-	{
-		var canvasGroup = this.GetComponent<CanvasGroup>();
-		if (canvasGroup == null)
-		{
-			canvasGroup = this.gameObject.AddComponent<CanvasGroup>();
-		}
-
-		var rectT = this.RectT;
-		var elapsedTime = 0f;
-
-		// Start small and invisible
-		canvasGroup.alpha = 0f;
-		rectT.localScale = Vector3.one * this.scaleFrom;
-
-		// Scale up and fade in with overshoot
-		while (elapsedTime < this.scaleAnimDuration)
-		{
-			elapsedTime += Time.deltaTime;
-			var progress = Mathf.Clamp01(elapsedTime / this.scaleAnimDuration);
-
-			// Ease out back (slight overshoot)
-			var smoothProgress = progress < 0.5f
-				? 2f * progress * progress
-				: 1f - Mathf.Pow(-2f * progress + 2f, 2f) / 2f;
-
-			canvasGroup.alpha = progress;
-
-			// Slight overshoot at the end
-			var scale = Mathf.Lerp(this.scaleFrom, 1.05f, smoothProgress);
-			if (progress > 0.8f)
-			{
-				scale = Mathf.Lerp(1.05f, 1.0f, (progress - 0.8f) / 0.2f);
-			}
-
-			rectT.localScale = Vector3.one * scale;
-
-			yield return null;
-		}
-
-		// Ensure final state
-		canvasGroup.alpha = 1f;
-		rectT.localScale = Vector3.one;
 	}
 
 	protected override void OnShowingContent(object data)

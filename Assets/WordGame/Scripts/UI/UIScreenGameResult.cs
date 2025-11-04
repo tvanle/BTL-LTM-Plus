@@ -26,10 +26,6 @@ public class UIScreenGameResult : UIScreen
     [Header("Navigation")]
     [SerializeField] private Button backButton;
 
-    [Header("Result Animation")]
-    [SerializeField] private float slideInDuration = 0.4f;
-    [SerializeField] private float slideDistance = 200f;
-
     private List<GameObject> leaderboardItems = new List<GameObject>();
     private GameEndData currentGameData;
 
@@ -41,50 +37,6 @@ public class UIScreenGameResult : UIScreen
         {
             this.backButton.onClick.AddListener(this.OnBackButtonClicked);
         }
-    }
-
-    protected override void PlayShowAnimation()
-    {
-        // Slide in from right with fade
-        this.StartCoroutine(this.SlideFromRight());
-    }
-
-    private IEnumerator SlideFromRight()
-    {
-        var canvasGroup = this.GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
-        {
-            canvasGroup = this.gameObject.AddComponent<CanvasGroup>();
-        }
-
-        var rectT = this.RectT;
-        var startX = rectT.anchoredPosition.x + this.slideDistance;
-        var targetX = rectT.anchoredPosition.x;
-        var elapsedTime = 0f;
-
-        // Start invisible and to the right
-        canvasGroup.alpha = 0f;
-        rectT.anchoredPosition = new Vector2(startX, rectT.anchoredPosition.y);
-
-        // Slide in from right
-        while (elapsedTime < this.slideInDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            var progress = Mathf.Clamp01(elapsedTime / this.slideInDuration);
-
-            // Ease out cubic
-            var smoothProgress = 1f - Mathf.Pow(1f - progress, 3f);
-
-            canvasGroup.alpha = progress;
-            var currentX = Mathf.Lerp(startX, targetX, smoothProgress);
-            rectT.anchoredPosition = new Vector2(currentX, rectT.anchoredPosition.y);
-
-            yield return null;
-        }
-
-        // Ensure final state
-        canvasGroup.alpha = 1f;
-        rectT.anchoredPosition = new Vector2(targetX, rectT.anchoredPosition.y);
     }
 
     protected override void OnShowingContent(object data)
