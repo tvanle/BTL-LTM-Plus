@@ -661,7 +661,7 @@ MonoBehaviour:
   worldObjects: []
   enableShowAnimation: 1
   fadeDuration: 0.15
-  brainIcon: {fileID: 0}
+  brainIcon: {fileID: 3271306892202403670}
   scoreEarnedText: {fileID: 5719315078328618375}
   totalScoreText: {fileID: 8117279683760162197}
   streakText: {fileID: 3627207954025326410}
