@@ -11,8 +11,9 @@ namespace WordGame.UI
     {
         private NetworkManager networkManager;
 
-        [Header("UI References")]
-        [SerializeField] private TMP_InputField roomCodeInput;
+        [Header("UI References")] [SerializeField]
+        private TMP_InputField roomCodeInput;
+
         [SerializeField] private Button createRoomButton;
         [SerializeField] private Button joinRoomButton;
         [SerializeField] private Button profileButton;
@@ -25,9 +26,9 @@ namespace WordGame.UI
             this.networkManager = NetworkManager.Instance;
             if (this.networkManager != null)
             {
-                this.networkManager.OnConnected       += this.OnConnected;
-                this.networkManager.OnDisconnected    += this.OnDisconnected;
-                this.networkManager.OnError           += this.OnError;
+                this.networkManager.OnConnected += this.OnConnected;
+                this.networkManager.OnDisconnected += this.OnDisconnected;
+                this.networkManager.OnError += this.OnError;
                 this.networkManager.OnMessageReceived += this.OnMessageReceived;
             }
 
@@ -68,11 +69,15 @@ namespace WordGame.UI
             switch (message.Type)
             {
                 case "ROOM_CREATED":
+                    // Play room created sound
+                    AudioManager.Instance.PlayRoomCreated();
                     UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false,
                         Tween.TweenStyle.EaseOut, null, true);
                     break;
 
                 case "ROOM_JOINED":
+                    // Play room joined sound
+                    AudioManager.Instance.PlayRoomCreated();
                     UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false,
                         Tween.TweenStyle.EaseOut, null, false);
                     break;
@@ -98,9 +103,9 @@ namespace WordGame.UI
 
             if (this.networkManager != null)
             {
-                this.networkManager.OnConnected       -= this.OnConnected;
-                this.networkManager.OnDisconnected    -= this.OnDisconnected;
-                this.networkManager.OnError           -= this.OnError;
+                this.networkManager.OnConnected -= this.OnConnected;
+                this.networkManager.OnDisconnected -= this.OnDisconnected;
+                this.networkManager.OnError -= this.OnError;
                 this.networkManager.OnMessageReceived -= this.OnMessageReceived;
             }
         }

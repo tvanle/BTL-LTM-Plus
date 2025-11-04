@@ -5,43 +5,50 @@ using System.Collections.Generic;
 
 public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-
-    [Tooltip("The Canvas that letterTileContainer is in. This is used to get the size of the tiles in relation to the actual screen size so we can tell when the mouse is over a tile.")]
+    [Tooltip(
+        "The Canvas that letterTileContainer is in. This is used to get the size of the tiles in relation to the actual screen size so we can tell when the mouse is over a tile.")]
     [SerializeField]
     private Canvas uiCanvas;
 
-    [Tooltip("The GridLayoutGroup that each of the tiles will be added to.")] [SerializeField] private GridLayoutGroup letterTileContainer;
+    [Tooltip("The GridLayoutGroup that each of the tiles will be added to.")] [SerializeField]
+    private GridLayoutGroup letterTileContainer;
 
     [Range(0, 1)]
-    [Tooltip("This is a percentage of the tile (starting from the center) that can be touched when the mouse is dragging over the tiles to select them.")]
+    [Tooltip(
+        "This is a percentage of the tile (starting from the center) that can be touched when the mouse is dragging over the tiles to select them.")]
     [SerializeField]
     private float tileTouchOffset;
 
-    [Tooltip("The amount of spacing between the tiles. (Applied to the GridLayoutGroup spacing)")] [SerializeField] private float tileSpacing;
+    [Tooltip("The amount of spacing between the tiles. (Applied to the GridLayoutGroup spacing)")] [SerializeField]
+    private float tileSpacing;
 
-    [Tooltip("If this is selected then a line will be draw showing the selected tiles.")] [SerializeField] private bool enableLine;
+    [Tooltip("If this is selected then a line will be draw showing the selected tiles.")] [SerializeField]
+    private bool enableLine;
 
-    [Tooltip("The prefab to use when creating the line through selected letters, should be a circle so the corners don't look weird.")] [SerializeField] private Image lineSegmentPrefab;
+    [Tooltip(
+        "The prefab to use when creating the line through selected letters, should be a circle so the corners don't look weird.")]
+    [SerializeField]
+    private Image lineSegmentPrefab;
 
-    [Tooltip("The prefab to use for the end of the line through selected letters.")] [SerializeField] private Image lineEndPrefab;
+    [Tooltip("The prefab to use for the end of the line through selected letters.")] [SerializeField]
+    private Image lineEndPrefab;
 
-    [Tooltip("The transform that the line segments will be added to.")] [SerializeField] private RectTransform lineContainer;
+    [Tooltip("The transform that the line segments will be added to.")] [SerializeField]
+    private RectTransform lineContainer;
 
 
-
-    public System.Action<string, List<LetterTile>, bool> OnWordFound           = null;
-    public System.Action<string>                         OnSelectedWordChanged = null;
+    public System.Action<string, List<LetterTile>, bool> OnWordFound = null;
+    public System.Action<string> OnSelectedWordChanged = null;
 
     private List<LetterTile> letterTiles;
     private List<LetterTile> selectedLetterTiles;
-    private ObjectPool       lineSegmentPool;
-    private Image            lineEnd;
-    private List<string>     currentWords;
-    private int              currentBoardSize;
-    private float            currentTileSize;
-    private string           selectedWord = "";
+    private ObjectPool lineSegmentPool;
+    private Image lineEnd;
+    private List<string> currentWords;
+    private int currentBoardSize;
+    private float currentTileSize;
+    private string selectedWord = "";
     private List<GameObject> gridGameObjects;
-
 
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -60,16 +67,15 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     }
 
 
-
     public void Initialize()
     {
-        this.letterTiles         = new();
+        this.letterTiles = new();
         this.selectedLetterTiles = new();
-        this.currentWords        = new();
-        this.gridGameObjects     = new();
+        this.currentWords = new();
+        this.gridGameObjects = new();
 
         this.lineSegmentPool = new ObjectPool(this.lineSegmentPrefab.gameObject, 5, this.lineContainer);
-        this.lineEnd         = Instantiate(this.lineEndPrefab);
+        this.lineEnd = Instantiate(this.lineEndPrefab);
 
         this.lineEnd.transform.SetParent(this.lineContainer, false);
         this.lineEnd.gameObject.SetActive(false);
@@ -88,15 +94,19 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         this.currentBoardSize = boardState.wordBoardSize;
 
         // Get the maximum width and height a tile can be for this board without overflowing the container
-        var maxTileWidth  = (((RectTransform)this.letterTileContainer.transform).rect.width - (boardState.wordBoardSize - 1) * this.tileSpacing) / boardState.wordBoardSize;
-        var maxTileHeight = (((RectTransform)this.letterTileContainer.transform).rect.height - (boardState.wordBoardSize - 1) * this.tileSpacing) / boardState.wordBoardSize;
+        var maxTileWidth =
+            (((RectTransform)this.letterTileContainer.transform).rect.width -
+             (boardState.wordBoardSize - 1) * this.tileSpacing) / boardState.wordBoardSize;
+        var maxTileHeight =
+            (((RectTransform)this.letterTileContainer.transform).rect.height -
+             (boardState.wordBoardSize - 1) * this.tileSpacing) / boardState.wordBoardSize;
 
         // The final tile size will be the minimum between the max width/height so that the tiles do not overflow out of the containers bounds
         this.currentTileSize = Mathf.Min(maxTileWidth, maxTileHeight);
 
-        this.letterTileContainer.cellSize        = new (this.currentTileSize, this.currentTileSize);
-        this.letterTileContainer.spacing         = new (this.tileSpacing, this.tileSpacing);
-        this.letterTileContainer.constraint      = GridLayoutGroup.Constraint.FixedColumnCount;
+        this.letterTileContainer.cellSize = new(this.currentTileSize, this.currentTileSize);
+        this.letterTileContainer.spacing = new(this.tileSpacing, this.tileSpacing);
+        this.letterTileContainer.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
         this.letterTileContainer.constraintCount = boardState.wordBoardSize;
 
         // Place all the tiles on the board
@@ -116,8 +126,8 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     case GameManager.BoardState.TileState.UsedButNotFound:
                         var letterTile = GameManager.Instance.LetterTilePool.GetObject().GetComponent<LetterTile>();
 
-                        letterTile.TileIndex       = tileIndex;
-                        letterTile.Letter          = boardState.tileLetters[tileIndex];
+                        letterTile.TileIndex = tileIndex;
+                        letterTile.Letter = boardState.tileLetters[tileIndex];
                         letterTile.LetterText.text = letterTile.Letter.ToString();
 
                         // Set it as a child of the gridGameObject we created before (so its in the correct position)
@@ -146,7 +156,6 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             this.currentWords.Add(boardState.words[i]);
         }
     }
-
 
 
     /// <summary>
@@ -195,7 +204,8 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             if (this.uiCanvas.renderMode == RenderMode.ScreenSpaceCamera && this.uiCanvas.worldCamera != null)
             {
                 // For Screen Space - Camera mode, convert world position to screen position
-                tilePosition = RectTransformUtility.WorldToScreenPoint(this.uiCanvas.worldCamera, this.letterTiles[i].transform.position);
+                tilePosition = RectTransformUtility.WorldToScreenPoint(this.uiCanvas.worldCamera,
+                    this.letterTiles[i].transform.position);
             }
             else
             {
@@ -205,10 +215,10 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
             var scaleTileSize = this.currentTileSize * this.uiCanvas.scaleFactor * this.tileTouchOffset;
 
-            var top    = tilePosition.y + scaleTileSize / 2f;
+            var top = tilePosition.y + scaleTileSize / 2f;
             var bottom = tilePosition.y - scaleTileSize / 2f;
-            var left   = tilePosition.x - scaleTileSize / 2f;
-            var right  = tilePosition.x + scaleTileSize / 2f;
+            var left = tilePosition.x - scaleTileSize / 2f;
+            var right = tilePosition.x + scaleTileSize / 2f;
 
             // Check if the mouse if over this tile
             if (position.x > left && position.x < right && position.y > bottom && position.y < top)
@@ -315,9 +325,20 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             letterTilesForWord[i].Found = true;
         }
 
+        // Check if this is the last word
+        var isLastWord = this.FoundAllWords();
+        if (isLastWord)
+        {
+            AudioManager.Instance.PlayWordCorrectLast();
+        }
+        else
+        {
+            AudioManager.Instance.PlayWordCorrect();
+        }
+
         if (this.OnWordFound != null)
         {
-            this.OnWordFound(word, letterTilesForWord, this.FoundAllWords());
+            this.OnWordFound(word, letterTilesForWord, isLastWord);
         }
     }
 
@@ -346,5 +367,4 @@ public class LetterBoard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         this.lineSegmentPool.ReturnAllObjectsToPool();
         this.lineEnd.gameObject.SetActive(false);
     }
-
 }

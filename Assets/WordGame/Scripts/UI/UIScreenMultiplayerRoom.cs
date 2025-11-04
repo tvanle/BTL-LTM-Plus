@@ -107,7 +107,8 @@ namespace WordGame.UI
                     }
                 }
 
-                Debug.Log($"[UIScreenMultiplayerRoom] Loaded {this._categoryIcons.Count} category icons from Resources");
+                Debug.Log(
+                    $"[UIScreenMultiplayerRoom] Loaded {this._categoryIcons.Count} category icons from Resources");
             }
             // Option 2: Fallback to Inspector-assigned sprites
             else if (this.categoryIconSprites != null && this.categoryIconSprites.Length >= 15)
@@ -142,8 +143,11 @@ namespace WordGame.UI
                     this.InitializeRoom(this.networkManager.RoomCode, this._isHost);
                     this.UpdatePlayerList(this.networkManager.RoomPlayers);
                     // Update room info with category and numQuestions from NetworkManager
-                    string category = !string.IsNullOrEmpty(this.networkManager.Category) ? this.networkManager.Category : "Category 1";
-                    this.UpdateRoomInfo(category, this.networkManager.RoomPlayers?.Count ?? 1, this.networkManager.NumQuestions);
+                    string category = !string.IsNullOrEmpty(this.networkManager.Category)
+                        ? this.networkManager.Category
+                        : "Category 1";
+                    this.UpdateRoomInfo(category, this.networkManager.RoomPlayers?.Count ?? 1,
+                        this.networkManager.NumQuestions);
                 }
             }
         }
@@ -153,18 +157,40 @@ namespace WordGame.UI
             switch (message.Type)
             {
                 case "PLAYER_JOINED":
-                case "PLAYER_LEFT":
+                    // Play sound for player joined
+                    AudioManager.Instance.PlayPlayerJoined();
                     if (this.networkManager != null)
                     {
                         this.UpdatePlayerList(this.networkManager.RoomPlayers);
                         // Update player count in room info with category and numQuestions from NetworkManager
-                        string category = !string.IsNullOrEmpty(this.networkManager.Category) ? this.networkManager.Category : "Category 1";
-                        this.UpdateRoomInfo(category, this.networkManager.RoomPlayers?.Count ?? 1, this.networkManager.NumQuestions);
+                        string category = !string.IsNullOrEmpty(this.networkManager.Category)
+                            ? this.networkManager.Category
+                            : "Category 1";
+                        this.UpdateRoomInfo(category, this.networkManager.RoomPlayers?.Count ?? 1,
+                            this.networkManager.NumQuestions);
+                    }
+
+                    break;
+
+                case "PLAYER_LEFT":
+                    // Play sound for player left
+                    AudioManager.Instance.PlayPlayerLeft();
+                    if (this.networkManager != null)
+                    {
+                        this.UpdatePlayerList(this.networkManager.RoomPlayers);
+                        // Update player count in room info with category and numQuestions from NetworkManager
+                        string category = !string.IsNullOrEmpty(this.networkManager.Category)
+                            ? this.networkManager.Category
+                            : "Category 1";
+                        this.UpdateRoomInfo(category, this.networkManager.RoomPlayers?.Count ?? 1,
+                            this.networkManager.NumQuestions);
                     }
 
                     break;
 
                 case "GAME_STARTED":
+                    // Play game started sound
+                    AudioManager.Instance.PlayGameStarted();
                     try
                     {
                         // Parse game start data from server
@@ -259,7 +285,7 @@ namespace WordGame.UI
 
         public void InitializeRoom(string roomCode, bool isHost)
         {
-            this._isHost        = isHost;
+            this._isHost = isHost;
             this.roomCodeText.text = $"{roomCode}";
             this.startGameButton.gameObject.SetActive(isHost);
         }
@@ -352,7 +378,8 @@ namespace WordGame.UI
         public void UpdateRoomInfo(string category = "Category 1", int numPlayers = 1, int numQuestions = 10)
         {
             // Update category icon
-            if (this.categoryIconImage != null && this._categoryIcons != null && this._categoryIcons.ContainsKey(category))
+            if (this.categoryIconImage != null && this._categoryIcons != null &&
+                this._categoryIcons.ContainsKey(category))
             {
                 this.categoryIconImage.sprite = this._categoryIcons[category];
             }

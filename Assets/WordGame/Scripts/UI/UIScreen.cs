@@ -44,6 +44,7 @@ public class UIScreen : MonoBehaviour
 	// Virtual method for show animation - screens can override to customize
 	protected virtual void PlayShowAnimation()
 	{
+		AudioManager.Instance.PlayScreenTransition();
 		// Stop any previous animation
 		if (this.currentAnimationCoroutine != null)
 		{
