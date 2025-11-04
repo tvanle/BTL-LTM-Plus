@@ -125,6 +125,9 @@ public class GameServer
                 case "GET_MATCH_HISTORY":
                     await this.HandleGetMatchHistory(connection);
                     break;
+                case "GET_RANKING":
+                    await this.HandleGetRanking(connection, message);
+                    break;
                 case "ADD_FRIEND":
                     await this.HandleAddFriend(connection, message);
                     break;
@@ -723,7 +726,6 @@ public class GameServer
                     var stats = await this._database.GetUserStatsAsync(player.Id);
                     int currentTotalXP = stats?.TotalXP ?? 0;
                     int newTotalXP = currentTotalXP + xpGained;
-                    int newLevel = this.CalculateLevelFromXP(newTotalXP);
 
                     // Save match result with XP
                     await this._database.AddMatchPlayerResultAsync(
@@ -733,7 +735,7 @@ public class GameServer
                     // Update user stats with XP
                     await this._database.UpdateUserStatsAsync(
                         player.Id, player.Score, player.Streak,
-                        player.TotalWordsFound, player.Id == winner.Id, xpGained, newLevel);
+                        player.TotalWordsFound, player.Id == winner.Id, xpGained);
 
                     // Add to results
                     resultsWithXP.Add(new
@@ -745,8 +747,7 @@ public class GameServer
                         WordsFound = player.TotalWordsFound,
                         TotalWords = totalWords,
                         XPGained = xpGained,
-                        TotalXP = newTotalXP,
-                        Level = newLevel
+                        TotalXP = newTotalXP
                     });
 
                     rank++;
@@ -1123,6 +1124,75 @@ public class GameServer
         Console.WriteLine($"Match history sent for user: {connection.UserId}");
     }
 
+    private async Task HandleGetRanking(ClientConnection connection, GameMessage message)
+    {
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("Not authenticated");
+        }
+
+        // Parse optional parameters for pagination
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        int limit = 100;
+        int offset = 0;
+
+        if (!string.IsNullOrEmpty(message.Data))
+        {
+            try
+            {
+                var data = JsonSerializer.Deserialize<Dictionary<string, object>>(message.Data, options);
+                if (data != null)
+                {
+                    if (data.ContainsKey("limit"))
+                        limit = Convert.ToInt32(data["limit"]);
+                    if (data.ContainsKey("offset"))
+                        offset = Convert.ToInt32(data["offset"]);
+                }
+            }
+            catch
+            {
+                // Use default values if parsing fails
+            }
+        }
+
+        var ranking = await this._database.GetGlobalLeaderboardAsync(limit, offset);
+        var userRank = await this._database.GetUserRankAsync(connection.UserId.Value);
+
+        await connection.SendAsync(new GameMessage
+        {
+            Type = "RANKING",
+            Data = JsonSerializer.Serialize(new
+            {
+                ranking = ranking.Select(entry => new
+                {
+                    userId = entry.UserId,
+                    username = entry.Username,
+                    displayName = entry.DisplayName,
+                    avatarUrl = entry.AvatarUrl,
+                    totalXP = entry.TotalXP,
+                    totalScore = entry.TotalScore,
+                    gamesPlayed = entry.GamesPlayed,
+                    gamesWon = entry.GamesWon,
+                    rank = entry.Rank
+                }),
+                userRank = userRank != null ? new
+                {
+                    userId = userRank.UserId,
+                    username = userRank.Username,
+                    displayName = userRank.DisplayName,
+                    avatarUrl = userRank.AvatarUrl,
+                    totalXP = userRank.TotalXP,
+                    totalScore = userRank.TotalScore,
+                    gamesPlayed = userRank.GamesPlayed,
+                    gamesWon = userRank.GamesWon,
+                    rank = userRank.Rank
+                } : null
+            })
+        });
+
+        Console.WriteLine($"Ranking sent for user: {connection.UserId}");
+    }
+
     private async Task HandleAddFriend(ClientConnection connection, GameMessage message)
     {
         if (!connection.UserId.HasValue)
@@ -1347,15 +1417,6 @@ public class GameServer
         }
 
         return xpGained;
-    }
-
-    /// <summary>
-    /// Calculate player level from total XP
-    /// Level Formula: Level = floor(sqrt(TotalXP / 100))
-    /// </summary>
-    private int CalculateLevelFromXP(int totalXP)
-    {
-        return (int)Math.Floor(Math.Sqrt(totalXP / 100.0)) + 1;
     }
 
     public async Task StopAsync()

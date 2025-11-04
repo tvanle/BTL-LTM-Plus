@@ -34,7 +34,6 @@ CREATE TABLE IF NOT EXISTS user_stats (
     average_completion_time REAL DEFAULT 0,
     rank_position INTEGER DEFAULT 0,
     total_xp INTEGER DEFAULT 0,
-    level INTEGER DEFAULT 1,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 

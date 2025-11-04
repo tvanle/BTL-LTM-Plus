@@ -33,10 +33,12 @@ CREATE TABLE user_stats (
     total_words_found INT DEFAULT 0,
     average_completion_time FLOAT DEFAULT 0,
     rank_position INT DEFAULT 0,
+    total_xp INT DEFAULT 0,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     INDEX idx_user_id (user_id),
     INDEX idx_rank (rank_position),
-    INDEX idx_total_score (total_score DESC)
+    INDEX idx_total_score (total_score DESC),
+    INDEX idx_total_xp (total_xp DESC)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Friendships Table (bidirectional)
@@ -110,6 +112,7 @@ CREATE TABLE match_player_results (
     average_time_per_level FLOAT DEFAULT 0,
     completed_levels INT DEFAULT 0,
     rank_position INT DEFAULT 0,
+    xp_gained INT DEFAULT 0,
     FOREIGN KEY (match_id) REFERENCES match_history(id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     INDEX idx_match_id (match_id),
@@ -205,13 +208,14 @@ BEGIN
         us.games_played,
         us.games_won,
         us.rank_position,
+        us.total_xp,
         CASE WHEN us.games_played > 0
             THEN ROUND((us.games_won * 100.0 / us.games_played), 2)
             ELSE 0
         END as win_rate
     FROM users u
     INNER JOIN user_stats us ON u.id = us.user_id
-    ORDER BY us.total_score DESC, us.best_streak DESC
+    ORDER BY us.total_xp DESC, us.total_score DESC
     LIMIT p_limit OFFSET p_offset;
 END$$
 DELIMITER ;

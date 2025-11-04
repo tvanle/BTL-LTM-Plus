@@ -29,7 +29,6 @@ public class UserStats
     public float AverageCompletionTime { get; set; }
     public int RankPosition { get; set; }
     public int TotalXP { get; set; }
-    public int Level { get; set; }
 }
 
 public class Friendship
@@ -106,4 +105,17 @@ public class UserMatchHistoryDto
     public int Rank { get; set; }
     public int XPGained { get; set; }
     public bool IsWinner { get; set; }
+}
+
+public class LeaderboardEntryDto
+{
+    public Guid UserId { get; set; }
+    public string Username { get; set; } = string.Empty;
+    public string? DisplayName { get; set; }
+    public string? AvatarUrl { get; set; }
+    public int TotalXP { get; set; }
+    public int TotalScore { get; set; }
+    public int GamesPlayed { get; set; }
+    public int GamesWon { get; set; }
+    public int Rank { get; set; }
 }

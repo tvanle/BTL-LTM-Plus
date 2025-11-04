@@ -469,7 +469,7 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
         await cmd.ExecuteNonQueryAsync();
     }
 
-    public async Task UpdateUserStatsAsync(Guid userId, int score, int streak, int wordsFound, bool isWinner, int xpGained = 0, int newLevel = 1)
+    public async Task UpdateUserStatsAsync(Guid userId, int score, int streak, int wordsFound, bool isWinner, int xpGained = 0)
     {
         using var conn = GetConnection();
         await conn.OpenAsync();
@@ -482,15 +482,13 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
               games_played = games_played + 1,
               games_won = games_won + @won,
               total_words_found = total_words_found + @words,
-              total_xp = total_xp + @xp,
-              level = @level
+              total_xp = total_xp + @xp
               WHERE user_id = @userId", conn);
         cmd.Parameters.AddWithValue("@score", score);
         cmd.Parameters.AddWithValue("@streak", streak);
         cmd.Parameters.AddWithValue("@won", isWinner ? 1 : 0);
         cmd.Parameters.AddWithValue("@words", wordsFound);
         cmd.Parameters.AddWithValue("@xp", xpGained);
-        cmd.Parameters.AddWithValue("@level", newLevel);
         cmd.Parameters.AddWithValue("@userId", userId.ToString());
 
         await cmd.ExecuteNonQueryAsync();
@@ -768,8 +766,7 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
             TotalWordsFound = reader.GetInt32(reader.GetOrdinal("total_words_found")),
             AverageCompletionTime = reader.GetFloat(reader.GetOrdinal("average_completion_time")),
             RankPosition = reader.GetInt32(reader.GetOrdinal("rank_position")),
-            TotalXP = reader.IsDBNull(reader.GetOrdinal("total_xp")) ? 0 : reader.GetInt32(reader.GetOrdinal("total_xp")),
-            Level = reader.IsDBNull(reader.GetOrdinal("level")) ? 1 : reader.GetInt32(reader.GetOrdinal("level"))
+            TotalXP = reader.IsDBNull(reader.GetOrdinal("total_xp")) ? 0 : reader.GetInt32(reader.GetOrdinal("total_xp"))
         };
     }
 
@@ -800,5 +797,96 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
             CreatedAt = DateTime.Parse(reader.GetString(reader.GetOrdinal("created_at"))),
             LastUsedAt = DateTime.Parse(reader.GetString(reader.GetOrdinal("last_used_at")))
         };
+    }
+
+    public async Task<List<LeaderboardEntryDto>> GetGlobalLeaderboardAsync(int limit = 100, int offset = 0)
+    {
+        using var conn = GetConnection();
+        await conn.OpenAsync();
+
+        var cmd = new SqliteCommand(
+            @"SELECT
+                u.id,
+                u.username,
+                u.display_name,
+                u.avatar_url,
+                us.total_xp,
+                us.total_score,
+                us.games_played,
+                us.games_won,
+                ROW_NUMBER() OVER (ORDER BY us.total_xp DESC, us.total_score DESC) as rank
+              FROM users u
+              INNER JOIN user_stats us ON u.id = us.user_id
+              ORDER BY us.total_xp DESC, us.total_score DESC
+              LIMIT @limit OFFSET @offset", conn);
+        cmd.Parameters.AddWithValue("@limit", limit);
+        cmd.Parameters.AddWithValue("@offset", offset);
+
+        var leaderboard = new List<LeaderboardEntryDto>();
+        using var reader = await cmd.ExecuteReaderAsync();
+        while (await reader.ReadAsync())
+        {
+            leaderboard.Add(new LeaderboardEntryDto
+            {
+                UserId = Guid.Parse(reader.GetString(reader.GetOrdinal("id"))),
+                Username = reader.GetString(reader.GetOrdinal("username")),
+                DisplayName = reader.IsDBNull(reader.GetOrdinal("display_name"))
+                    ? null : reader.GetString(reader.GetOrdinal("display_name")),
+                AvatarUrl = reader.IsDBNull(reader.GetOrdinal("avatar_url"))
+                    ? null : reader.GetString(reader.GetOrdinal("avatar_url")),
+                TotalXP = reader.GetInt32(reader.GetOrdinal("total_xp")),
+                TotalScore = reader.GetInt32(reader.GetOrdinal("total_score")),
+                GamesPlayed = reader.GetInt32(reader.GetOrdinal("games_played")),
+                GamesWon = reader.GetInt32(reader.GetOrdinal("games_won")),
+                Rank = reader.GetInt32(reader.GetOrdinal("rank"))
+            });
+        }
+
+        return leaderboard;
+    }
+
+    public async Task<LeaderboardEntryDto?> GetUserRankAsync(Guid userId)
+    {
+        using var conn = GetConnection();
+        await conn.OpenAsync();
+
+        var cmd = new SqliteCommand(
+            @"WITH ranked_users AS (
+                SELECT
+                    u.id,
+                    u.username,
+                    u.display_name,
+                    u.avatar_url,
+                    us.total_xp,
+                    us.total_score,
+                    us.games_played,
+                    us.games_won,
+                    ROW_NUMBER() OVER (ORDER BY us.total_xp DESC, us.total_score DESC) as rank
+                FROM users u
+                INNER JOIN user_stats us ON u.id = us.user_id
+              )
+              SELECT * FROM ranked_users WHERE id = @userId", conn);
+        cmd.Parameters.AddWithValue("@userId", userId.ToString());
+
+        using var reader = await cmd.ExecuteReaderAsync();
+        if (await reader.ReadAsync())
+        {
+            return new LeaderboardEntryDto
+            {
+                UserId = Guid.Parse(reader.GetString(reader.GetOrdinal("id"))),
+                Username = reader.GetString(reader.GetOrdinal("username")),
+                DisplayName = reader.IsDBNull(reader.GetOrdinal("display_name"))
+                    ? null : reader.GetString(reader.GetOrdinal("display_name")),
+                AvatarUrl = reader.IsDBNull(reader.GetOrdinal("avatar_url"))
+                    ? null : reader.GetString(reader.GetOrdinal("avatar_url")),
+                TotalXP = reader.GetInt32(reader.GetOrdinal("total_xp")),
+                TotalScore = reader.GetInt32(reader.GetOrdinal("total_score")),
+                GamesPlayed = reader.GetInt32(reader.GetOrdinal("games_played")),
+                GamesWon = reader.GetInt32(reader.GetOrdinal("games_won")),
+                Rank = reader.GetInt32(reader.GetOrdinal("rank"))
+            };
+        }
+
+        return null;
     }
 }

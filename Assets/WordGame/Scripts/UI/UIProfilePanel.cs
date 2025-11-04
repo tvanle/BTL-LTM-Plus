@@ -16,17 +16,23 @@ namespace WordGame.UI
         [SerializeField] private Button editProfileButton;
         [SerializeField] private Button logoutButton;
         [SerializeField] private Button matchHistoryButton;
+        [SerializeField] private Button rankingButton;
         [SerializeField] private Button closeButton;
 
         public event Action OnEditProfileClicked;
         public event Action OnLogoutClicked;
         public event Action OnMatchHistoryClicked;
+        public event Action OnRankingClicked;
 
         private void Start()
         {
             this.editProfileButton.onClick.AddListener(this.HandleEditProfile);
             this.logoutButton.onClick.AddListener(this.HandleLogout);
             this.matchHistoryButton.onClick.AddListener(this.HandleMatchHistory);
+            if (this.rankingButton != null)
+            {
+                this.rankingButton.onClick.AddListener(this.HandleRanking);
+            }
             this.closeButton.onClick.AddListener(this.Hide);
 
             // Hide panel by default
@@ -38,6 +44,10 @@ namespace WordGame.UI
             this.editProfileButton.onClick.RemoveListener(this.HandleEditProfile);
             this.logoutButton.onClick.RemoveListener(this.HandleLogout);
             this.matchHistoryButton.onClick.RemoveListener(this.HandleMatchHistory);
+            if (this.rankingButton != null)
+            {
+                this.rankingButton.onClick.RemoveListener(this.HandleRanking);
+            }
             this.closeButton.onClick.RemoveListener(this.Hide);
         }
 
@@ -97,6 +107,12 @@ namespace WordGame.UI
         {
             this.Hide();
             this.OnMatchHistoryClicked?.Invoke();
+        }
+
+        private void HandleRanking()
+        {
+            this.Hide();
+            this.OnRankingClicked?.Invoke();
         }
 
         private void LoadAvatar(string avatarData)
