@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +24,15 @@ public class MatchHistoryItem : MonoBehaviour
         // Format date
         if (this.dateText != null)
         {
-            var date = DateTime.Parse(data.completedAt);
+            // Parse as UTC time (server sends UTC time in ISO 8601 format)
+            var date = DateTime.Parse(data.completedAt, null, System.Globalization.DateTimeStyles.RoundtripKind);
+
+            // Convert to UTC if not already
+            if (date.Kind == DateTimeKind.Local)
+            {
+                date = date.ToUniversalTime();
+            }
+
             var timeSince = DateTime.UtcNow - date;
 
             if (timeSince.TotalDays < 1)
