@@ -15,6 +15,7 @@ public class UIScreenCategoryLevels : UIScreen
 	
 	public override void Initialize()
 	{
+		base.Initialize();
 		this.levelItemObjectPool = new ObjectPool(this.levelListItemPrefab.gameObject, 10, this.levelListContainer);
 	}
 	

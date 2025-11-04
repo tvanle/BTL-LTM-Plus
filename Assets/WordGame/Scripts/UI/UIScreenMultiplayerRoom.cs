@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -31,6 +32,10 @@ namespace WordGame.UI
 
         [Header("Category Icons (Optional - Assign in Inspector)")] [SerializeField]
         private Sprite[] categoryIconSprites = new Sprite[15];
+
+        [Header("Room Animation")]
+        [SerializeField] private float doorOpenDuration = 0.35f;
+        [SerializeField] private float scaleFrom = 0.8f;
 
         private Dictionary<string, GameObject> _playerListItems = new Dictionary<string, GameObject>();
         private bool _isHost;
@@ -65,6 +70,48 @@ namespace WordGame.UI
             this.leaveRoomButton.onClick.AddListener(this.HandleLeaveRoom);
 
             this.LoadCategoryIcons();
+        }
+
+        protected override void PlayShowAnimation()
+        {
+            // Door opening effect - scale + fade
+            this.StartCoroutine(this.DoorOpenEffect());
+        }
+
+        private IEnumerator DoorOpenEffect()
+        {
+            var canvasGroup = this.GetComponent<CanvasGroup>();
+            if (canvasGroup == null)
+            {
+                canvasGroup = this.gameObject.AddComponent<CanvasGroup>();
+            }
+
+            var rectT = this.RectT;
+            var elapsedTime = 0f;
+
+            // Start small and invisible
+            canvasGroup.alpha = 0f;
+            rectT.localScale = Vector3.one * this.scaleFrom;
+
+            // Door opening - smooth scale up
+            while (elapsedTime < this.doorOpenDuration)
+            {
+                elapsedTime += Time.deltaTime;
+                var progress = Mathf.Clamp01(elapsedTime / this.doorOpenDuration);
+
+                // Ease out quad
+                var smoothProgress = progress * (2f - progress);
+
+                canvasGroup.alpha = progress;
+                var scale = Mathf.Lerp(this.scaleFrom, 1.0f, smoothProgress);
+                rectT.localScale = Vector3.one * scale;
+
+                yield return null;
+            }
+
+            // Ensure final state
+            canvasGroup.alpha = 1f;
+            rectT.localScale = Vector3.one;
         }
 
         private void LoadCategoryIcons()

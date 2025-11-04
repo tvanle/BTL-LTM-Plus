@@ -20,6 +20,8 @@ public class UIScreenCompleteOverlay : UIScreen
 
 	public override void Initialize()
 	{
+		base.Initialize();
+
 		this.canvasGroup = this.GetComponent<CanvasGroup>();
 		if (this.canvasGroup == null)
 		{
