@@ -320,6 +320,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WordGame.UI.UIScreenMultiplayerRoom
   id: multiplayer_room
   worldObjects: []
+  enableShowAnimation: 1
+  fadeDuration: 0.15
   roomCodeText: {fileID: 6119498613124646177}
   playerListContainer: {fileID: 3353036511010444908}
   playerListItemPrefab: {fileID: 1518174320611077746, guid: 026bb52f4203d4e97a36b06a2b6057a3,
@@ -1493,6 +1495,7 @@ GameObject:
   - component: {fileID: 1156878988100784626}
   - component: {fileID: 7446386691461692027}
   - component: {fileID: 2652956475035330418}
+  - component: {fileID: 3811739184146342862}
   m_Layer: 5
   m_Name: WatingTitle
   m_TagString: Untagged
@@ -1619,6 +1622,28 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!95 &3811739184146342862
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479111179905935304}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25a5d039e5fa84942bd8e604e8ce3a76, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7267987468557795592
 GameObject:
   m_ObjectHideFlags: 0

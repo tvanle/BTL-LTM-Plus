@@ -684,7 +684,6 @@ MonoBehaviour:
   avatarImage: {fileID: 1474319700695147878}
   nameText: {fileID: 3643811677761197475}
   pointText: {fileID: 14027078439165105}
-  backgroundImage: {fileID: 5937118663458454769}
 --- !u!1 &7729869993354765820
 GameObject:
   m_ObjectHideFlags: 0

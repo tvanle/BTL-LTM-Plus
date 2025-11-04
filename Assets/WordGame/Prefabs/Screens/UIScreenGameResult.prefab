@@ -1009,6 +1009,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: game_result
   worldObjects: []
+  enableShowAnimation: 1
+  fadeDuration: 0.15
   rankText: {fileID: 1771766119870622786}
   usernameText: {fileID: 8369899332596980134}
   xpGainedText: {fileID: 1274254407202809740}
@@ -1029,6 +1031,7 @@ GameObject:
   - component: {fileID: 1309516614346443749}
   - component: {fileID: 4263824711812014581}
   - component: {fileID: 7240040172362710500}
+  - component: {fileID: 3583863296711696389}
   m_Layer: 0
   m_Name: TitleText
   m_TagString: Untagged
@@ -1155,6 +1158,28 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!95 &3583863296711696389
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5690448977210934842}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25a5d039e5fa84942bd8e604e8ce3a76, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5845992502177556715
 GameObject:
   m_ObjectHideFlags: 0

@@ -250,6 +250,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIScreenLeaderboard
   id: leaderboard
   worldObjects: []
+  enableShowAnimation: 1
+  fadeDuration: 0.15
   titleText: {fileID: 570881518858558407}
   leaderboardContainer: {fileID: 1333682355930720509}
   leaderboardItemPrefab: {fileID: 6771034623742637036, guid: b2fa05b79f25149b78448e0fa4e14bf6,
@@ -403,6 +405,7 @@ GameObject:
   - component: {fileID: 1696743299694315418}
   - component: {fileID: 5249419534121549039}
   - component: {fileID: 570881518858558407}
+  - component: {fileID: 473149334193942629}
   m_Layer: 0
   m_Name: TitleText
   m_TagString: Untagged
@@ -529,6 +532,28 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!95 &473149334193942629
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6942214989064053776}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25a5d039e5fa84942bd8e604e8ce3a76, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8773109539624270775
 GameObject:
   m_ObjectHideFlags: 0

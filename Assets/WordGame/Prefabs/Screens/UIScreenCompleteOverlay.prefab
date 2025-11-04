@@ -665,8 +665,8 @@ MonoBehaviour:
   scoreEarnedText: {fileID: 5719315078328618375}
   totalScoreText: {fileID: 8117279683760162197}
   streakText: {fileID: 3627207954025326410}
-  scaleBounceDuration: 0.6
-  itemDelay: 0.1
+  scaleBounceDuration: 0.3
+  itemDelay: 0.05
   scaleBounceCurve:
     serializedVersion: 2
     m_Curve:
