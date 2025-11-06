@@ -22,7 +22,6 @@ namespace WordGame.UI
         public event Action OnEditProfileClicked;
         public event Action OnLogoutClicked;
         public event Action OnMatchHistoryClicked;
-        public event Action OnRankingClicked;
 
         private void Start()
         {
@@ -112,7 +111,7 @@ namespace WordGame.UI
         private void HandleRanking()
         {
             this.Hide();
-            this.OnRankingClicked?.Invoke();
+            UIScreenController.Instance.Show(UIScreenController.GlobalRankingScreenId, false, true);
         }
 
         private void LoadAvatar(string avatarData)
