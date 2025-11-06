@@ -495,112 +495,6 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
     }
 
     // ============================================
-    // Friendships
-    // ============================================
-
-    public async Task<List<User>> GetUserFriendsAsync(Guid userId)
-    {
-        using var conn = GetConnection();
-        await conn.OpenAsync();
-
-        var cmd = new SqliteCommand(
-            @"SELECT u.* FROM users u
-              INNER JOIN friendships f ON (
-                  CASE
-                      WHEN f.user_id1 = @userId THEN f.user_id2
-                      ELSE f.user_id1
-                  END = u.id
-              )
-              WHERE (f.user_id1 = @userId OR f.user_id2 = @userId)
-              AND f.status = 'accepted'
-              ORDER BY u.is_online DESC, u.username ASC", conn);
-        cmd.Parameters.AddWithValue("@userId", userId.ToString());
-
-        var friends = new List<User>();
-        using var reader = await cmd.ExecuteReaderAsync();
-        while (await reader.ReadAsync())
-        {
-            friends.Add(MapUser(reader));
-        }
-        return friends;
-    }
-
-    public async Task<Friendship?> GetFriendshipAsync(Guid user1Id, Guid user2Id)
-    {
-        using var conn = GetConnection();
-        await conn.OpenAsync();
-
-        var cmd = new SqliteCommand(
-            @"SELECT * FROM friendships
-              WHERE (user_id1 = @user1 AND user_id2 = @user2)
-                 OR (user_id1 = @user2 AND user_id2 = @user1)", conn);
-        cmd.Parameters.AddWithValue("@user1", user1Id.ToString());
-        cmd.Parameters.AddWithValue("@user2", user2Id.ToString());
-
-        using var reader = await cmd.ExecuteReaderAsync();
-        if (await reader.ReadAsync())
-        {
-            return MapFriendship(reader);
-        }
-        return null;
-    }
-
-    public async Task<Friendship> CreateFriendshipRequestAsync(Guid requesterId, Guid receiverId)
-    {
-        using var conn = GetConnection();
-        await conn.OpenAsync();
-
-        var friendshipId = Guid.NewGuid();
-        var now = DateTime.UtcNow;
-
-        var cmd = new SqliteCommand(
-            @"INSERT INTO friendships (id, user_id1, user_id2, status, requester_id, created_at)
-              VALUES (@id, @user1, @user2, 'pending', @requester, @createdAt)", conn);
-        cmd.Parameters.AddWithValue("@id", friendshipId.ToString());
-        cmd.Parameters.AddWithValue("@user1", requesterId.ToString());
-        cmd.Parameters.AddWithValue("@user2", receiverId.ToString());
-        cmd.Parameters.AddWithValue("@requester", requesterId.ToString());
-        cmd.Parameters.AddWithValue("@createdAt", now.ToString("o"));
-
-        await cmd.ExecuteNonQueryAsync();
-
-        return new Friendship
-        {
-            Id = friendshipId,
-            UserId1 = requesterId,
-            UserId2 = receiverId,
-            Status = "pending",
-            RequesterId = requesterId,
-            CreatedAt = now
-        };
-    }
-
-    public async Task AcceptFriendshipAsync(Guid friendshipId)
-    {
-        using var conn = GetConnection();
-        await conn.OpenAsync();
-
-        var cmd = new SqliteCommand(
-            @"UPDATE friendships SET status = 'accepted', accepted_at = @acceptedAt
-              WHERE id = @id", conn);
-        cmd.Parameters.AddWithValue("@acceptedAt", DateTime.UtcNow.ToString("o"));
-        cmd.Parameters.AddWithValue("@id", friendshipId.ToString());
-
-        await cmd.ExecuteNonQueryAsync();
-    }
-
-    public async Task DeleteFriendshipAsync(Guid friendshipId)
-    {
-        using var conn = GetConnection();
-        await conn.OpenAsync();
-
-        var cmd = new SqliteCommand("DELETE FROM friendships WHERE id = @id", conn);
-        cmd.Parameters.AddWithValue("@id", friendshipId.ToString());
-
-        await cmd.ExecuteNonQueryAsync();
-    }
-
-    // ============================================
     // Match History
     // ============================================
 
@@ -767,20 +661,6 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
             AverageCompletionTime = reader.GetFloat(reader.GetOrdinal("average_completion_time")),
             RankPosition = reader.GetInt32(reader.GetOrdinal("rank_position")),
             TotalXP = reader.IsDBNull(reader.GetOrdinal("total_xp")) ? 0 : reader.GetInt32(reader.GetOrdinal("total_xp"))
-        };
-    }
-
-    private Friendship MapFriendship(IDataReader reader)
-    {
-        return new Friendship
-        {
-            Id = Guid.Parse(reader.GetString(reader.GetOrdinal("id"))),
-            UserId1 = Guid.Parse(reader.GetString(reader.GetOrdinal("user_id1"))),
-            UserId2 = Guid.Parse(reader.GetString(reader.GetOrdinal("user_id2"))),
-            Status = reader.GetString(reader.GetOrdinal("status")),
-            RequesterId = Guid.Parse(reader.GetString(reader.GetOrdinal("requester_id"))),
-            CreatedAt = DateTime.Parse(reader.GetString(reader.GetOrdinal("created_at"))),
-            AcceptedAt = reader.IsDBNull(reader.GetOrdinal("accepted_at")) ? null : DateTime.Parse(reader.GetString(reader.GetOrdinal("accepted_at")))
         };
     }
 

@@ -31,17 +31,6 @@ public class UserStats
     public int TotalXP { get; set; }
 }
 
-public class Friendship
-{
-    public Guid Id { get; set; }
-    public Guid UserId1 { get; set; }
-    public Guid UserId2 { get; set; }
-    public string Status { get; set; } = "pending"; // pending, accepted, blocked
-    public Guid RequesterId { get; set; }
-    public DateTime CreatedAt { get; set; }
-    public DateTime? AcceptedAt { get; set; }
-}
-
 public class GameInvitation
 {
     public Guid Id { get; set; }

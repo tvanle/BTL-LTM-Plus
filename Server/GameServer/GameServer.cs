@@ -119,23 +119,11 @@ public class GameServer
                 case "LEVEL_COMPLETED":
                     await this.HandleLevelCompleted(connection, message);
                     break;
-                case "GET_FRIENDS":
-                    await this.HandleGetFriends(connection);
-                    break;
                 case "GET_MATCH_HISTORY":
                     await this.HandleGetMatchHistory(connection);
                     break;
                 case "GET_RANKING":
                     await this.HandleGetRanking(connection, message);
-                    break;
-                case "ADD_FRIEND":
-                    await this.HandleAddFriend(connection, message);
-                    break;
-                case "ACCEPT_FRIEND":
-                    await this.HandleAcceptFriend(connection, message);
-                    break;
-                case "REMOVE_FRIEND":
-                    await this.HandleRemoveFriend(connection, message);
                     break;
                 case "HEARTBEAT":
                     await connection.SendAsync(new GameMessage { Type = "HEARTBEAT" });
@@ -1065,34 +1053,8 @@ public class GameServer
     }
 
     // ============================================
-    // Friends Handlers
+    // Match History & Ranking Handlers
     // ============================================
-
-    private async Task HandleGetFriends(ClientConnection connection)
-    {
-        if (!connection.UserId.HasValue)
-        {
-            throw new Exception("Not authenticated");
-        }
-
-        var friends = await this._database.GetUserFriendsAsync(connection.UserId.Value);
-
-        await connection.SendAsync(new GameMessage
-        {
-            Type = "FRIENDS_LIST",
-            Data = JsonSerializer.Serialize(new
-            {
-                friends = friends.Select(f => new
-                {
-                    id = f.Id,
-                    username = f.Username,
-                    displayName = f.DisplayName,
-                    avatarUrl = f.AvatarUrl,
-                    isOnline = f.IsOnline
-                })
-            })
-        });
-    }
 
     private async Task HandleGetMatchHistory(ClientConnection connection)
     {
@@ -1193,96 +1155,9 @@ public class GameServer
         Console.WriteLine($"Ranking sent for user: {connection.UserId}");
     }
 
-    private async Task HandleAddFriend(ClientConnection connection, GameMessage message)
-    {
-        if (!connection.UserId.HasValue)
-        {
-            throw new Exception("Not authenticated");
-        }
-
-        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        var data = JsonSerializer.Deserialize<AddFriendData>(message.Data, options);
-
-        if (data == null)
-        {
-            throw new Exception("Invalid data");
-        }
-
-        // Find friend by username
-        var friend = await this._database.GetUserByUsernameAsync(data.Username);
-        if (friend == null)
-        {
-            throw new Exception("User not found");
-        }
-
-        if (friend.Id == connection.UserId.Value)
-        {
-            throw new Exception("Cannot add yourself as friend");
-        }
-
-        // Check if friendship already exists
-        var existing = await this._database.GetFriendshipAsync(connection.UserId.Value, friend.Id);
-        if (existing != null)
-        {
-            throw new Exception("Friendship already exists");
-        }
-
-        // Create friendship request
-        var friendship = await this._database.CreateFriendshipRequestAsync(
-            connection.UserId.Value, friend.Id);
-
-        await connection.SendAsync(new GameMessage
-        {
-            Type = "FRIEND_REQUEST_SENT",
-            Data = JsonSerializer.Serialize(new { friendshipId = friendship.Id, username = friend.Username })
-        });
-
-        Console.WriteLine($"Friend request sent from {connection.UserId} to {friend.Username}");
-    }
-
-    private async Task HandleAcceptFriend(ClientConnection connection, GameMessage message)
-    {
-        if (!connection.UserId.HasValue)
-        {
-            throw new Exception("Not authenticated");
-        }
-
-        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        var data = JsonSerializer.Deserialize<AcceptFriendData>(message.Data, options);
-
-        if (data == null)
-        {
-            throw new Exception("Invalid data");
-        }
-
-        await this._database.AcceptFriendshipAsync(data.FriendshipId);
-
-        await connection.SendAsync(new GameMessage { Type = "FRIEND_REQUEST_ACCEPTED" });
-
-        Console.WriteLine($"Friend request accepted: {data.FriendshipId}");
-    }
-
-    private async Task HandleRemoveFriend(ClientConnection connection, GameMessage message)
-    {
-        if (!connection.UserId.HasValue)
-        {
-            throw new Exception("Not authenticated");
-        }
-
-        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        var data = JsonSerializer.Deserialize<RemoveFriendData>(message.Data, options);
-
-        if (data == null)
-        {
-            throw new Exception("Invalid data");
-        }
-
-        await this._database.DeleteFriendshipAsync(data.FriendshipId);
-
-        await connection.SendAsync(new GameMessage { Type = "FRIEND_REMOVED" });
-
-        Console.WriteLine($"Friendship removed: {data.FriendshipId}");
-    }
+    // ============================================
+    // Room Broadcasting Helpers
+    // ============================================
 
     private async Task BroadcastToRoom(GameRoom room, GameMessage message)
     {
@@ -1609,20 +1484,6 @@ public class UpdateProfileData
     public string? AvatarUrl { get; set; }
 }
 
-public class AddFriendData
-{
-    public string Username { get; set; } = string.Empty;
-}
-
-public class AcceptFriendData
-{
-    public Guid FriendshipId { get; set; }
-}
-
-public class RemoveFriendData
-{
-    public Guid FriendshipId { get; set; }
-}
 
 public class SendInviteData
 {
