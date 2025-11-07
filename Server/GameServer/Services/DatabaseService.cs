@@ -477,8 +477,8 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
         var cmd = new SqliteCommand(
             @"UPDATE user_stats SET
               total_score = total_score + @score,
-              best_score = GREATEST(best_score, @score),
-              best_streak = GREATEST(best_streak, @streak),
+              best_score = MAX(best_score, @score),
+              best_streak = MAX(best_streak, @streak),
               games_played = games_played + 1,
               games_won = games_won + @won,
               total_words_found = total_words_found + @words,
