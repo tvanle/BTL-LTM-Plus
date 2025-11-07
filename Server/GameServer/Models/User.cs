@@ -31,19 +31,6 @@ public class UserStats
     public int TotalXP { get; set; }
 }
 
-public class GameInvitation
-{
-    public Guid Id { get; set; }
-    public Guid SenderId { get; set; }
-    public Guid ReceiverId { get; set; }
-    public string? RoomCode { get; set; }
-    public string? Category { get; set; }
-    public string Status { get; set; } = "pending"; // pending, accepted, declined, expired
-    public DateTime? ExpiresAt { get; set; }
-    public DateTime CreatedAt { get; set; }
-    public DateTime? RespondedAt { get; set; }
-}
-
 public class MatchHistory
 {
     public Guid Id { get; set; }

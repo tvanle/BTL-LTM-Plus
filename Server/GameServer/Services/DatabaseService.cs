@@ -131,47 +131,6 @@ CREATE INDEX IF NOT EXISTS idx_user_id ON user_stats(user_id);
 CREATE INDEX IF NOT EXISTS idx_rank ON user_stats(rank_position);
 CREATE INDEX IF NOT EXISTS idx_total_score ON user_stats(total_score DESC);
 
--- Friendships Table (bidirectional)
-CREATE TABLE IF NOT EXISTS friendships (
-    id TEXT PRIMARY KEY,
-    user_id1 TEXT NOT NULL,
-    user_id2 TEXT NOT NULL,
-    status TEXT DEFAULT 'pending' CHECK(status IN ('pending', 'accepted', 'blocked')),
-    requester_id TEXT NOT NULL,
-    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-    accepted_at TEXT,
-    FOREIGN KEY (user_id1) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (user_id2) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (requester_id) REFERENCES users(id) ON DELETE CASCADE,
-    CHECK (user_id1 != user_id2),
-    UNIQUE(user_id1, user_id2)
-);
-
-CREATE INDEX IF NOT EXISTS idx_user_id1 ON friendships(user_id1);
-CREATE INDEX IF NOT EXISTS idx_user_id2 ON friendships(user_id2);
-CREATE INDEX IF NOT EXISTS idx_status ON friendships(status);
-CREATE INDEX IF NOT EXISTS idx_requester ON friendships(requester_id);
-
--- Game Invitations Table
-CREATE TABLE IF NOT EXISTS game_invitations (
-    id TEXT PRIMARY KEY,
-    sender_id TEXT NOT NULL,
-    receiver_id TEXT NOT NULL,
-    room_code TEXT,
-    category TEXT,
-    status TEXT DEFAULT 'pending' CHECK(status IN ('pending', 'accepted', 'declined', 'expired')),
-    expires_at TEXT,
-    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-    responded_at TEXT,
-    FOREIGN KEY (sender_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (receiver_id) REFERENCES users(id) ON DELETE CASCADE
-);
-
-CREATE INDEX IF NOT EXISTS idx_receiver_id ON game_invitations(receiver_id);
-CREATE INDEX IF NOT EXISTS idx_sender_id ON game_invitations(sender_id);
-CREATE INDEX IF NOT EXISTS idx_inv_status ON game_invitations(status);
-CREATE INDEX IF NOT EXISTS idx_expires_at ON game_invitations(expires_at);
-
 -- Match History Table
 CREATE TABLE IF NOT EXISTS match_history (
     id TEXT PRIMARY KEY,
