@@ -30,6 +30,8 @@ namespace WordGame.Network
         public event Action<string> OnError;
         public event Action<ScoreUpdateData> OnScoreUpdate;
         public event Action<Models.RankingData> OnRankingReceived;
+        public event Action<Models.OnlinePlayersResponse> OnOnlinePlayersReceived;
+        public event Action<Models.RoomInviteData> OnRoomInviteReceived;
 
         // Player and Room Info
         public string PlayerId { get; private set; }
@@ -184,6 +186,35 @@ namespace WordGame.Network
 
             await this.SendMessageAsync(message);
             Debug.Log($"[RANKING] Requested ranking (limit: {limit}, offset: {offset})");
+        }
+
+        public async Task GetOnlinePlayers()
+        {
+            var message = new GameMessage
+            {
+                Type = "GET_ONLINE_PLAYERS",
+                Data = ""
+            };
+
+            await this.SendMessageAsync(message);
+            Debug.Log("[ONLINE_PLAYERS] Requested online players list");
+        }
+
+        public async void SendInvite(string targetPlayerId)
+        {
+            var inviteData = new
+            {
+                TargetPlayerId = targetPlayerId
+            };
+
+            var message = new GameMessage
+            {
+                Type = "SEND_INVITE",
+                Data = JsonUtility.ToJson(inviteData)
+            };
+
+            await this.SendMessageAsync(message);
+            Debug.Log($"[SEND_INVITE] Sent invite to player {targetPlayerId}");
         }
 
         public async Task<bool> Login(string usernameOrEmail, string password)
@@ -533,6 +564,24 @@ namespace WordGame.Network
                         {
                             Debug.Log($"[RANKING] Received {rankingData.ranking?.Count ?? 0} entries");
                             this.OnRankingReceived?.Invoke(rankingData);
+                        }
+                        break;
+
+                    case "ONLINE_PLAYERS":
+                        var onlinePlayersData = JsonUtility.FromJson<Models.OnlinePlayersResponse>(message.Data);
+                        if (onlinePlayersData != null)
+                        {
+                            Debug.Log($"[ONLINE_PLAYERS] Received {onlinePlayersData.players?.Count ?? 0} online players");
+                            this.OnOnlinePlayersReceived?.Invoke(onlinePlayersData);
+                        }
+                        break;
+
+                    case "ROOM_INVITE":
+                        var inviteData = JsonUtility.FromJson<Models.RoomInviteData>(message.Data);
+                        if (inviteData != null)
+                        {
+                            Debug.Log($"[ROOM_INVITE] Received invite from {inviteData.inviterName} (room: {inviteData.roomCode})");
+                            this.OnRoomInviteReceived?.Invoke(inviteData);
                         }
                         break;
                     }

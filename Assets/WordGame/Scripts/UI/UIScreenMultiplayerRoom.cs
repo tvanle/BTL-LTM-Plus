@@ -18,9 +18,17 @@ namespace WordGame.UI
         private TextMeshProUGUI roomCodeText;
 
         [SerializeField] private Transform playerListContainer;
-        [SerializeField] private GameObject playerListItemPrefab;
+        [SerializeField] private GameObject roomPlayerListItemPrefab;
         [SerializeField] private Button startGameButton;
         [SerializeField] private Button leaveRoomButton;
+
+        [Header("Online Players Panel")]
+        [SerializeField] private GameObject onlinePlayersPanel;
+        [SerializeField] private Button toggleOnlinePlayersButton;
+        [SerializeField] private Transform onlinePlayersContainer;
+        [SerializeField] private GameObject onlinePlayerListItemPrefab;
+        [SerializeField] private GameObject invitationPopupPrefab;
+        [SerializeField] private Canvas mainCanvas;
 
         [Header("Room Info Display")] [SerializeField]
         private Image categoryIconImage;
@@ -34,8 +42,10 @@ namespace WordGame.UI
         private Sprite[] categoryIconSprites = new Sprite[15];
 
         private Dictionary<string, GameObject> _playerListItems = new Dictionary<string, GameObject>();
+        private Dictionary<string, GameObject> _onlinePlayerListItems = new Dictionary<string, GameObject>();
         private bool _isHost;
         private Dictionary<string, Sprite> _categoryIcons;
+        private bool _isOnlinePlayersPanelOpen;
 
         // Random notes for categories
         private readonly string[] _categoryNotes = new[]
@@ -60,10 +70,23 @@ namespace WordGame.UI
             if (this.networkManager != null)
             {
                 this.networkManager.OnMessageReceived += this.OnMessageReceived;
+                this.networkManager.OnOnlinePlayersReceived += this.OnOnlinePlayersReceived;
+                this.networkManager.OnRoomInviteReceived += this.OnRoomInviteReceived;
             }
 
             this.startGameButton.onClick.AddListener(this.HandleStartGame);
             this.leaveRoomButton.onClick.AddListener(this.HandleLeaveRoom);
+
+            if (this.toggleOnlinePlayersButton != null)
+            {
+                this.toggleOnlinePlayersButton.onClick.AddListener(this.ToggleOnlinePlayersPanel);
+            }
+
+            if (this.onlinePlayersPanel != null)
+            {
+                this.onlinePlayersPanel.SetActive(false);
+                this._isOnlinePlayersPanelOpen = false;
+            }
 
             this.LoadCategoryIcons();
         }
@@ -148,6 +171,9 @@ namespace WordGame.UI
                         : "Category 1";
                     this.UpdateRoomInfo(category, this.networkManager.RoomPlayers?.Count ?? 1,
                         this.networkManager.NumQuestions);
+
+                    // Request online players when showing the room
+                    _ = this.networkManager.GetOnlinePlayers();
                 }
             }
         }
@@ -277,9 +303,16 @@ namespace WordGame.UI
             this.startGameButton.onClick.RemoveAllListeners();
             this.leaveRoomButton.onClick.RemoveAllListeners();
 
+            if (this.toggleOnlinePlayersButton != null)
+            {
+                this.toggleOnlinePlayersButton.onClick.RemoveAllListeners();
+            }
+
             if (this.networkManager != null)
             {
                 this.networkManager.OnMessageReceived -= this.OnMessageReceived;
+                this.networkManager.OnOnlinePlayersReceived -= this.OnOnlinePlayersReceived;
+                this.networkManager.OnRoomInviteReceived -= this.OnRoomInviteReceived;
             }
         }
 
@@ -301,66 +334,19 @@ namespace WordGame.UI
 
             foreach (var player in players)
             {
-                var item = Instantiate(this.playerListItemPrefab, this.playerListContainer);
-                item.SetActive(true);
-
-                // Find PlayerName child
-                var playerNameTransform = item.transform.Find("PlayerName");
-                if (playerNameTransform != null)
+                if (this.roomPlayerListItemPrefab != null && this.playerListContainer != null)
                 {
-                    var nameText = playerNameTransform.GetComponent<TextMeshProUGUI>();
-                    if (nameText != null)
+                    var item = Instantiate(this.roomPlayerListItemPrefab, this.playerListContainer);
+                    item.SetActive(true);
+
+                    var roomPlayerListItem = item.GetComponent<RoomPlayerListItem>();
+                    if (roomPlayerListItem != null)
                     {
-                        nameText.text = player.Username;
+                        roomPlayerListItem.Setup(player.Username, player.AvatarUrl);
                     }
-                }
 
-                // Find PlayerAvatar child
-                var playerAvatarTransform = item.transform.Find("Icon");
-                if (playerAvatarTransform != null)
-                {
-                    var avatarImage = playerAvatarTransform.GetComponent<Image>();
-                    if (avatarImage != null)
-                    {
-                        this.LoadPlayerAvatar(avatarImage, player.AvatarUrl);
-                    }
+                    this._playerListItems[player.Id] = item;
                 }
-
-                this._playerListItems[player.Id] = item;
-            }
-        }
-
-        private void LoadPlayerAvatar(Image avatarImage, string avatarUrl)
-        {
-            if (string.IsNullOrEmpty(avatarUrl))
-            {
-                // Set default avatar
-                return;
-            }
-
-            try
-            {
-                var texture = ImagePicker.LoadTextureFromBase64(avatarUrl);
-                if (texture != null)
-                {
-                    var sprite = Sprite.Create(
-                        texture,
-                        new Rect(0, 0, texture.width, texture.height),
-                        new Vector2(0.5f, 0.5f)
-                    );
-                    avatarImage.sprite = sprite;
-                    avatarImage.color = Color.white;
-                }
-                else
-                {
-                    // Fallback to default
-                    avatarImage.color = new Color(0.7f, 0.7f, 0.7f);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.LogWarning($"Failed to load avatar: {ex.Message}");
-                avatarImage.color = new Color(0.7f, 0.7f, 0.7f);
             }
         }
 
@@ -407,6 +393,84 @@ namespace WordGame.UI
             if (this.numQuestionsText != null)
             {
                 this.numQuestionsText.text = $"{numQuestions} Words";
+            }
+        }
+
+        private async void ToggleOnlinePlayersPanel()
+        {
+            this._isOnlinePlayersPanelOpen = !this._isOnlinePlayersPanelOpen;
+
+            if (this.onlinePlayersPanel != null)
+            {
+                this.onlinePlayersPanel.SetActive(this._isOnlinePlayersPanelOpen);
+            }
+
+            // Request updated online players list when opening
+            if (this._isOnlinePlayersPanelOpen && this.networkManager != null)
+            {
+                await this.networkManager.GetOnlinePlayers();
+            }
+        }
+
+        private void OnOnlinePlayersReceived(OnlinePlayersResponse response)
+        {
+            if (response?.players == null)
+                return;
+
+            // Clear existing items
+            foreach (var kvp in this._onlinePlayerListItems)
+            {
+                Destroy(kvp.Value);
+            }
+            this._onlinePlayerListItems.Clear();
+
+            // Create new items for each online player
+            foreach (var player in response.players)
+            {
+                if (this.onlinePlayerListItemPrefab != null && this.onlinePlayersContainer != null)
+                {
+                    var item = Instantiate(this.onlinePlayerListItemPrefab, this.onlinePlayersContainer);
+                    item.SetActive(true);
+
+                    var onlinePlayerListItem = item.GetComponent<OnlinePlayerListItem>();
+                    if (onlinePlayerListItem != null)
+                    {
+                        onlinePlayerListItem.Setup(player);
+                    }
+
+                    this._onlinePlayerListItems[player.PlayerId] = item;
+                }
+            }
+
+            Debug.Log($"[ONLINE_PLAYERS] Updated list with {response.players.Count} players");
+        }
+
+        private void OnRoomInviteReceived(RoomInviteData inviteData)
+        {
+            if (inviteData == null || this.invitationPopupPrefab == null)
+                return;
+
+            Debug.Log($"[ROOM_INVITE] Received invite from {inviteData.inviterName}");
+
+            // Spawn invitation popup
+            Canvas targetCanvas = this.mainCanvas;
+            if (targetCanvas == null)
+            {
+                targetCanvas = FindObjectOfType<Canvas>();
+            }
+
+            if (targetCanvas != null)
+            {
+                var popup = Instantiate(this.invitationPopupPrefab, targetCanvas.transform);
+                var invitationPopup = popup.GetComponent<InvitationPopup>();
+                if (invitationPopup != null)
+                {
+                    invitationPopup.Setup(inviteData);
+                }
+            }
+            else
+            {
+                Debug.LogError("[ROOM_INVITE] No canvas found to spawn invitation popup!");
             }
         }
     }

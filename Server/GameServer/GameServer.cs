@@ -233,6 +233,7 @@ public class GameServer
 
         this._players[player.Id] = player;
         connection.PlayerId = player.Id;
+        connection.RoomCode = data.RoomCode;
         room.Players[player.Id] = player;
 
         await connection.SendAsync(new GameMessage
@@ -273,6 +274,7 @@ public class GameServer
 
         room.Players.TryRemove(player.Id, out _);
         player.RoomCode = null;
+        connection.RoomCode = null;
 
         await this.BroadcastToRoom(room, new GameMessage
         {
@@ -380,7 +382,8 @@ public class GameServer
             {
                 PlayerId = p.Id.ToString(),
                 Username = p.Username,
-                InRoom = !string.IsNullOrEmpty(p.RoomCode)
+                AvatarUrl = p.AvatarUrl,
+                Status = string.IsNullOrEmpty(p.RoomCode) ? "idle" : "in_game"
             })
             .ToList();
 
@@ -469,7 +472,9 @@ public class GameServer
             Type = "ROOM_INVITE",
             Data = JsonSerializer.Serialize(new
             {
+                inviterId = sender.Id.ToString(),
                 inviterName = sender.Username,
+                inviterAvatar = sender.AvatarUrl,
                 roomCode = sender.RoomCode
             })
         });
@@ -1313,6 +1318,7 @@ public class ClientConnection
     public Guid Id { get; }
     public Guid? PlayerId { get; set; }
     public Guid? UserId { get; set; } // Added for authentication
+    public string? RoomCode { get; set; } // Track if player is in a room
     private readonly TcpClient _tcpClient;
     private readonly NetworkStream _stream;
     private DateTime _lastHeartbeat;
