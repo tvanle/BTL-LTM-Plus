@@ -167,17 +167,19 @@ public class GameServer
             throw new Exception("User not found");
         }
 
-        // Use authenticated User ID as Player ID (not a new GUID!)
-        var player = new Player
+        // Get or create player (reuse if already exists from LOGIN)
+        if (!this._players.TryGetValue(connection.UserId.Value, out var player))
         {
-            Id = connection.UserId.Value,  // Use User.Id from authentication
-            ConnectionId = connection.Id,
-            Username = user.Username,
-            AvatarUrl = user.AvatarUrl
-        };
-
-        this._players[player.Id] = player;
-        connection.PlayerId = player.Id;
+            player = new Player
+            {
+                Id = connection.UserId.Value,
+                ConnectionId = connection.Id,
+                Username = user.Username,
+                AvatarUrl = user.AvatarUrl
+            };
+            this._players[player.Id] = player;
+            connection.PlayerId = player.Id;
+        }
 
         var roomCode = this.GenerateRoomCode();
         var room = new GameRoom
@@ -227,18 +229,22 @@ public class GameServer
             throw new Exception("User not found");
         }
 
-        // Use authenticated User ID as Player ID (not a new GUID!)
-        var player = new Player
+        // Get or create player (reuse if already exists from LOGIN)
+        if (!this._players.TryGetValue(connection.UserId.Value, out var player))
         {
-            Id = connection.UserId.Value,  // Use User.Id from authentication
-            ConnectionId = connection.Id,
-            Username = user.Username,
-            AvatarUrl = user.AvatarUrl,
-            RoomCode = data.RoomCode
-        };
+            player = new Player
+            {
+                Id = connection.UserId.Value,
+                ConnectionId = connection.Id,
+                Username = user.Username,
+                AvatarUrl = user.AvatarUrl
+            };
+            this._players[player.Id] = player;
+            connection.PlayerId = player.Id;
+        }
 
-        this._players[player.Id] = player;
-        connection.PlayerId = player.Id;
+        // Update player's room code
+        player.RoomCode = data.RoomCode;
         connection.RoomCode = data.RoomCode;
         room.Players[player.Id] = player;
 
@@ -867,6 +873,17 @@ public class GameServer
         {
             connection.UserId = result.User.Id;
 
+            // Create and register player in online players list
+            var player = new Player
+            {
+                Id = result.User.Id,
+                ConnectionId = connection.Id,
+                Username = result.User.Username,
+                AvatarUrl = result.User.AvatarUrl
+            };
+            this._players[player.Id] = player;
+            connection.PlayerId = player.Id;
+
             // Get user stats
             var stats = await this._database.GetUserStatsAsync(result.User.Id);
 
@@ -1019,6 +1036,17 @@ public class GameServer
 
             // Set connection user ID
             connection.UserId = user.Id;
+
+            // Create and register player in online players list
+            var player = new Player
+            {
+                Id = user.Id,
+                ConnectionId = connection.Id,
+                Username = user.Username,
+                AvatarUrl = user.AvatarUrl
+            };
+            this._players[player.Id] = player;
+            connection.PlayerId = player.Id;
 
             // Update user online status
             await this._database.UpdateUserOnlineStatusAsync(user.Id, true);
