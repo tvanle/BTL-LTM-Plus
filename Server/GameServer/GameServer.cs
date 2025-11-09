@@ -817,6 +817,20 @@ public class GameServer
 
         if (result.Success && result.User != null && result.Token != null)
         {
+            // Set connection user ID and create player (same as LOGIN)
+            connection.UserId = result.User.Id;
+
+            // Create and register player in online players list
+            var player = new Player
+            {
+                Id = result.User.Id,
+                ConnectionId = connection.Id,
+                Username = result.User.Username,
+                AvatarUrl = result.User.AvatarUrl
+            };
+            this._players[player.Id] = player;
+            connection.PlayerId = player.Id;
+
             // Get user stats
             var stats = await this._database.GetUserStatsAsync(result.User.Id);
 
