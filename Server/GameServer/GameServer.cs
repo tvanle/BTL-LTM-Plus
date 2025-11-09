@@ -125,6 +125,12 @@ public class GameServer
                 case "GET_RANKING":
                     await this.HandleGetRanking(connection, message);
                     break;
+                case "GET_ONLINE_PLAYERS":
+                    await this.HandleGetOnlinePlayers(connection);
+                    break;
+                case "SEND_INVITE":
+                    await this.HandleSendInvite(connection, message);
+                    break;
                 case "HEARTBEAT":
                     await connection.SendAsync(new GameMessage { Type = "HEARTBEAT" });
                     break;
