@@ -28,7 +28,6 @@ namespace WordGame.UI
         [SerializeField] private Transform onlinePlayersContainer;
         [SerializeField] private GameObject onlinePlayerListItemPrefab;
         [SerializeField] private GameObject invitationPopupPrefab;
-        [SerializeField] private Canvas mainCanvas;
 
         [Header("Room Info Display")] [SerializeField]
         private Image categoryIconImage;
@@ -453,11 +452,7 @@ namespace WordGame.UI
             Debug.Log($"[ROOM_INVITE] Received invite from {inviteData.inviterName}");
 
             // Spawn invitation popup
-            Canvas targetCanvas = this.mainCanvas;
-            if (targetCanvas == null)
-            {
-                targetCanvas = FindObjectOfType<Canvas>();
-            }
+            var targetCanvas = FindFirstObjectByType<Canvas>();
 
             if (targetCanvas != null)
             {
