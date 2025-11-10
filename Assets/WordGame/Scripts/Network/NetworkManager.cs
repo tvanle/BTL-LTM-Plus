@@ -202,7 +202,7 @@ namespace WordGame.Network
 
         public async void SendInvite(string targetPlayerId)
         {
-            var inviteData = new
+            var inviteData = new SendInviteData
             {
                 TargetPlayerId = targetPlayerId
             };
@@ -728,6 +728,12 @@ namespace WordGame.Network
         public class TokenAuthData
         {
             public string Token;
+        }
+
+        [Serializable]
+        public class SendInviteData
+        {
+            public string TargetPlayerId;
         }
     }
 }
