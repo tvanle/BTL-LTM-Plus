@@ -122,6 +122,9 @@ public class GameServer
                 case "GET_MATCH_HISTORY":
                     await this.HandleGetMatchHistory(connection);
                     break;
+                case "GET_MATCH_DETAILS":
+                    await this.HandleGetMatchDetails(connection, message);
+                    break;
                 case "GET_RANKING":
                     await this.HandleGetRanking(connection, message);
                     break;
@@ -1139,6 +1142,43 @@ public class GameServer
         Console.WriteLine($"Match history sent for user: {connection.UserId}");
     }
 
+    private async Task HandleGetMatchDetails(ClientConnection connection, GameMessage message)
+    {
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("Not authenticated");
+        }
+
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var requestData = JsonSerializer.Deserialize<MatchDetailRequest>(message.Data, options);
+
+        if (requestData == null || string.IsNullOrEmpty(requestData.MatchId))
+        {
+            throw new Exception("Match ID is required");
+        }
+
+        if (!Guid.TryParse(requestData.MatchId, out var matchId))
+        {
+            throw new Exception("Invalid match ID format");
+        }
+
+        // Get match details from database
+        var matchDetail = await this._database.GetMatchDetailsAsync(matchId);
+
+        if (matchDetail == null)
+        {
+            throw new Exception("Match not found");
+        }
+
+        await connection.SendAsync(new GameMessage
+        {
+            Type = "MATCH_DETAILS",
+            Data = JsonSerializer.Serialize(matchDetail)
+        });
+
+        Console.WriteLine($"Match details sent for match: {matchId}");
+    }
+
     private async Task HandleGetRanking(ClientConnection connection, GameMessage message)
     {
         if (!connection.UserId.HasValue)
@@ -1547,4 +1587,9 @@ public class SendInviteData
 public class TokenAuthData
 {
     public string Token { get; set; } = string.Empty;
+}
+
+public class MatchDetailRequest
+{
+    public string MatchId { get; set; } = string.Empty;
 }

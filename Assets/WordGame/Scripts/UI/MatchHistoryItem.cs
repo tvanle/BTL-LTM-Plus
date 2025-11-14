@@ -14,13 +14,44 @@ public class MatchHistoryItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI xpText;
     [SerializeField] private Image backgroundImage;
     [SerializeField] private Image resultIcon;
+    [SerializeField] private Button itemButton;
 
     [Header("Result Colors")]
     [SerializeField] private Color winColor = new Color(0.3f, 0.8f, 0.3f, 0.3f);
     [SerializeField] private Color loseColor = new Color(0.8f, 0.3f, 0.3f, 0.3f);
 
+    private MatchHistoryData matchData;
+    private MatchDetailPopup detailPopup;
+
+    private void Awake()
+    {
+        // Add button listener
+        if (this.itemButton != null)
+        {
+            this.itemButton.onClick.AddListener(this.OnItemClicked);
+        }
+        else
+        {
+            // If no button assigned, add it to this GameObject
+            var button = this.GetComponent<Button>();
+            if (button == null)
+            {
+                button = this.gameObject.AddComponent<Button>();
+            }
+            button.onClick.AddListener(this.OnItemClicked);
+        }
+    }
+
     public void Setup(MatchHistoryData data)
     {
+        this.matchData = data;
+
+        // Find detail popup if not cached
+        if (this.detailPopup == null)
+        {
+            this.detailPopup = FindFirstObjectByType<MatchDetailPopup>();
+        }
+
         // Format date
         if (this.dateText != null)
         {
@@ -86,6 +117,24 @@ public class MatchHistoryItem : MonoBehaviour
         {
             this.resultIcon.gameObject.SetActive(isWinner);
         }
+    }
+
+    private void OnItemClicked()
+    {
+        if (this.matchData == null || string.IsNullOrEmpty(this.matchData.matchId))
+        {
+            Debug.LogWarning("[MATCH_HISTORY_ITEM] No match data to show");
+            return;
+        }
+
+        if (this.detailPopup == null)
+        {
+            Debug.LogError("[MATCH_HISTORY_ITEM] MatchDetailPopup not found in scene");
+            return;
+        }
+
+        Debug.Log($"[MATCH_HISTORY_ITEM] Opening details for match {this.matchData.matchId}");
+        this.detailPopup.ShowMatchDetail(this.matchData.matchId);
     }
 }
 

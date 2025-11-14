@@ -728,4 +728,95 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
 
         return null;
     }
+
+    public async Task<MatchDetailDto?> GetMatchDetailsAsync(Guid matchId)
+    {
+        using var conn = GetConnection();
+        await conn.OpenAsync();
+
+        // Get match info
+        var matchCmd = new SqliteCommand(
+            @"SELECT id, room_code, category, completed_at, total_duration_seconds
+              FROM match_history
+              WHERE id = @matchId", conn);
+        matchCmd.Parameters.AddWithValue("@matchId", matchId.ToString());
+
+        MatchDetailDto? matchDetail = null;
+
+        using (var reader = await matchCmd.ExecuteReaderAsync())
+        {
+            if (await reader.ReadAsync())
+            {
+                matchDetail = new MatchDetailDto
+                {
+                    MatchId = Guid.Parse(reader.GetString(reader.GetOrdinal("id"))),
+                    RoomCode = reader.GetString(reader.GetOrdinal("room_code")),
+                    Category = reader.GetString(reader.GetOrdinal("category")),
+                    CompletedAt = reader.IsDBNull(reader.GetOrdinal("completed_at"))
+                        ? null : reader.GetString(reader.GetOrdinal("completed_at")),
+                    TotalDurationSeconds = reader.IsDBNull(reader.GetOrdinal("total_duration_seconds"))
+                        ? 0 : reader.GetInt32(reader.GetOrdinal("total_duration_seconds")),
+                    Players = new List<MatchPlayerDto>()
+                };
+            }
+        }
+
+        if (matchDetail == null)
+        {
+            return null;
+        }
+
+        // Get players info
+        var playersCmd = new SqliteCommand(
+            @"SELECT
+                mpr.user_id,
+                u.username,
+                u.display_name,
+                u.avatar_url,
+                mpr.final_score,
+                mpr.rank_position,
+                mpr.best_streak,
+                mpr.total_words_found,
+                mpr.completed_levels,
+                mpr.average_time_per_level,
+                mpr.xp_gained,
+                mh.winner_id
+              FROM match_player_results mpr
+              INNER JOIN users u ON mpr.user_id = u.id
+              INNER JOIN match_history mh ON mpr.match_id = mh.id
+              WHERE mpr.match_id = @matchId
+              ORDER BY mpr.rank_position ASC", conn);
+        playersCmd.Parameters.AddWithValue("@matchId", matchId.ToString());
+
+        using (var reader = await playersCmd.ExecuteReaderAsync())
+        {
+            while (await reader.ReadAsync())
+            {
+                var userId = Guid.Parse(reader.GetString(reader.GetOrdinal("user_id")));
+                var winnerId = reader.IsDBNull(reader.GetOrdinal("winner_id"))
+                    ? (Guid?)null
+                    : Guid.Parse(reader.GetString(reader.GetOrdinal("winner_id")));
+
+                matchDetail.Players.Add(new MatchPlayerDto
+                {
+                    UserId = userId,
+                    Username = reader.GetString(reader.GetOrdinal("username")),
+                    DisplayName = reader.IsDBNull(reader.GetOrdinal("display_name"))
+                        ? null : reader.GetString(reader.GetOrdinal("display_name")),
+                    AvatarUrl = reader.IsDBNull(reader.GetOrdinal("avatar_url"))
+                        ? null : reader.GetString(reader.GetOrdinal("avatar_url")),
+                    FinalScore = reader.GetInt32(reader.GetOrdinal("final_score")),
+                    RankPosition = reader.GetInt32(reader.GetOrdinal("rank_position")),
+                    BestStreak = reader.GetInt32(reader.GetOrdinal("best_streak")),
+                    TotalWordsFound = reader.GetInt32(reader.GetOrdinal("total_words_found")),
+                    CompletedLevels = reader.GetInt32(reader.GetOrdinal("completed_levels")),
+                    AverageTimePerLevel = reader.GetFloat(reader.GetOrdinal("average_time_per_level")),
+                    XpGained = reader.GetInt32(reader.GetOrdinal("xp_gained")),
+                    IsWinner = winnerId.HasValue && winnerId.Value == userId
+                });
+            }
+        }
+
+        return matchDetail;
+    }
 }
