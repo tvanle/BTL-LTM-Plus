@@ -804,7 +804,7 @@ MonoBehaviour:
   sfxSource: {fileID: 2003221718}
   musicSource: {fileID: 1987061391}
   buttonClick: {fileID: 8300000, guid: 1b2b05ddb59524f4c92c5b39b64b982f, type: 3}
-  screenTransition: {fileID: 8300000, guid: a481add2452d4a74b8ae96ca0f651339, type: 3}
+  screenTransition: {fileID: 0}
   wordCorrect: {fileID: 8300000, guid: c0fe7bf29476b0c459fd0e791ee3f66e, type: 3}
   wordCorrectLast: {fileID: 8300000, guid: 3f899375a2545ce4b8dfea7d0ad98ff6, type: 3}
   tileSounds:
@@ -827,8 +827,8 @@ MonoBehaviour:
   hint: {fileID: 0}
   hintSteps: []
   levelComplete: {fileID: 8300000, guid: 2dad4b9d0a777d447a8f0fbd3b91bb25, type: 3}
-  packComplete: {fileID: 8300000, guid: 2dad4b9d0a777d447a8f0fbd3b91bb25, type: 3}
-  chapterComplete: {fileID: 8300000, guid: e7dafe4425389f94f99a44d5cd3bd292, type: 3}
+  packComplete: {fileID: 0}
+  chapterComplete: {fileID: 0}
   backgroundMusic: {fileID: 8300000, guid: 57b4769fba1a1d946a8680b2b9e2df64, type: 3}
   sfxEnabled: 1
   musicEnabled: 1
