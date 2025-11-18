@@ -1,0 +1,23 @@
+{
+    "name": "WordGame.Services",
+    "rootNamespace": "WordGame.Services",
+    "references": [
+        "Firebase.App",
+        "Firebase.RemoteConfig",
+        "Firebase.Platform"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Firebase.App.dll",
+        "Firebase.RemoteConfig.dll",
+        "Firebase.Platform.dll",
+        "Firebase.TaskExtension.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

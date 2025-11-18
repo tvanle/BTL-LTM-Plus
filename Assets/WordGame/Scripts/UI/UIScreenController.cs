@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using WordGame.Network;
+using WordGame.UI;
+using WordGame.Services;
 
 public class UIScreenController : SingletonComponent<UIScreenController>
 {
     [SerializeField] private List<UIScreen> uiScreens;
+    [SerializeField] private UILoadingScreen loadingScreen;
 
     private NetworkManager networkManager;
 
@@ -29,6 +32,12 @@ public class UIScreenController : SingletonComponent<UIScreenController>
 
     private async void Start()
     {
+        // Show loading screen
+        if (this.loadingScreen != null)
+        {
+            this.loadingScreen.Show("Connecting to server...");
+        }
+
         // Initialize and hide all the screens
         for (var i = 0; i < this.uiScreens.Count; i++)
         {
@@ -36,25 +45,88 @@ public class UIScreenController : SingletonComponent<UIScreenController>
             this.uiScreens[i].gameObject.SetActive(false);
         }
 
-        // Connect to server first before showing any screen
+        // Step 1: Initialize Firebase Remote Config
+        if (this.loadingScreen != null)
+        {
+            this.loadingScreen.ShowStep(UILoadingScreen.LoadingStep.FetchingConfig);
+        }
+
+        Debug.Log("[UI] Initializing Firebase Remote Config...");
+        var configService = ServerConfigService.Instance;
+        if (configService != null)
+        {
+            var configLoaded = await configService.InitializeAsync();
+            if (!configLoaded)
+            {
+                Debug.LogWarning("[UI] Firebase config failed to load, using default settings");
+            }
+            else
+            {
+                Debug.Log($"[UI] Firebase config loaded: {configService.ServerHost}:{configService.ServerPort}");
+
+                // Check maintenance mode
+                if (configService.MaintenanceMode)
+                {
+                    Debug.LogWarning("[UI] Server is in maintenance mode");
+                    if (this.loadingScreen != null)
+                    {
+                        this.loadingScreen.SetStatus("Server is under maintenance. Please try again later.");
+                    }
+                    await System.Threading.Tasks.Task.Delay(3000);
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("[UI] ServerConfigService not found in scene!");
+        }
+
+        // Step 2: Connect to server
+        if (this.loadingScreen != null)
+        {
+            this.loadingScreen.ShowStep(UILoadingScreen.LoadingStep.Connecting);
+        }
+
+        bool isConnected = false;
         this.networkManager = NetworkManager.Instance;
         if (this.networkManager != null)
         {
-            await this.networkManager.ConnectAsync();
+            isConnected = await this.networkManager.ConnectAsync();
+            if (!isConnected)
+            {
+                Debug.LogError("[UI] Failed to connect to server");
+                if (this.loadingScreen != null)
+                {
+                    this.loadingScreen.SetStatus("Connection failed. Using offline mode.");
+                    await System.Threading.Tasks.Task.Delay(2000);
+                }
+            }
         }
 
-        // Check if user has saved auth token
+        // Step 3: Check auto-login (only if connected)
         var authToken  = PlayerPrefs.GetString("auth_token", "");
         var isLoggedIn = !string.IsNullOrEmpty(authToken);
 
-        // If logged in with token, authenticate with server
-        if (isLoggedIn && this.networkManager != null)
+        if (isLoggedIn && isConnected && this.networkManager != null)
         {
+            if (this.loadingScreen != null)
+            {
+                this.loadingScreen.ShowStep(UILoadingScreen.LoadingStep.Authenticating);
+            }
+
             Debug.Log("[AUTO-LOGIN] Authenticating with saved token...");
             await this.networkManager.AuthenticateWithToken(authToken);
-
+            
             // Wait a bit for server response
             await System.Threading.Tasks.Task.Delay(500);
+        }
+
+        // Hide loading screen
+        if (this.loadingScreen != null)
+        {
+            this.loadingScreen.SetProgress(1f);
+            await System.Threading.Tasks.Task.Delay(300);
+            this.loadingScreen.Hide();
         }
 
         // Show login screen if not logged in, otherwise show multiplayer menu

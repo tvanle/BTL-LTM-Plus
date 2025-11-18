@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
+using WordGame.Services;
 
 namespace WordGame.Network
 {
@@ -53,8 +54,33 @@ namespace WordGame.Network
         {
             try
             {
+                // Get server config from Firebase Remote Config (if available)
+                string targetHost = this.serverHost;  // Default from Inspector
+                int targetPort = this.serverPort;     // Default from Inspector
+
+                var configService = ServerConfigService.Instance;
+                if (configService != null && configService.IsConfigLoaded)
+                {
+                    targetHost = configService.ServerHost;
+                    targetPort = configService.ServerPort;
+                    Debug.Log($"[CLIENT] Using Firebase config: {targetHost}:{targetPort}");
+                }
+                else if (string.IsNullOrEmpty(this.serverHost))
+                {
+                    // Fallback to hardcoded default
+                    targetHost = "localhost";
+                    targetPort = 8080;
+                    Debug.LogWarning($"[CLIENT] Using hardcoded fallback: {targetHost}:{targetPort}");
+                }
+                else
+                {
+                    Debug.Log($"[CLIENT] Using Inspector config: {targetHost}:{targetPort}");
+                }
+
+                Debug.Log($"[CLIENT] Connecting to {targetHost}:{targetPort}...");
+                
                 this._tcpClient = new TcpClient();
-                await this._tcpClient.ConnectAsync(this.serverHost, this.serverPort);
+                await this._tcpClient.ConnectAsync(targetHost, targetPort);
                 this._stream = this._tcpClient.GetStream();
                 this._isConnected = true;
                 this._cancellationTokenSource = new CancellationTokenSource();
@@ -64,7 +90,7 @@ namespace WordGame.Network
                 _ = this.ReceiveMessagesTask();
                 _ = this.HeartbeatTask();
 
-                Debug.Log($"[CLIENT] Connected successfully at {DateTime.Now:HH:mm:ss.fff}");
+                Debug.Log($"[CLIENT] Connected successfully to {targetHost}:{targetPort} at {DateTime.Now:HH:mm:ss.fff}");
                 return true;
             }
             catch (Exception ex)

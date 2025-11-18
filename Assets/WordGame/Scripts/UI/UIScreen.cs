@@ -14,7 +14,7 @@ public class UIScreen : MonoBehaviour
 	[SerializeField] protected float fadeDuration = 0.15f;
 
 	private Coroutine currentAnimationCoroutine;
-	private CanvasGroup canvasGroup;
+	protected CanvasGroup canvasGroup;
 
 
 	public RectTransform RectT { get { return this.gameObject.GetComponent<RectTransform>(); } }
