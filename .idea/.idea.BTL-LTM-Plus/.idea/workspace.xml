@@ -5,18 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e4c2a72-4304-4c5d-889f-02afab2639ce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BTL-LTM-Plus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BTL-LTM-Plus/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.IOSResolver.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.IOSResolver.dll.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.JarResolver.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.JarResolver.dll.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.PackageManagerResolver.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.PackageManagerResolver.dll.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.VersionHandlerImpl.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.VersionHandlerImpl.dll.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/CHANGELOG.md.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/CHANGELOG.md.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/LICENSE.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/LICENSE.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/README.md.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/README.md.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/external-dependency-manager_version-1.2.186_manifest.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/external-dependency-manager_version-1.2.186_manifest.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Firebase/Editor/Firebase.Editor.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Firebase/Editor/Firebase.Editor.dll.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-analytics-unity/13.5.0/firebase-analytics-unity-13.5.0.pom" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-analytics-unity/13.5.0/firebase-analytics-unity-13.5.0.pom" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/13.5.0/firebase-app-unity-13.5.0.pom" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/13.5.0/firebase-app-unity-13.5.0.pom" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-config-unity/13.5.0/firebase-config-unity-13.5.0.pom" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-config-unity/13.5.0/firebase-config-unity-13.5.0.pom" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/WordGame/Sample/Font/MAG_medium_crosspromo SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Sample/Font/MAG_medium_crosspromo SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scenes/Main.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/NetworkManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenCompleteOverlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenCompleteOverlay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/UIScreenController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Texture2D/title.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Texture2D/title.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/MatchHistoryItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/MatchHistoryItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/GameServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/GameServer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.runtimeconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.runtimeconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.GlobalUsings.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.GlobalUsings.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/GameServer.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/ref/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/ref/GameServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/refint/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/Debug/net9.0/refint/GameServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/GameServer.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/GameServer.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/GameServer.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/GameServer.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/GameServer.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/GameServer.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/GameServer/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/obj/project.nuget.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +198,7 @@
       <workItem from="1757701120841" duration="473000" />
       <workItem from="1757701616069" duration="838000" />
       <workItem from="1758938963968" duration="24850000" />
-      <workItem from="1763425356090" duration="557000" />
+      <workItem from="1763425356090" duration="4457000" />
     </task>
     <task id="LOCAL-00001" summary="Add project documentation for multiplayer architecture and client gameplay details">
       <option name="closed" value="true" />
@@ -275,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759033181660</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="add firebase remote config">
+      <option name="closed" value="true" />
+      <created>1763426103998</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1763426103998</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,7 +352,8 @@
     <MESSAGE value="update prefab screens" />
     <MESSAGE value="Implement multiplayer UI screens and functionality" />
     <MESSAGE value="Add multiplayer functionality to UI screens and network management" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add multiplayer functionality to UI screens and network management" />
+    <MESSAGE value="add firebase remote config" />
+    <option name="LAST_COMMIT_MESSAGE" value="add firebase remote config" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
