@@ -1128,7 +1128,7 @@ public class GameServer
             {
                 history = history.Select(h => new
                 {
-                    matchId = h.MatchId,
+                    matchId = h.MatchId.ToString(),  // Explicit string conversion
                     category = h.Category,
                     completedAt = h.CompletedAt,
                     finalScore = h.FinalScore,
@@ -1139,7 +1139,7 @@ public class GameServer
             })
         });
 
-        Console.WriteLine($"Match history sent for user: {connection.UserId}");
+        Console.WriteLine($"Match history sent for user: {connection.UserId} ({history.Count} matches)");
     }
 
     private async Task HandleGetMatchDetails(ClientConnection connection, GameMessage message)
@@ -1170,10 +1170,33 @@ public class GameServer
             throw new Exception("Match not found");
         }
 
+        // Serialize with explicit lowercase properties for Unity JsonUtility
         await connection.SendAsync(new GameMessage
         {
             Type = "MATCH_DETAILS",
-            Data = JsonSerializer.Serialize(matchDetail)
+            Data = JsonSerializer.Serialize(new
+            {
+                matchId = matchDetail.MatchId.ToString(),
+                roomCode = matchDetail.RoomCode,
+                category = matchDetail.Category,
+                totalDurationSeconds = matchDetail.TotalDurationSeconds,
+                completedAt = matchDetail.CompletedAt,
+                players = matchDetail.Players.Select(p => new
+                {
+                    userId = p.UserId.ToString(),
+                    username = p.Username,
+                    displayName = p.DisplayName,
+                    avatarUrl = p.AvatarUrl,
+                    finalScore = p.FinalScore,
+                    rankPosition = p.RankPosition,
+                    bestStreak = p.BestStreak,
+                    totalWordsFound = p.TotalWordsFound,
+                    completedLevels = p.CompletedLevels,
+                    averageTimePerLevel = p.AverageTimePerLevel,
+                    xpGained = p.XpGained,
+                    isWinner = p.IsWinner
+                }).ToList()
+            })
         });
 
         Console.WriteLine($"Match details sent for match: {matchId}");

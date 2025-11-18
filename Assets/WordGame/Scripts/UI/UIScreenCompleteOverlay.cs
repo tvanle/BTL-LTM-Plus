@@ -16,19 +16,11 @@ public class UIScreenCompleteOverlay : UIScreen
 	[SerializeField] private float itemDelay = 0.1f; // Delay giữa các items
 	[SerializeField] private AnimationCurve scaleBounceCurve = AnimationCurve.EaseInOut(0, 0, 1, 1.2f);
 
-	private CanvasGroup canvasGroup;
 	private RectTransform rectTransform;
 
 	public override void Initialize()
 	{
 		base.Initialize();
-
-		this.canvasGroup = this.GetComponent<CanvasGroup>();
-		if (this.canvasGroup == null)
-		{
-			this.canvasGroup = this.gameObject.AddComponent<CanvasGroup>();
-		}
-
 		this.rectTransform = this.GetComponent<RectTransform>();
 	}
 
@@ -40,17 +32,7 @@ public class UIScreenCompleteOverlay : UIScreen
 
 	private IEnumerator StaggeredScaleAnimation()
 	{
-		// Ensure canvas group exists
-		if (this.canvasGroup == null)
-		{
-			this.canvasGroup = this.GetComponent<CanvasGroup>();
-			if (this.canvasGroup == null)
-			{
-				this.canvasGroup = this.gameObject.AddComponent<CanvasGroup>();
-			}
-		}
-
-		// Start visible
+		// Start visible (use CanvasGroup from base class)
 		this.canvasGroup.alpha = 1f;
 
 		// Collect all elements to animate

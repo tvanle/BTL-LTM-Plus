@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "974479239632",
+    "project_id": "ltmwordgame",
+    "storage_bucket": "ltmwordgame.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974479239632:android:44075ab4b6db03a3dd71d5",
+        "android_client_info": {
+          "package_name": "com.bilal.wordbrain"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOW0r3G8LokGTPbGOz6OKpk4MVFj5tSIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
+using WordGame.Services;
 
 namespace WordGame.Network
 {
@@ -53,8 +54,33 @@ namespace WordGame.Network
         {
             try
             {
+                // Get server config from Firebase Remote Config (if available)
+                string targetHost = this.serverHost;  // Default from Inspector
+                int targetPort = this.serverPort;     // Default from Inspector
+
+                var configService = ServerConfigService.Instance;
+                if (configService != null && configService.IsConfigLoaded)
+                {
+                    targetHost = configService.ServerHost;
+                    targetPort = configService.ServerPort;
+                    Debug.Log($"[CLIENT] Using Firebase config: {targetHost}:{targetPort}");
+                }
+                else if (string.IsNullOrEmpty(this.serverHost))
+                {
+                    // Fallback to hardcoded default
+                    targetHost = "localhost";
+                    targetPort = 8080;
+                    Debug.LogWarning($"[CLIENT] Using hardcoded fallback: {targetHost}:{targetPort}");
+                }
+                else
+                {
+                    Debug.Log($"[CLIENT] Using Inspector config: {targetHost}:{targetPort}");
+                }
+
+                Debug.Log($"[CLIENT] Connecting to {targetHost}:{targetPort}...");
+                
                 this._tcpClient = new TcpClient();
-                await this._tcpClient.ConnectAsync(this.serverHost, this.serverPort);
+                await this._tcpClient.ConnectAsync(targetHost, targetPort);
                 this._stream = this._tcpClient.GetStream();
                 this._isConnected = true;
                 this._cancellationTokenSource = new CancellationTokenSource();
@@ -64,7 +90,7 @@ namespace WordGame.Network
                 _ = this.ReceiveMessagesTask();
                 _ = this.HeartbeatTask();
 
-                Debug.Log($"[CLIENT] Connected successfully at {DateTime.Now:HH:mm:ss.fff}");
+                Debug.Log($"[CLIENT] Connected successfully to {targetHost}:{targetPort} at {DateTime.Now:HH:mm:ss.fff}");
                 return true;
             }
             catch (Exception ex)
@@ -310,7 +336,22 @@ namespace WordGame.Network
                     try
                     {
                         var wrapper = JsonUtility.FromJson<MatchHistoryWrapper>(response.Data);
-                        tcs.TrySetResult(wrapper.history);
+                        
+                        if (wrapper == null)
+                        {
+                            Debug.LogError("[MATCH_HISTORY] Wrapper is null!");
+                            tcs.TrySetResult(new List<MatchHistoryData>());
+                        }
+                        else if (wrapper.history == null)
+                        {
+                            Debug.LogError("[MATCH_HISTORY] History list is null!");
+                            tcs.TrySetResult(new List<MatchHistoryData>());
+                        }
+                        else
+                        {
+                            Debug.Log($"[MATCH_HISTORY] Parsed {wrapper.history.Count} matches");
+                            tcs.TrySetResult(wrapper.history);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -342,12 +383,16 @@ namespace WordGame.Network
 
         public async Task<MatchDetailData> GetMatchDetails(string matchId)
         {
-            var requestData = new MatchDetailRequestData { matchId = matchId };
-            var message = new GameMessage
-            {
+            Debug.Log($"[MATCH_DETAILS] Requesting details for match: {matchId}");
+            
+            var requestData = new MatchDetailRequest { matchId = matchId };
+            var message = new GameMessage 
+            { 
                 Type = "GET_MATCH_DETAILS",
                 Data = JsonUtility.ToJson(requestData)
             };
+
+            Debug.Log($"[MATCH_DETAILS] Request JSON: {message.Data}");
 
             // Create task completion source to wait for response
             var tcs = new TaskCompletionSource<MatchDetailData>();
@@ -359,20 +404,26 @@ namespace WordGame.Network
                 {
                     try
                     {
-                        var detail = JsonUtility.FromJson<MatchDetailData>(response.Data);
-                        tcs.TrySetResult(detail);
+                        Debug.Log($"[MATCH_DETAILS] Raw JSON received: {response.Data}");
+                        
+                        var matchDetail = JsonUtility.FromJson<MatchDetailData>(response.Data);
+                        
+                        if (matchDetail == null)
+                        {
+                            Debug.LogError("[MATCH_DETAILS] Match detail is null!");
+                            tcs.TrySetResult(null);
+                        }
+                        else
+                        {
+                            Debug.Log($"[MATCH_DETAILS] Parsed match {matchDetail.matchId} with {matchDetail.players?.Count ?? 0} players");
+                            tcs.TrySetResult(matchDetail);
+                        }
                     }
                     catch (Exception ex)
                     {
-                        Debug.LogError($"Error parsing match details: {ex.Message}");
+                        Debug.LogError($"[MATCH_DETAILS] Error parsing match details: {ex.Message}\nStack: {ex.StackTrace}");
                         tcs.TrySetResult(null);
                     }
-                    this.OnMessageReceived -= OnMessageHandler;
-                }
-                else if (response.Type == "ERROR")
-                {
-                    Debug.LogError($"Error getting match details: {response.Data}");
-                    tcs.TrySetResult(null);
                     this.OnMessageReceived -= OnMessageHandler;
                 }
             }
@@ -389,7 +440,7 @@ namespace WordGame.Network
             if (completedTask == timeoutTask)
             {
                 this.OnMessageReceived -= OnMessageHandler;
-                Debug.LogError("Get match details timed out");
+                Debug.LogError("[MATCH_DETAILS] Request timed out");
                 return null;
             }
 
@@ -781,12 +832,6 @@ namespace WordGame.Network
         }
 
         [Serializable]
-        private class MatchDetailRequestData
-        {
-            public string matchId;
-        }
-
-        [Serializable]
         public class TokenAuthData
         {
             public string Token;
@@ -796,6 +841,12 @@ namespace WordGame.Network
         public class SendInviteData
         {
             public string TargetPlayerId;
+        }
+
+        [Serializable]
+        private class MatchDetailRequest
+        {
+            public string matchId;
         }
     }
 }

@@ -46,6 +46,15 @@ public class MatchHistoryItem : MonoBehaviour
     {
         this.matchData = data;
 
+        // Debug log the match data
+        Debug.Log($"[MATCH_HISTORY_ITEM] Setup called with matchId: '{data?.matchId ?? "NULL"}', category: '{data?.category ?? "NULL"}'");
+
+        // Validate matchId
+        if (data == null || string.IsNullOrEmpty(data.matchId))
+        {
+            Debug.LogError($"[MATCH_HISTORY_ITEM] Invalid match data! matchId is null or empty");
+        }
+
         // Find detail popup if not cached
         if (this.detailPopup == null)
         {
