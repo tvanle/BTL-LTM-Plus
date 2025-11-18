@@ -500,13 +500,32 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
         using var conn = GetConnection();
         await conn.OpenAsync();
 
+        // Get started_at to calculate duration
+        var startedAt = DateTime.UtcNow;
+        var getStartCmd = new SqliteCommand(
+            "SELECT started_at FROM match_history WHERE id = @id", conn);
+        getStartCmd.Parameters.AddWithValue("@id", matchId.ToString());
+
+        using (var reader = await getStartCmd.ExecuteReaderAsync())
+        {
+            if (await reader.ReadAsync())
+            {
+                startedAt = DateTime.Parse(reader.GetString(0), null, System.Globalization.DateTimeStyles.RoundtripKind);
+            }
+        }
+
+        var completedAt = DateTime.UtcNow;
+        var totalDurationSeconds = (int)(completedAt - startedAt).TotalSeconds;
+
         var cmd = new SqliteCommand(
             @"UPDATE match_history SET
               winner_id = @winnerId,
-              completed_at = @completedAt
+              completed_at = @completedAt,
+              total_duration_seconds = @duration
               WHERE id = @id", conn);
         cmd.Parameters.AddWithValue("@winnerId", winnerId?.ToString() ?? (object)DBNull.Value);
-        cmd.Parameters.AddWithValue("@completedAt", DateTime.UtcNow.ToString("o"));
+        cmd.Parameters.AddWithValue("@completedAt", completedAt.ToString("o"));
+        cmd.Parameters.AddWithValue("@duration", totalDurationSeconds);
         cmd.Parameters.AddWithValue("@id", matchId.ToString());
 
         await cmd.ExecuteNonQueryAsync();
@@ -734,19 +753,24 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
         using var conn = GetConnection();
         await conn.OpenAsync();
 
-        // Get match info
+        // Get match info including winner_id
         var matchCmd = new SqliteCommand(
-            @"SELECT id, room_code, category, completed_at, total_duration_seconds
+            @"SELECT id, room_code, category, completed_at, total_duration_seconds, winner_id
               FROM match_history
               WHERE id = @matchId", conn);
         matchCmd.Parameters.AddWithValue("@matchId", matchId.ToString());
 
         MatchDetailDto? matchDetail = null;
+        Guid? winnerId = null;
 
         using (var reader = await matchCmd.ExecuteReaderAsync())
         {
             if (await reader.ReadAsync())
             {
+                winnerId = reader.IsDBNull(reader.GetOrdinal("winner_id"))
+                    ? null
+                    : Guid.Parse(reader.GetString(reader.GetOrdinal("winner_id")));
+
                 matchDetail = new MatchDetailDto
                 {
                     MatchId = Guid.Parse(reader.GetString(reader.GetOrdinal("id"))),
@@ -766,7 +790,7 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
             return null;
         }
 
-        // Get players info
+        // Get players info - optimized query without redundant JOIN
         var playersCmd = new SqliteCommand(
             @"SELECT
                 mpr.user_id,
@@ -779,11 +803,9 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
                 mpr.total_words_found,
                 mpr.completed_levels,
                 mpr.average_time_per_level,
-                mpr.xp_gained,
-                mh.winner_id
+                mpr.xp_gained
               FROM match_player_results mpr
               INNER JOIN users u ON mpr.user_id = u.id
-              INNER JOIN match_history mh ON mpr.match_id = mh.id
               WHERE mpr.match_id = @matchId
               ORDER BY mpr.rank_position ASC", conn);
         playersCmd.Parameters.AddWithValue("@matchId", matchId.ToString());
@@ -793,9 +815,6 @@ CREATE INDEX IF NOT EXISTS idx_st_expires_at ON session_tokens(expires_at);
             while (await reader.ReadAsync())
             {
                 var userId = Guid.Parse(reader.GetString(reader.GetOrdinal("user_id")));
-                var winnerId = reader.IsDBNull(reader.GetOrdinal("winner_id"))
-                    ? (Guid?)null
-                    : Guid.Parse(reader.GetString(reader.GetOrdinal("winner_id")));
 
                 matchDetail.Players.Add(new MatchPlayerDto
                 {
