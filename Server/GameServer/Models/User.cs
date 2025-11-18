@@ -95,3 +95,29 @@ public class LeaderboardEntryDto
     public int GamesWon { get; set; }
     public int Rank { get; set; }
 }
+
+public class MatchDetailDto
+{
+    public Guid MatchId { get; set; }
+    public string RoomCode { get; set; } = string.Empty;
+    public string Category { get; set; } = string.Empty;
+    public string? CompletedAt { get; set; }
+    public int TotalDurationSeconds { get; set; }
+    public List<MatchPlayerDto> Players { get; set; } = new List<MatchPlayerDto>();
+}
+
+public class MatchPlayerDto
+{
+    public Guid UserId { get; set; }
+    public string Username { get; set; } = string.Empty;
+    public string? DisplayName { get; set; }
+    public string? AvatarUrl { get; set; }
+    public int FinalScore { get; set; }
+    public int RankPosition { get; set; }
+    public int BestStreak { get; set; }
+    public int TotalWordsFound { get; set; }
+    public int CompletedLevels { get; set; }
+    public float AverageTimePerLevel { get; set; }
+    public int XpGained { get; set; }
+    public bool IsWinner { get; set; }
+}

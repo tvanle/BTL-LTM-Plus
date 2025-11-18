@@ -366,6 +366,62 @@ namespace WordGame.Network
             return await tcs.Task;
         }
 
+        public async Task<MatchDetailData> GetMatchDetails(string matchId)
+        {
+            var requestData = new MatchDetailRequestData { matchId = matchId };
+            var message = new GameMessage
+            {
+                Type = "GET_MATCH_DETAILS",
+                Data = JsonUtility.ToJson(requestData)
+            };
+
+            // Create task completion source to wait for response
+            var tcs = new TaskCompletionSource<MatchDetailData>();
+
+            // Subscribe to message received for this specific request
+            void OnMessageHandler(GameMessage response)
+            {
+                if (response.Type == "MATCH_DETAILS")
+                {
+                    try
+                    {
+                        var detail = JsonUtility.FromJson<MatchDetailData>(response.Data);
+                        tcs.TrySetResult(detail);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError($"Error parsing match details: {ex.Message}");
+                        tcs.TrySetResult(null);
+                    }
+                    this.OnMessageReceived -= OnMessageHandler;
+                }
+                else if (response.Type == "ERROR")
+                {
+                    Debug.LogError($"Error getting match details: {response.Data}");
+                    tcs.TrySetResult(null);
+                    this.OnMessageReceived -= OnMessageHandler;
+                }
+            }
+
+            this.OnMessageReceived += OnMessageHandler;
+
+            // Send request
+            await this.SendMessageAsync(message);
+
+            // Wait for response with timeout
+            var timeoutTask = Task.Delay(10000); // 10 second timeout
+            var completedTask = await Task.WhenAny(tcs.Task, timeoutTask);
+
+            if (completedTask == timeoutTask)
+            {
+                this.OnMessageReceived -= OnMessageHandler;
+                Debug.LogError("Get match details timed out");
+                return null;
+            }
+
+            return await tcs.Task;
+        }
+
         private async Task SendMessageAsync(GameMessage message)
         {
             if (!this._isConnected || this._stream == null)
@@ -748,6 +804,12 @@ namespace WordGame.Network
         private class MatchHistoryWrapper
         {
             public List<MatchHistoryData> history;
+        }
+
+        [Serializable]
+        private class MatchDetailRequestData
+        {
+            public string matchId;
         }
 
         [Serializable]
