@@ -8,12 +8,8 @@ public class MatchDetailPlayerItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI rankText;
     [SerializeField] private TextMeshProUGUI usernameText;
     [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private TextMeshProUGUI streakText;
-    [SerializeField] private TextMeshProUGUI wordsFoundText;
-    [SerializeField] private TextMeshProUGUI avgTimeText;
     [SerializeField] private TextMeshProUGUI xpText;
     [SerializeField] private Image backgroundImage;
-    [SerializeField] private Image crownIcon;
 
     [Header("Colors")]
     [SerializeField] private Color winnerColor = new Color(1f, 0.84f, 0f, 0.3f); // Gold
@@ -46,24 +42,6 @@ public class MatchDetailPlayerItem : MonoBehaviour
             this.scoreText.text = $"{data.finalScore} pts";
         }
 
-        // Streak
-        if (this.streakText != null)
-        {
-            this.streakText.text = $"Streak: {data.bestStreak}";
-        }
-
-        // Words found
-        if (this.wordsFoundText != null)
-        {
-            this.wordsFoundText.text = $"Words: {data.totalWordsFound}";
-        }
-
-        // Average time
-        if (this.avgTimeText != null)
-        {
-            this.avgTimeText.text = $"Avg: {data.averageTimePerLevel:F1}s";
-        }
-
         // XP gained
         if (this.xpText != null)
         {
@@ -74,12 +52,6 @@ public class MatchDetailPlayerItem : MonoBehaviour
         if (this.backgroundImage != null)
         {
             this.backgroundImage.color = data.isWinner ? this.winnerColor : this.normalColor;
-        }
-
-        // Crown icon for winner
-        if (this.crownIcon != null)
-        {
-            this.crownIcon.gameObject.SetActive(data.isWinner);
         }
     }
 }
