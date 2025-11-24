@@ -37,9 +37,14 @@ public class WordGrid : MonoBehaviour
 	[Tooltip("The amount of space between each row of tiles.")]
 	[SerializeField] private float			spaceBetweenRows;
 
+	[Header("VFX")]
+	[Tooltip("UIParticle prefab to spawn when word is completed (use GameObject/UI/ParticleSystem)")]
+	[SerializeField] private GameObject uiParticlePrefab;
+
 
 
 	private ObjectPool							tilePool;
+	private ObjectPool							particlePool;
 	private List<string>						currentWords;
 	private Dictionary<string, List<GridTile>>	allGridTiles;
 	private List<GameObject>					rowObjects;
@@ -51,7 +56,12 @@ public class WordGrid : MonoBehaviour
 		this.tilePool     = new ObjectPool(this.tilePrefab, 25, this.transform);
 		this.allGridTiles = new Dictionary<string, List<GridTile>>();
 		this.currentWords = new List<string>();
-		this.rowObjects      = new List<GameObject>();
+		this.rowObjects   = new List<GameObject>();
+
+		if (this.uiParticlePrefab != null)
+		{
+			this.particlePool = new ObjectPool(this.uiParticlePrefab, 5, this.transform);
+		}
 
 		this.SetupTileContainer();
 	}
@@ -186,7 +196,6 @@ public class WordGrid : MonoBehaviour
 		{
 			Debug.LogErrorFormat("There is no word \"{0}\" on the WordGrid. Hidding the GameTiles.", word);
 
-			// Just hide all the GameTiles and their letters
 			for (var i = 0; i < letterTiles.Count; i++)
 			{
 				letterTiles[i].gameObject.SetActive(false);
@@ -195,25 +204,34 @@ public class WordGrid : MonoBehaviour
 			return;
 		}
 
-		// Get the grid tiles for the word
+		// Calculate center position for particle
+		Vector3 wordCenterPos = Vector3.zero;
+		for (var i = 0; i < gridTiles.Count; i++)
+		{
+			RectTransform rt = gridTiles[i].gridTileObject.transform as RectTransform;
+			if (gridTiles[i].letterTileObject != null)
+			{
+				rt = gridTiles[i].letterTileObject.transform as RectTransform;
+			}
+			wordCenterPos += rt.position;
+		}
+		wordCenterPos /= gridTiles.Count;
 
-		// Loop through each of the LetterTiles and animate them to the location of the GridTile
+		// Animate letters
 		for (var i = 0; i < letterTiles.Count; i++)
 		{
 			gridTiles[i].displayed = true;
 
-			var letterTileRectT	= letterTiles[i].transform as RectTransform;
-			var gridTileRectT		= gridTiles[i].gridTileObject.transform as RectTransform;
+			var letterTileRectT = letterTiles[i].transform as RectTransform;
+			var gridTileRectT = gridTiles[i].gridTileObject.transform as RectTransform;
 
-			// This fixes an issue where if there was a saved hint letter shown, then when the word for the hint was found the letters would animate to the
-			// corner of the screen. This is because when the game started up the letterTile was automatically placed in the spot of the word grid tile and
-			// the grid tile was not positioned properly buy the layout components.
 			if (gridTiles[i].letterTileObject != null)
 			{
 				gridTileRectT = gridTiles[i].letterTileObject.transform as RectTransform;
 			}
 
-			this.TransitionAnimateOver(letterTileRectT, gridTileRectT, (i == 0) ? onTweenFinished : null);
+			bool isLastLetter = (i == letterTiles.Count - 1);
+			this.TransitionAnimateOver(letterTileRectT, gridTileRectT, (i == 0) ? onTweenFinished : null, isLastLetter ? wordCenterPos : Vector3.zero);
 		}
 	}
 
@@ -256,6 +274,11 @@ public class WordGrid : MonoBehaviour
 	/// </summary>
 	public void Reset()
 	{
+		if (this.particlePool != null)
+		{
+			this.particlePool.ReturnAllObjectsToPool();
+		}
+
 		foreach (var pair in this.allGridTiles)
 		{
 			for (var i = 0; i < pair.Value.Count; i++)
@@ -328,7 +351,7 @@ public class WordGrid : MonoBehaviour
 		letterTile.transform.SetParent(letterTileContainer.transform, false);
 	}
 
-	private void TransitionAnimateOver(RectTransform letterTileRectT, RectTransform wordTileRectT, Tween.OnTweenFinished onTweenFinished)
+	private void TransitionAnimateOver(RectTransform letterTileRectT, RectTransform wordTileRectT, Tween.OnTweenFinished onTweenFinished, Vector3 particleSpawnPos)
 	{
 		var duration = 400f;
 
@@ -340,7 +363,53 @@ public class WordGrid : MonoBehaviour
 		Tween.ScaleX(letterTileRectT, Tween.TweenStyle.EaseOut, letterTileRectT.localScale.x, xScale, duration);
 		Tween.ScaleY(letterTileRectT, Tween.TweenStyle.EaseOut, letterTileRectT.localScale.y, yScale, duration);
 		Tween.PositionX(letterTileRectT, Tween.TweenStyle.EaseOut, letterTileRectT.position.x, wordTileRectT.position.x, duration);
-		Tween.PositionY(letterTileRectT, Tween.TweenStyle.EaseOut, letterTileRectT.position.y, wordTileRectT.position.y, duration).SetFinishCallback(onTweenFinished);
+		Tween.PositionY(letterTileRectT, Tween.TweenStyle.EaseOut, letterTileRectT.position.y, wordTileRectT.position.y, duration).SetFinishCallback((tweenedObject, bundleObjects) =>
+		{
+			if (particleSpawnPos != Vector3.zero)
+			{
+				this.SpawnStarParticle(particleSpawnPos);
+			}
+
+			if (onTweenFinished != null)
+			{
+				onTweenFinished(tweenedObject, bundleObjects);
+			}
+		});
+	}
+
+	private void SpawnStarParticle(Vector3 worldPosition)
+	{
+		if (this.particlePool == null) return;
+
+		GameObject particleObj = this.particlePool.GetObject();
+		if (particleObj == null) return;
+
+		RectTransform particleRect = particleObj.transform as RectTransform;
+		particleRect.SetParent(this.animationContainer, false);
+		particleRect.position = worldPosition;
+
+		particleObj.SetActive(true);
+
+		ParticleSystem ps = particleObj.GetComponentInChildren<ParticleSystem>();
+		if (ps != null)
+		{
+			ps.Clear();
+			ps.Play();
+
+			float duration = ps.main.duration + ps.main.startLifetime.constantMax;
+			this.StartCoroutine(this.ReturnParticleToPool(particleObj, duration));
+		}
+	}
+
+	private System.Collections.IEnumerator ReturnParticleToPool(GameObject particleObj, float delay)
+	{
+		yield return new WaitForSeconds(delay);
+
+		if (particleObj != null)
+		{
+			particleObj.transform.SetParent(this.transform, false);
+			particleObj.SetActive(false);
+		}
 	}
 
 	/// <summary>

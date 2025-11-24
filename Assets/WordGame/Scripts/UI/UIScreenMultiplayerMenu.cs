@@ -12,62 +12,56 @@ namespace WordGame.UI
         private NetworkManager networkManager;
 
         [Header("UI References")] [SerializeField]
-        private TMP_InputField usernameInput;
+        private TMP_InputField roomCodeInput;
 
-        [SerializeField] private TMP_Dropdown categoryDropdown;
-        [SerializeField] private TMP_InputField roomCodeInput;
         [SerializeField] private Button createRoomButton;
         [SerializeField] private Button joinRoomButton;
-        [SerializeField] private Text statusText;
+        [SerializeField] private Button profileButton;
+        [SerializeField] private UIProfilePanel profilePanel;
 
         public override void Initialize()
         {
             base.Initialize();
 
-            networkManager = NetworkManager.Instance;
-            if (networkManager != null)
+            this.networkManager = NetworkManager.Instance;
+            if (this.networkManager != null)
             {
-                networkManager.OnConnected += OnConnected;
-                networkManager.OnDisconnected += OnDisconnected;
-                networkManager.OnError += OnError;
-                networkManager.OnMessageReceived += OnMessageReceived;
-
-                // Start connection
-                ConnectToServer();
+                this.networkManager.OnConnected += this.OnConnected;
+                this.networkManager.OnDisconnected += this.OnDisconnected;
+                this.networkManager.OnError += this.OnError;
+                this.networkManager.OnMessageReceived += this.OnMessageReceived;
             }
 
-            createRoomButton.onClick.AddListener(HandleCreateRoom);
-            joinRoomButton.onClick.AddListener(HandleJoinRoom);
+            this.createRoomButton.onClick.AddListener(this.HandleCreateRoom);
+            this.joinRoomButton.onClick.AddListener(this.HandleJoinRoom);
 
-            // Populate category dropdown
-            PopulateCategoryDropdown();
-        }
-
-        private async void ConnectToServer()
-        {
-            if (networkManager != null)
+            if (this.profileButton != null)
             {
-                var connected = await networkManager.ConnectAsync();
-                if (!connected)
-                {
-                    SetStatus("Failed to connect to server");
-                }
+                this.profileButton.onClick.AddListener(this.HandleProfileButton);
+            }
+
+            if (this.profilePanel != null)
+            {
+                this.profilePanel.OnEditProfileClicked += this.HandleEditProfile;
+                this.profilePanel.OnLogoutClicked += this.HandleLogout;
+                this.profilePanel.OnMatchHistoryClicked += this.HandleMatchHistory;
             }
         }
+
 
         private void OnConnected()
         {
-            SetStatus("Connected to server");
+            Toast.instance?.ShowMessage("Connected to server");
         }
 
         private void OnDisconnected()
         {
-            SetStatus("Disconnected from server");
+            Toast.instance?.ShowMessage("Disconnected from server");
         }
 
         private void OnError(string error)
         {
-            SetStatus($"Error: {error}");
+            Toast.instance?.ShowMessage($"Error: {error}", 3f);
         }
 
         private void OnMessageReceived(NetworkManager.GameMessage message)
@@ -75,11 +69,15 @@ namespace WordGame.UI
             switch (message.Type)
             {
                 case "ROOM_CREATED":
+                    // Play room created sound
+                    AudioManager.Instance.PlayRoomCreated();
                     UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false,
                         Tween.TweenStyle.EaseOut, null, true);
                     break;
 
                 case "ROOM_JOINED":
+                    // Play room joined sound
+                    AudioManager.Instance.PlayRoomCreated();
                     UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false,
                         Tween.TweenStyle.EaseOut, null, false);
                     break;
@@ -88,90 +86,137 @@ namespace WordGame.UI
 
         private void OnDestroy()
         {
-            createRoomButton.onClick.RemoveListener(HandleCreateRoom);
-            joinRoomButton.onClick.RemoveListener(HandleJoinRoom);
+            this.createRoomButton.onClick.RemoveListener(this.HandleCreateRoom);
+            this.joinRoomButton.onClick.RemoveListener(this.HandleJoinRoom);
 
-            if (networkManager != null)
+            if (this.profileButton != null)
             {
-                networkManager.OnConnected -= OnConnected;
-                networkManager.OnDisconnected -= OnDisconnected;
-                networkManager.OnError -= OnError;
-                networkManager.OnMessageReceived -= OnMessageReceived;
+                this.profileButton.onClick.RemoveListener(this.HandleProfileButton);
+            }
+
+            if (this.profilePanel != null)
+            {
+                this.profilePanel.OnEditProfileClicked -= this.HandleEditProfile;
+                this.profilePanel.OnLogoutClicked -= this.HandleLogout;
+                this.profilePanel.OnMatchHistoryClicked -= this.HandleMatchHistory;
+            }
+
+            if (this.networkManager != null)
+            {
+                this.networkManager.OnConnected -= this.OnConnected;
+                this.networkManager.OnDisconnected -= this.OnDisconnected;
+                this.networkManager.OnError -= this.OnError;
+                this.networkManager.OnMessageReceived -= this.OnMessageReceived;
             }
         }
 
-        private async void HandleCreateRoom()
+        private string GetCurrentUsername()
         {
-            var username = usernameInput.text.Trim();
-            var category = categoryDropdown != null && categoryDropdown.options.Count > 0
-                ? categoryDropdown.options[categoryDropdown.value].text
-                : "ANIMALS";
+            return PlayerPrefs.GetString("username", "");
+        }
+
+        private void HandleCreateRoom()
+        {
+            var username = this.GetCurrentUsername();
 
             if (string.IsNullOrEmpty(username))
             {
-                SetStatus("Please enter username");
+                Toast.instance?.ShowMessage("User not logged in");
                 return;
             }
 
-            if (networkManager != null)
+            // Show category selection screen with callback
+            UIScreenController.Instance.Show(
+                UIScreenController.CategoriesScreenId,
+                false,
+                true,
+                false,
+                Tween.TweenStyle.EaseOut,
+                null,
+                (Action<string>)this.CreateRoomWithCategory
+            );
+        }
+
+        private async void CreateRoomWithCategory(string category)
+        {
+            var username = this.GetCurrentUsername();
+
+            if (this.networkManager != null)
             {
-                await networkManager.CreateRoom(username, category);
+                await this.networkManager.CreateRoom(username, category);
             }
         }
 
         private async void HandleJoinRoom()
         {
-            var username = usernameInput.text.Trim();
-            var roomCode = roomCodeInput.text.Trim().ToUpper();
+            var username = this.GetCurrentUsername();
+            var roomCode = this.roomCodeInput.text.Trim().ToUpper();
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(roomCode))
+            if (string.IsNullOrEmpty(username))
             {
-                SetStatus("Please enter username and room code");
+                Toast.instance?.ShowMessage("User not logged in");
                 return;
             }
 
-            if (networkManager != null)
+            if (string.IsNullOrEmpty(roomCode))
             {
-                await networkManager.JoinRoom(roomCode, username);
+                Toast.instance?.ShowMessage("Please enter room code");
+                return;
             }
-        }
 
-        public void SetStatus(string message)
-        {
-            if (statusText != null)
+            if (this.networkManager != null)
             {
-                statusText.text = message;
+                await this.networkManager.JoinRoom(roomCode, username);
             }
         }
 
 
         public void ResetInputs()
         {
-            usernameInput.text = "";
-            roomCodeInput.text = "";
-            if (categoryDropdown != null && categoryDropdown.options.Count > 0)
+            this.roomCodeInput.text = "";
+        }
+
+        private void HandleProfileButton()
+        {
+            if (this.profilePanel != null)
             {
-                categoryDropdown.value = 0;
+                this.profilePanel.Show();
             }
         }
 
-        private void PopulateCategoryDropdown()
+        private void HandleEditProfile()
         {
-            if (categoryDropdown == null) return;
+            // TODO: Show Edit Profile screen
+            Toast.instance?.ShowMessage("Edit Profile - Coming soon");
+        }
 
-            categoryDropdown.ClearOptions();
-
-            // Get categories from GameManager if available
-            var categories = new List<string>();
-            foreach (var categoryInfo in GameManager.Instance.CategoryInfos)
+        private async void HandleLogout()
+        {
+            // Send logout message to server to invalidate session
+            if (this.networkManager != null)
             {
-                if (categoryInfo.name != GameManager.dailyPuzzleId)
-                {
-                    categories.Add(categoryInfo.name);
-                }
+                await this.networkManager.Logout();
             }
 
-            categoryDropdown.AddOptions(categories);
+            // Clear stored credentials
+            PlayerPrefs.DeleteKey("auth_token");
+            PlayerPrefs.DeleteKey("user_id");
+            PlayerPrefs.DeleteKey("username");
+            PlayerPrefs.DeleteKey("avatar_url");
+            PlayerPrefs.Save();
+
+            // Note: Connection stays alive for faster re-login
+            // Server invalidates session token but keeps connection
+
+            // Go back to login screen
+            UIScreenController.Instance.Show(UIScreenController.LoginScreenId, true);
+
+            Toast.instance?.ShowMessage("Logged out successfully");
+        }
+
+        private void HandleMatchHistory()
+        {
+            UIScreenController.Instance.Show(UIScreenController.MatchHistoryScreenId);
         }
     }
 }

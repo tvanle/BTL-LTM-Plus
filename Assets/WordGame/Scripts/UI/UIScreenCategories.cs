@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class UIScreenCategories : UIScreen
 {
@@ -7,20 +8,31 @@ public class UIScreenCategories : UIScreen
 	[SerializeField] private Transform			categoriesListContainer;
 	[SerializeField] private CategoryListItem	categoryListItemPrefab;
 
-
-
 	private ObjectPool categoryItemObjectPool;
+
+	public Action<string> OnCategorySelected { get; set; }
 
 
 
 	public override void Initialize()
 	{
+		base.Initialize();
 		this.categoryItemObjectPool = new ObjectPool(this.categoryListItemPrefab.gameObject, 10, this.categoriesListContainer);
 	}
 
-	public override void OnShowing(object data)
+	protected override void OnShowingContent(object data)
 	{
 		this.categoryItemObjectPool.ReturnAllObjectsToPool();
+
+		// Reset callback if not provided in data
+		if (data is Action<string> callback)
+		{
+			this.OnCategorySelected = callback;
+		}
+		else
+		{
+			this.OnCategorySelected = null;
+		}
 
 		for (var i = 0; i < GameManager.Instance.CategoryInfos.Count; i++)
 		{
@@ -34,15 +46,14 @@ public class UIScreenCategories : UIScreen
 
 			var categoryListItem = this.categoryItemObjectPool.GetObject().GetComponent<CategoryListItem>();
 
-			categoryListItem.Setup(categoryInfo);
+			categoryListItem.Setup(categoryInfo, this);
 			categoryListItem.gameObject.SetActive(true);
 		}
 	}
 
 	public override void OnBackClicked()
 	{
-		// Go back to main screen
-		UIScreenController.Instance.Show(UIScreenController.MainScreenId, true);
+		UIScreenController.Instance.Show(UIScreenController.MultiplayerMenuScreenId, true);
 	}
 
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using System.Linq;
 
 public class UIScreenMain : UIScreen
@@ -10,14 +11,10 @@ public class UIScreenMain : UIScreen
 	[SerializeField] private Text			continueBtnBottomText;
 	[SerializeField] private Image			continueBtnImage;
 
-
-
 	private string	continueBtnCategory;
 	private int		continueBtnLevelIndex;
 
-
-
-	public override void OnShowing(object data)
+	protected override void OnShowingContent(object data)
 	{
 		// Set progress to 100% as all levels are now unlocked
 		this.progressRing.SetProgress(1.0f);

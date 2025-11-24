@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using WordBrainServer;
@@ -8,7 +9,13 @@ Console.WriteLine("=====================");
 
 var port = args.Length > 0 && int.TryParse(args[0], out var p) ? p : 8080;
 
-var server = new GameServer(port);
+// Connection string for SQLite (database file will be created automatically)
+var dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "word_game.db");
+var connectionString = $"Data Source={dbPath}";
+
+Console.WriteLine($"Database: {dbPath}");
+
+var server = new WordBrainServer.GameServer(port, connectionString);
 
 // Start server in background
 var serverTask = Task.Run(async () => await server.StartAsync());

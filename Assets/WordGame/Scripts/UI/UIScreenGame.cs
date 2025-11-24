@@ -8,7 +8,6 @@ using WordGame.Network.Models;
 public class UIScreenGame : UIScreen
 {
 
-	[SerializeField] private Text 			categoryText;
 	[SerializeField] private Text 			levelText;
 	[SerializeField] private Image			iconImage;
 	[SerializeField] private Text 			hintBtnText;
@@ -16,11 +15,10 @@ public class UIScreenGame : UIScreen
 	[SerializeField] private LetterBoard	letterBoard;
 	[SerializeField] private TextMeshProUGUI timerText;
 
-	private bool isMultiplayer = false;
 	private float levelTimer;
 	private bool isLevelActive;
 	private NetworkManager networkManager;
-	
+
 
 
 	private void Update()
@@ -28,21 +26,21 @@ public class UIScreenGame : UIScreen
 		this.hintBtnText.text = $"HINT ({GameManager.Instance.CurrentHints})";
 
 		// Update multiplayer timer
-		if (isMultiplayer && isLevelActive && levelTimer > 0)
+		if (this.isLevelActive && this.levelTimer > 0)
 		{
-			levelTimer -= Time.deltaTime;
-			if (timerText != null && timerText.gameObject.activeSelf)
+			this.levelTimer -= Time.deltaTime;
+			if (this.timerText != null && this.timerText.gameObject.activeSelf)
 			{
-				timerText.text = $"Time: {Mathf.RoundToInt(levelTimer)}";
+				this.timerText.text = $"Time: {Mathf.RoundToInt(this.levelTimer)}";
 			}
 
-			if (levelTimer <= 0)
+			if (this.levelTimer <= 0)
 			{
-				levelTimer = 0;
-				isLevelActive = false;
-				if (timerText != null)
+				this.levelTimer = 0;
+				this.isLevelActive = false;
+				if (this.timerText != null)
 				{
-					timerText.text = "Time's up!";
+					this.timerText.text = "Time's up!";
 				}
 			}
 		}
@@ -52,6 +50,8 @@ public class UIScreenGame : UIScreen
 
 	public override void Initialize()
 	{
+		base.Initialize();
+
 		this.selectedWordText.text = "";
 
 		this.letterBoard.OnSelectedWordChanged += (string word) =>
@@ -60,23 +60,50 @@ public class UIScreenGame : UIScreen
 		};
 
 		// Get reference to NetworkManager
-		networkManager = NetworkManager.Instance;
+		this.networkManager = NetworkManager.Instance;
 	}
 
-	public override void OnShowing(object data)
+	protected override void OnShowingContent(object data)
 	{
 		// Check if this is multiplayer game data
 		if (data is GameStartData gameData)
 		{
-			StartMultiplayerLevel(gameData);
+			this.StartMultiplayerLevel(gameData);
 			return;
 		}
 
-		// Normal single player flow
-		var categoryInfo = GameManager.Instance.GetCategoryInfo(GameManager.Instance.ActiveCategory);
+	}
 
-		this.categoryText.text = GameManager.Instance.ActiveCategory.ToUpper();
-		this.hintBtnText.text  = $"HINT ({GameManager.Instance.CurrentHints})";
+	public override void OnBackClicked()
+	{
+		if (!GameManager.Instance.AnimatingWord)
+		{
+			this.LeaveMultiplayerGame();
+		}
+	}
+
+	private async void LeaveMultiplayerGame()
+	{
+		await this.networkManager.LeaveRoom();
+		this.ResetMultiplayer();
+		UIScreenController.Instance.Show(UIScreenController.MultiplayerMenuScreenId, true);
+	}
+
+	// Multiplayer methods
+	public void StartMultiplayerLevel(GameStartData gameData)
+	{
+		this.isLevelActive = true;
+		this.levelTimer       = 60; //Default
+
+		// Show timer for multiplayer
+		if (this.timerText != null)
+		{
+			this.timerText.gameObject.SetActive(true);
+			this.timerText.text = $"Time: {this.levelTimer}";
+		}
+
+		this.levelText.text = $"Level {gameData.level}";
+		var categoryInfo = GameManager.Instance.GetCategoryInfo(gameData.category);
 
 		// Only set icon if categoryInfo exists
 		if (categoryInfo != null && categoryInfo.icon != null)
@@ -84,67 +111,17 @@ public class UIScreenGame : UIScreen
 			this.iconImage.sprite = categoryInfo.icon;
 		}
 
-		if (GameManager.Instance.ActiveCategory == GameManager.dailyPuzzleId)
-		{
-			this.levelText.text = $"COMPLETE TO GAIN {GameConfig.instance.completeDailyPuzzleAward} HINT";
-		}
-		else
-		{
-			this.levelText.text = $"LEVEL {GameManager.Instance.ActiveLevelIndex + 1}";
-		}
-
-	}
-	
-	public override void OnBackClicked()
-	{
-		if (!GameManager.Instance.AnimatingWord)
-		{
-			if (isMultiplayer)
-			{
-				// Don't allow back during multiplayer game
-				return;
-			}
-
-			if (GameManager.Instance.ActiveCategory == GameManager.dailyPuzzleId)
-			{
-				UIScreenController.Instance.Show(UIScreenController.MainScreenId, true);
-			}
-			else
-			{
-				UIScreenController.Instance.Show(UIScreenController.CategoryLevelsScreenId, true, true, false, Tween.TweenStyle.EaseOut, null, GameManager.Instance.ActiveCategory);
-			}
-		}
-	}
-
-	// Multiplayer methods
-	public void StartMultiplayerLevel(GameStartData gameData)
-	{
-		isMultiplayer = true;
-		isLevelActive = true;
-		levelTimer = 60; //Default
-
-		// Show timer for multiplayer
-		if (timerText != null)
-		{
-			timerText.gameObject.SetActive(true);
-			timerText.text = $"Time: {levelTimer}";
-		}
-
-		levelText.text = $"Level {gameData.level}";
-		categoryText.text = gameData.category?.ToUpper() ?? "MULTIPLAYER";
-
 		// The board is already loaded by GameManager.StartLevel()
 	}
 
 	public void ResetMultiplayer()
 	{
-		isMultiplayer = false;
-		isLevelActive = false;
-		levelTimer = 0;
+		this.isLevelActive = false;
+		this.levelTimer       = 0;
 
-		if (timerText != null)
+		if (this.timerText != null)
 		{
-			timerText.gameObject.SetActive(false);
+			this.timerText.gameObject.SetActive(false);
 		}
 	}
 

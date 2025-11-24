@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
+using WordGame.Services;
 
 namespace WordGame.Network
 {
@@ -29,6 +30,9 @@ namespace WordGame.Network
         public event Action OnDisconnected;
         public event Action<string> OnError;
         public event Action<ScoreUpdateData> OnScoreUpdate;
+        public event Action<Models.RankingData> OnRankingReceived;
+        public event Action<Models.OnlinePlayersResponse> OnOnlinePlayersReceived;
+        public event Action<Models.RoomInviteData> OnRoomInviteReceived;
 
         // Player and Room Info
         public string PlayerId { get; private set; }
@@ -39,12 +43,6 @@ namespace WordGame.Network
 
         private void Awake()
         {
-            if (instance != null && instance != this)
-            {
-                Destroy(this.gameObject);
-                return;
-            }
-
             instance = this;
             DontDestroyOnLoad(this.gameObject);
 
@@ -56,8 +54,33 @@ namespace WordGame.Network
         {
             try
             {
+                // Get server config from Firebase Remote Config (if available)
+                string targetHost = this.serverHost;  // Default from Inspector
+                int targetPort = this.serverPort;     // Default from Inspector
+
+                var configService = ServerConfigService.Instance;
+                if (configService != null && configService.IsConfigLoaded)
+                {
+                    targetHost = configService.ServerHost;
+                    targetPort = configService.ServerPort;
+                    Debug.Log($"[CLIENT] Using Firebase config: {targetHost}:{targetPort}");
+                }
+                else if (string.IsNullOrEmpty(this.serverHost))
+                {
+                    // Fallback to hardcoded default
+                    targetHost = "localhost";
+                    targetPort = 8080;
+                    Debug.LogWarning($"[CLIENT] Using hardcoded fallback: {targetHost}:{targetPort}");
+                }
+                else
+                {
+                    Debug.Log($"[CLIENT] Using Inspector config: {targetHost}:{targetPort}");
+                }
+
+                Debug.Log($"[CLIENT] Connecting to {targetHost}:{targetPort}...");
+                
                 this._tcpClient = new TcpClient();
-                await this._tcpClient.ConnectAsync(this.serverHost, this.serverPort);
+                await this._tcpClient.ConnectAsync(targetHost, targetPort);
                 this._stream = this._tcpClient.GetStream();
                 this._isConnected = true;
                 this._cancellationTokenSource = new CancellationTokenSource();
@@ -67,7 +90,7 @@ namespace WordGame.Network
                 _ = this.ReceiveMessagesTask();
                 _ = this.HeartbeatTask();
 
-                Debug.Log($"[CLIENT] Connected successfully at {DateTime.Now:HH:mm:ss.fff}");
+                Debug.Log($"[CLIENT] Connected successfully to {targetHost}:{targetPort} at {DateTime.Now:HH:mm:ss.fff}");
                 return true;
             }
             catch (Exception ex)
@@ -173,6 +196,256 @@ namespace WordGame.Network
             await this.SendMessageAsync(message);
         }
 
+        public async Task RequestRanking(int limit = 100, int offset = 0)
+        {
+            var requestData = new
+            {
+                limit = limit,
+                offset = offset
+            };
+
+            var message = new GameMessage
+            {
+                Type = "GET_RANKING",
+                Data = JsonUtility.ToJson(requestData)
+            };
+
+            await this.SendMessageAsync(message);
+            Debug.Log($"[RANKING] Requested ranking (limit: {limit}, offset: {offset})");
+        }
+
+        public async Task GetOnlinePlayers()
+        {
+            var message = new GameMessage
+            {
+                Type = "GET_ONLINE_PLAYERS",
+                Data = ""
+            };
+
+            await this.SendMessageAsync(message);
+            Debug.Log("[ONLINE_PLAYERS] Requested online players list");
+        }
+
+        public async void SendInvite(string targetPlayerId)
+        {
+            var inviteData = new SendInviteData
+            {
+                TargetPlayerId = targetPlayerId
+            };
+
+            var message = new GameMessage
+            {
+                Type = "SEND_INVITE",
+                Data = JsonUtility.ToJson(inviteData)
+            };
+
+            await this.SendMessageAsync(message);
+            Debug.Log($"[SEND_INVITE] Sent invite to player {targetPlayerId}");
+        }
+
+        public async Task<bool> Login(string usernameOrEmail, string password)
+        {
+            var loginData = new LoginData
+            {
+                UsernameOrEmail = usernameOrEmail,
+                Password = password
+            };
+
+            var message = new GameMessage
+            {
+                Type = "LOGIN",
+                Data = JsonUtility.ToJson(loginData)
+            };
+
+            await this.SendMessageAsync(message);
+            return true;
+        }
+
+        public async Task<bool> Register(string username, string email, string password)
+        {
+            var registerData = new RegisterData
+            {
+                Username = username,
+                Email = email,
+                Password = password
+            };
+
+            var message = new GameMessage
+            {
+                Type = "REGISTER",
+                Data = JsonUtility.ToJson(registerData)
+            };
+
+            await this.SendMessageAsync(message);
+            return true;
+        }
+
+        public async Task Logout()
+        {
+            var message = new GameMessage { Type = "LOGOUT" };
+            await this.SendMessageAsync(message);
+        }
+
+        public async Task<bool> AuthenticateWithToken(string token)
+        {
+            var tokenData = new TokenAuthData
+            {
+                Token = token
+            };
+
+            var message = new GameMessage
+            {
+                Type = "AUTHENTICATE_TOKEN",
+                Data = JsonUtility.ToJson(tokenData)
+            };
+
+            await this.SendMessageAsync(message);
+            return true;
+        }
+
+        public async Task<bool> UpdateProfile(string displayName, string avatarUrl)
+        {
+            var updateData = new UpdateProfileData
+            {
+                DisplayName = displayName,
+                AvatarUrl = avatarUrl
+            };
+
+            var message = new GameMessage
+            {
+                Type = "UPDATE_PROFILE",
+                Data = JsonUtility.ToJson(updateData)
+            };
+
+            await this.SendMessageAsync(message);
+            return true;
+        }
+
+        public async Task<List<MatchHistoryData>> GetMatchHistory()
+        {
+            var message = new GameMessage { Type = "GET_MATCH_HISTORY" };
+
+            // Create task completion source to wait for response
+            var tcs = new TaskCompletionSource<List<MatchHistoryData>>();
+
+            // Subscribe to message received for this specific request
+            void OnMessageHandler(GameMessage response)
+            {
+                if (response.Type == "MATCH_HISTORY")
+                {
+                    try
+                    {
+                        var wrapper = JsonUtility.FromJson<MatchHistoryWrapper>(response.Data);
+                        
+                        if (wrapper == null)
+                        {
+                            Debug.LogError("[MATCH_HISTORY] Wrapper is null!");
+                            tcs.TrySetResult(new List<MatchHistoryData>());
+                        }
+                        else if (wrapper.history == null)
+                        {
+                            Debug.LogError("[MATCH_HISTORY] History list is null!");
+                            tcs.TrySetResult(new List<MatchHistoryData>());
+                        }
+                        else
+                        {
+                            Debug.Log($"[MATCH_HISTORY] Parsed {wrapper.history.Count} matches");
+                            tcs.TrySetResult(wrapper.history);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError($"Error parsing match history: {ex.Message}");
+                        tcs.TrySetResult(new List<MatchHistoryData>());
+                    }
+                    this.OnMessageReceived -= OnMessageHandler;
+                }
+            }
+
+            this.OnMessageReceived += OnMessageHandler;
+
+            // Send request
+            await this.SendMessageAsync(message);
+
+            // Wait for response with timeout
+            var timeoutTask = Task.Delay(10000); // 10 second timeout
+            var completedTask = await Task.WhenAny(tcs.Task, timeoutTask);
+
+            if (completedTask == timeoutTask)
+            {
+                this.OnMessageReceived -= OnMessageHandler;
+                Debug.LogError("Get match history timed out");
+                return new List<MatchHistoryData>();
+            }
+
+            return await tcs.Task;
+        }
+
+        public async Task<MatchDetailData> GetMatchDetails(string matchId)
+        {
+            Debug.Log($"[MATCH_DETAILS] Requesting details for match: {matchId}");
+            
+            var requestData = new MatchDetailRequest { matchId = matchId };
+            var message = new GameMessage 
+            { 
+                Type = "GET_MATCH_DETAILS",
+                Data = JsonUtility.ToJson(requestData)
+            };
+
+            Debug.Log($"[MATCH_DETAILS] Request JSON: {message.Data}");
+
+            // Create task completion source to wait for response
+            var tcs = new TaskCompletionSource<MatchDetailData>();
+
+            // Subscribe to message received for this specific request
+            void OnMessageHandler(GameMessage response)
+            {
+                if (response.Type == "MATCH_DETAILS")
+                {
+                    try
+                    {
+                        Debug.Log($"[MATCH_DETAILS] Raw JSON received: {response.Data}");
+                        
+                        var matchDetail = JsonUtility.FromJson<MatchDetailData>(response.Data);
+                        
+                        if (matchDetail == null)
+                        {
+                            Debug.LogError("[MATCH_DETAILS] Match detail is null!");
+                            tcs.TrySetResult(null);
+                        }
+                        else
+                        {
+                            Debug.Log($"[MATCH_DETAILS] Parsed match {matchDetail.matchId} with {matchDetail.players?.Count ?? 0} players");
+                            tcs.TrySetResult(matchDetail);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError($"[MATCH_DETAILS] Error parsing match details: {ex.Message}\nStack: {ex.StackTrace}");
+                        tcs.TrySetResult(null);
+                    }
+                    this.OnMessageReceived -= OnMessageHandler;
+                }
+            }
+
+            this.OnMessageReceived += OnMessageHandler;
+
+            // Send request
+            await this.SendMessageAsync(message);
+
+            // Wait for response with timeout
+            var timeoutTask = Task.Delay(10000); // 10 second timeout
+            var completedTask = await Task.WhenAny(tcs.Task, timeoutTask);
+
+            if (completedTask == timeoutTask)
+            {
+                this.OnMessageReceived -= OnMessageHandler;
+                Debug.LogError("[MATCH_DETAILS] Request timed out");
+                return null;
+            }
+
+            return await tcs.Task;
+        }
 
         private async Task SendMessageAsync(GameMessage message)
         {
@@ -377,6 +650,47 @@ namespace WordGame.Network
                             this.OnScoreUpdate?.Invoke(scoreData);
                         }
                         break;
+
+                    case "AUTHENTICATE_SUCCESS":
+                        Debug.Log("[AUTH] Token authentication successful");
+                        break;
+
+                    case "AUTHENTICATE_FAILED":
+                        Debug.LogWarning("[AUTH] Token authentication failed - clearing saved data");
+                        PlayerPrefs.DeleteKey("auth_token");
+                        PlayerPrefs.DeleteKey("user_id");
+                        PlayerPrefs.DeleteKey("username");
+                        PlayerPrefs.Save();
+                        // Reload login screen
+                        UIScreenController.Instance?.Show(UIScreenController.LoginScreenId);
+                        break;
+
+                    case "RANKING":
+                        var rankingData = JsonUtility.FromJson<Models.RankingData>(message.Data);
+                        if (rankingData != null)
+                        {
+                            Debug.Log($"[RANKING] Received {rankingData.ranking?.Count ?? 0} entries");
+                            this.OnRankingReceived?.Invoke(rankingData);
+                        }
+                        break;
+
+                    case "ONLINE_PLAYERS":
+                        var onlinePlayersData = JsonUtility.FromJson<Models.OnlinePlayersResponse>(message.Data);
+                        if (onlinePlayersData != null)
+                        {
+                            Debug.Log($"[ONLINE_PLAYERS] Received {onlinePlayersData.players?.Count ?? 0} online players");
+                            this.OnOnlinePlayersReceived?.Invoke(onlinePlayersData);
+                        }
+                        break;
+
+                    case "ROOM_INVITE":
+                        var inviteData = JsonUtility.FromJson<Models.RoomInviteData>(message.Data);
+                        if (inviteData != null)
+                        {
+                            Debug.Log($"[ROOM_INVITE] Received invite from {inviteData.inviterName} (room: {inviteData.roomCode})");
+                            this.OnRoomInviteReceived?.Invoke(inviteData);
+                        }
+                        break;
                     }
 
                     this.OnMessageReceived?.Invoke(message);
@@ -418,6 +732,7 @@ namespace WordGame.Network
         {
             public string Id;
             public string Username;
+            public string AvatarUrl;
         }
 
         [Serializable]
@@ -486,6 +801,52 @@ namespace WordGame.Network
             public int scoreGained;
             public int totalScore;
             public int streak;
+        }
+
+        [Serializable]
+        public class LoginData
+        {
+            public string UsernameOrEmail;
+            public string Password;
+        }
+
+        [Serializable]
+        public class RegisterData
+        {
+            public string Username;
+            public string Email;
+            public string Password;
+        }
+
+        [Serializable]
+        public class UpdateProfileData
+        {
+            public string DisplayName;
+            public string AvatarUrl;
+        }
+
+        [Serializable]
+        private class MatchHistoryWrapper
+        {
+            public List<MatchHistoryData> history;
+        }
+
+        [Serializable]
+        public class TokenAuthData
+        {
+            public string Token;
+        }
+
+        [Serializable]
+        public class SendInviteData
+        {
+            public string TargetPlayerId;
+        }
+
+        [Serializable]
+        private class MatchDetailRequest
+        {
+            public string matchId;
         }
     }
 }

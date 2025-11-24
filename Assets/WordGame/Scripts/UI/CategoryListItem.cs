@@ -14,12 +14,14 @@ public class CategoryListItem : MonoBehaviour
 
 
 	private string categoryName;
+	private UIScreenCategories parentScreen;
 
 
 
-	public void Setup(CategoryInfo categoryInfo)
+	public void Setup(CategoryInfo categoryInfo, UIScreenCategories parent)
 	{
 		this.categoryName = categoryInfo.name;
+		this.parentScreen = parent;
 
 		float numberOfLevels			= categoryInfo.levelInfos.Count;
 		float numberOfCompletedLevels	= GameManager.Instance.GetCompletedLevelCount(categoryInfo);
@@ -33,7 +35,14 @@ public class CategoryListItem : MonoBehaviour
 
 	public void OnClick()
 	{
-		// Show the category levels screen
+		// If callback is set (from multiplayer menu), call it instead of navigating
+		if (this.parentScreen != null && this.parentScreen.OnCategorySelected != null)
+		{
+			this.parentScreen.OnCategorySelected.Invoke(this.categoryName);
+			return;
+		}
+
+		// Default behavior: Show the category levels screen
 		UIScreenController.Instance.Show(UIScreenController.CategoryLevelsScreenId, false, true, false, Tween.TweenStyle.EaseOut, null, this.categoryName);
 	}
 

@@ -8,6 +8,8 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using GameServer.Services;
+using GameServer.Models;
 using Timer = System.Threading.Timer;
 
 namespace WordBrainServer;
@@ -20,11 +22,18 @@ public class GameServer
     private readonly ConcurrentDictionary<Guid, ClientConnection> _connections = new();
     private          bool                                         _isRunning;
     private readonly int                                          _port;
+    private readonly DatabaseService                             _database;
+    private readonly AuthenticationService                       _auth;
 
-    public GameServer(int port = 8080)
+    public GameServer(int port = 8080, string? connectionString = null)
     {
         this._port     = port;
         this._tcpListener = new TcpListener(IPAddress.Any, port);
+
+        // Initialize database (use default connection string if none provided)
+        connectionString ??= "Server=localhost;Database=word_game;User=root;Password=;";
+        this._database = new DatabaseService(connectionString);
+        this._auth = new AuthenticationService(this._database);
     }
 
     public async Task StartAsync()
@@ -83,6 +92,18 @@ public class GameServer
         {
             switch (message.Type)
             {
+                case "REGISTER":
+                    await this.HandleRegister(connection, message);
+                    break;
+                case "LOGIN":
+                    await this.HandleLogin(connection, message);
+                    break;
+                case "LOGOUT":
+                    await this.HandleLogout(connection);
+                    break;
+                case "UPDATE_PROFILE":
+                    await this.HandleUpdateProfile(connection, message);
+                    break;
                 case "CREATE_ROOM":
                     await this.HandleCreateRoom(connection, message);
                     break;
@@ -98,8 +119,26 @@ public class GameServer
                 case "LEVEL_COMPLETED":
                     await this.HandleLevelCompleted(connection, message);
                     break;
+                case "GET_MATCH_HISTORY":
+                    await this.HandleGetMatchHistory(connection);
+                    break;
+                case "GET_MATCH_DETAILS":
+                    await this.HandleGetMatchDetails(connection, message);
+                    break;
+                case "GET_RANKING":
+                    await this.HandleGetRanking(connection, message);
+                    break;
+                case "GET_ONLINE_PLAYERS":
+                    await this.HandleGetOnlinePlayers(connection);
+                    break;
+                case "SEND_INVITE":
+                    await this.HandleSendInvite(connection, message);
+                    break;
                 case "HEARTBEAT":
                     await connection.SendAsync(new GameMessage { Type = "HEARTBEAT" });
+                    break;
+                case "AUTHENTICATE_TOKEN":
+                    await this.HandleAuthenticateToken(connection, message);
                     break;
             }
         }
@@ -115,18 +154,35 @@ public class GameServer
 
     private async Task HandleCreateRoom(ClientConnection connection, GameMessage message)
     {
+        // Require authentication to create room
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("You must be logged in to create a room");
+        }
+
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         var data = JsonSerializer.Deserialize<CreateRoomData>(message.Data, options);
 
-        var player = new Player
+        // Get user from database to ensure they exist
+        var user = await this._database.GetUserByIdAsync(connection.UserId.Value);
+        if (user == null)
         {
-            Id = Guid.NewGuid(),
-            ConnectionId = connection.Id,
-            Username = data.Username
-        };
+            throw new Exception("User not found");
+        }
 
-        this._players[player.Id] = player;
-        connection.PlayerId = player.Id;
+        // Get or create player (reuse if already exists from LOGIN)
+        if (!this._players.TryGetValue(connection.UserId.Value, out var player))
+        {
+            player = new Player
+            {
+                Id = connection.UserId.Value,
+                ConnectionId = connection.Id,
+                Username = user.Username,
+                AvatarUrl = user.AvatarUrl
+            };
+            this._players[player.Id] = player;
+            connection.PlayerId = player.Id;
+        }
 
         var roomCode = this.GenerateRoomCode();
         var room = new GameRoom
@@ -146,7 +202,7 @@ public class GameServer
         await connection.SendAsync(new GameMessage
         {
             Type = "ROOM_CREATED",
-            Data = JsonSerializer.Serialize(new { roomCode, category = room.Category, numQuestions = room.NumQuestions, player = new { player.Id, player.Username } })
+            Data = JsonSerializer.Serialize(new { roomCode, category = room.Category, numQuestions = room.NumQuestions, player = new { player.Id, player.Username, player.AvatarUrl } })
         });
 
         Console.WriteLine($"Room {roomCode} created by {player.Username}");
@@ -155,6 +211,12 @@ public class GameServer
 
     private async Task HandleJoinRoom(ClientConnection connection, GameMessage message)
     {
+        // Require authentication to join room
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("You must be logged in to join a room");
+        }
+
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         var data = JsonSerializer.Deserialize<JoinRoomData>(message.Data, options);
 
@@ -163,16 +225,30 @@ public class GameServer
             throw new Exception("Room not found");
         }
 
-        var player = new Player
+        // Get user from database to ensure they exist
+        var user = await this._database.GetUserByIdAsync(connection.UserId.Value);
+        if (user == null)
         {
-            Id = Guid.NewGuid(),
-            ConnectionId = connection.Id,
-            Username = data.Username,
-            RoomCode = data.RoomCode
-        };
+            throw new Exception("User not found");
+        }
 
-        this._players[player.Id] = player;
-        connection.PlayerId = player.Id;
+        // Get or create player (reuse if already exists from LOGIN)
+        if (!this._players.TryGetValue(connection.UserId.Value, out var player))
+        {
+            player = new Player
+            {
+                Id = connection.UserId.Value,
+                ConnectionId = connection.Id,
+                Username = user.Username,
+                AvatarUrl = user.AvatarUrl
+            };
+            this._players[player.Id] = player;
+            connection.PlayerId = player.Id;
+        }
+
+        // Update player's room code
+        player.RoomCode = data.RoomCode;
+        connection.RoomCode = data.RoomCode;
         room.Players[player.Id] = player;
 
         await connection.SendAsync(new GameMessage
@@ -184,14 +260,14 @@ public class GameServer
                 category = room.Category,
                 numQuestions = room.NumQuestions,
                 playerId = player.Id,
-                players = room.Players.Values.Select(p => new { p.Id, p.Username })
+                players = room.Players.Values.Select(p => new { p.Id, p.Username, p.AvatarUrl })
             })
         });
 
         await this.BroadcastToRoomExcept(room, connection.Id, new GameMessage
         {
             Type = "PLAYER_JOINED",
-            Data = JsonSerializer.Serialize(new { player.Id, player.Username })
+            Data = JsonSerializer.Serialize(new { player.Id, player.Username, player.AvatarUrl })
         });
 
         Console.WriteLine($"{player.Username} joined room {room.Code}");
@@ -213,6 +289,7 @@ public class GameServer
 
         room.Players.TryRemove(player.Id, out _);
         player.RoomCode = null;
+        connection.RoomCode = null;
 
         await this.BroadcastToRoom(room, new GameMessage
         {
@@ -294,7 +371,139 @@ public class GameServer
 
         Console.WriteLine($"Game started in room {room.Code}");
     }
-    
+
+    private async Task HandleGetOnlinePlayers(ClientConnection connection)
+    {
+        if (!connection.PlayerId.HasValue)
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
+                Data = JsonSerializer.Serialize(new { error = "Not logged in" })
+            });
+            return;
+        }
+
+        var currentPlayer = this._players.GetValueOrDefault(connection.PlayerId.Value);
+        if (currentPlayer == null)
+        {
+            return;
+        }
+
+        // Get all online players
+        var onlinePlayers = this._players.Values
+            .Where(p => p.Id != currentPlayer.Id) // Exclude self
+            .Select(p => new
+            {
+                PlayerId = p.Id.ToString(),
+                Username = p.Username,
+                AvatarUrl = p.AvatarUrl,
+                Status = string.IsNullOrEmpty(p.RoomCode) ? "idle" : "in_game"
+            })
+            .ToList();
+
+        await connection.SendAsync(new GameMessage
+        {
+            Type = "ONLINE_PLAYERS",
+            Data = JsonSerializer.Serialize(new { players = onlinePlayers })
+        });
+
+        Console.WriteLine($"[GET_ONLINE_PLAYERS] Sent {onlinePlayers.Count} online players to {currentPlayer.Username}");
+    }
+
+    private async Task HandleSendInvite(ClientConnection connection, GameMessage message)
+    {
+        if (!connection.PlayerId.HasValue)
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
+                Data = JsonSerializer.Serialize(new { error = "Not logged in" })
+            });
+            return;
+        }
+
+        var sender = this._players.GetValueOrDefault(connection.PlayerId.Value);
+        if (sender == null || string.IsNullOrEmpty(sender.RoomCode))
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
+                Data = JsonSerializer.Serialize(new { error = "Not in a room" })
+            });
+            return;
+        }
+
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<SendInviteData>(message.Data, options);
+
+        if (!Guid.TryParse(data.TargetPlayerId, out var targetPlayerId))
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
+                Data = JsonSerializer.Serialize(new { error = "Invalid player ID" })
+            });
+            return;
+        }
+
+        var targetPlayer = this._players.GetValueOrDefault(targetPlayerId);
+        if (targetPlayer == null)
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
+                Data = JsonSerializer.Serialize(new { error = "Target player not found" })
+            });
+            return;
+        }
+
+        // Check if target player is already in a room
+        if (!string.IsNullOrEmpty(targetPlayer.RoomCode))
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
+                Data = JsonSerializer.Serialize(new { error = "Player is already in a room" })
+            });
+            return;
+        }
+
+        // Get target player's connection
+        var targetConnection = this._connections.Values.FirstOrDefault(c => c.PlayerId == targetPlayerId);
+        if (targetConnection == null)
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "ERROR",
+                Data = JsonSerializer.Serialize(new { error = "Target player is offline" })
+            });
+            return;
+        }
+
+        // Send invite to target player
+        await targetConnection.SendAsync(new GameMessage
+        {
+            Type = "ROOM_INVITE",
+            Data = JsonSerializer.Serialize(new
+            {
+                inviterId = sender.Id.ToString(),
+                inviterName = sender.Username,
+                inviterAvatar = sender.AvatarUrl,
+                roomCode = sender.RoomCode
+            })
+        });
+
+        // Confirm to sender
+        await connection.SendAsync(new GameMessage
+        {
+            Type = "INVITE_SENT",
+            Data = JsonSerializer.Serialize(new { success = true })
+        });
+
+        Console.WriteLine($"[SEND_INVITE] {sender.Username} invited {targetPlayer.Username} to room {sender.RoomCode}");
+    }
+
     private async Task HandleLevelCompleted(ClientConnection connection, GameMessage message)
     {
         if (!connection.PlayerId.HasValue)
@@ -319,6 +528,7 @@ public class GameServer
         var timeTaken = data?.TimeTaken ?? 60;
         player.Streak++; // Increment streak on level completion
         player.WordsFoundThisLevel++;
+        player.TotalWordsFound++;
         var scoreGained = this.CalculateCorrectAnswerScore(player, timeTaken, room.LevelDuration);
         player.Score += scoreGained;
 
@@ -347,21 +557,40 @@ public class GameServer
             room.GameState.LevelTimer?.Change(Timeout.Infinite, Timeout.Infinite);
             room.GameState.LevelTimer?.Dispose();
 
-            // Wait 3 seconds before showing leaderboard
-            await Task.Delay(3000);
-
-            // Send level ended with scores
-            await this.SendLevelEnded(room);
-
-            // Wait 6 seconds for leaderboard display
-            await Task.Delay(6000);
-
-            // Then move to next level
-            await this.NextLevel(room);
+            // Handle level completion with 3s delay before showing results
+            await this.HandleLevelCompleted(room, 3000);
         }
     }
 
     // Removed HandleLevelTimeout - server timer handles everything automatically
+
+    private async Task HandleLevelCompleted(GameRoom room, int delayBeforeAction = 0)
+    {
+        if (room.GameState == null)
+            return;
+
+        // Optional delay before showing results
+        if (delayBeforeAction > 0)
+        {
+            await Task.Delay(delayBeforeAction);
+        }
+
+        // Check if this is the final level
+        bool isFinalLevel = room.GameState.CurrentLevel >= room.TotalLevels;
+
+        if (isFinalLevel)
+        {
+            // Final level: skip leaderboard, go directly to game end
+            await this.EndGame(room);
+        }
+        else
+        {
+            // Non-final level: show leaderboard then continue
+            await this.SendLevelEnded(room);
+            await Task.Delay(6000);
+            await this.NextLevel(room);
+        }
+    }
 
     private async Task HandleLevelTimerExpired(GameRoom room)
     {
@@ -381,14 +610,8 @@ public class GameServer
             }
         }
 
-        // Send level ended with current scores
-        await this.SendLevelEnded(room);
-
-        // Wait 6 seconds for leaderboard display
-        await Task.Delay(6000);
-
-        // Then move to next level
-        await this.NextLevel(room);
+        // Handle level completion immediately (no delay)
+        await this.HandleLevelCompleted(room);
     }
 
     private async Task SendLevelEnded(GameRoom room)
@@ -403,6 +626,7 @@ public class GameServer
             {
                 Id = p.Id.ToString(),
                 Username = p.Username,
+                AvatarUrl = p.AvatarUrl,
                 Score = p.Score
             })
             .ToList();
@@ -477,15 +701,95 @@ public class GameServer
 
     private async Task EndGame(GameRoom room)
     {
-        var results = room.Players.Values
-            .OrderByDescending(p => p.Score)
-            .Select(p => new { p.Id, p.Username, p.Score })
-            .ToList();
+        // Calculate total words in game
+        int totalWords = room.TotalLevels;
 
+        // Build results with XP and stats
+        var resultsWithXP = new List<object>();
+
+        // Save match history to database first
+        if (room.Players.Count > 0)
+        {
+            try
+            {
+                // Find winner
+                var winner = room.Players.Values.OrderByDescending(p => p.Score).First();
+
+                // Create match history
+                var match = await this._database.CreateMatchHistoryAsync(
+                    room.Code, room.Category, room.LevelDuration,
+                    room.TotalLevels, room.NumQuestions, room.HostId);
+
+                // Complete match with winner
+                await this._database.CompleteMatchAsync(match.Id, winner.Id);
+
+                // Save player results and update stats
+                int rank = 1;
+                foreach (var player in room.Players.Values.OrderByDescending(p => p.Score))
+                {
+                    // Calculate XP gained
+                    int xpGained = this.CalculateXPGained(player.Score, rank, player.Id == winner.Id);
+
+                    // Get current user stats
+                    var stats = await this._database.GetUserStatsAsync(player.Id);
+                    int currentTotalXP = stats?.TotalXP ?? 0;
+                    int newTotalXP = currentTotalXP + xpGained;
+
+                    // Save match result with XP
+                    await this._database.AddMatchPlayerResultAsync(
+                        match.Id, player.Id, player.Score, player.Streak,
+                        player.TotalWordsFound, 0, room.GameState?.CurrentLevel ?? 0, rank, xpGained);
+
+                    // Update user stats with XP
+                    await this._database.UpdateUserStatsAsync(
+                        player.Id, player.Score, player.Streak,
+                        player.TotalWordsFound, player.Id == winner.Id, xpGained);
+
+                    // Add to results
+                    resultsWithXP.Add(new
+                    {
+                        Id = player.Id.ToString(),
+                        Username = player.Username,
+                        AvatarUrl = player.AvatarUrl,
+                        Score = player.Score,
+                        WordsFound = player.TotalWordsFound,
+                        TotalWords = totalWords,
+                        XPGained = xpGained,
+                        TotalXP = newTotalXP
+                    });
+
+                    rank++;
+                }
+
+                Console.WriteLine($"Match history saved for room {room.Code}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving match history: {ex.Message}");
+                // Fallback to simple results
+                resultsWithXP = room.Players.Values
+                    .OrderByDescending(p => p.Score)
+                    .Select(p => new
+                    {
+                        Id = p.Id.ToString(),
+                        Username = p.Username,
+                        AvatarUrl = p.AvatarUrl,
+                        Score = p.Score,
+                        WordsFound = p.TotalWordsFound,
+                        TotalWords = totalWords,
+                        XPGained = 0,
+                        TotalXP = 0,
+                        Level = 1
+                    } as object)
+                    .ToList();
+            }
+        }
+
+        // Broadcast game end with XP data
         await this.BroadcastToRoom(room, new GameMessage
         {
             Type = "GAME_ENDED",
-            Data = JsonSerializer.Serialize(new { results })
+            Data = JsonSerializer.Serialize(new { results = resultsWithXP })
         });
 
         room.GameState = null;
@@ -494,8 +798,482 @@ public class GameServer
             player.Score = 0;
             player.Streak = 0;
             player.WordsFoundThisLevel = 0;
+            player.TotalWordsFound = 0;
         }
     }
+
+    // ============================================
+    // Authentication Handlers
+    // ============================================
+
+    private async Task HandleRegister(ClientConnection connection, GameMessage message)
+    {
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<RegisterData>(message.Data, options);
+
+        if (data == null)
+        {
+            throw new Exception("Invalid registration data");
+        }
+
+        var result = await this._auth.RegisterAsync(data.Username, data.Email, data.Password);
+
+        if (result.Success && result.User != null && result.Token != null)
+        {
+            // Set connection user ID and create player (same as LOGIN)
+            connection.UserId = result.User.Id;
+
+            // Create and register player in online players list
+            var player = new Player
+            {
+                Id = result.User.Id,
+                ConnectionId = connection.Id,
+                Username = result.User.Username,
+                AvatarUrl = result.User.AvatarUrl
+            };
+            this._players[player.Id] = player;
+            connection.PlayerId = player.Id;
+
+            // Get user stats
+            var stats = await this._database.GetUserStatsAsync(result.User.Id);
+
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "REGISTER_SUCCESS",
+                Data = JsonSerializer.Serialize(new
+                {
+                    token = result.Token,
+                    user = new
+                    {
+                        id = result.User.Id,
+                        username = result.User.Username,
+                        email = result.User.Email,
+                        displayName = result.User.DisplayName,
+                        avatarUrl = result.User.AvatarUrl
+                    },
+                    stats = stats != null ? new
+                    {
+                        totalScore = stats.TotalScore,
+                        bestScore = stats.BestScore,
+                        bestStreak = stats.BestStreak,
+                        gamesPlayed = stats.GamesPlayed,
+                        gamesWon = stats.GamesWon
+                    } : null
+                })
+            });
+
+            Console.WriteLine($"User registered: {result.User.Username}");
+        }
+        else
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "REGISTER_FAILED",
+                Data = JsonSerializer.Serialize(new { error = result.Error })
+            });
+        }
+    }
+
+    private async Task HandleLogin(ClientConnection connection, GameMessage message)
+    {
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<LoginData>(message.Data, options);
+
+        if (data == null)
+        {
+            throw new Exception("Invalid login data");
+        }
+
+        var result = await this._auth.LoginAsync(data.UsernameOrEmail, data.Password);
+
+        if (result.Success && result.User != null && result.Token != null)
+        {
+            connection.UserId = result.User.Id;
+
+            // Create and register player in online players list
+            var player = new Player
+            {
+                Id = result.User.Id,
+                ConnectionId = connection.Id,
+                Username = result.User.Username,
+                AvatarUrl = result.User.AvatarUrl
+            };
+            this._players[player.Id] = player;
+            connection.PlayerId = player.Id;
+
+            // Get user stats
+            var stats = await this._database.GetUserStatsAsync(result.User.Id);
+
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "LOGIN_SUCCESS",
+                Data = JsonSerializer.Serialize(new
+                {
+                    token = result.Token,
+                    user = new
+                    {
+                        id = result.User.Id,
+                        username = result.User.Username,
+                        email = result.User.Email,
+                        displayName = result.User.DisplayName,
+                        avatarUrl = result.User.AvatarUrl
+                    },
+                    stats = stats != null ? new
+                    {
+                        totalScore = stats.TotalScore,
+                        bestScore = stats.BestScore,
+                        bestStreak = stats.BestStreak,
+                        gamesPlayed = stats.GamesPlayed,
+                        gamesWon = stats.GamesWon
+                    } : null
+                })
+            });
+
+            Console.WriteLine($"User logged in: {result.User.Username}");
+        }
+        else
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "LOGIN_FAILED",
+                Data = JsonSerializer.Serialize(new { error = result.Error })
+            });
+        }
+    }
+
+    private async Task HandleLogout(ClientConnection connection)
+    {
+        if (connection.UserId.HasValue)
+        {
+            await this._auth.LogoutAsync(connection.UserId.Value);
+            Console.WriteLine($"User logged out: {connection.UserId}");
+        }
+
+        // Leave room if in one (but keep connection alive)
+        await this.HandleLeaveRoom(connection);
+
+        // Remove player from players dictionary
+        if (connection.PlayerId.HasValue)
+        {
+            this._players.TryRemove(connection.PlayerId.Value, out _);
+            connection.PlayerId = null;
+        }
+
+        // Clear user ID from connection (keep connection alive)
+        connection.UserId = null;
+
+        await connection.SendAsync(new GameMessage { Type = "LOGOUT_SUCCESS" });
+    }
+
+    private async Task HandleUpdateProfile(ClientConnection connection, GameMessage message)
+    {
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("Not authenticated");
+        }
+
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var data = JsonSerializer.Deserialize<UpdateProfileData>(message.Data, options);
+
+        if (data == null)
+        {
+            throw new Exception("Invalid update profile data");
+        }
+
+        var result = await this._auth.UpdateProfileAsync(connection.UserId.Value, data.DisplayName, data.AvatarUrl);
+
+        if (result.Success && result.User != null)
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "UPDATE_PROFILE_SUCCESS",
+                Data = JsonSerializer.Serialize(new
+                {
+                    user = new
+                    {
+                        id = result.User.Id,
+                        username = result.User.Username,
+                        email = result.User.Email,
+                        displayName = result.User.DisplayName,
+                        avatarUrl = result.User.AvatarUrl
+                    }
+                })
+            });
+
+            Console.WriteLine($"User profile updated: {result.User.Username}");
+        }
+        else
+        {
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "UPDATE_PROFILE_FAILED",
+                Data = JsonSerializer.Serialize(new { error = result.Error })
+            });
+        }
+    }
+
+    private async Task HandleAuthenticateToken(ClientConnection connection, GameMessage message)
+    {
+        try
+        {
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            var data = JsonSerializer.Deserialize<TokenAuthData>(message.Data, options);
+
+            if (data == null || string.IsNullOrEmpty(data.Token))
+            {
+                throw new Exception("Invalid token data");
+            }
+
+            // Verify token from database
+            var sessionToken = await this._database.GetSessionTokenAsync(data.Token);
+
+            if (sessionToken == null)
+            {
+                Console.WriteLine($"[AUTH] Token not found or expired");
+                await connection.SendAsync(new GameMessage
+                {
+                    Type = "AUTHENTICATE_FAILED",
+                    Data = JsonSerializer.Serialize(new { error = "Invalid or expired token" })
+                });
+                return;
+            }
+
+            // Get user from database
+            var user = await this._database.GetUserByIdAsync(sessionToken.UserId);
+            if (user == null)
+            {
+                Console.WriteLine($"[AUTH] User not found for token");
+                await connection.SendAsync(new GameMessage
+                {
+                    Type = "AUTHENTICATE_FAILED",
+                    Data = JsonSerializer.Serialize(new { error = "User not found" })
+                });
+                return;
+            }
+
+            // Set connection user ID
+            connection.UserId = user.Id;
+
+            // Create and register player in online players list
+            var player = new Player
+            {
+                Id = user.Id,
+                ConnectionId = connection.Id,
+                Username = user.Username,
+                AvatarUrl = user.AvatarUrl
+            };
+            this._players[player.Id] = player;
+            connection.PlayerId = player.Id;
+
+            // Update user online status
+            await this._database.UpdateUserOnlineStatusAsync(user.Id, true);
+
+            // Get user stats
+            var stats = await this._database.GetUserStatsAsync(user.Id);
+
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "AUTHENTICATE_SUCCESS",
+                Data = JsonSerializer.Serialize(new
+                {
+                    user = new
+                    {
+                        id = user.Id,
+                        username = user.Username,
+                        email = user.Email,
+                        displayName = user.DisplayName,
+                        avatarUrl = user.AvatarUrl
+                    },
+                    stats = stats != null ? new
+                    {
+                        totalScore = stats.TotalScore,
+                        bestScore = stats.BestScore,
+                        bestStreak = stats.BestStreak,
+                        gamesPlayed = stats.GamesPlayed,
+                        gamesWon = stats.GamesWon
+                    } : null
+                })
+            });
+
+            Console.WriteLine($"[AUTH] Token authenticated for user: {user.Username}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"[AUTH] Error: {ex.Message}");
+            await connection.SendAsync(new GameMessage
+            {
+                Type = "AUTHENTICATE_FAILED",
+                Data = JsonSerializer.Serialize(new { error = ex.Message })
+            });
+        }
+    }
+
+    // ============================================
+    // Match History & Ranking Handlers
+    // ============================================
+
+    private async Task HandleGetMatchHistory(ClientConnection connection)
+    {
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("Not authenticated");
+        }
+
+        var history = await this._database.GetUserMatchHistoryAsync(connection.UserId.Value);
+
+        await connection.SendAsync(new GameMessage
+        {
+            Type = "MATCH_HISTORY",
+            Data = JsonSerializer.Serialize(new
+            {
+                history = history.Select(h => new
+                {
+                    matchId = h.MatchId.ToString(),  // Explicit string conversion
+                    category = h.Category,
+                    completedAt = h.CompletedAt,
+                    finalScore = h.FinalScore,
+                    rank = h.Rank,
+                    xpGained = h.XPGained,
+                    isWinner = h.IsWinner
+                })
+            })
+        });
+
+        Console.WriteLine($"Match history sent for user: {connection.UserId} ({history.Count} matches)");
+    }
+
+    private async Task HandleGetMatchDetails(ClientConnection connection, GameMessage message)
+    {
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("Not authenticated");
+        }
+
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var requestData = JsonSerializer.Deserialize<MatchDetailRequest>(message.Data, options);
+
+        if (requestData == null || string.IsNullOrEmpty(requestData.MatchId))
+        {
+            throw new Exception("Match ID is required");
+        }
+
+        if (!Guid.TryParse(requestData.MatchId, out var matchId))
+        {
+            throw new Exception("Invalid match ID format");
+        }
+
+        // Get match details from database
+        var matchDetail = await this._database.GetMatchDetailsAsync(matchId);
+
+        if (matchDetail == null)
+        {
+            throw new Exception("Match not found");
+        }
+
+        // Serialize with explicit lowercase properties for Unity JsonUtility
+        await connection.SendAsync(new GameMessage
+        {
+            Type = "MATCH_DETAILS",
+            Data = JsonSerializer.Serialize(new
+            {
+                matchId = matchDetail.MatchId.ToString(),
+                roomCode = matchDetail.RoomCode,
+                category = matchDetail.Category,
+                totalDurationSeconds = matchDetail.TotalDurationSeconds,
+                completedAt = matchDetail.CompletedAt,
+                players = matchDetail.Players.Select(p => new
+                {
+                    userId = p.UserId.ToString(),
+                    username = p.Username,
+                    displayName = p.DisplayName,
+                    avatarUrl = p.AvatarUrl,
+                    finalScore = p.FinalScore,
+                    rankPosition = p.RankPosition,
+                    bestStreak = p.BestStreak,
+                    totalWordsFound = p.TotalWordsFound,
+                    completedLevels = p.CompletedLevels,
+                    averageTimePerLevel = p.AverageTimePerLevel,
+                    xpGained = p.XpGained,
+                    isWinner = p.IsWinner
+                }).ToList()
+            })
+        });
+
+        Console.WriteLine($"Match details sent for match: {matchId}");
+    }
+
+    private async Task HandleGetRanking(ClientConnection connection, GameMessage message)
+    {
+        if (!connection.UserId.HasValue)
+        {
+            throw new Exception("Not authenticated");
+        }
+
+        // Parse optional parameters for pagination
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        int limit = 100;
+        int offset = 0;
+
+        if (!string.IsNullOrEmpty(message.Data))
+        {
+            try
+            {
+                var data = JsonSerializer.Deserialize<Dictionary<string, object>>(message.Data, options);
+                if (data != null)
+                {
+                    if (data.ContainsKey("limit"))
+                        limit = Convert.ToInt32(data["limit"]);
+                    if (data.ContainsKey("offset"))
+                        offset = Convert.ToInt32(data["offset"]);
+                }
+            }
+            catch
+            {
+                // Use default values if parsing fails
+            }
+        }
+
+        var ranking = await this._database.GetGlobalLeaderboardAsync(limit, offset);
+        var userRank = await this._database.GetUserRankAsync(connection.UserId.Value);
+
+        await connection.SendAsync(new GameMessage
+        {
+            Type = "RANKING",
+            Data = JsonSerializer.Serialize(new
+            {
+                ranking = ranking.Select(entry => new
+                {
+                    userId = entry.UserId,
+                    username = entry.Username,
+                    displayName = entry.DisplayName,
+                    avatarUrl = entry.AvatarUrl,
+                    totalXP = entry.TotalXP,
+                    totalScore = entry.TotalScore,
+                    gamesPlayed = entry.GamesPlayed,
+                    gamesWon = entry.GamesWon,
+                    rank = entry.Rank
+                }),
+                userRank = userRank != null ? new
+                {
+                    userId = userRank.UserId,
+                    username = userRank.Username,
+                    displayName = userRank.DisplayName,
+                    avatarUrl = userRank.AvatarUrl,
+                    totalXP = userRank.TotalXP,
+                    totalScore = userRank.TotalScore,
+                    gamesPlayed = userRank.GamesPlayed,
+                    gamesWon = userRank.GamesWon,
+                    rank = userRank.Rank
+                } : null
+            })
+        });
+
+        Console.WriteLine($"Ranking sent for user: {connection.UserId}");
+    }
+
+    // ============================================
+    // Room Broadcasting Helpers
+    // ============================================
 
     private async Task BroadcastToRoom(GameRoom room, GameMessage message)
     {
@@ -598,6 +1376,40 @@ public class GameServer
         return scoreGained;
     }
 
+    /// <summary>
+    /// Calculate XP gained from a match based on performance
+    /// XP Formula: Base XP (100) + Score bonus (Score / 50) + Win bonus (500)
+    /// </summary>
+    private int CalculateXPGained(int score, int rank, bool isWinner)
+    {
+        const int BASE_XP = 100;
+        const int SCORE_TO_XP_RATIO = 50; // 1 XP per 50 score
+        const int WIN_BONUS = 500;
+        const int SECOND_PLACE_BONUS = 300;
+        const int THIRD_PLACE_BONUS = 150;
+
+        int xpGained = BASE_XP;
+
+        // Score bonus
+        xpGained += score / SCORE_TO_XP_RATIO;
+
+        // Rank bonuses
+        if (isWinner || rank == 1)
+        {
+            xpGained += WIN_BONUS;
+        }
+        else if (rank == 2)
+        {
+            xpGained += SECOND_PLACE_BONUS;
+        }
+        else if (rank == 3)
+        {
+            xpGained += THIRD_PLACE_BONUS;
+        }
+
+        return xpGained;
+    }
+
     public async Task StopAsync()
     {
         this._isRunning = false;
@@ -616,6 +1428,8 @@ public class ClientConnection
 {
     public Guid Id { get; }
     public Guid? PlayerId { get; set; }
+    public Guid? UserId { get; set; } // Added for authentication
+    public string? RoomCode { get; set; } // Track if player is in a room
     private readonly TcpClient _tcpClient;
     private readonly NetworkStream _stream;
     private DateTime _lastHeartbeat;
@@ -721,10 +1535,12 @@ public class Player
     public Guid Id { get; set; }
     public Guid ConnectionId { get; set; }
     public string Username { get; set; } = string.Empty;
+    public string? AvatarUrl { get; set; }
     public string? RoomCode { get; set; }
     public int Score { get; set; }
     public int Streak { get; set; }
     public int WordsFoundThisLevel { get; set; }
+    public int TotalWordsFound { get; set; }
 }
 
 public class GameState
@@ -764,4 +1580,39 @@ public class SubmitAnswerData
 public class LevelCompletedData
 {
     public int TimeTaken { get; set; }
+}
+
+public class RegisterData
+{
+    public string Username { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
+}
+
+public class LoginData
+{
+    public string UsernameOrEmail { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
+}
+
+public class UpdateProfileData
+{
+    public string? DisplayName { get; set; }
+    public string? AvatarUrl { get; set; }
+}
+
+
+public class SendInviteData
+{
+    public string TargetPlayerId { get; set; } = string.Empty;
+}
+
+public class TokenAuthData
+{
+    public string Token { get; set; } = string.Empty;
+}
+
+public class MatchDetailRequest
+{
+    public string MatchId { get; set; } = string.Empty;
 }

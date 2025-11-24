@@ -1,10 +1,12 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using WordGame.Network;
 using WordGame.Network.Models;
+using WordGame.Utilities;
 
 namespace WordGame.UI
 {
@@ -16,9 +18,16 @@ namespace WordGame.UI
         private TextMeshProUGUI roomCodeText;
 
         [SerializeField] private Transform playerListContainer;
-        [SerializeField] private GameObject playerListItemPrefab;
+        [SerializeField] private GameObject roomPlayerListItemPrefab;
         [SerializeField] private Button startGameButton;
         [SerializeField] private Button leaveRoomButton;
+
+        [Header("Online Players Panel")]
+        [SerializeField] private GameObject onlinePlayersPanel;
+        [SerializeField] private Button toggleOnlinePlayersButton;
+        [SerializeField] private Transform onlinePlayersContainer;
+        [SerializeField] private GameObject onlinePlayerListItemPrefab;
+        [SerializeField] private GameObject invitationPopupPrefab;
 
         [Header("Room Info Display")] [SerializeField]
         private Image categoryIconImage;
@@ -32,8 +41,10 @@ namespace WordGame.UI
         private Sprite[] categoryIconSprites = new Sprite[15];
 
         private Dictionary<string, GameObject> _playerListItems = new Dictionary<string, GameObject>();
+        private Dictionary<string, GameObject> _onlinePlayerListItems = new Dictionary<string, GameObject>();
         private bool _isHost;
         private Dictionary<string, Sprite> _categoryIcons;
+        private bool _isOnlinePlayersPanelOpen;
 
         // Random notes for categories
         private readonly string[] _categoryNotes = new[]
@@ -54,21 +65,34 @@ namespace WordGame.UI
         {
             base.Initialize();
 
-            networkManager = NetworkManager.Instance;
-            if (networkManager != null)
+            this.networkManager = NetworkManager.Instance;
+            if (this.networkManager != null)
             {
-                networkManager.OnMessageReceived += OnMessageReceived;
+                this.networkManager.OnMessageReceived += this.OnMessageReceived;
+                this.networkManager.OnOnlinePlayersReceived += this.OnOnlinePlayersReceived;
+                this.networkManager.OnRoomInviteReceived += this.OnRoomInviteReceived;
             }
 
-            startGameButton.onClick.AddListener(HandleStartGame);
-            leaveRoomButton.onClick.AddListener(HandleLeaveRoom);
+            this.startGameButton.onClick.AddListener(this.HandleStartGame);
+            this.leaveRoomButton.onClick.AddListener(this.HandleLeaveRoom);
 
-            LoadCategoryIcons();
+            if (this.toggleOnlinePlayersButton != null)
+            {
+                this.toggleOnlinePlayersButton.onClick.AddListener(this.ToggleOnlinePlayersPanel);
+            }
+
+            if (this.onlinePlayersPanel != null)
+            {
+                this.onlinePlayersPanel.SetActive(false);
+                this._isOnlinePlayersPanelOpen = false;
+            }
+
+            this.LoadCategoryIcons();
         }
 
         private void LoadCategoryIcons()
         {
-            _categoryIcons = new Dictionary<string, Sprite>();
+            this._categoryIcons = new Dictionary<string, Sprite>();
 
             // Option 1: Try loading from Resources first
             var sprites = Resources.LoadAll<Sprite>("Sprites/CategoryIcons");
@@ -101,25 +125,26 @@ namespace WordGame.UI
                     string spriteName = sprite.name;
                     if (iconMapping.ContainsKey(spriteName))
                     {
-                        _categoryIcons[iconMapping[spriteName]] = sprite;
-                    }
-                }
-
-                Debug.Log($"[UIScreenMultiplayerRoom] Loaded {_categoryIcons.Count} category icons from Resources");
-            }
-            // Option 2: Fallback to Inspector-assigned sprites
-            else if (categoryIconSprites != null && categoryIconSprites.Length >= 15)
-            {
-                for (int i = 0; i < 15 && i < categoryIconSprites.Length; i++)
-                {
-                    if (categoryIconSprites[i] != null)
-                    {
-                        _categoryIcons[$"Category {i + 1}"] = categoryIconSprites[i];
+                        this._categoryIcons[iconMapping[spriteName]] = sprite;
                     }
                 }
 
                 Debug.Log(
-                    $"[UIScreenMultiplayerRoom] Loaded {_categoryIcons.Count} category icons from Inspector");
+                    $"[UIScreenMultiplayerRoom] Loaded {this._categoryIcons.Count} category icons from Resources");
+            }
+            // Option 2: Fallback to Inspector-assigned sprites
+            else if (this.categoryIconSprites != null && this.categoryIconSprites.Length >= 15)
+            {
+                for (int i = 0; i < 15 && i < this.categoryIconSprites.Length; i++)
+                {
+                    if (this.categoryIconSprites[i] != null)
+                    {
+                        this._categoryIcons[$"Category {i + 1}"] = this.categoryIconSprites[i];
+                    }
+                }
+
+                Debug.Log(
+                    $"[UIScreenMultiplayerRoom] Loaded {this._categoryIcons.Count} category icons from Inspector");
             }
             else
             {
@@ -130,20 +155,24 @@ namespace WordGame.UI
             }
         }
 
-        public override void OnShowing(object data)
+        protected override void OnShowingContent(object data)
         {
-            base.OnShowing(data);
-
             if (data is bool isHost)
             {
-                _isHost = isHost;
-                if (networkManager != null)
+                this._isHost = isHost;
+                if (this.networkManager != null)
                 {
-                    InitializeRoom(networkManager.RoomCode, _isHost);
-                    UpdatePlayerList(networkManager.RoomPlayers);
+                    this.InitializeRoom(this.networkManager.RoomCode, this._isHost);
+                    this.UpdatePlayerList(this.networkManager.RoomPlayers);
                     // Update room info with category and numQuestions from NetworkManager
-                    string category = !string.IsNullOrEmpty(networkManager.Category) ? networkManager.Category : "Category 1";
-                    UpdateRoomInfo(category, networkManager.RoomPlayers?.Count ?? 1, networkManager.NumQuestions);
+                    string category = !string.IsNullOrEmpty(this.networkManager.Category)
+                        ? this.networkManager.Category
+                        : "Category 1";
+                    this.UpdateRoomInfo(category, this.networkManager.RoomPlayers?.Count ?? 1,
+                        this.networkManager.NumQuestions);
+
+                    // Request online players when showing the room
+                    _ = this.networkManager.GetOnlinePlayers();
                 }
             }
         }
@@ -153,18 +182,40 @@ namespace WordGame.UI
             switch (message.Type)
             {
                 case "PLAYER_JOINED":
-                case "PLAYER_LEFT":
-                    if (networkManager != null)
+                    // Play sound for player joined
+                    AudioManager.Instance.PlayPlayerJoined();
+                    if (this.networkManager != null)
                     {
-                        UpdatePlayerList(networkManager.RoomPlayers);
+                        this.UpdatePlayerList(this.networkManager.RoomPlayers);
                         // Update player count in room info with category and numQuestions from NetworkManager
-                        string category = !string.IsNullOrEmpty(networkManager.Category) ? networkManager.Category : "Category 1";
-                        UpdateRoomInfo(category, networkManager.RoomPlayers?.Count ?? 1, networkManager.NumQuestions);
+                        string category = !string.IsNullOrEmpty(this.networkManager.Category)
+                            ? this.networkManager.Category
+                            : "Category 1";
+                        this.UpdateRoomInfo(category, this.networkManager.RoomPlayers?.Count ?? 1,
+                            this.networkManager.NumQuestions);
+                    }
+
+                    break;
+
+                case "PLAYER_LEFT":
+                    // Play sound for player left
+                    AudioManager.Instance.PlayPlayerLeft();
+                    if (this.networkManager != null)
+                    {
+                        this.UpdatePlayerList(this.networkManager.RoomPlayers);
+                        // Update player count in room info with category and numQuestions from NetworkManager
+                        string category = !string.IsNullOrEmpty(this.networkManager.Category)
+                            ? this.networkManager.Category
+                            : "Category 1";
+                        this.UpdateRoomInfo(category, this.networkManager.RoomPlayers?.Count ?? 1,
+                            this.networkManager.NumQuestions);
                     }
 
                     break;
 
                 case "GAME_STARTED":
+                    // Play game started sound
+                    AudioManager.Instance.PlayGameStarted();
                     try
                     {
                         // Parse game start data from server
@@ -219,27 +270,28 @@ namespace WordGame.UI
 
                 case "GAME_ENDED":
                     var endData = JsonUtility.FromJson<GameEndData>(message.Data);
-                    Reset();
-                    // Return to room after game ends
-                    UIScreenController.Instance.Show(UIScreenController.MultiplayerRoomScreenId, false, true, false,
-                        Tween.TweenStyle.EaseOut, null, false);
+                    Debug.Log($"[MULTIPLAYER_ROOM] Game ended with {endData.results?.Count ?? 0} results");
+                    this.Reset();
+                    // Show game result screen with final leaderboard and XP
+                    UIScreenController.Instance.Show(UIScreenController.GameResultScreenId, false, true, false,
+                        Tween.TweenStyle.EaseOut, null, endData);
                     break;
             }
         }
 
         private async void HandleStartGame()
         {
-            if (_isHost && networkManager != null)
+            if (this._isHost && this.networkManager != null)
             {
-                await networkManager.StartGame();
+                await this.networkManager.StartGame();
             }
         }
 
         private async void HandleLeaveRoom()
         {
-            if (networkManager != null)
+            if (this.networkManager != null)
             {
-                await networkManager.LeaveRoom();
+                await this.networkManager.LeaveRoom();
             }
 
             UIScreenController.Instance.Show(UIScreenController.MultiplayerMenuScreenId, true, true);
@@ -247,48 +299,53 @@ namespace WordGame.UI
 
         private void OnDestroy()
         {
-            startGameButton.onClick.RemoveAllListeners();
-            leaveRoomButton.onClick.RemoveAllListeners();
+            this.startGameButton.onClick.RemoveAllListeners();
+            this.leaveRoomButton.onClick.RemoveAllListeners();
 
-            if (networkManager != null)
+            if (this.toggleOnlinePlayersButton != null)
             {
-                networkManager.OnMessageReceived -= OnMessageReceived;
+                this.toggleOnlinePlayersButton.onClick.RemoveAllListeners();
+            }
+
+            if (this.networkManager != null)
+            {
+                this.networkManager.OnMessageReceived -= this.OnMessageReceived;
+                this.networkManager.OnOnlinePlayersReceived -= this.OnOnlinePlayersReceived;
+                this.networkManager.OnRoomInviteReceived -= this.OnRoomInviteReceived;
             }
         }
 
         public void InitializeRoom(string roomCode, bool isHost)
         {
-            _isHost = isHost;
-            roomCodeText.text = $"{roomCode}";
-            startGameButton.gameObject.SetActive(isHost);
+            this._isHost = isHost;
+            this.roomCodeText.text = $"{roomCode}";
+            this.startGameButton.gameObject.SetActive(isHost);
         }
 
         public void UpdatePlayerList(List<NetworkManager.PlayerInfo> players)
         {
-            foreach (var kvp in _playerListItems)
+            foreach (var kvp in this._playerListItems)
             {
                 Destroy(kvp.Value);
             }
 
-            _playerListItems.Clear();
+            this._playerListItems.Clear();
 
             foreach (var player in players)
             {
-                var item = Instantiate(playerListItemPrefab, playerListContainer);
-                item.SetActive(true);
-
-                // Find PlayerName child
-                var playerNameTransform = item.transform.Find("PlayerName");
-                if (playerNameTransform != null)
+                if (this.roomPlayerListItemPrefab != null && this.playerListContainer != null)
                 {
-                    var nameText = playerNameTransform.GetComponent<TextMeshProUGUI>();
-                    if (nameText != null)
-                    {
-                        nameText.text = player.Username;
-                    }
-                }
+                    var item = Instantiate(this.roomPlayerListItemPrefab, this.playerListContainer);
+                    item.SetActive(true);
 
-                _playerListItems[player.Id] = item;
+                    var roomPlayerListItem = item.GetComponent<RoomPlayerListItem>();
+                    if (roomPlayerListItem != null)
+                    {
+                        roomPlayerListItem.Setup(player.Username, player.AvatarUrl);
+                    }
+
+                    this._playerListItems[player.Id] = item;
+                }
             }
         }
 
@@ -306,34 +363,109 @@ namespace WordGame.UI
         public void UpdateRoomInfo(string category = "Category 1", int numPlayers = 1, int numQuestions = 10)
         {
             // Update category icon
-            if (categoryIconImage != null && _categoryIcons != null && _categoryIcons.ContainsKey(category))
+            if (this.categoryIconImage != null && this._categoryIcons != null &&
+                this._categoryIcons.ContainsKey(category))
             {
-                categoryIconImage.sprite = _categoryIcons[category];
+                this.categoryIconImage.sprite = this._categoryIcons[category];
             }
 
             // Update category name
-            if (categoryNameText != null)
+            if (this.categoryNameText != null)
             {
-                categoryNameText.text = category;
+                this.categoryNameText.text = category;
             }
 
             // Update random note
-            if (categoryNoteText != null && _categoryNotes != null && _categoryNotes.Length > 0)
+            if (this.categoryNoteText != null && this._categoryNotes != null && this._categoryNotes.Length > 0)
             {
-                int randomIndex = UnityEngine.Random.Range(0, _categoryNotes.Length);
-                categoryNoteText.text = _categoryNotes[randomIndex];
+                int randomIndex = UnityEngine.Random.Range(0, this._categoryNotes.Length);
+                this.categoryNoteText.text = this._categoryNotes[randomIndex];
             }
 
             // Update number of players
-            if (numPlayersText != null)
+            if (this.numPlayersText != null)
             {
-                numPlayersText.text = $"{numPlayers} Players";
+                this.numPlayersText.text = $"{numPlayers} Players";
             }
 
             // Update number of questions
-            if (numQuestionsText != null)
+            if (this.numQuestionsText != null)
             {
-                numQuestionsText.text = $"{numQuestions} Words";
+                this.numQuestionsText.text = $"{numQuestions} Words";
+            }
+        }
+
+        private async void ToggleOnlinePlayersPanel()
+        {
+            this._isOnlinePlayersPanelOpen = !this._isOnlinePlayersPanelOpen;
+
+            if (this.onlinePlayersPanel != null)
+            {
+                this.onlinePlayersPanel.SetActive(this._isOnlinePlayersPanelOpen);
+            }
+
+            // Request updated online players list when opening
+            if (this._isOnlinePlayersPanelOpen && this.networkManager != null)
+            {
+                await this.networkManager.GetOnlinePlayers();
+            }
+        }
+
+        private void OnOnlinePlayersReceived(OnlinePlayersResponse response)
+        {
+            if (response?.players == null)
+                return;
+
+            // Clear existing items
+            foreach (var kvp in this._onlinePlayerListItems)
+            {
+                Destroy(kvp.Value);
+            }
+            this._onlinePlayerListItems.Clear();
+
+            // Create new items for each online player
+            foreach (var player in response.players)
+            {
+                if (this.onlinePlayerListItemPrefab != null && this.onlinePlayersContainer != null)
+                {
+                    var item = Instantiate(this.onlinePlayerListItemPrefab, this.onlinePlayersContainer);
+                    item.SetActive(true);
+
+                    var onlinePlayerListItem = item.GetComponent<OnlinePlayerListItem>();
+                    if (onlinePlayerListItem != null)
+                    {
+                        onlinePlayerListItem.Setup(player);
+                    }
+
+                    this._onlinePlayerListItems[player.PlayerId] = item;
+                }
+            }
+
+            Debug.Log($"[ONLINE_PLAYERS] Updated list with {response.players.Count} players");
+        }
+
+        private void OnRoomInviteReceived(RoomInviteData inviteData)
+        {
+            if (inviteData == null || this.invitationPopupPrefab == null)
+                return;
+
+            Debug.Log($"[ROOM_INVITE] Received invite from {inviteData.inviterName}");
+
+            // Spawn invitation popup
+            var targetCanvas = FindFirstObjectByType<Canvas>();
+
+            if (targetCanvas != null)
+            {
+                var popup = Instantiate(this.invitationPopupPrefab, targetCanvas.transform);
+                var invitationPopup = popup.GetComponent<InvitationPopup>();
+                if (invitationPopup != null)
+                {
+                    invitationPopup.Setup(inviteData);
+                }
+            }
+            else
+            {
+                Debug.LogError("[ROOM_INVITE] No canvas found to spawn invitation popup!");
             }
         }
     }
