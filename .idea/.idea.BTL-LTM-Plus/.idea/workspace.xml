@@ -5,25 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e4c2a72-4304-4c5d-889f-02afab2639ce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.IOSResolver.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.IOSResolver.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.JarResolver.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.JarResolver.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.PackageManagerResolver.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.PackageManagerResolver.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.VersionHandlerImpl.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.186/Google.VersionHandlerImpl.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/CHANGELOG.md.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/CHANGELOG.md.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/LICENSE.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/LICENSE.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/README.md.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/README.md.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/external-dependency-manager_version-1.2.186_manifest.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/external-dependency-manager_version-1.2.186_manifest.txt.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Firebase/Editor/Firebase.Editor.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Firebase/Editor/Firebase.Editor.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-analytics-unity/13.5.0/firebase-analytics-unity-13.5.0.pom" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-analytics-unity/13.5.0/firebase-analytics-unity-13.5.0.pom" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/13.5.0/firebase-app-unity-13.5.0.pom" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/13.5.0/firebase-app-unity-13.5.0.pom" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-config-unity/13.5.0/firebase-config-unity-13.5.0.pom" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-config-unity/13.5.0/firebase-config-unity-13.5.0.pom" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BTL-LTM-Plus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BTL-LTM-Plus/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/WordGame/Sample/Font/MAG_medium_crosspromo SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Sample/Font/MAG_medium_crosspromo SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/Network/NetworkManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/MatchHistoryItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scripts/UI/MatchHistoryItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/GameServer/GameServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/GameServer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WordGame/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WordGame/Scenes/Main.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Server/GameServer/bin/Debug/net9.0/GameServer.exe" afterDir="false" />
@@ -67,6 +51,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "quandd161"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/tvanle/BTL-LTM-Plus.git",
+    "accountId": "d618424d-2bc4-4da2-b334-4efad2de2408"
+  }
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5082aba0b542422bbec8c5ed48113e2d15800/d1/c68efb8c/FirebaseApp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/bf/056add9c/Action.cs" root0="FORCE_HIGHLIGHTING" />
@@ -199,6 +195,7 @@
       <workItem from="1757701616069" duration="838000" />
       <workItem from="1758938963968" duration="24850000" />
       <workItem from="1763425356090" duration="4457000" />
+      <workItem from="1764039931094" duration="527000" />
     </task>
     <task id="LOCAL-00001" summary="Add project documentation for multiplayer architecture and client gameplay details">
       <option name="closed" value="true" />
